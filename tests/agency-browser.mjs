@@ -16,7 +16,8 @@ const server = http.createServer((request,response) => {
   if (!route.startsWith('/agency-web-templates/')) { response.writeHead(404).end(); return; }
   const relative = decodeURIComponent(route.slice('/agency-web-templates/'.length));
   let directory = root, file = relative;
-  for (const app of ['pro-tax-office/almanac','pro-tax-office/trust','medical-dermatology/lumiere']) {
+  const apps = fs.readdirSync('templates', { withFileTypes: true }).filter(d => d.isDirectory()).flatMap(slug => fs.readdirSync(path.join('templates', slug.name)).map(variant => slug.name + '/' + variant));
+  for (const app of apps) {
     if (relative.startsWith(app + '/')) { directory=path.resolve('templates',app,'out'); file=relative.slice(app.length+1); }
   }
   if (relative.startsWith('concepts/')) { directory=path.resolve('concepts'); file=relative.slice(9); }
@@ -29,15 +30,17 @@ const origin='http://127.0.0.1:'+server.address().port;
 const browser=await chromium.launch({headless:true,...(process.platform==='win32'?{channel:'chrome'}:{})});
 const page=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'});
 const errors=[];page.on('pageerror',e=>errors.push(e.message));
+const expected=JSON.parse(fs.readFileSync('registry/portfolio.json','utf8')).items;
+const total=expected.length, count=(fn)=>expected.filter(fn).length;
 try {
   await page.goto(origin+'/agency-web-templates/',{waitUntil:'networkidle'});
   const home=page.locator('#page-home');
-  assert.equal(await home.locator('[data-portfolio-card]').count(),6);
+  assert.equal(await home.locator('[data-portfolio-card]').count(),total);
   await page.locator('header nav [data-nav=portfolio]').click();
   assert.ok(page.url().endsWith('#portfolio'));
   const portfolio=page.locator('#page-portfolio');
   const cards=portfolio.locator('[data-portfolio-card]');
-  assert.equal(await cards.count(),6);
+  assert.equal(await cards.count(),total);
   await cards.last().scrollIntoViewIfNeeded();
   for(const card of await cards.all()) {
     assert.equal(await card.locator('.portfolio-summary p').count(),3);
@@ -50,8 +53,8 @@ try {
     await portfolio.locator(`[data-portfolio-filter=${key}]`).click();
     assert.equal(await portfolio.locator('[data-portfolio-card]:visible').count(),count);
   };
-  await filter('medical',1); await filter('tax',5); await filter('site',3); await filter('concept',3); await filter('all',6);
-  const expected=JSON.parse(fs.readFileSync('registry/portfolio.json','utf8')).items;
+  for(const category of new Set(expected.map(i=>i.category))) await filter(category,count(i=>i.category===category));
+  await filter('site',count(i=>i.kind==='site')); await filter('concept',count(i=>i.kind==='concept')); await filter('all',total);
   for(const item of expected) {
     const card=portfolio.locator(`[data-portfolio-card][data-category=${item.category}][data-kind=${item.kind}]`).filter({has:page.getByRole('heading',{name:item.name,exact:true})});
     const popupPromise=page.waitForEvent('popup');
@@ -71,8 +74,8 @@ try {
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   await page.locator('.menu-toggle').click(); assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'true');
   await page.locator('header nav [data-nav=portfolio]').click(); assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'false');
-  await filter('medical',1);
+  await filter('medical',count(i=>i.category==='medical'));
   if(process.env.AGENCY_SCREENSHOT_DIR) await page.screenshot({path:path.join(process.env.AGENCY_SCREENSHOT_DIR,'portfolio-mobile.png'),fullPage:true});
   assert.deepEqual(errors,[]);
-  console.log('PASS: 6 real thumbnails, category/status filters, 3-line summaries, six real new-window links, hash/reload/back navigation and mobile layout.');
+  console.log(`PASS: ${total} real thumbnails, category/status filters, 3-line summaries, ${total} real new-window links, hash/reload/back navigation and mobile layout.`);
 } finally {await browser.close();await new Promise(resolve=>server.close(resolve));}

@@ -87,6 +87,32 @@
         "signature": "세무 연감 (방문일 기준 D-day)",
         "sectionOrder": "hero, almanac, index, column, cases, qa, visit"
       }
+    },
+    {
+      "slug": "pro-law-firm",
+      "variant": "docket",
+      "name": "법률사무소",
+      "company": "담연 법률사무소(가상)",
+      "category": "pro",
+      "level": "L1",
+      "status": "deployed",
+      "role": "flagship",
+      "type": "타이포형 · 사건이 어떤 순서로 흘러가는지 먼저 보여 주는 동네 법률사무소",
+      "path": "templates/pro-law-firm/docket",
+      "url": "https://hongjaang-star.github.io/agency-web-templates/pro-law-firm/docket/",
+      "pages": 14,
+      "library": "library/pro-law-firm/docket/README.md",
+      "concept": "concepts/pro-law-firm/docket",
+      "fingerprint": {
+        "layout": "typographic",
+        "hero": "ticker",
+        "typePair": "Song Myung + Gothic A1",
+        "palette": "oxblood·cream·ink",
+        "imageTreatment": "no photo, giant type·rules·case labels",
+        "motion": "area ticker + rise",
+        "signature": "사건 흐름 타임라인",
+        "sectionOrder": "hero, areas, flow, attorneys, cases, faq, visit"
+      }
     }
   ]
 }

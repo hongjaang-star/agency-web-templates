@@ -16,6 +16,7 @@ export function renderAgency() {
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(item);
   }
+  const siteCount = items.filter(i => i.kind === 'site').length;
   const external = 'target="_blank" rel="noopener noreferrer"';
   const cards = items => items.map(item => `<article class="portfolio-card" data-portfolio-card data-category="${escape(item.category)}" data-kind="${escape(item.kind)}">
     <a class="portfolio-preview" href="./${escape(item.path)}" ${external} aria-label="${escape(item.name + ' · ' + item.kindLabel)} 사이트 보기 (새 창)">
@@ -27,10 +28,12 @@ export function renderAgency() {
     <div class="portfolio-actions"><a href="./${escape(item.path)}" ${external}>${item.kind === 'site' ? '사이트' : '시안'} 보기 <span aria-hidden="true">↗</span></a><a href="./${escape(item.path)}editor/" ${external}>에디터 열기 <span aria-hidden="true">↗</span></a></div>
   </article>`).join('');
   function portfolio(context) {
-    const filters = [['all','전체',items.length],['tax','세무 · 회계',items.filter(i=>i.category==='tax').length],['medical','의료 · 피부과',items.filter(i=>i.category==='medical').length],['site','완성 사이트',items.filter(i=>i.kind==='site').length],['concept','디자인 시안',items.filter(i=>i.kind==='concept').length]];
+    // 분류 필터는 portfolio.json 에 나온 순서대로 자동 생성 (새 업종 분류를 추가해도 코드 수정 없음)
+    const categories = [...new Map(items.map(i => [i.category, i.categoryLabel])).entries()];
+    const filters = [['all','전체',items.length], ...categories.map(([key,label]) => [key,label,items.filter(i=>i.category===key).length]), ['site','완성 사이트',siteCount], ['concept','디자인 시안',items.length-siteCount]];
     return `<div class="portfolio-collection" data-portfolio>
       <div class="filter-row" role="group" aria-label="포트폴리오 분류">${filters.map(([key,label,count])=>`<button type="button" class="filter-chip${key==='all'?' active':''}" data-portfolio-filter="${key}" aria-pressed="${key==='all'}">${label} <span>${count}</span></button>`).join('')}</div>
-      <p class="portfolio-count" data-portfolio-count role="status" aria-live="polite">${items.length}개 프로젝트 · 완성 사이트 3개 / 디자인 시안 3개</p>
+      <p class="portfolio-count" data-portfolio-count role="status" aria-live="polite">${items.length}개 프로젝트 · 완성 사이트 ${siteCount}개 / 디자인 시안 ${items.length-siteCount}개</p>
       ${[...groups.entries()].map(([key,group])=>`<section class="portfolio-group" data-portfolio-group aria-labelledby="${context}-${key}"><div class="portfolio-group-heading"><h${context==='home'?'3':'2'} id="${context}-${key}">${escape(group[0].categoryLabel)} <span>${escape(group[0].kindLabel)}</span></h${context==='home'?'3':'2'}><span class="portfolio-group-count">${group.length}개</span></div><div class="port-grid">${cards(group)}</div></section>`).join('')}
     </div>`;
   }
@@ -48,5 +51,6 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   fs.mkdirSync(output, { recursive: true });
   fs.cpSync(path.join(source, 'assets'), path.join(output, 'assets'), { recursive: true });
   fs.writeFileSync(path.join(output, 'index.html'), renderAgency());
-  console.log('Agency homepage published with 6 categorized portfolios');
+  const items = JSON.parse(fs.readFileSync(path.join(repository, 'registry/portfolio.json'), 'utf8')).items;
+  console.log(`Agency homepage published with ${items.length} categorized portfolios`);
 }
