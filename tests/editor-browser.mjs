@@ -43,6 +43,8 @@ const wait = async (check, message) => { for (let i = 0; i < 80; i++) { if (awai
 const selectedFrame = () => page.frames().find(frame => frame.url().includes('agency-editor=1'));
 async function openEditor(app) {
   await page.goto(`${origin}/agency-web-templates/${app}/editor/`);
+  const manifest = await (await page.request.get(`${origin}/agency-web-templates/${app}/editor/manifest.json`)).json();
+  assert.equal(manifest.siteId, app); assert.equal(manifest.source, 'shared-editor'); assert.equal(manifest.editorVersion, '1.1.0');
   await wait(async () => { const frame = selectedFrame(); return frame && await frame.locator('main').count() && !(await page.locator('#status').textContent()).includes('불러오는'); }, 'Editor did not become ready: ' + app);
   return selectedFrame();
 }

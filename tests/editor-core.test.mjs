@@ -58,15 +58,22 @@ test('future templates get an independent editor without source imports; install
     assert.deepEqual(manifest.pages.map(page => page.path), ['/', '/about/']);
     assert.equal(manifest.siteId, 'new-site/new-variant');
     assert.ok(html.includes('/agency-web-templates/new-site/new-variant/editor/runtime.js'));
-    const independentSource = path.join(output, 'site-editor');
-    fs.appendFileSync(path.join(independentSource, 'integration.css'), '\n/* only this site */\n');
-    installEditor(output, 'new-site/new-variant', '/agency-web-templates/new-site/new-variant');
-    assert.ok(fs.readFileSync(path.join(output, 'editor/integration.css'), 'utf8').includes('only this site'));
-    assert.ok(!fs.readFileSync(new URL('../editor/integration.css', import.meta.url), 'utf8').includes('only this site'));
+    assert.equal(manifest.source, 'shared-editor');
+    assert.equal(manifest.editorVersion, '1.1.0');
+    assert.equal(fs.existsSync(path.join(output, 'site-editor')), false);
     const second = path.join(output, 'second'); fs.mkdirSync(second);
     fs.writeFileSync(path.join(second, 'index.html'), '<html><body>다른 사이트</body></html>');
     installEditor(second, 'new-site/other-variant', '/other');
-    assert.ok(!fs.readFileSync(path.join(second, 'editor/integration.css'), 'utf8').includes('only this site'));
+    for (const filename of ['index.html', 'editor.js', 'core.js', 'runtime.js', 'native-adapter.js', 'integration.css']) {
+      assert.deepEqual(fs.readFileSync(path.join(output, 'editor', filename)), fs.readFileSync(path.join(second, 'editor', filename)), filename);
+    }
+    const secondManifest = JSON.parse(fs.readFileSync(path.join(second, 'editor/manifest.json'), 'utf8'));
+    assert.equal(secondManifest.editorVersion, manifest.editorVersion);
+    assert.notEqual(secondManifest.siteId, manifest.siteId);
+    // Build output edits cannot fork the maintained common editor.
+    fs.appendFileSync(path.join(output, 'editor/integration.css'), '\n/* stale output */\n');
+    installEditor(output, 'new-site/new-variant', '/agency-web-templates/new-site/new-variant');
+    assert.ok(!fs.readFileSync(path.join(output, 'editor/integration.css'), 'utf8').includes('stale output'));
     const settings = { version: 1, siteId: 'new-site/new-variant', pages: { '/': { [key]: { styles: {}, image: 'https://example.com/photo.webp' } } } };
     fs.writeFileSync(path.join(output, 'editor-state.json'), JSON.stringify(settings));
     installEditor(output, 'new-site/new-variant', '');

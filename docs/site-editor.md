@@ -1,4 +1,4 @@
-# 사이트별 독립 편집기
+# 공통 에디터 · 사이트별 독립 편집
 
 ## 원본 분석과 적용 범위
 
@@ -10,20 +10,23 @@
 
 Next.js 기존 요소의 유형 변환, 새 섹션 생성/재배치, 원본 PHP 게시판·회원 기능은 연결하지 않는다. 원본의 애니메이션·이미지 호버/오버레이/링크·모바일별 글자 비율·그라데이션 글자 옵션도 지원하지 않아 표시하지 않는다. 디자인 편집에 실제 원본 UI를 사용하며 사이트의 React 구조는 유지한다.
 
-## 에디터 소스도 사이트별 독립
+## 공통 에디터와 사이트 소스 분리
 
-이전 방식은 루트 `editor/`를 변경하면 재배포 때 모든 에디터가 바뀌었다. 지금은 각 사이트에 별도 `site-editor/` 소스를 커밋하며, 설치기는 **해당 사이트의 소스만** `out/editor/`로 복사한다.
+모든 사이트는 **사이트 주소 뒤에 `/editor/`**를 붙여 동일한 편집기를 연다. 에디터의 화면과 기능은 루트 `editor/` 한곳에서 관리한다. 배포할 때 같은 버전의 파일을 각 사이트의 `editor/`에 패키징한다. 사이트별로 다르게 수정되는 에디터 복사본은 두지 않는다. 이전의 동일한 `site-editor/` 소스 6종은 공통 소스로 통합했다.
 
-| 사이트 | 수정할 에디터 소스 |
-|---|---|
-| Almanac | `templates/pro-tax-office/almanac/site-editor/` |
-| Trust | `templates/pro-tax-office/trust/site-editor/` |
-| Lumiere | `templates/medical-dermatology/lumiere/site-editor/` |
-| HTML 시안 | `concepts/{slug}/{variant}/site-editor/` |
+| 역할 | 소스/데이터 위치 | 변경 영향 |
+|---|---|---|
+| 편집기 UI·컨트롤·로컬 원본 모듈 | `editor/` | 재배포 후 모든 에디터에 같은 기능 개선 |
+| 사이트 화면·컴포넌트·디자인·이미지 | `templates/{slug}/{variant}/` 또는 `concepts/{slug}/{variant}/` | 해당 사이트의 화면 |
+| 사이트별 적용 설정 | 해당 앱 `public/editor-state.json` 또는 해당 시안 `editor-state.json` | 해당 사이트만 |
+| 브라우저 임시 저장 | `agency-editor:{siteId}` DB | 해당 브라우저의 해당 사이트만 |
+| 연결 정보 | 빌드에서 생성한 사이트별 `editor/manifest.json` | 해당 사이트의 페이지 목록·basePath·siteId |
 
-예를 들어 Almanac의 `site-editor/native/assets/js/editor/divbox.js`나 `integration.css`를 수정하면 Almanac에만 반영된다. `core.js`, `runtime.js`, UI 및 원본 모듈까지 사이트마다 별도 파일이며 다른 사이트 소스를 import하지 않는다.
+에디터는 iframe 미리보기의 선택 요소에 편집 상태를 적용한다. 대상 사이트의 React 컴포넌트를 에디터에 import하거나 사이트 소스 파일을 직접 수정하지 않는다. 에디터의 CSS와 사이트 CSS는 서로 다른 문서에서 실행되어 영향을 주지 않는다. 저장·되돌리기·초기화·가져오기도 사이트 식별자로 제한한다.
 
-루트 `editor/`는 새 사이트를 위한 초기 소스다. `site-editor/`가 없는 사이트에 한 번 복사하며 **기존 사이트의 소스는 덮어쓰지 않는다.** 새 사이트 생성 후 생성된 `site-editor/`도 커밋한다. 공통 설치기/배포 스크립트 자체의 변경은 공통 인프라 변경이므로 사이트별 소스 분리와 구분한다.
+**에디터 기능 개선이 모든 편집기에 적용되는 것**과 **한 사이트의 콘텐츠 수정이 다른 사이트로 전파되는 것**은 다르다. 전자는 일관성을 위해 의도한 동작이고 후자는 차단한다. 에디터 소스를 수정하는 작업 자체가 사이트의 콘텐츠나 저장값을 덮어쓰지는 않는다.
+
+`editor/release.json`의 버전을 각 manifest의 `editorVersion`에 기록한다. 현재 공통 버전은 `1.1.0`이다. 기능 변경 때 공통 버전을 올리고 빌드/편집/사이트 분리 검사를 수행한다. 각 배포 폴더에는 모든 편집기 파일을 포함하므로 개별 사이트를 별도로 호스팅할 수도 있다.
 
 ## 사용
 
@@ -51,7 +54,7 @@ Next.js 기존 요소의 유형 변환, 새 섹션 생성/재배치, 원본 PHP 
 
 ## 새 사이트와 빌드
 
-`scripts/build-sites.sh`가 `templates/*/*/package.json`을 자동 탐색하고 각 앱의 정적 빌드 후 `scripts/install-editor.mjs`를 실행한다. 기존 세 앱(lumiere·almanac·trust)과 앞으로 추가되는 앱은 추가 컴포넌트 없이 자동으로 전용 에디터를 받는다. 각 사이트의 `site-editor/` 소스가 export 폴더 안에 복사되므로 사이트를 개별 호스팅해도 다른 사이트에 의존하지 않는다.
+`scripts/build-sites.sh`가 `templates/*/*/package.json`을 자동 탐색하고 각 앱의 정적 빌드 후 `scripts/install-editor.mjs`를 실행한다. 기존 세 앱(lumiere·almanac·trust)과 앞으로 추가되는 앱은 추가 컴포넌트 없이 자동으로 전용 에디터를 받는다. 같은 공통 `editor/` 소스가 각 사이트의 export 폴더 안에 복사되므로 사이트를 개별 호스팅해도 다른 사이트에 의존하지 않는다.
 
 HTML 시안도 배포 시 `scripts/install-concept-editors.mjs`가 `concepts/{slug}/{variant}`에서 자동 탐색한다. 시안의 `siteId`는 `concepts/{slug}/{variant}`로 완성 사이트와 분리된다. 시안의 전체 방문자 설정은 해당 시안의 `index.html` 옆 `editor-state.json`에 저장한 뒤 배포한다. 시안 소스에는 에디터 스크립트를 직접 삽입하지 않는다.
 
