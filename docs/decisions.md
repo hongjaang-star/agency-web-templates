@@ -1,6 +1,7 @@
 # 결정 기록 (최신이 위)
 
 ## 2026-10-04
+- **almanac 기사 스크랩 배경.** 기존 paper·ink·vermilion 색감을 유지하며 hero와 모든 folio에 내용별 세무 지면 이미지를 적용한다. 장식용 가상 기사 이미지이며 실제 기사 출처나 세무 안내로 제시하지 않는다. 제목·본문은 별도 HTML로 유지하고 종이색 덮개로 가독성을 확보한다.
 - **세무사무소는 almanac 으로 확정.** `templates/pro-tax-office/almanac` 로 완성하고 trust 앱은 삭제한다(화면 기록은 library 에만 retired 로 남김). 나머지 시안 compass·lifemap 은 concepts/ 에 디자인 라이브러리로 둔다.
 - **세무사무소 재디자인.** 기존 trust 는 피부과와 골격이 같아 다시 디자인한다. 시안 3개(almanac, compass, lifemap) → 사람이 선택 → 새 variant 로 완성, trust 는 선택 후 정리.
 - **사이트 소스 완전 분리.** 앱끼리 코드를 import·복사해 출발하지 않는다(`scripts/check-isolation.mjs` 로 배포 전 검사). 기존 화면 모듈은 `library/` 에 캡처·스타일 코드·사용 사이트로만 기록해 내부 참고용으로 쓴다.

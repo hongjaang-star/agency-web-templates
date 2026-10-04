@@ -4,7 +4,7 @@
 
 - 사용 사이트: `pro-tax-office/almanac` (한결세무회계(가상))
 - 배포 주소: https://hongjaang-star.github.io/agency-web-templates/pro-tax-office/almanac/
-- 소스: [`templates/pro-tax-office/almanac`](../../../templates/pro-tax-office/almanac)
+- 소스: [`templates/pro-tax-office/almanac`](..\..\..\templates\pro-tax-office\almanac)
 
 ## 디자인 지문
 
@@ -14,7 +14,7 @@
 | hero | statement |
 | typePair | Hahmlet + Pretendard |
 | palette | paper·ink·vermilion |
-| imageTreatment | no photo, rules·footnotes·seal |
+| imageTreatment | topic-matched fictional tax newspaper collage, cream paper wash |
 | motion | rule draw + rise |
 | signature | 세무 연감 (방문일 기준 D-day) |
 | sectionOrder | hero, almanac, index, column, cases, qa, visit |
@@ -127,6 +127,23 @@ img, svg { display: block; }
 .folio .kicker { margin-top: 28px; display: block; }
 .folio h1 { font: 700 clamp(36px, 6vw, 84px)/1.08 var(--serif); letter-spacing: -0.04em; margin-top: 12px; max-width: 16em; }
 .folio p.lead { font-size: clamp(16px, 1.5vw, 18px); color: var(--ink-2); margin-top: 18px; max-width: 40em; }
+
+/* Decorative clipping layer: the live article always stays above opaque paper. */
+.hero, .folio { position: relative; isolation: isolate; overflow: hidden; background: var(--paper); }
+.hero > .wrap, .folio > .wrap { position: relative; z-index: 1; }
+.editorial-backdrop { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.editorial-backdrop-image { object-fit: cover; object-position: center right; opacity: 0.55; mix-blend-mode: multiply; }
+.editorial-backdrop::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(244,239,228,0.97) 0%, rgba(244,239,228,0.94) 40%, rgba(244,239,228,0.82) 68%, rgba(244,239,228,0.35) 100%); }
+.hero .kicker, .folio .kicker { color: var(--red-ink); }
+.hero h1 em { color: var(--red-ink); }
+.hero-foot p, .folio p.lead { background: rgba(244,239,228,0.96); box-shadow: 0 0 20px 12px rgba(244,239,228,0.96); }
+.hero .btn:not(.solid) { background: var(--paper); }
+.hero .btn:hover { background: var(--red); }
+.hero .seal { background: var(--paper); }
+@media (max-width: 900px) {
+  .editorial-backdrop-image { opacity: 0.4; object-position: 75% center; }
+  .editorial-backdrop::after { background: linear-gradient(90deg, rgba(244,239,228,0.98), rgba(244,239,228,0.91) 70%, rgba(244,239,228,0.72)); }
+}
 
 /* ── 세무 연감 (시그니처) ── */
 .alm-now { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; align-items: end; margin-bottom: 36px; }
@@ -354,7 +371,7 @@ img, svg { display: block; }
 ### 마스트헤드 `masthead`
 
 - 종류: `header` · 사용 사이트: `pro-tax-office/almanac` · 페이지: `/`
-- 소스: [`src/components/Masthead.tsx`](../../../templates/pro-tax-office/almanac/src/components/Masthead.tsx)
+- 소스: [`src/components/Masthead.tsx`](..\..\..\templates\pro-tax-office\almanac/src/components/Masthead.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -393,7 +410,7 @@ img, svg { display: block; }
 ### 한 문장 히어로 `home-hero`
 
 - 종류: `hero` · 사용 사이트: `pro-tax-office/almanac` · 페이지: `/`
-- 소스: [`src/app/page.tsx`](../../../templates/pro-tax-office/almanac/src/app/page.tsx)
+- 소스: [`src/app/page.tsx`](..\..\..\templates\pro-tax-office\almanac/src/app/page.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -403,6 +420,9 @@ img, svg { display: block; }
 
 ```html
 <section class="hero">
+  <div class="editorial-backdrop">
+    <img class="editorial-backdrop-image" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" src="…" />
+  </div>
   <div class="wrap">
     <p class="kicker">…</p>
     <h1>
@@ -439,7 +459,7 @@ img, svg { display: block; }
 ### 세무 연감 (D-day) `home-almanac`
 
 - 종류: `signature` · 사용 사이트: `pro-tax-office/almanac` · 페이지: `/`
-- 소스: [`src/components/Almanac.tsx`](../../../templates/pro-tax-office/almanac/src/components/Almanac.tsx)
+- 소스: [`src/components/Almanac.tsx`](..\..\..\templates\pro-tax-office\almanac/src/components/Almanac.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -527,7 +547,7 @@ img, svg { display: block; }
 ### 업무 색인 `home-index`
 
 - 종류: `services` · 사용 사이트: `pro-tax-office/almanac` · 페이지: `/`
-- 소스: [`src/components/ServiceIndex.tsx`](../../../templates/pro-tax-office/almanac/src/components/ServiceIndex.tsx)
+- 소스: [`src/components/ServiceIndex.tsx`](..\..\..\templates\pro-tax-office\almanac/src/components/ServiceIndex.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -568,7 +588,7 @@ img, svg { display: block; }
 ### 대표 칼럼 `home-column`
 
 - 종류: `intro` · 사용 사이트: `pro-tax-office/almanac` · 페이지: `/`
-- 소스: [`src/app/page.tsx`](../../../templates/pro-tax-office/almanac/src/app/page.tsx)
+- 소스: [`src/app/page.tsx`](..\..\..\templates\pro-tax-office\almanac/src/app/page.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -603,7 +623,7 @@ img, svg { display: block; }
 ### 사례 기사 단 `home-cases`
 
 - 종류: `cases` · 사용 사이트: `pro-tax-office/almanac` · 페이지: `/`
-- 소스: [`src/components/CaseArticles.tsx`](../../../templates/pro-tax-office/almanac/src/components/CaseArticles.tsx)
+- 소스: [`src/components/CaseArticles.tsx`](..\..\..\templates\pro-tax-office\almanac/src/components/CaseArticles.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -651,7 +671,7 @@ img, svg { display: block; }
 ### 묻고 답하기 `home-qa`
 
 - 종류: `faq` · 사용 사이트: `pro-tax-office/almanac` · 페이지: `/`
-- 소스: [`src/components/QandA.tsx`](../../../templates/pro-tax-office/almanac/src/components/QandA.tsx)
+- 소스: [`src/components/QandA.tsx`](..\..\..\templates\pro-tax-office\almanac/src/components/QandA.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -689,7 +709,7 @@ img, svg { display: block; }
 ### 찾아오는 길 `home-visit`
 
 - 종류: `visit` · 사용 사이트: `pro-tax-office/almanac` · 페이지: `/`
-- 소스: [`src/components/Visit.tsx`](../../../templates/pro-tax-office/almanac/src/components/Visit.tsx)
+- 소스: [`src/components/Visit.tsx`](..\..\..\templates\pro-tax-office\almanac/src/components/Visit.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -740,7 +760,7 @@ img, svg { display: block; }
 ### 서브페이지 머리 (폴리오) `folio`
 
 - 종류: `page-hero` · 사용 사이트: `pro-tax-office/almanac` · 페이지: `/about/`
-- 소스: [`src/components/Folio.tsx`](../../../templates/pro-tax-office/almanac/src/components/Folio.tsx)
+- 소스: [`src/components/Folio.tsx`](..\..\..\templates\pro-tax-office\almanac/src/components/Folio.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -750,6 +770,9 @@ img, svg { display: block; }
 
 ```html
 <section class="folio">
+  <div class="editorial-backdrop">
+    <img class="editorial-backdrop-image" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" src="…" />
+  </div>
   <script>…</script>
   <div class="wrap">
     <nav>
@@ -772,7 +795,7 @@ img, svg { display: block; }
 ### 세 가지 약속 `about-principles`
 
 - 종류: `intro` · 사용 사이트: `pro-tax-office/almanac` · 페이지: `/about/`
-- 소스: [`src/app/about/page.tsx`](../../../templates/pro-tax-office/almanac/src/app/about/page.tsx)
+- 소스: [`src/app/about/page.tsx`](..\..\..\templates\pro-tax-office\almanac/src/app/about/page.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -804,7 +827,7 @@ img, svg { display: block; }
 ### 현황 수치 `about-figures`
 
 - 종류: `stats` · 사용 사이트: `pro-tax-office/almanac` · 페이지: `/about/`
-- 소스: [`src/app/about/page.tsx`](../../../templates/pro-tax-office/almanac/src/app/about/page.tsx)
+- 소스: [`src/app/about/page.tsx`](..\..\..\templates\pro-tax-office\almanac/src/app/about/page.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -835,7 +858,7 @@ img, svg { display: block; }
 ### 필진 (구성원) `about-bylines`
 
 - 종류: `team` · 사용 사이트: `pro-tax-office/almanac` · 페이지: `/about/`
-- 소스: [`src/app/about/page.tsx`](../../../templates/pro-tax-office/almanac/src/app/about/page.tsx)
+- 소스: [`src/app/about/page.tsx`](..\..\..\templates\pro-tax-office\almanac/src/app/about/page.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -875,7 +898,7 @@ img, svg { display: block; }
 ### 진행 방식 `about-steps`
 
 - 종류: `process` · 사용 사이트: `pro-tax-office/almanac` · 페이지: `/about/`
-- 소스: [`src/app/about/page.tsx`](../../../templates/pro-tax-office/almanac/src/app/about/page.tsx)
+- 소스: [`src/app/about/page.tsx`](..\..\..\templates\pro-tax-office\almanac/src/app/about/page.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -907,7 +930,7 @@ img, svg { display: block; }
 ### 열두 달 신고 일정표 `calendar-ledger`
 
 - 종류: `signature` · 사용 사이트: `pro-tax-office/almanac` · 페이지: `/calendar/`
-- 소스: [`src/app/calendar/page.tsx`](../../../templates/pro-tax-office/almanac/src/app/calendar/page.tsx)
+- 소스: [`src/app/calendar/page.tsx`](..\..\..\templates\pro-tax-office\almanac/src/app/calendar/page.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -969,7 +992,7 @@ img, svg { display: block; }
 ### 업무 상세 (기사형) `service-article`
 
 - 종류: `services` · 사용 사이트: `pro-tax-office/almanac` · 페이지: `/services/bookkeeping/`
-- 소스: [`src/app/services/[slug]/page.tsx`](../../../templates/pro-tax-office/almanac/src/app/services/[slug]/page.tsx)
+- 소스: [`src/app/services/[slug]/page.tsx`](..\..\..\templates\pro-tax-office\almanac/src/app/services/[slug]/page.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -1013,7 +1036,7 @@ img, svg { display: block; }
 ### 상담 방법 `contact-channels`
 
 - 종류: `cta` · 사용 사이트: `pro-tax-office/almanac` · 페이지: `/contact/`
-- 소스: [`src/app/contact/page.tsx`](../../../templates/pro-tax-office/almanac/src/app/contact/page.tsx)
+- 소스: [`src/app/contact/page.tsx`](..\..\..\templates\pro-tax-office\almanac/src/app/contact/page.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -1045,7 +1068,7 @@ img, svg { display: block; }
 ### 판권란 (푸터) `colophon`
 
 - 종류: `footer` · 사용 사이트: `pro-tax-office/almanac` · 페이지: `/`
-- 소스: [`src/components/Colophon.tsx`](../../../templates/pro-tax-office/almanac/src/components/Colophon.tsx)
+- 소스: [`src/components/Colophon.tsx`](..\..\..\templates\pro-tax-office\almanac/src/components/Colophon.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
