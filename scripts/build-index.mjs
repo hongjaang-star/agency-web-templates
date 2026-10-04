@@ -17,4 +17,4 @@ const html = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta n
 <h2>완성 사이트</h2>${groups.map((vs) => `<h3>${esc(vs[0].name)}<small>${esc(vs[0].slug)} · 변형 ${vs.length}</small></h3><ul>${vs.map(card).join("")}</ul>`).join("")}
 <h2>시안</h2><ul>${concepts.map((c) => `<li><a href="./concepts/${c}/">${esc(c)}</a><span>시안 비교 · ${conceptLinks(c)}</span></li>`).join("") || "<li>없음</li>"}</ul></body></html>`;
 fs.mkdirSync("_site", { recursive: true });
-fs.writeFileSync("_site/index.html", html);
+fs.writeFileSync("_site/templates.html", html);

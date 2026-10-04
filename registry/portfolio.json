@@ -1,0 +1,11 @@
+{
+  "_doc": "대표 에이전시 홈페이지의 실제 배포 사이트 6종. summary는 디자인 1줄 + 주요 기능 2줄. 썸네일은 실제 사이트 화면 캡처.",
+  "items": [
+    {"id":"tax-almanac","name":"Almanac","category":"tax","categoryLabel":"세무 · 회계","kind":"site","kindLabel":"완성 사이트","path":"pro-tax-office/almanac/","thumbnail":"tax-almanac.jpg","summary":["지면형 레이아웃과 빈티지 신문 콜라주.","신고 일정·업무별 안내·유형별 사례 제공.","신고 기한 D-day·FAQ·전화 상담 연결."]},
+    {"id":"tax-trust","name":"Trust","category":"tax","categoryLabel":"세무 · 회계","kind":"site","kindLabel":"완성 사이트","path":"pro-tax-office/trust/","thumbnail":"tax-trust.jpg","summary":["차콜·골드와 명조 서체의 클래식 디자인.","업무분야·세무사 프로필·고객 사례 안내.","신고 일정·FAQ·전화·카카오 상담 연결."]},
+    {"id":"medical-lumiere","name":"Lumiere","category":"medical","categoryLabel":"의료 · 피부과","kind":"site","kindLabel":"완성 사이트","path":"medical-dermatology/lumiere/","thumbnail":"medical-lumiere.jpg","summary":["아이보리·골드, 영상과 사진의 몰입형 디자인.","고민별 시술·의료진·장비·이벤트 안내.","FAQ·예약 안내·오시는 길 제공."]},
+    {"id":"concept-almanac","name":"Almanac","category":"tax","categoryLabel":"세무 · 회계","kind":"concept","kindLabel":"디자인 시안","path":"concepts/pro-tax-office/almanac/","thumbnail":"concept-almanac.jpg","summary":["아이보리 지면과 붉은 포인트의 편집형 시안.","세무 연감·업무 색인·대표 칼럼 구성.","신고 D-day·FAQ·전화 연결을 체험."]},
+    {"id":"concept-compass","name":"Compass","category":"tax","categoryLabel":"세무 · 회계","kind":"concept","kindLabel":"디자인 시안","path":"concepts/pro-tax-office/compass/","thumbnail":"concept-compass.jpg","summary":["포레스트·라임 컬러의 좌우 분할 디자인.","고객 유형·관심 업무에 맞는 상담 안내.","선택형 진단·준비 서류 체크리스트 제공."]},
+    {"id":"concept-lifemap","name":"Lifemap","category":"tax","categoryLabel":"세무 · 회계","kind":"concept","kindLabel":"디자인 시안","path":"concepts/pro-tax-office/lifemap/","thumbnail":"concept-lifemap.jpg","summary":["따뜻한 종이 톤과 일러스트의 이야기형 디자인.","창업·양도·증여·상속 등 인생별 세금 안내.","이벤트별 세금 지도 탭·사례·FAQ 제공."]}
+  ]
+}

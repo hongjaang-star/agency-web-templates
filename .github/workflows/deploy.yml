@@ -35,6 +35,7 @@ jobs:
           [ -d concepts ] && mkdir -p _site/concepts && cp -r concepts/. _site/concepts/
           node scripts/install-concept-editors.mjs
           node scripts/build-index.mjs
+          node scripts/build-agency.mjs
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
