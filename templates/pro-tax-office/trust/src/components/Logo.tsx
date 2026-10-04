@@ -2,7 +2,7 @@ import Link from "next/link";
 import { site } from "@/data/site";
 
 export default function Logo({ tone = "dark" }: { tone?: "dark" | "light" }) {
-  const main = tone === "dark" ? "text-ink" : "text-ivory";
+  const main = tone === "dark" ? "text-ink" : "text-paper";
   return (
     <Link href="/" className="group inline-flex flex-col leading-none">
       <span className={`font-display text-[1.7rem] font-medium tracking-[0.18em] ${main}`}>{site.nameEn}</span>

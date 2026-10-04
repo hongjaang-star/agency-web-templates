@@ -29,7 +29,7 @@ export default function FloatingContact() {
       {/* Desktop: right rail */}
       <aside
         aria-label="빠른 상담"
-        className="fixed right-5 top-1/2 z-30 hidden -translate-y-1/2 flex-col border border-line bg-white/95 shadow-[0_20px_50px_-25px_rgba(28,25,23,0.35)] backdrop-blur lg:flex"
+        className="fixed right-5 top-1/2 z-30 hidden -translate-y-1/2 flex-col border border-line bg-cream/95 shadow-[0_20px_50px_-25px_rgba(28,25,23,0.35)] backdrop-blur lg:flex"
       >
         {channels.map(({ href, label, Icon, Tag, external }) => (
           <Tag
@@ -47,7 +47,7 @@ export default function FloatingContact() {
           type="button"
           onClick={toTop}
           aria-label="맨 위로"
-          className={`flex h-12 cursor-pointer items-center justify-center bg-ink text-ivory transition-opacity duration-300 hover:bg-gold-deep ${
+          className={`flex h-12 cursor-pointer items-center justify-center bg-gold text-night transition-opacity duration-300 hover:bg-gold-soft ${
             showTop ? "opacity-100" : "pointer-events-none opacity-0"
           }`}
           tabIndex={showTop ? 0 : -1}
@@ -59,7 +59,7 @@ export default function FloatingContact() {
       {/* Mobile: bottom bar */}
       <nav
         aria-label="빠른 상담"
-        className="fixed inset-x-0 bottom-0 z-30 grid grid-cols-3 border-t border-line bg-white/95 pb-[env(safe-area-inset-bottom)] backdrop-blur lg:hidden"
+        className="fixed inset-x-0 bottom-0 z-30 grid grid-cols-3 border-t border-line bg-cream/95 pb-[env(safe-area-inset-bottom)] backdrop-blur lg:hidden"
       >
         {channels.map(({ href, label, Icon, Tag, external }, i) => (
           <Tag
@@ -67,7 +67,7 @@ export default function FloatingContact() {
             href={href}
             {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             className={`flex h-16 flex-col items-center justify-center gap-1 text-xs font-medium ${
-              i === 1 ? "bg-ink text-ivory" : "text-ink"
+              i === 1 ? "bg-night text-paper" : "text-ink"
             }`}
           >
             <Icon aria-hidden="true" className={`size-5 ${i === 1 ? "text-gold-soft" : "text-gold"}`} strokeWidth={1.5} />

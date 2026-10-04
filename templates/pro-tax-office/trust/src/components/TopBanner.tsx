@@ -32,11 +32,11 @@ export default function TopBanner() {
   if (closed) return null;
 
   return (
-    <div className="relative bg-ink text-ivory">
+    <div className="relative bg-night text-paper">
       <div className="container-page flex min-h-11 items-center justify-center py-2 pr-12 text-center">
         <Link
           href={site.banner.href}
-          className="group inline-flex items-center gap-2 text-[13px] tracking-wide text-ivory/90 transition-colors hover:text-white md:text-sm"
+          className="group inline-flex items-center gap-2 text-[13px] tracking-wide text-paper/90 transition-colors hover:text-white md:text-sm"
         >
           <span className="font-display text-base italic text-gold-soft">{site.banner.lead}</span>
           <span>{site.banner.text}</span>
@@ -50,7 +50,7 @@ export default function TopBanner() {
         type="button"
         onClick={closeBanner}
         aria-label="공지 배너 닫기"
-        className="absolute right-2 top-1/2 inline-flex size-10 -translate-y-1/2 cursor-pointer items-center justify-center text-ivory/70 transition-colors hover:text-white"
+        className="absolute right-2 top-1/2 inline-flex size-10 -translate-y-1/2 cursor-pointer items-center justify-center text-paper/70 transition-colors hover:text-white"
       >
         <X aria-hidden="true" className="size-4" />
       </button>

@@ -25,6 +25,7 @@ export const process = [
 export const team = [
   {
     name: "김한결",
+    image: "/images/team/kim-hangyeol.webp",
     role: "대표 세무사",
     focus: "상속·증여, 법인 컨설팅",
     career: ["국세청 근무 경력 7년", "세무법인 파트너 세무사", "한국세무사회 정회원"],
@@ -32,6 +33,7 @@ export const team = [
   },
   {
     name: "이서준",
+    image: "/images/team/lee-seojun.webp",
     role: "세무사",
     focus: "양도소득세, 부동산 임대",
     career: ["세무법인 실무 8년", "부동산 세무 강의"],
@@ -39,6 +41,7 @@ export const team = [
   },
   {
     name: "박지원",
+    image: "/images/team/park-jiwon.webp",
     role: "세무사",
     focus: "기장대리, 스타트업 법인",
     career: ["회계법인 감사본부 출신", "창업지원센터 세무 멘토"],

@@ -50,7 +50,7 @@ export function PageHero({
     <section className="relative overflow-hidden border-b border-line bg-cream">
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute -right-10 bottom-[-0.2em] select-none font-display text-[22vw] leading-none text-white/60 md:text-[14rem]"
+        className="pointer-events-none absolute -right-10 bottom-[-0.2em] select-none font-display text-[22vw] leading-none text-gold/[0.06] md:text-[14rem]"
       >
         {eyebrow}
       </span>
@@ -117,9 +117,9 @@ export function ButtonLink({
   className?: string;
 }) {
   const styles = {
-    primary: "bg-ink text-ivory hover:bg-gold-deep",
-    outline: "border border-ink/80 text-ink hover:bg-ink hover:text-ivory",
-    light: "bg-ivory text-ink hover:bg-gold-soft",
+    primary: "bg-gold text-night hover:bg-gold-soft",
+    outline: "border border-ink/80 text-ink hover:bg-night hover:text-paper",
+    light: "bg-gold text-night hover:bg-gold-soft",
   }[variant];
   const content = (
     <>

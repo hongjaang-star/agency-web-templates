@@ -23,9 +23,9 @@ export default function ServicesPage() {
               <p className="eyebrow">{categories[key].en}</p>
               <h2 className="mt-3 font-serif-kr text-3xl text-ink">{categories[key].ko}</h2>
             </div>
-            <ul className="grid gap-px border border-line bg-line sm:grid-cols-2 lg:col-span-8">
+            <ul className="grid gap-5 sm:grid-cols-2 lg:col-span-8">
               {getServicesByCategory(key).map((s) => (
-                <li key={s.slug} className="bg-ivory">
+                <li key={s.slug} className="premium-card">
                   <Link href={`/services/${s.slug}`} className="group flex h-full flex-col p-8">
                     <span className="flex items-start justify-between gap-4">
                       <span className="font-serif-kr text-xl text-ink group-hover:text-gold-deep">{s.ko}</span>

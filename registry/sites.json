@@ -40,7 +40,7 @@
       "level": "L1",
       "status": "deployed",
       "role": "alternative",
-      "type": "클래식 신뢰형 · 네이비·명조와 정돈된 정보 구조, 업무분야를 한눈에",
+      "type": "클래식 신뢰형 · 차콜·골드와 명조, 세무사 프로필과 정돈된 정보 구조",
       "legacy": true,
       "path": "templates/pro-tax-office/trust",
       "url": "https://hongjaang-star.github.io/agency-web-templates/pro-tax-office/trust/",
@@ -54,9 +54,9 @@
         "layout": "swiss-grid",
         "hero": "split-media",
         "typePair": "Cormorant + Nanum Myeongjo + Pretendard",
-        "palette": "navy·paper·brass",
-        "imageTreatment": "no photo, ledger grid pattern",
-        "motion": "reveal fade",
+        "palette": "charcoal·paper·yellow gold",
+        "imageTreatment": "warm studio AI portraits, ledger grid",
+        "motion": "reveal fade + gold border and shadow hover",
         "signature": "주요 신고 일정 카드",
         "sectionOrder": "hero, stats, services, clients, process, team, cases, faq, visit"
       }

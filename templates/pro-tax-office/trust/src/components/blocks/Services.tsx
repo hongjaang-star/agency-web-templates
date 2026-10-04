@@ -15,7 +15,7 @@ export default function Services() {
         </div>
         <div className="mt-14 grid gap-10 lg:grid-cols-3">
           {keys.map((key) => (
-            <div key={key} data-reveal>
+            <div key={key} data-reveal className="premium-card p-7">
               <p className="eyebrow">{categories[key].en}</p>
               <h3 className="mt-2 font-serif-kr text-2xl text-ink">{categories[key].ko}</h3>
               <ul className="mt-6 border-t border-ink/15">

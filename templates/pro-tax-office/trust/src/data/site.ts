@@ -85,9 +85,9 @@ export const channels = [
 
 // globals.css @theme 과 같은 값 — 공유 이미지(og.png), 매니페스트, 브라우저 테마색에 사용
 export const brandColors = {
-  bg: "#f7f7f5",
-  ink: "#13233d",
-  inkSoft: "#4a5568",
-  accent: "#a8834a",
-  accentDeep: "#7a5c2a",
+  bg: "#141513",
+  ink: "#f3f0e7",
+  inkSoft: "#c2c2b7",
+  accent: "#d8b957",
+  accentDeep: "#e2c66d",
 } as const;
