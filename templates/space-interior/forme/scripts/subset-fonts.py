@@ -12,4 +12,9 @@ for weight in ('Regular', 'Medium'):
     sub = subset.Subsetter(options=options)
     sub.populate(text=''.join(chars))
     sub.subset(font)
+    # Preserve the source license and use a new family name for modified fonts.
+    for record in font['name'].names:
+        if record.nameID in (1, 4, 6, 16):
+            value = 'FormeSans-' + weight if record.nameID == 6 else 'Forme Sans' + (' ' + weight if record.nameID == 4 else '')
+            record.string = value.encode(record.getEncoding())
     subset.save_font(font, str(root / 'src/fonts' / f'Pretendard-{weight}.woff2'), options)
