@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { ChevronDown, Clock, Menu, Phone, X } from "lucide-react";
 import Logo from "./Logo";
 import { industry, nav, site } from "@/data/site";
@@ -16,6 +16,11 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false); // desktop mega menu
   const [drawerOpen, setDrawerOpen] = useState(false); // mobile drawer
   const [mobileTreatOpen, setMobileTreatOpen] = useState(false);
+
+  // Reset after the destination renders; instant avoids global smooth-scroll drift.
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [pathname]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -80,7 +85,12 @@ export default function Header() {
         <div className="container-page flex h-[72px] items-center justify-between gap-6 md:h-20">
           <Logo />
 
-          <nav aria-label="주 메뉴" className="hidden lg:block">
+          <nav aria-label="주 메뉴" className="hidden lg:block" onClick={(event) => {
+            if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+            if ((event.target as HTMLElement).closest("a")) {
+              window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+            }
+          }}>
             <ul className="flex items-center gap-1">
               {nav.map((item) =>
                 "hasMenu" in item ? (
@@ -91,7 +101,7 @@ export default function Header() {
                     onMouseLeave={() => setMenuOpen(false)}
                   >
                     <div className="flex items-center">
-                      <Link
+                      <Link scroll={false}
                         href={item.href}
                         aria-current={isActive(item.href) ? "page" : undefined}
                         className={navLinkClass(isActive(item.href))}
@@ -128,7 +138,7 @@ export default function Header() {
                             <ul className="mt-4 space-y-1 border-t border-line pt-4">
                               {getServicesByCategory(key).map((t) => (
                                 <li key={t.slug}>
-                                  <Link
+                                  <Link scroll={false}
                                     href={`/services/${t.slug}`}
                                     className="block py-1.5 text-[15px] text-ink-soft transition-colors hover:text-gold-deep"
                                   >
@@ -144,7 +154,7 @@ export default function Header() {
                   </li>
                 ) : (
                   <li key={item.href}>
-                    <Link
+                    <Link scroll={false}
                       href={item.href}
                       aria-current={isActive(item.href) ? "page" : undefined}
                       className={navLinkClass(isActive(item.href))}
@@ -158,7 +168,7 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <Link
+            <Link scroll={false}
               href={site.cta.href}
               className="hidden h-11 items-center bg-gold px-6 text-sm font-medium tracking-wide text-night transition-colors duration-300 hover:bg-gold-deep sm:inline-flex"
             >
@@ -227,7 +237,7 @@ export default function Header() {
                     </button>
                     {mobileTreatOpen && (
                       <div className="space-y-4 pb-5">
-                        <Link href="/services" className="block text-[15px] text-gold-deep">
+                        <Link scroll={false} href="/services" className="block text-[15px] text-gold-deep">
                           {industry.serviceLabel} 전체보기
                         </Link>
                         {categoryKeys.map((key) => (
@@ -236,7 +246,7 @@ export default function Header() {
                             <ul className="mt-1 grid grid-cols-2 gap-x-3">
                               {getServicesByCategory(key).map((t) => (
                                 <li key={t.slug}>
-                                  <Link
+                                  <Link scroll={false}
                                     href={`/services/${t.slug}`}
                                     className="block py-2 text-[15px] text-ink-soft"
                                   >
@@ -252,7 +262,7 @@ export default function Header() {
                   </li>
                 ) : (
                   <li key={item.href} className="border-b border-line">
-                    <Link
+                    <Link scroll={false}
                       href={item.href}
                       aria-current={isActive(item.href) ? "page" : undefined}
                       className={`flex items-center justify-between py-4 text-[17px] font-medium ${
@@ -269,7 +279,7 @@ export default function Header() {
           </nav>
 
           <div className="space-y-2 border-t border-line p-5">
-            <Link
+            <Link scroll={false}
               href={site.cta.href}
               className="flex h-12 items-center justify-center bg-gold text-[15px] font-medium text-night"
             >
