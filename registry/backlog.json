@@ -1,0 +1,149 @@
+{
+  "_doc": "status: wait | concepts | building | done | hold",
+  "items": [
+    {
+      "order": 1,
+      "slug": "pro-law-firm",
+      "name": "법률사무소",
+      "category": "pro",
+      "level": "L1",
+      "status": "wait"
+    },
+    {
+      "order": 2,
+      "slug": "pro-labor-office",
+      "name": "노무사무소",
+      "category": "pro",
+      "level": "L1",
+      "status": "wait"
+    },
+    {
+      "order": 3,
+      "slug": "space-interior",
+      "name": "인테리어·리모델링",
+      "category": "space",
+      "level": "L1",
+      "status": "wait"
+    },
+    {
+      "order": 4,
+      "slug": "space-architecture",
+      "name": "건축·설계사무소",
+      "category": "space",
+      "level": "L1",
+      "status": "wait"
+    },
+    {
+      "order": 5,
+      "slug": "food-cafe",
+      "name": "카페·베이커리",
+      "category": "food",
+      "level": "L1",
+      "status": "wait"
+    },
+    {
+      "order": 6,
+      "slug": "studio-photo",
+      "name": "사진·영상 스튜디오",
+      "category": "studio",
+      "level": "L1",
+      "status": "wait"
+    },
+    {
+      "order": 7,
+      "slug": "biz-manufacturing",
+      "name": "중소 제조·B2B",
+      "category": "biz",
+      "level": "L1",
+      "status": "wait"
+    },
+    {
+      "order": 8,
+      "slug": "service-cleaning",
+      "name": "청소·방역·이사",
+      "category": "service",
+      "level": "L1",
+      "status": "wait"
+    },
+    {
+      "order": 9,
+      "slug": "pro-consulting",
+      "name": "컨설팅",
+      "category": "pro",
+      "level": "L1",
+      "status": "wait"
+    },
+    {
+      "order": 10,
+      "slug": "edu-academy",
+      "name": "교육기관(소규모)",
+      "category": "edu",
+      "level": "L1",
+      "status": "wait"
+    },
+    {
+      "order": 11,
+      "slug": "medical-dental",
+      "name": "치과",
+      "category": "medical",
+      "level": "L2",
+      "status": "wait"
+    },
+    {
+      "order": 12,
+      "slug": "medical-oriental",
+      "name": "한의원",
+      "category": "medical",
+      "level": "L2",
+      "status": "wait"
+    },
+    {
+      "order": 13,
+      "slug": "medical-veterinary",
+      "name": "동물병원",
+      "category": "medical",
+      "level": "L2",
+      "status": "wait"
+    },
+    {
+      "order": 14,
+      "slug": "event-wedding",
+      "name": "웨딩홀",
+      "category": "event",
+      "level": "L2",
+      "status": "wait"
+    },
+    {
+      "order": 15,
+      "slug": "auto-repair",
+      "name": "자동차 정비",
+      "category": "auto",
+      "level": "L2",
+      "status": "wait"
+    },
+    {
+      "order": 16,
+      "slug": "fitness-pilates",
+      "name": "필라테스·요가",
+      "category": "fitness",
+      "level": "L4",
+      "status": "wait"
+    },
+    {
+      "order": 17,
+      "slug": "beauty-salon",
+      "name": "미용실·네일",
+      "category": "beauty",
+      "level": "L4",
+      "status": "wait"
+    },
+    {
+      "order": 18,
+      "slug": "stay-pension",
+      "name": "펜션·글램핑",
+      "category": "stay",
+      "level": "L4",
+      "status": "wait"
+    }
+  ]
+}

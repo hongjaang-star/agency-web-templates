@@ -1,0 +1,42 @@
+{
+  "items": [
+    {
+      "slug": "medical-dermatology",
+      "variant": "lumiere",
+      "name": "피부과",
+      "company": "뤼미에르 피부과(가상)",
+      "category": "medical",
+      "level": "L1",
+      "status": "deployed",
+      "fingerprint": {
+        "layout": "immersive",
+        "hero": "video",
+        "typePair": "Cormorant + Nanum Myeongjo + Pretendard",
+        "palette": "ivory·ink·champagne gold",
+        "imageTreatment": "warm natural photo",
+        "motion": "reveal fade",
+        "signature": "고민별 시술 찾기",
+        "sectionOrder": "hero, promise, concerns, treatments, signature, doctors, process, space, equipment, events, faq, visit"
+      }
+    },
+    {
+      "slug": "pro-tax-office",
+      "variant": "trust",
+      "name": "세무사무소",
+      "company": "한결세무회계(가상)",
+      "category": "pro",
+      "level": "L1",
+      "status": "deployed",
+      "fingerprint": {
+        "layout": "swiss-grid",
+        "hero": "split-media",
+        "typePair": "Cormorant + Nanum Myeongjo + Pretendard",
+        "palette": "navy·paper·brass",
+        "imageTreatment": "no photo, ledger grid pattern",
+        "motion": "reveal fade",
+        "signature": "주요 신고 일정 카드",
+        "sectionOrder": "hero, stats, services, clients, process, team, cases, faq, visit"
+      }
+    }
+  ]
+}
