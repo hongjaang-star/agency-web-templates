@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" role="img" aria-labelledby="t d">
+<title id="t">세무 전문가 인물 편집 일러스트</title><desc id="d">정장을 입은 한국인 세무 전문가를 특정 실존 인물과 무관한 편집화보 스타일로 표현한 이미지</desc>
+<defs><pattern id="h" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0 10L10 0" stroke="#1d1b18" stroke-width="1" opacity=".12"/></pattern></defs>
+<rect width="900" height="1100" fill="#ebe4d4"/><rect x="34" y="34" width="832" height="1032" fill="none" stroke="#1d1b18" stroke-width="3"/>
+<rect x="68" y="68" width="764" height="964" fill="url(#h)" opacity=".7"/><rect x="105" y="112" width="690" height="720" fill="#f4efe4" stroke="#1d1b18" stroke-width="3"/>
+<circle cx="450" cy="358" r="154" fill="#d2c1a7" stroke="#1d1b18" stroke-width="4"/>
+<path d="M316 324c15-111 104-176 201-145 66 21 103 79 98 151-38-38-95-58-159-55-53 3-98 18-140 49z" fill="#22211e"/>
+<path d="M371 379c18 20 42 30 79 30 40 0 66-11 86-31" fill="none" stroke="#1d1b18" stroke-width="4" opacity=".65"/>
+<circle cx="399" cy="348" r="6" fill="#1d1b18"/><circle cx="505" cy="348" r="6" fill="#1d1b18"/><path d="M446 354l-8 48 25 4" fill="none" stroke="#1d1b18" stroke-width="4"/>
+<path d="M245 874c27-230 100-347 205-347 107 0 188 126 216 347" fill="#252420"/>
+<path d="M351 558l99 90 100-90-30 211-70 64-70-64z" fill="#f4efe4"/><path d="M450 649l-35 158h70z" fill="#c2361f"/>
+<rect x="128" y="846" width="644" height="126" fill="#1d1b18"/><rect x="158" y="875" width="200" height="18" fill="#f4efe4" opacity=".9"/><rect x="158" y="912" width="326" height="12" fill="#f4efe4" opacity=".65"/><rect x="158" y="940" width="260" height="12" fill="#f4efe4" opacity=".45"/>
+<circle cx="713" cy="908" r="40" fill="none" stroke="#c2361f" stroke-width="7"/><path d="M691 908h44M713 886v44" stroke="#c2361f" stroke-width="5"/>
+</svg>
