@@ -1,6 +1,7 @@
 # 결정 기록 (최신이 위)
 
 ## 2026-10-04
+- **세무사무소는 almanac 으로 확정.** `templates/pro-tax-office/almanac` 로 완성하고 trust 앱은 삭제한다(화면 기록은 library 에만 retired 로 남김). 나머지 시안 compass·lifemap 은 concepts/ 에 디자인 라이브러리로 둔다.
 - **세무사무소 재디자인.** 기존 trust 는 피부과와 골격이 같아 다시 디자인한다. 시안 3개(almanac, compass, lifemap) → 사람이 선택 → 새 variant 로 완성, trust 는 선택 후 정리.
 - **사이트 소스 완전 분리.** 앱끼리 코드를 import·복사해 출발하지 않는다(`scripts/check-isolation.mjs` 로 배포 전 검사). 기존 화면 모듈은 `library/` 에 캡처·스타일 코드·사용 사이트로만 기록해 내부 참고용으로 쓴다.
   → 대체됨: 앱 안의 `skills/site-template`(기존 사이트를 복제해 다른 업종을 만드는 방식), README 의 packages/core 공유 계획.
