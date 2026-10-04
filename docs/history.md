@@ -19,8 +19,11 @@
 | 2026-10-04 | 사이트 소스 분리 검사, 앱 내 site-template 스킬 제거, 모듈 스타일 라이브러리(library/, 33개 모듈 캡처·스타일 코드) | PR |
 | 2026-10-04 | 유형·변형 관리 방법(plan 07), trust 복원, registry role·type 필드, 배포 목록 업종별 묶음, 관리 시트 유형·역할 열 | PR |
 | 2026-10-04 | pro-law-firm 시안 3개(docket·quiet·district), research/pro-law-firm.md. 추천 docket | PR |
+| 2026-10-04 | pro-law-firm/docket 완성(14페이지, 사건 흐름 타임라인), 포트폴리오 등록(법률 분류 자동 필터), library 14개 모듈 | PR |
 
 ## 교훈
+- next/font 의 일부 한글 서체(Song Myung 등)는 `subsets`·`preload` 옵션이 없다. 타입 오류가 나면 옵션을 빼고 weight 만 준다.
+- 병합 직후 새 브랜치를 만들 때는 `git fetch` 를 먼저 한다. 오래된 origin/main 에서 갈라져 방금 병합한 커밋이 빠진 적이 있다.
 2026-10-04: trust 다크 골드 개정, AI 세무사 프로필 3장, 카드 hover/focus 개선. lint·정적 빌드 통과, 360px 가로 넘침 없음.
 - 루트에 package-lock.json 이 생기면 Next(Turbopack)가 모노레포 루트를 작업 루트로 잡는다. 각 앱 next.config 에 `turbopack.root` 를 둔다.
 - 날짜에 따라 바뀌는 화면(D-day 등)은 정적 빌드 시점에 굳지 않도록 브라우저에서 계산한다.
