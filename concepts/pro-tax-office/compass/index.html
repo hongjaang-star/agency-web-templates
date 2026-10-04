@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>시안 B · compass — 한결세무회계 (가상 업체 데모)</title>
+<!--
+  시안 B · compass
+  지문: layout=split · hero=interactive · typePair=IBM Plex Sans KR + IBM Plex Mono · palette=chalk·forest·lime
+        imageTreatment=사진 없음, 데이터 칩·표 · motion=상태 전환(즉시 반응) · signature=선택형 진단 → 준비 서류 체크리스트
+  서체: IBM Plex Sans KR, IBM Plex Mono (Google Fonts, OFL). 이미지 없음.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --chalk:#f3f5f1; --white:#ffffff; --forest:#123a2c; --forest-2:#1e5440; --moss:#5d7a6c;
+    --lime:#c8f169; --line:#d6ddd7; --text:#14211b; --muted:#506159;
+    --sans:"IBM Plex Sans KR",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+    --gut:clamp(16px,3.4vw,40px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--chalk);color:var(--text);font:400 16px/1.7 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  :focus-visible{outline:3px solid var(--lime);outline-offset:2px;box-shadow:0 0 0 5px var(--forest)}
+  .mono{font-family:var(--mono)}
+  .demo{font:600 11px var(--mono);letter-spacing:.1em;background:var(--lime);color:var(--forest);text-align:center;padding:5px 10px;text-transform:uppercase}
+
+  /* split shell: fixed left panel + scrolling right */
+  .shell{display:grid;grid-template-columns:minmax(320px,38%) 1fr;min-height:100vh}
+  .panel{position:sticky;top:0;height:100vh;background:var(--forest);color:#e8efe9;display:flex;flex-direction:column;padding:28px var(--gut)}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .mark{width:36px;height:36px;border:2px solid var(--lime);display:grid;place-items:center;font:600 15px var(--mono);color:var(--lime)}
+  .brand b{font:700 18px var(--sans);letter-spacing:-.01em}
+  .brand small{display:block;font:400 11px var(--mono);color:#a9c1b4;letter-spacing:.08em}
+  .panel h1{font:300 clamp(34px,3.6vw,54px)/1.18 var(--sans);letter-spacing:-.035em;margin-top:auto;color:#fff}
+  .panel h1 strong{font-weight:700;color:var(--lime)}
+  .panel p.lead{color:#bcd0c4;margin-top:18px;max-width:30em}
+  .pnav{list-style:none;margin-top:32px;border-top:1px solid rgba(255,255,255,.14)}
+  .pnav a{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.14);text-decoration:none;font-size:15px}
+  .pnav a span{font:400 12px var(--mono);color:#89a597}
+  .pnav a:hover,.pnav a.active{color:var(--lime)}
+  .pcta{display:flex;gap:8px;margin-top:22px}
+  .pcta a{flex:1;text-align:center;padding:13px 10px;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,.3)}
+  .pcta a.primary{background:var(--lime);color:var(--forest);border-color:var(--lime)}
+  .pcta a:hover{border-color:var(--lime)}
+
+  .content{min-width:0}
+  .blk{padding:clamp(40px,6vw,80px) var(--gut);border-bottom:1px solid var(--line)}
+  .label{font:600 12px var(--mono);letter-spacing:.14em;color:var(--moss);text-transform:uppercase}
+  .blk h2{font:700 clamp(26px,2.8vw,38px)/1.25 var(--sans);letter-spacing:-.03em;margin:8px 0 10px}
+  .blk .sub{color:var(--muted);max-width:40em}
+
+  /* signature: diagnosis */
+  .diag{background:var(--white)}
+  .step{margin-top:28px}
+  .step-h{display:flex;align-items:center;gap:10px;font-weight:600;margin-bottom:12px}
+  .step-h i{font:600 12px var(--mono);font-style:normal;background:var(--forest);color:var(--lime);padding:3px 7px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{border:1px solid var(--line);background:var(--chalk);padding:12px 16px;font-size:15px;text-align:left;transition:background .15s,border-color .15s}
+  .chip small{display:block;font:400 12px var(--mono);color:var(--muted)}
+  .chip:hover{border-color:var(--forest)}
+  .chip[aria-pressed="true"]{background:var(--forest);border-color:var(--forest);color:#fff}
+  .chip[aria-pressed="true"] small{color:var(--lime)}
+  .result{margin-top:30px;border:2px solid var(--forest);display:grid;grid-template-columns:1.1fr 1fr}
+  .r-left{padding:24px;background:var(--forest);color:#fff}
+  .r-left .label{color:var(--lime)}
+  .r-left h3{font:700 24px/1.35 var(--sans);margin:8px 0 12px;letter-spacing:-.02em}
+  .r-left p{color:#c7d8ce;font-size:15px}
+  .r-left .when{margin-top:18px;font:600 13px var(--mono);color:var(--lime);border-top:1px solid rgba(255,255,255,.2);padding-top:12px}
+  .r-right{padding:24px}
+  .check{list-style:none;margin-top:10px}
+  .check li{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px dashed var(--line);font-size:15px}
+  .check input{appearance:none;width:20px;height:20px;border:2px solid var(--forest);flex:none;margin-top:3px;cursor:pointer;display:grid;place-items:center}
+  .check input:checked{background:var(--forest)}
+  .check input:checked::after{content:"";width:6px;height:11px;border:solid var(--lime);border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+  .check input:checked+label{color:var(--muted);text-decoration:line-through}
+  .progress{font:600 13px var(--mono);margin-top:14px;color:var(--forest-2)}
+  .r-note{font-size:12.5px;color:var(--muted);margin-top:14px}
+
+  /* matrix: who × what */
+  .matrix{width:100%;border-collapse:collapse;margin-top:24px;font-size:14.5px;background:var(--white)}
+  .matrix th,.matrix td{border:1px solid var(--line);padding:12px 12px;text-align:left;vertical-align:top}
+  .matrix thead th{background:var(--forest);color:#fff;font-weight:600;font-size:13px}
+  .matrix tbody th{font-weight:600;white-space:nowrap}
+  .matrix td.y{background:#eaf7cf;font:600 13px var(--mono);color:var(--forest);text-align:center}
+  .matrix td.n{color:#a5b3ab;text-align:center;font-family:var(--mono)}
+  .scroll-x{overflow-x:auto}
+
+  /* stats as data row */
+  .data{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:24px}
+  .data div{background:var(--white);padding:20px}
+  .data b{display:block;font:600 clamp(28px,3vw,40px)/1 var(--mono);color:var(--forest);letter-spacing:-.04em}
+  .data span{font-size:13.5px;color:var(--muted)}
+
+  /* process timeline */
+  .tl{list-style:none;margin-top:26px;position:relative}
+  .tl::before{content:"";position:absolute;left:15px;top:6px;bottom:6px;width:2px;background:var(--forest)}
+  .tl li{position:relative;padding:0 0 22px 50px}
+  .tl li::before{content:attr(data-n);position:absolute;left:0;top:0;width:32px;height:32px;background:var(--lime);color:var(--forest);font:600 12px/32px var(--mono);text-align:center}
+  .tl b{font-size:17px}
+  .tl p{color:var(--muted);font-size:15px}
+
+  /* team cards */
+  .team{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+  .card{background:var(--white);border:1px solid var(--line);padding:22px}
+  .card .ini{width:44px;height:44px;background:var(--forest);color:var(--lime);display:grid;place-items:center;font:600 16px var(--mono)}
+  .card h3{font-size:19px;margin-top:14px}
+  .card .role{font:400 12.5px var(--mono);color:var(--moss)}
+  .card p{font-size:14.5px;color:var(--muted);margin-top:10px}
+
+  /* faq */
+  .faq{margin-top:20px;border-top:1px solid var(--line)}
+  .faq button{width:100%;display:flex;justify-content:space-between;gap:12px;padding:18px 0;text-align:left;font-weight:600;font-size:16.5px;border-bottom:1px solid var(--line)}
+  .faq button span.mono{color:var(--moss);font-weight:400}
+  .faq .ans{display:none;padding:14px 0 18px;color:var(--muted);border-bottom:1px solid var(--line)}
+  .faq button[aria-expanded="true"]+.ans{display:block}
+
+  .contact{background:var(--forest);color:#fff}
+  .contact .label{color:var(--lime)}
+  .contact h2{color:#fff}
+  .ct{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:20px}
+  .ct dt{font:600 12px var(--mono);color:var(--lime);letter-spacing:.1em;margin-top:14px}
+  .ct dd{color:#d4e2da}
+  .tel{font:600 clamp(30px,4vw,48px) var(--mono);color:var(--lime);text-decoration:none;letter-spacing:-.03em}
+  .legal{padding:24px var(--gut) 40px;font-size:12.5px;color:var(--muted)}
+
+  @media (max-width:980px){
+    .shell{grid-template-columns:1fr}
+    .panel{position:relative;height:auto;padding-top:22px;padding-bottom:30px}
+    .panel h1{margin-top:40px}
+    .pnav{display:none}
+    .result{grid-template-columns:1fr}
+    .data{grid-template-columns:1fr 1fr}
+    .team{grid-template-columns:1fr}
+    .ct{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="demo">가상 업체 데모 · 시안 B · compass</div>
+<div class="shell">
+  <aside class="panel">
+    <a class="brand" href="#" aria-label="한결세무회계 처음으로"><span class="mark">HG</span><span><b>한결세무회계</b><small>TAX · ACCOUNTING · GWANGJU</small></span></a>
+    <h1>내 상황에 맞는<br><strong>세무 길잡이</strong>부터<br>확인하세요.</h1>
+    <p class="lead">광주 상무지구 한결세무회계. 누구인지, 무엇이 궁금한지 고르면 필요한 업무와 준비 서류를 바로 정리해 드립니다.</p>
+    <ul class="pnav" aria-label="섹션 이동">
+      <li><a href="#diag">01 상황 진단 <span>30초</span></a></li>
+      <li><a href="#matrix">02 업무 한눈에 <span>8개 분야</span></a></li>
+      <li><a href="#process">03 진행 방식 <span>5단계</span></a></li>
+      <li><a href="#team">04 세무사 <span>3인</span></a></li>
+      <li><a href="#contact">05 상담 <span>062</span></a></li>
+    </ul>
+    <div class="pcta"><a class="primary" href="tel:0620000000">전화 상담</a><a href="https://pf.kakao.com/" target="_blank" rel="noopener">카카오톡</a></div>
+  </aside>
+
+  <main class="content">
+    <section class="blk diag" id="diag" aria-labelledby="diag-h">
+      <p class="label">01 · 상황 진단</p>
+      <h2 id="diag-h">두 번만 고르세요</h2>
+      <p class="sub">선택에 따라 맞는 업무분야, 상담 시기, 준비 서류가 바뀝니다. 고른 내용은 이 화면에만 남습니다.</p>
+
+      <div class="step"><div class="step-h"><i>STEP 1</i>저는</div>
+        <div class="chips" role="group" aria-label="고객 유형" id="who"></div></div>
+      <div class="step"><div class="step-h"><i>STEP 2</i>이것이 궁금해요</div>
+        <div class="chips" role="group" aria-label="궁금한 업무" id="what"></div></div>
+
+      <div class="result" aria-live="polite">
+        <div class="r-left">
+          <p class="label">추천 업무</p>
+          <h3 id="r-title">기장대리</h3>
+          <p id="r-desc"></p>
+          <p class="when" id="r-when"></p>
+        </div>
+        <div class="r-right">
+          <p class="label">준비 서류 체크리스트</p>
+          <ul class="check" id="r-docs"></ul>
+          <p class="progress" id="r-prog">0 / 0 준비됨</p>
+          <p class="r-note">일반적인 안내이며, 상담 후 사실관계에 따라 필요한 자료가 달라질 수 있습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="blk" id="matrix" aria-labelledby="mx-h">
+      <p class="label">02 · 업무 한눈에</p>
+      <h2 id="mx-h">누구에게 어떤 업무가 필요한가</h2>
+      <p class="sub">여덟 가지 업무분야를 고객 유형별로 정리했습니다.</p>
+      <div class="scroll-x"><table class="matrix">
+        <thead><tr><th scope="col">업무분야</th><th scope="col">개인사업자</th><th scope="col">법인</th><th scope="col">프리랜서</th><th scope="col">자산가·가족</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">기장대리</th><td class="y">●</td><td class="y">●</td><td class="n">–</td><td class="n">–</td></tr>
+          <tr><th scope="row">종합소득세·부가세</th><td class="y">●</td><td class="n">–</td><td class="y">●</td><td class="y">●</td></tr>
+          <tr><th scope="row">법인 설립·법인세</th><td class="y">전환</td><td class="y">●</td><td class="n">–</td><td class="n">–</td></tr>
+          <tr><th scope="row">양도소득세</th><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="y">●</td></tr>
+          <tr><th scope="row">상속세</th><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="y">●</td></tr>
+          <tr><th scope="row">증여세</th><td class="n">–</td><td class="y">주식</td><td class="n">–</td><td class="y">●</td></tr>
+          <tr><th scope="row">세무조사 대응</th><td class="y">●</td><td class="y">●</td><td class="y">●</td><td class="y">●</td></tr>
+          <tr><th scope="row">경정청구·불복</th><td class="y">●</td><td class="y">●</td><td class="y">●</td><td class="y">●</td></tr>
+        </tbody>
+      </table></div>
+      <div class="data">
+        <div><b>15<small style="font-size:.5em">년</small></b><span>세무 실무 경력</span></div>
+        <div><b>320+</b><span>기장 수임 사업자</span></div>
+        <div><b>08</b><span>전문 업무분야</span></div>
+        <div><b>1:1</b><span>대표 세무사 직접 상담</span></div>
+      </div>
+    </section>
+
+    <section class="blk" id="process" aria-labelledby="pr-h">
+      <p class="label">03 · 진행 방식</p>
+      <h2 id="pr-h">처음 연락부터 사후 관리까지</h2>
+      <ol class="tl">
+        <li data-n="01"><b>첫 상담</b><p>전화·카카오톡으로 상황을 듣고 필요한 자료를 안내합니다.</p></li>
+        <li data-n="02"><b>자료 검토</b><p>신고 이력과 증빙을 검토해 쟁점과 선택지를 정리합니다.</p></li>
+        <li data-n="03"><b>방안 설명</b><p>예상 세액과 진행 방식, 보수를 문서로 설명드립니다.</p></li>
+        <li data-n="04"><b>신고·대리</b><p>기한 안에 신고하고 진행 상황을 단계마다 공유합니다.</p></li>
+        <li data-n="05"><b>사후 관리</b><p>다음 신고 일정과 점검 사항을 미리 알려 드립니다.</p></li>
+      </ol>
+    </section>
+
+    <section class="blk" id="team" aria-labelledby="tm-h">
+      <p class="label">04 · 세무사</p>
+      <h2 id="tm-h">분야별로 나눠 맡습니다</h2>
+      <div class="team">
+        <article class="card"><div class="ini">KH</div><h3>김한결</h3><p class="role">대표 세무사 · 상속·증여, 법인</p><p>국세청 근무 경력 7년, 세무법인 파트너 세무사. 한국세무사회 정회원.</p></article>
+        <article class="card"><div class="ini">LS</div><h3>이서준</h3><p class="role">세무사 · 양도소득세, 부동산 임대</p><p>세무법인 실무 8년. 매도 전 한 번의 계산이 가장 큰 차이를 만듭니다.</p></article>
+        <article class="card"><div class="ini">PJ</div><h3>박지원</h3><p class="role">세무사 · 기장대리, 스타트업 법인</p><p>회계법인 감사본부 출신. 창업지원센터 세무 멘토.</p></article>
+      </div>
+    </section>
+
+    <section class="blk" aria-labelledby="fq-h">
+      <p class="label">05 · FAQ</p>
+      <h2 id="fq-h">자주 묻는 질문</h2>
+      <div class="faq" id="faq"></div>
+    </section>
+
+    <section class="blk contact" id="contact" aria-labelledby="ct-h">
+      <p class="label">06 · 상담</p>
+      <h2 id="ct-h">진단 결과를 들고 전화 주세요</h2>
+      <div class="ct">
+        <div><a class="tel" href="tel:0620000000">062-000-0000</a><p style="color:#c7d8ce;margin-top:8px">평일 09:00–18:00 · 신고 기간 주말 사전 예약</p></div>
+        <dl><dt>ADDRESS</dt><dd>광주광역시 서구 상무중앙로 000, 한결빌딩 7층</dd><dt>SUBWAY</dt><dd>1호선 상무역 3번 출구 도보 5분</dd><dt>PARKING</dt><dd>건물 지하주차장 1시간 무료</dd></dl>
+      </div>
+    </section>
+    <p class="legal">한결세무회계(가상) · 대표 김한결 · 사업자등록번호 000-00-00000 — 본 사이트는 홈페이지 시안 시연을 위한 가상 사무소 데모입니다. 사례와 수치는 예시입니다.</p>
+  </main>
+</div>
+
+<script>
+const WHO=[["biz","개인사업자","음식점·소매·서비스"],["corp","법인","소규모 법인 대표"],["free","프리랜서","3.3% 사업소득"],["family","자산가·가족","부동산·상속·증여"]];
+const WHAT={
+  biz:[["book","매달 장부·신고"],["income","5월 종합소득세"],["convert","법인 전환"],["audit","세무조사 통지"]],
+  corp:[["book","기장·결산"],["corptax","법인세 신고"],["gift","주식 증여·승계"],["audit","세무조사 통지"]],
+  free:[["income","5월 종합소득세"],["refund","지난 신고 환급 검토"],["audit","소명 안내문"]],
+  family:[["sell","집·땅 매도"],["inherit","상속 신고"],["gift","자녀 증여"],["audit","자금출처 소명"]]
+};
+const R={
+  book:["기장대리","매월 장부 작성과 원천세·4대보험 신고를 맡깁니다. 사업장 상황을 먼저 듣고 견적을 문서로 드립니다.","언제든 · 이전 사무소 인계도 가능",["사업자등록증","홈택스 수임 동의","통장 거래내역(최근 3개월)","카드 매출·매입 내역","직원 급여 대장"]],
+  income:["종합소득세 신고","공제 항목을 미리 점검하고 정확하게 신고합니다. 5월에는 상담이 몰리니 4월 중 연락을 권합니다.","5월 31일 기한 · 4월 상담 권장",["지난해 사업소득 자료","경비 증빙(카드·영수증)","부양가족 정보","국민연금·건강보험 납부 내역","기부금·의료비 영수증"]],
+  convert:["법인 전환 검토","매출 규모와 향후 계획에 따라 법인 전환이 유리한지 비교해 설명드립니다.","결산 전 상담 권장",["최근 2년 종합소득세 신고서","사업용 자산 목록","차입금 내역","향후 매출 계획(대략)"]],
+  audit:["세무조사 대응","통지를 받으셨다면 첫 대응이 중요합니다. 조사 범위를 확인하고 준비부터 종결까지 동행합니다.","통지 받은 즉시 연락",["세무조사 사전통지서 또는 안내문","해당 연도 신고서","관련 계약서·증빙","통장 거래내역"]],
+  corptax:["법인세 신고","결산부터 법인세 신고, 가지급금 정리까지 단계별로 진행합니다.","3월 31일 기한(12월 결산)",["법인 통장 거래내역","매출·매입 세금계산서","급여 대장","주주 명부","고정자산 목록"]],
+  gift:["증여세 검토","증여 방식에 따라 달라지는 세 부담을 비교해 드립니다. 증여 전에 계산해 보는 것이 좋습니다.","증여일이 속한 달 말일부터 3개월 내 신고",["증여 재산 내역","가족관계증명서","10년 내 증여 이력","부동산이면 등기부등본"]],
+  refund:["경정청구 검토","과다 납부한 세금이 있다면 기한이 남은 연도부터 확인해 바로잡습니다.","법정신고기한부터 5년 이내",["지난 3~5년 신고서","누락된 경비 증빙","원천징수영수증"]],
+  sell:["양도소득세 검토","매도 전에 비과세 요건과 신고 시점을 함께 계산해 보면 선택지가 보입니다.","계약 전 상담 권장",["취득 계약서","매도 예정 계약서","필요경비 증빙(중개수수료 등)","세대 주택 보유 현황"]],
+  inherit:["상속세 신고","상속재산 파악부터 평가, 신고까지 가족이 놓치기 쉬운 절차를 순서대로 안내합니다.","상속개시일이 속한 달 말일부터 6개월",["사망진단서·가족관계증명서","상속재산 목록(부동산·예금)","채무·장례비용 증빙","10년 내 증여 이력"]]
+};
+const FAQ=[["상담 비용이 있나요?","첫 상담에서는 상황을 듣고 진행 방식과 보수를 안내드립니다. 서류 검토가 필요한 심층 상담은 사전에 비용을 말씀드린 뒤 진행합니다."],["직접 방문하지 않아도 되나요?","기장대리와 대부분의 신고는 홈택스 수임 동의와 자료 전송으로 비대면 진행이 가능합니다. 상속·조사 대응은 대면 상담을 권해 드립니다."],["기장 보수는 어떻게 정해지나요?","업종, 매출 규모, 직원 수, 증빙 건수에 따라 달라집니다. 상담 후 견적을 문서로 안내드립니다."],["다른 사무소에서 옮겨도 되나요?","가능합니다. 이전 사무소의 신고 이력을 인계받아 누락된 부분이 없는지 먼저 점검합니다."]];
+
+let who="biz", what="book";
+const $=id=>document.getElementById(id);
+function chip(label,sub,on,fn){const b=document.createElement("button");b.type="button";b.className="chip";b.setAttribute("aria-pressed",on);b.innerHTML=label+(sub?`<small>${sub}</small>`:"");b.onclick=fn;return b}
+function render(){
+  $("who").replaceChildren(...WHO.map(([k,l,s])=>chip(l,s,k===who,()=>{who=k;what=WHAT[k][0][0];render()})));
+  $("what").replaceChildren(...WHAT[who].map(([k,l])=>chip(l,"",k===what,()=>{what=k;render()})));
+  const [t,d,w,docs]=R[what];
+  $("r-title").textContent=t;$("r-desc").textContent=d;$("r-when").textContent="⏱ "+w;
+  $("r-docs").innerHTML=docs.map((x,i)=>`<li><input type="checkbox" id="d${i}"><label for="d${i}">${x}</label></li>`).join("");
+  const upd=()=>{const c=$("r-docs").querySelectorAll("input:checked").length;$("r-prog").textContent=`${c} / ${docs.length} 준비됨`};
+  $("r-docs").onchange=upd;upd();
+}
+render();
+$("faq").innerHTML=FAQ.map(([q,a],i)=>`<button type="button" aria-expanded="false" aria-controls="fa${i}"><span>${q}</span><span class="mono">+</span></button><div class="ans" id="fa${i}">${a}</div>`).join("");
+$("faq").querySelectorAll("button").forEach(b=>b.onclick=()=>{const o=b.getAttribute("aria-expanded")==="true";b.setAttribute("aria-expanded",!o);b.lastChild.textContent=o?"+":"−"});
+// 좌측 메뉴 현재 위치 표시
+const links=[...document.querySelectorAll(".pnav a")];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+e.target.id))}}),{rootMargin:"-40% 0px -55% 0px"});
+document.querySelectorAll("main section[id]").forEach(s=>io.observe(s));
+</script>
+</body>
+</html>

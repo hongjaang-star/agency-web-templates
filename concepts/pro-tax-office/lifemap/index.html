@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>시안 C · lifemap — 한결세무회계 (가상 업체 데모)</title>
+<!--
+  시안 C · lifemap
+  지문: layout=story · hero=quote · typePair=Gowun Batang + Gowun Dodum · palette=sand·terracotta·cocoa
+        imageTreatment=사진 없음, 손그림 SVG 선·유기적 도형 · motion=부드러운 떠오름·선 따라 그리기
+        signature=인생 이벤트별 세금 지도
+  서체: Gowun Batang, Gowun Dodum (Google Fonts, OFL). 일러스트는 이 파일의 인라인 SVG.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sand:#f6ede1; --sand-2:#efe0cc; --cream:#fffaf3; --terra:#b4532f; --terra-2:#8f3f22; --clay:#e3b394;
+    --cocoa:#3b2a20; --cocoa-2:#6b5444; --sage:#7d8c6a;
+    --serif:"Gowun Batang",serif; --sans:"Gowun Dodum",system-ui,sans-serif;
+    --gut:clamp(18px,5vw,64px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--sand);color:var(--cocoa);font:400 17px/1.85 var(--sans);overflow-x:hidden}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--terra);outline-offset:3px;border-radius:6px}
+  .demo{font-size:12.5px;text-align:center;padding:6px;background:var(--cocoa);color:var(--sand)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 var(--gut)}
+
+  header{position:sticky;top:0;z-index:20;background:rgba(246,237,225,.92);backdrop-filter:blur(8px)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 19px var(--serif)}
+  .logo svg{width:34px;height:34px}
+  .bar nav{display:flex;gap:22px;font-size:15.5px}
+  .bar nav a{text-decoration:none}
+  .bar nav a:hover{color:var(--terra)}
+  .pill{background:var(--terra);color:#fff;text-decoration:none;padding:10px 18px;border-radius:999px;font-size:15px;white-space:nowrap}
+  .pill:hover{background:var(--terra-2)}
+
+  /* hero: quote */
+  .hero{position:relative;padding:clamp(56px,9vw,130px) 0 clamp(60px,8vw,110px);overflow:hidden}
+  .blob{position:absolute;z-index:0;pointer-events:none}
+  .blob.a{right:-120px;top:-60px;width:min(560px,70vw);fill:var(--clay);opacity:.45}
+  .blob.b{left:-160px;bottom:-140px;width:min(420px,60vw);fill:var(--sand-2)}
+  .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+  .eyebrow{font-size:15px;color:var(--terra)}
+  .hero blockquote{font:400 clamp(30px,4.6vw,58px)/1.42 var(--serif);letter-spacing:-.02em;margin-top:18px}
+  .hero blockquote mark{background:linear-gradient(transparent 62%,var(--clay) 62%);color:inherit;padding:0 .08em}
+  .hero cite{display:block;font:400 16px var(--sans);font-style:normal;color:var(--cocoa-2);margin-top:22px}
+  .hero .acts{display:flex;gap:10px;margin-top:30px;flex-wrap:wrap}
+  .ghost{border:1.5px solid var(--cocoa);text-decoration:none;padding:10px 18px;border-radius:999px;font-size:15px}
+  .ghost:hover{background:var(--cocoa);color:var(--sand)}
+  .portrait{justify-self:center;width:min(320px,80%);aspect-ratio:4/5;background:var(--cream);border-radius:46% 54% 50% 50%/58% 52% 48% 42%;display:grid;place-items:center;box-shadow:0 30px 60px -40px rgba(59,42,32,.45)}
+  .portrait svg{width:70%}
+  .portrait-cap{text-align:center;font-size:13.5px;color:var(--cocoa-2);margin-top:12px}
+
+  .sec{padding:clamp(64px,9vw,120px) 0}
+  .sec h2{font:700 clamp(28px,3.6vw,44px)/1.35 var(--serif);letter-spacing:-.02em}
+  .sec .lead{color:var(--cocoa-2);max-width:34em;margin-top:12px}
+
+  /* story intro */
+  .story{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:44px}
+  .story div{background:var(--cream);border-radius:28px;padding:28px}
+  .story .n{font:700 40px/1 var(--serif);color:var(--terra)}
+  .story h3{font:700 20px/1.5 var(--serif);margin:14px 0 6px}
+  .story p{font-size:15.5px;color:var(--cocoa-2)}
+
+  /* signature: life map */
+  .map-sec{background:var(--cocoa);color:var(--sand)}
+  .map-sec .lead{color:#d9c7b5}
+  .road{position:relative;margin-top:50px}
+  .road svg.path{position:absolute;left:0;right:0;top:46px;width:100%;height:60px;overflow:visible}
+  .road svg.path path{fill:none;stroke:var(--clay);stroke-width:2.5;stroke-dasharray:6 8}
+  .stops{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;position:relative;list-style:none}
+  .stop button{width:100%;text-align:center;background:none;border:0;color:inherit;cursor:pointer;font:inherit}
+  .dot{width:92px;height:92px;margin:0 auto;border-radius:50%;background:var(--cocoa);border:2px solid var(--clay);display:grid;place-items:center;transition:background .3s,transform .3s}
+  .dot svg{width:44px;height:44px;stroke:var(--clay);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .stop b{display:block;font:700 17px var(--serif);margin-top:12px}
+  .stop small{font-size:13px;color:#cbb7a3}
+  .stop button:hover .dot{transform:translateY(-4px)}
+  .stop button[aria-selected="true"] .dot{background:var(--terra);border-color:var(--terra)}
+  .stop button[aria-selected="true"] .dot svg{stroke:#fff}
+  .detail{margin-top:40px;background:var(--sand);color:var(--cocoa);border-radius:32px;padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  .detail h3{font:700 clamp(24px,2.6vw,32px)/1.4 var(--serif)}
+  .detail .when{display:inline-block;margin-top:12px;font-size:14px;background:var(--cream);border-radius:999px;padding:6px 14px;color:var(--terra-2)}
+  .detail p{color:var(--cocoa-2);margin-top:14px}
+  .taxes{list-style:none}
+  .taxes li{display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed #c9b39c}
+  .taxes li::before{content:"";flex:none;width:10px;height:10px;border-radius:50%;background:var(--terra);margin-top:10px}
+  .taxes b{font-weight:400;font-family:var(--serif);font-size:18px;display:block}
+  .taxes span{font-size:14.5px;color:var(--cocoa-2)}
+
+  /* people */
+  .people{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+  .person{text-align:center}
+  .face{width:150px;height:150px;margin:0 auto;border-radius:50%;background:var(--cream);display:grid;place-items:center}
+  .face svg{width:84px}
+  .person h3{font:700 21px var(--serif);margin-top:16px}
+  .person .role{font-size:14px;color:var(--terra)}
+  .person q{display:block;font:400 16px/1.7 var(--serif);color:var(--cocoa-2);margin-top:12px;quotes:"“" "”"}
+
+  /* letters (cases) */
+  .letters{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:40px}
+  .letter{background:var(--cream);border-radius:24px;padding:28px 28px 26px;position:relative}
+  .letter .tag{font-size:13px;background:var(--sand-2);border-radius:999px;padding:4px 12px;color:var(--terra-2)}
+  .letter h3{font:700 20px/1.5 var(--serif);margin:14px 0 8px}
+  .letter p{font-size:15.5px;color:var(--cocoa-2)}
+  .letter p+p{margin-top:6px}
+  .note{font-size:13.5px;color:var(--cocoa-2);margin-top:18px}
+
+  /* faq */
+  .faq{margin-top:34px;max-width:820px}
+  .faq details{background:var(--cream);border-radius:20px;padding:4px 24px;margin-bottom:10px}
+  .faq summary{cursor:pointer;list-style:none;padding:16px 0;font:700 18px/1.5 var(--serif);display:flex;justify-content:space-between;gap:16px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"";flex:none;width:12px;height:12px;border-right:2px solid var(--terra);border-bottom:2px solid var(--terra);transform:rotate(45deg);margin-top:8px;transition:transform .25s}
+  .faq details[open] summary::after{transform:rotate(-135deg);margin-top:14px}
+  .faq p{padding:0 0 18px;color:var(--cocoa-2)}
+
+  /* visit */
+  .visit{background:var(--terra);color:#fff;border-radius:40px;padding:clamp(32px,5vw,64px);display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center}
+  .visit h2{color:#fff}
+  .visit .tel{display:inline-block;margin-top:18px;font:700 clamp(28px,3.6vw,42px) var(--serif);text-decoration:none;color:#fff;border-bottom:2px solid rgba(255,255,255,.5)}
+  .visit dl{font-size:16px}
+  .visit dt{font-size:13.5px;opacity:.8;margin-top:14px}
+  .visit dt:first-child{margin-top:0}
+  footer{padding:40px 0 56px;font-size:13.5px;color:var(--cocoa-2);text-align:center}
+
+  .js .up{opacity:0;transform:translateY(24px);transition:opacity 1s ease,transform 1s ease}
+  .js .up.on{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.js .up{opacity:1;transform:none}*{transition:none!important}}
+
+  @media (max-width:900px){
+    .bar nav{display:none}
+    .hero .wrap{grid-template-columns:1fr}
+    .portrait{width:min(240px,70%)}
+    .story,.people,.letters{grid-template-columns:1fr}
+    .road svg.path{display:none}
+    .stops{grid-template-columns:repeat(3,1fr);row-gap:26px}
+    .dot{width:76px;height:76px}
+    .detail,.visit{grid-template-columns:1fr}
+  }
+  @media (max-width:420px){.stops{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="demo">가상 업체 데모 · 시안 C · lifemap</div>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#" aria-label="한결세무회계 처음으로">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#b4532f"/><path d="M11 24c4-7 14-7 18 0" stroke="#fff6ea" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="20" cy="15" r="2.6" fill="#fff6ea"/></svg>
+      한결세무회계
+    </a>
+    <nav aria-label="주요 메뉴"><a href="#map">세금 지도</a><a href="#people">세무사</a><a href="#letters">사례</a><a href="#faq">질문</a><a href="#visit">오시는 길</a></nav>
+    <a class="pill" href="tel:0620000000">전화 상담</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <svg class="blob a" viewBox="0 0 200 200" aria-hidden="true"><path d="M43.8,-67.2C56.4,-59.7,66,-47.2,72.2,-33.2C78.4,-19.2,81.2,-3.7,78.1,10.6C75,24.9,66,38,55,49.6C44,61.2,31,71.3,16.1,75.7C1.2,80.1,-15.6,78.8,-30.6,72.6C-45.6,66.4,-58.8,55.3,-67.4,41.4C-76,27.5,-80,10.8,-77.9,-4.9C-75.8,-20.6,-67.6,-35.3,-56.2,-43.7C-44.8,-52.1,-30.2,-54.2,-17,-61.4C-3.8,-68.6,8,-80.9,21.1,-80.1C34.2,-79.3,31.2,-74.7,43.8,-67.2Z" transform="translate(100 100)"/></svg>
+    <svg class="blob b" viewBox="0 0 200 200" aria-hidden="true"><path d="M38.5,-58.9C49.2,-52.6,56.7,-41.1,63.4,-28.4C70.1,-15.7,76,-1.8,73.4,10.6C70.8,23,59.7,33.9,48,43.6C36.3,53.3,24,61.8,9.6,66.2C-4.8,70.6,-21.3,70.9,-34.4,64.4C-47.5,57.9,-57.2,44.6,-64.3,29.9C-71.4,15.2,-75.9,-0.9,-72.4,-15C-68.9,-29.1,-57.4,-41.2,-44.4,-47.1C-31.4,-53,-15.7,-52.7,-0.6,-51.8C14.5,-50.9,27.8,-65.2,38.5,-58.9Z" transform="translate(100 100)"/></svg>
+    <div class="wrap">
+      <div class="up">
+        <p class="eyebrow">광주 상무지구 한결세무회계</p>
+        <blockquote>“세금은 결과보다 <mark>과정을 이해할 때</mark> 덜 불안합니다.”</blockquote>
+        <cite>— 김한결, 대표 세무사 · 국세청 근무 7년</cite>
+        <div class="acts"><a class="pill" href="#map">내 상황의 세금 찾기</a><a class="ghost" href="https://pf.kakao.com/" target="_blank" rel="noopener">카카오톡으로 묻기</a></div>
+      </div>
+      <figure class="up">
+        <div class="portrait">
+          <svg viewBox="0 0 120 140" fill="none" stroke="#3b2a20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M60 22c14 0 22 10 22 24s-9 28-22 28-22-14-22-28 8-24 22-24z"/>
+            <path d="M40 44c4-10 12-14 22-14 9 0 16 4 20 12"/>
+            <path d="M52 52h4M66 52h4M56 62c3 2 6 2 9 0"/>
+            <path d="M24 132c2-26 16-42 36-42s34 16 36 42"/>
+            <path d="M50 92l10 14 10-14"/>
+            <path d="M84 116h18v16H84z" stroke="#b4532f"/><path d="M88 121h10M88 126h6" stroke="#b4532f"/>
+          </svg>
+        </div>
+        <figcaption class="portrait-cap">대표 세무사 일러스트 (실제 납품 시 사진으로 교체)</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="st-h">
+    <div class="wrap">
+      <h2 id="st-h" class="up">세금은 인생의 장면마다<br>다른 얼굴로 찾아옵니다</h2>
+      <p class="lead up">창업할 때, 직원을 뽑을 때, 집을 팔 때, 부모님을 보내 드릴 때. 한결세무회계는 그 장면을 먼저 듣고 필요한 세금을 차례로 설명합니다.</p>
+      <div class="story">
+        <div class="up"><span class="n">1</span><h3>먼저 듣습니다</h3><p>전화·카카오톡으로 상황을 듣고 필요한 자료만 안내합니다.</p></div>
+        <div class="up"><span class="n">2</span><h3>문서로 설명합니다</h3><p>예상 세액과 진행 방식, 보수를 문서로 정리해 드립니다.</p></div>
+        <div class="up"><span class="n">3</span><h3>다음을 챙깁니다</h3><p>신고 뒤에도 다음 일정과 점검 사항을 미리 알려 드립니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec map-sec" id="map" aria-labelledby="map-h">
+    <div class="wrap">
+      <h2 id="map-h" class="up">인생 이벤트별 세금 지도</h2>
+      <p class="lead up">지금 어떤 장면에 계신가요? 장면을 누르면 챙겨야 할 세금과 상담하기 좋은 때를 알려 드립니다.</p>
+      <div class="road up">
+        <svg class="path" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true"><path d="M40 30 C 160 -10, 240 70, 360 30 S 560 -10, 680 30 S 880 70, 960 30"/></svg>
+        <ul class="stops" role="tablist" aria-label="인생 이벤트" id="stops"></ul>
+      </div>
+      <div class="detail" role="tabpanel" id="detail" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="people" aria-labelledby="pp-h">
+    <div class="wrap">
+      <h2 id="pp-h" class="up">장면마다 맡는 사람이 있습니다</h2>
+      <div class="people">
+        <div class="person up"><div class="face"><svg viewBox="0 0 80 80" fill="none" stroke="#3b2a20" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="40" cy="32" r="16"/><path d="M14 74c3-16 13-24 26-24s23 8 26 24"/><path d="M34 31h3M44 31h3M35 39c3 2 7 2 10 0"/></svg></div><h3>김한결</h3><p class="role">대표 세무사 · 상속·증여, 법인</p><q>세금은 결과보다 과정을 이해할 때 덜 불안합니다.</q></div>
+        <div class="person up"><div class="face"><svg viewBox="0 0 80 80" fill="none" stroke="#3b2a20" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="40" cy="32" r="16"/><path d="M24 26c4-8 26-10 32 0"/><path d="M14 74c3-16 13-24 26-24s23 8 26 24"/><path d="M34 33h3M44 33h3M35 40c3 2 7 2 10 0"/></svg></div><h3>이서준</h3><p class="role">세무사 · 양도소득세, 부동산 임대</p><q>매도 전 한 번의 계산이 가장 큰 차이를 만듭니다.</q></div>
+        <div class="person up"><div class="face"><svg viewBox="0 0 80 80" fill="none" stroke="#3b2a20" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="40" cy="32" r="16"/><path d="M24 30c0-14 32-14 32 0M24 30c-2 8 0 14 2 16M56 30c2 8 0 14-2 16"/><path d="M14 74c3-16 13-24 26-24s23 8 26 24"/><path d="M34 33h3M44 33h3M35 40c3 2 7 2 10 0"/></svg></div><h3>박지원</h3><p class="role">세무사 · 기장대리, 스타트업 법인</p><q>사장님은 사업에, 숫자는 저희가 챙기겠습니다.</q></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="letters" aria-labelledby="lt-h" style="padding-top:0">
+    <div class="wrap">
+      <h2 id="lt-h" class="up">함께 지나온 장면들</h2>
+      <div class="letters">
+        <article class="letter up"><span class="tag">상속</span><h3>상가와 토지를 남기신 아버지</h3><p>평가 방식에 따라 세액 차이가 큰 상황이었습니다.</p><p>감정평가와 기준시가를 비교하고, 유족이 납부 계획을 세울 수 있도록 분납 일정까지 함께 정리했습니다.</p></article>
+        <article class="letter up"><span class="tag">직원 채용</span><h3>직원 다섯 명의 작은 식당</h3><p>입·퇴사가 잦아 원천세와 4대보험 신고가 자주 빠졌습니다.</p><p>급여 대장을 정리하고 매달 신고 일정을 알림으로 챙기도록 바꿨습니다.</p></article>
+        <article class="letter up"><span class="tag">첫 집</span><h3>첫 집을 산 서른 셋 직장인</h3><p>자금출처 소명 안내문을 받고 막막해하셨습니다.</p><p>급여·대출·가족 차입 흐름을 시기별로 정리해 소명서를 함께 작성했습니다.</p></article>
+        <article class="letter up"><span class="tag">프리랜서</span><h3>3년 동안 놓친 경비</h3><p>경비와 공제를 반영하지 못한 채 신고해 오셨습니다.</p><p>기한이 남은 연도를 확인하고 증빙을 모아 경정청구를 진행했습니다.</p></article>
+      </div>
+      <p class="note">실제 고객 정보가 아닌 유형별 예시이며, 결과는 개별 사실관계에 따라 달라집니다.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="fq-h" style="padding-top:0">
+    <div class="wrap">
+      <h2 id="fq-h" class="up">처음 연락하실 때 많이 물으세요</h2>
+      <div class="faq up">
+        <details><summary>상담 비용이 있나요?</summary><p>첫 상담에서는 상황을 듣고 진행 방식과 보수를 안내드립니다. 서류 검토가 필요한 심층 상담은 사전에 비용을 말씀드린 뒤 진행합니다.</p></details>
+        <details><summary>직접 방문하지 않아도 되나요?</summary><p>기장대리와 대부분의 신고는 홈택스 수임 동의와 자료 전송으로 비대면 진행이 가능합니다. 상속·조사 대응은 대면 상담을 권해 드립니다.</p></details>
+        <details><summary>다른 사무소에서 옮겨도 되나요?</summary><p>가능합니다. 이전 사무소의 신고 이력을 인계받아 누락된 부분이 없는지 먼저 점검합니다.</p></details>
+        <details><summary>신고 기한이 얼마 남지 않았어요.</summary><p>기한이 임박한 경우 전화로 먼저 연락 주세요. 필요한 최소 자료부터 안내해 드립니다.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit" aria-labelledby="vs-h" style="padding-top:0">
+    <div class="wrap">
+      <div class="visit up">
+        <div><h2 id="vs-h">편하게 들르세요</h2><p style="opacity:.9;margin-top:10px">상무역 3번 출구에서 걸어서 5분. 차로 오시면 지하주차장 1시간이 무료입니다.</p><a class="tel" href="tel:0620000000">062-000-0000</a></div>
+        <dl><dt>주소</dt><dd>광주광역시 서구 상무중앙로 000, 한결빌딩 7층</dd><dt>상담 시간</dt><dd>평일 09:00–18:00 · 점심 12:00–13:00</dd><dt>주말</dt><dd>신고 기간 사전 예약 상담</dd></dl>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>한결세무회계(가상) · 대표 김한결 · 사업자등록번호 000-00-00000<br>본 사이트는 홈페이지 시안 시연을 위한 가상 사무소 데모입니다.</footer>
+
+<script>
+document.documentElement.classList.add("js");
+const I={
+  start:'<path d="M8 40V20l16-12 16 12v20z"/><path d="M19 40V28h10v12"/>',
+  hire:'<circle cx="17" cy="16" r="6"/><circle cx="32" cy="18" r="5"/><path d="M6 40c1-9 6-14 11-14s10 5 11 14M28 40c1-7 3-11 7-11s6 4 7 11"/>',
+  corp:'<path d="M10 42V12h18v30M28 22h10v20"/><path d="M15 18h3M21 18h3M15 25h3M21 25h3M15 32h3M21 32h3"/>',
+  sell:'<path d="M8 26l16-14 16 14"/><path d="M12 22v18h24V22"/><path d="M30 8h8v8"/><path d="M38 8l-9 9"/>',
+  gift:'<rect x="9" y="18" width="30" height="22" rx="2"/><path d="M6 18h36M24 18v22"/><path d="M24 18c-4-8-12-8-12-3s8 3 12 3c4 0 12 2 12-3s-8-5-12 3"/>',
+  inherit:'<path d="M24 8c-8 6-12 12-12 18a12 12 0 0024 0c0-6-4-12-12-18z"/><path d="M24 22v14M19 30l5 6 5-6"/>'
+};
+const STOPS=[
+  ["start","창업","사업자등록 즈음","가게 문을 열 때","사업자등록과 함께 장부 방식, 간이·일반과세 선택이 시작됩니다. 처음 정한 방식이 다음 해 세금까지 이어집니다.","사업자등록 전후",[["부가가치세","간이·일반과세 선택, 1월·7월 확정신고"],["종합소득세","다음 해 5월, 장부 방식에 따라 경비 인정이 달라짐"],["사업용 계좌·카드","등록해 두면 경비 정리가 쉬워짐"]]],
+  ["hire","직원 채용","첫 직원을 뽑을 때","함께 일할 사람이 생길 때","급여를 주는 순간 매달 원천세와 4대보험 신고가 따라옵니다. 놓치면 가산세가 붙기 쉬운 단계입니다.","첫 급여 지급 전",[["원천세","매달 10일 신고·납부"],["4대보험","입·퇴사 신고"],["고용 관련 공제","요건에 따라 세액공제 검토"]]],
+  ["corp","법인 전환","매출이 커질 때","개인에서 법인으로","매출과 이익이 커지면 법인이 유리한지 비교해 볼 때입니다. 전환 방식에 따라 세금과 절차가 달라집니다.","결산 전 상담 권장",[["법인세","3월 말 신고 (12월 결산)"],["양도·취득 관련 세금","사업용 자산 이전 방식에 따라 달라짐"],["대표자 급여 설계","급여·배당 구조 점검"]]],
+  ["sell","집·땅 매도","팔기로 마음먹을 때","오래 지낸 집을 정리할 때","계약서를 쓰기 전에 계산해 보면 선택지가 보입니다. 비과세 요건과 시점이 가장 중요합니다.","계약 전",[["양도소득세","양도일이 속한 달 말일부터 2개월 내 예정신고"],["1세대 1주택 비과세","보유·거주 요건 확인"],["필요경비","취득·중개 비용 증빙 준비"]]],
+  ["gift","자녀 증여","도움을 주고 싶을 때","자녀에게 보탬이 되고 싶을 때","현금, 부동산, 부담부 증여 등 방식에 따라 세 부담이 크게 달라집니다. 10년 단위로 합산된다는 점도 함께 봐야 합니다.","증여 전",[["증여세","증여일이 속한 달 말일부터 3개월 내 신고"],["증여재산공제","10년 합산 기준 확인"],["자금출처","자녀의 취득 자금 흐름 정리"]]],
+  ["inherit","상속","가족을 보내 드릴 때","가족이 함께 정리해야 할 때","경황이 없는 시기라 기한을 놓치기 쉽습니다. 재산 파악부터 평가, 신고까지 순서대로 안내합니다.","상속 개시 후 가능한 빨리",[["상속세","상속개시일이 속한 달 말일부터 6개월 내 신고"],["재산 평가","부동산은 평가 방식에 따라 세액 차이"],["분납·연부연납","납부 계획 함께 설계"]]]
+];
+let cur=0;const stops=document.getElementById("stops"),detail=document.getElementById("detail");
+function draw(){
+  stops.innerHTML=STOPS.map(([k,t,s],i)=>`<li class="stop"><button role="tab" id="t${i}" aria-selected="${i===cur}" aria-controls="detail" tabindex="${i===cur?0:-1}"><span class="dot"><svg viewBox="0 0 48 48" aria-hidden="true">${I[k]}</svg></span><b>${t}</b><small>${s}</small></button></li>`).join("");
+  const [,,,h,p,w,list]=STOPS[cur];
+  detail.setAttribute("aria-labelledby","t"+cur);
+  detail.innerHTML=`<div><h3>${h}</h3><span class="when">상담하기 좋은 때 · ${w}</span><p>${p}</p></div><ul class="taxes">${list.map(([b,s])=>`<li><div><b>${b}</b><span>${s}</span></div></li>`).join("")}</ul>`;
+  stops.querySelectorAll("button").forEach((b,i)=>{b.onclick=()=>{cur=i;draw();stops.querySelectorAll("button")[i].focus()};
+    b.onkeydown=e=>{if(e.key==="ArrowRight"||e.key==="ArrowLeft"){e.preventDefault();cur=(cur+(e.key==="ArrowRight"?1:STOPS.length-1))%STOPS.length;draw();stops.querySelectorAll("button")[cur].focus()}}});
+}
+draw();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll(".up").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

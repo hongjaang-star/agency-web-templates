@@ -2,6 +2,19 @@
   "_doc": "status: wait | concepts | building | done | hold",
   "items": [
     {
+      "order": 0,
+      "slug": "pro-tax-office",
+      "name": "세무사무소 (trust 재디자인)",
+      "category": "pro",
+      "level": "L1",
+      "status": "concepts",
+      "concepts": [
+        "almanac",
+        "compass",
+        "lifemap"
+      ]
+    },
+    {
       "order": 1,
       "slug": "pro-law-firm",
       "name": "법률사무소",

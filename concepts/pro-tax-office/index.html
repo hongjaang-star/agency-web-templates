@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>세무사무소 시안 비교 — pro-tax-office</title>
+<style>
+  :root{--bg:#f7f7f5;--card:#fff;--text:#171717;--muted:#5e5e5a;--line:#e3e3df;--accent:#0b57d0}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+  .wrap{max-width:1180px;margin:0 auto;padding:40px 16px 64px}
+  h1{font-size:clamp(24px,3vw,32px);letter-spacing:-.02em}
+  .intro{color:var(--muted);margin-top:8px;max-width:46em}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+  .card{background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column}
+  .card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border-bottom:1px solid var(--line)}
+  .body{padding:18px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .card h2{font-size:20px}
+  .card h2 span{font-size:13px;color:var(--muted);font-weight:400;margin-left:6px}
+  .card p{color:var(--muted);font-size:15px}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:auto}
+  th,td{text-align:left;padding:6px 0;border-top:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-weight:400;width:34%}
+  .open{display:inline-block;margin-top:8px;color:#fff;background:var(--text);text-decoration:none;padding:11px 14px;text-align:center;font-weight:600}
+  .open:focus-visible,.open:hover{background:var(--accent);outline:none}
+  .prev{margin-top:36px;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+  @media (max-width:900px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>세무사무소 · 시안 3종</h1>
+  <p class="intro">가상 업체 "한결세무회계"(광주 상무지구) 재디자인 시안입니다. 기존 <code>trust</code>(swiss-grid · split-media · Cormorant+나눔명조 · navy·brass)와도, 서로 간에도 레이아웃·히어로·서체·색이 모두 다릅니다. 메인 1페이지만 퍼블리싱했습니다.</p>
+
+  <div class="grid">
+    <article class="card">
+      <img src="almanac/thumb.jpg" alt="시안 A almanac 첫 화면" loading="lazy">
+      <div class="body">
+        <h2>A · almanac <span>신문·연감 지면</span></h2>
+        <p>괘선과 큰 명조 한 문장으로 "정확함"을 보여 주는 지면형. 오늘 날짜 기준 다음 신고 기한 D-day 와 12개월 세무 연감이 시그니처.</p>
+        <table>
+          <tr><th>layout</th><td>editorial</td></tr>
+          <tr><th>hero</th><td>statement</td></tr>
+          <tr><th>typePair</th><td>Hahmlet + Pretendard</td></tr>
+          <tr><th>palette</th><td>paper·ink·vermilion</td></tr>
+          <tr><th>signature</th><td>세무 연감 (실시간 D-day)</td></tr>
+        </table>
+        <a class="open" href="almanac/">시안 A 열기</a>
+      </div>
+    </article>
+    <article class="card">
+      <img src="compass/thumb.jpg" alt="시안 B compass 첫 화면" loading="lazy">
+      <div class="body">
+        <h2>B · compass <span>좌우 분할 · 도구형</span></h2>
+        <p>왼쪽 고정 패널, 오른쪽 스크롤. 고객 유형과 궁금한 업무를 고르면 추천 업무·상담 시기·준비 서류 체크리스트가 바로 바뀌는 진단 도구가 시그니처.</p>
+        <table>
+          <tr><th>layout</th><td>split</td></tr>
+          <tr><th>hero</th><td>interactive</td></tr>
+          <tr><th>typePair</th><td>IBM Plex Sans KR + IBM Plex Mono</td></tr>
+          <tr><th>palette</th><td>chalk·forest·lime</td></tr>
+          <tr><th>signature</th><td>선택형 진단 → 서류 체크리스트</td></tr>
+        </table>
+        <a class="open" href="compass/">시안 B 열기</a>
+      </div>
+    </article>
+    <article class="card">
+      <img src="lifemap/thumb.jpg" alt="시안 C lifemap 첫 화면" loading="lazy">
+      <div class="body">
+        <h2>C · lifemap <span>이야기형 · 따뜻함</span></h2>
+        <p>대표 세무사의 한 문장으로 시작하는 긴 스크롤 이야기. 창업·채용·법인 전환·매도·증여·상속 장면별로 챙길 세금을 보여 주는 세금 지도가 시그니처.</p>
+        <table>
+          <tr><th>layout</th><td>story</td></tr>
+          <tr><th>hero</th><td>quote</td></tr>
+          <tr><th>typePair</th><td>Gowun Batang + Gowun Dodum</td></tr>
+          <tr><th>palette</th><td>sand·terracotta·cocoa</td></tr>
+          <tr><th>signature</th><td>인생 이벤트별 세금 지도</td></tr>
+        </table>
+        <a class="open" href="lifemap/">시안 C 열기</a>
+      </div>
+    </article>
+  </div>
+  <p class="prev">가상 업체 데모 · 썸네일은 시안 첫 화면(1280px). 선택 후 <code>/build-site pro-tax-office &lt;concept&gt;</code> 로 완성 사이트를 만듭니다. 선택되지 않은 시안은 디자인 라이브러리로 남깁니다.</p>
+</div>
+</body>
+</html>
