@@ -84,7 +84,7 @@ function extractSkeleton(el) {
 }
 
 // ── 캡처 ──
-const browser = await chromium.launch();
+const browser = await chromium.launch({...(process.platform === 'win32' ? {channel:'chrome'} : {})});
 const index = [];
 const sites = Object.entries(config.sites).filter(([key]) => !only || key === only);
 

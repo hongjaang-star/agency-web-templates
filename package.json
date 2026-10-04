@@ -8,7 +8,8 @@
     "test:editor": "node --test tests/editor-core.test.mjs",
     "test:editor:browser": "node tests/editor-browser.mjs",
     "build:agency": "node scripts/build-agency.mjs",
-    "test:agency:browser": "node tests/agency-browser.mjs"
+    "test:agency:browser": "node tests/agency-browser.mjs",
+    "test:interior:browser": "node tests/interior-browser.mjs"
   },
   "devDependencies": {
     "playwright": "1.56.1"

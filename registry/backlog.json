@@ -64,7 +64,11 @@
       "name": "인테리어·리모델링",
       "category": "space",
       "level": "L1",
-      "status": "wait"
+      "status": "done",
+      "variants": [
+        "forme"
+      ],
+      "targetVariants": 2
     },
     {
       "order": 4,

@@ -7,6 +7,8 @@ import { chromium } from 'playwright';
 import { renderAgency } from '../scripts/build-agency.mjs';
 
 const root = path.resolve('_site');
+const expected=JSON.parse(fs.readFileSync('registry/portfolio.json','utf8')).items;
+const total=expected.length;
 fs.mkdirSync(root, { recursive: true });
 fs.cpSync('agency/assets', path.join(root, 'assets'), { recursive: true });
 fs.writeFileSync(path.join(root, 'index.html'), renderAgency());
@@ -16,8 +18,7 @@ const server = http.createServer((request,response) => {
   if (!route.startsWith('/agency-web-templates/')) { response.writeHead(404).end(); return; }
   const relative = decodeURIComponent(route.slice('/agency-web-templates/'.length));
   let directory = root, file = relative;
-  const apps = fs.readdirSync('templates', { withFileTypes: true }).filter(d => d.isDirectory()).flatMap(slug => fs.readdirSync(path.join('templates', slug.name)).map(variant => slug.name + '/' + variant));
-  for (const app of apps) {
+  for (const app of expected.filter(item=>item.kind==='site').map(item=>item.path.replace(/\/$/,''))) {
     if (relative.startsWith(app + '/')) { directory=path.resolve('templates',app,'out'); file=relative.slice(app.length+1); }
   }
   if (relative.startsWith('concepts/')) { directory=path.resolve('concepts'); file=relative.slice(9); }
@@ -30,8 +31,6 @@ const origin='http://127.0.0.1:'+server.address().port;
 const browser=await chromium.launch({headless:true,...(process.platform==='win32'?{channel:'chrome'}:{})});
 const page=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'});
 const errors=[];page.on('pageerror',e=>errors.push(e.message));
-const expected=JSON.parse(fs.readFileSync('registry/portfolio.json','utf8')).items;
-const total=expected.length, count=(fn)=>expected.filter(fn).length;
 try {
   await page.goto(origin+'/agency-web-templates/',{waitUntil:'networkidle'});
   const home=page.locator('#page-home');
@@ -53,8 +52,10 @@ try {
     await portfolio.locator(`[data-portfolio-filter=${key}]`).click();
     assert.equal(await portfolio.locator('[data-portfolio-card]:visible').count(),count);
   };
-  for(const category of new Set(expected.map(i=>i.category))) await filter(category,count(i=>i.category===category));
-  await filter('site',count(i=>i.kind==='site')); await filter('concept',count(i=>i.kind==='concept')); await filter('all',total);
+  for(const key of [...new Set(expected.map(item=>item.category)),'site','concept']) {
+    await filter(key,expected.filter(item=>item.category===key||item.kind===key).length);
+  }
+  await filter('all',total);
   for(const item of expected) {
     const card=portfolio.locator(`[data-portfolio-card][data-category=${item.category}][data-kind=${item.kind}]`).filter({has:page.getByRole('heading',{name:item.name,exact:true})});
     const popupPromise=page.waitForEvent('popup');
@@ -74,8 +75,8 @@ try {
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   await page.locator('.menu-toggle').click(); assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'true');
   await page.locator('header nav [data-nav=portfolio]').click(); assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'false');
-  await filter('medical',count(i=>i.category==='medical'));
+  await filter('medical',1);
   if(process.env.AGENCY_SCREENSHOT_DIR) await page.screenshot({path:path.join(process.env.AGENCY_SCREENSHOT_DIR,'portfolio-mobile.png'),fullPage:true});
   assert.deepEqual(errors,[]);
-  console.log(`PASS: ${total} real thumbnails, category/status filters, 3-line summaries, ${total} real new-window links, hash/reload/back navigation and mobile layout.`);
+  console.log(`PASS: ${total} real thumbnails, category/status filters, 3-line summaries, actual new-window links, hash/reload/back navigation and mobile layout.`);
 } finally {await browser.close();await new Promise(resolve=>server.close(resolve));}
