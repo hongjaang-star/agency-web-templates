@@ -6,7 +6,7 @@ description: 업종 하나에 대해 서로 구조가 다른 메인 페이지 �
 # 시안 3개 만들기
 
 ## 입력
-업종 슬러그(registry/backlog.json), 규제 사전(rules/), 기존 디자인 지문(registry/sites.json)
+업종 슬러그(registry/backlog.json), 규제 사전(rules/), 기존 디자인 지문(registry/sites.json), 모듈 스타일 라이브러리(library/README.md)
 
 ## 절차
 1. design-diversity 스킬을 먼저 읽는다.

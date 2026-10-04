@@ -13,6 +13,7 @@ description: 시안이나 사이트를 디자인하기 전에 반드시 읽는�
 - 같은 대분류(pro, medical 등)의 기존 사이트와 `layout`+`hero`+`typePair` 조합이 같으면 안 된다.
 - `sectionOrder` 가 "hero, features, process, team, faq, cta" 공식과 같으면 다시 설계한다.
 - 공통 컴포넌트(PageHero, CtaBand 등)를 그대로 쓰지 않는다. 엔진(SEO, 데이터, 폼)만 공유한다.
+- 기존 화면 모듈은 `library/README.md`(종류별 캡처·사용 사이트·스타일 코드)에서 확인한다. 참고만 하고, 같은 종류의 모듈을 새로 만들 때는 기존과 다르게 설계한다.
 
 ## 레이아웃 원형 (layout)
 editorial(신문·매거진 지면), swiss-grid(엄격한 그리드, 큰 숫자), immersive(풀블리드 이미지·스크롤 연출),

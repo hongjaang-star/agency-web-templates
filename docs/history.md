@@ -9,8 +9,12 @@
 | 2026-10-03 | medical-dermatology 이미지 17장 등록 버전 배포 | GitHub Pages 배포 |
 | 2026-10-03 | 관리 시트 생성 | 등록 2, 배포 2 |
 | 2026-10-04 | 디자인 다양성 원칙, 시안 3개 방식, 모노레포 스타터 키트 | 이 저장소 |
+| 2026-10-04 | /migrate: 피부과·세무사무소를 templates/ 로 이관, 루트 워크플로 빌드 확인. SITE_URL 이중 경로·세무 플로팅 버튼 basePath 누락 수정, 데모 noindex 추가 | PR |
+| 2026-10-04 | 사이트 소스 분리 검사, 앱 내 site-template 스킬 제거, 모듈 스타일 라이브러리(library/, 33개 모듈 캡처·스타일 코드) | PR |
 
 ## 교훈
+- `NEXT_PUBLIC_SITE_URL` 은 도메인만 넣는다. 앱의 `absoluteUrl()` 이 SITE_URL + BASE_PATH 로 조합하므로 경로까지 넣으면 canonical·sitemap 이 이중 경로가 된다(기존 개별 저장소 배포에도 있던 문제).
+- 내부 링크는 `next/link` 로. 일반 `<a href="/...">` 에는 basePath 가 붙지 않는다.
 - PowerShell 5에서 `$ErrorActionPreference = "Stop"` 은 git·gh·npm 실패를 잡지 못한다. 외부 명령마다 `$LASTEXITCODE` 를 확인할 것. 반대로 stderr 를 `*>` 로 돌리면 정상 응답(예: Pages 409 "already enabled")도 중단 원인이 된다.
 - `gh auth login` 이 안 된 상태로 스크립트가 "완료"를 출력한 적이 있다. 결과는 반드시 저장소·Actions 상태로 확인한다.
 - 사용자 PC 의 로컬 Git 기록이 원격보다 뒤처질 수 있다. 원격 최신본에 로컬 파일을 덮어쓰는 방식이 안전했다.
