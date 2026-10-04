@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>시안 A · docket — 담연 법률사무소 (가상 업체 데모)</title>
+<!--
+  시안 A · docket (추천)
+  지문: layout=typographic · hero=ticker · typePair=Song Myung + Gothic A1 · palette=oxblood·cream·ink
+        imageTreatment=사진 없음, 초대형 타이포·괘선·사건번호 · motion=문구 띠 흐름·단계 전환 · signature=사건 흐름 타임라인
+  서체: Song Myung, Gothic A1 (Google Fonts, OFL). 이미지 없음.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700;800&family=Song+Myung&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#f5efe6;--cream-2:#ebe2d4;--ink:#151313;--ink-2:#4b4440;--ox:#6e1423;--ox-2:#8c1d2f;--line:rgba(21,19,19,.18);
+    --display:"Song Myung",serif;--sans:"Gothic A1",system-ui,sans-serif;--gut:clamp(16px,4vw,56px)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--cream);color:var(--ink);font:400 16px/1.75 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  a{color:inherit} button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  :focus-visible{outline:3px solid var(--ox);outline-offset:3px}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 var(--gut)}
+  .demo{background:var(--ox);color:#fff;font-size:12px;letter-spacing:.06em;text-align:center;padding:6px 12px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px var(--gut);border-bottom:1px solid var(--ink)}
+  .logo{font:400 26px/1 var(--display);text-decoration:none;display:flex;align-items:baseline;gap:10px}
+  .logo small{font:700 11px var(--sans);letter-spacing:.24em;color:var(--ox)}
+  nav{display:flex;gap:26px;font-size:15px;font-weight:500}
+  nav a{text-decoration:none;border-bottom:2px solid transparent;padding:4px 0}
+  nav a:hover{border-color:var(--ox)}
+  .call{background:var(--ink);color:var(--cream);text-decoration:none;padding:11px 18px;font-weight:700;white-space:nowrap}
+  .call:hover{background:var(--ox)}
+
+  /* hero: ticker + giant type */
+  .hero{padding:clamp(40px,6vw,80px) 0 0;border-bottom:1px solid var(--ink)}
+  .case-no{font:700 13px var(--sans);letter-spacing:.2em;color:var(--ox)}
+  .hero h1{font:400 clamp(48px,10vw,160px)/.98 var(--display);letter-spacing:-.04em;margin:18px 0 0}
+  .hero h1 span{color:var(--ox)}
+  .hero-row{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:end;margin-top:clamp(24px,4vw,48px);padding-bottom:clamp(32px,5vw,56px)}
+  .hero-row p{font-size:clamp(16px,1.5vw,19px);color:var(--ink-2);max-width:34em}
+  .acts{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:15px 22px;font-weight:700;text-decoration:none;border:1.5px solid var(--ink)}
+  .btn.solid{background:var(--ox);border-color:var(--ox);color:#fff}
+  .btn:hover{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+  .ticker{border-top:1px solid var(--ink);overflow:hidden;white-space:nowrap;background:var(--ink);color:var(--cream)}
+  .ticker-track{display:inline-flex;gap:48px;padding:16px 0;animation:tick 38s linear infinite;font:400 clamp(22px,2.6vw,34px) var(--display)}
+  .ticker-track span::after{content:"·";margin-left:48px;color:#c9727e}
+  .ticker:hover .ticker-track{animation-play-state:paused}
+  @keyframes tick{to{transform:translateX(-50%)}}
+
+  .sec{padding:clamp(64px,9vw,128px) 0;border-bottom:1px solid var(--ink)}
+  .eyebrow{font:700 13px var(--sans);letter-spacing:.2em;color:var(--ox)}
+  .sec h2{font:400 clamp(36px,5.6vw,80px)/1.08 var(--display);letter-spacing:-.03em;margin-top:12px}
+  .sec .lead{color:var(--ink-2);margin-top:16px;max-width:38em;font-size:17px}
+
+  /* areas as giant typographic list */
+  .areas{list-style:none;margin-top:40px;border-top:1px solid var(--ink)}
+  .areas li{border-bottom:1px solid var(--line)}
+  .areas a{display:grid;grid-template-columns:70px 1fr 1.1fr 40px;gap:20px;align-items:baseline;padding:22px 0;text-decoration:none;transition:background .2s,padding .2s}
+  .areas .n{font:700 13px var(--sans);color:var(--ox);letter-spacing:.1em}
+  .areas b{font:400 clamp(26px,3.4vw,46px)/1.1 var(--display);font-weight:400}
+  .areas em{font-style:normal;color:var(--ink-2);font-size:15px}
+  .areas .ar{font-size:22px;color:var(--ox);transition:transform .2s}
+  .areas a:hover{background:var(--cream-2);padding-left:14px}
+  .areas a:hover .ar{transform:translateX(6px)}
+
+  /* signature: case flow */
+  .flow-sec{background:var(--ink);color:var(--cream)}
+  .flow-sec .eyebrow{color:#e08a96}
+  .flow-sec .lead{color:#cfc5b8}
+  .tabs{display:flex;gap:8px;margin-top:36px;flex-wrap:wrap}
+  .tab{border:1.5px solid rgba(245,239,230,.4);padding:12px 20px;font-weight:700}
+  .tab[aria-selected="true"]{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+  .flow{list-style:none;margin-top:36px;display:grid;grid-template-columns:repeat(var(--n,6),1fr);border-top:2px solid var(--cream)}
+  .step{padding:22px 18px 26px 0;border-right:1px solid rgba(245,239,230,.2);position:relative;cursor:pointer;text-align:left}
+  .step+.step{padding-left:18px}
+  .step:last-child{border-right:0}
+  .step .k{font:700 12px var(--sans);letter-spacing:.14em;color:#e08a96}
+  .step b{display:block;font:400 clamp(22px,2.2vw,30px)/1.2 var(--display);margin:10px 0 6px}
+  .step small{font-size:13px;color:#b9ae9f}
+  .step::before{content:"";position:absolute;top:-7px;left:0;width:12px;height:12px;background:var(--cream);border-radius:50%}
+  .step+.step::before{left:18px}
+  .step[aria-pressed="true"]{background:rgba(245,239,230,.06)}
+  .step[aria-pressed="true"]::before{background:#e08a96;box-shadow:0 0 0 5px rgba(224,138,150,.3)}
+  .detail{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:28px;background:var(--cream);color:var(--ink);padding:clamp(22px,3vw,36px)}
+  .detail h3{font:400 30px/1.25 var(--display)}
+  .detail p{color:var(--ink-2);margin-top:10px}
+  .detail ul{list-style:none}
+  .detail li{padding:10px 0;border-bottom:1px solid var(--line);display:flex;gap:10px}
+  .detail li::before{content:"□";color:var(--ox);font-weight:700}
+  .flow-note{font-size:13px;color:#b9ae9f;margin-top:16px}
+
+  /* lawyers */
+  .lawyers{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:40px;border-top:1px solid var(--ink)}
+  .lawyer{padding:28px 24px 32px 0;border-right:1px solid var(--line)}
+  .lawyer+.lawyer{padding-left:24px}
+  .lawyer:last-child{border-right:0}
+  .mono{font:400 64px/1 var(--display);color:var(--ox)}
+  .lawyer h3{font:400 30px var(--display);margin-top:18px}
+  .lawyer .role{font-size:14px;font-weight:700;color:var(--ox)}
+  .lawyer p{color:var(--ink-2);font-size:15px;margin-top:10px}
+
+  /* cases */
+  .cases{display:grid;grid-template-columns:repeat(2,1fr);gap:0 48px;margin-top:40px}
+  .case{padding:26px 0;border-top:1px solid var(--ink)}
+  .case .tag{font:700 12px var(--sans);letter-spacing:.14em;color:var(--ox)}
+  .case h3{font:400 clamp(24px,2.4vw,32px)/1.3 var(--display);margin:8px 0 10px}
+  .case p{color:var(--ink-2);font-size:15px}
+  .note{font-size:13px;color:var(--ink-2);margin-top:20px}
+
+  /* faq */
+  .faq{margin-top:36px;max-width:900px;border-top:1px solid var(--ink)}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{list-style:none;cursor:pointer;padding:22px 0;display:flex;justify-content:space-between;gap:16px;font:400 clamp(20px,2vw,26px)/1.35 var(--display)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font:400 30px/1 var(--sans);color:var(--ox);transition:transform .2s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq p{padding:0 0 22px;color:var(--ink-2)}
+
+  /* visit */
+  .visit{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:end}
+  .visit .big{font:400 clamp(40px,6vw,88px)/1.05 var(--display);letter-spacing:-.03em}
+  .visit .big a{color:var(--ox);text-decoration:none}
+  .visit dl{font-size:15px}
+  .visit dt{font:700 12px var(--sans);letter-spacing:.16em;color:var(--ox);margin-top:16px}
+  .visit dt:first-child{margin-top:0}
+  footer{padding:28px var(--gut) 48px;font-size:13px;color:var(--ink-2);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+  .js .up{opacity:0;transform:translateY(18px);transition:opacity .8s,transform .8s}
+  .js .up.on{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.ticker-track{animation:none}.js .up{opacity:1;transform:none}*{transition:none!important}}
+
+  @media (max-width:960px){
+    nav{display:none}
+    .hero-row,.detail,.visit{grid-template-columns:1fr}
+    .acts{justify-content:flex-start}
+    .areas a{grid-template-columns:44px 1fr 28px}
+    .areas em{grid-column:2;grid-row:2}
+    .flow{grid-template-columns:1fr;border-top:0;border-left:2px solid var(--cream);margin-left:6px}
+    .step,.step+.step{padding:16px 0 16px 22px;border-right:0;border-bottom:1px solid rgba(245,239,230,.15)}
+    .step::before,.step+.step::before{top:22px;left:-7px}
+    .lawyers,.cases{grid-template-columns:1fr}
+    .lawyer,.lawyer+.lawyer{padding:24px 0;border-right:0;border-bottom:1px solid var(--line)}
+  }
+</style>
+</head>
+<body>
+<div class="demo">가상 업체 데모 · 시안 A · docket</div>
+<header>
+  <a class="logo" href="#" aria-label="담연 법률사무소 처음으로">담연 <small>LAW OFFICE</small></a>
+  <nav aria-label="주요 메뉴"><a href="#areas">업무분야</a><a href="#flow">사건 흐름</a><a href="#lawyers">변호사</a><a href="#cases">사례</a><a href="#visit">오시는 길</a></nav>
+  <a class="call" href="tel:0420000000">042-000-0000</a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="case-no">대전지방법원 앞 · 변호사 3인</p>
+      <h1>지금 어디쯤인지<br>먼저 <span>알려드립니다.</span></h1>
+      <div class="hero-row">
+        <p>소장을 받았을 때, 수사기관 연락을 받았을 때, 이혼을 결심했을 때. 담연 법률사무소는 앞으로 무슨 일이 어떤 순서로 일어나는지부터 설명합니다.</p>
+        <div class="acts"><a class="btn solid" href="tel:0420000000">전화 상담 예약 →</a><a class="btn" href="#flow">사건 흐름 보기</a></div>
+      </div>
+    </div>
+    <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+  </section>
+
+  <section class="sec" id="areas" aria-labelledby="areas-h">
+    <div class="wrap">
+      <p class="eyebrow up">AREAS OF PRACTICE</p>
+      <h2 id="areas-h" class="up">어떤 일을 겪고 계신가요</h2>
+      <ol class="areas up" id="areas-list"></ol>
+    </div>
+  </section>
+
+  <section class="sec flow-sec" id="flow" aria-labelledby="flow-h">
+    <div class="wrap">
+      <p class="eyebrow up">CASE FLOW</p>
+      <h2 id="flow-h" class="up">사건은 이렇게 흘러갑니다</h2>
+      <p class="lead up">사건 종류를 고르고 단계를 누르면, 그 단계에서 일어나는 일과 의뢰인이 준비할 것을 보여 드립니다.</p>
+      <div class="tabs" role="tablist" aria-label="사건 종류" id="tabs"></div>
+      <ol class="flow" id="flow-list"></ol>
+      <div class="detail" id="detail" aria-live="polite"></div>
+      <p class="flow-note">기간은 일반적인 예시이며 사건의 내용, 법원 사정, 상대방 대응에 따라 크게 달라질 수 있습니다.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="lawyers" aria-labelledby="law-h">
+    <div class="wrap">
+      <p class="eyebrow up">ATTORNEYS</p>
+      <h2 id="law-h" class="up">사건을 맡는 사람</h2>
+      <div class="lawyers up">
+        <article class="lawyer"><div class="mono" aria-hidden="true">尹</div><h3>윤서진</h3><p class="role">대표 변호사 · 주요 업무 이혼·가사, 상속</p><p>"결정은 의뢰인이 합니다. 저는 선택지와 그 결과를 끝까지 설명합니다."</p></article>
+        <article class="lawyer"><div class="mono" aria-hidden="true">姜</div><h3>강도윤</h3><p class="role">변호사 · 주요 업무 형사, 행정</p><p>"수사 첫날의 진술이 사건의 방향을 정합니다. 그날부터 함께합니다."</p></article>
+        <article class="lawyer"><div class="mono" aria-hidden="true">閔</div><h3>민하린</h3><p class="role">변호사 · 주요 업무 민사, 부동산·임대차, 기업 계약</p><p>"분쟁이 되기 전에 계약서 한 줄을 먼저 보는 일을 좋아합니다."</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="cases" aria-labelledby="case-h">
+    <div class="wrap">
+      <p class="eyebrow up">CASES</p>
+      <h2 id="case-h" class="up">함께 정리한 일들</h2>
+      <div class="cases up">
+        <article class="case"><p class="tag">임대차 · 2024가단0000 유형</p><h3>계약 만료 후 돌려받지 못한 전세보증금</h3><p>임차권등기명령으로 대항력을 유지한 뒤 보증금 반환 소송과 강제집행 절차를 순서대로 진행했습니다.</p></article>
+        <article class="case"><p class="tag">가사 · 재판이혼 유형</p><h3>자녀 양육과 재산분할이 함께 걸린 이혼</h3><p>양육 환경 자료를 정리해 면접교섭 일정까지 구체적으로 정하고, 재산분할 대상과 기여도를 표로 정리해 조정에 임했습니다.</p></article>
+        <article class="case"><p class="tag">형사 · 수사 단계 유형</p><h3>경찰 출석 요구를 받은 직장인</h3><p>출석 전 사실관계를 시간순으로 정리하고 조사에 동석해 진술의 일관성을 지켰습니다.</p></article>
+        <article class="case"><p class="tag">상속 · 유류분 유형</p><h3>한 자녀에게 집중된 생전 증여</h3><p>증여 시기와 가액 자료를 모아 유류분 산정표를 만들고 협의와 소송 중 선택지를 비교해 설명했습니다.</p></article>
+      </div>
+      <p class="note">실제 의뢰인 정보가 아닌 유형별 예시입니다. 결과는 사안의 사실관계와 증거에 따라 달라집니다.</p>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="faq-h">
+    <div class="wrap">
+      <p class="eyebrow up">BEFORE YOU CALL</p>
+      <h2 id="faq-h" class="up">상담 전에 많이 물으세요</h2>
+      <div class="faq up">
+        <details><summary>상담 비용은 어떻게 되나요?</summary><p>상담 방식과 시간에 따라 다르며, 예약 전화에서 미리 안내해 드립니다. 수임 시 보수는 사건 종류와 예상 절차를 설명한 뒤 서면 계약으로 정합니다.</p></details>
+        <details><summary>무엇을 가지고 가면 되나요?</summary><p>받은 서류(소장, 출석요구서, 내용증명 등), 계약서, 주고받은 메시지를 시간순으로 가져오시면 상담이 훨씬 정확해집니다.</p></details>
+        <details><summary>상담 내용은 비밀이 지켜지나요?</summary><p>변호사는 직무상 알게 된 비밀을 지킬 의무가 있습니다. 수임하지 않더라도 상담 내용은 외부에 공개되지 않습니다.</p></details>
+        <details><summary>대전 밖의 사건도 맡나요?</summary><p>전국 법원 사건을 수임할 수 있습니다. 출장이 필요한 경우 비용과 일정을 미리 안내합니다.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit" aria-labelledby="visit-h" style="border-bottom:0">
+    <div class="wrap">
+      <p class="eyebrow up" id="visit-h">VISIT</p>
+      <div class="visit up">
+        <p class="big">법원 정문에서<br>걸어서 3분.<br><a href="tel:0420000000">042-000-0000</a></p>
+        <dl>
+          <dt>주소</dt><dd>대전광역시 서구 둔산중로 000, 담연빌딩 5층</dd>
+          <dt>상담 시간</dt><dd>평일 09:00–18:00 · 야간·주말은 예약</dd>
+          <dt>주차</dt><dd>건물 지하주차장 (상담 고객 1시간)</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><span>담연 법률사무소(가상) · 대표 변호사 윤서진 · 광고책임변호사 윤서진</span><span>본 사이트는 홈페이지 시안 시연을 위한 가상 법률사무소 데모입니다.</span></footer>
+
+<script>
+document.documentElement.classList.add("js");
+const AREAS=[["이혼·가사","협의·재판이혼, 재산분할, 양육권·면접교섭"],["상속·유류분","상속재산 분할, 유류분 반환, 한정승인·상속포기"],["형사","수사 단계 조력, 공판 변호, 피해자 대리"],["민사·손해배상","대여금, 손해배상, 지급명령과 강제집행"],["부동산·임대차","전세보증금 반환, 명도, 매매계약 분쟁"],["기업 법무·계약","계약서 검토·작성, 거래처 분쟁, 내용증명"],["노동","부당해고, 임금·퇴직금 체불"],["행정","영업정지·인허가 처분 대응, 행정심판"]];
+document.getElementById("areas-list").innerHTML=AREAS.map(([t,d],i)=>`<li><a href="#flow"><span class="n">${String(i+1).padStart(2,"0")}</span><b>${t}</b><em>${d}</em><span class="ar" aria-hidden="true">→</span></a></li>`).join("");
+const tk=AREAS.map(a=>`<span>${a[0]}</span>`).join("");document.getElementById("ticker").innerHTML=tk+tk;
+
+const FLOWS={
+  "민사 소송":[["상담·검토","1~2주",["계약서·차용증 등 근거 서류","주고받은 메시지·통화 기록","상대방 인적 사항"],"사실관계와 증거를 보고 소송 외에 내용증명·지급명령 같은 더 빠른 방법이 있는지 먼저 검토합니다."],["소장 제출","1~2주",["청구 금액 계산 자료","증거 원본 보관"],"청구 취지와 원인을 정리해 소장을 내고, 필요하면 가압류로 상대방 재산을 먼저 묶어 둡니다."],["답변·준비서면","1~3개월",["상대방 주장에 대한 반박 자료"],"상대방의 답변서를 받고 서면으로 주장을 주고받으며 쟁점을 좁힙니다."],["변론·조정","3~6개월",["증인 연락처","추가 증거"],"법정에서 변론하고, 법원이 조정을 권하면 조건을 함께 따져 봅니다."],["판결","선고일",["판결문 확인"],"판결 내용을 설명하고 항소 여부와 기한(판결문 송달 후 2주)을 안내합니다."],["집행","판결 후",["상대방 재산 정보"],"상대방이 지급하지 않으면 재산명시·압류 등 강제집행을 진행합니다."]],
+  "형사 사건":[["연락 받음","당일",["출석요구서·문자","사건 관련 메모"],"수사기관의 연락을 받았다면 출석 전에 사실관계를 시간순으로 정리하는 것이 먼저입니다."],["수사 조사","수일~수주",["진술할 내용 정리","유리한 자료"],"조사에 동석해 진술의 취지가 정확히 기록되는지 확인합니다."],["검찰 처분","1~3개월",["합의 관련 자료","반성·생활 자료"],"기소·불기소 처분 전 의견서를 내고, 피해자와의 합의 여부를 함께 검토합니다."],["공판","1~6개월",["증인·증거 목록"],"기소되면 공판에서 증거와 법리를 다투고 양형 자료를 준비합니다."],["선고","선고일",["판결 내용 확인"],"선고 결과와 항소 기한(선고일로부터 7일)을 안내합니다."]],
+  "재판 이혼":[["상담·결심","1~2주",["혼인 기간 주요 사건 메모","재산 목록"],"협의이혼이 가능한지, 재판이 필요한지부터 함께 판단합니다."],["소장·가처분","2~4주",["가족관계증명서","재산 자료"],"이혼 소장을 내고 필요하면 양육비·재산 처분금지 사전처분을 신청합니다."],["가사조사","1~3개월",["양육 환경 자료"],"가사조사관 면담에 대비해 양육 계획과 생활 자료를 준비합니다."],["조정","2~4개월",["재산분할 희망안"],"조정에서 재산분할·양육·면접교섭 조건을 협의합니다. 여기서 끝나는 사건도 많습니다."],["판결","6개월~1년",["판결문 확인"],"조정이 되지 않으면 판결로 정하고, 이후 이혼신고 기한(확정 후 1개월)을 안내합니다."]]
+};
+let kind="민사 소송",cur=0;
+const tabs=document.getElementById("tabs"),list=document.getElementById("flow-list"),detail=document.getElementById("detail");
+function render(){
+  tabs.innerHTML=Object.keys(FLOWS).map(k=>`<button class="tab" role="tab" aria-selected="${k===kind}">${k}</button>`).join("");
+  tabs.querySelectorAll("button").forEach(b=>b.onclick=()=>{kind=b.textContent;cur=0;render()});
+  const f=FLOWS[kind];list.style.setProperty("--n",f.length);
+  list.innerHTML=f.map(([t,d],i)=>`<li><button class="step" aria-pressed="${i===cur}"><span class="k">STEP ${String(i+1).padStart(2,"0")}</span><b>${t}</b><small>${d}</small></button></li>`).join("");
+  list.querySelectorAll(".step").forEach((b,i)=>b.onclick=()=>{cur=i;render();list.querySelectorAll(".step")[i].focus()});
+  const [t,d,docs,desc]=f[cur];
+  detail.innerHTML=`<div><h3>${t}</h3><p>${desc}</p><p><b>일반적인 기간</b> · ${d}</p></div><div><p style="margin:0 0 6px;font-weight:700">이 단계에서 준비할 것</p><ul>${docs.map(x=>`<li>${x}</li>`).join("")}</ul></div>`;
+}
+render();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll(".up").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
