@@ -150,128 +150,143 @@
         }
       ]
     },
-    "pro-tax-office/trust": {
+    "pro-tax-office/almanac": {
       "modules": [
         {
-          "id": "top-banner",
-          "kind": "banner",
-          "label": "상단 공지 띠",
-          "page": "/",
-          "select": "body > div:has(+ header)",
-          "source": "src/components/TopBanner.tsx"
-        },
-        {
-          "id": "header",
+          "id": "masthead",
           "kind": "header",
-          "label": "헤더",
+          "label": "마스트헤드",
           "page": "/",
           "select": "body > header",
-          "source": "src/components/Header.tsx"
+          "source": "src/components/Masthead.tsx"
         },
         {
           "id": "home-hero",
           "kind": "hero",
-          "label": "히어로",
+          "label": "한 문장 히어로",
           "page": "/",
-          "select": "main > :nth-child(1)",
-          "source": "src/components/blocks/Hero.tsx"
+          "select": "main > section:nth-of-type(1)",
+          "source": "src/app/page.tsx"
         },
         {
-          "id": "home-stats",
-          "kind": "stats",
-          "label": "수치",
+          "id": "home-almanac",
+          "kind": "signature",
+          "label": "세무 연감 (D-day)",
           "page": "/",
-          "select": "main > :nth-child(2)",
-          "source": "src/components/blocks/Stats.tsx"
+          "select": "main > section:nth-of-type(2)",
+          "source": "src/components/Almanac.tsx"
         },
         {
-          "id": "home-services",
+          "id": "home-index",
           "kind": "services",
-          "label": "업무분야",
+          "label": "업무 색인",
           "page": "/",
-          "select": "main > :nth-child(3)",
-          "source": "src/components/blocks/Services.tsx"
+          "select": "main > section:nth-of-type(3)",
+          "source": "src/components/ServiceIndex.tsx"
         },
         {
-          "id": "home-clients",
-          "kind": "clients",
-          "label": "고객군",
+          "id": "home-column",
+          "kind": "intro",
+          "label": "대표 칼럼",
           "page": "/",
-          "select": "main > :nth-child(4)",
-          "source": "src/components/blocks/Clients.tsx"
-        },
-        {
-          "id": "home-process",
-          "kind": "process",
-          "label": "진행 절차",
-          "page": "/",
-          "select": "main > :nth-child(5)",
-          "source": "src/components/blocks/Process.tsx"
-        },
-        {
-          "id": "home-team",
-          "kind": "team",
-          "label": "구성원",
-          "page": "/",
-          "select": "main > :nth-child(6)",
-          "source": "src/components/blocks/Team.tsx"
+          "select": "main > section:nth-of-type(4)",
+          "source": "src/app/page.tsx"
         },
         {
           "id": "home-cases",
           "kind": "cases",
-          "label": "업무 사례",
+          "label": "사례 기사 단",
           "page": "/",
-          "select": "main > :nth-child(7)",
-          "source": "src/components/blocks/Cases.tsx"
+          "select": "main > section:nth-of-type(5)",
+          "source": "src/components/CaseArticles.tsx"
         },
         {
-          "id": "home-faq",
+          "id": "home-qa",
           "kind": "faq",
-          "label": "자주 묻는 질문",
+          "label": "묻고 답하기",
           "page": "/",
-          "select": "main > :nth-child(8)",
-          "source": "src/components/blocks/Faq.tsx"
+          "select": "main > section:nth-of-type(6)",
+          "source": "src/components/QandA.tsx"
         },
         {
           "id": "home-visit",
           "kind": "visit",
-          "label": "오시는 길",
+          "label": "찾아오는 길",
           "page": "/",
-          "select": "main > :nth-child(9)",
-          "source": "src/components/blocks/Visit.tsx"
+          "select": "main > section:nth-of-type(7)",
+          "source": "src/components/Visit.tsx"
         },
         {
-          "id": "page-hero",
+          "id": "folio",
           "kind": "page-hero",
-          "label": "서브페이지 상단",
+          "label": "서브페이지 머리 (폴리오)",
           "page": "/about/",
-          "select": "main > :first-child",
-          "source": "src/components/ui.tsx#PageHero"
+          "select": "main > section:nth-of-type(1)",
+          "source": "src/components/Folio.tsx"
         },
         {
-          "id": "cta-band",
+          "id": "about-principles",
+          "kind": "intro",
+          "label": "세 가지 약속",
+          "page": "/about/",
+          "select": "main > section:nth-of-type(2)",
+          "source": "src/app/about/page.tsx"
+        },
+        {
+          "id": "about-figures",
+          "kind": "stats",
+          "label": "현황 수치",
+          "page": "/about/",
+          "select": "main > section:nth-of-type(3)",
+          "source": "src/app/about/page.tsx"
+        },
+        {
+          "id": "about-bylines",
+          "kind": "team",
+          "label": "필진 (구성원)",
+          "page": "/about/",
+          "select": "main > section:nth-of-type(4)",
+          "source": "src/app/about/page.tsx"
+        },
+        {
+          "id": "about-steps",
+          "kind": "process",
+          "label": "진행 방식",
+          "page": "/about/",
+          "select": "main > section:nth-of-type(5)",
+          "source": "src/app/about/page.tsx"
+        },
+        {
+          "id": "calendar-ledger",
+          "kind": "signature",
+          "label": "열두 달 신고 일정표",
+          "page": "/calendar/",
+          "select": "main > section:nth-of-type(3)",
+          "source": "src/app/calendar/page.tsx"
+        },
+        {
+          "id": "service-article",
+          "kind": "services",
+          "label": "업무 상세 (기사형)",
+          "page": "/services/bookkeeping/",
+          "select": "main > .article",
+          "source": "src/app/services/[slug]/page.tsx"
+        },
+        {
+          "id": "contact-channels",
           "kind": "cta",
-          "label": "상담 유도 띠",
-          "page": "/cases/",
-          "select": "main > :last-child",
-          "source": "src/components/ui.tsx#CtaBand"
+          "label": "상담 방법",
+          "page": "/contact/",
+          "select": "main > section:nth-of-type(2)",
+          "source": "src/app/contact/page.tsx"
         },
         {
-          "id": "footer",
+          "id": "colophon",
           "kind": "footer",
-          "label": "푸터",
+          "label": "판권란 (푸터)",
           "page": "/",
           "select": "body > footer",
-          "source": "src/components/Footer.tsx"
-        },
-        {
-          "id": "floating-contact",
-          "kind": "floating",
-          "label": "고정 상담 버튼",
-          "page": "/",
-          "select": "body > aside",
-          "selectMobile": "body > nav",
-          "source": "src/components/FloatingContact.tsx"
+          "source": "src/components/Colophon.tsx"
         }
       ]
     }

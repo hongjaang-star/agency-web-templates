@@ -246,7 +246,7 @@ function writeIndexDoc(mods) {
     ...siteKeys.map((k) => {
       const i = siteInfo(k);
       const fp = i.fingerprint || {};
-      return `| [${i.name} · ${i.variant}](${k}/README.md) | ${[fp.layout, fp.hero, fp.palette].filter(Boolean).join(" / ")} | ${mods.filter((m) => m.site === k).length} |`;
+      return `| [${i.name} · ${i.variant}](${k}/README.md)${i.status === "retired" ? " (교체됨)" : ""} | ${[fp.layout, fp.hero, fp.palette].filter(Boolean).join(" / ")} | ${mods.filter((m) => m.site === k).length} |`;
     }),
     "",
     "## 종류별",
@@ -261,7 +261,7 @@ function writeIndexDoc(mods) {
         .map((m) => {
           const shot = m.shots.desktop || m.shots.mobile;
           const anchor = `${m.label} ${m.id}`.toLowerCase().replace(/[^\p{L}\p{N}\- ]/gu, "").replace(/ /g, "-");
-          return `| ${shot ? `<img src="${shot}" width="280">` : "—"} | [${m.label} \`${m.id}\`](${m.site}/README.md#${anchor}) | \`${m.site}\` |`;
+          return `| ${shot ? `<img src="${shot}" width="280">` : "—"} | [${m.label} \`${m.id}\`](${m.site}/README.md#${anchor}) | \`${m.site}\`${siteInfo(m.site).status === "retired" ? " (교체됨)" : ""} |`;
         }),
       "",
     ]),

@@ -1,0 +1,23 @@
+import type { MetadataRoute } from "next";
+
+export const dynamic = "force-static"; // 정적 export 용
+import { absoluteUrl } from "@/lib/config";
+import { services } from "@/data/services";
+
+// 페이지를 추가하면 여기에도 추가하세요. 업무 상세는 services.ts 에서 자동으로 들어옵니다.
+const staticPages: { path: string; priority: number; changeFrequency: "weekly" | "monthly" }[] = [
+  { path: "/", priority: 1, changeFrequency: "weekly" },
+  { path: "/services", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/calendar", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/about", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/cases", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/contact", priority: 0.7, changeFrequency: "monthly" },
+];
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
+  return [
+    ...staticPages.map((p) => ({ url: absoluteUrl(p.path), lastModified: now, changeFrequency: p.changeFrequency, priority: p.priority })),
+    ...services.map((s) => ({ url: absoluteUrl(`/services/${s.slug}`), lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 })),
+  ];
+}

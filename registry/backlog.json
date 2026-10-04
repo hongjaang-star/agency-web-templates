@@ -7,12 +7,13 @@
       "name": "세무사무소 (trust 재디자인)",
       "category": "pro",
       "level": "L1",
-      "status": "concepts",
+      "status": "done",
       "concepts": [
         "almanac",
         "compass",
         "lifemap"
-      ]
+      ],
+      "chosen": "almanac"
     },
     {
       "order": 1,

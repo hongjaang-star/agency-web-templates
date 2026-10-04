@@ -429,6 +429,227 @@
         "mobile": "pro-tax-office/trust/shots/floating-contact-mobile.jpg"
       },
       "code": "pro-tax-office/trust/code/floating-contact.html"
+    },
+    {
+      "id": "masthead",
+      "kind": "header",
+      "label": "마스트헤드",
+      "page": "/",
+      "source": "src/components/Masthead.tsx",
+      "site": "pro-tax-office/almanac",
+      "shots": {
+        "desktop": "pro-tax-office/almanac/shots/masthead-desktop.jpg",
+        "mobile": "pro-tax-office/almanac/shots/masthead-mobile.jpg"
+      },
+      "code": "pro-tax-office/almanac/code/masthead.html"
+    },
+    {
+      "id": "home-hero",
+      "kind": "hero",
+      "label": "한 문장 히어로",
+      "page": "/",
+      "source": "src/app/page.tsx",
+      "site": "pro-tax-office/almanac",
+      "shots": {
+        "desktop": "pro-tax-office/almanac/shots/home-hero-desktop.jpg",
+        "mobile": "pro-tax-office/almanac/shots/home-hero-mobile.jpg"
+      },
+      "code": "pro-tax-office/almanac/code/home-hero.html"
+    },
+    {
+      "id": "home-almanac",
+      "kind": "signature",
+      "label": "세무 연감 (D-day)",
+      "page": "/",
+      "source": "src/components/Almanac.tsx",
+      "site": "pro-tax-office/almanac",
+      "shots": {
+        "desktop": "pro-tax-office/almanac/shots/home-almanac-desktop.jpg",
+        "mobile": "pro-tax-office/almanac/shots/home-almanac-mobile.jpg"
+      },
+      "code": "pro-tax-office/almanac/code/home-almanac.html"
+    },
+    {
+      "id": "home-index",
+      "kind": "services",
+      "label": "업무 색인",
+      "page": "/",
+      "source": "src/components/ServiceIndex.tsx",
+      "site": "pro-tax-office/almanac",
+      "shots": {
+        "desktop": "pro-tax-office/almanac/shots/home-index-desktop.jpg",
+        "mobile": "pro-tax-office/almanac/shots/home-index-mobile.jpg"
+      },
+      "code": "pro-tax-office/almanac/code/home-index.html"
+    },
+    {
+      "id": "home-column",
+      "kind": "intro",
+      "label": "대표 칼럼",
+      "page": "/",
+      "source": "src/app/page.tsx",
+      "site": "pro-tax-office/almanac",
+      "shots": {
+        "desktop": "pro-tax-office/almanac/shots/home-column-desktop.jpg",
+        "mobile": "pro-tax-office/almanac/shots/home-column-mobile.jpg"
+      },
+      "code": "pro-tax-office/almanac/code/home-column.html"
+    },
+    {
+      "id": "home-cases",
+      "kind": "cases",
+      "label": "사례 기사 단",
+      "page": "/",
+      "source": "src/components/CaseArticles.tsx",
+      "site": "pro-tax-office/almanac",
+      "shots": {
+        "desktop": "pro-tax-office/almanac/shots/home-cases-desktop.jpg",
+        "mobile": "pro-tax-office/almanac/shots/home-cases-mobile.jpg"
+      },
+      "code": "pro-tax-office/almanac/code/home-cases.html"
+    },
+    {
+      "id": "home-qa",
+      "kind": "faq",
+      "label": "묻고 답하기",
+      "page": "/",
+      "source": "src/components/QandA.tsx",
+      "site": "pro-tax-office/almanac",
+      "shots": {
+        "desktop": "pro-tax-office/almanac/shots/home-qa-desktop.jpg",
+        "mobile": "pro-tax-office/almanac/shots/home-qa-mobile.jpg"
+      },
+      "code": "pro-tax-office/almanac/code/home-qa.html"
+    },
+    {
+      "id": "home-visit",
+      "kind": "visit",
+      "label": "찾아오는 길",
+      "page": "/",
+      "source": "src/components/Visit.tsx",
+      "site": "pro-tax-office/almanac",
+      "shots": {
+        "desktop": "pro-tax-office/almanac/shots/home-visit-desktop.jpg",
+        "mobile": "pro-tax-office/almanac/shots/home-visit-mobile.jpg"
+      },
+      "code": "pro-tax-office/almanac/code/home-visit.html"
+    },
+    {
+      "id": "folio",
+      "kind": "page-hero",
+      "label": "서브페이지 머리 (폴리오)",
+      "page": "/about/",
+      "source": "src/components/Folio.tsx",
+      "site": "pro-tax-office/almanac",
+      "shots": {
+        "desktop": "pro-tax-office/almanac/shots/folio-desktop.jpg",
+        "mobile": "pro-tax-office/almanac/shots/folio-mobile.jpg"
+      },
+      "code": "pro-tax-office/almanac/code/folio.html"
+    },
+    {
+      "id": "about-principles",
+      "kind": "intro",
+      "label": "세 가지 약속",
+      "page": "/about/",
+      "source": "src/app/about/page.tsx",
+      "site": "pro-tax-office/almanac",
+      "shots": {
+        "desktop": "pro-tax-office/almanac/shots/about-principles-desktop.jpg",
+        "mobile": "pro-tax-office/almanac/shots/about-principles-mobile.jpg"
+      },
+      "code": "pro-tax-office/almanac/code/about-principles.html"
+    },
+    {
+      "id": "about-figures",
+      "kind": "stats",
+      "label": "현황 수치",
+      "page": "/about/",
+      "source": "src/app/about/page.tsx",
+      "site": "pro-tax-office/almanac",
+      "shots": {
+        "desktop": "pro-tax-office/almanac/shots/about-figures-desktop.jpg",
+        "mobile": "pro-tax-office/almanac/shots/about-figures-mobile.jpg"
+      },
+      "code": "pro-tax-office/almanac/code/about-figures.html"
+    },
+    {
+      "id": "about-bylines",
+      "kind": "team",
+      "label": "필진 (구성원)",
+      "page": "/about/",
+      "source": "src/app/about/page.tsx",
+      "site": "pro-tax-office/almanac",
+      "shots": {
+        "desktop": "pro-tax-office/almanac/shots/about-bylines-desktop.jpg",
+        "mobile": "pro-tax-office/almanac/shots/about-bylines-mobile.jpg"
+      },
+      "code": "pro-tax-office/almanac/code/about-bylines.html"
+    },
+    {
+      "id": "about-steps",
+      "kind": "process",
+      "label": "진행 방식",
+      "page": "/about/",
+      "source": "src/app/about/page.tsx",
+      "site": "pro-tax-office/almanac",
+      "shots": {
+        "desktop": "pro-tax-office/almanac/shots/about-steps-desktop.jpg",
+        "mobile": "pro-tax-office/almanac/shots/about-steps-mobile.jpg"
+      },
+      "code": "pro-tax-office/almanac/code/about-steps.html"
+    },
+    {
+      "id": "calendar-ledger",
+      "kind": "signature",
+      "label": "열두 달 신고 일정표",
+      "page": "/calendar/",
+      "source": "src/app/calendar/page.tsx",
+      "site": "pro-tax-office/almanac",
+      "shots": {
+        "desktop": "pro-tax-office/almanac/shots/calendar-ledger-desktop.jpg",
+        "mobile": "pro-tax-office/almanac/shots/calendar-ledger-mobile.jpg"
+      },
+      "code": "pro-tax-office/almanac/code/calendar-ledger.html"
+    },
+    {
+      "id": "service-article",
+      "kind": "services",
+      "label": "업무 상세 (기사형)",
+      "page": "/services/bookkeeping/",
+      "source": "src/app/services/[slug]/page.tsx",
+      "site": "pro-tax-office/almanac",
+      "shots": {
+        "desktop": "pro-tax-office/almanac/shots/service-article-desktop.jpg",
+        "mobile": "pro-tax-office/almanac/shots/service-article-mobile.jpg"
+      },
+      "code": "pro-tax-office/almanac/code/service-article.html"
+    },
+    {
+      "id": "contact-channels",
+      "kind": "cta",
+      "label": "상담 방법",
+      "page": "/contact/",
+      "source": "src/app/contact/page.tsx",
+      "site": "pro-tax-office/almanac",
+      "shots": {
+        "desktop": "pro-tax-office/almanac/shots/contact-channels-desktop.jpg",
+        "mobile": "pro-tax-office/almanac/shots/contact-channels-mobile.jpg"
+      },
+      "code": "pro-tax-office/almanac/code/contact-channels.html"
+    },
+    {
+      "id": "colophon",
+      "kind": "footer",
+      "label": "판권란 (푸터)",
+      "page": "/",
+      "source": "src/components/Colophon.tsx",
+      "site": "pro-tax-office/almanac",
+      "shots": {
+        "desktop": "pro-tax-office/almanac/shots/colophon-desktop.jpg",
+        "mobile": "pro-tax-office/almanac/shots/colophon-mobile.jpg"
+      },
+      "code": "pro-tax-office/almanac/code/colophon.html"
     }
   ]
 }

@@ -1,6 +1,6 @@
 // 배포 루트 index.html 생성: 완성 사이트 + 시안 목록
 import fs from "node:fs";
-const sites = JSON.parse(fs.readFileSync("registry/sites.json", "utf8")).items;
+const sites = JSON.parse(fs.readFileSync("registry/sites.json", "utf8")).items.filter((s) => s.status !== "retired");
 const concepts = fs.existsSync("concepts") ? fs.readdirSync("concepts").filter((d) => fs.statSync(`concepts/${d}`).isDirectory()) : [];
 const li = (h, t, s) => `<li><a href="${h}">${t}</a><span>${s}</span></li>`;
 const html = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Agency Templates</title>
