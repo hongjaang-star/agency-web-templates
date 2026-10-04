@@ -306,3 +306,76 @@ img, svg { display: block; }
   .ledger tbody th { grid-row: span 3; }
   .ledger td.date { width: auto; }
 }
+
+
+/* ── 편집 이미지: 연감 지면 안의 사진판 ── */
+.editorial-visual {
+  margin: 0 0 clamp(28px, 4vw, 52px);
+  border-top: 2px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper-2);
+}
+.editorial-visual img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+  filter: saturate(.82) contrast(1.03);
+}
+.editorial-visual figcaption,
+.portrait-visual figcaption {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  padding: 10px 0 12px;
+  font-size: 12.5px;
+  color: var(--ink-2);
+  letter-spacing: .02em;
+}
+.editorial-visual figcaption span {
+  color: var(--red);
+  font-weight: 700;
+  letter-spacing: .14em;
+  white-space: nowrap;
+}
+.hero-visual { margin-top: clamp(30px, 4vw, 52px); }
+.hero-visual img { aspect-ratio: 16 / 6; }
+.service-visual,
+.cases-visual { max-width: 1080px; }
+.office-visual { margin-bottom: clamp(32px, 4vw, 48px); }
+.portrait-visual {
+  grid-column: 9 / span 2;
+  align-self: end;
+  border-top: 2px solid var(--ink);
+  padding-top: 10px;
+}
+.portrait-visual img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 1px solid var(--rule-soft);
+  background: var(--paper-2);
+}
+.portrait-visual figcaption {
+  display: block;
+  padding-top: 8px;
+  line-height: 1.45;
+}
+.column .byline { grid-column: 11 / span 2; }
+
+@media (max-width: 900px) {
+  .editorial-visual img { aspect-ratio: 16 / 9; }
+  .hero-visual img { aspect-ratio: 16 / 9; }
+  .portrait-visual, .column .byline { grid-column: 1 / -1; }
+  .portrait-visual { max-width: 300px; margin-top: 20px; }
+}
+@media (max-width: 560px) {
+  .editorial-visual figcaption {
+    display: block;
+    line-height: 1.5;
+  }
+  .editorial-visual figcaption span {
+    display: block;
+    margin-bottom: 3px;
+  }
+}
