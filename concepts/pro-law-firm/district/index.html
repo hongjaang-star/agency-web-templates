@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>시안 C · district — 담연 법률사무소 (가상 업체 데모)</title>
+<!--
+  시안 C · district
+  지문: layout=mosaic · hero=map · typePair=IBM Plex Sans KR 단독(굵기 대비) · palette=charcoal·ochre·paper
+        imageTreatment=사진 없음, SVG 약도·크기가 다른 카드 · motion=지도 경로 그리기 · signature=상황별 첫 48시간 가이드
+  서체: IBM Plex Sans KR (Google Fonts, OFL). 약도는 이 파일의 인라인 SVG(실제 지도 아님).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#f3f1ec;--card:#fff;--char:#22252a;--char-2:#575c63;--ochre:#c8901d;--ochre-ink:#8a5f05;--line:#dcd8cf;
+    --sans:"IBM Plex Sans KR",system-ui,sans-serif;--gut:clamp(16px,3.6vw,44px)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--char);font:400 16px/1.7 var(--sans);overflow-x:hidden}
+  a{color:inherit} button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  :focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 var(--gut)}
+  .demo{background:var(--char);color:#fff;font-size:12px;text-align:center;padding:6px}
+  header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px var(--gut)}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:18px}
+  .logo i{width:30px;height:30px;background:var(--ochre);display:grid;place-items:center;font-style:normal;color:var(--char);font-weight:700}
+  header nav{display:flex;gap:22px;font-size:15px}
+  header nav a{text-decoration:none}
+  .call{background:var(--char);color:#fff;text-decoration:none;padding:10px 16px;font-weight:600;border-radius:999px}
+
+  .hero{display:grid;grid-template-columns:1fr 1.1fr;gap:24px;padding:24px 0 56px;align-items:stretch}
+  .hero-copy{background:var(--char);color:#fff;padding:clamp(28px,4vw,52px);border-radius:28px;display:flex;flex-direction:column;justify-content:space-between;gap:28px}
+  .hero-copy small{color:var(--ochre);font-weight:600;letter-spacing:.06em}
+  .hero-copy h1{font:300 clamp(34px,4.6vw,60px)/1.18 var(--sans);letter-spacing:-.03em;margin-top:10px}
+  .hero-copy h1 b{font-weight:700;color:var(--ochre)}
+  .hero-copy p{color:#c8cbd0}
+  .hero-copy .acts{display:flex;gap:10px;flex-wrap:wrap}
+  .pill{padding:13px 20px;border-radius:999px;font-weight:600;text-decoration:none;background:var(--ochre);color:var(--char)}
+  .pill.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
+  .map{background:var(--card);border-radius:28px;padding:20px;position:relative;min-height:380px}
+  .map svg{width:100%;height:100%}
+  .map .road{stroke:#e3dfd5;stroke-width:22;fill:none;stroke-linecap:round}
+  .map .route{stroke:var(--ochre);stroke-width:5;fill:none;stroke-dasharray:10 8;stroke-linecap:round}
+  .js .map .route{stroke-dashoffset:400;animation:draw 2.4s ease forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  .map text{font:600 15px var(--sans);fill:var(--char)}
+  .map .muted{font-weight:400;font-size:13px;fill:var(--char-2)}
+  .map-badge{position:absolute;right:20px;bottom:20px;background:var(--char);color:#fff;border-radius:16px;padding:12px 16px;font-size:14px}
+  .map-badge b{color:var(--ochre);font-size:22px;display:block}
+
+  .sec{padding:clamp(48px,7vw,96px) 0}
+  .sec h2{font:700 clamp(26px,3vw,40px)/1.25 var(--sans);letter-spacing:-.02em}
+  .sec .sub{color:var(--char-2);margin-top:8px}
+  .mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:14px;margin-top:32px}
+  .tile{background:var(--card);border-radius:22px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;transition:transform .2s}
+  .tile:hover{transform:translateY(-3px)}
+  .tile b{font-size:20px}
+  .tile span{font-size:14px;color:var(--char-2)}
+  .tile.big{grid-column:span 2;grid-row:span 2;background:var(--ochre)}
+  .tile.big b{font-size:clamp(28px,3vw,40px)}
+  .tile.big span{color:#3a2a07}
+  .tile.wide{grid-column:span 2}
+  .tile.dark{background:var(--char);color:#fff}
+  .tile.dark span{color:#b9bdc3}
+
+  .guide{display:grid;grid-template-columns:300px 1fr;gap:14px;margin-top:32px}
+  .g-list{display:flex;flex-direction:column;gap:8px}
+  .g-btn{background:var(--card);border-radius:18px;padding:18px;text-align:left;font-weight:600}
+  .g-btn small{display:block;font-weight:400;font-size:13px;color:var(--char-2)}
+  .g-btn[aria-selected="true"]{background:var(--char);color:#fff}
+  .g-btn[aria-selected="true"] small{color:var(--ochre)}
+  .g-panel{background:var(--card);border-radius:22px;padding:clamp(22px,3vw,36px)}
+  .g-panel h3{font-size:24px}
+  .hours{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+  .hours div{border-top:4px solid var(--ochre);padding-top:12px}
+  .hours span{font:700 13px var(--sans);color:var(--ochre-ink)}
+  .hours p{font-size:15px;margin-top:6px}
+  .g-note{font-size:13px;color:var(--char-2);margin-top:18px}
+
+  .people{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}
+  .person{background:var(--card);border-radius:22px;padding:24px}
+  .person i{width:52px;height:52px;border-radius:50%;background:var(--paper);display:grid;place-items:center;font-style:normal;font-weight:700}
+  .person h3{margin-top:14px;font-size:20px}
+  .person p{font-size:14px;color:var(--char-2)}
+  .bottom{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .box{background:var(--card);border-radius:22px;padding:28px}
+  .box.dark{background:var(--char);color:#fff}
+  .box .tel{font-size:clamp(28px,3.4vw,42px);font-weight:700;color:var(--ochre);text-decoration:none}
+  .cases{list-style:none;margin-top:12px}
+  .cases li{padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .cases b{display:block}
+  footer{padding:28px var(--gut) 48px;font-size:13px;color:var(--char-2)}
+  @media (prefers-reduced-motion:reduce){.js .map .route{animation:none;stroke-dashoffset:0}*{transition:none!important}}
+  @media (max-width:900px){header nav{display:none}.hero,.guide,.bottom{grid-template-columns:1fr}.mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.people{grid-template-columns:1fr}.hours{grid-template-columns:1fr}}
+  @media (max-width:480px){.mosaic{grid-template-columns:1fr}.tile.big,.tile.wide{grid-column:span 1;grid-row:span 1}}
+</style>
+</head>
+<body>
+<div class="demo">가상 업체 데모 · 시안 C · district</div>
+<header><a class="logo" href="#"><i>담</i>담연 법률사무소</a><nav aria-label="주요 메뉴"><a href="#areas">업무</a><a href="#guide">48시간 가이드</a><a href="#people">변호사</a><a href="#visit">오시는 길</a></nav><a class="call" href="tel:0420000000">042-000-0000</a></header>
+<main class="wrap">
+  <section class="hero">
+    <div class="hero-copy">
+      <div><small>DUNSAN · DAEJEON</small><h1>법원 앞에서<br><b>3분</b>, 가까운<br>변호사 사무소</h1></div>
+      <p>대전지방법원과 검찰청이 모인 둔산 법조타운. 기일 전 마지막 확인도, 급한 서류 제출도 걸어서 처리합니다.</p>
+      <div class="acts"><a class="pill" href="tel:0420000000">전화 상담 예약</a><a class="pill ghost" href="#guide">급한 상황 가이드</a></div>
+    </div>
+    <div class="map" role="img" aria-label="담연 법률사무소에서 대전지방법원 정문까지 도보 약 3분 거리를 보여 주는 약도">
+      <svg viewBox="0 0 520 380" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <path class="road" d="M20 300 H500"/><path class="road" d="M150 20 V360"/><path class="road" d="M380 20 V360"/>
+        <rect x="40" y="70" width="90" height="70" rx="12" fill="#22252a"/><text x="85" y="160" text-anchor="middle">담연</text><text x="85" y="178" text-anchor="middle" class="muted">사무소 5층</text>
+        <rect x="400" y="60" width="100" height="90" rx="12" fill="#c8901d"/><text x="450" y="172" text-anchor="middle">대전지방법원</text>
+        <rect x="400" y="200" width="100" height="70" rx="12" fill="#e3dfd5"/><text x="450" y="290" text-anchor="middle" class="muted">대전지방검찰청</text>
+        <circle cx="260" cy="330" r="9" fill="#575c63"/><text x="260" y="360" text-anchor="middle" class="muted">버스 정류장</text>
+        <path class="route" d="M130 110 H150 V300 H380 V110 H400"/>
+      </svg>
+      <div class="map-badge">법원 정문까지<b>도보 약 3분</b></div>
+    </div>
+  </section>
+
+  <section class="sec" id="areas">
+    <h2>업무분야</h2><p class="sub">상황에 가까운 칸을 눌러 보세요.</p>
+    <div class="mosaic">
+      <a class="tile big" href="#guide"><b>이혼·가사</b><span>협의·재판이혼, 재산분할, 양육권·면접교섭</span></a>
+      <a class="tile" href="#guide"><b>형사</b><span>수사 조력, 공판</span></a>
+      <a class="tile dark" href="#guide"><b>부동산·임대차</b><span>보증금 반환, 명도</span></a>
+      <a class="tile wide" href="#guide"><b>상속·유류분</b><span>상속재산 분할, 유류분 반환, 한정승인</span></a>
+      <a class="tile" href="#guide"><b>민사</b><span>대여금, 손해배상</span></a>
+      <a class="tile" href="#guide"><b>기업 계약</b><span>계약서 검토</span></a>
+      <a class="tile dark" href="#guide"><b>노동</b><span>부당해고, 임금</span></a>
+      <a class="tile" href="#guide"><b>행정</b><span>영업정지 대응</span></a>
+    </div>
+  </section>
+
+  <section class="sec" id="guide">
+    <h2>급한 상황, 첫 48시간에 할 일</h2><p class="sub">상황을 고르면 지금·오늘·내일 할 일을 보여 드립니다.</p>
+    <div class="guide">
+      <div class="g-list" role="tablist" aria-label="상황" id="g-list"></div>
+      <div class="g-panel" role="tabpanel" id="g-panel" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="people">
+    <h2>변호사</h2>
+    <div class="people">
+      <div class="person"><i>윤</i><h3>윤서진</h3><p>대표 변호사 · 이혼·가사, 상속</p></div>
+      <div class="person"><i>강</i><h3>강도윤</h3><p>변호사 · 형사, 행정</p></div>
+      <div class="person"><i>민</i><h3>민하린</h3><p>변호사 · 민사, 부동산, 기업 계약</p></div>
+    </div>
+  </section>
+
+  <section class="sec bottom" id="visit">
+    <div class="box"><h2>유형별 사례</h2><ul class="cases"><li><b>전세보증금 반환</b>임차권등기명령 후 소송·강제집행 진행</li><li><b>경찰 출석 요구</b>사실관계 정리 후 조사 동석</li><li><b>재판이혼</b>양육 계획과 재산분할표로 조정</li></ul><p class="g-note">유형별 예시이며 결과는 사실관계에 따라 달라집니다.</p></div>
+    <div class="box dark"><h2>오시는 길</h2><p style="margin-top:12px">대전광역시 서구 둔산중로 000, 담연빌딩 5층</p><p style="color:#b9bdc3">평일 09:00–18:00 · 야간·주말 예약</p><a class="tel" href="tel:0420000000">042-000-0000</a></div>
+  </section>
+</main>
+<footer>담연 법률사무소(가상) · 대표 변호사 윤서진 · 광고책임변호사 윤서진 — 본 사이트는 홈페이지 시안 시연을 위한 가상 법률사무소 데모입니다.</footer>
+<script>
+document.documentElement.classList.add("js");
+const G=[
+ ["경찰에서 연락이 왔어요","출석 요구·조사 통지",["바로 출석 날짜를 확정하지 말고 사건명과 담당 부서를 메모하세요.","사건과 관련된 날짜·장소·사람을 시간순으로 적어 둡니다.","관련 메시지·사진을 지우지 말고 백업합니다."]],
+ ["소장을 받았어요","민사 소송 송달",["송달받은 날짜를 기록하세요. 답변서는 30일 안에 내야 합니다.","소장에 적힌 청구 금액과 이유를 확인합니다.","계약서·영수증 등 반박 자료를 모읍니다."]],
+ ["보증금을 못 받고 있어요","계약 만료·이사 예정",["이사 전이라면 임차권등기명령부터 검토하세요.","계약서·확정일자·전입신고 자료를 준비합니다.","내용증명으로 반환을 요청해 기록을 남깁니다."]],
+ ["해고 통보를 받았어요","부당해고·임금",["해고 사유와 날짜가 적힌 서면을 요청하세요.","근로계약서·급여 명세·출퇴근 기록을 모읍니다.","부당해고 구제신청은 해고일부터 3개월 안에 해야 합니다."]]
+];
+let g=0;const L=document.getElementById("g-list"),P=document.getElementById("g-panel");
+function draw(){L.innerHTML=G.map(([t,s],i)=>`<button class="g-btn" role="tab" aria-selected="${i===g}">${t}<small>${s}</small></button>`).join("");
+L.querySelectorAll("button").forEach((b,i)=>b.onclick=()=>{g=i;draw();L.querySelectorAll("button")[i].focus()});
+const [t,,steps]=G[g];P.innerHTML=`<h3>${t}</h3><div class="hours">${["지금","오늘 안에","내일까지"].map((h,i)=>`<div><span>${h}</span><p>${steps[i]}</p></div>`).join("")}</div><p class="g-note">일반적인 안내이며 구체적인 판단은 상담에서 사실관계를 확인한 뒤 드립니다.</p>`}
+draw();
+</script>
+</body>
+</html>

@@ -10,7 +10,7 @@
 - 빌드: `npm run build:agency` → `_site/index.html` 및 `_site/assets/`
 - 검증: `npm run test:agency:browser`
 
-홈과 포트폴리오 페이지에는 registry의 사례를 업종과 완성/시안 라벨로 묶어 표시한다. 현재 7개이며 업종 필터와 완성/시안 개수는 데이터에서 자동 생성한다. 썸네일·사이트 보기·에디터 링크는 `target="_blank"`와 `rel="noopener noreferrer"`로 새 창에 연결된다.
+홈과 포트폴리오 페이지에는 registry의 사례를 업종과 완성/시안 라벨로 묶어 표시한다. 현재 8개이며 업종 필터와 완성/시안 개수는 데이터에서 자동 생성한다. 썸네일·사이트 보기·에디터 링크는 `target="_blank"`와 `rel="noopener noreferrer"`로 새 창에 연결된다.
 
 내용은 HTML에 미리 렌더링되며 포트폴리오 데이터 요청이나 외부 DB가 필요 없다. `scripts/build-agency.mjs`가 `portfolio:home`과 `portfolio:listing` 구역을 registry 기준으로 생성한다. 업데이트 후 로컬 소스 HTML에도 반영하려면 저장소 루트에서 다음을 실행한다.
 

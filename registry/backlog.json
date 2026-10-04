@@ -37,7 +37,18 @@
       "name": "법률사무소",
       "category": "pro",
       "level": "L1",
-      "status": "wait"
+      "status": "done",
+      "concepts": [
+        "docket",
+        "quiet",
+        "district"
+      ],
+      "variants": [
+        "docket"
+      ],
+      "targetVariants": 2,
+      "chosen": "docket",
+      "chosenBy": "auto-recommended"
     },
     {
       "order": 2,
