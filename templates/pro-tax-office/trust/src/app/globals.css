@@ -102,6 +102,12 @@
 }
 
 /* Utilities */
+@media (width >= 768px) {
+  .md\:py-24 {
+    padding-block: calc(var(--spacing) * 4);
+  }
+}
+
 @utility container-page {
   width: 100%;
   max-width: 1280px;
