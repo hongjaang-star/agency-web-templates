@@ -23,11 +23,12 @@ jobs:
         run: |
           REPO=/${{ github.event.repository.name }}
           mkdir -p _site
+          # SITE_URL 은 도메인만. 앱의 absoluteUrl() 이 SITE_URL + BASE_PATH 로 조합한다
           for app in templates/*/*/; do
             [ -f "$app/package.json" ] || continue
             rel=${app#templates/}; rel=${rel%/}
             echo "::group::$rel"
-            (cd "$app" && npm ci && NEXT_PUBLIC_BASE_PATH="$REPO/$rel" NEXT_PUBLIC_SITE_URL="https://${{ github.repository_owner }}.github.io$REPO/$rel" npm run build)
+            (cd "$app" && npm ci && NEXT_PUBLIC_NOINDEX=1 NEXT_PUBLIC_BASE_PATH="$REPO/$rel" NEXT_PUBLIC_SITE_URL="https://${{ github.repository_owner }}.github.io" npm run build)
             mkdir -p "_site/$rel" && cp -r "$app/out/." "_site/$rel/"
             echo "::endgroup::"
           done
