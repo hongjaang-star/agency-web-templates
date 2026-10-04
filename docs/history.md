@@ -18,6 +18,7 @@
 | 2026-10-04 | pro-tax-office 재디자인 시안 3개(almanac·compass·lifemap), research/pro-tax-office.md | PR |
 | 2026-10-04 | 사이트 소스 분리 검사, 앱 내 site-template 스킬 제거, 모듈 스타일 라이브러리(library/, 33개 모듈 캡처·스타일 코드) | PR |
 | 2026-10-04 | 유형·변형 관리 방법(plan 07), trust 복원, registry role·type 필드, 배포 목록 업종별 묶음, 관리 시트 유형·역할 열 | PR |
+| 2026-10-04 | pro-law-firm 시안 3개(docket·quiet·district), research/pro-law-firm.md. 추천 docket | PR |
 
 ## 교훈
 2026-10-04: trust 다크 골드 개정, AI 세무사 프로필 3장, 카드 hover/focus 개선. lint·정적 빌드 통과, 360px 가로 넘침 없음.
