@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="t d">
+<title id="t">세무 상담 사례 장면</title><desc id="d">고객과 세무 전문가가 서류를 사이에 두고 상담하는 장면을 절제된 편집 일러스트로 표현</desc>
+<rect width="1200" height="760" fill="#f4efe4"/><rect x="30" y="30" width="1140" height="700" fill="none" stroke="#1d1b18" stroke-width="3"/>
+<rect x="72" y="74" width="1056" height="196" fill="#ebe4d4"/><path d="M92 112h450M92 152h330M92 192h410" stroke="#1d1b18" stroke-width="5" opacity=".25"/><circle cx="1040" cy="170" r="56" fill="#c2361f"/>
+<circle cx="340" cy="388" r="78" fill="#d4c3aa" stroke="#1d1b18" stroke-width="4"/><path d="M273 369c17-59 98-75 137-28-42-13-86-6-137 28z" fill="#1d1b18"/><path d="M230 652c19-135 60-202 110-202 57 0 105 77 124 202" fill="#272622"/>
+<circle cx="852" cy="385" r="78" fill="#d6c7af" stroke="#1d1b18" stroke-width="4"/><path d="M787 360c15-53 87-74 129-31-31-8-85-5-129 31z" fill="#1d1b18"/><path d="M744 652c18-132 59-198 108-198 57 0 107 76 126 198" fill="#ebe4d4" stroke="#1d1b18" stroke-width="4"/>
+<rect x="398" y="540" width="408" height="120" fill="#ebe4d4" stroke="#1d1b18" stroke-width="4"/><path d="M440 572h310M440 603h210M440 632h270" stroke="#1d1b18" stroke-width="4"/>
+<rect x="512" y="500" width="180" height="54" fill="#c2361f"/><path d="M542 518h120M542 536h86" stroke="#f4efe4" stroke-width="4"/>
+<path d="M120 688h960" stroke="#1d1b18" stroke-width="5"/><path d="M596 306v124M534 368h124" stroke="#c2361f" stroke-width="9" opacity=".8"/>
+</svg>
