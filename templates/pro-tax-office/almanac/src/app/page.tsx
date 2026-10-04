@@ -12,6 +12,8 @@ import { home, site } from "@/data/site";
 import { absoluteUrl } from "@/lib/config";
 import { faqSchema } from "@/lib/schema";
 import { OG_IMAGE } from "@/lib/seo";
+import EditorialBackdrop from "@/components/EditorialBackdrop";
+import { editorialArt } from "@/data/editorial-art";
 
 export const metadata: Metadata = {
   alternates: { canonical: absoluteUrl("/") },
@@ -26,6 +28,7 @@ export default function Home() {
   return (
     <>
       <section className="hero">
+        <EditorialBackdrop src={editorialArt.hero} />
         <div className="wrap">
           <p className="kicker">{home.kicker}</p>
           <h1>
