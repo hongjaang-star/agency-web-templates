@@ -1,6 +1,6 @@
 # pro-tax-office / trust — 세무사무소 홈페이지 템플릿
 
-가상 사무소 "한결세무회계" 데모. Next.js 정적 export, 테마 프리셋 `trust`(네이비 + 브라스), 레벨 L1(외부 링크 CTA).
+가상 사무소 "한결세무회계" 데모. Next.js 정적 export, 팔레트 네이비 + 브라스, 레벨 L1(외부 링크 CTA).
 
 ```bash
 npm install
@@ -15,7 +15,7 @@ src/
 ├─ app/            /, /about, /services, /services/[slug] (8개), /cases, /contact, sitemap·robots·og.png
 ├─ components/
 │  ├─ blocks/      메인 섹션 9개 (hero, stats, services, clients, process, team, cases, faq, visit)
-│  └─ *.tsx        헤더·푸터·배너·플로팅 버튼 (업종 무관, data 에서 문구를 읽음)
+│  └─ *.tsx        헤더·푸터·배너·플로팅 버튼 (문구는 data 에서 읽음)
 ├─ data/
 │  ├─ site.ts      ★ 사무소 정보, 업종 설정, 섹션 순서, 메뉴, CTA·배너 문구, 브랜드 색
 │  ├─ services.ts  ★ 업무분야 (메뉴·목록·상세·sitemap 자동 생성)
@@ -28,6 +28,10 @@ research/          리서치 카드
 ## 배포
 `.env.example` → `.env.production.local` 복사 후 `NEXT_PUBLIC_BASE_PATH`, `NEXT_PUBLIC_SITE_URL` 입력 → `npm run build` → `out/` 업로드.
 
-## medical-dermatology 대비 공통화한 부분
-헤더 메가메뉴(services.ts), 플로팅 상담 버튼(channels), 상단 배너·CTA(site.banner, site.cta), 푸터 고지(site.footerNotice),
-공유 이미지·매니페스트 색상(brandColors), 구조화 데이터(orgSchema·serviceSchema·faqSchema). 모노레포 이관 시 packages/core 로 올릴 대상입니다.
+## 독립 앱 규칙 (모노레포)
+
+이 앱은 `agency-web-templates` 모노레포 안의 독립 앱입니다. 다른 사이트와 소스를 공유하지 않습니다.
+
+- 다른 앱(`templates/*/*`)이나 `library/` 를 import 하지 않는다. 위반하면 배포 전 `scripts/check-isolation.mjs` 가 실패한다.
+- 이 앱의 컴포넌트를 다른 사이트의 출발점으로 복사하지 않는다. 화면 모듈은 `library/pro-tax-office/trust/` 에 캡처와 스타일 코드로만 기록되어 있다.
+- 빌드·배포는 루트 `.github/workflows/deploy.yml` 이 맡는다. 주소: https://hongjaang-star.github.io/agency-web-templates/pro-tax-office/trust/

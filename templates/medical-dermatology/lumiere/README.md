@@ -31,7 +31,6 @@ src/
 ├─ data/           ★ 병원 정보 · 업종 설정 · 섹션 순서 · 진료과목 · 의료진 (콘텐츠는 여기서만 수정)
 └─ lib/            주소 설정 · SEO · 구조화 데이터 (업종 무관 공통 코드)
 public/            영상 · 이미지
-skills/            사이트 생성 스킬 (SKILL.md, 리서치 카드 양식)
 research/          업종별 리서치 카드
 docs/              인수인계서 (handover.html)
 ```
@@ -39,29 +38,17 @@ docs/              인수인계서 (handover.html)
 ## 배포 전 확인
 
 - `.env.example` 을 `.env.production.local` 로 복사하고 값 입력
-  - `NEXT_PUBLIC_BASE_PATH`: 도메인 루트 배포는 비움, 데모 서버는 `/medical-dermatology/lumiere`
-  - `NEXT_PUBLIC_SITE_URL`: 실제 도메인 (canonical · sitemap · 공유 이미지 주소)
+  - `NEXT_PUBLIC_BASE_PATH`: 도메인 루트 배포는 비움, 데모 서버는 `/agency-web-templates/medical-dermatology/lumiere`
+  - `NEXT_PUBLIC_SITE_URL`: 실제 도메인만, 경로 없이 (canonical · sitemap · 공유 이미지 주소)
 - `npm run build` 후 `out/` 폴더 안의 파일 전체를 호스팅에 업로드
 - 가상 데이터, 샘플 이미지를 실제 정보·사진으로 교체
 
 자세한 유지보수 방법은 [`docs/handover.html`](docs/handover.html) 을 참고하세요.
 
-## 템플릿으로 재사용하기
+## 독립 앱 규칙 (모노레포)
 
-- 메인 섹션 순서 변경: `src/data/site.ts` 의 `homeSections` 배열만 수정
-- 같은 업종 다른 병원: `src/data/` 와 `public/images/` 교체
-- 다른 업종: `industry` 설정(schema.org 타입, 전문가 호칭) 교체 + 필요한 블록 추가
-- 디자인 변형: `src/app/globals.css` 의 `@theme` 토큰 교체
-- 자세한 절차와 QA 체크리스트: [`skills/site-template/SKILL.md`](skills/site-template/SKILL.md)
+이 앱은 `agency-web-templates` 모노레포 안의 독립 앱입니다. 다른 사이트와 소스를 공유하지 않습니다.
 
-## 모노레포 이관 계획
-
-업종이 3개 이상 쌓이면 `agency-web-templates` 저장소로 합치고, 공통 코드를 패키지로 분리합니다.
-
-```
-agency-web-templates/
-├─ packages/core      # lib/, Header·Footer·Logo·ui, JsonLd
-├─ packages/blocks    # components/blocks (업종 공통 블록)
-├─ templates/medical-dermatology/lumiere   # ← 이 저장소
-└─ skills/
-```
+- 다른 앱(`templates/*/*`)이나 `library/` 를 import 하지 않는다. 위반하면 배포 전 `scripts/check-isolation.mjs` 가 실패한다.
+- 이 앱의 컴포넌트를 다른 사이트의 출발점으로 복사하지 않는다. 화면 모듈은 `library/medical-dermatology/lumiere/` 에 캡처와 스타일 코드로만 기록되어 있다.
+- 빌드·배포는 루트 `.github/workflows/deploy.yml` 이 맡는다. 주소: https://hongjaang-star.github.io/agency-web-templates/medical-dermatology/lumiere/

@@ -1,0 +1,434 @@
+{
+  "_doc": "npm run library 로 생성. 직접 고치지 말 것.",
+  "modules": [
+    {
+      "id": "top-banner",
+      "kind": "banner",
+      "label": "상단 공지 띠",
+      "page": "/",
+      "source": "src/components/TopBanner.tsx",
+      "site": "medical-dermatology/lumiere",
+      "shots": {
+        "desktop": "medical-dermatology/lumiere/shots/top-banner-desktop.jpg",
+        "mobile": "medical-dermatology/lumiere/shots/top-banner-mobile.jpg"
+      },
+      "code": "medical-dermatology/lumiere/code/top-banner.html"
+    },
+    {
+      "id": "header",
+      "kind": "header",
+      "label": "헤더",
+      "page": "/",
+      "source": "src/components/Header.tsx",
+      "site": "medical-dermatology/lumiere",
+      "shots": {
+        "desktop": "medical-dermatology/lumiere/shots/header-desktop.jpg",
+        "mobile": "medical-dermatology/lumiere/shots/header-mobile.jpg"
+      },
+      "code": "medical-dermatology/lumiere/code/header.html"
+    },
+    {
+      "id": "home-hero",
+      "kind": "hero",
+      "label": "히어로",
+      "page": "/",
+      "source": "src/components/blocks/Hero.tsx",
+      "site": "medical-dermatology/lumiere",
+      "shots": {
+        "desktop": "medical-dermatology/lumiere/shots/home-hero-desktop.jpg",
+        "mobile": "medical-dermatology/lumiere/shots/home-hero-mobile.jpg"
+      },
+      "code": "medical-dermatology/lumiere/code/home-hero.html"
+    },
+    {
+      "id": "home-promise",
+      "kind": "intro",
+      "label": "약속·소개",
+      "page": "/",
+      "source": "src/components/blocks/PromiseSection.tsx",
+      "site": "medical-dermatology/lumiere",
+      "shots": {
+        "desktop": "medical-dermatology/lumiere/shots/home-promise-desktop.jpg",
+        "mobile": "medical-dermatology/lumiere/shots/home-promise-mobile.jpg"
+      },
+      "code": "medical-dermatology/lumiere/code/home-promise.html"
+    },
+    {
+      "id": "home-concerns",
+      "kind": "finder",
+      "label": "고민별 찾기",
+      "page": "/",
+      "source": "src/components/blocks/Concerns.tsx",
+      "site": "medical-dermatology/lumiere",
+      "shots": {
+        "desktop": "medical-dermatology/lumiere/shots/home-concerns-desktop.jpg",
+        "mobile": "medical-dermatology/lumiere/shots/home-concerns-mobile.jpg"
+      },
+      "code": "medical-dermatology/lumiere/code/home-concerns.html"
+    },
+    {
+      "id": "home-treatments",
+      "kind": "services",
+      "label": "시술 목록",
+      "page": "/",
+      "source": "src/components/blocks/Treatments.tsx",
+      "site": "medical-dermatology/lumiere",
+      "shots": {
+        "desktop": "medical-dermatology/lumiere/shots/home-treatments-desktop.jpg",
+        "mobile": "medical-dermatology/lumiere/shots/home-treatments-mobile.jpg"
+      },
+      "code": "medical-dermatology/lumiere/code/home-treatments.html"
+    },
+    {
+      "id": "home-signature",
+      "kind": "signature",
+      "label": "시그니처",
+      "page": "/",
+      "source": "src/components/blocks/Signature.tsx",
+      "site": "medical-dermatology/lumiere",
+      "shots": {
+        "desktop": "medical-dermatology/lumiere/shots/home-signature-desktop.jpg",
+        "mobile": "medical-dermatology/lumiere/shots/home-signature-mobile.jpg"
+      },
+      "code": "medical-dermatology/lumiere/code/home-signature.html"
+    },
+    {
+      "id": "home-doctors",
+      "kind": "team",
+      "label": "의료진",
+      "page": "/",
+      "source": "src/components/blocks/Doctors.tsx",
+      "site": "medical-dermatology/lumiere",
+      "shots": {
+        "desktop": "medical-dermatology/lumiere/shots/home-doctors-desktop.jpg",
+        "mobile": "medical-dermatology/lumiere/shots/home-doctors-mobile.jpg"
+      },
+      "code": "medical-dermatology/lumiere/code/home-doctors.html"
+    },
+    {
+      "id": "home-process",
+      "kind": "process",
+      "label": "진행 절차",
+      "page": "/",
+      "source": "src/components/blocks/Process.tsx",
+      "site": "medical-dermatology/lumiere",
+      "shots": {
+        "desktop": "medical-dermatology/lumiere/shots/home-process-desktop.jpg",
+        "mobile": "medical-dermatology/lumiere/shots/home-process-mobile.jpg"
+      },
+      "code": "medical-dermatology/lumiere/code/home-process.html"
+    },
+    {
+      "id": "home-space",
+      "kind": "gallery",
+      "label": "공간 갤러리",
+      "page": "/",
+      "source": "src/components/blocks/Space.tsx",
+      "site": "medical-dermatology/lumiere",
+      "shots": {
+        "desktop": "medical-dermatology/lumiere/shots/home-space-desktop.jpg",
+        "mobile": "medical-dermatology/lumiere/shots/home-space-mobile.jpg"
+      },
+      "code": "medical-dermatology/lumiere/code/home-space.html"
+    },
+    {
+      "id": "home-equipment",
+      "kind": "gallery",
+      "label": "장비 스트립",
+      "page": "/",
+      "source": "src/components/blocks/EquipmentStrip.tsx",
+      "site": "medical-dermatology/lumiere",
+      "shots": {
+        "desktop": "medical-dermatology/lumiere/shots/home-equipment-desktop.jpg",
+        "mobile": "medical-dermatology/lumiere/shots/home-equipment-mobile.jpg"
+      },
+      "code": "medical-dermatology/lumiere/code/home-equipment.html"
+    },
+    {
+      "id": "home-events",
+      "kind": "promo",
+      "label": "이벤트",
+      "page": "/",
+      "source": "src/components/blocks/Events.tsx",
+      "site": "medical-dermatology/lumiere",
+      "shots": {
+        "desktop": "medical-dermatology/lumiere/shots/home-events-desktop.jpg",
+        "mobile": "medical-dermatology/lumiere/shots/home-events-mobile.jpg"
+      },
+      "code": "medical-dermatology/lumiere/code/home-events.html"
+    },
+    {
+      "id": "home-faq",
+      "kind": "faq",
+      "label": "자주 묻는 질문",
+      "page": "/",
+      "source": "src/components/blocks/Faq.tsx",
+      "site": "medical-dermatology/lumiere",
+      "shots": {
+        "desktop": "medical-dermatology/lumiere/shots/home-faq-desktop.jpg",
+        "mobile": "medical-dermatology/lumiere/shots/home-faq-mobile.jpg"
+      },
+      "code": "medical-dermatology/lumiere/code/home-faq.html"
+    },
+    {
+      "id": "home-visit",
+      "kind": "visit",
+      "label": "오시는 길",
+      "page": "/",
+      "source": "src/components/blocks/Visit.tsx",
+      "site": "medical-dermatology/lumiere",
+      "shots": {
+        "desktop": "medical-dermatology/lumiere/shots/home-visit-desktop.jpg",
+        "mobile": "medical-dermatology/lumiere/shots/home-visit-mobile.jpg"
+      },
+      "code": "medical-dermatology/lumiere/code/home-visit.html"
+    },
+    {
+      "id": "page-hero",
+      "kind": "page-hero",
+      "label": "서브페이지 상단",
+      "page": "/about/",
+      "source": "src/components/ui.tsx#PageHero",
+      "site": "medical-dermatology/lumiere",
+      "shots": {
+        "desktop": "medical-dermatology/lumiere/shots/page-hero-desktop.jpg",
+        "mobile": "medical-dermatology/lumiere/shots/page-hero-mobile.jpg"
+      },
+      "code": "medical-dermatology/lumiere/code/page-hero.html"
+    },
+    {
+      "id": "cta-band",
+      "kind": "cta",
+      "label": "상담 유도 띠",
+      "page": "/doctors/",
+      "source": "src/components/ui.tsx#CtaBand",
+      "site": "medical-dermatology/lumiere",
+      "shots": {
+        "desktop": "medical-dermatology/lumiere/shots/cta-band-desktop.jpg",
+        "mobile": "medical-dermatology/lumiere/shots/cta-band-mobile.jpg"
+      },
+      "code": "medical-dermatology/lumiere/code/cta-band.html"
+    },
+    {
+      "id": "footer",
+      "kind": "footer",
+      "label": "푸터",
+      "page": "/",
+      "source": "src/components/Footer.tsx",
+      "site": "medical-dermatology/lumiere",
+      "shots": {
+        "desktop": "medical-dermatology/lumiere/shots/footer-desktop.jpg",
+        "mobile": "medical-dermatology/lumiere/shots/footer-mobile.jpg"
+      },
+      "code": "medical-dermatology/lumiere/code/footer.html"
+    },
+    {
+      "id": "floating-contact",
+      "kind": "floating",
+      "label": "고정 상담 버튼",
+      "page": "/",
+      "source": "src/components/FloatingContact.tsx",
+      "site": "medical-dermatology/lumiere",
+      "shots": {
+        "desktop": "medical-dermatology/lumiere/shots/floating-contact-desktop.jpg",
+        "mobile": "medical-dermatology/lumiere/shots/floating-contact-mobile.jpg"
+      },
+      "code": "medical-dermatology/lumiere/code/floating-contact.html"
+    },
+    {
+      "id": "top-banner",
+      "kind": "banner",
+      "label": "상단 공지 띠",
+      "page": "/",
+      "source": "src/components/TopBanner.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/top-banner-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/top-banner-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/top-banner.html"
+    },
+    {
+      "id": "header",
+      "kind": "header",
+      "label": "헤더",
+      "page": "/",
+      "source": "src/components/Header.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/header-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/header-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/header.html"
+    },
+    {
+      "id": "home-hero",
+      "kind": "hero",
+      "label": "히어로",
+      "page": "/",
+      "source": "src/components/blocks/Hero.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/home-hero-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/home-hero-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/home-hero.html"
+    },
+    {
+      "id": "home-stats",
+      "kind": "stats",
+      "label": "수치",
+      "page": "/",
+      "source": "src/components/blocks/Stats.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/home-stats-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/home-stats-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/home-stats.html"
+    },
+    {
+      "id": "home-services",
+      "kind": "services",
+      "label": "업무분야",
+      "page": "/",
+      "source": "src/components/blocks/Services.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/home-services-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/home-services-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/home-services.html"
+    },
+    {
+      "id": "home-clients",
+      "kind": "clients",
+      "label": "고객군",
+      "page": "/",
+      "source": "src/components/blocks/Clients.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/home-clients-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/home-clients-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/home-clients.html"
+    },
+    {
+      "id": "home-process",
+      "kind": "process",
+      "label": "진행 절차",
+      "page": "/",
+      "source": "src/components/blocks/Process.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/home-process-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/home-process-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/home-process.html"
+    },
+    {
+      "id": "home-team",
+      "kind": "team",
+      "label": "구성원",
+      "page": "/",
+      "source": "src/components/blocks/Team.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/home-team-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/home-team-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/home-team.html"
+    },
+    {
+      "id": "home-cases",
+      "kind": "cases",
+      "label": "업무 사례",
+      "page": "/",
+      "source": "src/components/blocks/Cases.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/home-cases-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/home-cases-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/home-cases.html"
+    },
+    {
+      "id": "home-faq",
+      "kind": "faq",
+      "label": "자주 묻는 질문",
+      "page": "/",
+      "source": "src/components/blocks/Faq.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/home-faq-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/home-faq-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/home-faq.html"
+    },
+    {
+      "id": "home-visit",
+      "kind": "visit",
+      "label": "오시는 길",
+      "page": "/",
+      "source": "src/components/blocks/Visit.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/home-visit-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/home-visit-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/home-visit.html"
+    },
+    {
+      "id": "page-hero",
+      "kind": "page-hero",
+      "label": "서브페이지 상단",
+      "page": "/about/",
+      "source": "src/components/ui.tsx#PageHero",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/page-hero-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/page-hero-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/page-hero.html"
+    },
+    {
+      "id": "cta-band",
+      "kind": "cta",
+      "label": "상담 유도 띠",
+      "page": "/cases/",
+      "source": "src/components/ui.tsx#CtaBand",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/cta-band-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/cta-band-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/cta-band.html"
+    },
+    {
+      "id": "footer",
+      "kind": "footer",
+      "label": "푸터",
+      "page": "/",
+      "source": "src/components/Footer.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/footer-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/footer-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/footer.html"
+    },
+    {
+      "id": "floating-contact",
+      "kind": "floating",
+      "label": "고정 상담 버튼",
+      "page": "/",
+      "source": "src/components/FloatingContact.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/floating-contact-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/floating-contact-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/floating-contact.html"
+    }
+  ]
+}

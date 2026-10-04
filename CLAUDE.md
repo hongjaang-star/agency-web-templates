@@ -17,6 +17,8 @@
 - `templates/{slug}/{variant}/` — 완성 사이트. 독립 Next.js 앱(정적 export)
 - `registry/backlog.json` — 업종 대기열, `registry/sites.json` — 완성 사이트와 디자인 지문
 - `rules/*.md` — 업종 규제 사전 (카피 작성과 QA에 반드시 사용)
+- `library/` — 완성 사이트 화면 모듈의 캡처 + 스타일 코드 + 사용 사이트. 참고 전용, import 금지 (`npm run library` 로 생성)
+- `scripts/` — `build-sites.sh`(전체 빌드), `check-isolation.mjs`(사이트 소스 분리 검사), `library.mjs`(라이브러리 생성)
 
 ## 작업 흐름
 1. `/next-site` 또는 `/concepts <slug>` → 시안 3개 (skill: site-concepts, design-diversity)
@@ -28,4 +30,5 @@
 - 커밋 메시지: `feat(<slug>): ...`, `concept(<slug>): ...`, `chore: ...`
 - 실존 업체 상호·문구·이미지를 복제하지 않는다. 모든 데모에 "가상 업체 데모" 표기.
 - 업체명·업종 문구는 컴포넌트가 아니라 data 파일에만 둔다.
+- 사이트 소스는 서로 독립이다. 다른 앱이나 library/ 를 import·복사하지 않는다.
 - 작업이 끝나면 registry 파일을 갱신한다.
