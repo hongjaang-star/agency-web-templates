@@ -1,11 +1,14 @@
 import Link from "next/link";
 import JsonLd from "./JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
+import { getFolioArt } from "@/data/editorial-art";
+import EditorialBackdrop from "./EditorialBackdrop";
 
 /** 서브페이지 머리: 경로 + 분류 + 큰 제목 */
 export default function Folio({ path, kicker, title, lead, crumbs }: { path: string; kicker: string; title: string; lead?: string; crumbs: { href?: string; label: string }[] }) {
   return (
     <section className="folio">
+      <EditorialBackdrop src={getFolioArt(path)} />
       <JsonLd data={breadcrumbSchema(crumbs, path)} />
       <div className="wrap">
         <nav aria-label="현재 위치">

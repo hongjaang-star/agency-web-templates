@@ -9,7 +9,7 @@
 | 톤 | 차분한, 명료한, 지면처럼 단정한 / 금지: 절세 보장, 최고·유일, 결과 단정 |
 | 비주얼 | almanac: paper #f4efe4, ink #1d1b18, vermilion #c2361f / Hahmlet(제목) + Pretendard(본문) / 괘선·각주·도장, 모서리 없음 |
 | 모션 | 섹션 머리 괘선 그리기, 내용 떠오름. prefers-reduced-motion 이면 끔 |
-| 이미지 | 사진 없음. 실사 교체 시 흑백 인물 사진을 칼럼 바이라인에 |
+| 이미지 | hero·전체 folio: 세무 기사 스크랩 콜라주 9종. cream 종이·흑백 하프톤·소량 vermilion, 페이지 주제별 연결. 장식용 가상 지면, 종이색 덮개와 모바일 농도 축소. src/data/editorial-art.ts에서 사용처 관리 |
 | 정보구조 | 홈, 세무 연감, 업무 색인(+상세 8), 사례, 사무소, 찾아오는 길 / 홈: hero, almanac, index, column, cases, qa, visit |
 | 시그니처 | 세무 연감: 방문일 기준 다음 법정 기한 D-day + 12개월 띠 + 연간 일정표 |
 | SEO | 광주 세무사, title "페이지 \| 광주 상무지구 한결세무회계", AccountingService·Service·FAQPage·Person·BreadcrumbList |
