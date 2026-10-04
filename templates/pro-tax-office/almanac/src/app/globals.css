@@ -26,7 +26,7 @@ body {
   color: var(--ink);
   font: 400 16px/1.75 var(--sans);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 a { color: inherit; }
 img, svg { display: block; }
@@ -40,7 +40,7 @@ img, svg { display: block; }
 .demo { background: var(--ink); color: var(--paper); font-size: 12px; letter-spacing: 0.08em; text-align: center; padding: 6px 12px; }
 
 /* ── 마스트헤드 ── */
-.mast { border-bottom: 3px double var(--rule); background: var(--paper); }
+.mast { position: sticky; top: 0; z-index: 50; border-bottom: 3px double var(--rule); background: var(--paper); }
 .mast-top { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; color: var(--ink-2); padding: 10px 0; border-bottom: 1px solid var(--rule); }
 .mast-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; padding: 18px 0 14px; flex-wrap: wrap; }
 .logo { font: 700 clamp(30px, 5vw, 50px)/1 var(--serif); letter-spacing: -0.02em; text-decoration: none; }
@@ -258,13 +258,14 @@ img, svg { display: block; }
 .lost p { color: var(--ink-2); margin-bottom: 28px; }
 
 /* ── 푸터 ── */
-.colophon { border-top: 3px double var(--rule); padding: 32px 0 56px; font-size: 13px; color: var(--ink-2); }
+.colophon { --rule: rgba(244, 239, 228, 0.55); --rule-soft: rgba(244, 239, 228, 0.28); border-top: 3px double var(--rule); padding: 32px 0 56px; font-size: 13px; background: var(--ink); color: var(--paper-2); }
 .colophon .wrap { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 24px; }
-.colophon b { display: block; font: 700 22px var(--serif); color: var(--ink); margin-bottom: 8px; }
+.colophon b { display: block; font: 700 22px var(--serif); color: var(--paper); margin-bottom: 8px; }
 .colophon ul { list-style: none; }
 .colophon li + li { margin-top: 4px; }
 .colophon a { text-decoration: none; }
 .colophon a:hover { text-decoration: underline; }
+.colophon :focus-visible { outline-color: var(--paper); }
 .colophon .notice { grid-column: 1 / -1; border-top: 1px solid var(--rule-soft); padding-top: 16px; font-size: 12.5px; }
 
 /* ── 모션: 괘선 그리기·떠오름 (JS 가 있을 때만) ── */
