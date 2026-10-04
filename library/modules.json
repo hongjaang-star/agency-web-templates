@@ -650,6 +650,84 @@
         "mobile": "pro-tax-office/trust/shots/floating-contact-mobile.jpg"
       },
       "code": "pro-tax-office/trust/code/floating-contact.html"
+    },
+    {
+      "id": "header",
+      "kind": "header",
+      "label": "공간 스튜디오 헤더",
+      "page": "/",
+      "source": "src/app/layout.tsx",
+      "site": "space-interior/forme",
+      "shots": {
+        "desktop": "space-interior/forme/shots/header-desktop.jpg",
+        "mobile": "space-interior/forme/shots/header-mobile.jpg"
+      },
+      "code": "space-interior/forme/code/header.html"
+    },
+    {
+      "id": "hero",
+      "kind": "hero",
+      "label": "공간 사진과 프로젝트 캡션",
+      "page": "/",
+      "source": "src/app/page.tsx",
+      "site": "space-interior/forme",
+      "shots": {
+        "desktop": "space-interior/forme/shots/hero-desktop.jpg",
+        "mobile": "space-interior/forme/shots/hero-mobile.jpg"
+      },
+      "code": "space-interior/forme/code/hero.html"
+    },
+    {
+      "id": "projects",
+      "kind": "gallery",
+      "label": "공간 기록 그리드",
+      "page": "/",
+      "source": "src/components/StudioTools.tsx",
+      "site": "space-interior/forme",
+      "shots": {
+        "desktop": "space-interior/forme/shots/projects-desktop.jpg",
+        "mobile": "space-interior/forme/shots/projects-mobile.jpg"
+      },
+      "code": "space-interior/forme/code/projects.html"
+    },
+    {
+      "id": "materials",
+      "kind": "interactive",
+      "label": "재료 분위기 선택",
+      "page": "/",
+      "source": "src/components/StudioTools.tsx",
+      "site": "space-interior/forme",
+      "shots": {
+        "desktop": "space-interior/forme/shots/materials-desktop.jpg",
+        "mobile": "space-interior/forme/shots/materials-mobile.jpg"
+      },
+      "code": "space-interior/forme/code/materials.html"
+    },
+    {
+      "id": "brief",
+      "kind": "finder",
+      "label": "상담 준비 요약",
+      "page": "/",
+      "source": "src/components/StudioTools.tsx",
+      "site": "space-interior/forme",
+      "shots": {
+        "desktop": "space-interior/forme/shots/brief-desktop.jpg",
+        "mobile": "space-interior/forme/shots/brief-mobile.jpg"
+      },
+      "code": "space-interior/forme/code/brief.html"
+    },
+    {
+      "id": "footer",
+      "kind": "footer",
+      "label": "차콜 스튜디오 푸터",
+      "page": "/",
+      "source": "src/app/layout.tsx",
+      "site": "space-interior/forme",
+      "shots": {
+        "desktop": "space-interior/forme/shots/footer-desktop.jpg",
+        "mobile": "space-interior/forme/shots/footer-mobile.jpg"
+      },
+      "code": "space-interior/forme/code/footer.html"
     }
   ]
 }

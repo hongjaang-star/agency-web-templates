@@ -13,7 +13,8 @@
 |---|---|---|---|
 | [피부과 · lumiere](medical-dermatology/lumiere/README.md) **대표** | 몰입형 · 영상과 따뜻한 사진으로 신뢰를 주는 프리미엄 피부과 | immersive / video / ivory·ink·champagne gold | 18 |
 | [세무사무소 · almanac](pro-tax-office/almanac/README.md) **대표** | 지면형 · 설명과 신고 기한을 앞세운 사무소, 신문·연감 같은 단정함 | editorial / statement / paper·ink·vermilion | 17 |
-| [세무사무소 · trust](pro-tax-office/trust/README.md) | 클래식 신뢰형 · 네이비·명조와 정돈된 정보 구조, 업무분야를 한눈에 | swiss-grid / split-media / navy·paper·brass | 15 |
+| [세무사무소 · trust](pro-tax-office/trust/README.md) | 클래식 신뢰형 · 차콜·골드와 명조, 세무사 프로필과 정돈된 정보 구조 | swiss-grid / split-media / charcoal·paper·yellow gold | 15 |
+| [인테리어·리모델링 · forme](space-interior/forme/README.md) **대표** | 공간 아카이브형 · 생활 방식과 재료의 질감을 보여주는 리모델링 스튜디오 | spatial-archive / landscape-photo-with-caption / warm gray · olive · charcoal | 6 |
 
 ## 종류별
 
@@ -31,6 +32,7 @@
 | <img src="medical-dermatology/lumiere/shots/header-desktop.jpg" width="280"> | [헤더 `header`](medical-dermatology/lumiere/README.md#헤더-header) | `medical-dermatology/lumiere` |
 | <img src="pro-tax-office/almanac/shots/masthead-desktop.jpg" width="280"> | [마스트헤드 `masthead`](pro-tax-office/almanac/README.md#마스트헤드-masthead) | `pro-tax-office/almanac` |
 | <img src="pro-tax-office/trust/shots/header-desktop.jpg" width="280"> | [헤더 `header`](pro-tax-office/trust/README.md#헤더-header) | `pro-tax-office/trust` |
+| <img src="space-interior/forme/shots/header-desktop.jpg" width="280"> | [공간 스튜디오 헤더 `header`](space-interior/forme/README.md#공간-스튜디오-헤더-header) | `space-interior/forme` |
 
 ### 히어로 `hero`
 
@@ -39,6 +41,7 @@
 | <img src="medical-dermatology/lumiere/shots/home-hero-desktop.jpg" width="280"> | [히어로 `home-hero`](medical-dermatology/lumiere/README.md#히어로-home-hero) | `medical-dermatology/lumiere` |
 | <img src="pro-tax-office/almanac/shots/home-hero-desktop.jpg" width="280"> | [한 문장 히어로 `home-hero`](pro-tax-office/almanac/README.md#한-문장-히어로-home-hero) | `pro-tax-office/almanac` |
 | <img src="pro-tax-office/trust/shots/home-hero-desktop.jpg" width="280"> | [히어로 `home-hero`](pro-tax-office/trust/README.md#히어로-home-hero) | `pro-tax-office/trust` |
+| <img src="space-interior/forme/shots/hero-desktop.jpg" width="280"> | [공간 사진과 프로젝트 캡션 `hero`](space-interior/forme/README.md#공간-사진과-프로젝트-캡션-hero) | `space-interior/forme` |
 
 ### 소개 `intro`
 
@@ -53,6 +56,7 @@
 | 미리보기 | 모듈 | 사용 사이트 |
 |---|---|---|
 | <img src="medical-dermatology/lumiere/shots/home-concerns-desktop.jpg" width="280"> | [고민별 찾기 `home-concerns`](medical-dermatology/lumiere/README.md#고민별-찾기-home-concerns) | `medical-dermatology/lumiere` |
+| <img src="space-interior/forme/shots/brief-desktop.jpg" width="280"> | [상담 준비 요약 `brief`](space-interior/forme/README.md#상담-준비-요약-brief) | `space-interior/forme` |
 
 ### 서비스 목록 `services`
 
@@ -93,6 +97,7 @@
 |---|---|---|
 | <img src="medical-dermatology/lumiere/shots/home-space-desktop.jpg" width="280"> | [공간 갤러리 `home-space`](medical-dermatology/lumiere/README.md#공간-갤러리-home-space) | `medical-dermatology/lumiere` |
 | <img src="medical-dermatology/lumiere/shots/home-equipment-desktop.jpg" width="280"> | [장비 스트립 `home-equipment`](medical-dermatology/lumiere/README.md#장비-스트립-home-equipment) | `medical-dermatology/lumiere` |
+| <img src="space-interior/forme/shots/projects-desktop.jpg" width="280"> | [공간 기록 그리드 `projects`](space-interior/forme/README.md#공간-기록-그리드-projects) | `space-interior/forme` |
 
 ### 이벤트·프로모션 `promo`
 
@@ -139,6 +144,7 @@
 | <img src="medical-dermatology/lumiere/shots/footer-desktop.jpg" width="280"> | [푸터 `footer`](medical-dermatology/lumiere/README.md#푸터-footer) | `medical-dermatology/lumiere` |
 | <img src="pro-tax-office/almanac/shots/colophon-desktop.jpg" width="280"> | [판권란 (푸터) `colophon`](pro-tax-office/almanac/README.md#판권란-푸터-colophon) | `pro-tax-office/almanac` |
 | <img src="pro-tax-office/trust/shots/footer-desktop.jpg" width="280"> | [푸터 `footer`](pro-tax-office/trust/README.md#푸터-footer) | `pro-tax-office/trust` |
+| <img src="space-interior/forme/shots/footer-desktop.jpg" width="280"> | [차콜 스튜디오 푸터 `footer`](space-interior/forme/README.md#차콜-스튜디오-푸터-footer) | `space-interior/forme` |
 
 ### 고정 버튼 `floating`
 
@@ -166,3 +172,9 @@
 | 미리보기 | 모듈 | 사용 사이트 |
 |---|---|---|
 | <img src="pro-tax-office/trust/shots/home-clients-desktop.jpg" width="280"> | [고객군 `home-clients`](pro-tax-office/trust/README.md#고객군-home-clients) | `pro-tax-office/trust` |
+
+### interactive `interactive`
+
+| 미리보기 | 모듈 | 사용 사이트 |
+|---|---|---|
+| <img src="space-interior/forme/shots/materials-desktop.jpg" width="280"> | [재료 분위기 선택 `materials`](space-interior/forme/README.md#재료-분위기-선택-materials) | `space-interior/forme` |

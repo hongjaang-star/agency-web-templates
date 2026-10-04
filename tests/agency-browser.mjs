@@ -7,6 +7,8 @@ import { chromium } from 'playwright';
 import { renderAgency } from '../scripts/build-agency.mjs';
 
 const root = path.resolve('_site');
+const expected=JSON.parse(fs.readFileSync('registry/portfolio.json','utf8')).items;
+const total=expected.length;
 fs.mkdirSync(root, { recursive: true });
 fs.cpSync('agency/assets', path.join(root, 'assets'), { recursive: true });
 fs.writeFileSync(path.join(root, 'index.html'), renderAgency());
@@ -16,7 +18,7 @@ const server = http.createServer((request,response) => {
   if (!route.startsWith('/agency-web-templates/')) { response.writeHead(404).end(); return; }
   const relative = decodeURIComponent(route.slice('/agency-web-templates/'.length));
   let directory = root, file = relative;
-  for (const app of ['pro-tax-office/almanac','pro-tax-office/trust','medical-dermatology/lumiere']) {
+  for (const app of expected.filter(item=>item.kind==='site').map(item=>item.path.replace(/\/$/,''))) {
     if (relative.startsWith(app + '/')) { directory=path.resolve('templates',app,'out'); file=relative.slice(app.length+1); }
   }
   if (relative.startsWith('concepts/')) { directory=path.resolve('concepts'); file=relative.slice(9); }
@@ -32,12 +34,12 @@ const errors=[];page.on('pageerror',e=>errors.push(e.message));
 try {
   await page.goto(origin+'/agency-web-templates/',{waitUntil:'networkidle'});
   const home=page.locator('#page-home');
-  assert.equal(await home.locator('[data-portfolio-card]').count(),6);
+  assert.equal(await home.locator('[data-portfolio-card]').count(),total);
   await page.locator('header nav [data-nav=portfolio]').click();
   assert.ok(page.url().endsWith('#portfolio'));
   const portfolio=page.locator('#page-portfolio');
   const cards=portfolio.locator('[data-portfolio-card]');
-  assert.equal(await cards.count(),6);
+  assert.equal(await cards.count(),total);
   await cards.last().scrollIntoViewIfNeeded();
   for(const card of await cards.all()) {
     assert.equal(await card.locator('.portfolio-summary p').count(),3);
@@ -50,8 +52,10 @@ try {
     await portfolio.locator(`[data-portfolio-filter=${key}]`).click();
     assert.equal(await portfolio.locator('[data-portfolio-card]:visible').count(),count);
   };
-  await filter('medical',1); await filter('tax',5); await filter('site',3); await filter('concept',3); await filter('all',6);
-  const expected=JSON.parse(fs.readFileSync('registry/portfolio.json','utf8')).items;
+  for(const key of [...new Set(expected.map(item=>item.category)),'site','concept']) {
+    await filter(key,expected.filter(item=>item.category===key||item.kind===key).length);
+  }
+  await filter('all',total);
   for(const item of expected) {
     const card=portfolio.locator(`[data-portfolio-card][data-category=${item.category}][data-kind=${item.kind}]`).filter({has:page.getByRole('heading',{name:item.name,exact:true})});
     const popupPromise=page.waitForEvent('popup');
@@ -74,5 +78,5 @@ try {
   await filter('medical',1);
   if(process.env.AGENCY_SCREENSHOT_DIR) await page.screenshot({path:path.join(process.env.AGENCY_SCREENSHOT_DIR,'portfolio-mobile.png'),fullPage:true});
   assert.deepEqual(errors,[]);
-  console.log('PASS: 6 real thumbnails, category/status filters, 3-line summaries, six real new-window links, hash/reload/back navigation and mobile layout.');
+  console.log(`PASS: ${total} real thumbnails, category/status filters, 3-line summaries, actual new-window links, hash/reload/back navigation and mobile layout.`);
 } finally {await browser.close();await new Promise(resolve=>server.close(resolve));}

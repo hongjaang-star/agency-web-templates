@@ -1,0 +1,20 @@
+'use client';
+import {useState} from 'react';
+import Link from './SiteLink';
+import {studio} from '../data/studio';
+import {asset} from '../lib/urls';
+export function ProjectGallery({limit}:{limit?:number}) {
+ const [type,setType]=useState('전체'); const types=['전체','주거','상업','부분'];
+ const projects=studio.projects.filter(p=>type==='전체'||p.type===type).slice(0,limit);
+ return <div className="project-gallery">{!limit&&<div className="filters" role="group" aria-label="프로젝트 공간 분류">{types.map(t=><button key={t} onClick={()=>setType(t)} aria-pressed={type===t}>{t}</button>)}</div>}<div className="project-grid">{projects.map((p,i)=><Link key={p.id} className="project-card" href={`/projects/${p.id}/`}><div className="project-image"><img src={asset(p.image)} srcSet={`${asset(p.image.replace('.webp','-small.webp'))} 768w, ${asset(p.image)} 1536w`} sizes="(max-width: 800px) 90vw, 33vw" alt={p.subtitle} loading="lazy" width="1536" height="1024"/><span className="open-mark" aria-hidden="true">↗</span></div><div className="project-caption"><span className="serial">0{i+1}</span><h3>{p.title}</h3><span>{p.type} / {p.area}</span></div></Link>)}</div><p className="small" role="status">{projects.length}개 디자인 프로젝트 · 가상 사례</p></div>;
+}
+export function MaterialStudy(){
+ const materials=[{name:'오크',color:'#b19168',text:'결을 따라 따뜻해지는 공간. 손에 닿는 목재의 질감을 상상해보세요.'},{name:'석재',color:'#c7c2b5',text:'차분한 표면과 자연스러운 무늬. 빛에 따라 달라지는 깊이를 만듭니다.'},{name:'올리브',color:'#737756',text:'공간에 잔잔한 색을 더하는 포인트. 목재와 어울리는 낮은 채도를 선택합니다.'}];const [index,setIndex]=useState(0);
+ return <section className="material-study" id="materials"><div><span className="eyebrow">MATERIAL NOTES / 03</span><h2>재료의 온도를<br/>함께 고릅니다.</h2><p>작은 선택이 모여 공간의 분위기를 만듭니다.</p><div className="swatches" role="group" aria-label="재료 분위기 선택">{materials.map((m,i)=><button key={m.name} onClick={()=>setIndex(i)} aria-pressed={index===i}><span style={{background:m.color}}/>{m.name}</button>)}</div></div><div className="material-note" style={{background:materials[index].color}} aria-live="polite"><span>0{index+1} / TEXTURE & TONE</span><h3>{materials[index].name}</h3><p>{materials[index].text}</p><span className="small">화면 색상은 실제 자재와 다를 수 있습니다.</span></div></section>;
+}
+export function BriefBuilder(){
+ const [type,setType]=useState('주거 공간');const [area,setArea]=useState('20–30평');const [priority,setPriority]=useState('동선과 수납');const [checks,setChecks]=useState<string[]>([]);const [status,setStatus]=useState('');
+ const items=['현재 공간 사진','도면 또는 면적','희망 일정','예산 범위'];const summary=`공간: ${type}\n규모: ${area}\n중점: ${priority}\n준비한 자료: ${checks.join(', ')||'아직 없음'}`;
+ async function copy(){try{await navigator.clipboard.writeText(summary);setStatus('상담 준비 요약을 복사했습니다. 실제 문의는 전송되지 않았습니다.');}catch{setStatus('복사가 지원되지 않습니다. 아래 요약을 직접 선택해 복사해주세요.');}}
+ return <div className="brief-builder"><div className="brief-fields"><span className="eyebrow">PROJECT BRIEF / 시작하기</span><h2>우리 공간의<br/>우선순위 찾기</h2><label>어떤 공간인가요?<select value={type} onChange={e=>setType(e.target.value)}>{studio.services.map(s=><option key={s.id}>{s.name}</option>)}</select></label><label>규모를 알려주세요<select value={area} onChange={e=>setArea(e.target.value)}>{['20평 미만','20–30평','30–40평','40평 이상','부분 공간'].map(t=><option key={t}>{t}</option>)}</select></label><label>가장 중요한 변화<select value={priority} onChange={e=>setPriority(e.target.value)}>{['동선과 수납','재료와 분위기','브랜드 경험','주방과 생활 편의'].map(t=><option key={t}>{t}</option>)}</select></label><fieldset><legend>준비한 자료</legend>{items.map(t=><label className="check" key={t}><input type="checkbox" checked={checks.includes(t)} onChange={e=>setChecks(e.target.checked?[...checks,t]:checks.filter(c=>c!==t))}/>{t}</label>)}</fieldset></div><div className="brief-summary"><span className="eyebrow">YOUR SPACE, YOUR STORY</span><h3>상담 준비 요약</h3><pre>{summary}</pre><p>추천 첫 단계: {type==='상업 공간'?'브랜드와 운영 동선을 정리하는 인터뷰':'생활 패턴과 현재 공간을 살펴보는 인터뷰'}</p><button className="button" onClick={copy}>준비 요약 복사 <span aria-hidden="true">↗</span></button><p className="small" role="status">{status||'데모 체험 도구입니다. 입력값은 전송·저장하지 않습니다.'}</p></div></div>;
+}

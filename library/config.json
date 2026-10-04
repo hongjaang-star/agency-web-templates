@@ -414,6 +414,58 @@
           "source": "src/components/Colophon.tsx"
         }
       ]
+    },
+    "space-interior/forme": {
+      "modules": [
+        {
+          "id": "header",
+          "kind": "header",
+          "label": "공간 스튜디오 헤더",
+          "page": "/",
+          "select": ".site-header",
+          "source": "src/app/layout.tsx"
+        },
+        {
+          "id": "hero",
+          "kind": "hero",
+          "label": "공간 사진과 프로젝트 캡션",
+          "page": "/",
+          "select": ".hero",
+          "source": "src/app/page.tsx"
+        },
+        {
+          "id": "projects",
+          "kind": "gallery",
+          "label": "공간 기록 그리드",
+          "page": "/",
+          "select": ".works",
+          "source": "src/components/StudioTools.tsx"
+        },
+        {
+          "id": "materials",
+          "kind": "interactive",
+          "label": "재료 분위기 선택",
+          "page": "/",
+          "select": ".material-study",
+          "source": "src/components/StudioTools.tsx"
+        },
+        {
+          "id": "brief",
+          "kind": "finder",
+          "label": "상담 준비 요약",
+          "page": "/",
+          "select": ".brief-builder",
+          "source": "src/components/StudioTools.tsx"
+        },
+        {
+          "id": "footer",
+          "kind": "footer",
+          "label": "차콜 스튜디오 푸터",
+          "page": "/",
+          "select": ".site-footer",
+          "source": "src/app/layout.tsx"
+        }
+      ]
     }
   }
 }
