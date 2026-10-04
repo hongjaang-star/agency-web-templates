@@ -16,6 +16,7 @@
 | 2026-10-04 | 유형·변형 관리 방법(plan 07), trust 복원, registry role·type 필드, 배포 목록 업종별 묶음, 관리 시트 유형·역할 열 | PR |
 
 ## 교훈
+2026-10-04: trust 다크 골드 개정, AI 세무사 프로필 3장, 카드 hover/focus 개선. lint·정적 빌드 통과, 360px 가로 넘침 없음.
 - 루트에 package-lock.json 이 생기면 Next(Turbopack)가 모노레포 루트를 작업 루트로 잡는다. 각 앱 next.config 에 `turbopack.root` 를 둔다.
 - 날짜에 따라 바뀌는 화면(D-day 등)은 정적 빌드 시점에 굳지 않도록 브라우저에서 계산한다.
 - `NEXT_PUBLIC_SITE_URL` 은 도메인만 넣는다. 앱의 `absoluteUrl()` 이 SITE_URL + BASE_PATH 로 조합하므로 경로까지 넣으면 canonical·sitemap 이 이중 경로가 된다(기존 개별 저장소 배포에도 있던 문제).

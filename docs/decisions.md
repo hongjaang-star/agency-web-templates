@@ -1,6 +1,8 @@
 # 결정 기록 (최신이 위)
 
 ## 2026-10-04
+- **trust 다크 골드 개정.** 사용자 요청: 전체 차콜 톤, 옐로우 골드 포인트, 소개 페이지의 세무사 사진과 카드 hover 효과. trust 변형에 적용한다.
+
 - **한 업종에 여러 유형(변형)을 둔다.** 세무사무소는 trust(클래식 신뢰형)와 almanac(지면형)을 모두 유지하고, almanac 을 대표(flagship)로 한다. 새 업종/새 변형/레벨 업 판단, 역할·상태 필드, 기록 위치는 `docs/plan/07-variants.md`.
   → 대체됨: 바로 아래 "trust 앱은 삭제" 결정(trust 복원).
 - **세무사무소는 almanac 으로 확정.** `templates/pro-tax-office/almanac` 로 완성하고 trust 앱은 삭제한다(화면 기록은 library 에만 retired 로 남김). 나머지 시안 compass·lifemap 은 concepts/ 에 디자인 라이브러리로 둔다.

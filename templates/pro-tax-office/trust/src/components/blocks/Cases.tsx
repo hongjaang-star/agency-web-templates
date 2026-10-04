@@ -3,8 +3,8 @@ import { SectionTitle, TextLink } from "@/components/ui";
 
 export function CaseCard({ c }: { c: (typeof cases)[number] }) {
   return (
-    <article data-reveal className="flex h-full flex-col border border-line bg-ivory p-8">
-      <p className="inline-flex w-fit bg-ink px-3 py-1 text-xs tracking-wider text-ivory">{c.tag}</p>
+    <article data-reveal className="premium-card flex h-full flex-col p-8">
+      <p className="inline-flex w-fit bg-night px-3 py-1 text-xs tracking-wider text-paper">{c.tag}</p>
       <h3 className="mt-5 font-serif-kr text-xl text-ink">{c.title}</h3>
       <dl className="mt-5 space-y-3 text-[15px]">
         {[["상황", c.situation], ["진행", c.action], ["결과", c.result]].map(([k, v]) => (

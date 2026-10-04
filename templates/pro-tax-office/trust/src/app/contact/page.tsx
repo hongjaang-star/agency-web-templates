@@ -36,8 +36,8 @@ export default function ContactPage() {
             ))}
           </ul>
           <div className="mt-12 flex flex-wrap gap-4 text-sm">
-            <a href={site.links.naverMap} target="_blank" rel="noopener noreferrer" className="border border-ink px-5 py-3 hover:bg-ink hover:text-ivory">네이버 지도에서 보기</a>
-            <a href={site.links.kakaoMap} target="_blank" rel="noopener noreferrer" className="border border-ink px-5 py-3 hover:bg-ink hover:text-ivory">카카오맵에서 보기</a>
+            <a href={site.links.naverMap} target="_blank" rel="noopener noreferrer" className="border border-ink px-5 py-3 hover:bg-night hover:text-paper">네이버 지도에서 보기</a>
+            <a href={site.links.kakaoMap} target="_blank" rel="noopener noreferrer" className="border border-ink px-5 py-3 hover:bg-night hover:text-paper">카카오맵에서 보기</a>
             <p className="self-center text-ink-soft">주차 · {site.parking}</p>
           </div>
         </div>

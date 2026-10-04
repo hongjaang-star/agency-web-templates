@@ -8,21 +8,23 @@
    (토큰 이름은 템플릿 공통 — 값만 프리셋별로 교체)
    ───────────────────────────────────────────── */
 @theme {
+  --color-night: #0c0e0b;
+  --color-paper: #f3f0e7;
   /* Surfaces */
-  --color-ivory: #f7f7f5;      /* page background */
-  --color-cream: #eef0f3;      /* alt section */
-  --color-sand: #e2e6ec;       /* muted fill */
-  --color-line: #d8dde5;       /* borders, dividers */
+  --color-ivory: #141513;      /* page background */
+  --color-cream: #1b1d19;      /* alt section */
+  --color-sand: #252820;       /* muted fill */
+  --color-line: #383b31;       /* borders, dividers */
 
   /* Text */
-  --color-ink: #13233d;        /* primary text, primary button (navy) */
-  --color-ink-soft: #4a5568;   /* secondary text (7.0:1 on paper) */
-  --color-ink-mute: #5f6b7a;   /* captions (5.3:1 on paper) */
+  --color-ink: #f3f0e7;        /* primary text, primary button (navy) */
+  --color-ink-soft: #c2c2b7;   /* secondary text (7.0:1 on paper) */
+  --color-ink-mute: #a3a597;   /* captions (5.3:1 on paper) */
 
   /* Brand */
-  --color-gold: #a8834a;       /* decorative only: lines, icons */
-  --color-gold-deep: #7a5c2a;  /* accent text/links (5.9:1 on paper) */
-  --color-gold-soft: #d8c6a3;
+  --color-gold: #d8b957;       /* decorative only: lines, icons */
+  --color-gold-deep: #e2c66d;  /* accent text/links (5.9:1 on paper) */
+  --color-gold-soft: #f0d993;
 
   /* Type */
   --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
@@ -61,7 +63,7 @@
   }
   ::selection {
     background: var(--color-gold-soft);
-    color: var(--color-ink);
+    color: var(--color-night);
   }
   :focus-visible {
     outline: 2px solid var(--color-gold-deep);
@@ -115,4 +117,27 @@
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--color-gold-deep);
+}
+
+/* Dark trust: restrained gold edges and grounded depth. */
+@layer components {
+  .premium-card {
+    border: 1px solid var(--color-line);
+    background: var(--color-cream);
+    transition: border-color 260ms ease, box-shadow 260ms ease, background-color 260ms ease;
+  }
+  .premium-card:focus-within {
+    border-color: var(--color-gold);
+    box-shadow: 0 16px 40px -18px rgb(0 0 0 / 75%);
+  }
+  @media (hover: hover) {
+    .premium-card:hover {
+      border-color: var(--color-gold);
+      background: #22251e;
+      box-shadow: 0 20px 45px -20px rgb(0 0 0 / 85%), 0 0 0 1px rgb(216 185 87 / 8%);
+    }
+  }
+  .portrait-frame { overflow: hidden; border-bottom: 1px solid var(--color-line); }
+  .portrait-frame img { transition: transform 600ms var(--ease-soft); }
+  @media (hover: hover) { .premium-card:hover .portrait-frame img { transform: scale(1.025); } }
 }

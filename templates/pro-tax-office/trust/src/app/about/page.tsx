@@ -50,7 +50,7 @@ export default function AboutPage() {
           <SectionTitle eyebrow="Principles" title="일하는 원칙" align="center" />
           <ol className="mt-14 grid gap-6 md:grid-cols-3">
             {principles.map((p, i) => (
-              <li key={p.title} data-reveal className="border-t-2 border-ink bg-ivory p-8">
+              <li key={p.title} data-reveal className="premium-card border-t-2 border-t-gold p-8">
                 <span className="font-display text-3xl text-gold">{String(i + 1).padStart(2, "0")}</span>
                 <h3 className="mt-4 font-serif-kr text-xl text-ink">{p.title}</h3>
                 <p className="mt-2 text-[15px] text-ink-soft">{p.desc}</p>

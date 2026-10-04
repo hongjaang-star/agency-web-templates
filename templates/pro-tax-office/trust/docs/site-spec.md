@@ -7,8 +7,11 @@
 | 타깃 | 40대 개인사업자(장부·신고 부담), 60대 자산가 가족(상속·증여 계획) |
 | 메시지 | 숫자는 정확하게, 설명은 쉽게 / 직접 상담, 사전 설명, 기한 관리 |
 | 톤 | 차분한, 명료한, 신뢰감 / 금지: 절세 보장, 최고·유일, 결과 단정 |
-| 비주얼 | trust: ink #13233d, paper #f7f7f5, accent #a8834a, Cormorant·나눔명조·Pretendard |
-| 이미지 | 사진 없이 장부 격자 패턴, 아이콘, 이니셜 모노그램 (실사 교체 시 사무실·상담 장면) |
+| 비주얼 | trust: charcoal #141513, surface #1b1d19, paper #f3f0e7, gold #d8b957, Cormorant·나눔명조·Pretendard |
+| 이미지 | 장부 격자와 차콜 배경의 가상 세무사 AI 프로필 3장. 사진 하단에 참고용 이미지 고지 |
 | 정보구조 | 홈, 사무소 소개, 업무분야(+상세 8), 업무 사례, 상담·오시는 길 / homeSections 9개 |
 | SEO | 광주 세무사, title "페이지 \| 광주 상무지구 한결세무회계", AccountingService |
 | 기능 | 외부 링크 CTA(전화, 카카오톡, 이메일, 지도). 상담폼은 L2에서 추가 |
+
+## 2026-10-04 다크 골드 개정
+카드 hover/focus-within: 골드 테두리와 절제된 그림자. 연결된 카드에는 키보드 focus-visible 제공, reduced-motion 유지. 사진은 docs/image-prompts.md 참고.

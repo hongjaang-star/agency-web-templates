@@ -73,7 +73,7 @@ export default function Header() {
 
       {/* Main nav */}
       <div
-        className={`border-b bg-white/95 backdrop-blur-md transition-shadow duration-300 ${
+        className={`border-b bg-cream/95 backdrop-blur-md transition-shadow duration-300 ${
           scrolled ? "border-line shadow-[0_8px_30px_-18px_rgba(28,25,23,0.25)]" : "border-transparent"
         }`}
       >
@@ -120,7 +120,7 @@ export default function Header() {
                         menuOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1 opacity-0"
                       }`}
                     >
-                      <div className="grid grid-cols-2 gap-8 border border-line bg-white p-8 shadow-[0_24px_60px_-30px_rgba(28,25,23,0.35)]">
+                      <div className="grid grid-cols-2 gap-8 border border-line bg-cream p-8 shadow-[0_24px_60px_-30px_rgba(28,25,23,0.35)]">
                         {categoryKeys.map((key) => (
                           <div key={key}>
                             <p className="eyebrow !text-xs">{categories[key].en}</p>
@@ -160,7 +160,7 @@ export default function Header() {
           <div className="flex items-center gap-2">
             <Link
               href={site.cta.href}
-              className="hidden h-11 items-center bg-ink px-6 text-sm font-medium tracking-wide text-ivory transition-colors duration-300 hover:bg-gold-deep sm:inline-flex"
+              className="hidden h-11 items-center bg-gold px-6 text-sm font-medium tracking-wide text-night transition-colors duration-300 hover:bg-gold-deep sm:inline-flex"
             >
               상담 안내
             </Link>
@@ -184,7 +184,7 @@ export default function Header() {
         aria-hidden={!drawerOpen}
       >
         <div
-          className={`absolute inset-0 bg-ink/40 transition-opacity duration-300 ${drawerOpen ? "opacity-100" : "opacity-0"}`}
+          className={`absolute inset-0 bg-night/40 transition-opacity duration-300 ${drawerOpen ? "opacity-100" : "opacity-0"}`}
           onClick={() => setDrawerOpen(false)}
         />
         <div
@@ -271,7 +271,7 @@ export default function Header() {
           <div className="space-y-2 border-t border-line p-5">
             <Link
               href={site.cta.href}
-              className="flex h-12 items-center justify-center bg-ink text-[15px] font-medium text-ivory"
+              className="flex h-12 items-center justify-center bg-gold text-[15px] font-medium text-night"
             >
               상담 안내
             </Link>

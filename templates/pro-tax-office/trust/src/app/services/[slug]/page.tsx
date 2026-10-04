@@ -59,7 +59,7 @@ export default async function ServiceDetail({ params }: Props) {
           <aside className="h-fit border border-line bg-ivory p-8 lg:sticky lg:top-28 lg:col-span-4">
             <p className="eyebrow">Deadline</p>
             <p className="mt-2 font-serif-kr text-lg text-ink">{s.timing}</p>
-            <a href={site.phoneHref} className="mt-6 block bg-ink px-5 py-4 text-center text-ivory hover:bg-gold-deep">
+            <a href={site.phoneHref} className="mt-6 block bg-gold px-5 py-4 text-center text-night hover:bg-gold-deep">
               전화 상담 {site.phone}
             </a>
             {others.length > 0 && (
