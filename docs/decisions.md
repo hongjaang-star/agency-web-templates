@@ -1,6 +1,7 @@
 # 결정 기록 (최신이 위)
 
 ## 2026-10-04
+- **사이트별 독립 에디터 공통 제공.** 사용자 로컬 피부과 에디터의 텍스트·서체·자간·이미지·여백 기능을 사이트 중립 도구로 구현한다. 빌드 시 각 완성 사이트와 HTML 시안에 `editor/`를 자동 생성하며 저장 DB와 설정 가져오기·배포를 사이트별 격리한다. 완성 사이트는 `slug/variant`, 시안은 `concepts/slug/variant`를 식별자로 사용한다. 화면 컴포넌트는 공유하지 않는다. 브라우저 저장과 JSON을 통한 전체 방문자 배포를 구분한다. 이전의 피부과 editor 미포함 방침은 이 결정으로 대체한다.
 - **한 업종에 여러 유형(변형)을 둔다.** 세무사무소는 trust(클래식 신뢰형)와 almanac(지면형)을 모두 유지하고, almanac 을 대표(flagship)로 한다. 새 업종/새 변형/레벨 업 판단, 역할·상태 필드, 기록 위치는 `docs/plan/07-variants.md`.
   → 대체됨: 바로 아래 "trust 앱은 삭제" 결정(trust 복원).
 - **세무사무소는 almanac 으로 확정.** `templates/pro-tax-office/almanac` 로 완성하고 trust 앱은 삭제한다(화면 기록은 library 에만 retired 로 남김). 나머지 시안 compass·lifemap 은 concepts/ 에 디자인 라이브러리로 둔다.

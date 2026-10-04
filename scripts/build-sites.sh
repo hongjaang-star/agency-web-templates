@@ -12,6 +12,7 @@ for app in templates/*/*/; do
   rel=${app#templates/}; rel=${rel%/}
   echo "::group::$rel"
   (cd "$app" && npm ci --no-audit --no-fund && NEXT_PUBLIC_NOINDEX=1 NEXT_PUBLIC_BASE_PATH="$BASE_ROOT/$rel" NEXT_PUBLIC_SITE_URL="$SITE_ORIGIN" npm run build)
+  node scripts/install-editor.mjs "$app/out" "$rel" "$BASE_ROOT/$rel"
   rm -rf "_site/$rel" && mkdir -p "_site/$rel" && cp -r "$app/out/." "_site/$rel/"
   echo "::endgroup::"
 done

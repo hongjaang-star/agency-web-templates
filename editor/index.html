@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>사이트 편집기</title>
+  <link rel="stylesheet" href="./editor.css">
+  <script defer src="./core.js"></script>
+  <script defer src="./editor.js"></script>
+</head>
+<body>
+  <header class="toolbar">
+    <div class="identity"><strong id="site-name">사이트 편집기</strong><small id="site-id"></small></div>
+    <label class="page-label">페이지 <select id="pages" aria-label="편집할 페이지"></select></label>
+    <button id="pick" aria-pressed="true">요소 선택 중</button>
+    <button id="undo" disabled>되돌리기</button><button id="redo" disabled>다시 실행</button>
+    <button id="save" class="primary">저장</button>
+    <details class="file-menu"><summary>파일 · 초기화</summary><div>
+      <button id="export">편집 설정 내보내기</button>
+      <button id="import">편집 설정 가져오기</button>
+      <button id="export-html">현재 페이지 HTML 내보내기</button>
+      <button id="reset">이 사이트 편집 초기화</button>
+    </div></details>
+    <a id="view-site" target="_blank" rel="noopener">사이트 보기 ↗</a>
+  </header>
+  <div class="workspace">
+    <aside class="inspector">
+      <p class="help">미리보기에서 텍스트·이미지·영역을 클릭하세요. 다른 사이트의 내용과 저장 공간은 연결되지 않습니다.</p>
+      <label>페이지 영역<select id="sections"><option value="">영역 선택</option></select></label>
+      <div id="selection-empty">편집할 요소를 선택하면 설정이 표시됩니다.</div>
+      <div id="selection-panel" hidden>
+        <div class="selection-heading"><strong id="selected-label"></strong><button id="parent">상위 영역 선택 ↑</button></div>
+        <label>적용 범위<select id="scope"><option value="page">현재 페이지</option><option value="site">사이트 공통 헤더·푸터</option></select></label>
+        <p class="help" id="scope-note">페이지별 수정은 다른 페이지에 적용되지 않습니다.</p>
+        <div id="controls"></div>
+        <button id="reset-element">선택한 요소의 편집 초기화</button>
+        <label>하위 요소<select id="children"><option value="">하위 요소 선택</option></select></label>
+      </div>
+      <details class="instructions"><summary>저장·배포 안내</summary>
+        <p>저장은 이 브라우저의 해당 사이트에만 적용됩니다. 미리보기와 사이트 보기에서도 확인할 수 있습니다.</p>
+        <p>모든 방문자에게 적용하려면 편집 설정 JSON을 내보내고, 해당 앱의 <code>public/editor-state.json</code>으로 저장한 뒤 다시 배포하세요.</p>
+        <p>다른 사이트의 설정 파일은 가져올 수 없습니다. 초기화는 이 사이트의 브라우저 편집 내용만 삭제합니다.</p>
+        <p>HTML 내보내기는 현재 페이지의 정적 스냅샷입니다. 앱 동작은 포함하지 않으며 이미지·서체는 배포 주소를 참조합니다.</p>
+      </details>
+    </aside>
+    <main class="preview-area">
+      <div class="preview-tools">
+        <div class="devices" role="group" aria-label="미리보기 화면 크기"><button data-device="desktop" aria-pressed="true">PC</button><button data-device="tablet" aria-pressed="false">태블릿</button><button data-device="mobile" aria-pressed="false">모바일</button></div>
+        <span id="status" role="status" aria-live="polite">불러오는 중…</span>
+      </div>
+      <div class="frame-wrap"><iframe id="preview" title="사이트 편집 미리보기" sandbox="allow-scripts allow-same-origin" referrerpolicy="same-origin"></iframe></div>
+    </main>
+  </div>
+  <input id="import-file" type="file" accept="application/json,.json" hidden>
+</body>
+</html>
