@@ -1,0 +1,2 @@
+# Keep the copied local editor sources byte-identical on Windows and Linux.
+**/native/assets/** -text

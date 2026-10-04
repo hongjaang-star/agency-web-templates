@@ -1,18 +1,38 @@
-# 사이트별 공통 편집기
+# 사이트별 독립 편집기
 
 ## 원본 분석과 적용 범위
 
 분석한 원본은 사용자 PC의 `http://localhost/ie_form/project/medical-dermatology-editor/index.html`이다. 원본 `assets/js/editor/appearance.js`는 서체·크기·굵기·색상·자간을, `builder.js`는 영역 너비·높이·안쪽 여백·배경·이미지 맞춤과 배치를 편집한다. `persistence.js`는 편집 상태를 저장하며 `storage.js`는 `site-storage-key`로 IndexedDB를 사이트별 분리한다.
 
-원본은 피부과 전용 `data-bind`, 해시 페이지, 섹션 빌더, SmartEditor2, 게시판 및 PHP 로그인 코드와 결합되어 있다. 독립 Next.js 템플릿에 그대로 삽입하지 않고, 사용자가 요청한 텍스트·스타일·이미지·여백 편집을 별도의 사이트 중립 도구로 구현했다. 게시판·회원·예약 API는 추가하지 않는다. 각 사이트의 화면 컴포넌트·업종 데이터는 공유하거나 복제하지 않는다.
+사용자 요청에 따라 최초의 새 편집 화면을 로컬 원본 패널로 변경했다. 원본 `defaults.js`, `content.js`, `sections.js`, `divbox.js`와 `editor.css`, `builder.css`, `admin-guides.css`, `editor-admin-theme.css`를 수정 없이 복사한다. `native/source.json`에 원본 경로와 SHA-256을 기록하며 로컬 프로젝트 파일은 수정하지 않는다.
+
+원본 `buildContentForm()`의 콘텐츠 입력창·스타일 펼침 메뉴·서체·크기/자간 스테퍼·색상·정렬, `renderDivBoxPanel()`의 리치 텍스트·슬라이더·이미지 업로드·맞춤·필터·배경·테두리·그림자를 실제로 실행한다. `native-adapter.js`는 원본의 박스 모델을 현재 사이트 미리보기의 선택 요소에 연결한다. `integration.css`는 iframe과 패널의 배치를 조정한다. 피부과 전용 페이지를 새로 만드는 `app.js`·`derma-site.js`는 실행하지 않는다.
+
+Next.js 기존 요소의 유형 변환, 새 섹션 생성/재배치, 원본 PHP 게시판·회원 기능은 연결하지 않는다. 원본의 애니메이션·이미지 호버/오버레이/링크·모바일별 글자 비율·그라데이션 글자 옵션도 지원하지 않아 표시하지 않는다. 디자인 편집에 실제 원본 UI를 사용하며 사이트의 React 구조는 유지한다.
+
+## 에디터 소스도 사이트별 독립
+
+이전 방식은 루트 `editor/`를 변경하면 재배포 때 모든 에디터가 바뀌었다. 지금은 각 사이트에 별도 `site-editor/` 소스를 커밋하며, 설치기는 **해당 사이트의 소스만** `out/editor/`로 복사한다.
+
+| 사이트 | 수정할 에디터 소스 |
+|---|---|
+| Almanac | `templates/pro-tax-office/almanac/site-editor/` |
+| Trust | `templates/pro-tax-office/trust/site-editor/` |
+| Lumiere | `templates/medical-dermatology/lumiere/site-editor/` |
+| HTML 시안 | `concepts/{slug}/{variant}/site-editor/` |
+
+예를 들어 Almanac의 `site-editor/native/assets/js/editor/divbox.js`나 `integration.css`를 수정하면 Almanac에만 반영된다. `core.js`, `runtime.js`, UI 및 원본 모듈까지 사이트마다 별도 파일이며 다른 사이트 소스를 import하지 않는다.
+
+루트 `editor/`는 새 사이트를 위한 초기 소스다. `site-editor/`가 없는 사이트에 한 번 복사하며 **기존 사이트의 소스는 덮어쓰지 않는다.** 새 사이트 생성 후 생성된 `site-editor/`도 커밋한다. 공통 설치기/배포 스크립트 자체의 변경은 공통 인프라 변경이므로 사이트별 소스 분리와 구분한다.
 
 ## 사용
 
 - 사이트 주소 뒤에 `editor/`를 붙인다. 저장소 포트폴리오 목록의 **사이트 편집** 링크에서도 열 수 있다.
 - 페이지를 고른 뒤 미리보기의 요소를 클릭한다. 상위 영역 및 하위 요소 선택으로 배경 이미지나 컨테이너에도 접근할 수 있다.
-- 텍스트, 서체, 크기, 굵기, 색상, 자간, 줄 간격, 정렬, 이미지 주소·업로드·대체 텍스트·맞춤, 너비·높이, 네 방향 여백, 요소 간격, 배경·테두리·투명도·숨김을 수정한다.
+- **콘텐츠** 탭에서 원본 입력창과 스타일 펼침 메뉴, **요소** 탭에서 원본 리치 텍스트·텍스트/이미지 옵션·공통 스타일을 사용한다. **크기 · 여백** 탭에서 네 방향 여백·너비/높이·배경 이미지 등 추가 설정을 사용한다.
+- 서체·크기·굵기·자간·줄 간격·정렬·색상, 이미지 교체·대체 텍스트·맞춤·밝기/대비/블러/흑백/세피아, 단색/그라데이션 배경·테두리·그림자 등을 수정한다.
 - 서체 선택에는 해당 사이트에 실제 등록된 서체가 자동으로 표시된다. 다른 사이트의 서체 파일을 가져오지 않는다.
-- 텍스트 내용 교체는 선택 요소의 인라인 서식도 교체한다. 일부 단어만 수정하려면 해당 하위 요소를 선택한다. 되돌리기는 원래 인라인 마크업도 복원한다.
+- 일반 텍스트 입력은 인라인 서식도 교체한다. 요소 탭 리치 텍스트나 콘텐츠 탭 HTML 모드는 굵게·기울임·밑줄·문단·목록·안전한 링크를 보존한다. 가져온 HTML도 적용 때 실행 코드/이벤트 속성을 제거한다. 되돌리기는 원래 마크업도 복원한다.
 - 기본 적용 범위는 **현재 페이지**다. 헤더·푸터 요소에서는 **사이트 공통 헤더·푸터**를 선택해 같은 사이트의 같은 위치에 적용할 수 있다. 페이지별 설정이 공통 설정보다 우선한다.
 - PC·태블릿·모바일 버튼은 실제 iframe 너비를 변경하는 미리보기다. 별도의 기기별 저장 규칙을 만들지 않는다.
 - **탐색 · 미리보기** 모드에서 사이트 내부 링크를 이동할 수 있다. 편집 화면의 폼 제출 및 외부 이동은 차단한다.
@@ -25,13 +45,13 @@
 
 모든 방문자에게 보이게 하려면 내보낸 JSON을 **해당 앱**의 `public/editor-state.json`에 저장하고 재배포한다. 빌드는 검증한 설정을 그 사이트의 `editor/published.json`으로 생성한다. 최초 방문자의 브라우저는 배포 설정을 적용한다. 이미 로컬 draft가 있는 브라우저는 draft를 우선하며, 초기화하면 최신 배포 설정으로 돌아간다. GitHub Pages에는 로그인하거나 원격 파일을 저장하는 기능이 없으므로 저장 버튼은 원격 배포를 수행하지 않는다.
 
-업로드는 PNG/JPEG/WebP/GIF/AVIF 5MB 이하이며 파일은 JSON/IndexedDB에 포함된다. 큰 이미지 여러 장은 `public/images/`에 넣은 뒤 배포 주소를 사용하는 것이 좋다. 이미지 대체 텍스트도 직접 수정할 수 있다. 스크립트·SVG 데이터 URL 및 실행 가능한 스타일은 허용하지 않는다.
+업로드는 PNG/JPEG/WebP/GIF/AVIF이며 원본 요소 패널은 3MB 이하, 추가 설정 패널은 5MB 이하를 지원한다. 파일은 JSON/IndexedDB에 포함된다. 큰 이미지 여러 장은 `public/images/`에 넣은 뒤 배포 주소를 사용하는 것이 좋다. 이미지 대체 텍스트도 직접 수정할 수 있다. 스크립트·SVG 데이터 URL 및 실행 가능한 스타일은 허용하지 않는다.
 
 페이지 HTML 내보내기는 스크립트와 에디터 UI를 제거한 정적 스냅샷이다. 이미지·서체는 원래 배포 주소를 참조한다. Next.js 인터랙션 및 폼 전송은 포함하지 않으므로 실제 사이트 배포에는 설정 JSON 방식을 사용한다.
 
 ## 새 사이트와 빌드
 
-`scripts/build-sites.sh`가 `templates/*/*/package.json`을 자동 탐색하고 각 앱의 정적 빌드 후 `scripts/install-editor.mjs`를 실행한다. 기존 세 앱(lumiere·almanac·trust)과 앞으로 추가되는 앱은 추가 컴포넌트 없이 자동으로 전용 에디터를 받는다. 도구 파일은 각 사이트의 export 폴더 안에 복사되므로 사이트를 개별 호스팅해도 다른 사이트에 의존하지 않는다.
+`scripts/build-sites.sh`가 `templates/*/*/package.json`을 자동 탐색하고 각 앱의 정적 빌드 후 `scripts/install-editor.mjs`를 실행한다. 기존 세 앱(lumiere·almanac·trust)과 앞으로 추가되는 앱은 추가 컴포넌트 없이 자동으로 전용 에디터를 받는다. 각 사이트의 `site-editor/` 소스가 export 폴더 안에 복사되므로 사이트를 개별 호스팅해도 다른 사이트에 의존하지 않는다.
 
 HTML 시안도 배포 시 `scripts/install-concept-editors.mjs`가 `concepts/{slug}/{variant}`에서 자동 탐색한다. 시안의 `siteId`는 `concepts/{slug}/{variant}`로 완성 사이트와 분리된다. 시안의 전체 방문자 설정은 해당 시안의 `index.html` 옆 `editor-state.json`에 저장한 뒤 배포한다. 시안 소스에는 에디터 스크립트를 직접 삽입하지 않는다.
 

@@ -46,7 +46,7 @@ async function openEditor(app) {
   await wait(async () => { const frame = selectedFrame(); return frame && await frame.locator('main').count() && !(await page.locator('#status').textContent()).includes('불러오는'); }, 'Editor did not become ready: ' + app);
   return selectedFrame();
 }
-async function selectHeading() { const frame = selectedFrame(); const heading = frame.locator('h1,h2').first(); await heading.evaluate(element => element.scrollIntoView({ block: 'center', behavior: 'instant' })); await heading.click({ position: { x: 2, y: 2 } }); await page.locator('#field-font-size').waitFor(); return frame; }
+async function selectHeading() { await selectHeadingThroughInspector(); return selectedFrame(); }
 async function selectHeadingThroughInspector() {
   const frame = selectedFrame();
   const target = await frame.locator('section h1,section h2').first().evaluate(element => ({ key: element.dataset.agencyKey, section: element.closest('section').dataset.agencyKey }));
@@ -57,12 +57,46 @@ async function selectHeadingThroughInspector() {
     await wait(async () => (await page.locator('#children option').evaluateAll(options => options.map(option => option.value))).includes(current), 'Inspector child option missing');
     await page.locator('#children').selectOption(current);
   }
-  await page.locator('#field-font-size').waitFor();
+  await page.locator('[data-tab=advanced]').click(); await page.locator('#field-font-size').waitFor();
 }
 async function change(id, value) { const input = page.locator('#field-' + id); await input.fill(value); await input.dispatchEvent('change'); }
 try {
   let frame = await openEditor(apps[0]);
   const originalTitle = await frame.locator('h1').innerText();
+  const originalText = await frame.locator('h1').textContent();
+  await selectHeading();
+  await page.locator('[data-tab=content]').click();
+  await page.locator('#contentForm .field-input').fill('로컬 원본 콘텐츠 패널');
+  await wait(() => frame.locator('h1').evaluate(el => el.textContent === '로컬 원본 콘텐츠 패널'), 'Original content form not connected');
+  await page.locator('#contentForm .style-toggle-btn').click();
+  const nativeSize = await frame.locator('h1').evaluate(el => parseFloat(getComputedStyle(el).fontSize));
+  await page.locator('#contentForm .ts-field').filter({ has: page.getByText('크기', { exact: true }) }).getByRole('button', { name: '+', exact: true }).click();
+  await wait(() => frame.locator('h1').evaluate((el, size) => parseFloat(getComputedStyle(el).fontSize) === Math.round(size) + 1, nativeSize), 'Original typography stepper not connected');
+  if (process.env.EDITOR_SCREENSHOT_DIR) { fs.mkdirSync(process.env.EDITOR_SCREENSHOT_DIR, { recursive: true }); await page.screenshot({ path: path.join(process.env.EDITOR_SCREENSHOT_DIR, 'local-content-panel.png') }); }
+  await page.locator('[data-tab=divbox]').click();
+  const nativeRow = label => page.locator('#divBoxPanelBody .option-row').filter({ has: page.locator('label', { hasText: label }) });
+  await nativeRow('자간').locator('input[type=range]').fill('3');
+  await nativeRow('자간').locator('input[type=range]').dispatchEvent('input');
+  await wait(() => frame.locator('h1').evaluate(el => getComputedStyle(el).letterSpacing === '3px'), 'Original divbox spacing slider not connected');
+  await nativeRow('안쪽 여백 (Padding)').locator('input[type=range]').fill('12');
+  await nativeRow('안쪽 여백 (Padding)').locator('input[type=range]').dispatchEvent('input');
+  await wait(() => frame.locator('h1').evaluate(el => getComputedStyle(el).paddingTop === '12px'), 'Original padding slider not connected');
+  const rich = page.locator('#divBoxPanelBody .builder-richtext-body');
+  await rich.fill('원본 리치 텍스트');
+  await wait(() => frame.locator('h1').evaluate(el => el.textContent === '원본 리치 텍스트'), 'Original rich text not connected');
+  await rich.evaluate(el => {
+    const data = new DataTransfer(); data.setData('text/html', '<b>서식 보존</b><img src=x onerror="window.bad=true"><script>window.bad=true</script>');
+    el.focus(); const selection = window.getSelection(); selection.selectAllChildren(el);
+    el.dispatchEvent(new ClipboardEvent('paste', { clipboardData: data, bubbles: true, cancelable: true }));
+  });
+  await wait(() => frame.locator('h1 b').count(), 'Rich formatting missing');
+  assert.equal(await frame.evaluate(() => window.bad), undefined);
+  assert.equal(await page.evaluate(() => window.bad), undefined);
+  assert.equal(await frame.locator('h1 script,h1 img').count(), 0);
+  if (process.env.EDITOR_SCREENSHOT_DIR) await page.screenshot({ path: path.join(process.env.EDITOR_SCREENSHOT_DIR, 'local-elements-panel.png') });
+  await page.locator('[data-tab=advanced]').click();
+  await page.locator('#reset-element').click();
+  await wait(() => frame.locator('h1').evaluate((el, original) => el.textContent === original, originalText), 'Native changes did not reset');
   await selectHeading();
   if (process.env.EDITOR_SCREENSHOT_DIR) { fs.mkdirSync(process.env.EDITOR_SCREENSHOT_DIR, { recursive: true }); await page.screenshot({ path: path.join(process.env.EDITOR_SCREENSHOT_DIR, 'almanac-editor.png') }); }
   await change('text', '편집 테스트 제목');
@@ -106,6 +140,11 @@ try {
   await wait(() => frame.locator('h1 b').count(), 'Undo did not restore nested text markup'); assert.equal(await frame.locator('h1').innerText(), fixtureTitle);
   await frame.locator('img').click(); await page.locator('#field-image').waitFor();
   const image = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a8f8AAAAASUVORK5CYII=', 'base64');
+  await page.locator('[data-tab=divbox]').click();
+  await page.locator('#divBoxPanelBody .image-file-input').setInputFiles({ name: 'native-image.png', mimeType: 'image/png', buffer: image });
+  await page.locator('#divBoxPanelBody').getByRole('button', { name: 'Contain', exact: true }).click();
+  await wait(() => frame.locator('img').evaluate(el => el.src.startsWith('data:image/png') && getComputedStyle(el).objectFit === 'contain'), 'Original image picker/fit not connected');
+  await page.locator('[data-tab=advanced]').click();
   await page.locator('#image-upload').setInputFiles({ name: 'image.png', mimeType: 'image/png', buffer: image });
   await change('alt', '교체된 이미지'); await change('width', '150px');
   await wait(() => frame.locator('img').evaluate(element => element.alt === '교체된 이미지' && getComputedStyle(element).width === '150px'), 'Image editing failed');

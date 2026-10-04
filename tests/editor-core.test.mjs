@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import vm from 'node:vm';
+import { createHash } from 'node:crypto';
 import { installEditor } from '../scripts/install-editor.mjs';
 
 const context = { URL };
@@ -12,6 +13,12 @@ const core = context.AgencyEditorCore;
 const siteId = 'test-site/original';
 const key = 'body > main:nth-of-type(1) > h1:nth-of-type(1)';
 const data = () => ({ version: 1, siteId, pages: { '/': { [key]: { styles: { 'letter-spacing': '2px' }, text: '수정 제목' } } } });
+
+test('starter runs byte-identical local editor modules and styles', () => {
+  const source = JSON.parse(fs.readFileSync(new URL('../editor/native/source.json', import.meta.url), 'utf8'));
+  assert.equal(source.files.length, 8);
+  for (const file of source.files) assert.equal(createHash('sha256').update(fs.readFileSync(new URL('../editor/' + file.file, import.meta.url))).digest('hex'), file.sha256, file.file);
+});
 
 test('import is strictly bound to one site, including same-origin variants', () => {
   assert.equal(core.validate(data(), siteId).pages['/'][key].text, '수정 제목');
@@ -51,6 +58,15 @@ test('future templates get an independent editor without source imports; install
     assert.deepEqual(manifest.pages.map(page => page.path), ['/', '/about/']);
     assert.equal(manifest.siteId, 'new-site/new-variant');
     assert.ok(html.includes('/agency-web-templates/new-site/new-variant/editor/runtime.js'));
+    const independentSource = path.join(output, 'site-editor');
+    fs.appendFileSync(path.join(independentSource, 'integration.css'), '\n/* only this site */\n');
+    installEditor(output, 'new-site/new-variant', '/agency-web-templates/new-site/new-variant');
+    assert.ok(fs.readFileSync(path.join(output, 'editor/integration.css'), 'utf8').includes('only this site'));
+    assert.ok(!fs.readFileSync(new URL('../editor/integration.css', import.meta.url), 'utf8').includes('only this site'));
+    const second = path.join(output, 'second'); fs.mkdirSync(second);
+    fs.writeFileSync(path.join(second, 'index.html'), '<html><body>다른 사이트</body></html>');
+    installEditor(second, 'new-site/other-variant', '/other');
+    assert.ok(!fs.readFileSync(path.join(second, 'editor/integration.css'), 'utf8').includes('only this site'));
     const settings = { version: 1, siteId: 'new-site/new-variant', pages: { '/': { [key]: { styles: {}, image: 'https://example.com/photo.webp' } } } };
     fs.writeFileSync(path.join(output, 'editor-state.json'), JSON.stringify(settings));
     installEditor(output, 'new-site/new-variant', '');

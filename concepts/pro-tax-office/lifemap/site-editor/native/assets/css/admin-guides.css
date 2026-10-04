@@ -1,0 +1,32 @@
+/* Editor-only outlines never consume layout space or intercept pointer events. */
+:root{--admin-guide-blue:#2447ff;--admin-guide-orange:#e66a00;--admin-guide-green:#1f9d55}
+body.admin-on #siteCanvas .layout-section:is(:hover,:focus-within)>.section-surface{
+  outline:2px dashed var(--admin-guide-blue);outline-offset:-2px;
+}
+body.admin-on #siteCanvas .layout-section:is(:hover,:focus-within) .content-region{
+  outline:2px dashed var(--admin-guide-orange);outline-offset:-2px;
+}
+body.admin-on #siteCanvas .layout-section:is(:hover,:focus-within) .region-box{
+  outline:2px dashed var(--admin-guide-green);outline-offset:-2px;
+}
+body.admin-on .region-box.box-selected{
+  outline:2px solid var(--admin-guide-green)!important;outline-offset:-2px;
+}
+body.admin-on #siteCanvas .layout-section:is(:hover,:focus-within) .region-content.ctrl-kind-text{
+  outline:2px dashed var(--admin-guide-blue);outline-offset:-2px;
+}
+body.admin-on #siteCanvas .layout-section:is(:hover,:focus-within) .prototype-section-heading,
+body.admin-on #siteCanvas .layout-section:is(:hover,:focus-within) .region-content :is(h1,h2,h3,h4,h5,h6,p,li,blockquote,figcaption,td,th,summary,[data-bind]){
+  outline:1px dashed var(--admin-guide-blue);outline-offset:-4px;
+}
+body.admin-on #siteCanvas [data-bind]:hover{
+  outline:1px dashed var(--admin-guide-blue);outline-offset:-4px;
+}
+.admin-design-guide{margin:0 0 20px;border-bottom:1px solid var(--line);padding-bottom:16px}
+.admin-design-guide>summary{font-size:14px;font-weight:700;cursor:pointer;padding:10px 0}
+.admin-design-guide p{font-size:12px;line-height:1.7;color:var(--muted);margin:10px 0}
+.admin-guide-legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0}
+.admin-guide-legend span{padding:10px 4px;text-align:center;font-size:12px;border:1px dashed var(--admin-guide-blue)}
+.admin-guide-legend .guide-region{border:2px dashed var(--admin-guide-orange)}
+.admin-guide-legend .guide-box{border:2px dashed var(--admin-guide-green)}
+.admin-guide-legend .guide-section{border-width:2px}

@@ -1,0 +1,30 @@
+/* Fixed editor chrome, scoped so website themes and their swatches remain independent. */
+#panel {
+  --ink:#383838;
+  --paper:#ffffff;
+  --paper-alt:#f3f3f3;
+  --blue:#3f51b5;
+  --signal:#c62828;
+  --line:#d6dce2;
+  --muted:#626976;
+  color:var(--ink);
+  background:var(--paper);
+  accent-color:var(--blue);
+}
+#panel .panel-header {
+  background:#3f51b5;
+  color:#ffffff;
+  border-bottom-color:#2f409f;
+}
+#panel #panelClose {color:#ffffff}
+#panel .tabs {background:#f3f3f3}
+#panel .tab-btn.active {background:#ffffff;color:var(--blue)}
+#panel .panel-footer {background:#f3f3f3}
+#panel #saveBtn,
+#panel .mood-apply-btn {background:var(--blue);color:#ffffff}
+#panel #saveBtn:disabled {background:#e2e5ec;color:#687080;cursor:default}
+#panel :is(button,input,select,textarea,a):focus-visible {
+  outline:2px solid var(--blue);
+  outline-offset:2px;
+}
+#panel #panelClose:focus-visible {outline-color:#ffffff}
