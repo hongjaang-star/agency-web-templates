@@ -1,6 +1,8 @@
 # 결정 기록 (최신이 위)
 
 ## 2026-10-04
+- **한 업종에 여러 유형(변형)을 둔다.** 세무사무소는 trust(클래식 신뢰형)와 almanac(지면형)을 모두 유지하고, almanac 을 대표(flagship)로 한다. 새 업종/새 변형/레벨 업 판단, 역할·상태 필드, 기록 위치는 `docs/plan/07-variants.md`.
+  → 대체됨: 바로 아래 "trust 앱은 삭제" 결정(trust 복원).
 - **세무사무소는 almanac 으로 확정.** `templates/pro-tax-office/almanac` 로 완성하고 trust 앱은 삭제한다(화면 기록은 library 에만 retired 로 남김). 나머지 시안 compass·lifemap 은 concepts/ 에 디자인 라이브러리로 둔다.
 - **세무사무소 재디자인.** 기존 trust 는 피부과와 골격이 같아 다시 디자인한다. 시안 3개(almanac, compass, lifemap) → 사람이 선택 → 새 variant 로 완성, trust 는 선택 후 정리.
 - **사이트 소스 완전 분리.** 앱끼리 코드를 import·복사해 출발하지 않는다(`scripts/check-isolation.mjs` 로 배포 전 검사). 기존 화면 모듈은 `library/` 에 캡처·스타일 코드·사용 사이트로만 기록해 내부 참고용으로 쓴다.
@@ -14,7 +16,7 @@
 - **Claude Code on the web + 모노레포 `agency-web-templates`.** 업종 추가 = 폴더 추가. 저장소별 생성·Pages 설정 없음. 배포 주소 `hongjaang-star.github.io/agency-web-templates/{slug}/{variant}/`.
   → 대체됨: 업종별 저장소(medical-dermatology, pro-tax-office)와 사용자가 실행하는 PowerShell 배포 스크립트.
 - **사람의 승인은 시안 선택과 완성 PR 병합 두 번.** 나머지(리서치·시안·구현·검사·PR·배포)는 자동.
-- 진행 기록은 `registry/` 가 원본. Google 시트는 claude.ai 채팅에서 registry 를 읽어 동기화한다(클라우드 세션은 Google 커넥터 사용 불가로 보고됨).
+- 진행 기록은 `registry/` 가 원본. Google 시트 "에이전시 템플릿 포트폴리오 관리"는 registry 를 기준으로 동기화한다(2026-10-04 클라우드 세션에서 Google Sheets 커넥터로 직접 갱신 확인).
 
 ## 2026-10-03
 - 관리 시트 "에이전시 템플릿 포트폴리오 관리" 운영(탭: 현황, 템플릿 목록, 업종 백로그).

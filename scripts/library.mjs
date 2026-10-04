@@ -241,12 +241,12 @@ function writeIndexDoc(mods) {
     "",
     "## 사이트",
     "",
-    "| 사이트 | 지문 | 모듈 |",
-    "|---|---|---|",
+    "| 사이트 | 유형 | 지문 | 모듈 |",
+    "|---|---|---|---|",
     ...siteKeys.map((k) => {
       const i = siteInfo(k);
       const fp = i.fingerprint || {};
-      return `| [${i.name} · ${i.variant}](${k}/README.md)${i.status === "retired" ? " (교체됨)" : ""} | ${[fp.layout, fp.hero, fp.palette].filter(Boolean).join(" / ")} | ${mods.filter((m) => m.site === k).length} |`;
+      return `| [${i.name} · ${i.variant}](${k}/README.md)${i.status === "retired" ? " (교체됨)" : ""}${i.role === "flagship" ? " **대표**" : ""} | ${i.type || ""} | ${[fp.layout, fp.hero, fp.palette].filter(Boolean).join(" / ")} | ${mods.filter((m) => m.site === k).length} |`;
     }),
     "",
     "## 종류별",

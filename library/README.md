@@ -9,11 +9,11 @@
 
 ## 사이트
 
-| 사이트 | 지문 | 모듈 |
-|---|---|---|
-| [피부과 · lumiere](medical-dermatology/lumiere/README.md) | immersive / video / ivory·ink·champagne gold | 18 |
-| [세무사무소 · trust](pro-tax-office/trust/README.md) (교체됨) | swiss-grid / split-media / navy·paper·brass | 15 |
-| [세무사무소 · almanac](pro-tax-office/almanac/README.md) | editorial / statement / paper·ink·vermilion | 17 |
+| 사이트 | 유형 | 지문 | 모듈 |
+|---|---|---|---|
+| [피부과 · lumiere](medical-dermatology/lumiere/README.md) **대표** | 몰입형 · 영상과 따뜻한 사진으로 신뢰를 주는 프리미엄 피부과 | immersive / video / ivory·ink·champagne gold | 18 |
+| [세무사무소 · almanac](pro-tax-office/almanac/README.md) **대표** | 지면형 · 설명과 신고 기한을 앞세운 사무소, 신문·연감 같은 단정함 | editorial / statement / paper·ink·vermilion | 17 |
+| [세무사무소 · trust](pro-tax-office/trust/README.md) | 클래식 신뢰형 · 네이비·명조와 정돈된 정보 구조, 업무분야를 한눈에 | swiss-grid / split-media / navy·paper·brass | 15 |
 
 ## 종류별
 
@@ -22,23 +22,23 @@
 | 미리보기 | 모듈 | 사용 사이트 |
 |---|---|---|
 | <img src="medical-dermatology/lumiere/shots/top-banner-desktop.jpg" width="280"> | [상단 공지 띠 `top-banner`](medical-dermatology/lumiere/README.md#상단-공지-띠-top-banner) | `medical-dermatology/lumiere` |
-| <img src="pro-tax-office/trust/shots/top-banner-desktop.jpg" width="280"> | [상단 공지 띠 `top-banner`](pro-tax-office/trust/README.md#상단-공지-띠-top-banner) | `pro-tax-office/trust` (교체됨) |
+| <img src="pro-tax-office/trust/shots/top-banner-desktop.jpg" width="280"> | [상단 공지 띠 `top-banner`](pro-tax-office/trust/README.md#상단-공지-띠-top-banner) | `pro-tax-office/trust` |
 
 ### 헤더 `header`
 
 | 미리보기 | 모듈 | 사용 사이트 |
 |---|---|---|
 | <img src="medical-dermatology/lumiere/shots/header-desktop.jpg" width="280"> | [헤더 `header`](medical-dermatology/lumiere/README.md#헤더-header) | `medical-dermatology/lumiere` |
-| <img src="pro-tax-office/trust/shots/header-desktop.jpg" width="280"> | [헤더 `header`](pro-tax-office/trust/README.md#헤더-header) | `pro-tax-office/trust` (교체됨) |
 | <img src="pro-tax-office/almanac/shots/masthead-desktop.jpg" width="280"> | [마스트헤드 `masthead`](pro-tax-office/almanac/README.md#마스트헤드-masthead) | `pro-tax-office/almanac` |
+| <img src="pro-tax-office/trust/shots/header-desktop.jpg" width="280"> | [헤더 `header`](pro-tax-office/trust/README.md#헤더-header) | `pro-tax-office/trust` |
 
 ### 히어로 `hero`
 
 | 미리보기 | 모듈 | 사용 사이트 |
 |---|---|---|
 | <img src="medical-dermatology/lumiere/shots/home-hero-desktop.jpg" width="280"> | [히어로 `home-hero`](medical-dermatology/lumiere/README.md#히어로-home-hero) | `medical-dermatology/lumiere` |
-| <img src="pro-tax-office/trust/shots/home-hero-desktop.jpg" width="280"> | [히어로 `home-hero`](pro-tax-office/trust/README.md#히어로-home-hero) | `pro-tax-office/trust` (교체됨) |
 | <img src="pro-tax-office/almanac/shots/home-hero-desktop.jpg" width="280"> | [한 문장 히어로 `home-hero`](pro-tax-office/almanac/README.md#한-문장-히어로-home-hero) | `pro-tax-office/almanac` |
+| <img src="pro-tax-office/trust/shots/home-hero-desktop.jpg" width="280"> | [히어로 `home-hero`](pro-tax-office/trust/README.md#히어로-home-hero) | `pro-tax-office/trust` |
 
 ### 소개 `intro`
 
@@ -59,9 +59,9 @@
 | 미리보기 | 모듈 | 사용 사이트 |
 |---|---|---|
 | <img src="medical-dermatology/lumiere/shots/home-treatments-desktop.jpg" width="280"> | [시술 목록 `home-treatments`](medical-dermatology/lumiere/README.md#시술-목록-home-treatments) | `medical-dermatology/lumiere` |
-| <img src="pro-tax-office/trust/shots/home-services-desktop.jpg" width="280"> | [업무분야 `home-services`](pro-tax-office/trust/README.md#업무분야-home-services) | `pro-tax-office/trust` (교체됨) |
 | <img src="pro-tax-office/almanac/shots/home-index-desktop.jpg" width="280"> | [업무 색인 `home-index`](pro-tax-office/almanac/README.md#업무-색인-home-index) | `pro-tax-office/almanac` |
 | <img src="pro-tax-office/almanac/shots/service-article-desktop.jpg" width="280"> | [업무 상세 (기사형) `service-article`](pro-tax-office/almanac/README.md#업무-상세-기사형-service-article) | `pro-tax-office/almanac` |
+| <img src="pro-tax-office/trust/shots/home-services-desktop.jpg" width="280"> | [업무분야 `home-services`](pro-tax-office/trust/README.md#업무분야-home-services) | `pro-tax-office/trust` |
 
 ### 시그니처 `signature`
 
@@ -76,16 +76,16 @@
 | 미리보기 | 모듈 | 사용 사이트 |
 |---|---|---|
 | <img src="medical-dermatology/lumiere/shots/home-doctors-desktop.jpg" width="280"> | [의료진 `home-doctors`](medical-dermatology/lumiere/README.md#의료진-home-doctors) | `medical-dermatology/lumiere` |
-| <img src="pro-tax-office/trust/shots/home-team-desktop.jpg" width="280"> | [구성원 `home-team`](pro-tax-office/trust/README.md#구성원-home-team) | `pro-tax-office/trust` (교체됨) |
 | <img src="pro-tax-office/almanac/shots/about-bylines-desktop.jpg" width="280"> | [필진 (구성원) `about-bylines`](pro-tax-office/almanac/README.md#필진-구성원-about-bylines) | `pro-tax-office/almanac` |
+| <img src="pro-tax-office/trust/shots/home-team-desktop.jpg" width="280"> | [구성원 `home-team`](pro-tax-office/trust/README.md#구성원-home-team) | `pro-tax-office/trust` |
 
 ### 절차 `process`
 
 | 미리보기 | 모듈 | 사용 사이트 |
 |---|---|---|
 | <img src="medical-dermatology/lumiere/shots/home-process-desktop.jpg" width="280"> | [진행 절차 `home-process`](medical-dermatology/lumiere/README.md#진행-절차-home-process) | `medical-dermatology/lumiere` |
-| <img src="pro-tax-office/trust/shots/home-process-desktop.jpg" width="280"> | [진행 절차 `home-process`](pro-tax-office/trust/README.md#진행-절차-home-process) | `pro-tax-office/trust` (교체됨) |
 | <img src="pro-tax-office/almanac/shots/about-steps-desktop.jpg" width="280"> | [진행 방식 `about-steps`](pro-tax-office/almanac/README.md#진행-방식-about-steps) | `pro-tax-office/almanac` |
+| <img src="pro-tax-office/trust/shots/home-process-desktop.jpg" width="280"> | [진행 절차 `home-process`](pro-tax-office/trust/README.md#진행-절차-home-process) | `pro-tax-office/trust` |
 
 ### 갤러리 `gallery`
 
@@ -105,64 +105,64 @@
 | 미리보기 | 모듈 | 사용 사이트 |
 |---|---|---|
 | <img src="medical-dermatology/lumiere/shots/home-faq-desktop.jpg" width="280"> | [자주 묻는 질문 `home-faq`](medical-dermatology/lumiere/README.md#자주-묻는-질문-home-faq) | `medical-dermatology/lumiere` |
-| <img src="pro-tax-office/trust/shots/home-faq-desktop.jpg" width="280"> | [자주 묻는 질문 `home-faq`](pro-tax-office/trust/README.md#자주-묻는-질문-home-faq) | `pro-tax-office/trust` (교체됨) |
 | <img src="pro-tax-office/almanac/shots/home-qa-desktop.jpg" width="280"> | [묻고 답하기 `home-qa`](pro-tax-office/almanac/README.md#묻고-답하기-home-qa) | `pro-tax-office/almanac` |
+| <img src="pro-tax-office/trust/shots/home-faq-desktop.jpg" width="280"> | [자주 묻는 질문 `home-faq`](pro-tax-office/trust/README.md#자주-묻는-질문-home-faq) | `pro-tax-office/trust` |
 
 ### 오시는 길 `visit`
 
 | 미리보기 | 모듈 | 사용 사이트 |
 |---|---|---|
 | <img src="medical-dermatology/lumiere/shots/home-visit-desktop.jpg" width="280"> | [오시는 길 `home-visit`](medical-dermatology/lumiere/README.md#오시는-길-home-visit) | `medical-dermatology/lumiere` |
-| <img src="pro-tax-office/trust/shots/home-visit-desktop.jpg" width="280"> | [오시는 길 `home-visit`](pro-tax-office/trust/README.md#오시는-길-home-visit) | `pro-tax-office/trust` (교체됨) |
 | <img src="pro-tax-office/almanac/shots/home-visit-desktop.jpg" width="280"> | [찾아오는 길 `home-visit`](pro-tax-office/almanac/README.md#찾아오는-길-home-visit) | `pro-tax-office/almanac` |
+| <img src="pro-tax-office/trust/shots/home-visit-desktop.jpg" width="280"> | [오시는 길 `home-visit`](pro-tax-office/trust/README.md#오시는-길-home-visit) | `pro-tax-office/trust` |
 
 ### 서브페이지 상단 `page-hero`
 
 | 미리보기 | 모듈 | 사용 사이트 |
 |---|---|---|
 | <img src="medical-dermatology/lumiere/shots/page-hero-desktop.jpg" width="280"> | [서브페이지 상단 `page-hero`](medical-dermatology/lumiere/README.md#서브페이지-상단-page-hero) | `medical-dermatology/lumiere` |
-| <img src="pro-tax-office/trust/shots/page-hero-desktop.jpg" width="280"> | [서브페이지 상단 `page-hero`](pro-tax-office/trust/README.md#서브페이지-상단-page-hero) | `pro-tax-office/trust` (교체됨) |
 | <img src="pro-tax-office/almanac/shots/folio-desktop.jpg" width="280"> | [서브페이지 머리 (폴리오) `folio`](pro-tax-office/almanac/README.md#서브페이지-머리-폴리오-folio) | `pro-tax-office/almanac` |
+| <img src="pro-tax-office/trust/shots/page-hero-desktop.jpg" width="280"> | [서브페이지 상단 `page-hero`](pro-tax-office/trust/README.md#서브페이지-상단-page-hero) | `pro-tax-office/trust` |
 
 ### CTA `cta`
 
 | 미리보기 | 모듈 | 사용 사이트 |
 |---|---|---|
 | <img src="medical-dermatology/lumiere/shots/cta-band-desktop.jpg" width="280"> | [상담 유도 띠 `cta-band`](medical-dermatology/lumiere/README.md#상담-유도-띠-cta-band) | `medical-dermatology/lumiere` |
-| <img src="pro-tax-office/trust/shots/cta-band-desktop.jpg" width="280"> | [상담 유도 띠 `cta-band`](pro-tax-office/trust/README.md#상담-유도-띠-cta-band) | `pro-tax-office/trust` (교체됨) |
 | <img src="pro-tax-office/almanac/shots/contact-channels-desktop.jpg" width="280"> | [상담 방법 `contact-channels`](pro-tax-office/almanac/README.md#상담-방법-contact-channels) | `pro-tax-office/almanac` |
+| <img src="pro-tax-office/trust/shots/cta-band-desktop.jpg" width="280"> | [상담 유도 띠 `cta-band`](pro-tax-office/trust/README.md#상담-유도-띠-cta-band) | `pro-tax-office/trust` |
 
 ### 푸터 `footer`
 
 | 미리보기 | 모듈 | 사용 사이트 |
 |---|---|---|
 | <img src="medical-dermatology/lumiere/shots/footer-desktop.jpg" width="280"> | [푸터 `footer`](medical-dermatology/lumiere/README.md#푸터-footer) | `medical-dermatology/lumiere` |
-| <img src="pro-tax-office/trust/shots/footer-desktop.jpg" width="280"> | [푸터 `footer`](pro-tax-office/trust/README.md#푸터-footer) | `pro-tax-office/trust` (교체됨) |
 | <img src="pro-tax-office/almanac/shots/colophon-desktop.jpg" width="280"> | [판권란 (푸터) `colophon`](pro-tax-office/almanac/README.md#판권란-푸터-colophon) | `pro-tax-office/almanac` |
+| <img src="pro-tax-office/trust/shots/footer-desktop.jpg" width="280"> | [푸터 `footer`](pro-tax-office/trust/README.md#푸터-footer) | `pro-tax-office/trust` |
 
 ### 고정 버튼 `floating`
 
 | 미리보기 | 모듈 | 사용 사이트 |
 |---|---|---|
 | <img src="medical-dermatology/lumiere/shots/floating-contact-desktop.jpg" width="280"> | [고정 상담 버튼 `floating-contact`](medical-dermatology/lumiere/README.md#고정-상담-버튼-floating-contact) | `medical-dermatology/lumiere` |
-| <img src="pro-tax-office/trust/shots/floating-contact-desktop.jpg" width="280"> | [고정 상담 버튼 `floating-contact`](pro-tax-office/trust/README.md#고정-상담-버튼-floating-contact) | `pro-tax-office/trust` (교체됨) |
-
-### 수치 `stats`
-
-| 미리보기 | 모듈 | 사용 사이트 |
-|---|---|---|
-| <img src="pro-tax-office/trust/shots/home-stats-desktop.jpg" width="280"> | [수치 `home-stats`](pro-tax-office/trust/README.md#수치-home-stats) | `pro-tax-office/trust` (교체됨) |
-| <img src="pro-tax-office/almanac/shots/about-figures-desktop.jpg" width="280"> | [현황 수치 `about-figures`](pro-tax-office/almanac/README.md#현황-수치-about-figures) | `pro-tax-office/almanac` |
-
-### 고객군 `clients`
-
-| 미리보기 | 모듈 | 사용 사이트 |
-|---|---|---|
-| <img src="pro-tax-office/trust/shots/home-clients-desktop.jpg" width="280"> | [고객군 `home-clients`](pro-tax-office/trust/README.md#고객군-home-clients) | `pro-tax-office/trust` (교체됨) |
+| <img src="pro-tax-office/trust/shots/floating-contact-desktop.jpg" width="280"> | [고정 상담 버튼 `floating-contact`](pro-tax-office/trust/README.md#고정-상담-버튼-floating-contact) | `pro-tax-office/trust` |
 
 ### 사례 `cases`
 
 | 미리보기 | 모듈 | 사용 사이트 |
 |---|---|---|
-| <img src="pro-tax-office/trust/shots/home-cases-desktop.jpg" width="280"> | [업무 사례 `home-cases`](pro-tax-office/trust/README.md#업무-사례-home-cases) | `pro-tax-office/trust` (교체됨) |
 | <img src="pro-tax-office/almanac/shots/home-cases-desktop.jpg" width="280"> | [사례 기사 단 `home-cases`](pro-tax-office/almanac/README.md#사례-기사-단-home-cases) | `pro-tax-office/almanac` |
+| <img src="pro-tax-office/trust/shots/home-cases-desktop.jpg" width="280"> | [업무 사례 `home-cases`](pro-tax-office/trust/README.md#업무-사례-home-cases) | `pro-tax-office/trust` |
+
+### 수치 `stats`
+
+| 미리보기 | 모듈 | 사용 사이트 |
+|---|---|---|
+| <img src="pro-tax-office/almanac/shots/about-figures-desktop.jpg" width="280"> | [현황 수치 `about-figures`](pro-tax-office/almanac/README.md#현황-수치-about-figures) | `pro-tax-office/almanac` |
+| <img src="pro-tax-office/trust/shots/home-stats-desktop.jpg" width="280"> | [수치 `home-stats`](pro-tax-office/trust/README.md#수치-home-stats) | `pro-tax-office/trust` |
+
+### 고객군 `clients`
+
+| 미리보기 | 모듈 | 사용 사이트 |
+|---|---|---|
+| <img src="pro-tax-office/trust/shots/home-clients-desktop.jpg" width="280"> | [고객군 `home-clients`](pro-tax-office/trust/README.md#고객군-home-clients) | `pro-tax-office/trust` |

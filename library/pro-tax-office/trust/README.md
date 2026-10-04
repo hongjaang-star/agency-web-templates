@@ -4,8 +4,7 @@
 
 - 사용 사이트: `pro-tax-office/trust` (한결세무회계(가상))
 - 배포 주소: https://hongjaang-star.github.io/agency-web-templates/pro-tax-office/trust/
-- 소스: 삭제됨 (2026-10-04 almanac 으로 교체). 원본은 hongjaang-star/pro-tax-office@7a7ca27
-- 상태: **retired** — 이 기록은 이전 디자인 참고용
+- 소스: [`templates/pro-tax-office/trust`](../../../templates/pro-tax-office/trust)
 
 ## 디자인 지문
 
@@ -174,7 +173,7 @@ const nanumMyeongjo = Nanum_Myeongjo({
 ### 상단 공지 띠 `top-banner`
 
 - 종류: `banner` · 사용 사이트: `pro-tax-office/trust` · 페이지: `/`
-- 소스: `src/components/TopBanner.tsx` (소스 삭제됨)
+- 소스: [`src/components/TopBanner.tsx`](../../../templates/pro-tax-office/trust/src/components/TopBanner.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -202,7 +201,7 @@ const nanumMyeongjo = Nanum_Myeongjo({
 ### 헤더 `header`
 
 - 종류: `header` · 사용 사이트: `pro-tax-office/trust` · 페이지: `/`
-- 소스: `src/components/Header.tsx` (소스 삭제됨)
+- 소스: [`src/components/Header.tsx`](../../../templates/pro-tax-office/trust/src/components/Header.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -326,7 +325,7 @@ const nanumMyeongjo = Nanum_Myeongjo({
 ### 히어로 `home-hero`
 
 - 종류: `hero` · 사용 사이트: `pro-tax-office/trust` · 페이지: `/`
-- 소스: `src/components/blocks/Hero.tsx` (소스 삭제됨)
+- 소스: [`src/components/blocks/Hero.tsx`](../../../templates/pro-tax-office/trust/src/components/blocks/Hero.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -382,7 +381,7 @@ const nanumMyeongjo = Nanum_Myeongjo({
 ### 수치 `home-stats`
 
 - 종류: `stats` · 사용 사이트: `pro-tax-office/trust` · 페이지: `/`
-- 소스: `src/components/blocks/Stats.tsx` (소스 삭제됨)
+- 소스: [`src/components/blocks/Stats.tsx`](../../../templates/pro-tax-office/trust/src/components/blocks/Stats.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -407,7 +406,7 @@ const nanumMyeongjo = Nanum_Myeongjo({
 ### 업무분야 `home-services`
 
 - 종류: `services` · 사용 사이트: `pro-tax-office/trust` · 페이지: `/`
-- 소스: `src/components/blocks/Services.tsx` (소스 삭제됨)
+- 소스: [`src/components/blocks/Services.tsx`](../../../templates/pro-tax-office/trust/src/components/blocks/Services.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -457,7 +456,7 @@ const nanumMyeongjo = Nanum_Myeongjo({
 ### 고객군 `home-clients`
 
 - 종류: `clients` · 사용 사이트: `pro-tax-office/trust` · 페이지: `/`
-- 소스: `src/components/blocks/Clients.tsx` (소스 삭제됨)
+- 소스: [`src/components/blocks/Clients.tsx`](../../../templates/pro-tax-office/trust/src/components/blocks/Clients.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -489,7 +488,7 @@ const nanumMyeongjo = Nanum_Myeongjo({
 ### 진행 절차 `home-process`
 
 - 종류: `process` · 사용 사이트: `pro-tax-office/trust` · 페이지: `/`
-- 소스: `src/components/blocks/Process.tsx` (소스 삭제됨)
+- 소스: [`src/components/blocks/Process.tsx`](../../../templates/pro-tax-office/trust/src/components/blocks/Process.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -526,7 +525,7 @@ const nanumMyeongjo = Nanum_Myeongjo({
 ### 구성원 `home-team`
 
 - 종류: `team` · 사용 사이트: `pro-tax-office/trust` · 페이지: `/`
-- 소스: `src/components/blocks/Team.tsx` (소스 삭제됨)
+- 소스: [`src/components/blocks/Team.tsx`](../../../templates/pro-tax-office/trust/src/components/blocks/Team.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -578,7 +577,7 @@ const nanumMyeongjo = Nanum_Myeongjo({
 ### 업무 사례 `home-cases`
 
 - 종류: `cases` · 사용 사이트: `pro-tax-office/trust` · 페이지: `/`
-- 소스: `src/components/blocks/Cases.tsx` (소스 삭제됨)
+- 소스: [`src/components/blocks/Cases.tsx`](../../../templates/pro-tax-office/trust/src/components/blocks/Cases.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -623,7 +622,7 @@ const nanumMyeongjo = Nanum_Myeongjo({
 ### 자주 묻는 질문 `home-faq`
 
 - 종류: `faq` · 사용 사이트: `pro-tax-office/trust` · 페이지: `/`
-- 소스: `src/components/blocks/Faq.tsx` (소스 삭제됨)
+- 소스: [`src/components/blocks/Faq.tsx`](../../../templates/pro-tax-office/trust/src/components/blocks/Faq.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -658,7 +657,7 @@ const nanumMyeongjo = Nanum_Myeongjo({
 ### 오시는 길 `home-visit`
 
 - 종류: `visit` · 사용 사이트: `pro-tax-office/trust` · 페이지: `/`
-- 소스: `src/components/blocks/Visit.tsx` (소스 삭제됨)
+- 소스: [`src/components/blocks/Visit.tsx`](../../../templates/pro-tax-office/trust/src/components/blocks/Visit.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -705,7 +704,7 @@ const nanumMyeongjo = Nanum_Myeongjo({
 ### 서브페이지 상단 `page-hero`
 
 - 종류: `page-hero` · 사용 사이트: `pro-tax-office/trust` · 페이지: `/about/`
-- 소스: `src/components/ui.tsx#PageHero` (소스 삭제됨) (PageHero)
+- 소스: [`src/components/ui.tsx#PageHero`](../../../templates/pro-tax-office/trust/src/components/ui.tsx) (PageHero)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -741,7 +740,7 @@ const nanumMyeongjo = Nanum_Myeongjo({
 ### 상담 유도 띠 `cta-band`
 
 - 종류: `cta` · 사용 사이트: `pro-tax-office/trust` · 페이지: `/cases/`
-- 소스: `src/components/ui.tsx#CtaBand` (소스 삭제됨) (CtaBand)
+- 소스: [`src/components/ui.tsx#CtaBand`](../../../templates/pro-tax-office/trust/src/components/ui.tsx) (CtaBand)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -769,7 +768,7 @@ const nanumMyeongjo = Nanum_Myeongjo({
 ### 푸터 `footer`
 
 - 종류: `footer` · 사용 사이트: `pro-tax-office/trust` · 페이지: `/`
-- 소스: `src/components/Footer.tsx` (소스 삭제됨)
+- 소스: [`src/components/Footer.tsx`](../../../templates/pro-tax-office/trust/src/components/Footer.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|
@@ -830,7 +829,7 @@ const nanumMyeongjo = Nanum_Myeongjo({
 ### 고정 상담 버튼 `floating-contact`
 
 - 종류: `floating` · 사용 사이트: `pro-tax-office/trust` · 페이지: `/`
-- 소스: `src/components/FloatingContact.tsx` (소스 삭제됨)
+- 소스: [`src/components/FloatingContact.tsx`](../../../templates/pro-tax-office/trust/src/components/FloatingContact.tsx)
 
 | 데스크톱 1440 | 모바일 390 |
 |---|---|

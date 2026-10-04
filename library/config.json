@@ -150,6 +150,131 @@
         }
       ]
     },
+    "pro-tax-office/trust": {
+      "modules": [
+        {
+          "id": "top-banner",
+          "kind": "banner",
+          "label": "상단 공지 띠",
+          "page": "/",
+          "select": "body > div:has(+ header)",
+          "source": "src/components/TopBanner.tsx"
+        },
+        {
+          "id": "header",
+          "kind": "header",
+          "label": "헤더",
+          "page": "/",
+          "select": "body > header",
+          "source": "src/components/Header.tsx"
+        },
+        {
+          "id": "home-hero",
+          "kind": "hero",
+          "label": "히어로",
+          "page": "/",
+          "select": "main > :nth-child(1)",
+          "source": "src/components/blocks/Hero.tsx"
+        },
+        {
+          "id": "home-stats",
+          "kind": "stats",
+          "label": "수치",
+          "page": "/",
+          "select": "main > :nth-child(2)",
+          "source": "src/components/blocks/Stats.tsx"
+        },
+        {
+          "id": "home-services",
+          "kind": "services",
+          "label": "업무분야",
+          "page": "/",
+          "select": "main > :nth-child(3)",
+          "source": "src/components/blocks/Services.tsx"
+        },
+        {
+          "id": "home-clients",
+          "kind": "clients",
+          "label": "고객군",
+          "page": "/",
+          "select": "main > :nth-child(4)",
+          "source": "src/components/blocks/Clients.tsx"
+        },
+        {
+          "id": "home-process",
+          "kind": "process",
+          "label": "진행 절차",
+          "page": "/",
+          "select": "main > :nth-child(5)",
+          "source": "src/components/blocks/Process.tsx"
+        },
+        {
+          "id": "home-team",
+          "kind": "team",
+          "label": "구성원",
+          "page": "/",
+          "select": "main > :nth-child(6)",
+          "source": "src/components/blocks/Team.tsx"
+        },
+        {
+          "id": "home-cases",
+          "kind": "cases",
+          "label": "업무 사례",
+          "page": "/",
+          "select": "main > :nth-child(7)",
+          "source": "src/components/blocks/Cases.tsx"
+        },
+        {
+          "id": "home-faq",
+          "kind": "faq",
+          "label": "자주 묻는 질문",
+          "page": "/",
+          "select": "main > :nth-child(8)",
+          "source": "src/components/blocks/Faq.tsx"
+        },
+        {
+          "id": "home-visit",
+          "kind": "visit",
+          "label": "오시는 길",
+          "page": "/",
+          "select": "main > :nth-child(9)",
+          "source": "src/components/blocks/Visit.tsx"
+        },
+        {
+          "id": "page-hero",
+          "kind": "page-hero",
+          "label": "서브페이지 상단",
+          "page": "/about/",
+          "select": "main > :first-child",
+          "source": "src/components/ui.tsx#PageHero"
+        },
+        {
+          "id": "cta-band",
+          "kind": "cta",
+          "label": "상담 유도 띠",
+          "page": "/cases/",
+          "select": "main > :last-child",
+          "source": "src/components/ui.tsx#CtaBand"
+        },
+        {
+          "id": "footer",
+          "kind": "footer",
+          "label": "푸터",
+          "page": "/",
+          "select": "body > footer",
+          "source": "src/components/Footer.tsx"
+        },
+        {
+          "id": "floating-contact",
+          "kind": "floating",
+          "label": "고정 상담 버튼",
+          "page": "/",
+          "select": "body > aside",
+          "selectMobile": "body > nav",
+          "source": "src/components/FloatingContact.tsx"
+        }
+      ]
+    },
     "pro-tax-office/almanac": {
       "modules": [
         {
