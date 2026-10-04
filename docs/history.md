@@ -13,6 +13,7 @@
 | 2026-10-04 | pro-tax-office/almanac 완성(16페이지, Tailwind 없는 독립 앱), trust 삭제, library 17개 모듈 추가 | PR |
 | 2026-10-04 | pro-tax-office 재디자인 시안 3개(almanac·compass·lifemap), research/pro-tax-office.md | PR |
 | 2026-10-04 | 사이트 소스 분리 검사, 앱 내 site-template 스킬 제거, 모듈 스타일 라이브러리(library/, 33개 모듈 캡처·스타일 코드) | PR |
+| 2026-10-04 | 유형·변형 관리 방법(plan 07), trust 복원, registry role·type 필드, 배포 목록 업종별 묶음, 관리 시트 유형·역할 열 | PR |
 
 ## 교훈
 - 루트에 package-lock.json 이 생기면 Next(Turbopack)가 모노레포 루트를 작업 루트로 잡는다. 각 앱 next.config 에 `turbopack.root` 를 둔다.

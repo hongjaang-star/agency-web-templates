@@ -236,201 +236,6 @@
       "code": "medical-dermatology/lumiere/code/floating-contact.html"
     },
     {
-      "id": "top-banner",
-      "kind": "banner",
-      "label": "상단 공지 띠",
-      "page": "/",
-      "source": "src/components/TopBanner.tsx",
-      "site": "pro-tax-office/trust",
-      "shots": {
-        "desktop": "pro-tax-office/trust/shots/top-banner-desktop.jpg",
-        "mobile": "pro-tax-office/trust/shots/top-banner-mobile.jpg"
-      },
-      "code": "pro-tax-office/trust/code/top-banner.html"
-    },
-    {
-      "id": "header",
-      "kind": "header",
-      "label": "헤더",
-      "page": "/",
-      "source": "src/components/Header.tsx",
-      "site": "pro-tax-office/trust",
-      "shots": {
-        "desktop": "pro-tax-office/trust/shots/header-desktop.jpg",
-        "mobile": "pro-tax-office/trust/shots/header-mobile.jpg"
-      },
-      "code": "pro-tax-office/trust/code/header.html"
-    },
-    {
-      "id": "home-hero",
-      "kind": "hero",
-      "label": "히어로",
-      "page": "/",
-      "source": "src/components/blocks/Hero.tsx",
-      "site": "pro-tax-office/trust",
-      "shots": {
-        "desktop": "pro-tax-office/trust/shots/home-hero-desktop.jpg",
-        "mobile": "pro-tax-office/trust/shots/home-hero-mobile.jpg"
-      },
-      "code": "pro-tax-office/trust/code/home-hero.html"
-    },
-    {
-      "id": "home-stats",
-      "kind": "stats",
-      "label": "수치",
-      "page": "/",
-      "source": "src/components/blocks/Stats.tsx",
-      "site": "pro-tax-office/trust",
-      "shots": {
-        "desktop": "pro-tax-office/trust/shots/home-stats-desktop.jpg",
-        "mobile": "pro-tax-office/trust/shots/home-stats-mobile.jpg"
-      },
-      "code": "pro-tax-office/trust/code/home-stats.html"
-    },
-    {
-      "id": "home-services",
-      "kind": "services",
-      "label": "업무분야",
-      "page": "/",
-      "source": "src/components/blocks/Services.tsx",
-      "site": "pro-tax-office/trust",
-      "shots": {
-        "desktop": "pro-tax-office/trust/shots/home-services-desktop.jpg",
-        "mobile": "pro-tax-office/trust/shots/home-services-mobile.jpg"
-      },
-      "code": "pro-tax-office/trust/code/home-services.html"
-    },
-    {
-      "id": "home-clients",
-      "kind": "clients",
-      "label": "고객군",
-      "page": "/",
-      "source": "src/components/blocks/Clients.tsx",
-      "site": "pro-tax-office/trust",
-      "shots": {
-        "desktop": "pro-tax-office/trust/shots/home-clients-desktop.jpg",
-        "mobile": "pro-tax-office/trust/shots/home-clients-mobile.jpg"
-      },
-      "code": "pro-tax-office/trust/code/home-clients.html"
-    },
-    {
-      "id": "home-process",
-      "kind": "process",
-      "label": "진행 절차",
-      "page": "/",
-      "source": "src/components/blocks/Process.tsx",
-      "site": "pro-tax-office/trust",
-      "shots": {
-        "desktop": "pro-tax-office/trust/shots/home-process-desktop.jpg",
-        "mobile": "pro-tax-office/trust/shots/home-process-mobile.jpg"
-      },
-      "code": "pro-tax-office/trust/code/home-process.html"
-    },
-    {
-      "id": "home-team",
-      "kind": "team",
-      "label": "구성원",
-      "page": "/",
-      "source": "src/components/blocks/Team.tsx",
-      "site": "pro-tax-office/trust",
-      "shots": {
-        "desktop": "pro-tax-office/trust/shots/home-team-desktop.jpg",
-        "mobile": "pro-tax-office/trust/shots/home-team-mobile.jpg"
-      },
-      "code": "pro-tax-office/trust/code/home-team.html"
-    },
-    {
-      "id": "home-cases",
-      "kind": "cases",
-      "label": "업무 사례",
-      "page": "/",
-      "source": "src/components/blocks/Cases.tsx",
-      "site": "pro-tax-office/trust",
-      "shots": {
-        "desktop": "pro-tax-office/trust/shots/home-cases-desktop.jpg",
-        "mobile": "pro-tax-office/trust/shots/home-cases-mobile.jpg"
-      },
-      "code": "pro-tax-office/trust/code/home-cases.html"
-    },
-    {
-      "id": "home-faq",
-      "kind": "faq",
-      "label": "자주 묻는 질문",
-      "page": "/",
-      "source": "src/components/blocks/Faq.tsx",
-      "site": "pro-tax-office/trust",
-      "shots": {
-        "desktop": "pro-tax-office/trust/shots/home-faq-desktop.jpg",
-        "mobile": "pro-tax-office/trust/shots/home-faq-mobile.jpg"
-      },
-      "code": "pro-tax-office/trust/code/home-faq.html"
-    },
-    {
-      "id": "home-visit",
-      "kind": "visit",
-      "label": "오시는 길",
-      "page": "/",
-      "source": "src/components/blocks/Visit.tsx",
-      "site": "pro-tax-office/trust",
-      "shots": {
-        "desktop": "pro-tax-office/trust/shots/home-visit-desktop.jpg",
-        "mobile": "pro-tax-office/trust/shots/home-visit-mobile.jpg"
-      },
-      "code": "pro-tax-office/trust/code/home-visit.html"
-    },
-    {
-      "id": "page-hero",
-      "kind": "page-hero",
-      "label": "서브페이지 상단",
-      "page": "/about/",
-      "source": "src/components/ui.tsx#PageHero",
-      "site": "pro-tax-office/trust",
-      "shots": {
-        "desktop": "pro-tax-office/trust/shots/page-hero-desktop.jpg",
-        "mobile": "pro-tax-office/trust/shots/page-hero-mobile.jpg"
-      },
-      "code": "pro-tax-office/trust/code/page-hero.html"
-    },
-    {
-      "id": "cta-band",
-      "kind": "cta",
-      "label": "상담 유도 띠",
-      "page": "/cases/",
-      "source": "src/components/ui.tsx#CtaBand",
-      "site": "pro-tax-office/trust",
-      "shots": {
-        "desktop": "pro-tax-office/trust/shots/cta-band-desktop.jpg",
-        "mobile": "pro-tax-office/trust/shots/cta-band-mobile.jpg"
-      },
-      "code": "pro-tax-office/trust/code/cta-band.html"
-    },
-    {
-      "id": "footer",
-      "kind": "footer",
-      "label": "푸터",
-      "page": "/",
-      "source": "src/components/Footer.tsx",
-      "site": "pro-tax-office/trust",
-      "shots": {
-        "desktop": "pro-tax-office/trust/shots/footer-desktop.jpg",
-        "mobile": "pro-tax-office/trust/shots/footer-mobile.jpg"
-      },
-      "code": "pro-tax-office/trust/code/footer.html"
-    },
-    {
-      "id": "floating-contact",
-      "kind": "floating",
-      "label": "고정 상담 버튼",
-      "page": "/",
-      "source": "src/components/FloatingContact.tsx",
-      "site": "pro-tax-office/trust",
-      "shots": {
-        "desktop": "pro-tax-office/trust/shots/floating-contact-desktop.jpg",
-        "mobile": "pro-tax-office/trust/shots/floating-contact-mobile.jpg"
-      },
-      "code": "pro-tax-office/trust/code/floating-contact.html"
-    },
-    {
       "id": "masthead",
       "kind": "header",
       "label": "마스트헤드",
@@ -650,6 +455,201 @@
         "mobile": "pro-tax-office/almanac/shots/colophon-mobile.jpg"
       },
       "code": "pro-tax-office/almanac/code/colophon.html"
+    },
+    {
+      "id": "top-banner",
+      "kind": "banner",
+      "label": "상단 공지 띠",
+      "page": "/",
+      "source": "src/components/TopBanner.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/top-banner-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/top-banner-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/top-banner.html"
+    },
+    {
+      "id": "header",
+      "kind": "header",
+      "label": "헤더",
+      "page": "/",
+      "source": "src/components/Header.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/header-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/header-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/header.html"
+    },
+    {
+      "id": "home-hero",
+      "kind": "hero",
+      "label": "히어로",
+      "page": "/",
+      "source": "src/components/blocks/Hero.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/home-hero-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/home-hero-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/home-hero.html"
+    },
+    {
+      "id": "home-stats",
+      "kind": "stats",
+      "label": "수치",
+      "page": "/",
+      "source": "src/components/blocks/Stats.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/home-stats-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/home-stats-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/home-stats.html"
+    },
+    {
+      "id": "home-services",
+      "kind": "services",
+      "label": "업무분야",
+      "page": "/",
+      "source": "src/components/blocks/Services.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/home-services-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/home-services-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/home-services.html"
+    },
+    {
+      "id": "home-clients",
+      "kind": "clients",
+      "label": "고객군",
+      "page": "/",
+      "source": "src/components/blocks/Clients.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/home-clients-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/home-clients-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/home-clients.html"
+    },
+    {
+      "id": "home-process",
+      "kind": "process",
+      "label": "진행 절차",
+      "page": "/",
+      "source": "src/components/blocks/Process.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/home-process-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/home-process-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/home-process.html"
+    },
+    {
+      "id": "home-team",
+      "kind": "team",
+      "label": "구성원",
+      "page": "/",
+      "source": "src/components/blocks/Team.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/home-team-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/home-team-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/home-team.html"
+    },
+    {
+      "id": "home-cases",
+      "kind": "cases",
+      "label": "업무 사례",
+      "page": "/",
+      "source": "src/components/blocks/Cases.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/home-cases-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/home-cases-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/home-cases.html"
+    },
+    {
+      "id": "home-faq",
+      "kind": "faq",
+      "label": "자주 묻는 질문",
+      "page": "/",
+      "source": "src/components/blocks/Faq.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/home-faq-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/home-faq-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/home-faq.html"
+    },
+    {
+      "id": "home-visit",
+      "kind": "visit",
+      "label": "오시는 길",
+      "page": "/",
+      "source": "src/components/blocks/Visit.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/home-visit-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/home-visit-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/home-visit.html"
+    },
+    {
+      "id": "page-hero",
+      "kind": "page-hero",
+      "label": "서브페이지 상단",
+      "page": "/about/",
+      "source": "src/components/ui.tsx#PageHero",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/page-hero-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/page-hero-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/page-hero.html"
+    },
+    {
+      "id": "cta-band",
+      "kind": "cta",
+      "label": "상담 유도 띠",
+      "page": "/cases/",
+      "source": "src/components/ui.tsx#CtaBand",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/cta-band-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/cta-band-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/cta-band.html"
+    },
+    {
+      "id": "footer",
+      "kind": "footer",
+      "label": "푸터",
+      "page": "/",
+      "source": "src/components/Footer.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/footer-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/footer-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/footer.html"
+    },
+    {
+      "id": "floating-contact",
+      "kind": "floating",
+      "label": "고정 상담 버튼",
+      "page": "/",
+      "source": "src/components/FloatingContact.tsx",
+      "site": "pro-tax-office/trust",
+      "shots": {
+        "desktop": "pro-tax-office/trust/shots/floating-contact-desktop.jpg",
+        "mobile": "pro-tax-office/trust/shots/floating-contact-mobile.jpg"
+      },
+      "code": "pro-tax-office/trust/code/floating-contact.html"
     }
   ]
 }

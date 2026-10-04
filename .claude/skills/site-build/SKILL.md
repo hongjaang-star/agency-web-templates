@@ -13,6 +13,6 @@ description: 선택된 시안을 완성 사이트(templates/{slug}/{variant})로
 5. `docs/site-spec.md`, `docs/CHANGELOG.md`, README 를 작성한다.
 6. 검사: `npm run lint && npm run build` 통과, 페이지별 고유 title·description, 금지 표현 없음, 가상 업체 표기.
 7. 분리 검사: `node scripts/check-isolation.mjs` 통과(다른 앱·`library/` import 금지).
-8. registry/sites.json 에 사이트와 디자인 지문을 추가하고, backlog 상태를 `done` 으로 바꾼다.
+8. registry/sites.json 에 변형을 추가한다: 지문, `type`(한 줄 포지셔닝), `role`(업종의 첫 변형이면 `flagship`, 아니면 `alternative`), `concept`. backlog 는 `variants` 에 추가하고 상태를 `done` 으로. 기존 변형은 지우거나 `retired` 로 바꾸지 않는다(사람이 요청할 때만).
 9. `library/config.json` 에 화면 모듈(헤더, 히어로, 섹션, 푸터 등)을 추가하고 `npm run build:sites && npm run library -- {slug}/{concept}` 로 캡처·스타일 코드를 만든다.
 10. 브랜치 `site/{slug}-{concept}` 로 PR. 병합되면 자동 배포된다.

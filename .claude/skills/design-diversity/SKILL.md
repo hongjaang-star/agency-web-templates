@@ -11,6 +11,7 @@ description: 시안이나 사이트를 디자인하기 전에 반드시 읽는�
 ## 중복 방지
 - 같은 날 만드는 시안 3개는 `layout`, `hero`, `typePair`, `palette` 가 모두 서로 달라야 한다.
 - 같은 대분류(pro, medical 등)의 기존 사이트와 `layout`+`hero`+`typePair` 조합이 같으면 안 된다.
+- 같은 업종의 다른 변형과는 `layout`·`hero`·`typePair`·`palette` 중 3개 이상 달라야 하고, 포지셔닝(`type`)도 달라야 한다(`docs/plan/07-variants.md`).
 - `sectionOrder` 가 "hero, features, process, team, faq, cta" 공식과 같으면 다시 설계한다.
 - 공통 컴포넌트(PageHero, CtaBand 등)를 그대로 쓰지 않는다. 엔진(SEO, 데이터, 폼)만 공유한다.
 - 기존 화면 모듈은 `library/README.md`(종류별 캡처·사용 사이트·스타일 코드)에서 확인한다. 참고만 하고, 같은 종류의 모듈을 새로 만들 때는 기존과 다르게 설계한다.
