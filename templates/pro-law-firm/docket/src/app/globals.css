@@ -96,7 +96,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .tabs { display: flex; gap: 8px; margin-top: 36px; flex-wrap: wrap; }
 .tab { border: 1.5px solid rgba(245, 239, 230, 0.45); padding: 12px 20px; font-weight: 700; color: var(--cream); }
 .tab[aria-selected="true"] { background: var(--cream); color: var(--ink); border-color: var(--cream); }
-.flow-intro { color: var(--muted-dark); margin-top: 18px; max-width: 40em; }
+.flow-intro { color: var(--muted-dark); margin-top: 18px; max-width: 44em; }
+.flow-intro b { color: var(--cream); margin-right: 6px; }
 .flow { list-style: none; margin-top: 30px; display: grid; grid-template-columns: repeat(var(--n, 6), 1fr); border-top: 2px solid var(--cream); }
 .step { width: 100%; height: 100%; padding: 22px 18px 26px 0; border-right: 1px solid rgba(245, 239, 230, 0.2); position: relative; text-align: left; color: var(--cream); }
 .flow li + li .step { padding-left: 18px; }
@@ -118,9 +119,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .flow-note { font-size: 13px; color: var(--muted-dark); margin-top: 16px; }
 /* 전체 흐름 페이지: 단계 표 */
 .flow-table { margin-top: 36px; border-top: 2px solid var(--ink); }
-.flow-table article { display: grid; grid-template-columns: 90px 1fr 1fr 140px; gap: 24px; padding: 26px 0; border-bottom: 1px solid var(--line); }
+.flow-table article { display: grid; grid-template-columns: 80px 1.2fr 1fr 120px; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
 .flow-table .k { font: 700 13px var(--sans); color: var(--ox); letter-spacing: 0.12em; }
-.flow-table h3 { font: 400 28px/1.2 var(--display); }
+.flow-table h4 { font: 400 26px/1.2 var(--display); font-weight: 400; }
 .flow-table p { color: var(--ink-2); font-size: 15px; }
 .flow-table ul { list-style: none; font-size: 15px; }
 .flow-table li::before { content: "□ "; color: var(--ox); }
@@ -145,14 +146,47 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .principles h3 { font: 400 clamp(24px, 2.4vw, 32px)/1.25 var(--display); margin: 10px 0 8px; }
 .principles p { color: var(--ink-2); font-size: 15px; }
 
-/* ── 사례 ── */
-.cases { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; margin-top: 40px; }
-.case { padding: 26px 0; border-top: 1px solid var(--ink); }
-.case .tag { font: 700 12px var(--sans); letter-spacing: 0.14em; color: var(--ox); }
-.case h3 { font: 400 clamp(24px, 2.4vw, 32px)/1.3 var(--display); margin: 8px 0 10px; }
-.case p { color: var(--ink-2); font-size: 15px; }
-.case a { display: inline-block; margin-top: 10px; font-size: 14px; font-weight: 700; color: var(--ox); text-decoration: none; }
+/* ── 사례 카드 · 검색 ── */
+.case-tools { display: grid; gap: 16px; margin-top: 8px; }
+.search input { width: 100%; max-width: 520px; font: inherit; font-size: 17px; color: var(--ink); background: #fff; border: 1.5px solid var(--ink); padding: 14px 16px; border-radius: 0; }
+.search input::placeholder { color: #8a817a; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips button { border: 1.5px solid var(--ink); padding: 9px 14px; font-weight: 700; font-size: 14px; background: transparent; }
+.chips button span { font-weight: 400; color: var(--ink-2); margin-left: 4px; }
+.chips button[aria-pressed="true"] { background: var(--ink); color: var(--cream); }
+.chips button[aria-pressed="true"] span { color: var(--muted-dark); }
+.case-count { margin-top: 22px; font-size: 14px; font-weight: 700; color: var(--ink-2); }
+.case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+.case-card { background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--ox); padding: 24px 22px 22px; display: flex; flex-direction: column; gap: 10px; transition: transform 0.2s, box-shadow 0.2s; }
+.case-card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -28px rgba(21, 19, 19, 0.5); }
+.case-card .tag { font: 700 12px var(--sans); letter-spacing: 0.14em; color: var(--ox); }
+.case-card h3 { font: 400 clamp(22px, 2vw, 26px)/1.3 var(--display); }
+.case-card .body { color: var(--ink-2); font-size: 15px; flex: 1; }
+.kw { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+.kw button, .kw span { display: inline-block; font-size: 13px; padding: 3px 9px; background: var(--cream-2); color: var(--ink); border-radius: 999px; }
+.kw button:hover { background: var(--ox); color: #fff; }
+.case-card .go { font-size: 14px; font-weight: 700; color: var(--ox); text-decoration: none; margin-top: 4px; }
+.case-empty { margin-top: 20px; padding: 40px 24px; border: 1px dashed var(--ink-2); text-align: center; color: var(--ink-2); }
+.case-empty .btn { margin-top: 16px; }
 .note { font-size: 13px; color: var(--ink-2); margin-top: 20px; }
+
+/* ── 사건 흐름 페이지: 왼쪽 바로가기 + 분야별 단계 ── */
+.steps-layout { display: grid; grid-template-columns: 240px 1fr; gap: 48px; margin-top: 40px; align-items: start; }
+.flow-nav { position: sticky; top: 96px; }
+.flow-nav ol { list-style: none; border-top: 2px solid var(--ink); }
+.flow-nav a { display: grid; grid-template-columns: 30px 1fr auto; gap: 8px; align-items: baseline; padding: 12px 10px; border-bottom: 1px solid var(--line); text-decoration: none; transition: background 0.2s; }
+.flow-nav .n { font: 700 12px var(--sans); color: var(--ox); }
+.flow-nav b { font: 400 19px var(--display); }
+.flow-nav small { font-size: 12px; color: var(--ink-2); }
+.flow-nav a:hover { background: var(--cream-2); }
+.flow-nav a[aria-current="true"] { background: var(--ink); color: var(--cream); }
+.flow-nav a[aria-current="true"] .n { color: var(--ox-soft); }
+.flow-nav a[aria-current="true"] small { color: var(--muted-dark); }
+.flow-block { scroll-margin-top: 96px; padding-bottom: 56px; }
+.flow-block + .flow-block { padding-top: 48px; border-top: 1px solid var(--ink); }
+.flow-block h3 { font: 400 clamp(30px, 3.6vw, 48px)/1.15 var(--display); margin-top: 8px; }
+.flow-block .lead { color: var(--ink-2); margin-top: 12px; max-width: 40em; }
+.flow-block .flow-table { margin-top: 24px; }
 
 /* ── FAQ ── */
 .faq { margin-top: 36px; max-width: 900px; border-top: 1px solid var(--ink); }
@@ -242,7 +276,15 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .step, .flow li + li .step { padding: 16px 0 16px 22px; border-right: 0; border-bottom: 1px solid rgba(245, 239, 230, 0.15); }
   .step::before, .flow li + li .step::before { top: 22px; left: -7px; }
   .flow-table article { grid-template-columns: 1fr; gap: 8px; }
-  .lawyers, .cases, .principles, .channels { grid-template-columns: 1fr; }
+  .lawyers, .principles, .channels { grid-template-columns: 1fr; }
+  .case-grid { grid-template-columns: 1fr 1fr; }
+  .steps-layout { grid-template-columns: 1fr; gap: 24px; }
+  .flow-nav { top: 78px; z-index: 5; background: var(--cream); margin: 0 calc(var(--gut) * -1); padding: 0 var(--gut); overflow-x: auto; border-bottom: 1px solid var(--ink); }
+  .flow-nav ol { display: flex; border-top: 0; }
+  .flow-nav a { grid-template-columns: auto auto; padding: 12px 14px; border-bottom: 0; white-space: nowrap; }
+  .flow-nav small { display: none; }
+  .flow-nav b { font-size: 16px; }
+  .flow-block { scroll-margin-top: 140px; }
   .lawyer, .lawyer + .lawyer, .principles article, .principles article + article, .channels a, .channels a + a { padding: 24px 0; border-right: 0; border-bottom: 1px solid var(--line); }
   .area-main, .area-side { grid-column: 1 / -1; }
   .foot .wrap { grid-template-columns: 1fr; }
@@ -254,6 +296,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .mnav ul { display: flex; gap: 20px; list-style: none; padding: 10px var(--gut); font-size: 14px; font-weight: 500; }
 .mnav a { text-decoration: none; white-space: nowrap; }
 .mnav a[aria-current="page"] { color: var(--ox); font-weight: 700; }
+@media (max-width: 640px) {
+  .case-grid { grid-template-columns: 1fr; }
+}
 @media (max-width: 420px) {
   .logo small { display: none; }
   .call { padding: 10px 12px; font-size: 14px; }

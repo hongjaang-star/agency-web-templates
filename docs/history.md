@@ -24,6 +24,7 @@
 | 2026-10-04 | pro-law-firm 시안 3개(docket·quiet·district), research/pro-law-firm.md. 추천 docket | PR |
 | 2026-10-04 | pro-law-firm/docket 완성(14페이지, 사건 흐름 타임라인), 포트폴리오 등록(법률 분류 자동 필터), library 14개 모듈 | PR |
 | 2026-10-05 | pro-law-firm 미선택 시안 quiet·district 삭제, 비교 페이지·backlog 정리 | PR |
+| 2026-10-05 | pro-law-firm/docket 1.1: 사건 흐름 8개 분야, STEP BY STEP 왼쪽 바로가기, 사례 14건 분야 필터·검색·카드형 | PR |
 
 ## 교훈
 - next/font 의 일부 한글 서체(Song Myung 등)는 `subsets`·`preload` 옵션이 없다. 타입 오류가 나면 옵션을 빼고 weight 만 준다.

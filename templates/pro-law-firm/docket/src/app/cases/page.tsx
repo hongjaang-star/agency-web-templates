@@ -1,4 +1,4 @@
-import CaseList from "@/components/CaseList";
+import CaseBrowser from "@/components/CaseBrowser";
 import PageHead from "@/components/PageHead";
 import { casesNotice } from "@/data/content";
 import { pages, seoPages } from "@/data/site";
@@ -11,7 +11,7 @@ export default function CasesPage() {
   return (
     <>
       <PageHead path="/cases" label={P.label} title={P.title} lead={P.lead} crumbs={[{ label: "사례" }]} />
-      <section className="sec"><div className="wrap"><CaseList links /><p className="note">{casesNotice}</p></div></section>
+      <section className="sec"><div className="wrap"><CaseBrowser /><p className="note">{casesNotice}</p></div></section>
     </>
   );
 }

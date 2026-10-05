@@ -1,6 +1,7 @@
 // 업무분야 — 목록, 상세 페이지, sitemap, 구조화 데이터가 모두 이 파일에서 만들어집니다.
 
-export type FlowKey = "civil" | "criminal" | "divorce";
+// 사건 흐름은 업무분야마다 하나씩 있다(content.ts 의 flows, key = 업무분야 slug).
+export type FlowKey = "divorce" | "inheritance" | "criminal" | "civil" | "real-estate" | "corporate" | "labor" | "administrative";
 
 export type Area = {
   slug: string;
@@ -11,7 +12,7 @@ export type Area = {
   scope: string[];
   documents: string[];
   deadlines: string[];
-  flow: FlowKey;
+  flow: FlowKey; // 관련 사건 흐름 (기본은 자기 자신)
   lawyer: string; // content.ts 의 lawyers[].id
 };
 
@@ -37,7 +38,7 @@ export const areas: Area[] = [
     scope: ["상속재산·채무 조회와 정리", "상속재산분할 협의서 작성, 심판 대리", "유류분 산정표 작성과 반환 청구", "한정승인·상속포기 신고"],
     documents: ["사망진단서·가족관계증명서", "부동산 등기부, 예금 내역", "생전 증여 관련 자료(이체 내역 등)"],
     deadlines: ["한정승인·상속포기는 상속 개시를 안 날부터 3개월 안에", "유류분 반환 청구는 증여 사실을 안 날부터 1년 안에"],
-    flow: "civil",
+    flow: "inheritance",
     lawyer: "yoon",
   },
   {
@@ -73,7 +74,7 @@ export const areas: Area[] = [
     scope: ["임차권등기명령 신청", "보증금 반환 소송과 강제집행", "명도 소송", "매매계약서 검토와 분쟁 대응"],
     documents: ["임대차계약서", "확정일자·전입신고 자료", "보증금 이체 내역, 주고받은 메시지"],
     deadlines: ["이사 전 임차권등기 완료 여부 확인", "계약 만료 전후로 반환 요청을 기록(내용증명)"],
-    flow: "civil",
+    flow: "real-estate",
     lawyer: "min",
   },
   {
@@ -85,7 +86,7 @@ export const areas: Area[] = [
     scope: ["계약서 검토·작성", "내용증명 작성과 협상", "거래처 분쟁 소송 대리", "정기 자문(월 단위)"],
     documents: ["기존 계약서·견적서", "거래 내역·세금계산서", "주고받은 이메일"],
     deadlines: ["상사채권 소멸시효는 대체로 5년", "물품대금 등은 3년의 단기 소멸시효 적용 가능"],
-    flow: "civil",
+    flow: "corporate",
     lawyer: "min",
   },
   {
@@ -97,7 +98,7 @@ export const areas: Area[] = [
     scope: ["노동위원회 부당해고 구제신청", "임금 체불 진정·민사 소송", "징계 절차 검토", "사업장 측 노무 분쟁 대응"],
     documents: ["근로계약서", "해고 통지서(서면)", "급여 명세서·출퇴근 기록"],
     deadlines: ["부당해고 구제신청은 해고일부터 3개월 안에", "임금채권 소멸시효는 3년"],
-    flow: "civil",
+    flow: "labor",
     lawyer: "kang",
   },
   {
@@ -109,7 +110,7 @@ export const areas: Area[] = [
     scope: ["사전통지 의견서 제출", "행정심판 청구", "집행정지 신청", "행정소송 대리"],
     documents: ["처분 사전통지서·처분서", "영업 관련 자료(매출, 고용 현황)", "위반 사실 관련 자료"],
     deadlines: ["행정심판은 처분이 있음을 안 날부터 90일 안에", "행정소송은 처분이 있음을 안 날부터 90일 안에"],
-    flow: "civil",
+    flow: "administrative",
     lawyer: "kang",
   },
 ];

@@ -14,7 +14,7 @@
 | [피부과 · lumiere](medical-dermatology/lumiere/README.md) **대표** | 몰입형 · 영상과 따뜻한 사진으로 신뢰를 주는 프리미엄 피부과 | immersive / video / ivory·ink·champagne gold | 18 |
 | [세무사무소 · almanac](pro-tax-office/almanac/README.md) **대표** | 지면형 · 설명과 신고 기한을 앞세운 사무소, 신문·연감 같은 단정함 | editorial / statement / paper·ink·vermilion | 17 |
 | [세무사무소 · trust](pro-tax-office/trust/README.md) | 클래식 신뢰형 · 차콜·골드와 명조, 세무사 프로필과 정돈된 정보 구조 | swiss-grid / split-media / charcoal·paper·yellow gold | 15 |
-| [법률사무소 · docket](pro-law-firm/docket/README.md) **대표** | 타이포형 · 사건이 어떤 순서로 흘러가는지 먼저 보여 주는 동네 법률사무소 | typographic / ticker / oxblood·cream·ink | 14 |
+| [법률사무소 · docket](pro-law-firm/docket/README.md) **대표** | 타이포형 · 사건이 어떤 순서로 흘러가는지 먼저 보여 주는 동네 법률사무소 | typographic / ticker / oxblood·cream·ink | 15 |
 | [인테리어·리모델링 · forme](space-interior/forme/README.md) **대표** | 공간 아카이브형 · 생활 방식과 재료의 질감을 보여주는 리모델링 스튜디오 | spatial-archive / landscape-photo-with-caption / warm gray · olive · charcoal | 8 |
 
 ## 종류별
@@ -81,7 +81,7 @@
 | <img src="pro-tax-office/almanac/shots/home-almanac-desktop.jpg" width="280"> | [세무 연감 (D-day) `home-almanac`](pro-tax-office/almanac/README.md#세무-연감-d-day-home-almanac) | `pro-tax-office/almanac` |
 | <img src="pro-tax-office/almanac/shots/calendar-ledger-desktop.jpg" width="280"> | [열두 달 신고 일정표 `calendar-ledger`](pro-tax-office/almanac/README.md#열두-달-신고-일정표-calendar-ledger) | `pro-tax-office/almanac` |
 | <img src="pro-law-firm/docket/shots/home-flow-desktop.jpg" width="280"> | [사건 흐름 타임라인 `home-flow`](pro-law-firm/docket/README.md#사건-흐름-타임라인-home-flow) | `pro-law-firm/docket` |
-| <img src="pro-law-firm/docket/shots/flow-table-desktop.jpg" width="280"> | [단계별 표 (민사 소송) `flow-table`](pro-law-firm/docket/README.md#단계별-표-민사-소송-flow-table) | `pro-law-firm/docket` |
+| <img src="pro-law-firm/docket/shots/flow-steps-desktop.jpg" width="280"> | [분야별 단계 + 왼쪽 바로가기 `flow-steps`](pro-law-firm/docket/README.md#분야별-단계--왼쪽-바로가기-flow-steps) | `pro-law-firm/docket` |
 
 ### 구성원 `team`
 
@@ -174,7 +174,8 @@
 |---|---|---|
 | <img src="pro-tax-office/almanac/shots/home-cases-desktop.jpg" width="280"> | [사례 기사 단 `home-cases`](pro-tax-office/almanac/README.md#사례-기사-단-home-cases) | `pro-tax-office/almanac` |
 | <img src="pro-tax-office/trust/shots/home-cases-desktop.jpg" width="280"> | [업무 사례 `home-cases`](pro-tax-office/trust/README.md#업무-사례-home-cases) | `pro-tax-office/trust` |
-| <img src="pro-law-firm/docket/shots/home-cases-desktop.jpg" width="280"> | [유형별 사례 2단 `home-cases`](pro-law-firm/docket/README.md#유형별-사례-2단-home-cases) | `pro-law-firm/docket` |
+| <img src="pro-law-firm/docket/shots/home-cases-desktop.jpg" width="280"> | [유형별 사례 카드 `home-cases`](pro-law-firm/docket/README.md#유형별-사례-카드-home-cases) | `pro-law-firm/docket` |
+| <img src="pro-law-firm/docket/shots/cases-browser-desktop.jpg" width="280"> | [사례 검색·분야 필터 카드 `cases-browser`](pro-law-firm/docket/README.md#사례-검색분야-필터-카드-cases-browser) | `pro-law-firm/docket` |
 
 ### 수치 `stats`
 

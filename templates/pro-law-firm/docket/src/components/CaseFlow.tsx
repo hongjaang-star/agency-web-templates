@@ -5,8 +5,8 @@ import type { FlowKey } from "@/data/areas";
 import { flows } from "@/data/content";
 import { flowCopy as C } from "@/data/site";
 
-/** 사건 흐름 타임라인 (시그니처): 사건 종류 탭 → 단계 → 단계별 설명·준비물 */
-export default function CaseFlow({ initial = "civil" }: { initial?: FlowKey }) {
+/** 사건 흐름 타임라인 (시그니처): 업무분야 탭(8) → 단계 → 단계별 설명·준비물 */
+export default function CaseFlow({ initial = flows[0].key }: { initial?: FlowKey }) {
   const [kind, setKind] = useState<FlowKey>(initial);
   const [cur, setCur] = useState(0);
   const flow = flows.find((f) => f.key === kind)!;
@@ -20,7 +20,7 @@ export default function CaseFlow({ initial = "civil" }: { initial?: FlowKey }) {
           </button>
         ))}
       </div>
-      <p className="flow-intro">{flow.intro}</p>
+      <p className="flow-intro"><b>{C.procedureLabel} · {flow.procedure}</b> {flow.intro}</p>
       <ol className="flow" style={{ ["--n" as string]: flow.steps.length }}>
         {flow.steps.map((s, i) => (
           <li key={s.title}>

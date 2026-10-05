@@ -53,7 +53,7 @@ export default async function AreaDetail({ params }: Props) {
           <div className="side-box">
             <h2>{C.flow}</h2>
             <ol className="mini-flow">{flow.steps.map((s) => <li key={s.title}>{s.title}</li>)}</ol>
-            <ul><li><Link href="/flow">{flow.label} 흐름 자세히 →</Link></li></ul>
+            <ul><li><Link href={`/flow#${flow.key}`}>{flow.procedure} 흐름 자세히 →</Link></li></ul>
           </div>
           <div className="side-box side-lawyer">
             <h2>{C.lawyer}</h2>
