@@ -1,0 +1,33 @@
+{
+  "tool": "OpenAI built-in image generation",
+  "assets": [
+    {
+      "name": "listening",
+      "prompt": "Use case: photorealistic-natural. Create one horizontal 3:2 editorial photograph for a premium Korean interior design studio website, process step 01 listening and consultation. Close three-quarter view of a warm oak consultation table in a quiet elegant studio, anonymous adult client's and designer's hands naturally reviewing a simple floor plan and a few printed room photographs, pencil and closed neutral notebook, soft daylight, warm gray plaster, olive and cream restrained palette, realistic architectural magazine photography, tactile materials, premium calm and candid. Faces outside frame, no legible words, no logos, no watermarks. One coherent photograph, no collage.",
+      "width": 1536,
+      "height": 1024,
+      "sourceSha256": "3d00f1e47ffeb9267f445ae5e5520df2decee1660ec1a96aec27d81d44336478"
+    },
+    {
+      "name": "design",
+      "prompt": "Use case: photorealistic-natural. Create one horizontal 3:2 editorial photograph for a premium Korean interior design studio website, process step 02 design and materials. Overhead close editorial view of a carefully arranged oak worktable with an architectural floor plan with fine lines and no legible text, oak veneer, ivory travertine, sage fabric swatches, a pencil and architect scale ruler, one designer hand placing a warm white stone sample, soft angled daylight, warm gray olive cream palette, photoreal tactile refined architectural magazine photography. No faces, no legible words, no logos, no watermarks, no collage.",
+      "width": 1536,
+      "height": 1024,
+      "sourceSha256": "62ba4015377c528fd139454b84232c9336ab5c400a405b5af66c454eaf936c41"
+    },
+    {
+      "name": "making",
+      "prompt": "Use case: photorealistic-natural. Create one horizontal 3:2 editorial photograph for a premium Korean interior design studio website, process step 03 making and on-site detail coordination. A realistic skilled craftsperson's gloved hands measuring and fitting a built-in oak cabinet panel in a nearly finished interior, compact tape measure and practical joinery visible, clean warm gray wall and muted olive work jacket cropped naturally, daylight, believable construction detail and precise carpentry, warm cream oak restrained palette, premium documentary architectural photography. Face outside frame, no dangerous actions, no logos, no legible words, no watermark, no collage.",
+      "width": 1536,
+      "height": 1024,
+      "sourceSha256": "f33bee0f65fa12178e330ff11780d9b5d9b257a4e47005e09bb4f8cdee384b90"
+    },
+    {
+      "name": "inspection",
+      "prompt": "Use case: photorealistic-natural. Create one horizontal 3:2 editorial photograph for a premium Korean interior design studio website, process step 04 final inspection and care guidance. Anonymous interior designer in neutral sleeve cropped at shoulders, hand inspecting the alignment and finish of an elegant oak cabinet door in a beautifully completed warm minimal room, clipboard with blank neutral checklist tucked under other arm, ivory plaster, warm oak, a soft linen curtain and gentle sunlight, calm premium architectural editorial photography, tactile realistic finish, olive cream warm gray palette. Face outside frame, no legible text, no logos, no watermark, one coherent photograph.",
+      "width": 1536,
+      "height": 1024,
+      "sourceSha256": "29d5a827badb0a3c1caf8e278d3aaa3cc8f3e6032fd80a111be0cb7fa185ab20"
+    }
+  ]
+}

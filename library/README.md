@@ -15,7 +15,7 @@
 | [세무사무소 · almanac](pro-tax-office/almanac/README.md) **대표** | 지면형 · 설명과 신고 기한을 앞세운 사무소, 신문·연감 같은 단정함 | editorial / statement / paper·ink·vermilion | 17 |
 | [세무사무소 · trust](pro-tax-office/trust/README.md) | 클래식 신뢰형 · 차콜·골드와 명조, 세무사 프로필과 정돈된 정보 구조 | swiss-grid / split-media / charcoal·paper·yellow gold | 15 |
 | [법률사무소 · docket](pro-law-firm/docket/README.md) **대표** | 타이포형 · 사건이 어떤 순서로 흘러가는지 먼저 보여 주는 동네 법률사무소 | typographic / ticker / oxblood·cream·ink | 15 |
-| [인테리어·리모델링 · forme](space-interior/forme/README.md) **대표** | 공간 아카이브형 · 생활 방식과 재료의 질감을 보여주는 리모델링 스튜디오 | spatial-archive / landscape-photo-with-caption / warm gray · olive · charcoal | 8 |
+| [인테리어·리모델링 · forme](space-interior/forme/README.md) **대표** | 공간 아카이브형 · 생활 방식과 재료의 질감을 보여주는 리모델링 스튜디오 | spatial-archive / landscape-photo-with-caption / warm gray · olive · charcoal | 9 |
 
 ## 종류별
 
@@ -99,6 +99,7 @@
 | <img src="medical-dermatology/lumiere/shots/home-process-desktop.jpg" width="280"> | [진행 절차 `home-process`](medical-dermatology/lumiere/README.md#진행-절차-home-process) | `medical-dermatology/lumiere` |
 | <img src="pro-tax-office/almanac/shots/about-steps-desktop.jpg" width="280"> | [진행 방식 `about-steps`](pro-tax-office/almanac/README.md#진행-방식-about-steps) | `pro-tax-office/almanac` |
 | <img src="pro-tax-office/trust/shots/home-process-desktop.jpg" width="280"> | [진행 절차 `home-process`](pro-tax-office/trust/README.md#진행-절차-home-process) | `pro-tax-office/trust` |
+| <img src="space-interior/forme/shots/process-step-desktop.jpg" width="280"> | [진행 과정 사진과 설명 `process-step`](space-interior/forme/README.md#진행-과정-사진과-설명-process-step) | `space-interior/forme` |
 
 ### 갤러리 `gallery`
 
