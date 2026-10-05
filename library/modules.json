@@ -654,188 +654,6 @@
     {
       "id": "header",
       "kind": "header",
-      "label": "헤더 (모바일 가로 메뉴 포함)",
-      "page": "/",
-      "source": "src/components/Top.tsx",
-      "site": "pro-law-firm/docket",
-      "shots": {
-        "desktop": "pro-law-firm/docket/shots/header-desktop.jpg",
-        "mobile": "pro-law-firm/docket/shots/header-mobile.jpg"
-      },
-      "code": "pro-law-firm/docket/code/header.html"
-    },
-    {
-      "id": "home-hero",
-      "kind": "hero",
-      "label": "초대형 타이포 + 업무 띠",
-      "page": "/",
-      "source": "src/app/page.tsx",
-      "site": "pro-law-firm/docket",
-      "shots": {
-        "desktop": "pro-law-firm/docket/shots/home-hero-desktop.jpg",
-        "mobile": "pro-law-firm/docket/shots/home-hero-mobile.jpg"
-      },
-      "code": "pro-law-firm/docket/code/home-hero.html"
-    },
-    {
-      "id": "home-areas",
-      "kind": "services",
-      "label": "업무분야 타이포 목록",
-      "page": "/",
-      "source": "src/components/AreaList.tsx",
-      "site": "pro-law-firm/docket",
-      "shots": {
-        "desktop": "pro-law-firm/docket/shots/home-areas-desktop.jpg",
-        "mobile": "pro-law-firm/docket/shots/home-areas-mobile.jpg"
-      },
-      "code": "pro-law-firm/docket/code/home-areas.html"
-    },
-    {
-      "id": "home-flow",
-      "kind": "signature",
-      "label": "사건 흐름 타임라인",
-      "page": "/",
-      "source": "src/components/CaseFlow.tsx",
-      "site": "pro-law-firm/docket",
-      "shots": {
-        "desktop": "pro-law-firm/docket/shots/home-flow-desktop.jpg",
-        "mobile": "pro-law-firm/docket/shots/home-flow-mobile.jpg"
-      },
-      "code": "pro-law-firm/docket/code/home-flow.html"
-    },
-    {
-      "id": "home-attorneys",
-      "kind": "team",
-      "label": "변호사 3단",
-      "page": "/",
-      "source": "src/components/Lawyers.tsx",
-      "site": "pro-law-firm/docket",
-      "shots": {
-        "desktop": "pro-law-firm/docket/shots/home-attorneys-desktop.jpg",
-        "mobile": "pro-law-firm/docket/shots/home-attorneys-mobile.jpg"
-      },
-      "code": "pro-law-firm/docket/code/home-attorneys.html"
-    },
-    {
-      "id": "home-cases",
-      "kind": "cases",
-      "label": "유형별 사례 2단",
-      "page": "/",
-      "source": "src/components/CaseList.tsx",
-      "site": "pro-law-firm/docket",
-      "shots": {
-        "desktop": "pro-law-firm/docket/shots/home-cases-desktop.jpg",
-        "mobile": "pro-law-firm/docket/shots/home-cases-mobile.jpg"
-      },
-      "code": "pro-law-firm/docket/code/home-cases.html"
-    },
-    {
-      "id": "home-faq",
-      "kind": "faq",
-      "label": "상담 전 질문",
-      "page": "/",
-      "source": "src/components/Faq.tsx",
-      "site": "pro-law-firm/docket",
-      "shots": {
-        "desktop": "pro-law-firm/docket/shots/home-faq-desktop.jpg",
-        "mobile": "pro-law-firm/docket/shots/home-faq-mobile.jpg"
-      },
-      "code": "pro-law-firm/docket/code/home-faq.html"
-    },
-    {
-      "id": "home-visit",
-      "kind": "visit",
-      "label": "법원 앞 오시는 길",
-      "page": "/",
-      "source": "src/components/Visit.tsx",
-      "site": "pro-law-firm/docket",
-      "shots": {
-        "desktop": "pro-law-firm/docket/shots/home-visit-desktop.jpg",
-        "mobile": "pro-law-firm/docket/shots/home-visit-mobile.jpg"
-      },
-      "code": "pro-law-firm/docket/code/home-visit.html"
-    },
-    {
-      "id": "page-head",
-      "kind": "page-hero",
-      "label": "서브페이지 머리",
-      "page": "/cases/",
-      "source": "src/components/PageHead.tsx",
-      "site": "pro-law-firm/docket",
-      "shots": {
-        "desktop": "pro-law-firm/docket/shots/page-head-desktop.jpg",
-        "mobile": "pro-law-firm/docket/shots/page-head-mobile.jpg"
-      },
-      "code": "pro-law-firm/docket/code/page-head.html"
-    },
-    {
-      "id": "area-detail",
-      "kind": "services",
-      "label": "업무 상세 (본문 + 옆 칸)",
-      "page": "/areas/real-estate/",
-      "source": "src/app/areas/[slug]/page.tsx",
-      "site": "pro-law-firm/docket",
-      "shots": {
-        "desktop": "pro-law-firm/docket/shots/area-detail-desktop.jpg",
-        "mobile": "pro-law-firm/docket/shots/area-detail-mobile.jpg"
-      },
-      "code": "pro-law-firm/docket/code/area-detail.html"
-    },
-    {
-      "id": "flow-table",
-      "kind": "signature",
-      "label": "단계별 표 (민사 소송)",
-      "page": "/flow/",
-      "source": "src/app/flow/page.tsx",
-      "site": "pro-law-firm/docket",
-      "shots": {
-        "desktop": "pro-law-firm/docket/shots/flow-table-desktop.jpg",
-        "mobile": "pro-law-firm/docket/shots/flow-table-mobile.jpg"
-      },
-      "code": "pro-law-firm/docket/code/flow-table.html"
-    },
-    {
-      "id": "attorneys-principles",
-      "kind": "intro",
-      "label": "일하는 방식",
-      "page": "/attorneys/",
-      "source": "src/app/attorneys/page.tsx",
-      "site": "pro-law-firm/docket",
-      "shots": {
-        "desktop": "pro-law-firm/docket/shots/attorneys-principles-desktop.jpg",
-        "mobile": "pro-law-firm/docket/shots/attorneys-principles-mobile.jpg"
-      },
-      "code": "pro-law-firm/docket/code/attorneys-principles.html"
-    },
-    {
-      "id": "contact-channels",
-      "kind": "cta",
-      "label": "연락 방법 3단",
-      "page": "/contact/",
-      "source": "src/app/contact/page.tsx",
-      "site": "pro-law-firm/docket",
-      "shots": {
-        "desktop": "pro-law-firm/docket/shots/contact-channels-desktop.jpg",
-        "mobile": "pro-law-firm/docket/shots/contact-channels-mobile.jpg"
-      },
-      "code": "pro-law-firm/docket/code/contact-channels.html"
-    },
-    {
-      "id": "footer",
-      "kind": "footer",
-      "label": "푸터 (광고책임변호사 표기)",
-      "page": "/",
-      "source": "src/components/Foot.tsx",
-      "site": "pro-law-firm/docket",
-      "shots": {
-        "desktop": "pro-law-firm/docket/shots/footer-desktop.jpg",
-        "mobile": "pro-law-firm/docket/shots/footer-mobile.jpg"
-      },
-      "code": "pro-law-firm/docket/code/footer.html"
-    },
-    {
-      "id": "header",
-      "kind": "header",
       "label": "공간 스튜디오 헤더",
       "page": "/",
       "source": "src/app/layout.tsx",
@@ -910,6 +728,201 @@
         "mobile": "space-interior/forme/shots/footer-mobile.jpg"
       },
       "code": "space-interior/forme/code/footer.html"
+    },
+    {
+      "id": "header",
+      "kind": "header",
+      "label": "헤더 (모바일 가로 메뉴 포함)",
+      "page": "/",
+      "source": "src/components/Top.tsx",
+      "site": "pro-law-firm/docket",
+      "shots": {
+        "desktop": "pro-law-firm/docket/shots/header-desktop.jpg",
+        "mobile": "pro-law-firm/docket/shots/header-mobile.jpg"
+      },
+      "code": "pro-law-firm/docket/code/header.html"
+    },
+    {
+      "id": "home-hero",
+      "kind": "hero",
+      "label": "초대형 타이포 + 업무 띠",
+      "page": "/",
+      "source": "src/app/page.tsx",
+      "site": "pro-law-firm/docket",
+      "shots": {
+        "desktop": "pro-law-firm/docket/shots/home-hero-desktop.jpg",
+        "mobile": "pro-law-firm/docket/shots/home-hero-mobile.jpg"
+      },
+      "code": "pro-law-firm/docket/code/home-hero.html"
+    },
+    {
+      "id": "home-areas",
+      "kind": "services",
+      "label": "업무분야 타이포 목록",
+      "page": "/",
+      "source": "src/components/AreaList.tsx",
+      "site": "pro-law-firm/docket",
+      "shots": {
+        "desktop": "pro-law-firm/docket/shots/home-areas-desktop.jpg",
+        "mobile": "pro-law-firm/docket/shots/home-areas-mobile.jpg"
+      },
+      "code": "pro-law-firm/docket/code/home-areas.html"
+    },
+    {
+      "id": "home-flow",
+      "kind": "signature",
+      "label": "사건 흐름 타임라인",
+      "page": "/",
+      "source": "src/components/CaseFlow.tsx",
+      "site": "pro-law-firm/docket",
+      "shots": {
+        "desktop": "pro-law-firm/docket/shots/home-flow-desktop.jpg",
+        "mobile": "pro-law-firm/docket/shots/home-flow-mobile.jpg"
+      },
+      "code": "pro-law-firm/docket/code/home-flow.html"
+    },
+    {
+      "id": "home-attorneys",
+      "kind": "team",
+      "label": "변호사 3단",
+      "page": "/",
+      "source": "src/components/Lawyers.tsx",
+      "site": "pro-law-firm/docket",
+      "shots": {
+        "desktop": "pro-law-firm/docket/shots/home-attorneys-desktop.jpg",
+        "mobile": "pro-law-firm/docket/shots/home-attorneys-mobile.jpg"
+      },
+      "code": "pro-law-firm/docket/code/home-attorneys.html"
+    },
+    {
+      "id": "home-cases",
+      "kind": "cases",
+      "label": "유형별 사례 카드",
+      "page": "/",
+      "source": "src/components/CaseCard.tsx",
+      "site": "pro-law-firm/docket",
+      "shots": {
+        "desktop": "pro-law-firm/docket/shots/home-cases-desktop.jpg",
+        "mobile": "pro-law-firm/docket/shots/home-cases-mobile.jpg"
+      },
+      "code": "pro-law-firm/docket/code/home-cases.html"
+    },
+    {
+      "id": "home-faq",
+      "kind": "faq",
+      "label": "상담 전 질문",
+      "page": "/",
+      "source": "src/components/Faq.tsx",
+      "site": "pro-law-firm/docket",
+      "shots": {
+        "desktop": "pro-law-firm/docket/shots/home-faq-desktop.jpg",
+        "mobile": "pro-law-firm/docket/shots/home-faq-mobile.jpg"
+      },
+      "code": "pro-law-firm/docket/code/home-faq.html"
+    },
+    {
+      "id": "home-visit",
+      "kind": "visit",
+      "label": "법원 앞 오시는 길",
+      "page": "/",
+      "source": "src/components/Visit.tsx",
+      "site": "pro-law-firm/docket",
+      "shots": {
+        "desktop": "pro-law-firm/docket/shots/home-visit-desktop.jpg",
+        "mobile": "pro-law-firm/docket/shots/home-visit-mobile.jpg"
+      },
+      "code": "pro-law-firm/docket/code/home-visit.html"
+    },
+    {
+      "id": "page-head",
+      "kind": "page-hero",
+      "label": "서브페이지 머리",
+      "page": "/cases/",
+      "source": "src/components/PageHead.tsx",
+      "site": "pro-law-firm/docket",
+      "shots": {
+        "desktop": "pro-law-firm/docket/shots/page-head-desktop.jpg",
+        "mobile": "pro-law-firm/docket/shots/page-head-mobile.jpg"
+      },
+      "code": "pro-law-firm/docket/code/page-head.html"
+    },
+    {
+      "id": "area-detail",
+      "kind": "services",
+      "label": "업무 상세 (본문 + 옆 칸)",
+      "page": "/areas/real-estate/",
+      "source": "src/app/areas/[slug]/page.tsx",
+      "site": "pro-law-firm/docket",
+      "shots": {
+        "desktop": "pro-law-firm/docket/shots/area-detail-desktop.jpg",
+        "mobile": "pro-law-firm/docket/shots/area-detail-mobile.jpg"
+      },
+      "code": "pro-law-firm/docket/code/area-detail.html"
+    },
+    {
+      "id": "flow-steps",
+      "kind": "signature",
+      "label": "분야별 단계 + 왼쪽 바로가기",
+      "page": "/flow/",
+      "source": "src/components/FlowNav.tsx",
+      "site": "pro-law-firm/docket",
+      "shots": {
+        "desktop": "pro-law-firm/docket/shots/flow-steps-desktop.jpg",
+        "mobile": "pro-law-firm/docket/shots/flow-steps-mobile.jpg"
+      },
+      "code": "pro-law-firm/docket/code/flow-steps.html"
+    },
+    {
+      "id": "cases-browser",
+      "kind": "cases",
+      "label": "사례 검색·분야 필터 카드",
+      "page": "/cases/",
+      "source": "src/components/CaseBrowser.tsx",
+      "site": "pro-law-firm/docket",
+      "shots": {
+        "desktop": "pro-law-firm/docket/shots/cases-browser-desktop.jpg",
+        "mobile": "pro-law-firm/docket/shots/cases-browser-mobile.jpg"
+      },
+      "code": "pro-law-firm/docket/code/cases-browser.html"
+    },
+    {
+      "id": "attorneys-principles",
+      "kind": "intro",
+      "label": "일하는 방식",
+      "page": "/attorneys/",
+      "source": "src/app/attorneys/page.tsx",
+      "site": "pro-law-firm/docket",
+      "shots": {
+        "desktop": "pro-law-firm/docket/shots/attorneys-principles-desktop.jpg",
+        "mobile": "pro-law-firm/docket/shots/attorneys-principles-mobile.jpg"
+      },
+      "code": "pro-law-firm/docket/code/attorneys-principles.html"
+    },
+    {
+      "id": "contact-channels",
+      "kind": "cta",
+      "label": "연락 방법 3단",
+      "page": "/contact/",
+      "source": "src/app/contact/page.tsx",
+      "site": "pro-law-firm/docket",
+      "shots": {
+        "desktop": "pro-law-firm/docket/shots/contact-channels-desktop.jpg",
+        "mobile": "pro-law-firm/docket/shots/contact-channels-mobile.jpg"
+      },
+      "code": "pro-law-firm/docket/code/contact-channels.html"
+    },
+    {
+      "id": "footer",
+      "kind": "footer",
+      "label": "푸터 (광고책임변호사 표기)",
+      "page": "/",
+      "source": "src/components/Foot.tsx",
+      "site": "pro-law-firm/docket",
+      "shots": {
+        "desktop": "pro-law-firm/docket/shots/footer-desktop.jpg",
+        "mobile": "pro-law-firm/docket/shots/footer-mobile.jpg"
+      },
+      "code": "pro-law-firm/docket/code/footer.html"
     }
   ]
 }

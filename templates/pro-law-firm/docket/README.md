@@ -14,11 +14,11 @@ npm run lint
 ```
 src/
 ├─ app/            /, /areas, /areas/[slug] (8개), /flow, /attorneys, /cases, /contact, sitemap·robots·og.png
-├─ components/     헤더·푸터, 업무 띠(Ticker), 업무분야 목록, 사건 흐름(CaseFlow), 변호사, 사례, FAQ, 오시는 길, 서브페이지 머리
+├─ components/     헤더·푸터, 업무 띠(Ticker), 업무분야 목록, 사건 흐름(CaseFlow 탭 8, FlowNav 바로가기), 변호사, 사례 카드(CaseCard, CaseBrowser 검색·필터), FAQ, 오시는 길, 서브페이지 머리
 ├─ data/
 │  ├─ site.ts      ★ 사무소 정보, 메뉴, 모든 화면 문구, 페이지별 검색 제목·설명, 브랜드 색
 │  ├─ areas.ts     ★ 업무분야 8개 (목록·상세·sitemap 자동 생성)
-│  └─ content.ts   사건 흐름 3종, 변호사, 원칙, 사례, FAQ
+│  └─ content.ts   사건 흐름 8종(업무분야별), 변호사, 원칙, 사례 14건(분야·키워드), FAQ
 └─ lib/            주소 설정 · SEO · 구조화 데이터(LegalService, Person, Service, FAQPage, BreadcrumbList)
 docs/site-spec.md  사이트 스펙 (단일 기준 문서)
 ```
