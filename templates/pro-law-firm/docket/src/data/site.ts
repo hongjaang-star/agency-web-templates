@@ -77,7 +77,7 @@ export const home = {
   secondaryCta: "사건 흐름 보기",
   sections: {
     areas: { eyebrow: "AREAS OF PRACTICE", title: "어떤 일을 겪고 계신가요", more: "업무분야 전체 보기 →" },
-    flow: { eyebrow: "CASE FLOW", title: "사건은 이렇게 흘러갑니다", lead: "사건 종류를 고르고 단계를 누르면, 그 단계에서 일어나는 일과 의뢰인이 준비할 것을 보여 드립니다.", more: "단계별 자세히 보기 →" },
+    flow: { eyebrow: "CASE FLOW", title: "사건은 이렇게 흘러갑니다", lead: "업무분야를 고르고 단계를 누르면, 그 단계에서 일어나는 일과 의뢰인이 준비할 것을 보여 드립니다.", more: "단계별 자세히 보기 →" },
     attorneys: { eyebrow: "ATTORNEYS", title: "사건을 맡는 사람", more: "변호사 소개 →" },
     cases: { eyebrow: "CASES", title: "함께 정리한 일들", more: "사례 더 보기 →" },
     faq: { eyebrow: "BEFORE YOU CALL", title: "상담 전에 많이 물으세요" },
@@ -90,14 +90,37 @@ export const flowCopy = {
   periodLabel: "일반적인 기간",
   prepareLabel: "이 단계에서 준비할 것",
   note: "기간은 일반적인 예시이며 사건의 내용, 법원 사정, 상대방 대응에 따라 크게 달라질 수 있습니다.",
-  tabsLabel: "사건 종류",
+  tabsLabel: "업무분야",
+  procedureLabel: "절차",
+} as const;
+
+// 사건 흐름 페이지 — STEP BY STEP 영역의 왼쪽 바로가기
+export const flowPageCopy = {
+  eyebrow: "STEP BY STEP",
+  title: "분야별 단계 한눈에",
+  navLabel: "업무분야 바로가기",
+  stepsUnit: "단계",
+  areaLink: "업무분야 자세히 →",
+} as const;
+
+// 사례 검색·분류
+export const casesCopy = {
+  searchLabel: "사례 검색",
+  searchPlaceholder: "예: 보증금, 해고, 유류분",
+  filterLabel: "업무분야로 보기",
+  all: "전체",
+  keywordsLabel: "키워드",
+  resultSuffix: "건의 사례",
+  empty: "찾는 사례가 없습니다. 다른 단어로 검색하거나 전체를 눌러 주세요.",
+  reset: "전체 보기",
+  areaLink: "업무 보기 →",
 } as const;
 
 export const pages = {
   areas: { label: "AREAS OF PRACTICE", title: "어떤 일을 겪고 계신가요", lead: "여덟 가지 업무분야. 지금 겪는 일과 가장 가까운 항목을 고르면 진행 순서와 준비할 자료를 볼 수 있습니다." },
-  flow: { label: "CASE FLOW", title: "사건은 이렇게 흘러갑니다", lead: "민사 소송, 형사 사건, 재판 이혼이 처음 상담부터 끝날 때까지 어떤 단계를 거치는지 정리했습니다." },
+  flow: { label: "CASE FLOW", title: "사건은 이렇게 흘러갑니다", lead: "여덟 가지 업무분야마다 처음 상담부터 끝날 때까지 어떤 단계를 거치는지 정리했습니다." },
   attorneys: { label: "ATTORNEYS", title: "사건을 맡는 사람", lead: "상담한 변호사가 사건 끝까지 직접 맡습니다." },
-  cases: { label: "CASES", title: "함께 정리한 일들", lead: "실제 의뢰인 정보가 아닌 유형별 예시입니다. 결과는 사안의 사실관계와 증거에 따라 달라집니다." },
+  cases: { label: "CASES", title: "함께 정리한 일들", lead: "업무분야와 키워드로 골라 보거나 검색해 보세요. 실제 의뢰인 정보가 아닌 유형별 예시이며, 결과는 사안의 사실관계와 증거에 따라 달라집니다." },
   contact: { label: "CONTACT", title: "법원 앞에서 기다립니다", lead: "전화로 상담 시간을 먼저 잡아 주세요. 받은 서류가 있다면 함께 가져오시면 됩니다." },
 } as const;
 
@@ -135,7 +158,7 @@ export const notFoundCopy = { title: "찾으시는 페이지가 없습니다", d
 // 페이지별 검색 제목·설명 (제목 뒤에는 "| 대전 둔산동 담연 법률사무소" 가 붙는다)
 export const seoPages = {
   areas: { title: "업무분야", description: "이혼·가사, 상속·유류분, 형사, 민사·손해배상, 부동산·임대차, 기업 계약, 노동, 행정. 대전지방법원 앞 변호사 3인의 업무분야." },
-  flow: { title: "사건 흐름 · 민사·형사·이혼 절차", description: "민사 소송, 형사 사건, 재판 이혼이 상담부터 판결·집행까지 어떤 단계를 거치는지, 단계마다 준비할 자료와 일반적인 기간을 정리했습니다." },
+  flow: { title: "사건 흐름 · 분야별 절차", description: "이혼, 상속·유류분, 형사, 민사, 전세보증금, 계약 분쟁, 부당해고, 영업정지까지 여덟 가지 절차의 단계와 준비할 자료, 일반적인 기간을 정리했습니다." },
   attorneys: { title: "변호사 소개", description: "대표 변호사 윤서진(이혼·가사, 상속), 강도윤(형사, 행정), 민하린(민사, 부동산, 기업 계약). 상담한 변호사가 사건을 끝까지 맡습니다." },
   cases: { title: "유형별 사례", description: "전세보증금 반환, 재판이혼, 수사 단계 조력, 유류분, 부당해고, 영업정지 등 유형별 사례. 결과는 사실관계에 따라 달라집니다." },
   contact: { title: "상담 예약·오시는 길", description: "대전광역시 서구 둔산중로, 대전지방법원 정문에서 도보 3분. 전화·카카오톡으로 상담 시간을 예약하세요." },

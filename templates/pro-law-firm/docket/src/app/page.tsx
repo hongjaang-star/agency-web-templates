@@ -71,7 +71,7 @@ export default function Home() {
         <div className="wrap">
           <p className="eyebrow up">{S.cases.eyebrow}</p>
           <h2 id="case-h" className="up">{S.cases.title}</h2>
-          <CaseList limit={4} />
+          <CaseList limit={3} />
           <p className="note">{casesNotice}</p>
           <Link className="more" href="/cases">{S.cases.more}</Link>
         </div>
