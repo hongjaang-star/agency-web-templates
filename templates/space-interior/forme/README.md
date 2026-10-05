@@ -4,9 +4,9 @@
 
 `npm ci`, `npm run dev`, `npm run lint`, `npm run build`로 실행·검증한다. 배포 시 NEXT_PUBLIC_BASE_PATH와 도메인만 담은 NEXT_PUBLIC_SITE_URL을 설정한다.
 
-10개 페이지: 홈, 공간 기록, 프로젝트 상세 3종, 하는 일, 스튜디오, 진행 과정, 프로젝트 문의, 개인정보 안내. 공간 사례 필터·재료 분위기 선택·준비 자료 체크리스트·상담 요약 복사가 작동한다. 문의 전송과 실제 견적은 제공하지 않는다.
+18개 페이지: 홈, 포트폴리오, 신규 프로젝트 상세 8종, 기존 상세 3종(주소 유지), 하는 일, 스튜디오, 진행 과정, 프로젝트 문의, 개인정보 안내. 오피스·병원·카페·기숙사 각 2개를 분류해 보여 준다. 프로젝트마다 와이드·중간·디테일 사진 각 2장, 총 48개의 서로 다른 AI 공간 사진과 작은 화면용 WebP를 제공한다. 스크롤 등장·미세 이동과 키보드로 넘기는 확대 뷰어, 재료 분위기 선택·준비 자료 체크리스트·상담 요약 복사가 작동한다. 문의 전송과 실제 견적은 제공하지 않는다.
 
-콘텐츠는 src/data/studio.ts, 화면은 src/app 및 src/components, 이미지 자산은 public/images에 있다. 모든 공간 이미지는 AI 제작 예시이며 실제 시공 실적이 아니다.
+공간 사례는 src/data/projects.ts, 기존 주소용 사례는 src/data/legacy-projects.ts, 스튜디오 콘텐츠는 src/data/studio.ts에 있다. 화면은 src/app 및 src/components, 이미지 자산은 public/images/portfolio에 있다. source.json에 이미지 생성 프롬프트·원본 해시·크기를 기록했다. 모든 공간 이미지는 AI 제작 예시이며 실제 시공 실적이 아니다. 다나함 works는 사진과 설명의 배치 참고에만 사용했다.
 
 전체 빌드가 공통 /editor/를 설치한다. 편집값은 space-interior/forme 사이트 ID로 격리된다. 전체 방문자 설정은 public/editor-state.json에 넣고 재배포한다. 자세한 운영은 저장소 docs/site-editor.md를 따른다.
 

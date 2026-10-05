@@ -2,7 +2,8 @@
 from pathlib import Path
 from fontTools import subset
 root = Path(__file__).resolve().parent.parent
-chars = set(''.join(f.read_text(encoding='utf8') for f in root.joinpath('src').rglob('*.tsx')))
+sources = [f for f in root.joinpath('src').rglob('*') if f.suffix in ('.ts', '.tsx')]
+chars = set(''.join(f.read_text(encoding='utf8') for f in sources))
 chars.update(chr(i) for i in range(32, 127))
 for weight in ('Regular', 'Medium'):
     source = root / 'node_modules/pretendard/dist/web/static/woff2' / f'Pretendard-{weight}.woff2'

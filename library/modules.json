@@ -862,7 +862,7 @@
     {
       "id": "projects",
       "kind": "gallery",
-      "label": "공간 기록 그리드",
+      "label": "주제별 포트폴리오 그리드",
       "page": "/",
       "source": "src/components/StudioTools.tsx",
       "site": "space-interior/forme",
@@ -910,6 +910,32 @@
         "mobile": "space-interior/forme/shots/footer-mobile.jpg"
       },
       "code": "space-interior/forme/code/footer.html"
+    },
+    {
+      "id": "project-masthead",
+      "kind": "content",
+      "label": "프로젝트 주제와 콘셉트",
+      "page": "/projects/cafe-coast/",
+      "source": "src/app/projects/[id]/page.tsx",
+      "site": "space-interior/forme",
+      "shots": {
+        "desktop": "space-interior/forme/shots/project-masthead-desktop.jpg",
+        "mobile": "space-interior/forme/shots/project-masthead-mobile.jpg"
+      },
+      "code": "space-interior/forme/code/project-masthead.html"
+    },
+    {
+      "id": "project-photo",
+      "kind": "gallery",
+      "label": "와이드 공간 사진과 캡션",
+      "page": "/projects/cafe-coast/",
+      "source": "src/components/ProjectExperience.tsx",
+      "site": "space-interior/forme",
+      "shots": {
+        "desktop": "space-interior/forme/shots/project-photo-desktop.jpg",
+        "mobile": "space-interior/forme/shots/project-photo-mobile.jpg"
+      },
+      "code": "space-interior/forme/code/project-photo.html"
     }
   ]
 }

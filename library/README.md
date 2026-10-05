@@ -15,7 +15,7 @@
 | [세무사무소 · almanac](pro-tax-office/almanac/README.md) **대표** | 지면형 · 설명과 신고 기한을 앞세운 사무소, 신문·연감 같은 단정함 | editorial / statement / paper·ink·vermilion | 17 |
 | [세무사무소 · trust](pro-tax-office/trust/README.md) | 클래식 신뢰형 · 차콜·골드와 명조, 세무사 프로필과 정돈된 정보 구조 | swiss-grid / split-media / charcoal·paper·yellow gold | 15 |
 | [법률사무소 · docket](pro-law-firm/docket/README.md) **대표** | 타이포형 · 사건이 어떤 순서로 흘러가는지 먼저 보여 주는 동네 법률사무소 | typographic / ticker / oxblood·cream·ink | 14 |
-| [인테리어·리모델링 · forme](space-interior/forme/README.md) **대표** | 공간 아카이브형 · 생활 방식과 재료의 질감을 보여주는 리모델링 스튜디오 | spatial-archive / landscape-photo-with-caption / warm gray · olive · charcoal | 6 |
+| [인테리어·리모델링 · forme](space-interior/forme/README.md) **대표** | 공간 아카이브형 · 생활 방식과 재료의 질감을 보여주는 리모델링 스튜디오 | spatial-archive / landscape-photo-with-caption / warm gray · olive · charcoal | 8 |
 
 ## 종류별
 
@@ -106,7 +106,8 @@
 |---|---|---|
 | <img src="medical-dermatology/lumiere/shots/home-space-desktop.jpg" width="280"> | [공간 갤러리 `home-space`](medical-dermatology/lumiere/README.md#공간-갤러리-home-space) | `medical-dermatology/lumiere` |
 | <img src="medical-dermatology/lumiere/shots/home-equipment-desktop.jpg" width="280"> | [장비 스트립 `home-equipment`](medical-dermatology/lumiere/README.md#장비-스트립-home-equipment) | `medical-dermatology/lumiere` |
-| <img src="space-interior/forme/shots/projects-desktop.jpg" width="280"> | [공간 기록 그리드 `projects`](space-interior/forme/README.md#공간-기록-그리드-projects) | `space-interior/forme` |
+| <img src="space-interior/forme/shots/projects-desktop.jpg" width="280"> | [주제별 포트폴리오 그리드 `projects`](space-interior/forme/README.md#주제별-포트폴리오-그리드-projects) | `space-interior/forme` |
+| <img src="space-interior/forme/shots/project-photo-desktop.jpg" width="280"> | [와이드 공간 사진과 캡션 `project-photo`](space-interior/forme/README.md#와이드-공간-사진과-캡션-project-photo) | `space-interior/forme` |
 
 ### 이벤트·프로모션 `promo`
 
@@ -193,3 +194,9 @@
 | 미리보기 | 모듈 | 사용 사이트 |
 |---|---|---|
 | <img src="space-interior/forme/shots/materials-desktop.jpg" width="280"> | [재료 분위기 선택 `materials`](space-interior/forme/README.md#재료-분위기-선택-materials) | `space-interior/forme` |
+
+### content `content`
+
+| 미리보기 | 모듈 | 사용 사이트 |
+|---|---|---|
+| <img src="space-interior/forme/shots/project-masthead-desktop.jpg" width="280"> | [프로젝트 주제와 콘셉트 `project-masthead`](space-interior/forme/README.md#프로젝트-주제와-콘셉트-project-masthead) | `space-interior/forme` |
