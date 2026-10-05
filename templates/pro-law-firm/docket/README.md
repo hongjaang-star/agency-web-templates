@@ -27,7 +27,12 @@ docs/site-spec.md  사이트 스펙 (단일 기준 문서)
 - 사이트 편집기는 빌드 때 `editor/` 로 자동 설치된다(`docs/site-editor.md`). 앱 안에 에디터 코드는 없다.
 
 ## 네이버 지도 (오시는 길)
-네이버는 iframe 퍼가기를 제공하지 않아 NAVER Maps API v3 를 쓴다. 네이버 클라우드 플랫폼 콘솔 > Maps 에서 Application 을 만들고(Dynamic Map), Web 서비스 URL 에 배포 도메인(예: `https://hongjaang-star.github.io`)을 등록한 뒤 Client ID 를 `src/data/site.ts` 의 `site.map.ncpKeyId` 에 넣는다. 키가 없으면 위치 안내 카드가 대신 보인다.
+네이버는 iframe 퍼가기를 제공하지 않아 NAVER Maps API v3 를 쓴다(기준 위치: 대전지방법원).
+
+- **Client ID** 는 저장소에 커밋하지 않는다. 배포 빌드는 GitHub 저장소 Settings > Secrets and variables > Actions 의 Secret `NAVER_MAP_CLIENT_ID` 를 환경변수 `NEXT_PUBLIC_NAVER_MAP_CLIENT_ID` 로 받아 쓴다. 로컬은 `.env.local` (gitignore 됨)에 넣는다.
+- **Client Secret** 은 지도 표시에 필요 없다. 브라우저 코드에 넣으면 노출되므로 어디에도 넣지 않는다.
+- Client ID 는 지도 스크립트 주소에 실려 방문자 브라우저로 전달되는 값이라 완전히 숨길 수 없다. NCP 콘솔 > Maps > Application 의 **Web 서비스 URL** 에 `https://hongjaang-star.github.io` (개발 시 `http://localhost:3000`)만 등록해 다른 사이트에서 쓰지 못하게 막는다.
+- ID 가 없거나 인증에 실패하면 위치 안내 카드와 "네이버 지도에서 크게 보기" 버튼이 대신 보인다.
 
 ## 광고 규정
 변호사업무광고규정에 따라 "최고·유일", 승소율, "무료 상담", 결과 단정 표현을 쓰지 않고 "전문" 대신 "주요 업무"로 쓴다. 푸터에 광고책임변호사를 표시한다. 문구는 `src/data/` 에서만 바꾼다.
