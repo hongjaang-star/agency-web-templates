@@ -27,8 +27,10 @@
 | 2026-10-05 | pro-law-firm 미선택 시안 quiet·district 삭제, 비교 페이지·backlog 정리 | PR |
 | 2026-10-05 | pro-law-firm/docket 1.1: 사건 흐름 8개 분야, STEP BY STEP 왼쪽 바로가기, 사례 14건 분야 필터·검색·카드형 | PR |
 | 2026-10-05 | pro-law-firm/docket 푸터 SNS 아이콘 4종(대표 주소 연결) | PR |
+| 2026-10-05 | pro-law-firm/docket 오시는 길 네이버 지도(Maps API v3, 대전지방법원). ncpKeyId 미입력 시 대체 카드 | PR |
 
 ## 교훈
+- 네이버 지도는 iframe 퍼가기를 제공하지 않는다. 사이트에 넣으려면 NAVER Maps API v3 + ncpKeyId(Web 서비스 URL 등록)가 필요하고, 키가 없을 때를 위한 대체 화면을 함께 둔다.
 - next/font 의 일부 한글 서체(Song Myung 등)는 `subsets`·`preload` 옵션이 없다. 타입 오류가 나면 옵션을 빼고 weight 만 준다.
 - 병합 직후 새 브랜치를 만들 때는 `git fetch` 를 먼저 한다. 오래된 origin/main 에서 갈라져 방금 병합한 커밋이 빠진 적이 있다.
 2026-10-04: trust 다크 골드 개정, AI 세무사 프로필 3장, 카드 hover/focus 개선. lint·정적 빌드 통과, 360px 가로 넘침 없음.

@@ -1,5 +1,6 @@
 import Faq from "@/components/Faq";
 import PageHead from "@/components/PageHead";
+import NaverMap from "@/components/NaverMap";
 import Visit from "@/components/Visit";
 import { contactCopy as C, home, pages, seoPages, site } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
@@ -33,6 +34,7 @@ export default function ContactPage() {
         <div className="wrap">
           <p className="eyebrow up" id="vs-h">{home.sections.visit.eyebrow}</p>
           <Visit />
+          <NaverMap />
           <div className="maps">
             <a className="btn" href={site.links.naverMap} target="_blank" rel="noopener noreferrer">{C.maps.naver}<span className="sr-only">(새 창)</span></a>
             <a className="btn" href={site.links.kakaoMap} target="_blank" rel="noopener noreferrer">{C.maps.kakao}<span className="sr-only">(새 창)</span></a>

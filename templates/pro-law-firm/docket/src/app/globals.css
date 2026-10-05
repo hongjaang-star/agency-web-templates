@@ -226,6 +226,18 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .visit dl { font-size: 15px; }
 .visit dt { font: 700 12px var(--sans); letter-spacing: 0.16em; color: var(--ox); margin-top: 16px; }
 .visit dt:first-child { margin-top: 0; }
+.nmap { margin-top: 40px; border: 1px solid var(--ink); background: #fff; }
+.nmap-canvas, .nmap-fallback { width: 100%; height: clamp(300px, 42vw, 460px); }
+.nmap-fallback { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-align: center; padding: 24px; color: var(--ink); background: repeating-linear-gradient(0deg, transparent 0 47px, var(--line) 47px 48px), repeating-linear-gradient(90deg, transparent 0 47px, var(--line) 47px 48px), var(--cream-2); }
+.nmap-fallback svg { color: var(--ox); }
+.nmap-fallback b { font: 400 30px var(--display); }
+.nmap-fallback span { color: var(--ink-2); }
+.nmap-fallback small { color: var(--ink-2); max-width: 30em; margin-top: 6px; }
+.nmap figcaption { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; padding: 16px 20px; border-top: 1px solid var(--ink); font-size: 15px; }
+.nmap figcaption .lbl { font: 700 12px var(--sans); letter-spacing: 0.16em; color: var(--ox); }
+.nmap figcaption .note { color: var(--ink-2); flex-basis: 100%; }
+.nmap figcaption .btn { margin-left: auto; padding: 11px 16px; }
+@media (max-width: 640px) { .nmap figcaption .btn { margin-left: 0; width: 100%; justify-content: center; } }
 .maps { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
 .channels { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 36px; border-top: 1px solid var(--ink); }
 .channels a { display: block; padding: 24px 24px 28px 0; text-decoration: none; border-right: 1px solid var(--line); }
