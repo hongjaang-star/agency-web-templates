@@ -2,11 +2,12 @@
 import {useState} from 'react';
 import Link from './SiteLink';
 import {studio} from '../data/studio';
+import {categories} from '../data/projects';
 import {asset} from '../lib/urls';
 export function ProjectGallery({limit}:{limit?:number}) {
- const [type,setType]=useState('전체'); const types=['전체','주거','상업','부분'];
- const projects=studio.projects.filter(p=>type==='전체'||p.type===type).slice(0,limit);
- return <div className="project-gallery">{!limit&&<div className="filters" role="group" aria-label="프로젝트 공간 분류">{types.map(t=><button key={t} onClick={()=>setType(t)} aria-pressed={type===t}>{t}</button>)}</div>}<div className="project-grid">{projects.map((p,i)=><Link key={p.id} className="project-card" href={`/projects/${p.id}/`}><div className="project-image"><img src={asset(p.image)} srcSet={`${asset(p.image.replace('.webp','-small.webp'))} 768w, ${asset(p.image)} 1536w`} sizes="(max-width: 800px) 90vw, 33vw" alt={p.subtitle} loading="lazy" width="1536" height="1024"/><span className="open-mark" aria-hidden="true">↗</span></div><div className="project-caption"><span className="serial">0{i+1}</span><h3>{p.title}</h3><span>{p.type} / {p.area}</span></div></Link>)}</div><p className="small" role="status">{projects.length}개 디자인 프로젝트 · 가상 사례</p></div>;
+ const [type,setType]=useState('all');const types=[{id:'all',label:'전체',en:'ALL'},...categories];
+ const projects=limit?studio.projects.filter((_p,i)=>i%2===0).slice(0,limit):studio.projects.filter(p=>type==='all'||p.category===type);
+ return <div className="project-gallery">{!limit&&<div className="filters" role="group" aria-label="프로젝트 공간 분류">{types.map(t=><button key={t.id} onClick={()=>setType(t.id)} aria-pressed={type===t.id} aria-label={t.label}>{t.label}<span className="filter-number" aria-hidden="true">{String(studio.projects.filter(p=>t.id==='all'||p.category===t.id).length).padStart(2,'0')}</span></button>)}</div>}<div className="project-grid">{projects.map(p=><Link key={p.id} className="project-card" href={`/projects/${p.id}/`} data-project-id={p.id}><div className="project-image"><img src={asset(p.image)} srcSet={`${asset(p.image.replace('.webp','-small.webp'))} 768w, ${asset(p.image)} 1536w`} sizes="(max-width: 600px) 90vw, 45vw" alt={p.subtitle} loading="lazy" width="1536" height="1024"/><span className="open-mark" aria-hidden="true">↗</span></div><div className="project-caption"><span className="card-topic"><span>{p.type} / {p.region}</span><span>{p.en}</span></span><h3>{p.title}</h3><span className="serial">↗</span><p className="card-concept">{p.concept}</p></div></Link>)}</div><p className="small" role="status">{String(projects.length).padStart(2,'0')} PROJECTS · {type==='all'?'서로 다른 일상을 위한 공간':types.find(t=>t.id===type)?.label} · 가상 디자인 사례</p></div>;
 }
 export function MaterialStudy(){
  const materials=[{name:'오크',color:'#b19168',text:'결을 따라 따뜻해지는 공간. 손에 닿는 목재의 질감을 상상해보세요.'},{name:'석재',color:'#c7c2b5',text:'차분한 표면과 자연스러운 무늬. 빛에 따라 달라지는 깊이를 만듭니다.'},{name:'올리브',color:'#737756',text:'공간에 잔잔한 색을 더하는 포인트. 목재와 어울리는 낮은 채도를 선택합니다.'}];const [index,setIndex]=useState(0);

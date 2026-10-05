@@ -560,7 +560,7 @@
         {
           "id": "projects",
           "kind": "gallery",
-          "label": "공간 기록 그리드",
+          "label": "주제별 포트폴리오 그리드",
           "page": "/",
           "select": ".works",
           "source": "src/components/StudioTools.tsx"
@@ -588,6 +588,22 @@
           "page": "/",
           "select": ".site-footer",
           "source": "src/app/layout.tsx"
+        },
+        {
+          "id": "project-masthead",
+          "kind": "content",
+          "label": "프로젝트 주제와 콘셉트",
+          "page": "/projects/cafe-coast/",
+          "select": ".project-masthead",
+          "source": "src/app/projects/[id]/page.tsx"
+        },
+        {
+          "id": "project-photo",
+          "kind": "gallery",
+          "label": "와이드 공간 사진과 캡션",
+          "page": "/projects/cafe-coast/",
+          "select": ".journal-hero",
+          "source": "src/components/ProjectExperience.tsx"
         }
       ]
     }

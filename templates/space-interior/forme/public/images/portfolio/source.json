@@ -1,0 +1,439 @@
+{
+  "tool": "OpenAI built-in image generation",
+  "reference": "https://danaham.com/works/ (layout reference only; no original photographs copied)",
+  "kind": "fictional architectural design portfolio",
+  "assets": [
+    {
+      "file": "cafe-coast-1.webp",
+      "project": "cafe-coast",
+      "shot": 1,
+      "width": 1942,
+      "height": 809,
+      "sourceSha256": "0f4dfceed44010a7f02e41002a0329485a8736bad1c7b34abf2a03d1d29f2877",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Yangyang Korea coastal resort cafe. Panoramic beach and blue ocean views, sand-colored lime plaster, bleached oak furniture, soft arch openings, natural woven rattan textures, linen upholstery, pale travertine, bright calm seaside morning sunlight, refined barefoot vacation atmosphere. SHOT: very wide establishing photo of airy seaside cafe with panoramic blue ocean windows, sand plaster, bleached oak. Landscape wide architectural composition, generous width, panoramic spatial depth. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "cafe-coast-2.webp",
+      "project": "cafe-coast",
+      "shot": 2,
+      "width": 1916,
+      "height": 821,
+      "sourceSha256": "bedcaef11ae01dd5828588e36c9f341ca6178f3b9808ee405ce09fde3273db85",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Yangyang Korea coastal resort cafe. Panoramic beach and blue ocean views, sand-colored lime plaster, bleached oak furniture, soft arch openings, natural woven rattan textures, linen upholstery, pale travertine, bright calm seaside morning sunlight, refined barefoot vacation atmosphere. SHOT: very wide photo from cafe lounge through arched doors toward covered seaside terrace, beach and ocean. Landscape wide architectural composition, generous width, panoramic spatial depth. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "cafe-coast-3.webp",
+      "project": "cafe-coast",
+      "shot": 3,
+      "width": 1024,
+      "height": 1536,
+      "sourceSha256": "68f03d38e9f6a41fa4b76a6647af29e787d6d35fb8aa29d3e05cab09cc69dc91",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Yangyang Korea coastal resort cafe. Panoramic beach and blue ocean views, sand-colored lime plaster, bleached oak furniture, soft arch openings, natural woven rattan textures, linen upholstery, pale travertine, bright calm seaside morning sunlight, refined barefoot vacation atmosphere. SHOT: medium vertical photo of cafe counter with bleached oak and sand plaster, arch niche and linen curtains. Portrait vertical architectural composition, medium distance, refined spatial framing. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "cafe-coast-4.webp",
+      "project": "cafe-coast",
+      "shot": 4,
+      "width": 1024,
+      "height": 1536,
+      "sourceSha256": "c07282965cdbee43b520d83b66f4b82c0d3bc72b31a2438229941b9eaf543832",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Yangyang Korea coastal resort cafe. Panoramic beach and blue ocean views, sand-colored lime plaster, bleached oak furniture, soft arch openings, natural woven rattan textures, linen upholstery, pale travertine, bright calm seaside morning sunlight, refined barefoot vacation atmosphere. SHOT: medium photo of ocean-facing lounge chairs with woven rattan, pale stone tables and gauzy curtains. Portrait vertical architectural composition, medium distance, refined spatial framing. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "cafe-coast-5.webp",
+      "project": "cafe-coast",
+      "shot": 5,
+      "width": 1536,
+      "height": 1024,
+      "sourceSha256": "3b0ac658aaee690fb4b6e480cc09de783787d6cc93a88a1aeaf98af416610f68",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Yangyang Korea coastal resort cafe. Panoramic beach and blue ocean views, sand-colored lime plaster, bleached oak furniture, soft arch openings, natural woven rattan textures, linen upholstery, pale travertine, bright calm seaside morning sunlight, refined barefoot vacation atmosphere. SHOT: close interior detail of bleached oak curved chair joinery and woven rattan against sand-colored plaster. Landscape close-up material and furniture detail photo, careful tactile composition. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "cafe-coast-6.webp",
+      "project": "cafe-coast",
+      "shot": 6,
+      "width": 1536,
+      "height": 1024,
+      "sourceSha256": "48da459fe03e4a9726d52f00f21a6cbbeffcbaee425b5f993dd74ae87c38526f",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Yangyang Korea coastal resort cafe. Panoramic beach and blue ocean views, sand-colored lime plaster, bleached oak furniture, soft arch openings, natural woven rattan textures, linen upholstery, pale travertine, bright calm seaside morning sunlight, refined barefoot vacation atmosphere. SHOT: close photo of linen cushion, pale stone ledge and patterned seaside sun shadows, quiet tactile detail. Landscape close-up material and furniture detail photo, careful tactile composition. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "cafe-euljiro-1.webp",
+      "project": "cafe-euljiro",
+      "shot": 1,
+      "width": 1672,
+      "height": 940,
+      "sourceSha256": "9f5575c45fc228bff02ba24c192c3cfa6dea8fbb780e9f0cd9d8c29eb9629e44",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Euljiro Seoul urban coffee bar in renovated old city brick building. Exposed reddish brick, oxblood burgundy upholstery, brushed stainless counter, dark charcoal concrete, warm small pendant lights, industrial historic city street visible, intimate moody urban atmosphere at late afternoon, refined contemporary coffee design. SHOT: very wide establishing photo of intimate urban cafe and stainless coffee bar with burgundy seating and brick. Landscape wide architectural composition, generous width, panoramic spatial depth. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "cafe-euljiro-2.webp",
+      "project": "cafe-euljiro",
+      "shot": 2,
+      "width": 1875,
+      "height": 839,
+      "sourceSha256": "2387563214989dbf7ea1493832ebb2db18c2945f498fbc26e2e1dee86655cba8",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Euljiro Seoul urban coffee bar in renovated old city brick building. Exposed reddish brick, oxblood burgundy upholstery, brushed stainless counter, dark charcoal concrete, warm small pendant lights, industrial historic city street visible, intimate moody urban atmosphere at late afternoon, refined contemporary coffee design. SHOT: very wide architecture photo from rear lounge toward city windows, counter and warm pendant lights. Landscape wide architectural composition, generous width, panoramic spatial depth. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "cafe-euljiro-3.webp",
+      "project": "cafe-euljiro",
+      "shot": 3,
+      "width": 1024,
+      "height": 1536,
+      "sourceSha256": "931e4e8120e3d7a913b45182618b9dab12fb11331c1dfab413b4ac1557ff7d90",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Euljiro Seoul urban coffee bar in renovated old city brick building. Exposed reddish brick, oxblood burgundy upholstery, brushed stainless counter, dark charcoal concrete, warm small pendant lights, industrial historic city street visible, intimate moody urban atmosphere at late afternoon, refined contemporary coffee design. SHOT: medium vertical photo of compact bar area, steel shelves and espresso machine, no logos. Portrait vertical architectural composition, medium distance, refined spatial framing. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "cafe-euljiro-4.webp",
+      "project": "cafe-euljiro",
+      "shot": 4,
+      "width": 1024,
+      "height": 1536,
+      "sourceSha256": "dc305e24304c875c5f2a354f725c96904c68f75d97a8e33b3088560bdbba1927",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Euljiro Seoul urban coffee bar in renovated old city brick building. Exposed reddish brick, oxblood burgundy upholstery, brushed stainless counter, dark charcoal concrete, warm small pendant lights, industrial historic city street visible, intimate moody urban atmosphere at late afternoon, refined contemporary coffee design. SHOT: medium photo of burgundy banquette seating with small brushed metal tables against brick wall. Portrait vertical architectural composition, medium distance, refined spatial framing. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "cafe-euljiro-5.webp",
+      "project": "cafe-euljiro",
+      "shot": 5,
+      "width": 1536,
+      "height": 1024,
+      "sourceSha256": "bd9246a399f10584532e854964fddd172746eedc1421e42d2dffb4cad0c58f14",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Euljiro Seoul urban coffee bar in renovated old city brick building. Exposed reddish brick, oxblood burgundy upholstery, brushed stainless counter, dark charcoal concrete, warm small pendant lights, industrial historic city street visible, intimate moody urban atmosphere at late afternoon, refined contemporary coffee design. SHOT: close material detail of brushed steel counter edge, deep red upholstery and old brick texture. Landscape close-up material and furniture detail photo, careful tactile composition. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "cafe-euljiro-6.webp",
+      "project": "cafe-euljiro",
+      "shot": 6,
+      "width": 1536,
+      "height": 1024,
+      "sourceSha256": "0ea7f16182332f8f65508490fccaffdb367dda0cc3f5d01b1c9906d76a313041",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Euljiro Seoul urban coffee bar in renovated old city brick building. Exposed reddish brick, oxblood burgundy upholstery, brushed stainless counter, dark charcoal concrete, warm small pendant lights, industrial historic city street visible, intimate moody urban atmosphere at late afternoon, refined contemporary coffee design. SHOT: close photo of crafted coffee cup on charcoal stone table with warm reflected light and burgundy seating edge. Landscape close-up material and furniture detail photo, careful tactile composition. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "clinic-gangnam-1.webp",
+      "project": "clinic-gangnam",
+      "shot": 1,
+      "width": 1916,
+      "height": 821,
+      "sourceSha256": "19f4e885945c83a16c31fc40ee5d84cb38362d2969af3467f28c9089022f2c0e",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Gangnam Seoul boutique outpatient hospital interior. Warm ivory plaster, light cream travertine, soft blush peach accents, curved sculptural reception desk, translucent glass, restrained brushed champagne metal, gentle daylight, pristine reassuring atmosphere, plausible clean contemporary healthcare space. SHOT: very wide establishing photo of spacious clinic reception and waiting lounge, ivory curves, travertine and soft light. Landscape wide architectural composition, generous width, panoramic spatial depth. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "clinic-gangnam-2.webp",
+      "project": "clinic-gangnam",
+      "shot": 2,
+      "width": 2060,
+      "height": 763,
+      "sourceSha256": "e07e6af17593fcaa9c2c3597794824c7482382236cb2159124575c9f706b957c",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Gangnam Seoul boutique outpatient hospital interior. Warm ivory plaster, light cream travertine, soft blush peach accents, curved sculptural reception desk, translucent glass, restrained brushed champagne metal, gentle daylight, pristine reassuring atmosphere, plausible clean contemporary healthcare space. SHOT: very wide photo of softly curved hospital corridor with indirect lighting and translucent glass. Landscape wide architectural composition, generous width, panoramic spatial depth. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "clinic-gangnam-3.webp",
+      "project": "clinic-gangnam",
+      "shot": 3,
+      "width": 1024,
+      "height": 1536,
+      "sourceSha256": "2bc06da47074adfdc4864db232590cc4a480738e5fe030bf05082854eebca4da",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Gangnam Seoul boutique outpatient hospital interior. Warm ivory plaster, light cream travertine, soft blush peach accents, curved sculptural reception desk, translucent glass, restrained brushed champagne metal, gentle daylight, pristine reassuring atmosphere, plausible clean contemporary healthcare space. SHOT: medium vertical photo of quiet consultation room, neutral clinician desk and two comfortable chairs, no medical props. Portrait vertical architectural composition, medium distance, refined spatial framing. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "clinic-gangnam-4.webp",
+      "project": "clinic-gangnam",
+      "shot": 4,
+      "width": 1024,
+      "height": 1536,
+      "sourceSha256": "2e12ae403953364d2057d041526570e06e3021d0e5cb15052e16a9d727b0c62c",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Gangnam Seoul boutique outpatient hospital interior. Warm ivory plaster, light cream travertine, soft blush peach accents, curved sculptural reception desk, translucent glass, restrained brushed champagne metal, gentle daylight, pristine reassuring atmosphere, plausible clean contemporary healthcare space. SHOT: medium photo of patient waiting nook with blush upholstered chairs and pale wood niche. Portrait vertical architectural composition, medium distance, refined spatial framing. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "clinic-gangnam-5.webp",
+      "project": "clinic-gangnam",
+      "shot": 5,
+      "width": 1536,
+      "height": 1024,
+      "sourceSha256": "11c860bb0d37ebc975b5c6de9d0c347e2984db69bc4f9677c2f4778f26f94e19",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Gangnam Seoul boutique outpatient hospital interior. Warm ivory plaster, light cream travertine, soft blush peach accents, curved sculptural reception desk, translucent glass, restrained brushed champagne metal, gentle daylight, pristine reassuring atmosphere, plausible clean contemporary healthcare space. SHOT: close architectural photo of curved travertine reception corner and champagne metal edge detail. Landscape close-up material and furniture detail photo, careful tactile composition. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "clinic-gangnam-6.webp",
+      "project": "clinic-gangnam",
+      "shot": 6,
+      "width": 1536,
+      "height": 1024,
+      "sourceSha256": "56f2254b3967447e310191fed387c431ed3dd34196bfeb7d5fc1a8eb4df28259",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Gangnam Seoul boutique outpatient hospital interior. Warm ivory plaster, light cream travertine, soft blush peach accents, curved sculptural reception desk, translucent glass, restrained brushed champagne metal, gentle daylight, pristine reassuring atmosphere, plausible clean contemporary healthcare space. SHOT: close photo of warm indirect lighting at ivory wall curve and subtle translucent glass texture. Landscape close-up material and furniture detail photo, careful tactile composition. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "clinic-jeju-1.webp",
+      "project": "clinic-jeju",
+      "shot": 1,
+      "width": 1916,
+      "height": 821,
+      "sourceSha256": "ef5e871ec72d42a78d7e075593cd76511dafcc31275824bd8cc610f1538d8987",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Jeju Korea low-rise garden hospital. Soft sage green surfaces, light cypress timber, subtle local dark basalt stone accents, courtyard windows to green garden and basalt wall, calm horizontal architecture, dappled daylight, restorative contemporary healthcare space, hygienic and uncluttered. SHOT: very wide establishing photo of hospital welcome lounge opening to lush Jeju courtyard, sage and cypress surfaces. Landscape wide architectural composition, generous width, panoramic spatial depth. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "clinic-jeju-2.webp",
+      "project": "clinic-jeju",
+      "shot": 2,
+      "width": 2076,
+      "height": 757,
+      "sourceSha256": "5050abbdd867cb69ad9f1665625da7d4a5f961774787a5515b2ba27450495b28",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Jeju Korea low-rise garden hospital. Soft sage green surfaces, light cypress timber, subtle local dark basalt stone accents, courtyard windows to green garden and basalt wall, calm horizontal architecture, dappled daylight, restorative contemporary healthcare space, hygienic and uncluttered. SHOT: very wide view of low-rise clinic corridor around garden with cypress screens and basalt accent. Landscape wide architectural composition, generous width, panoramic spatial depth. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "clinic-jeju-3.webp",
+      "project": "clinic-jeju",
+      "shot": 3,
+      "width": 1024,
+      "height": 1536,
+      "sourceSha256": "f770eaf1ccc6976e3792ac8ffa08d17cdf622b3207b4ece76acae072b1e577d0",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Jeju Korea low-rise garden hospital. Soft sage green surfaces, light cypress timber, subtle local dark basalt stone accents, courtyard windows to green garden and basalt wall, calm horizontal architecture, dappled daylight, restorative contemporary healthcare space, hygienic and uncluttered. SHOT: medium vertical view of quiet consultation room facing garden, sage cabinetry and light wood desk. Portrait vertical architectural composition, medium distance, refined spatial framing. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "clinic-jeju-4.webp",
+      "project": "clinic-jeju",
+      "shot": 4,
+      "width": 1024,
+      "height": 1536,
+      "sourceSha256": "0a3605a9377f2ddefb822ff9e21ef0b89943cc7706e780c267f079c57e62a7bc",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Jeju Korea low-rise garden hospital. Soft sage green surfaces, light cypress timber, subtle local dark basalt stone accents, courtyard windows to green garden and basalt wall, calm horizontal architecture, dappled daylight, restorative contemporary healthcare space, hygienic and uncluttered. SHOT: medium view of recovery lounge with sage seating and framed garden window. Portrait vertical architectural composition, medium distance, refined spatial framing. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "clinic-jeju-5.webp",
+      "project": "clinic-jeju",
+      "shot": 5,
+      "width": 1536,
+      "height": 1024,
+      "sourceSha256": "dc4436ea8e9eea6041c7bba682fadd00d55014e7b5cf51252f20b4e57ac9211a",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Jeju Korea low-rise garden hospital. Soft sage green surfaces, light cypress timber, subtle local dark basalt stone accents, courtyard windows to green garden and basalt wall, calm horizontal architecture, dappled daylight, restorative contemporary healthcare space, hygienic and uncluttered. SHOT: close detail of dark basalt wall edge meeting cypress shelf and soft sage plaster. Landscape close-up material and furniture detail photo, careful tactile composition. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "clinic-jeju-6.webp",
+      "project": "clinic-jeju",
+      "shot": 6,
+      "width": 1374,
+      "height": 1145,
+      "sourceSha256": "c052ad75712159b688205f2664b28dd3d599d222e82b972b1e75989c8514b48f",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Jeju Korea low-rise garden hospital. Soft sage green surfaces, light cypress timber, subtle local dark basalt stone accents, courtyard windows to green garden and basalt wall, calm horizontal architecture, dappled daylight, restorative contemporary healthcare space, hygienic and uncluttered. SHOT: close photo of dappled daylight through cypress screen onto carefully crafted bench and garden window. Landscape close-up material and furniture detail photo, careful tactile composition. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "dorm-gangwon-1.webp",
+      "project": "dorm-gangwon",
+      "shot": 1,
+      "width": 1983,
+      "height": 793,
+      "sourceSha256": "7da94e2747d093c60e298ca690881a6a6736594f3b54783b9be2e3de0f384966",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Pyeongchang Gangwon Korea forest staff dormitory and shared residential lodge. Warm pine timber ceilings and walls, charcoal stone surfaces, wool textiles, restrained earthy rust and forest green accents, large mountain forest windows, quiet warm late afternoon light, premium mountain dwelling, practical comfortable shared living. SHOT: very wide establishing photo of dorm communal living lounge, warm pine beams, forest mountain view and wool seating. Landscape wide architectural composition, generous width, panoramic spatial depth. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "dorm-gangwon-2.webp",
+      "project": "dorm-gangwon",
+      "shot": 2,
+      "width": 1954,
+      "height": 805,
+      "sourceSha256": "4c14439ea6590b1cc00b505fad7107d49fa0d89e543db896949fe3ee53ae1530",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Pyeongchang Gangwon Korea forest staff dormitory and shared residential lodge. Warm pine timber ceilings and walls, charcoal stone surfaces, wool textiles, restrained earthy rust and forest green accents, large mountain forest windows, quiet warm late afternoon light, premium mountain dwelling, practical comfortable shared living. SHOT: very wide architecture photo of dorm shared dining hall with long pine tables, charcoal stone and mountain windows. Landscape wide architectural composition, generous width, panoramic spatial depth. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "dorm-gangwon-3.webp",
+      "project": "dorm-gangwon",
+      "shot": 3,
+      "width": 1024,
+      "height": 1536,
+      "sourceSha256": "10ae2736bae5d43740207bb69ef0f55e7c3fb1f8c9b9aab8ff3d55e3fb655bab",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Pyeongchang Gangwon Korea forest staff dormitory and shared residential lodge. Warm pine timber ceilings and walls, charcoal stone surfaces, wool textiles, restrained earthy rust and forest green accents, large mountain forest windows, quiet warm late afternoon light, premium mountain dwelling, practical comfortable shared living. SHOT: medium vertical photo of modest refined two-person dorm bedroom with timber platform beds, storage and forest view. Portrait vertical architectural composition, medium distance, refined spatial framing. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "dorm-gangwon-4.webp",
+      "project": "dorm-gangwon",
+      "shot": 4,
+      "width": 1024,
+      "height": 1536,
+      "sourceSha256": "ad150f3a4810f71d89c5e75a1b3aa541107c709420dabffb5f65504a56755d12",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Pyeongchang Gangwon Korea forest staff dormitory and shared residential lodge. Warm pine timber ceilings and walls, charcoal stone surfaces, wool textiles, restrained earthy rust and forest green accents, large mountain forest windows, quiet warm late afternoon light, premium mountain dwelling, practical comfortable shared living. SHOT: medium photo of quiet dorm reading lounge with wool chairs and panoramic pine forest window. Portrait vertical architectural composition, medium distance, refined spatial framing. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "dorm-gangwon-5.webp",
+      "project": "dorm-gangwon",
+      "shot": 5,
+      "width": 1536,
+      "height": 1024,
+      "sourceSha256": "68638255bd2eb0b1619c754cc6b568dac8872029adfa31e5ed94d312692f18ad",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Pyeongchang Gangwon Korea forest staff dormitory and shared residential lodge. Warm pine timber ceilings and walls, charcoal stone surfaces, wool textiles, restrained earthy rust and forest green accents, large mountain forest windows, quiet warm late afternoon light, premium mountain dwelling, practical comfortable shared living. SHOT: close architectural detail of pine timber joinery, charcoal stone edge and warm recessed wall light. Landscape close-up material and furniture detail photo, careful tactile composition. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "dorm-gangwon-6.webp",
+      "project": "dorm-gangwon",
+      "shot": 6,
+      "width": 1536,
+      "height": 1024,
+      "sourceSha256": "1beccf0e1f8b05beee320419b7096cda2832def1f5319cea1ef09fe9743dec41",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Pyeongchang Gangwon Korea forest staff dormitory and shared residential lodge. Warm pine timber ceilings and walls, charcoal stone surfaces, wool textiles, restrained earthy rust and forest green accents, large mountain forest windows, quiet warm late afternoon light, premium mountain dwelling, practical comfortable shared living. SHOT: close photo of wool blanket on built-in timber window bench, soft earthy cushion and forest light. Landscape close-up material and furniture detail photo, careful tactile composition. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "dorm-suwon-1.webp",
+      "project": "dorm-suwon",
+      "shot": 1,
+      "width": 1916,
+      "height": 821,
+      "sourceSha256": "9d02056978874c61a02adb658a6bf95a35ebb38ffcd246f0b449a67b96d3d652",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Suwon Korea contemporary student dormitory. Birch plywood furniture, fresh muted mint green and dusty blue accents, soft warm white surfaces, practical modular storage, shared study zones and bedrooms, bright cheerful diffused daylight, grown-up Scandinavian Korean student housing design, organized and credible. SHOT: very wide establishing photo of student dorm communal lounge and study space with birch tables mint and blue seating. Landscape wide architectural composition, generous width, panoramic spatial depth. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "dorm-suwon-2.webp",
+      "project": "dorm-suwon",
+      "shot": 2,
+      "width": 1919,
+      "height": 820,
+      "sourceSha256": "e0954a236866ac3cfed714afcca669adcfb46103b22676fc81be0900fa2964b0",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Suwon Korea contemporary student dormitory. Birch plywood furniture, fresh muted mint green and dusty blue accents, soft warm white surfaces, practical modular storage, shared study zones and bedrooms, bright cheerful diffused daylight, grown-up Scandinavian Korean student housing design, organized and credible. SHOT: very wide architectural view of shared dorm dining kitchen and bright lounge with modular built-ins. Landscape wide architectural composition, generous width, panoramic spatial depth. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "dorm-suwon-3.webp",
+      "project": "dorm-suwon",
+      "shot": 3,
+      "width": 1024,
+      "height": 1536,
+      "sourceSha256": "486d867a2f8fa988158b28c630cdcc85aa55b58eb4a76cba42055c8701c02182",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Suwon Korea contemporary student dormitory. Birch plywood furniture, fresh muted mint green and dusty blue accents, soft warm white surfaces, practical modular storage, shared study zones and bedrooms, bright cheerful diffused daylight, grown-up Scandinavian Korean student housing design, organized and credible. SHOT: medium vertical photo of tidy dorm room with two single beds, birch storage, mint accents and individual study desk. Portrait vertical architectural composition, medium distance, refined spatial framing. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "dorm-suwon-4.webp",
+      "project": "dorm-suwon",
+      "shot": 4,
+      "width": 1024,
+      "height": 1536,
+      "sourceSha256": "264150753db7b4f3951f06dd5ab87e39cc54f6e2867b924940f116f53c407aec",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Suwon Korea contemporary student dormitory. Birch plywood furniture, fresh muted mint green and dusty blue accents, soft warm white surfaces, practical modular storage, shared study zones and bedrooms, bright cheerful diffused daylight, grown-up Scandinavian Korean student housing design, organized and credible. SHOT: medium photo of quiet common study booth zone with dust blue alcoves, task lights and practical desks. Portrait vertical architectural composition, medium distance, refined spatial framing. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "dorm-suwon-5.webp",
+      "project": "dorm-suwon",
+      "shot": 5,
+      "width": 1536,
+      "height": 1024,
+      "sourceSha256": "1d0040bbca35e875c5938839909a2623e3605493ccbc5777509a3e477995022e",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Suwon Korea contemporary student dormitory. Birch plywood furniture, fresh muted mint green and dusty blue accents, soft warm white surfaces, practical modular storage, shared study zones and bedrooms, bright cheerful diffused daylight, grown-up Scandinavian Korean student housing design, organized and credible. SHOT: close photo of birch plywood storage corner, mint locker door and carefully detailed recessed handle. Landscape close-up material and furniture detail photo, careful tactile composition. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "dorm-suwon-6.webp",
+      "project": "dorm-suwon",
+      "shot": 6,
+      "width": 1536,
+      "height": 1024,
+      "sourceSha256": "c313c8ff51c3f2d5bcdbe710ccc8c5205cdb698ef8ce7bec01ea90902508665b",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Suwon Korea contemporary student dormitory. Birch plywood furniture, fresh muted mint green and dusty blue accents, soft warm white surfaces, practical modular storage, shared study zones and bedrooms, bright cheerful diffused daylight, grown-up Scandinavian Korean student housing design, organized and credible. SHOT: close photo of student study desk edge, task light, birch shelf and softly colored pinboard, no visible writing. Landscape close-up material and furniture detail photo, careful tactile composition. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "office-seongsu-1.webp",
+      "project": "office-seongsu",
+      "shot": 1,
+      "width": 1904,
+      "height": 826,
+      "sourceSha256": "0d229a18c39c1e33598b952b1eaf12eeae0d16190a48a7a0f1b597739bad81db",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Seongsu Seoul creative studio office. Renovated industrial brick warehouse, high ceilings exposed dark steel structural beams, brushed stainless accents, pale oak long work tables, muted cobalt shelving, huge factory windows, bright diffused morning light, airy honest materials, quiet premium Korean contemporary design. SHOT: very wide establishing architectural view of collaborative main workspace with long shared desks and sculptural lounge. Landscape wide architectural composition, generous width, panoramic spatial depth. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "office-seongsu-2.webp",
+      "project": "office-seongsu",
+      "shot": 2,
+      "width": 1881,
+      "height": 836,
+      "sourceSha256": "5cb0eea6e9060d84af45bdd0c32bc8dd36072ea4d2b644b8cf99db1f5ac7792c",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Seongsu Seoul creative studio office. Renovated industrial brick warehouse, high ceilings exposed dark steel structural beams, brushed stainless accents, pale oak long work tables, muted cobalt shelving, huge factory windows, bright diffused morning light, airy honest materials, quiet premium Korean contemporary design. SHOT: very wide architectural view of open cafe-style social lounge with oak stepped seating and large windows. Landscape wide architectural composition, generous width, panoramic spatial depth. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "office-seongsu-3.webp",
+      "project": "office-seongsu",
+      "shot": 3,
+      "width": 1024,
+      "height": 1536,
+      "sourceSha256": "3b9b2c4a3474f62c0ed9d13f61e5d417fdf51b0e11cc23217f9b64d7ac71c807",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Seongsu Seoul creative studio office. Renovated industrial brick warehouse, high ceilings exposed dark steel structural beams, brushed stainless accents, pale oak long work tables, muted cobalt shelving, huge factory windows, bright diffused morning light, airy honest materials, quiet premium Korean contemporary design. SHOT: medium view of glass-enclosed meeting room, long oak conference table and brick wall. Portrait vertical architectural composition, medium distance, refined spatial framing. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "office-seongsu-4.webp",
+      "project": "office-seongsu",
+      "shot": 4,
+      "width": 1024,
+      "height": 1536,
+      "sourceSha256": "1c87ca6a1b8ee791f3fb434c291dfe0c22b46ce53afb45a12e5e3cba63d889c9",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Seongsu Seoul creative studio office. Renovated industrial brick warehouse, high ceilings exposed dark steel structural beams, brushed stainless accents, pale oak long work tables, muted cobalt shelving, huge factory windows, bright diffused morning light, airy honest materials, quiet premium Korean contemporary design. SHOT: medium vertical architectural view along steel-framed corridor with custom cobalt storage and oak bench. Portrait vertical architectural composition, medium distance, refined spatial framing. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "office-seongsu-5.webp",
+      "project": "office-seongsu",
+      "shot": 5,
+      "width": 1536,
+      "height": 1024,
+      "sourceSha256": "7df477b213eb666feb5fc9c8b3cb8bccd7923e4e4773585458ab034320c74f32",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Seongsu Seoul creative studio office. Renovated industrial brick warehouse, high ceilings exposed dark steel structural beams, brushed stainless accents, pale oak long work tables, muted cobalt shelving, huge factory windows, bright diffused morning light, airy honest materials, quiet premium Korean contemporary design. SHOT: close architectural detail of brick and brushed steel meeting oak shelf, tactile materials, minimal still life. Landscape close-up material and furniture detail photo, careful tactile composition. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "office-seongsu-6.webp",
+      "project": "office-seongsu",
+      "shot": 6,
+      "width": 1536,
+      "height": 1024,
+      "sourceSha256": "60f9fb0d8dc78291aaebfde6e53f1570d8105f3cc47a151fef3019b615de793e",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Seongsu Seoul creative studio office. Renovated industrial brick warehouse, high ceilings exposed dark steel structural beams, brushed stainless accents, pale oak long work tables, muted cobalt shelving, huge factory windows, bright diffused morning light, airy honest materials, quiet premium Korean contemporary design. SHOT: close interior detail of built-in cobalt shelving, table lamp and textured stone ledge. Landscape close-up material and furniture detail photo, careful tactile composition. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "office-yeouido-1.webp",
+      "project": "office-yeouido",
+      "shot": 1,
+      "width": 2022,
+      "height": 778,
+      "sourceSha256": "f7a4848185dea9562121f2e57307dff43d6ec26f129d01e43dd312fce81acd3a",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Yeouido Seoul executive financial office. Sophisticated dark walnut wall panels, smoked glass partitions, fine bronze trim, midnight navy upholstery, honed charcoal stone floor, soft warm linear lighting, high-rise city view at dusk, precision and serene luxury. SHOT: very wide establishing architectural photo of executive reception lounge with city skyline and walnut walls. Landscape wide architectural composition, generous width, panoramic spatial depth. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "office-yeouido-2.webp",
+      "project": "office-yeouido",
+      "shot": 2,
+      "width": 2172,
+      "height": 724,
+      "sourceSha256": "530bace5e348b29e257f2c156aa1de3d474f5eaf1e2803f430e5ad4e415ba2d7",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Yeouido Seoul executive financial office. Sophisticated dark walnut wall panels, smoked glass partitions, fine bronze trim, midnight navy upholstery, honed charcoal stone floor, soft warm linear lighting, high-rise city view at dusk, precision and serene luxury. SHOT: very wide view of boardroom, long walnut conference table, smoked glass and twilight city windows. Landscape wide architectural composition, generous width, panoramic spatial depth. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "office-yeouido-3.webp",
+      "project": "office-yeouido",
+      "shot": 3,
+      "width": 1024,
+      "height": 1536,
+      "sourceSha256": "20899902cd4293752039e4328de3cf720f4cec00c7044c99e1391bbbbae56559",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Yeouido Seoul executive financial office. Sophisticated dark walnut wall panels, smoked glass partitions, fine bronze trim, midnight navy upholstery, honed charcoal stone floor, soft warm linear lighting, high-rise city view at dusk, precision and serene luxury. SHOT: medium vertical view of private office library with navy chair and bronze reading lamp. Portrait vertical architectural composition, medium distance, refined spatial framing. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "office-yeouido-4.webp",
+      "project": "office-yeouido",
+      "shot": 4,
+      "width": 1024,
+      "height": 1536,
+      "sourceSha256": "100140362f919692b6395bf1f200113da4cf1f65136fba16af8c808f0227eef7",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Yeouido Seoul executive financial office. Sophisticated dark walnut wall panels, smoked glass partitions, fine bronze trim, midnight navy upholstery, honed charcoal stone floor, soft warm linear lighting, high-rise city view at dusk, precision and serene luxury. SHOT: medium view of quiet lounge alcove and finely detailed walnut cabinetry. Portrait vertical architectural composition, medium distance, refined spatial framing. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "office-yeouido-5.webp",
+      "project": "office-yeouido",
+      "shot": 5,
+      "width": 1536,
+      "height": 1024,
+      "sourceSha256": "2ce0b2e5321ed9214137bac3f15a8d65be7171186da3128b0e11fc403bd8ac85",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Yeouido Seoul executive financial office. Sophisticated dark walnut wall panels, smoked glass partitions, fine bronze trim, midnight navy upholstery, honed charcoal stone floor, soft warm linear lighting, high-rise city view at dusk, precision and serene luxury. SHOT: close architectural detail of walnut panel joinery, bronze reveal and charcoal honed stone. Landscape close-up material and furniture detail photo, careful tactile composition. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    },
+    {
+      "file": "office-yeouido-6.webp",
+      "project": "office-yeouido",
+      "shot": 6,
+      "width": 1536,
+      "height": 1024,
+      "sourceSha256": "fe2b500ed38a44fc3349cd5d28a71252b9c20d9e7973e7b6d4739b536f33f435",
+      "prompt": "Photorealistic premium architectural interior photography for an original fictional Korean interior design studio portfolio. PROJECT DESIGN BRIEF: Yeouido Seoul executive financial office. Sophisticated dark walnut wall panels, smoked glass partitions, fine bronze trim, midnight navy upholstery, honed charcoal stone floor, soft warm linear lighting, high-rise city view at dusk, precision and serene luxury. SHOT: close photo of premium navy lounge chair, small stone side table and warm bronze lighting. Landscape close-up material and furniture detail photo, careful tactile composition. Consistent materials and design language from the brief. Believable meticulous architecture, crisp straight verticals, physically plausible furniture, natural photographic lighting, premium restrained art direction, sophisticated real materials. One single photograph only, no collage, no multi-panel layout, no people, no logos, no text, no watermarks. Original imagined project, do not reproduce any real studio project or copyrighted reference image."
+    }
+  ]
+}

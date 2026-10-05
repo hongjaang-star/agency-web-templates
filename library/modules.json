@@ -654,84 +654,6 @@
     {
       "id": "header",
       "kind": "header",
-      "label": "공간 스튜디오 헤더",
-      "page": "/",
-      "source": "src/app/layout.tsx",
-      "site": "space-interior/forme",
-      "shots": {
-        "desktop": "space-interior/forme/shots/header-desktop.jpg",
-        "mobile": "space-interior/forme/shots/header-mobile.jpg"
-      },
-      "code": "space-interior/forme/code/header.html"
-    },
-    {
-      "id": "hero",
-      "kind": "hero",
-      "label": "공간 사진과 프로젝트 캡션",
-      "page": "/",
-      "source": "src/app/page.tsx",
-      "site": "space-interior/forme",
-      "shots": {
-        "desktop": "space-interior/forme/shots/hero-desktop.jpg",
-        "mobile": "space-interior/forme/shots/hero-mobile.jpg"
-      },
-      "code": "space-interior/forme/code/hero.html"
-    },
-    {
-      "id": "projects",
-      "kind": "gallery",
-      "label": "공간 기록 그리드",
-      "page": "/",
-      "source": "src/components/StudioTools.tsx",
-      "site": "space-interior/forme",
-      "shots": {
-        "desktop": "space-interior/forme/shots/projects-desktop.jpg",
-        "mobile": "space-interior/forme/shots/projects-mobile.jpg"
-      },
-      "code": "space-interior/forme/code/projects.html"
-    },
-    {
-      "id": "materials",
-      "kind": "interactive",
-      "label": "재료 분위기 선택",
-      "page": "/",
-      "source": "src/components/StudioTools.tsx",
-      "site": "space-interior/forme",
-      "shots": {
-        "desktop": "space-interior/forme/shots/materials-desktop.jpg",
-        "mobile": "space-interior/forme/shots/materials-mobile.jpg"
-      },
-      "code": "space-interior/forme/code/materials.html"
-    },
-    {
-      "id": "brief",
-      "kind": "finder",
-      "label": "상담 준비 요약",
-      "page": "/",
-      "source": "src/components/StudioTools.tsx",
-      "site": "space-interior/forme",
-      "shots": {
-        "desktop": "space-interior/forme/shots/brief-desktop.jpg",
-        "mobile": "space-interior/forme/shots/brief-mobile.jpg"
-      },
-      "code": "space-interior/forme/code/brief.html"
-    },
-    {
-      "id": "footer",
-      "kind": "footer",
-      "label": "차콜 스튜디오 푸터",
-      "page": "/",
-      "source": "src/app/layout.tsx",
-      "site": "space-interior/forme",
-      "shots": {
-        "desktop": "space-interior/forme/shots/footer-desktop.jpg",
-        "mobile": "space-interior/forme/shots/footer-mobile.jpg"
-      },
-      "code": "space-interior/forme/code/footer.html"
-    },
-    {
-      "id": "header",
-      "kind": "header",
       "label": "헤더 (모바일 가로 메뉴 포함)",
       "page": "/",
       "source": "src/components/Top.tsx",
@@ -923,6 +845,110 @@
         "mobile": "pro-law-firm/docket/shots/footer-mobile.jpg"
       },
       "code": "pro-law-firm/docket/code/footer.html"
+    },
+    {
+      "id": "header",
+      "kind": "header",
+      "label": "공간 스튜디오 헤더",
+      "page": "/",
+      "source": "src/app/layout.tsx",
+      "site": "space-interior/forme",
+      "shots": {
+        "desktop": "space-interior/forme/shots/header-desktop.jpg",
+        "mobile": "space-interior/forme/shots/header-mobile.jpg"
+      },
+      "code": "space-interior/forme/code/header.html"
+    },
+    {
+      "id": "hero",
+      "kind": "hero",
+      "label": "공간 사진과 프로젝트 캡션",
+      "page": "/",
+      "source": "src/app/page.tsx",
+      "site": "space-interior/forme",
+      "shots": {
+        "desktop": "space-interior/forme/shots/hero-desktop.jpg",
+        "mobile": "space-interior/forme/shots/hero-mobile.jpg"
+      },
+      "code": "space-interior/forme/code/hero.html"
+    },
+    {
+      "id": "projects",
+      "kind": "gallery",
+      "label": "주제별 포트폴리오 그리드",
+      "page": "/",
+      "source": "src/components/StudioTools.tsx",
+      "site": "space-interior/forme",
+      "shots": {
+        "desktop": "space-interior/forme/shots/projects-desktop.jpg",
+        "mobile": "space-interior/forme/shots/projects-mobile.jpg"
+      },
+      "code": "space-interior/forme/code/projects.html"
+    },
+    {
+      "id": "materials",
+      "kind": "interactive",
+      "label": "재료 분위기 선택",
+      "page": "/",
+      "source": "src/components/StudioTools.tsx",
+      "site": "space-interior/forme",
+      "shots": {
+        "desktop": "space-interior/forme/shots/materials-desktop.jpg",
+        "mobile": "space-interior/forme/shots/materials-mobile.jpg"
+      },
+      "code": "space-interior/forme/code/materials.html"
+    },
+    {
+      "id": "brief",
+      "kind": "finder",
+      "label": "상담 준비 요약",
+      "page": "/",
+      "source": "src/components/StudioTools.tsx",
+      "site": "space-interior/forme",
+      "shots": {
+        "desktop": "space-interior/forme/shots/brief-desktop.jpg",
+        "mobile": "space-interior/forme/shots/brief-mobile.jpg"
+      },
+      "code": "space-interior/forme/code/brief.html"
+    },
+    {
+      "id": "footer",
+      "kind": "footer",
+      "label": "차콜 스튜디오 푸터",
+      "page": "/",
+      "source": "src/app/layout.tsx",
+      "site": "space-interior/forme",
+      "shots": {
+        "desktop": "space-interior/forme/shots/footer-desktop.jpg",
+        "mobile": "space-interior/forme/shots/footer-mobile.jpg"
+      },
+      "code": "space-interior/forme/code/footer.html"
+    },
+    {
+      "id": "project-masthead",
+      "kind": "content",
+      "label": "프로젝트 주제와 콘셉트",
+      "page": "/projects/cafe-coast/",
+      "source": "src/app/projects/[id]/page.tsx",
+      "site": "space-interior/forme",
+      "shots": {
+        "desktop": "space-interior/forme/shots/project-masthead-desktop.jpg",
+        "mobile": "space-interior/forme/shots/project-masthead-mobile.jpg"
+      },
+      "code": "space-interior/forme/code/project-masthead.html"
+    },
+    {
+      "id": "project-photo",
+      "kind": "gallery",
+      "label": "와이드 공간 사진과 캡션",
+      "page": "/projects/cafe-coast/",
+      "source": "src/components/ProjectExperience.tsx",
+      "site": "space-interior/forme",
+      "shots": {
+        "desktop": "space-interior/forme/shots/project-photo-desktop.jpg",
+        "mobile": "space-interior/forme/shots/project-photo-mobile.jpg"
+      },
+      "code": "space-interior/forme/code/project-photo.html"
     }
   ]
 }
