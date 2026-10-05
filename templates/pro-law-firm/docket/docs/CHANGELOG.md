@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.2.1 — 2026-10-05
+- 네이버 지도 Client ID 를 소스에서 빼고 빌드 환경변수 `NEXT_PUBLIC_NAVER_MAP_CLIENT_ID`(배포: Actions Secret `NAVER_MAP_CLIENT_ID`)로만 주입. Client Secret 은 사용하지 않음
+
 ## 1.2.0 — 2026-10-05
 - 오시는 길에 네이버 지도(NAVER Maps API v3) 추가. 기준 위치 대전지방법원(서구 둔산중로78번길 45, 36.3546874, 127.3884765), 표시(마커) 포함
 - `site.map.ncpKeyId` 가 비어 있거나 인증 실패(미등록 도메인 등) 시 위치 안내 카드 + "네이버 지도에서 크게 보기" 버튼으로 대체

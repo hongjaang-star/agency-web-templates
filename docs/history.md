@@ -28,6 +28,7 @@
 | 2026-10-05 | pro-law-firm/docket 1.1: 사건 흐름 8개 분야, STEP BY STEP 왼쪽 바로가기, 사례 14건 분야 필터·검색·카드형 | PR |
 | 2026-10-05 | pro-law-firm/docket 푸터 SNS 아이콘 4종(대표 주소 연결) | PR |
 | 2026-10-05 | pro-law-firm/docket 오시는 길 네이버 지도(Maps API v3, 대전지방법원). ncpKeyId 미입력 시 대체 카드 | PR |
+| 2026-10-05 | 네이버 지도 Client ID 를 Actions Secret(NAVER_MAP_CLIENT_ID) 주입 방식으로 전환, Secret 은 미사용 | PR |
 
 ## 교훈
 - 네이버 지도는 iframe 퍼가기를 제공하지 않는다. 사이트에 넣으려면 NAVER Maps API v3 + ncpKeyId(Web 서비스 URL 등록)가 필요하고, 키가 없을 때를 위한 대체 화면을 함께 둔다.

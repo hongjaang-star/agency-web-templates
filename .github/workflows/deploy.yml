@@ -27,6 +27,8 @@ jobs:
         env:
           BASE_ROOT: /${{ github.event.repository.name }}
           SITE_ORIGIN: https://${{ github.repository_owner }}.github.io
+          # 네이버 지도 Client ID — 저장소에 두지 않고 Actions Secret 으로만 주입 (없으면 지도 대신 안내 카드)
+          NEXT_PUBLIC_NAVER_MAP_CLIENT_ID: ${{ secrets.NAVER_MAP_CLIENT_ID }}
         run: bash scripts/build-sites.sh
       - name: Copy concepts + index
         env:

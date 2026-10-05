@@ -47,10 +47,12 @@ export const site = {
   },
 
   // 오시는 길 네이버 지도 (NAVER Maps API v3)
-  // ncpKeyId: 네이버 클라우드 플랫폼 > Maps 에서 발급한 Client ID. "Web 서비스 URL" 에 배포 도메인
-  //           (예: https://hongjaang-star.github.io) 을 등록해야 지도가 뜬다. 비어 있으면 대체 카드를 보여 준다.
+  // ncpKeyId: 네이버 클라우드 플랫폼 > Maps 에서 발급한 Client ID. 저장소(공개)에 쓰지 않고 빌드 때
+  //           환경변수 NEXT_PUBLIC_NAVER_MAP_CLIENT_ID 로만 받는다(배포는 GitHub Actions Secret NAVER_MAP_CLIENT_ID).
+  //           Client Secret 은 지도 표시에 필요 없으므로 어디에도 넣지 않는다.
+  //           NCP 콘솔 "Web 서비스 URL" 에 배포 도메인을 등록해야 지도가 뜬다. 비어 있으면 대체 카드를 보여 준다.
   map: {
-    ncpKeyId: "",
+    ncpKeyId: process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID ?? "",
     name: "대전지방법원",
     address: "대전광역시 서구 둔산중로78번길 45",
     lat: 36.3546874,
