@@ -46,6 +46,14 @@ export const site = {
     blog: "https://blog.naver.com/",
   },
 
+  // 푸터 SNS — 데모는 각 서비스 대표 주소. 납품 시 사무소 채널 주소로 교체
+  sns: [
+    { key: "kakao", label: "카카오톡 채널", href: "https://pf.kakao.com/" },
+    { key: "instagram", label: "인스타그램", href: "https://www.instagram.com/" },
+    { key: "youtube", label: "유튜브", href: "https://www.youtube.com/" },
+    { key: "blog", label: "네이버 블로그", href: "https://blog.naver.com/" },
+  ],
+
   business: { ceo: "윤서진", registration: "000-00-00000", adResponsible: "윤서진" },
 
   demoNotice: "가상 업체 데모",

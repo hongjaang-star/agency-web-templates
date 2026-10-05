@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { nav, site } from "@/data/site";
+import SnsLinks from "./SnsLinks";
 
 export default function Foot() {
   return (
@@ -12,6 +13,7 @@ export default function Foot() {
             <li>사업자등록번호 {site.business.registration}</li>
             <li>{site.address}</li>
           </ul>
+          <SnsLinks />
         </div>
         <ul>
           <li><a href={site.phoneHref}>{site.phone}</a></li>
