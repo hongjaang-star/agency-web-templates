@@ -253,6 +253,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .foot li + li { margin-top: 4px; }
 .foot a { text-decoration: none; color: var(--cream); }
 .foot a:hover { text-decoration: underline; }
+.sns { --sns-bg: var(--cream); list-style: none; display: flex; gap: 10px; margin-top: 22px; }
+.foot .sns li + li { margin-top: 0; }
+.sns a { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--sns-bg); color: var(--ink); transition: background 0.2s, color 0.2s; }
+.sns a:hover { --sns-bg: var(--ox); background: var(--ox); color: #fff; }
+.foot .sns a:focus-visible { outline: 3px solid var(--ox-soft); outline-offset: 3px; }
 .foot .notice { grid-column: 1 / -1; border-top: 1px solid rgba(245, 239, 230, 0.2); padding-top: 18px; font-size: 13px; }
 
 /* ── 모션 ── */
