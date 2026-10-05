@@ -26,6 +26,9 @@ docs/site-spec.md  사이트 스펙 (단일 기준 문서)
 - 스타일은 `src/app/globals.css` 하나(Tailwind 없음). 서체: Song Myung + Gothic A1 (next/font).
 - 사이트 편집기는 빌드 때 `editor/` 로 자동 설치된다(`docs/site-editor.md`). 앱 안에 에디터 코드는 없다.
 
+## 네이버 지도 (오시는 길)
+네이버는 iframe 퍼가기를 제공하지 않아 NAVER Maps API v3 를 쓴다. 네이버 클라우드 플랫폼 콘솔 > Maps 에서 Application 을 만들고(Dynamic Map), Web 서비스 URL 에 배포 도메인(예: `https://hongjaang-star.github.io`)을 등록한 뒤 Client ID 를 `src/data/site.ts` 의 `site.map.ncpKeyId` 에 넣는다. 키가 없으면 위치 안내 카드가 대신 보인다.
+
 ## 광고 규정
 변호사업무광고규정에 따라 "최고·유일", 승소율, "무료 상담", 결과 단정 표현을 쓰지 않고 "전문" 대신 "주요 업무"로 쓴다. 푸터에 광고책임변호사를 표시한다. 문구는 `src/data/` 에서만 바꾼다.
 

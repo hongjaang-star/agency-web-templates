@@ -46,6 +46,19 @@ export const site = {
     blog: "https://blog.naver.com/",
   },
 
+  // 오시는 길 네이버 지도 (NAVER Maps API v3)
+  // ncpKeyId: 네이버 클라우드 플랫폼 > Maps 에서 발급한 Client ID. "Web 서비스 URL" 에 배포 도메인
+  //           (예: https://hongjaang-star.github.io) 을 등록해야 지도가 뜬다. 비어 있으면 대체 카드를 보여 준다.
+  map: {
+    ncpKeyId: "",
+    name: "대전지방법원",
+    address: "대전광역시 서구 둔산중로78번길 45",
+    lat: 36.3546874,
+    lng: 127.3884765,
+    zoom: 16,
+    naverUrl: "https://map.naver.com/p/search/%EB%8C%80%EC%A0%84%EC%A7%80%EB%B0%A9%EB%B2%95%EC%9B%90",
+  },
+
   // 푸터 SNS — 데모는 각 서비스 대표 주소. 납품 시 사무소 채널 주소로 교체
   sns: [
     { key: "kakao", label: "카카오톡 채널", href: "https://pf.kakao.com/" },
@@ -158,6 +171,7 @@ export const contactCopy = {
   bring: { eyebrow: "WHAT TO BRING", title: "상담 때 가져오실 것", items: ["받은 서류 원본 또는 사진 (소장, 출석요구서, 내용증명, 판결문 등)", "계약서·차용증·영수증 등 근거 자료", "주고받은 메시지와 통화 기록", "일이 일어난 순서를 적은 메모 (날짜·장소·사람)"] },
   visit: { eyebrow: "VISIT" },
   maps: { naver: "네이버 지도", kakao: "카카오맵" },
+  map: { title: "네이버 지도", label: "기준 위치", note: "사무소는 법원 정문에서 걸어서 3분 거리입니다.", open: "네이버 지도에서 크게 보기", fallback: "지도를 불러오지 못했습니다. 아래 버튼으로 네이버 지도에서 확인해 주세요." },
   labels: { address: "주소", hours: "상담 시간", walk: "찾아오는 길", parking: "주차" },
 } as const;
 
