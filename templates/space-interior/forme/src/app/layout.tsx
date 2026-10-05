@@ -3,6 +3,7 @@ import Link from '../components/SiteLink';
 import '../fonts/fonts.css';
 import './globals.css';
 import './portfolio.css';
+import './process.css';
 import {studio} from '../data/studio';
 import {absolute,basePath} from '../lib/urls';
 export const metadata:Metadata={metadataBase:new URL(absolute('/')),icons:{icon:`${basePath}/favicon.svg`},title:{default:`${studio.name} | 일상을 담는 공간`,template:`%s | ${studio.name}`},description:studio.description,robots:{index:false,follow:false},openGraph:{title:studio.name,description:studio.description,type:'website',images:[absolute('/images/living.webp')]}};

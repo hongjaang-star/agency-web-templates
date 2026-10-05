@@ -604,6 +604,14 @@
           "page": "/projects/cafe-coast/",
           "select": ".journal-hero",
           "source": "src/components/ProjectExperience.tsx"
+        },
+        {
+          "id": "process-step",
+          "kind": "process",
+          "label": "진행 과정 사진과 설명",
+          "page": "/process/",
+          "select": ".process-photo-step",
+          "source": "src/components/ProcessSteps.tsx"
         }
       ]
     }

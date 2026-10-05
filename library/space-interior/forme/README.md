@@ -363,3 +363,41 @@
 ```
 
 </details>
+
+### 진행 과정 사진과 설명 `process-step`
+
+- 종류: `process` · 사용 사이트: `space-interior/forme` · 페이지: `/process/`
+- 소스: [`src/components/ProcessSteps.tsx`](..\..\..\templates\space-interior\forme/src/components/ProcessSteps.tsx)
+
+| 데스크톱 1440 | 모바일 390 |
+|---|---|
+| <img src="shots/process-step-desktop.jpg" width="560"> | <img src="shots/process-step-mobile.jpg" width="180"> |
+
+<details><summary>스타일 코드 (마크업 구조 + 클래스, 문구는 …) · <a href="code/process-step.html">code/process-step.html</a></summary>
+
+```html
+<article class="process-photo-step">
+  <div class="process-step-copy">
+    <span class="process-number">
+      …
+      …
+    </span>
+    <span class="eyebrow">…</span>
+    <h2>…</h2>
+    <p>…</p>
+  </div>
+  <figure>
+    <img width="1536" height="1024" src="…" />
+    <figcaption>
+      <span>
+        …
+        …
+        …
+      </span>
+      …
+    </figcaption>
+  </figure>
+</article>
+```
+
+</details>

@@ -949,6 +949,19 @@
         "mobile": "space-interior/forme/shots/project-photo-mobile.jpg"
       },
       "code": "space-interior/forme/code/project-photo.html"
+    },
+    {
+      "id": "process-step",
+      "kind": "process",
+      "label": "진행 과정 사진과 설명",
+      "page": "/process/",
+      "source": "src/components/ProcessSteps.tsx",
+      "site": "space-interior/forme",
+      "shots": {
+        "desktop": "space-interior/forme/shots/process-step-desktop.jpg",
+        "mobile": "space-interior/forme/shots/process-step-mobile.jpg"
+      },
+      "code": "space-interior/forme/code/process-step.html"
     }
   ]
 }
