@@ -201,6 +201,19 @@
       "category": "stay",
       "level": "L4",
       "status": "wait"
+    },
+    {
+      "order": 20,
+      "slug": "food-steakhouse",
+      "name": "스테이크·랍스터 하우스",
+      "category": "food",
+      "level": "L1",
+      "status": "concepts",
+      "variants": [],
+      "targetVariants": 2,
+      "concepts": [
+        "ember-claw"
+      ]
     }
   ]
 }
