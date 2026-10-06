@@ -21,8 +21,12 @@ export function BakeClock() {
             <h3>{times[active].title}</h3>
             <div className="clock-menu" key={times[active].time}>
                 {selectedMenu.map(item => <figure key={item.id}>
-                    <div className="clock-menu-photo"><Picture name={item.id} alt={item.name} sizes="(max-width: 700px) 28vw, 18vw"/></div>
-                    <figcaption>{item.name}</figcaption>
+                    <div className="clock-menu-photo"><Picture name={item.id} alt={item.name} sizes="(max-width: 480px) 44vw, (max-width: 700px) 28vw, 18vw"/></div>
+                    <figcaption>
+                        <span className="clock-menu-name">{item.name}</span>
+                        <span className="clock-menu-english" lang="en">{item.en}</span>
+                        <p className="clock-menu-note">{item.note}</p>
+                    </figcaption>
                 </figure>)}
             </div>
             <span className="fineprint">{copy["n132"]}</span>
