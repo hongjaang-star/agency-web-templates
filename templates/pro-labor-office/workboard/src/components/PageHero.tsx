@@ -1,0 +1,1 @@
+export default function PageHero({eyebrow,title,desc}:{eyebrow:string,title:string,desc:string}){return <section className="pageHero"><p className="eyebrow">{eyebrow}</p><h1>{title}</h1><p>{desc}</p></section>}
