@@ -1,0 +1,438 @@
+# 카페·베이커리 · oven-note
+
+> 자동 생성 문서(`npm run library`). 참고용 스타일 기록이며, 이 코드를 다른 사이트에 그대로 쓰지 않는다.
+
+- 사용 사이트: `food-cafe/oven-note` (오븐노트38(가상))
+- 배포 주소: https://hongjaang-star.github.io/agency-web-templates/food-cafe/oven-note/
+- 소스: [`templates/food-cafe/oven-note`](..\..\..\templates\food-cafe\oven-note)
+
+## 디자인 지문
+
+| 항목 | 값 |
+|---|---|
+| layout | food-editorial-table |
+| hero | butter-yellow-statement-with-breakfast-photo |
+| typePair | Fraunces + IBM Plex Sans KR |
+| palette | cobalt · butter yellow · cream · coral |
+| imageTreatment | original AI sunlit food photography, arches and rectangular crops |
+| motion | subtle food zoom, native dialog, reduced-motion alternative |
+| signature | 빵·음료 조합 영수증과 메모 복사 |
+| sectionOrder | breakfast-hero, fresh-menu, bake-clock, hands-story, pairing-receipt, little-journal, shop-window, faq |
+
+## 디자인 토큰
+
+
+<details><summary>globals.css (색·서체 토큰, 공용 유틸리티)</summary>
+
+```css
+:root{--cream:#fff9ed;--blue:#203fbe;--butter:#f8df77;--coral:#f7ac98;--ink:#25313a;--line:#d8d0bb}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:130px}body{margin:0;background:var(--cream);color:var(--ink);font-family:'IBM Plex Sans KR',sans-serif;font-size:16px;line-height:1.8}a{color:inherit;text-decoration:none}button,select,textarea{font:inherit}button,a,select,summary{touch-action:manipulation}button{cursor:pointer}img{display:block;width:100%;height:100%;object-fit:cover}h1,h2,h3,p{margin-top:0}h1,h2,h3{line-height:1.35;letter-spacing:-.045em}h2{font-size:clamp(30px,3.2vw,48px);font-weight:600}h3{font-size:21px}em{font-style:normal;color:var(--blue)}sup{font-size:.4em;vertical-align:top;line-height:2}small,.fineprint{font-size:13px;line-height:1.7}.eyebrow{display:block;font-family:'Fraunces',serif;font-size:13px;letter-spacing:.08em;margin-bottom:20px}.skip{position:fixed;left:16px;top:-100px;z-index:30;padding:10px 18px;background:var(--butter)}.skip:focus{top:10px}:focus-visible{outline:3px solid #cd5431;outline-offset:5px}.topline{display:flex;justify-content:space-between;background:var(--blue);color:var(--cream);padding:7px 4%;font-size:13px}.site-header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:25px;padding:20px 4%;background:var(--cream);border-bottom:1px solid var(--blue)}.brand{font-family:'Fraunces',serif;font-size:32px;font-weight:600;line-height:1;color:var(--blue);white-space:nowrap;letter-spacing:-.06em}.brand small{display:block;font-family:'IBM Plex Sans KR',sans-serif;font-size:12px;letter-spacing:.13em;margin-top:9px}.site-header nav{display:flex;gap:30px;font-size:15px}.site-header nav a:hover,.text-link:hover{color:var(--blue);text-decoration:underline;text-underline-offset:7px}.header-note{border:1px solid var(--blue);border-radius:40px;padding:8px 18px;font-size:14px;color:var(--blue)}.hero{display:grid;grid-template-columns:47% 53%;min-height:650px}.hero-copy{padding:72px 9% 35px;background:var(--butter);display:flex;flex-direction:column;align-items:flex-start}.hero h1{font-size:clamp(38px,4.4vw,66px);font-weight:600;margin-bottom:25px;letter-spacing:-.075em}.hero p{max-width:355px;font-size:17px}.button{display:inline-block;border:1px solid currentColor;border-radius:30px;padding:12px 24px;font-size:15px;background:transparent;color:var(--ink);transition:background .2s,color .2s}.button:hover{background:var(--ink);color:white}.button.blue{background:var(--blue);border-color:var(--blue);color:white}.button.blue:hover{background:#15277f}.hero-foot{margin-top:auto;padding-top:65px;width:100%;display:flex;justify-content:space-between;gap:10px;font-size:13px;letter-spacing:.03em}.hero-photo{position:relative;overflow:hidden}.hero-photo>img{object-position:50% 50%;animation:photo-in 1.2s both}.hero-stamp{position:absolute;right:30px;top:30px;width:122px;height:122px;border-radius:50%;background:var(--cream);color:var(--blue);font-family:'Fraunces',serif;line-height:1.15;font-size:23px;text-align:center;padding:20px;transform:rotate(12deg)}.photo-caption{position:absolute;left:20px;bottom:20px;background:var(--cream);padding:7px 12px;font-size:13px;letter-spacing:.06em}.phrase-band{display:flex;justify-content:space-between;align-items:center;padding:14px 5%;background:var(--blue);color:var(--cream)}.phrase-band span:first-child{font-family:'Fraunces',serif;font-size:27px;font-style:italic}.phrase-band span:last-child{font-size:35px;line-height:1}.section{padding:100px 6%;max-width:1700px;margin:auto}.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:42px}.section-head h2{margin-bottom:0}.text-link{font-size:15px;white-space:nowrap;border-bottom:1px solid currentColor;padding-bottom:6px}.products{display:grid;grid-template-columns:repeat(3,1fr);gap:42px 28px}.product{text-align:left;border:0;background:transparent;color:inherit;padding:0}.product-photo{height:275px;position:relative;overflow:hidden;border-radius:50% 50% 4px 4px}.product img{transition:transform .6s}.product:hover img{transform:scale(1.035)}.product-number{position:absolute;left:15px;top:15px;font-family:'Fraunces';font-size:20px;background:var(--cream);border-radius:50%;padding:2px 10px}.open-product{position:absolute;bottom:15px;right:15px;width:36px;height:36px;background:var(--cream);border-radius:50%;text-align:center;font-size:24px;line-height:36px}.product-title{display:flex;gap:12px;justify-content:space-between;align-items:center;margin-top:19px}.product-title h3{margin:0;font-size:20px}.product-title>span{font-size:14px;white-space:nowrap}.product p{font-size:15px;margin:9px 0 3px}.product small{font-family:'Fraunces';color:var(--blue)}.products.preview .product:nth-child(2){padding-top:45px}.products.preview .product:nth-child(2) .product-photo{border-radius:4px}.products.preview .product:nth-child(3) .product-photo{border-radius:4px 4px 50% 50%}.menu-board>.fineprint{margin:35px 0 0}.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px}.filters button{border:1px solid var(--blue);border-radius:24px;background:transparent;color:var(--blue);padding:8px 24px}.filters button[aria-pressed=true]{background:var(--blue);color:white}.menu-dialog{padding:0;border:0;background:var(--cream);color:var(--ink);width:min(720px,94vw);max-height:88vh;overflow:auto}.menu-dialog::backdrop{background:#15244cbf}.menu-dialog>img{height:300px}.close-dialog{position:absolute;right:14px;top:14px;background:var(--cream);border:1px solid var(--blue);padding:7px 15px;border-radius:25px}.dialog-copy{padding:35px}.dialog-copy h2{font-size:32px}.dialog-copy dl{display:grid;grid-template-columns:125px 1fr;font-size:15px;gap:12px}.dialog-copy dd{margin:0}.dialog-copy dt{color:var(--blue)}.baking{display:grid;grid-template-columns:1fr 1.3fr;gap:8%;background:#f0ebdd;border-block:1px solid var(--line)}.baking-heading p{font-size:16px}.clock-tabs{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--blue)}.clock-tabs button{background:transparent;border:0;border-right:1px solid var(--blue);color:var(--blue);padding:22px 6px}.clock-tabs button:last-child{border:0}.clock-tabs button[aria-pressed=true]{background:var(--blue);color:var(--cream)}.clock-tabs span{display:block;font-family:'Fraunces';font-size:36px;line-height:1.3}.clock-tabs small{font-size:13px;letter-spacing:.05em}.clock-content{padding:35px 0;border-bottom:1px solid var(--blue)}.clock-content h3{font-size:27px}.clock-content p{font-size:17px}.craft{display:grid;grid-template-columns:1fr 1fr;gap:10%;align-items:center}.craft-photo{height:650px;position:relative}.craft-copy>p{font-size:17px}.craft blockquote{font-family:'Fraunces','IBM Plex Sans KR',serif;color:var(--blue);font-size:28px;line-height:1.6;margin:35px 0}.craft-detail{display:flex;align-items:end;gap:20px;margin-top:45px;font-size:13px}.craft-detail img{width:42%;height:150px}.pair{background:var(--coral)}.pair-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:14%;align-items:center}.pair h2{font-size:clamp(30px,3.2vw,45px)}.pair label{display:block;max-width:420px;margin-top:24px;font-size:14px}.pair select{display:block;width:100%;background:transparent;border:0;border-bottom:1px solid var(--ink);padding:12px 2px;color:var(--ink);border-radius:0}.receipt{background:var(--cream);padding:40px 35px;transform:rotate(2deg);box-shadow:8px 12px 0 #c97a6530;position:relative}.receipt:after{content:'';position:absolute;bottom:-8px;left:0;width:100%;height:9px;background:linear-gradient(135deg,var(--cream) 25%,transparent 25%) -8px 0,linear-gradient(225deg,var(--cream) 25%,transparent 25%) -8px 0;background-size:16px 16px}.receipt-brand{font-family:'Fraunces';font-size:30px;text-align:center;color:var(--blue)}.receipt>p:first-of-type{font-size:13px;letter-spacing:.1em;text-align:center;border-bottom:1px dashed var(--ink);padding-bottom:25px}.receipt-row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;font-size:15px}.receipt-total{border-top:1px dashed var(--ink);margin-top:15px;padding-top:20px}.receipt .button{width:100%;margin-top:15px}.receipt-end{font-family:'Fraunces';font-size:21px;font-style:italic;text-align:center;margin-top:20px;color:var(--blue)}.copy-status{font-size:13px;min-height:22px;margin-top:10px}.receipt textarea{width:100%;height:130px;font-size:13px}.story-grid{display:grid;grid-template-columns:1.25fr 1fr .85fr;gap:35px;align-items:start}.story:nth-child(2){margin-top:55px}.story:nth-child(3){margin-top:115px}.story-photo{height:285px;overflow:hidden}.story img{transition:transform .5s}.story:hover img{transform:scale(1.04)}.story .eyebrow{margin:20px 0 12px}.story h3{font-size:23px}.story p{font-size:15px}.visit-teaser{position:relative;height:640px;margin:0 6% 50px}.visit-note{position:absolute;right:35px;bottom:35px;background:var(--butter);padding:40px;max-width:425px;transform:rotate(-2deg)}.visit-note h2{font-size:36px}.visit-note p{font-size:15px}.faq{display:grid;grid-template-columns:1fr 2fr;gap:7%;padding-top:65px}.faq details{border-bottom:1px solid var(--line);padding:20px 0}.faq summary{cursor:pointer;display:flex;justify-content:space-between;gap:25px;list-style:none;font-size:17px}.faq summary::-webkit-details-marker{display:none}.faq summary span{color:var(--blue)}.faq details[open] summary span{transform:rotate(45deg)}.faq details p{font-size:15px;max-width:700px;margin:18px 0 0}.footer{background:var(--blue);color:var(--cream);padding:65px 6% 20px}.footer-top{display:grid;grid-template-columns:2fr 1fr 1.3fr;gap:5%}.footer-top>p{font-size:30px;line-height:1.5}.footer-top a{display:block;font-size:14px;margin-bottom:9px}.footer-top div p,.footer-top div span{font-size:13px}.footer-word{font-family:'Fraunces';font-size:clamp(52px,12.8vw,190px);letter-spacing:-.065em;line-height:1.4;white-space:nowrap;margin:25px 0}.footer-bottom{display:flex;justify-content:space-between;gap:20px;font-size:13px;border-top:1px solid #ffffff50;padding-top:20px}.page-heading{padding:75px 6% 55px;border-bottom:1px solid var(--line)}.page-heading h1{font-size:clamp(38px,5vw,64px);margin-bottom:18px;color:var(--blue)}.page-heading p{max-width:600px;font-size:17px}.page-heading+.section{padding-top:55px}.wide-photo{height:540px;margin:0 6%}.prose{max-width:780px;margin:auto;padding:70px 25px;font-size:18px}.prose h2{font-size:33px;margin-top:50px}.prose p{margin-bottom:30px}.prose .eyebrow{margin-top:40px}.visit-layout{display:grid;grid-template-columns:1.6fr 1fr;gap:6%;align-items:center}.visit-layout>div:first-child{height:520px}.hours-table{width:100%;border-collapse:collapse;margin:30px 0;font-size:16px}.hours-table th,.hours-table td{text-align:left;border-bottom:1px solid var(--line);padding:13px 0}.hours-table th{font-weight:400;color:var(--blue)}.note-panel{padding:30px;background:var(--butter);font-size:15px}.privacy-list{border-top:1px solid var(--line);padding-top:30px}@keyframes photo-in{from{transform:scale(1.035)}to{transform:scale(1)}}@media(min-width:1700px){.hero{max-width:1700px;margin:auto}}@media(max-width:1050px){.site-header nav{gap:18px;font-size:14px}.header-note{display:none}.hero{min-height:570px}.hero-copy{padding:55px 8% 30px}.hero h1{font-size:45px}.hero-stamp{width:105px;height:105px;font-size:20px}.product-photo{height:230px}.product-title{display:block}.product-title span{display:block;margin-top:5px}.craft-photo{height:570px}.pair-grid{gap:7%}.story-grid{gap:22px}.story-photo{height:240px}.clock-tabs span{font-size:30px}}
+@media(max-width:700px){body{font-size:16px}.topline{padding:7px 5%}.topline span:nth-child(2),.topline span:last-child{display:none}.site-header{flex-wrap:wrap;padding:15px 5% 12px;gap:16px}.brand{font-size:29px}.brand small{font-size:9px}.site-header nav{width:100%;justify-content:space-between;gap:5px;font-size:13px}.hero{display:flex;flex-direction:column;min-height:0}.hero-copy{padding:42px 6% 28px}.hero h1{font-size:clamp(38px,10vw,55px)}.hero p{max-width:400px;font-size:16px}.hero-foot{padding-top:32px;font-size:12px}.hero-photo{height:360px}.hero-stamp{right:20px;top:20px}.phrase-band{padding:15px 6%}.phrase-band span:first-child{font-size:22px}.phrase-band span:nth-child(2){display:none}.section{padding:65px 6%}.section-head{align-items:start;gap:20px;flex-direction:column;margin-bottom:30px}.eyebrow{font-size:12px;margin-bottom:15px}h2{font-size:31px}.products{grid-template-columns:repeat(2,1fr);gap:28px 18px}.products.preview{grid-template-columns:1fr}.products.preview .product{padding-top:0;display:grid;grid-template-columns:1.2fr 1fr;gap:0 20px;align-items:center}.products.preview .product-photo{grid-row:span 4;height:230px;border-radius:50% 50% 4px 4px}.products.preview .product-title{margin-top:5px}.products.preview .product p{font-size:14px}.products.preview .product small{font-size:12px}.product-photo{height:190px}.product-title h3{font-size:17px}.product p{font-size:14px}.product-number{font-size:15px;top:10px;left:10px}.baking,.craft,.pair-grid,.faq,.visit-layout{grid-template-columns:1fr;gap:35px}.clock-tabs span{font-size:32px}.clock-content h3{font-size:24px}.craft-photo{height:470px}.craft-copy h2{font-size:36px}.craft-copy>p{font-size:16px}.craft blockquote{font-size:26px}.craft-detail{margin-top:28px}.pair-grid{gap:45px}.pair label{max-width:none}.receipt{margin:0 8px;padding:30px 25px;transform:rotate(1deg)}.story-grid{display:block}.story,.story:nth-child(2),.story:nth-child(3){display:block;margin-top:35px}.story-photo{height:300px}.story:nth-child(2) .story-photo{height:240px}.story:nth-child(3) .story-photo{height:280px}.visit-teaser{height:auto;margin:0}.visit-teaser>img{height:350px}.visit-note{position:relative;right:auto;bottom:auto;max-width:none;margin:-45px 6% 0;padding:30px;transform:rotate(-1deg)}.visit-note h2{font-size:31px}.faq{padding-top:60px}.faq summary{font-size:16px}.footer{padding:50px 6% 20px}.footer-top{grid-template-columns:1fr 1fr;gap:25px}.footer-top>p{grid-column:span 2;font-size:28px}.footer-word{font-size:12.5vw;margin:30px 0}.footer-bottom{flex-direction:column;font-size:13px;gap:10px}.page-heading{padding:45px 6% 35px}.page-heading h1{font-size:39px}.wide-photo{height:300px;margin:0}.prose{font-size:17px;padding:45px 6%}.visit-layout>div:first-child{height:330px}.dialog-copy{padding:25px}.dialog-copy dl{grid-template-columns:1fr;gap:5px}.dialog-copy dd{margin-bottom:12px}.menu-dialog>img{height:230px}.filters button{padding:7px 17px;font-size:14px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+```
+
+</details>
+
+## 모듈
+
+### 베이커리 워드마크와 고정 메뉴 `header`
+
+- 종류: `header` · 사용 사이트: `food-cafe/oven-note` · 페이지: `/`
+- 소스: [`src/app/layout.tsx`](..\..\..\templates\food-cafe\oven-note/src/app/layout.tsx)
+
+| 데스크톱 1440 | 모바일 390 |
+|---|---|
+| <img src="shots/header-desktop.jpg" width="560"> | <img src="shots/header-mobile.jpg" width="180"> |
+
+<details><summary>스타일 코드 (마크업 구조 + 클래스, 문구는 …) · <a href="code/header.html">code/header.html</a></summary>
+
+```html
+<header class="site-header">
+  <a class="brand">
+    …
+    <sup>…</sup>
+    <small>…</small>
+  </a>
+  <nav>
+    <a>…</a>
+    <!-- ↑ 같은 구조 4개 반복 -->
+  </nav>
+  <a class="header-note">…</a>
+</header>
+```
+
+</details>
+
+### 버터 옐로 아침 식탁 `breakfast`
+
+- 종류: `hero` · 사용 사이트: `food-cafe/oven-note` · 페이지: `/`
+- 소스: [`src/app/page.tsx`](..\..\..\templates\food-cafe\oven-note/src/app/page.tsx)
+
+| 데스크톱 1440 | 모바일 390 |
+|---|---|
+| <img src="shots/breakfast-desktop.jpg" width="560"> | <img src="shots/breakfast-mobile.jpg" width="180"> |
+
+<details><summary>스타일 코드 (마크업 구조 + 클래스, 문구는 …) · <a href="code/breakfast.html">code/breakfast.html</a></summary>
+
+```html
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">…</span>
+    <h1>
+      …
+      <br />
+      <em>…</em>
+    </h1>
+    <p>…</p>
+    <a class="button">…</a>
+    <div class="hero-foot">
+      <span>…</span>
+      <!-- ↑ 같은 구조 2개 반복 -->
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img width="1536" height="1024" src="…" />
+    <div class="hero-stamp">
+      …
+      <br />
+      <i>…</i>
+      <br />
+      …
+    </div>
+    <span class="photo-caption">…</span>
+  </div>
+</section>
+```
+
+</details>
+
+### 아치형 제품 사진과 메뉴 `fresh`
+
+- 종류: `menu` · 사용 사이트: `food-cafe/oven-note` · 페이지: `/`
+- 소스: [`src/components/Interactive.tsx`](..\..\..\templates\food-cafe\oven-note/src/components/Interactive.tsx)
+
+| 데스크톱 1440 | 모바일 390 |
+|---|---|
+| <img src="shots/fresh-desktop.jpg" width="560"> | <img src="shots/fresh-mobile.jpg" width="180"> |
+
+<details><summary>스타일 코드 (마크업 구조 + 클래스, 문구는 …) · <a href="code/fresh.html">code/fresh.html</a></summary>
+
+```html
+<section class="section fresh">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">…</span>
+      <h2>…</h2>
+    </div>
+    <a class="text-link">…</a>
+  </div>
+  <div class="menu-board">
+    <div class="products preview">
+      <button class="product">
+        <div class="product-photo">
+          <img width="1536" height="1024" src="…" />
+          <span class="product-number">
+            …
+            …
+          </span>
+          <span class="open-product">…</span>
+        </div>
+        <div class="product-title">
+          <h3>…</h3>
+          <span>…</span>
+        </div>
+        <p>…</p>
+        <small>…</small>
+      </button>
+      <!-- ↑ 같은 구조 3개 반복 -->
+    </div>
+    <p class="fineprint">…</p>
+    <dialog class="menu-dialog">
+      <button class="close-dialog">…</button>
+      <img width="1536" height="1024" src="…" />
+      <div class="dialog-copy">
+        <span class="eyebrow">…</span>
+        <h2>…</h2>
+        <p>…</p>
+        <dl>
+          <dt>…</dt>
+          <dd>
+            …
+            …
+          </dd>
+          <dt>…</dt>
+          <dd>…</dd>
+          <dt>…</dt>
+          <dd>…</dd>
+          <dt>…</dt>
+          <dd>…</dd>
+        </dl>
+        <p class="fineprint">…</p>
+      </div>
+    </dialog>
+  </div>
+</section>
+```
+
+</details>
+
+### 굽는 시간 선택 메뉴판 `clock`
+
+- 종류: `interactive` · 사용 사이트: `food-cafe/oven-note` · 페이지: `/`
+- 소스: [`src/components/Interactive.tsx`](..\..\..\templates\food-cafe\oven-note/src/components/Interactive.tsx)
+
+| 데스크톱 1440 | 모바일 390 |
+|---|---|
+| <img src="shots/clock-desktop.jpg" width="560"> | <img src="shots/clock-mobile.jpg" width="180"> |
+
+<details><summary>스타일 코드 (마크업 구조 + 클래스, 문구는 …) · <a href="code/clock.html">code/clock.html</a></summary>
+
+```html
+<section class="section baking">
+  <div class="baking-heading">
+    <span class="eyebrow">…</span>
+    <h2>
+      …
+      <br />
+      <em>…</em>
+    </h2>
+    <p>
+      …
+      <br />
+      …
+    </p>
+  </div>
+  <div class="bake-clock">
+    <div class="clock-tabs">
+      <button>
+        <span>…</span>
+        <small>…</small>
+      </button>
+      <!-- ↑ 같은 구조 3개 반복 -->
+    </div>
+    <div class="clock-content">
+      <h3>…</h3>
+      <p>…</p>
+      <span class="fineprint">…</span>
+    </div>
+  </div>
+</section>
+```
+
+</details>
+
+### 손과 반죽의 작업 이야기 `craft`
+
+- 종류: `intro` · 사용 사이트: `food-cafe/oven-note` · 페이지: `/`
+- 소스: [`src/app/page.tsx`](..\..\..\templates\food-cafe\oven-note/src/app/page.tsx)
+
+| 데스크톱 1440 | 모바일 390 |
+|---|---|
+| <img src="shots/craft-desktop.jpg" width="560"> | <img src="shots/craft-mobile.jpg" width="180"> |
+
+<details><summary>스타일 코드 (마크업 구조 + 클래스, 문구는 …) · <a href="code/craft.html">code/craft.html</a></summary>
+
+```html
+<section class="section craft">
+  <div class="craft-photo">
+    <img width="1024" height="1536" src="…" />
+    <span class="photo-caption">…</span>
+  </div>
+  <div class="craft-copy">
+    <span class="eyebrow">…</span>
+    <h2>
+      …
+      <br />
+      …
+    </h2>
+    <p>
+      …
+      <br />
+      …
+      <br />
+      …
+    </p>
+    <blockquote>
+      …
+      <br />
+      …
+    </blockquote>
+    <a class="text-link">…</a>
+    <div class="craft-detail">
+      <img width="1536" height="1024" src="…" />
+      <span>…</span>
+    </div>
+  </div>
+</section>
+```
+
+</details>
+
+### 빵·음료 조합 영수증 `pair`
+
+- 종류: `finder` · 사용 사이트: `food-cafe/oven-note` · 페이지: `/`
+- 소스: [`src/components/Interactive.tsx`](..\..\..\templates\food-cafe\oven-note/src/components/Interactive.tsx)
+
+| 데스크톱 1440 | 모바일 390 |
+|---|---|
+| <img src="shots/pair-desktop.jpg" width="560"> | <img src="shots/pair-mobile.jpg" width="180"> |
+
+<details><summary>스타일 코드 (마크업 구조 + 클래스, 문구는 …) · <a href="code/pair.html">code/pair.html</a></summary>
+
+```html
+<section class="section pair">
+  <div class="pair-grid">
+    <div>
+      <span class="eyebrow">…</span>
+      <h2>
+        …
+        <br />
+        …
+      </h2>
+      <p>…</p>
+      <label>
+        …
+        <select>
+          <option>…</option>
+          <!-- ↑ 같은 구조 5개 반복 -->
+        </select>
+      </label>
+      <!-- ↑ 같은 구조 2개 반복 -->
+    </div>
+    <div class="receipt">
+      <div class="receipt-brand">
+        …
+        <sup>…</sup>
+      </div>
+      <p>…</p>
+      <div class="receipt-row">
+        <span>…</span>
+        <!-- ↑ 같은 구조 2개 반복 -->
+      </div>
+      <!-- ↑ 같은 구조 2개 반복 -->
+      <div class="receipt-row receipt-total">
+        <strong>…</strong>
+        <!-- ↑ 같은 구조 2개 반복 -->
+      </div>
+      <p class="fineprint">…</p>
+      <button class="button blue">…</button>
+      <p class="copy-status"></p>
+      <div class="receipt-end">…</div>
+    </div>
+  </div>
+</section>
+```
+
+</details>
+
+### 엇갈린 일상 사진 기록 `journal`
+
+- 종류: `content` · 사용 사이트: `food-cafe/oven-note` · 페이지: `/`
+- 소스: [`src/app/page.tsx`](..\..\..\templates\food-cafe\oven-note/src/app/page.tsx)
+
+| 데스크톱 1440 | 모바일 390 |
+|---|---|
+| <img src="shots/journal-desktop.jpg" width="560"> | <img src="shots/journal-mobile.jpg" width="180"> |
+
+<details><summary>스타일 코드 (마크업 구조 + 클래스, 문구는 …) · <a href="code/journal.html">code/journal.html</a></summary>
+
+```html
+<section class="section journal">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">…</span>
+      <h2>…</h2>
+    </div>
+    <a class="text-link">…</a>
+  </div>
+  <div class="story-grid">
+    <a class="story">
+      <div class="story-photo">
+        <img width="1536" height="1024" src="…" />
+      </div>
+      <span class="eyebrow">…</span>
+      <h3>
+        …
+        …
+      </h3>
+      <p>…</p>
+    </a>
+    <!-- ↑ 같은 구조 3개 반복 -->
+  </div>
+</section>
+```
+
+</details>
+
+### 창가 사진과 종이 메모 `visit`
+
+- 종류: `visit` · 사용 사이트: `food-cafe/oven-note` · 페이지: `/`
+- 소스: [`src/app/page.tsx`](..\..\..\templates\food-cafe\oven-note/src/app/page.tsx)
+
+| 데스크톱 1440 | 모바일 390 |
+|---|---|
+| <img src="shots/visit-desktop.jpg" width="560"> | <img src="shots/visit-mobile.jpg" width="180"> |
+
+<details><summary>스타일 코드 (마크업 구조 + 클래스, 문구는 …) · <a href="code/visit.html">code/visit.html</a></summary>
+
+```html
+<section class="visit-teaser">
+  <img width="1536" height="1024" src="…" />
+  <div class="visit-note">
+    <span class="eyebrow">…</span>
+    <h2>
+      …
+      <br />
+      …
+    </h2>
+    <p>
+      …
+      <br />
+      …
+    </p>
+    <a class="button">…</a>
+  </div>
+</section>
+```
+
+</details>
+
+### 코발트 대형 워드마크 푸터 `footer`
+
+- 종류: `footer` · 사용 사이트: `food-cafe/oven-note` · 페이지: `/`
+- 소스: [`src/app/layout.tsx`](..\..\..\templates\food-cafe\oven-note/src/app/layout.tsx)
+
+| 데스크톱 1440 | 모바일 390 |
+|---|---|
+| <img src="shots/footer-desktop.jpg" width="560"> | <img src="shots/footer-mobile.jpg" width="180"> |
+
+<details><summary>스타일 코드 (마크업 구조 + 클래스, 문구는 …) · <a href="code/footer.html">code/footer.html</a></summary>
+
+```html
+<footer class="footer">
+  <div class="footer-top">
+    <p>
+      …
+      <br />
+      …
+    </p>
+    <div>
+      <a>
+        …
+        …
+      </a>
+      <!-- ↑ 같은 구조 4개 반복 -->
+    </div>
+    <!-- ↑ 같은 구조 2개 반복 -->
+  </div>
+  <div class="footer-word">
+    …
+    <sup>…</sup>
+  </div>
+  <div class="footer-bottom">
+    <span>…</span>
+    <!-- ↑ 같은 구조 2개 반복 -->
+  </div>
+</footer>
+```
+
+</details>

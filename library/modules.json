@@ -962,6 +962,123 @@
         "mobile": "space-interior/forme/shots/process-step-mobile.jpg"
       },
       "code": "space-interior/forme/code/process-step.html"
+    },
+    {
+      "id": "header",
+      "kind": "header",
+      "label": "베이커리 워드마크와 고정 메뉴",
+      "page": "/",
+      "source": "src/app/layout.tsx",
+      "site": "food-cafe/oven-note",
+      "shots": {
+        "desktop": "food-cafe/oven-note/shots/header-desktop.jpg",
+        "mobile": "food-cafe/oven-note/shots/header-mobile.jpg"
+      },
+      "code": "food-cafe/oven-note/code/header.html"
+    },
+    {
+      "id": "breakfast",
+      "kind": "hero",
+      "label": "버터 옐로 아침 식탁",
+      "page": "/",
+      "source": "src/app/page.tsx",
+      "site": "food-cafe/oven-note",
+      "shots": {
+        "desktop": "food-cafe/oven-note/shots/breakfast-desktop.jpg",
+        "mobile": "food-cafe/oven-note/shots/breakfast-mobile.jpg"
+      },
+      "code": "food-cafe/oven-note/code/breakfast.html"
+    },
+    {
+      "id": "fresh",
+      "kind": "menu",
+      "label": "아치형 제품 사진과 메뉴",
+      "page": "/",
+      "source": "src/components/Interactive.tsx",
+      "site": "food-cafe/oven-note",
+      "shots": {
+        "desktop": "food-cafe/oven-note/shots/fresh-desktop.jpg",
+        "mobile": "food-cafe/oven-note/shots/fresh-mobile.jpg"
+      },
+      "code": "food-cafe/oven-note/code/fresh.html"
+    },
+    {
+      "id": "clock",
+      "kind": "interactive",
+      "label": "굽는 시간 선택 메뉴판",
+      "page": "/",
+      "source": "src/components/Interactive.tsx",
+      "site": "food-cafe/oven-note",
+      "shots": {
+        "desktop": "food-cafe/oven-note/shots/clock-desktop.jpg",
+        "mobile": "food-cafe/oven-note/shots/clock-mobile.jpg"
+      },
+      "code": "food-cafe/oven-note/code/clock.html"
+    },
+    {
+      "id": "craft",
+      "kind": "intro",
+      "label": "손과 반죽의 작업 이야기",
+      "page": "/",
+      "source": "src/app/page.tsx",
+      "site": "food-cafe/oven-note",
+      "shots": {
+        "desktop": "food-cafe/oven-note/shots/craft-desktop.jpg",
+        "mobile": "food-cafe/oven-note/shots/craft-mobile.jpg"
+      },
+      "code": "food-cafe/oven-note/code/craft.html"
+    },
+    {
+      "id": "pair",
+      "kind": "finder",
+      "label": "빵·음료 조합 영수증",
+      "page": "/",
+      "source": "src/components/Interactive.tsx",
+      "site": "food-cafe/oven-note",
+      "shots": {
+        "desktop": "food-cafe/oven-note/shots/pair-desktop.jpg",
+        "mobile": "food-cafe/oven-note/shots/pair-mobile.jpg"
+      },
+      "code": "food-cafe/oven-note/code/pair.html"
+    },
+    {
+      "id": "journal",
+      "kind": "content",
+      "label": "엇갈린 일상 사진 기록",
+      "page": "/",
+      "source": "src/app/page.tsx",
+      "site": "food-cafe/oven-note",
+      "shots": {
+        "desktop": "food-cafe/oven-note/shots/journal-desktop.jpg",
+        "mobile": "food-cafe/oven-note/shots/journal-mobile.jpg"
+      },
+      "code": "food-cafe/oven-note/code/journal.html"
+    },
+    {
+      "id": "visit",
+      "kind": "visit",
+      "label": "창가 사진과 종이 메모",
+      "page": "/",
+      "source": "src/app/page.tsx",
+      "site": "food-cafe/oven-note",
+      "shots": {
+        "desktop": "food-cafe/oven-note/shots/visit-desktop.jpg",
+        "mobile": "food-cafe/oven-note/shots/visit-mobile.jpg"
+      },
+      "code": "food-cafe/oven-note/code/visit.html"
+    },
+    {
+      "id": "footer",
+      "kind": "footer",
+      "label": "코발트 대형 워드마크 푸터",
+      "page": "/",
+      "source": "src/app/layout.tsx",
+      "site": "food-cafe/oven-note",
+      "shots": {
+        "desktop": "food-cafe/oven-note/shots/footer-desktop.jpg",
+        "mobile": "food-cafe/oven-note/shots/footer-mobile.jpg"
+      },
+      "code": "food-cafe/oven-note/code/footer.html"
     }
   ]
 }

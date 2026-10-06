@@ -1,0 +1,6 @@
+import {copy} from '../../data/copy';
+import PageHeading from '../../components/PageHeading';
+import Picture from '../../components/Picture';
+import { absolute } from '../../lib/urls';
+export const metadata = { description: copy["n100"], title: copy["n98"], alternates: { canonical: absolute('/visit/') } };
+export default function Page() { return <><PageHeading label="A LITTLE PLACE IN YEONHUI" title={copy["n99"]} description={copy["n100"]}/><section className="section visit-layout"><div><Picture name="shop" alt={copy["n101"]} eager/></div><div><span className="eyebrow">{copy["n102"]}</span><h2>{copy["n103"]}<br />{copy["n104"]}</h2><table className="hours-table"><caption style={{ textAlign: 'left' }}>{copy["n105"]}</caption><tbody><tr><th>{copy["n106"]}</th><td>08:30 — 18:00</td></tr><tr><th>{copy["n107"]}</th><td>{copy["n108"]}</td></tr><tr><th>{copy["n109"]}</th><td>{copy["n110"]}</td></tr><tr><th>{copy["n111"]}</th><td>{copy["n112"]}</td></tr></tbody></table><p className="note-panel">{copy["n113"]}</p></div></section><div className="wide-photo"><Picture name="bread-bag" alt={copy["n114"]} sizes="90vw"/></div><div className="prose"><h2>{copy["n115"]}</h2><p>{copy["n116"]}</p></div></>; }
