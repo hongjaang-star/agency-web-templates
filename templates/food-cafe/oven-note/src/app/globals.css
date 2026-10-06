@@ -3,4 +3,12 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
 
 
-.clock-menu{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:25px 0}.clock-menu figure{margin:0;min-width:0}.clock-menu-photo{aspect-ratio:1/1;overflow:hidden;border-radius:50% 50% 3px 3px}.clock-menu figcaption{font-size:14px;line-height:1.6;margin-top:12px;word-break:keep-all}.clock-menu figure:nth-child(2) .clock-menu-photo{border-radius:3px}.clock-menu figure:nth-child(3) .clock-menu-photo{border-radius:3px 3px 50% 50%}@media(max-width:700px){.clock-menu{gap:12px}.clock-menu figcaption{font-size:13px;margin-top:10px}}
+.clock-menu{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:25px 0}
+.clock-menu figure{margin:0;min-width:0}
+.clock-menu-photo{aspect-ratio:1/1;overflow:hidden;border-radius:0}
+.clock-menu figcaption{line-height:1.6;margin-top:14px;word-break:keep-all}
+.clock-menu-name{display:block;font-size:15px;font-weight:600}
+.clock-menu-english{display:block;font-family:'Fraunces',serif;font-size:13px;color:var(--blue);margin-top:4px;line-height:1.5}
+.clock-menu .clock-menu-note{font-size:14px;line-height:1.7;margin:10px 0 0}
+@media(max-width:700px){.clock-menu{gap:24px 12px}.clock-menu figcaption{margin-top:12px}}
+@media(max-width:480px){.clock-menu{grid-template-columns:repeat(2,minmax(0,1fr))}}
