@@ -614,6 +614,82 @@
           "source": "src/components/ProcessSteps.tsx"
         }
       ]
+    },
+    "food-cafe/oven-note": {
+      "modules": [
+        {
+          "id": "header",
+          "kind": "header",
+          "label": "베이커리 워드마크와 고정 메뉴",
+          "page": "/",
+          "select": ".site-header",
+          "source": "src/app/layout.tsx"
+        },
+        {
+          "id": "breakfast",
+          "kind": "hero",
+          "label": "버터 옐로 아침 식탁",
+          "page": "/",
+          "select": ".hero",
+          "source": "src/app/page.tsx"
+        },
+        {
+          "id": "fresh",
+          "kind": "menu",
+          "label": "아치형 제품 사진과 메뉴",
+          "page": "/",
+          "select": ".fresh",
+          "source": "src/components/Interactive.tsx"
+        },
+        {
+          "id": "clock",
+          "kind": "interactive",
+          "label": "굽는 시간 선택 메뉴판",
+          "page": "/",
+          "select": ".baking",
+          "source": "src/components/Interactive.tsx"
+        },
+        {
+          "id": "craft",
+          "kind": "intro",
+          "label": "손과 반죽의 작업 이야기",
+          "page": "/",
+          "select": ".craft",
+          "source": "src/app/page.tsx"
+        },
+        {
+          "id": "pair",
+          "kind": "finder",
+          "label": "빵·음료 조합 영수증",
+          "page": "/",
+          "select": ".pair",
+          "source": "src/components/Interactive.tsx"
+        },
+        {
+          "id": "journal",
+          "kind": "content",
+          "label": "엇갈린 일상 사진 기록",
+          "page": "/",
+          "select": ".journal",
+          "source": "src/app/page.tsx"
+        },
+        {
+          "id": "visit",
+          "kind": "visit",
+          "label": "창가 사진과 종이 메모",
+          "page": "/",
+          "select": ".visit-teaser",
+          "source": "src/app/page.tsx"
+        },
+        {
+          "id": "footer",
+          "kind": "footer",
+          "label": "코발트 대형 워드마크 푸터",
+          "page": "/",
+          "select": ".footer",
+          "source": "src/app/layout.tsx"
+        }
+      ]
     }
   }
 }

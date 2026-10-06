@@ -1,0 +1,110 @@
+[
+  {
+    "name": "morning-table",
+    "width": 1536,
+    "height": 1024,
+    "source": "OpenAI image generation; original fictional bakery concept",
+    "originalSHA256": "2e9942d0f06d5d82f01718254f9e6ac3c947a426e2fb2e614d4f52e362d585d2",
+    "file": "morning-table.webp",
+    "responsive": "morning-table-small.webp"
+  },
+  {
+    "name": "croissant",
+    "width": 1536,
+    "height": 1024,
+    "source": "OpenAI image generation; original fictional bakery concept",
+    "originalSHA256": "fdc2ab2721b01d5af87cc177bc5a2922a5ee56851d08b871b986c38903eb7ed8",
+    "file": "croissant.webp",
+    "responsive": "croissant-small.webp"
+  },
+  {
+    "name": "sourdough",
+    "width": 1536,
+    "height": 1024,
+    "source": "OpenAI image generation; original fictional bakery concept",
+    "originalSHA256": "6ef333f259712fe10daee43125a1109a6816dc41e09fef037024f608325c3d5e",
+    "file": "sourdough.webp",
+    "responsive": "sourdough-small.webp"
+  },
+  {
+    "name": "cinnamon",
+    "width": 1536,
+    "height": 1024,
+    "source": "OpenAI image generation; original fictional bakery concept",
+    "originalSHA256": "96676e6726c99e0185fd289559fbe61d45e79e77efad4a4e7b714ba3b14af630",
+    "file": "cinnamon.webp",
+    "responsive": "cinnamon-small.webp"
+  },
+  {
+    "name": "lemon",
+    "width": 1536,
+    "height": 1024,
+    "source": "OpenAI image generation; original fictional bakery concept",
+    "originalSHA256": "b017bed146295f78757fcc4becc066ce8ec495a4e9ed4c42d8d7987b3f581080",
+    "file": "lemon.webp",
+    "responsive": "lemon-small.webp"
+  },
+  {
+    "name": "latte",
+    "width": 1536,
+    "height": 1024,
+    "source": "OpenAI image generation; original fictional bakery concept",
+    "originalSHA256": "a814a58d467014722ab548b6c161b0c76ff943855d63e3f2713df8516b5a6ce9",
+    "file": "latte.webp",
+    "responsive": "latte-small.webp"
+  },
+  {
+    "name": "baker-hands",
+    "width": 1024,
+    "height": 1536,
+    "source": "OpenAI image generation; original fictional bakery concept",
+    "originalSHA256": "2c005a4c344a3fa7e916238668c9e84c46c1ac495a6bc6169d0314258da52ffa",
+    "file": "baker-hands.webp",
+    "responsive": "baker-hands-small.webp"
+  },
+  {
+    "name": "shop",
+    "width": 1536,
+    "height": 1024,
+    "source": "OpenAI image generation; original fictional bakery concept",
+    "originalSHA256": "5a0bf892a26786a5a63dc4f970575c8692b0c5dd98f9d43ac7719bfaa1356459",
+    "file": "shop.webp",
+    "responsive": "shop-small.webp"
+  },
+  {
+    "name": "focaccia",
+    "width": 1536,
+    "height": 1024,
+    "source": "OpenAI image generation; original fictional bakery concept",
+    "originalSHA256": "cb6d7115d70eaed6a988e94010b1d0ff1dee5cbb4af946bc0040bd33f6ce17e5",
+    "file": "focaccia.webp",
+    "responsive": "focaccia-small.webp"
+  },
+  {
+    "name": "citrus-tea",
+    "width": 1536,
+    "height": 1024,
+    "source": "OpenAI image generation; original fictional bakery concept",
+    "originalSHA256": "994aa25ea0a41075367f57dacc444f85ca578da9c2ccce9d94a15b7f7d5ca127",
+    "file": "citrus-tea.webp",
+    "responsive": "citrus-tea-small.webp"
+  },
+  {
+    "name": "butter-layers",
+    "width": 1536,
+    "height": 1024,
+    "source": "OpenAI image generation; original fictional bakery concept",
+    "originalSHA256": "70810b008d16cd383faa358f25b08b358e1bf192ae6f493c437b173f61f0a3d8",
+    "file": "butter-layers.webp",
+    "responsive": "butter-layers-small.webp"
+  },
+  {
+    "name": "bread-bag",
+    "width": 1536,
+    "height": 1024,
+    "source": "OpenAI image generation; original fictional bakery concept",
+    "originalSHA256": "fca5ee65b81b794fe497a19c822a51144acaa8464ea4e463c0969b3b35ac9dcd",
+    "file": "bread-bag.webp",
+    "responsive": "bread-bag-small.webp"
+  }
+]

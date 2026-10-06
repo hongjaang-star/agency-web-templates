@@ -16,6 +16,7 @@
 | [세무사무소 · trust](pro-tax-office/trust/README.md) | 클래식 신뢰형 · 차콜·골드와 명조, 세무사 프로필과 정돈된 정보 구조 | swiss-grid / split-media / charcoal·paper·yellow gold | 15 |
 | [법률사무소 · docket](pro-law-firm/docket/README.md) **대표** | 타이포형 · 사건이 어떤 순서로 흘러가는지 먼저 보여 주는 동네 법률사무소 | typographic / ticker / oxblood·cream·ink | 15 |
 | [인테리어·리모델링 · forme](space-interior/forme/README.md) **대표** | 공간 아카이브형 · 생활 방식과 재료의 질감을 보여주는 리모델링 스튜디오 | spatial-archive / landscape-photo-with-caption / warm gray · olive · charcoal | 9 |
+| [카페·베이커리 · oven-note](food-cafe/oven-note/README.md) **대표** | 식탁형 · 선명한 색과 빵 사진, 메뉴판과 조합 영수증으로 동네의 온기를 전하는 베이커리 | food-editorial-table / butter-yellow-statement-with-breakfast-photo / cobalt · butter yellow · cream · coral | 9 |
 
 ## 종류별
 
@@ -35,6 +36,7 @@
 | <img src="pro-tax-office/trust/shots/header-desktop.jpg" width="280"> | [헤더 `header`](pro-tax-office/trust/README.md#헤더-header) | `pro-tax-office/trust` |
 | <img src="pro-law-firm/docket/shots/header-desktop.jpg" width="280"> | [헤더 (모바일 가로 메뉴 포함) `header`](pro-law-firm/docket/README.md#헤더-모바일-가로-메뉴-포함-header) | `pro-law-firm/docket` |
 | <img src="space-interior/forme/shots/header-desktop.jpg" width="280"> | [공간 스튜디오 헤더 `header`](space-interior/forme/README.md#공간-스튜디오-헤더-header) | `space-interior/forme` |
+| <img src="food-cafe/oven-note/shots/header-desktop.jpg" width="280"> | [베이커리 워드마크와 고정 메뉴 `header`](food-cafe/oven-note/README.md#베이커리-워드마크와-고정-메뉴-header) | `food-cafe/oven-note` |
 
 ### 히어로 `hero`
 
@@ -45,6 +47,7 @@
 | <img src="pro-tax-office/trust/shots/home-hero-desktop.jpg" width="280"> | [히어로 `home-hero`](pro-tax-office/trust/README.md#히어로-home-hero) | `pro-tax-office/trust` |
 | <img src="pro-law-firm/docket/shots/home-hero-desktop.jpg" width="280"> | [초대형 타이포 + 업무 띠 `home-hero`](pro-law-firm/docket/README.md#초대형-타이포--업무-띠-home-hero) | `pro-law-firm/docket` |
 | <img src="space-interior/forme/shots/hero-desktop.jpg" width="280"> | [공간 사진과 프로젝트 캡션 `hero`](space-interior/forme/README.md#공간-사진과-프로젝트-캡션-hero) | `space-interior/forme` |
+| <img src="food-cafe/oven-note/shots/breakfast-desktop.jpg" width="280"> | [버터 옐로 아침 식탁 `breakfast`](food-cafe/oven-note/README.md#버터-옐로-아침-식탁-breakfast) | `food-cafe/oven-note` |
 
 ### 소개 `intro`
 
@@ -54,6 +57,7 @@
 | <img src="pro-tax-office/almanac/shots/home-column-desktop.jpg" width="280"> | [대표 칼럼 `home-column`](pro-tax-office/almanac/README.md#대표-칼럼-home-column) | `pro-tax-office/almanac` |
 | <img src="pro-tax-office/almanac/shots/about-principles-desktop.jpg" width="280"> | [세 가지 약속 `about-principles`](pro-tax-office/almanac/README.md#세-가지-약속-about-principles) | `pro-tax-office/almanac` |
 | <img src="pro-law-firm/docket/shots/attorneys-principles-desktop.jpg" width="280"> | [일하는 방식 `attorneys-principles`](pro-law-firm/docket/README.md#일하는-방식-attorneys-principles) | `pro-law-firm/docket` |
+| <img src="food-cafe/oven-note/shots/craft-desktop.jpg" width="280"> | [손과 반죽의 작업 이야기 `craft`](food-cafe/oven-note/README.md#손과-반죽의-작업-이야기-craft) | `food-cafe/oven-note` |
 
 ### 찾기·필터 `finder`
 
@@ -61,6 +65,7 @@
 |---|---|---|
 | <img src="medical-dermatology/lumiere/shots/home-concerns-desktop.jpg" width="280"> | [고민별 찾기 `home-concerns`](medical-dermatology/lumiere/README.md#고민별-찾기-home-concerns) | `medical-dermatology/lumiere` |
 | <img src="space-interior/forme/shots/brief-desktop.jpg" width="280"> | [상담 준비 요약 `brief`](space-interior/forme/README.md#상담-준비-요약-brief) | `space-interior/forme` |
+| <img src="food-cafe/oven-note/shots/pair-desktop.jpg" width="280"> | [빵·음료 조합 영수증 `pair`](food-cafe/oven-note/README.md#빵음료-조합-영수증-pair) | `food-cafe/oven-note` |
 
 ### 서비스 목록 `services`
 
@@ -133,6 +138,7 @@
 | <img src="pro-tax-office/almanac/shots/home-visit-desktop.jpg" width="280"> | [찾아오는 길 `home-visit`](pro-tax-office/almanac/README.md#찾아오는-길-home-visit) | `pro-tax-office/almanac` |
 | <img src="pro-tax-office/trust/shots/home-visit-desktop.jpg" width="280"> | [오시는 길 `home-visit`](pro-tax-office/trust/README.md#오시는-길-home-visit) | `pro-tax-office/trust` |
 | <img src="pro-law-firm/docket/shots/home-visit-desktop.jpg" width="280"> | [법원 앞 오시는 길 `home-visit`](pro-law-firm/docket/README.md#법원-앞-오시는-길-home-visit) | `pro-law-firm/docket` |
+| <img src="food-cafe/oven-note/shots/visit-desktop.jpg" width="280"> | [창가 사진과 종이 메모 `visit`](food-cafe/oven-note/README.md#창가-사진과-종이-메모-visit) | `food-cafe/oven-note` |
 
 ### 서브페이지 상단 `page-hero`
 
@@ -161,6 +167,7 @@
 | <img src="pro-tax-office/trust/shots/footer-desktop.jpg" width="280"> | [푸터 `footer`](pro-tax-office/trust/README.md#푸터-footer) | `pro-tax-office/trust` |
 | <img src="pro-law-firm/docket/shots/footer-desktop.jpg" width="280"> | [푸터 (광고책임변호사 표기) `footer`](pro-law-firm/docket/README.md#푸터-광고책임변호사-표기-footer) | `pro-law-firm/docket` |
 | <img src="space-interior/forme/shots/footer-desktop.jpg" width="280"> | [차콜 스튜디오 푸터 `footer`](space-interior/forme/README.md#차콜-스튜디오-푸터-footer) | `space-interior/forme` |
+| <img src="food-cafe/oven-note/shots/footer-desktop.jpg" width="280"> | [코발트 대형 워드마크 푸터 `footer`](food-cafe/oven-note/README.md#코발트-대형-워드마크-푸터-footer) | `food-cafe/oven-note` |
 
 ### 고정 버튼 `floating`
 
@@ -196,9 +203,17 @@
 | 미리보기 | 모듈 | 사용 사이트 |
 |---|---|---|
 | <img src="space-interior/forme/shots/materials-desktop.jpg" width="280"> | [재료 분위기 선택 `materials`](space-interior/forme/README.md#재료-분위기-선택-materials) | `space-interior/forme` |
+| <img src="food-cafe/oven-note/shots/clock-desktop.jpg" width="280"> | [굽는 시간 선택 메뉴판 `clock`](food-cafe/oven-note/README.md#굽는-시간-선택-메뉴판-clock) | `food-cafe/oven-note` |
 
 ### content `content`
 
 | 미리보기 | 모듈 | 사용 사이트 |
 |---|---|---|
 | <img src="space-interior/forme/shots/project-masthead-desktop.jpg" width="280"> | [프로젝트 주제와 콘셉트 `project-masthead`](space-interior/forme/README.md#프로젝트-주제와-콘셉트-project-masthead) | `space-interior/forme` |
+| <img src="food-cafe/oven-note/shots/journal-desktop.jpg" width="280"> | [엇갈린 일상 사진 기록 `journal`](food-cafe/oven-note/README.md#엇갈린-일상-사진-기록-journal) | `food-cafe/oven-note` |
+
+### menu `menu`
+
+| 미리보기 | 모듈 | 사용 사이트 |
+|---|---|---|
+| <img src="food-cafe/oven-note/shots/fresh-desktop.jpg" width="280"> | [아치형 제품 사진과 메뉴 `fresh`](food-cafe/oven-note/README.md#아치형-제품-사진과-메뉴-fresh) | `food-cafe/oven-note` |

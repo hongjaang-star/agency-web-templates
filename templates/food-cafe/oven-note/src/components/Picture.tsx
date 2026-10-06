@@ -1,0 +1,2 @@
+import {asset} from '../lib/urls';
+export default function Picture({name,alt,eager=false,sizes='(max-width: 700px) 92vw, 50vw'}:{name:string;alt:string;eager?:boolean;sizes?:string}) { const portrait=name==='baker-hands';return <img src={asset(name)} srcSet={`${asset(name+'-small')} 768w, ${asset(name)} ${portrait?1024:1536}w`} sizes={sizes} alt={alt} width={portrait?1024:1536} height={portrait?1536:1024} loading={eager?'eager':'lazy'} fetchPriority={eager?'high':'auto'}/>; }

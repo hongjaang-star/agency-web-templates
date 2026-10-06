@@ -135,6 +135,21 @@
         "오피스·병원·카페·기숙사, 주제별 두 가지 콘셉트.",
         "스크롤 사진 연출·확대 뷰어·사이트별 에디터 제공."
       ]
+    },
+    {
+      "id": "food-oven-note",
+      "name": "OVEN NOTE / 38",
+      "category": "food",
+      "categoryLabel": "카페 · 베이커리",
+      "kind": "site",
+      "kindLabel": "완성 사이트",
+      "path": "food-cafe/oven-note/",
+      "thumbnail": "food-oven-note.jpg",
+      "summary": [
+        "코발트와 버터 옐로, 식품 사진과 메뉴판의 밝은 브랜드 디자인.",
+        "메뉴 분류·원재료 상세·굽는 시간 선택으로 구성한 9개 페이지.",
+        "빵·음료 조합 영수증·메모 복사·사이트별 에디터 제공."
+      ]
     }
   ]
 }

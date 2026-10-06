@@ -139,8 +139,7 @@
         "signature": "재료 분위기 선택 + 공간 상담 준비 요약",
         "sectionOrder": "hero, living-notes, project-archive, material-study, services, principles, process, brief-builder, faq"
       }
-    }
-    ,
+    },
     {
       "slug": "pro-labor-office",
       "variant": "workboard",
@@ -165,6 +164,32 @@
         "motion": "static grid + clear hover states",
         "signature": "상담 전 네 칸 업무 메모",
         "sectionOrder": "hero, workboard, process, first-check, contact"
+      }
+    },
+    {
+      "slug": "food-cafe",
+      "variant": "oven-note",
+      "name": "카페·베이커리",
+      "company": "오븐노트38(가상)",
+      "category": "food",
+      "level": "L1",
+      "status": "deployed",
+      "role": "flagship",
+      "type": "식탁형 · 선명한 색과 빵 사진, 메뉴판과 조합 영수증으로 동네의 온기를 전하는 베이커리",
+      "path": "templates/food-cafe/oven-note",
+      "url": "https://hongjaang-star.github.io/agency-web-templates/food-cafe/oven-note/",
+      "editor": "https://hongjaang-star.github.io/agency-web-templates/food-cafe/oven-note/editor/",
+      "pages": 9,
+      "library": "library/food-cafe/oven-note/README.md",
+      "fingerprint": {
+        "layout": "food-editorial-table",
+        "hero": "butter-yellow-statement-with-breakfast-photo",
+        "typePair": "Fraunces + IBM Plex Sans KR",
+        "palette": "cobalt · butter yellow · cream · coral",
+        "imageTreatment": "original AI sunlit food photography, arches and rectangular crops",
+        "motion": "subtle food zoom, native dialog, reduced-motion alternative",
+        "signature": "빵·음료 조합 영수증과 메모 복사",
+        "sectionOrder": "breakfast-hero, fresh-menu, bake-clock, hands-story, pairing-receipt, little-journal, shop-window, faq"
       }
     }
   ]

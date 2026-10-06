@@ -93,7 +93,10 @@
       "name": "카페·베이커리",
       "category": "food",
       "level": "L1",
-      "status": "wait"
+      "status": "done",
+      "variants": [
+        "oven-note"
+      ]
     },
     {
       "order": 6,
