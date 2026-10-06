@@ -140,5 +140,32 @@
         "sectionOrder": "hero, living-notes, project-archive, material-study, services, principles, process, brief-builder, faq"
       }
     }
+    ,
+    {
+      "slug": "pro-labor-office",
+      "variant": "workboard",
+      "name": "노무사무소",
+      "company": "사이노무사무소(가상)",
+      "category": "pro",
+      "level": "L1",
+      "status": "building",
+      "role": "flagship",
+      "type": "업무보드형 · 사건명보다 기한과 준비자료를 먼저 보여 주는 노무사무소",
+      "path": "templates/pro-labor-office/workboard",
+      "url": "https://hongjaang-star.github.io/agency-web-templates/pro-labor-office/workboard/",
+      "editor": "https://hongjaang-star.github.io/agency-web-templates/pro-labor-office/workboard/editor/",
+      "pages": 6,
+      "concept": "concepts/pro-labor-office/workboard",
+      "fingerprint": {
+        "layout": "data-workboard",
+        "hero": "deadline-metrics",
+        "typePair": "system sans bold + compact grotesk",
+        "palette": "deep teal·mint·signal coral",
+        "imageTreatment": "no photo, issue cards·deadline numerals",
+        "motion": "static grid + clear hover states",
+        "signature": "상담 전 네 칸 업무 메모",
+        "sectionOrder": "hero, workboard, process, first-check, contact"
+      }
+    }
   ]
 }

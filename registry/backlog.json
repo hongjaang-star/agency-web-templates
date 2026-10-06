@@ -54,7 +54,18 @@
       "name": "노무사무소",
       "category": "pro",
       "level": "L1",
-      "status": "wait"
+      "status": "building",
+      "concepts": [
+        "workboard",
+        "dialogue",
+        "fieldnote"
+      ],
+      "variants": [
+        "workboard"
+      ],
+      "targetVariants": 2,
+      "chosen": "workboard",
+      "chosenBy": "user"
     },
     {
       "order": 3,

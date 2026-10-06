@@ -1,0 +1,2 @@
+import Link from "next/link"; import { site } from "@/data/site";
+export default function Footer(){return <footer><div><b>{site.name}</b><p>{site.expert} · {site.address}</p><p>{site.tel} · {site.email}</p></div><div className="footLinks"><Link href="/services">업무영역</Link><Link href="/process">상담절차</Link><Link href="/contact">오시는 길</Link></div><small>본 사이트는 포트폴리오용 가상 업체 데모이며, 일반 정보는 개별 사건의 법률적 판단을 대신하지 않습니다.</small></footer>}

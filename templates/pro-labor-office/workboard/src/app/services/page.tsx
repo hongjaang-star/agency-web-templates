@@ -1,0 +1,3 @@
+import PageHero from "@/components/PageHero"; import { services } from "@/data/site"; import Link from "next/link";
+export const metadata={title:"업무영역"};
+export default function Services(){return <><PageHero eyebrow="PRACTICE AREAS" title="일의 문제를 여섯 개의 업무로 나눕니다." desc="상담 내용이 여러 영역에 걸쳐 있어도 괜찮습니다. 가장 급한 기한과 핵심 쟁점부터 분류합니다."/><section className="section serviceGrid full">{services.map(s=><article key={s.no}><div className="cardTop"><span>{s.type}</span><b>{s.no}</b></div><h2>{s.title}</h2><p>{s.desc}</p><mark>{s.tag}</mark></article>)}</section><section className="notice"><b>NOTICE</b><p>업무 가능 여부와 구체적인 비용은 이해관계 충돌 및 사실관계 확인 후 안내합니다. 홈페이지 내용만으로 결과를 단정하지 않습니다.</p><Link className="btn primary" href="/contact">내 상황 정리하기</Link></section></>}

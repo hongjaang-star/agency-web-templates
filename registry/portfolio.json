@@ -2,6 +2,21 @@
   "_doc": "대표 에이전시 홈페이지의 실제 배포 사이트·시안 목록. summary는 디자인 1줄 + 주요 기능 2줄. 썸네일은 실제 사이트 화면 캡처.",
   "items": [
     {
+      "id": "labor-workboard",
+      "name": "Workboard",
+      "category": "labor",
+      "categoryLabel": "노무 · 인사",
+      "kind": "site",
+      "kindLabel": "완성 사이트",
+      "path": "pro-labor-office/workboard/",
+      "thumbnail": "labor-workboard.jpg",
+      "summary": [
+        "딥 틸·민트와 큰 기한 숫자의 업무보드형 디자인.",
+        "인사노무·임금·해고·산재 등 6개 업무 안내.",
+        "상담 전 네 칸 메모·절차·노무자료·문의 제공."
+      ]
+    },
+    {
       "id": "tax-almanac",
       "name": "Almanac",
       "category": "tax",
