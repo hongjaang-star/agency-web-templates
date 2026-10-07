@@ -51,6 +51,19 @@ td.take{background:#f3f7f5}
 .src{font-size:14px;color:var(--sub)}
 .src li{overflow-wrap:anywhere}
 @media (max-width:640px){.wrap{padding:28px 16px 64px}th,td{padding:8px}}
+.ask fieldset{border:0;margin:14px 0 0;padding:0;display:grid;gap:8px}
+.ask legend{font-weight:600;margin-bottom:6px}
+.ask label.opt{display:flex;gap:10px;align-items:flex-start;background:#2b2b28;border:1px solid #444;border-radius:8px;padding:10px 12px;cursor:pointer}
+.ask label.opt:has(input:checked){border-color:#f0b9ab;background:#3a2622}
+.ask input[type=radio]{margin-top:5px;accent-color:#f0b9ab}
+.ask textarea{width:100%;min-height:96px;margin-top:6px;border-radius:8px;border:1px solid #555;background:#2b2b28;color:#fff;padding:10px;font:inherit}
+.ask .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.ask button{font:inherit;font-weight:700;border-radius:8px;padding:10px 18px;cursor:pointer;border:1px solid #f0b9ab}
+.ask button.primary{background:#f0b9ab;color:#1c1c1a}
+.ask button.ghost{background:transparent;color:#fff}
+.ask .help{font-size:14px;color:#cfcac0;margin:10px 0 0}
+.ask .status{font-size:14px;color:#f0b9ab;min-height:1.4em;margin:8px 0 0}
+.ask :focus-visible{outline:3px solid #f0b9ab;outline-offset:2px}
 </style>
 </head>
 <body>
@@ -59,6 +72,7 @@ td.take{background:#f3f7f5}
   <h1>사진·영상 스튜디오 레퍼런스 3곳<br>비교와 조합 제안</h1>
   <p class="lead">업종 <b>studio-photo</b>의 시안 3개를 만들기 전에 국내 스튜디오 사이트를 찾아 콘텐츠 참고 2곳과 디자인 추천 1곳을 골랐습니다. 아래 조합 중 하나를 고르시면 그 조합을 공통 입력으로 시안 3개를 만듭니다.</p>
 
+  <p><a href="#choice" style="font-weight:700;color:var(--pick)">바로 선택 제출하기 ↓</a></p>
   <div class="meta">
     <div><b>작성일</b>2026-10-07</div>
     <div><b>검색 범위</b>국내 (해외 대체 없음)</div>
@@ -178,14 +192,43 @@ td.take{background:#f3f7f5}
     </section>
   </div>
 
-  <h2>5. 선택 요청</h2>
-  <div class="ask">
-    <p style="margin:0">아래 두 가지를 알려 주세요.</p>
-    <ol>
-      <li>조합 1·2·3 중 어느 것으로 시안 3개를 만들지</li>
-      <li>더하거나 빼고 싶은 점 (예: "영상은 빼고 증명사진을 강조해 줘")</li>
-    </ol>
-  </div>
+  <h2>5. 선택 제출</h2>
+  <form class="ask" id="choice" data-slug="studio-photo" data-name="사진·영상 스튜디오" data-repo="hongjaang-star/agency-web-templates">
+    <p style="margin:0">조합을 고르고 제출해 주세요. 제출하면 이 선택으로 시안 3개를 만듭니다.</p>
+    <fieldset>
+      <legend>1. 어떤 조합으로 만들까요?</legend>
+        <label class="opt"><input type="radio" name="combo" value="1" checked><span><b>조합 1 · 추천</b> 고르고 바로 예약하는 프로필 스튜디오</span></label>
+        <label class="opt"><input type="radio" name="combo" value="2"><span><b>조합 2</b> 브랜드형 기록 사진관</span></label>
+        <label class="opt"><input type="radio" name="combo" value="3"><span><b>조합 3</b> 사진·영상 프로덕션</span></label>
+    </fieldset>
+    <label for="memo" style="display:block;margin-top:14px;font-weight:600">2. 더하거나 빼고 싶은 점 (선택)</label>
+    <textarea id="memo" name="memo" placeholder="예: 메뉴는 조합 1처럼, 첫 화면은 조합 2처럼"></textarea>
+    <div class="btns">
+      <button type="submit" class="primary">GitHub에 선택 제출</button>
+      <button type="button" class="ghost" id="copy">내용 복사</button>
+    </div>
+    <p class="help">버튼을 누르면 GitHub 새 이슈 화면이 내용이 채워진 채로 열립니다. 로그인된 상태에서 <b>Submit new issue</b>를 누르면 제출이 끝납니다. GitHub를 쓰기 어려우면 "내용 복사" 후 채팅에 붙여 넣어 주세요.</p>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </form>
+  <script>
+  (function(){
+    var f=document.getElementById('choice'), st=document.getElementById('status');
+    function text(){
+      var c=f.querySelector('input[name=combo]:checked'), label=c.parentNode.textContent.replace(/\s+/g,' ').trim(), memo=f.memo.value.trim();
+      return {title:'[조합 선택] '+f.dataset.slug+' · 조합 '+c.value,
+        body:'## 업종\n'+f.dataset.name+' (`'+f.dataset.slug+'`)\n\n## 선택한 조합\n'+label+'\n\n## 더하거나 뺄 점\n'+(memo||'없음')+'\n\n보고서: '+location.href.split('#')[0]};
+    }
+    f.addEventListener('submit',function(e){
+      e.preventDefault(); var t=text();
+      var url='https://github.com/'+f.dataset.repo+'/issues/new?labels=concept-choice&title='+encodeURIComponent(t.title)+'&body='+encodeURIComponent(t.body);
+      window.open(url,'_blank','noopener'); st.textContent='GitHub 새 이슈 화면을 열었습니다. Submit new issue 를 눌러 주세요.';
+    });
+    document.getElementById('copy').addEventListener('click',function(){
+      var t=text(), s=t.title+'\n\n'+t.body;
+      (navigator.clipboard?navigator.clipboard.writeText(s):Promise.reject()).then(function(){st.textContent='복사했습니다. 채팅에 붙여 넣어 주세요.';},function(){f.memo.value=s; f.memo.select(); st.textContent='메모 칸에 내용을 넣었습니다. 직접 복사해 주세요.';});
+    });
+  })();
+  </script>
 
   <h2>출처</h2>
   <ul class="src">
