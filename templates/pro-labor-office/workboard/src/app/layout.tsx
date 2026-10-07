@@ -1,3 +1,3 @@
-import type { Metadata } from "next"; import "./globals.css"; import Header from "@/components/Header"; import Footer from "@/components/Footer"; import { SITE_URL } from "@/lib/config";
+import type { Metadata } from "next"; import "./globals.css"; import "./enhancements.css"; import Header from "@/components/Header"; import Footer from "@/components/Footer"; import { SITE_URL } from "@/lib/config";
 export const metadata:Metadata={metadataBase:new URL(SITE_URL),title:{default:"사이노무사무소 | 일의 문제를 기한부터 정리합니다",template:"%s | 사이노무사무소"},description:"광주 노무 상담, 인사노무 자문, 임금·퇴직금, 해고·징계, 산재 관련 업무를 안내하는 가상 사무소 데모입니다."};
 export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="ko"><body><a className="skip" href="#main">본문 바로가기</a><Header/><main id="main">{children}</main><Footer/></body></html>}
