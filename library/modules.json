@@ -1079,6 +1079,162 @@
         "mobile": "food-cafe/oven-note/shots/footer-mobile.jpg"
       },
       "code": "food-cafe/oven-note/code/footer.html"
+    },
+    {
+      "id": "header",
+      "kind": "header",
+      "label": "헤더 (견적 담은 수 배지, 모바일 가로 메뉴)",
+      "page": "/",
+      "source": "src/components/Header.tsx",
+      "site": "biz-manufacturing/fieldmap",
+      "shots": {
+        "desktop": "biz-manufacturing/fieldmap/shots/header-desktop.jpg",
+        "mobile": "biz-manufacturing/fieldmap/shots/header-mobile.jpg"
+      },
+      "code": "biz-manufacturing/fieldmap/code/header.html"
+    },
+    {
+      "id": "home-hero",
+      "kind": "hero",
+      "label": "분야 고르기 히어로 (타일 7개)",
+      "page": "/",
+      "source": "src/app/page.tsx",
+      "site": "biz-manufacturing/fieldmap",
+      "shots": {
+        "desktop": "biz-manufacturing/fieldmap/shots/home-hero-desktop.jpg",
+        "mobile": "biz-manufacturing/fieldmap/shots/home-hero-mobile.jpg"
+      },
+      "code": "biz-manufacturing/fieldmap/code/home-hero.html"
+    },
+    {
+      "id": "home-categories",
+      "kind": "services",
+      "label": "카테고리 4칸 띠",
+      "page": "/",
+      "source": "src/app/page.tsx",
+      "site": "biz-manufacturing/fieldmap",
+      "shots": {
+        "desktop": "biz-manufacturing/fieldmap/shots/home-categories-desktop.jpg",
+        "mobile": "biz-manufacturing/fieldmap/shots/home-categories-mobile.jpg"
+      },
+      "code": "biz-manufacturing/fieldmap/code/home-categories.html"
+    },
+    {
+      "id": "product-card",
+      "kind": "cards",
+      "label": "제품 카드 (선화 + 이미지 설명 + 사양 + 견적 담기)",
+      "page": "/",
+      "source": "src/components/ProductCard.tsx",
+      "site": "biz-manufacturing/fieldmap",
+      "shots": {
+        "desktop": "biz-manufacturing/fieldmap/shots/product-card-desktop.jpg",
+        "mobile": "biz-manufacturing/fieldmap/shots/product-card-mobile.jpg"
+      },
+      "code": "biz-manufacturing/fieldmap/code/product-card.html"
+    },
+    {
+      "id": "home-numbers",
+      "kind": "stats",
+      "label": "설비 수치 4칸",
+      "page": "/",
+      "source": "src/app/page.tsx",
+      "site": "biz-manufacturing/fieldmap",
+      "shots": {
+        "desktop": "biz-manufacturing/fieldmap/shots/home-numbers-desktop.jpg",
+        "mobile": "biz-manufacturing/fieldmap/shots/home-numbers-mobile.jpg"
+      },
+      "code": "biz-manufacturing/fieldmap/code/home-numbers.html"
+    },
+    {
+      "id": "home-cta",
+      "kind": "cta",
+      "label": "견적 CTA 띠",
+      "page": "/",
+      "source": "src/app/page.tsx",
+      "site": "biz-manufacturing/fieldmap",
+      "shots": {
+        "desktop": "biz-manufacturing/fieldmap/shots/home-cta-desktop.jpg",
+        "mobile": "biz-manufacturing/fieldmap/shots/home-cta-mobile.jpg"
+      },
+      "code": "biz-manufacturing/fieldmap/code/home-cta.html"
+    },
+    {
+      "id": "finder",
+      "kind": "signature",
+      "label": "제품 찾기 (분야 × 카테고리 필터)",
+      "page": "/products/",
+      "source": "src/components/Finder.tsx",
+      "site": "biz-manufacturing/fieldmap",
+      "shots": {
+        "desktop": "biz-manufacturing/fieldmap/shots/finder-desktop.jpg",
+        "mobile": "biz-manufacturing/fieldmap/shots/finder-mobile.jpg"
+      },
+      "code": "biz-manufacturing/fieldmap/code/finder.html"
+    },
+    {
+      "id": "product-detail",
+      "kind": "detail",
+      "label": "제품 상세 (고정 그림 + 사양표)",
+      "page": "/products/HB-310/",
+      "source": "src/app/products/[id]/page.tsx",
+      "site": "biz-manufacturing/fieldmap",
+      "shots": {
+        "desktop": "biz-manufacturing/fieldmap/shots/product-detail-desktop.jpg",
+        "mobile": "biz-manufacturing/fieldmap/shots/product-detail-mobile.jpg"
+      },
+      "code": "biz-manufacturing/fieldmap/code/product-detail.html"
+    },
+    {
+      "id": "app-list",
+      "kind": "list",
+      "label": "적용 분야 번호 목록",
+      "page": "/applications/",
+      "source": "src/app/applications/page.tsx",
+      "site": "biz-manufacturing/fieldmap",
+      "shots": {
+        "desktop": "biz-manufacturing/fieldmap/shots/app-list-desktop.jpg",
+        "mobile": "biz-manufacturing/fieldmap/shots/app-list-mobile.jpg"
+      },
+      "code": "biz-manufacturing/fieldmap/code/app-list.html"
+    },
+    {
+      "id": "steps",
+      "kind": "process",
+      "label": "공정 6단계",
+      "page": "/capability/",
+      "source": "src/app/capability/page.tsx",
+      "site": "biz-manufacturing/fieldmap",
+      "shots": {
+        "desktop": "biz-manufacturing/fieldmap/shots/steps-desktop.jpg",
+        "mobile": "biz-manufacturing/fieldmap/shots/steps-mobile.jpg"
+      },
+      "code": "biz-manufacturing/fieldmap/code/steps.html"
+    },
+    {
+      "id": "quote-form",
+      "kind": "form",
+      "label": "견적 요청 체크리스트",
+      "page": "/quote/",
+      "source": "src/components/QuoteForm.tsx",
+      "site": "biz-manufacturing/fieldmap",
+      "shots": {
+        "desktop": "biz-manufacturing/fieldmap/shots/quote-form-desktop.jpg",
+        "mobile": "biz-manufacturing/fieldmap/shots/quote-form-mobile.jpg"
+      },
+      "code": "biz-manufacturing/fieldmap/code/quote-form.html"
+    },
+    {
+      "id": "footer",
+      "kind": "footer",
+      "label": "푸터 3단",
+      "page": "/",
+      "source": "src/components/Footer.tsx",
+      "site": "biz-manufacturing/fieldmap",
+      "shots": {
+        "desktop": "biz-manufacturing/fieldmap/shots/footer-desktop.jpg",
+        "mobile": "biz-manufacturing/fieldmap/shots/footer-mobile.jpg"
+      },
+      "code": "biz-manufacturing/fieldmap/code/footer.html"
     }
   ]
 }
