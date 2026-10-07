@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>세로결정밀 · 분야와 제품을 한 장의 표로 (시안 C)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root{--paper:#f3efe6;--card:#fbf9f4;--ink:#2b2a28;--muted:#6f6a60;--rule:#d8d0bf;--rust:#b5482a;--rust-soft:#f1d9cf}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 "Noto Sans KR",system-ui,sans-serif;word-break:keep-all}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--rust);outline-offset:2px}
+.serif{font-family:"Gowun Batang",serif}
+.demo{border-bottom:1px solid var(--rule);font-size:12px;text-align:center;padding:6px;color:var(--muted)}
+header{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:baseline;padding:22px clamp(16px,4vw,56px);border-bottom:2px solid var(--ink)}
+.logo{font:700 24px "Gowun Batang",serif;text-decoration:none}
+header nav{display:flex;gap:20px;justify-content:center;font-size:14px}
+header nav a{text-decoration:none}
+.tel{font-size:14px;color:var(--muted)}
+.hero{display:grid;grid-template-columns:minmax(260px,.8fr) 2fr;gap:clamp(20px,4vw,56px);padding:clamp(32px,5vw,64px) clamp(16px,4vw,56px)}
+.hero h1{font:700 clamp(32px,4.4vw,58px)/1.18 "Gowun Batang",serif;margin:0 0 16px;letter-spacing:-.02em}
+.hero p{color:var(--muted);margin:0 0 16px}
+.legend{font-size:13px;color:var(--muted);border-top:1px solid var(--rule);padding-top:12px}
+.legend b{color:var(--rust)}
+.mx{width:100%;border-collapse:collapse;background:var(--card);font-size:14px}
+.mx caption{text-align:left;font-size:13px;color:var(--muted);padding-bottom:8px}
+.mx th,.mx td{border:1px solid var(--rule);padding:0}
+.mx thead th{font-weight:700;padding:10px 8px;text-align:center;background:var(--paper);font-size:13px}
+.mx thead th small{display:block;font-weight:400;color:var(--muted);font-size:11px}
+.mx tbody th{text-align:left;padding:10px 12px;font-weight:500;white-space:nowrap}
+.mx td button{display:block;width:100%;height:100%;min-height:52px;font:700 20px "Gowun Batang",serif;background:none;border:0;cursor:pointer;color:var(--ink)}
+.mx td button[disabled]{color:var(--rule);cursor:default;font-weight:400}
+.mx td button:not([disabled]):hover{background:var(--rust-soft)}
+.mx td button[aria-pressed=true]{background:var(--rust);color:#fff}
+.picked{padding:0 clamp(16px,4vw,56px) clamp(40px,6vw,72px)}
+.bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:20px}
+.bar h2{font:700 clamp(22px,3vw,32px) "Gowun Batang",serif;margin:0}
+.bar button{font:inherit;font-size:14px;background:none;border:1px solid var(--ink);border-radius:99px;padding:6px 14px;cursor:pointer}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.item{background:var(--card);border:1px solid var(--rule);display:flex;flex-direction:column}
+.item figure{margin:0;border-bottom:1px solid var(--rule)}
+.item svg{display:block;width:100%;height:150px;background:repeating-linear-gradient(0deg,transparent 0 19px,#ece6d8 19px 20px)}
+.item figcaption{font-size:13px;color:var(--muted);padding:10px 14px}
+.item figcaption b{color:var(--ink)}
+.item .t{padding:14px;flex:1;display:flex;flex-direction:column;gap:6px}
+.item .no{font-size:12px;letter-spacing:.08em;color:var(--rust);font-weight:700}
+.item h3{font:700 19px "Gowun Batang",serif;margin:0}
+.item ul{margin:0;padding:0;list-style:none;font-size:14px;color:var(--muted)}
+.item label{margin-top:auto;font-size:14px;display:flex;gap:8px;align-items:center;cursor:pointer;padding-top:8px;border-top:1px dashed var(--rule)}
+.item input{accent-color:var(--rust);width:18px;height:18px}
+.compare{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px);background:var(--card);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.compare table{width:100%;border-collapse:collapse;font-size:14px}
+.compare th,.compare td{border-bottom:1px solid var(--rule);padding:10px;text-align:left;vertical-align:top}
+.compare thead th{font:700 18px "Gowun Batang",serif;border-bottom:2px solid var(--ink)}
+.compare .hint{color:var(--muted)}
+.about{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px)}
+.about div{padding:0 20px;border-left:1px solid var(--rule)}
+.about div:first-child{border-left:0;padding-left:0}
+.about b{font:700 40px/1 "Gowun Batang",serif;color:var(--rust);display:block;margin-bottom:8px}
+.about span{font-size:14px;color:var(--muted)}
+.quote{padding:clamp(40px,6vw,72px) clamp(16px,4vw,56px);border-top:2px solid var(--ink)}
+.quote h2{font:700 clamp(22px,3vw,32px) "Gowun Batang",serif;margin:0 0 6px}
+.quote ol{padding-left:20px;color:var(--muted)}
+.quote ol b{color:var(--ink)}
+.quote a.btn{display:inline-block;background:var(--rust);color:#fff;text-decoration:none;padding:12px 22px;font-weight:700}
+footer{padding:22px clamp(16px,4vw,56px);font-size:13px;color:var(--muted);border-top:1px solid var(--rule)}
+.tablewrap{overflow-x:auto}
+@media (max-width:900px){.hero{grid-template-columns:1fr}header{grid-template-columns:1fr auto}header nav{display:none}.about{grid-template-columns:1fr;gap:20px}.about div{border-left:0;padding:0}}
+</style>
+</head>
+<body>
+<div class="demo">가상 업체 데모 · 시안 C · matrix</div>
+<header><a class="logo" href="#">세로결정밀</a><nav aria-label="주요 메뉴"><a href="#matrix">분야×제품</a><a href="#compare">사양 비교</a><a href="#about">회사</a><a href="#quote">견적</a></nav><span class="tel">견적 문의 000-0000-0000</span></header>
+<main>
+  <section class="hero" id="matrix">
+    <div>
+      <h1>분야와 제품을<br>한 장의 표로.</h1>
+      <p>가로는 제품 종류, 세로는 쓰시는 분야입니다. 숫자는 그 칸에 맞는 등록 모델 수입니다. 칸을 누르면 아래에 모델이 펼쳐집니다.</p>
+      <p class="legend"><b>■</b> 선택한 칸 · 빈칸(–)은 등록 모델이 없는 조합이며, 도면을 보내 주시면 주문 제작을 검토합니다.</p>
+    </div>
+    <div class="tablewrap"><table class="mx" id="mx"><caption>적용 분야별 · 제품 종류별 등록 모델 수</caption><thead></thead><tbody></tbody></table></div>
+  </section>
+
+  <section class="picked" aria-live="polite">
+    <div class="bar"><h2 id="pickTitle"></h2><button type="button" id="showAll">전체 모델 보기</button></div>
+    <div class="list" id="list"></div>
+  </section>
+
+  <section class="compare" id="compare">
+    <div class="bar"><h2>사양 비교</h2><span class="hint">모델 카드에서 "비교에 넣기"를 두 개까지 고르세요</span></div>
+    <div class="tablewrap" id="cmp"></div>
+  </section>
+
+  <section class="about" id="about">
+    <div><b>1998</b><span>압출·가공 시작 (가상 연혁)</span></div>
+    <div><b>±0.02mm</b><span>정밀 가공 브래킷 공차 기준</span></div>
+    <div><b>ISO 9001 형식</b><span>품질경영 인증 표기 예시 (실제 인증 아님)</span></div>
+  </section>
+
+  <section class="quote" id="quote">
+    <h2>견적은 세 가지만 알려 주세요</h2>
+    <ol>
+      <li><b>표의 칸</b> · 어느 분야에 어떤 제품이 필요한지</li>
+      <li><b>수량과 납기</b> · 월 예상 수량, 첫 납품 희망일</li>
+      <li><b>도면 또는 샘플</b> · STEP/PDF 도면, 없으면 기존 샘플</li>
+    </ol>
+    <a class="btn" href="#quote">견적 요청서 작성 (데모)</a>
+  </section>
+</main>
+<footer>세로결정밀(가상) · 가상 업체 데모입니다. 제품·연혁·인증·수치는 예시입니다.</footer>
+
+<!--
+  제품 데이터 등록 방법
+  아래 product-data 블록이 화면의 원본입니다. 코드 수정 없이 이 JSON만 고치면 됩니다.
+  표의 칸 수와 숫자도 이 데이터에서 자동으로 계산됩니다.
+  - categories: 제품 카테고리 (id, name, en, desc)
+  - applications: 적용 분야 (id, name, note)
+  - products: 제품 (id 품번, name, category = 카테고리 id, apps = 적용 분야 id 목록,
+              spec = 사양 이름:값, moq 최소 주문, lead 납기, image = 가상 제품 이미지 설명)
+-->
+<script type="application/json" id="product-data">{
+ "company": "세로결정밀",
+ "categories": [
+  {
+   "id": "heatsink",
+   "name": "방열판",
+   "en": "Heat Sink",
+   "desc": "핀 간격과 두께를 용도에 맞춰 압출·가공한 방열 부품"
+  },
+  {
+   "id": "profile",
+   "name": "압출 프로파일",
+   "en": "Extrusion Profile",
+   "desc": "장비 프레임과 레일에 쓰는 표준·주문형 단면"
+  },
+  {
+   "id": "housing",
+   "name": "하우징·케이스",
+   "en": "Housing",
+   "desc": "전장품·센서를 감싸는 밀폐형 알루미늄 케이스"
+  },
+  {
+   "id": "bracket",
+   "name": "정밀 가공 브래킷",
+   "en": "Machined Bracket",
+   "desc": "CNC로 깎아 만든 고정·지지 부품"
+  }
+ ],
+ "applications": [
+  {
+   "id": "ev",
+   "name": "전기차 배터리",
+   "note": "셀 냉각, 모듈 고정"
+  },
+  {
+   "id": "semi",
+   "name": "반도체 장비",
+   "note": "진공 챔버 주변 프레임"
+  },
+  {
+   "id": "led",
+   "name": "LED 조명",
+   "note": "고출력 조명 방열"
+  },
+  {
+   "id": "robot",
+   "name": "로봇·자동화",
+   "note": "리니어 레일, 관절 브래킷"
+  },
+  {
+   "id": "telecom",
+   "name": "통신 장비",
+   "note": "옥외 기지국 함체"
+  },
+  {
+   "id": "medical",
+   "name": "의료기기",
+   "note": "영상 장비 내부 구조물"
+  }
+ ],
+ "products": [
+  {
+   "id": "SH-120",
+   "name": "스카이빙 방열판 SH-120",
+   "category": "heatsink",
+   "apps": [
+    "led",
+    "telecom"
+   ],
+   "spec": {
+    "재질": "A6063-T5",
+    "핀 두께": "0.4mm",
+    "크기": "120×80×35mm",
+    "표면": "흑색 아노다이징"
+   },
+   "moq": "300개",
+   "lead": "3주",
+   "image": "검은색 아노다이징 방열판을 45도 위에서 내려다본 사진. 얇은 핀 52장이 빗살처럼 서 있고, 핀 끝에 측면 조명이 닿아 은색 결이 드러난다."
+  },
+  {
+   "id": "CP-200",
+   "name": "수랭 콜드플레이트 CP-200",
+   "category": "heatsink",
+   "apps": [
+    "ev",
+    "semi"
+   ],
+   "spec": {
+    "재질": "A3003 + 마찰교반접합",
+    "유로": "S자 2패스",
+    "크기": "200×150×12mm",
+    "기밀": "헬륨 누설 시험"
+   },
+   "moq": "100개",
+   "lead": "5주",
+   "image": "무광 은색 판 두 장을 겹친 콜드플레이트를 반쯤 뒤집어 세운 사진. 뒷면에 S자 냉각수 유로가 음각으로 보이고, 입·출구 니플 두 개가 앞으로 나와 있다."
+  },
+  {
+   "id": "RX-4040",
+   "name": "T슬롯 프로파일 RX-4040",
+   "category": "profile",
+   "apps": [
+    "robot",
+    "semi",
+    "medical"
+   ],
+   "spec": {
+    "재질": "A6063-T5",
+    "단면": "40×40mm, 8mm 슬롯",
+    "길이": "최대 6,000mm 절단",
+    "표면": "투명 아노다이징"
+   },
+   "moq": "50m",
+   "lead": "1주",
+   "image": "길이가 다른 프로파일 세 개를 계단처럼 세워 단면이 정면을 향하게 찍은 사진. 십자형 슬롯과 가운데 구멍이 그림자로 또렷하다."
+  },
+  {
+   "id": "LR-15",
+   "name": "리니어 레일 베이스 LR-15",
+   "category": "profile",
+   "apps": [
+    "robot"
+   ],
+   "spec": {
+    "재질": "A6061-T6",
+    "평면도": "0.05mm/m",
+    "길이": "300~3,000mm",
+    "가공": "레일 장착면 연삭"
+   },
+   "moq": "20개",
+   "lead": "3주",
+   "image": "긴 알루미늄 레일 베이스를 작업대 위에 비스듬히 놓은 사진. 연삭한 상면이 거울처럼 천장 조명을 비추고, 측면에 볼트 구멍이 일정 간격으로 나 있다."
+  },
+  {
+   "id": "HB-310",
+   "name": "배터리 모듈 하우징 HB-310",
+   "category": "housing",
+   "apps": [
+    "ev"
+   ],
+   "spec": {
+    "재질": "A6061-T6",
+    "방수": "IP67 (시험 조건 예시)",
+    "크기": "310×220×90mm",
+    "표면": "회색 분체도장"
+   },
+   "moq": "200개",
+   "lead": "6주",
+   "image": "회색 상자형 하우징의 뚜껑을 반쯤 열어 내부 격벽이 보이게 찍은 사진. 가장자리 가스켓 홈과 모서리 볼트 자리가 함께 보인다."
+  },
+  {
+   "id": "OT-500",
+   "name": "옥외 통신 함체 OT-500",
+   "category": "housing",
+   "apps": [
+    "telecom"
+   ],
+   "spec": {
+    "재질": "ADC12 다이캐스팅 + 가공",
+    "방수": "IP66 (시험 조건 예시)",
+    "크기": "500×360×140mm",
+    "표면": "백색 내후 도장"
+   },
+   "moq": "100개",
+   "lead": "8주",
+   "image": "흰색 통신 함체를 정면에서 찍은 사진. 바깥면에 방열 리브가 세로로 촘촘하고, 아래쪽에 케이블 글랜드 네 개가 한 줄로 달려 있다."
+  },
+  {
+   "id": "BK-07",
+   "name": "로봇 관절 브래킷 BK-07",
+   "category": "bracket",
+   "apps": [
+    "robot",
+    "medical"
+   ],
+   "spec": {
+    "재질": "A7075-T6",
+    "공차": "±0.02mm",
+    "크기": "86×64×22mm",
+    "표면": "경질 아노다이징"
+   },
+   "moq": "50개",
+   "lead": "2주",
+   "image": "짙은 회색 L자 브래킷을 손바닥 위에 올려 크기를 보여 주는 사진. 베어링 자리와 탭 구멍의 가공면이 밝게 반짝인다."
+  },
+  {
+   "id": "SM-3",
+   "name": "챔버 센서 마운트 SM-3",
+   "category": "bracket",
+   "apps": [
+    "semi"
+   ],
+   "spec": {
+    "재질": "A5052",
+    "공차": "±0.03mm",
+    "크기": "48×48×30mm",
+    "세척": "초음파 세척·진공 포장"
+   },
+   "moq": "30개",
+   "lead": "2주",
+   "image": "작은 사각 마운트 세 개를 진공 포장 봉투 옆에 나란히 놓은 사진. 가공면이 매끈하고 봉투에 품번 라벨이 붙어 있다."
+  }
+ ]
+}</script>
+<script>
+(function(){
+  var DATA=JSON.parse(document.getElementById('product-data').textContent);
+  function drawing(cat, stroke){
+    var s='fill="none" stroke="'+stroke+'" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"';
+    var d={
+      heatsink:'<path '+s+' d="M20 120 L100 150 L180 120 L100 90 Z"/><path '+s+' d="M20 120 v10 L100 160 L180 130 v-10"/>'+[0,1,2,3,4,5,6,7].map(function(i){var x=34+i*18,y=114-i*0;return '<path '+s+' d="M'+(x)+' '+(125-i*2.3)+' v-60 l14 -5 v60"/>'}).join(''),
+      profile:'<rect '+s+' x="50" y="40" width="100" height="100" rx="6"/><path '+s+' d="M88 40 v14 h-8 v10 h40 v-10 h-8 v-14 M88 140 v-14 h-8 v-10 h40 v10 h-8 v14 M50 88 h14 v-8 h10 v40 h-10 v-8 h-14 M150 88 h-14 v-8 h-10 v40 h10 v-8 h14"/><circle '+s+' cx="100" cy="90" r="9"/>',
+      housing:'<path '+s+' d="M30 80 L100 52 L170 80 L100 108 Z"/><path '+s+' d="M30 80 v54 L100 162 L170 134 v-54 M100 108 v54"/><path '+s+' d="M30 70 L100 42 L170 70" stroke-dasharray="5 6"/><circle '+s+' cx="58" cy="118" r="4"/><circle '+s+' cx="142" cy="118" r="4"/>',
+      bracket:'<path '+s+' d="M40 60 h40 v70 h80 v30 h-120 Z"/><path '+s+' d="M40 60 l14 -10 h40 l-14 10 M80 60 l14 -10 v70 M160 130 l14 -10 v30 l-14 10 M94 120 h80"/><circle '+s+' cx="60" cy="95" r="7"/><circle '+s+' cx="120" cy="145" r="5"/><circle '+s+' cx="145" cy="145" r="5"/>'
+    };
+    return '<svg viewBox="0 0 200 190" role="img" aria-hidden="true">'+(d[cat]||'')+'</svg>';
+  }
+
+  var cat={},app={};DATA.categories.forEach(function(c){cat[c.id]=c});DATA.applications.forEach(function(a){app[a.id]=a});
+  var sel=null,cmp=[];
+  var mx=document.getElementById('mx');
+  mx.tHead.innerHTML='<tr><th scope="col">분야 \\ 제품</th>'+DATA.categories.map(function(c){return '<th scope="col">'+c.name+'<small>'+c.en+'</small></th>'}).join('')+'</tr>';
+  mx.tBodies[0].innerHTML=DATA.applications.map(function(a){
+    return '<tr><th scope="row">'+a.name+'</th>'+DATA.categories.map(function(c){
+      var n=DATA.products.filter(function(p){return p.category===c.id&&p.apps.indexOf(a.id)>-1}).length;
+      return '<td><button type="button" data-a="'+a.id+'" data-c="'+c.id+'" aria-label="'+a.name+' '+c.name+' '+n+'개"'+(n?'':' disabled')+'>'+(n||'–')+'</button></td>'}).join('')+'</tr>'}).join('');
+  mx.addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled)return;sel={a:b.dataset.a,c:b.dataset.c};render()});
+  document.getElementById('showAll').onclick=function(){sel=null;render()};
+  function render(){
+    [].forEach.call(mx.querySelectorAll('td button'),function(b){b.setAttribute('aria-pressed',String(!!sel&&b.dataset.a===sel.a&&b.dataset.c===sel.c))});
+    var list=DATA.products.filter(function(p){return !sel||(p.category===sel.c&&p.apps.indexOf(sel.a)>-1)});
+    document.getElementById('pickTitle').textContent=sel?app[sel.a].name+' × '+cat[sel.c].name+' · '+list.length+'개 모델':'전체 모델 · '+list.length+'개';
+    document.getElementById('list').innerHTML=list.map(function(p){
+      var keys=Object.keys(p.spec).slice(0,3);
+      return '<article class="item"><figure>'+drawing(p.category,'#2b2a28')+'<figcaption><b>이미지 설명</b> '+p.image+'</figcaption></figure><div class="t"><span class="no">'+p.id+' · '+cat[p.category].name+'</span><h3>'+p.name+'</h3><ul>'+keys.map(function(k){return '<li>'+k+' · '+p.spec[k]+'</li>'}).join('')+'<li>최소 주문 '+p.moq+' · 납기 '+p.lead+'</li></ul><label><input type="checkbox" data-id="'+p.id+'"'+(cmp.indexOf(p.id)>-1?' checked':'')+'>비교에 넣기</label></div></article>'}).join('');
+    renderCmp();
+  }
+  document.getElementById('list').addEventListener('change',function(e){var id=e.target.dataset.id;if(!id)return;
+    if(e.target.checked){cmp.push(id);if(cmp.length>2)cmp.shift()}else{cmp=cmp.filter(function(x){return x!==id})}render()});
+  function renderCmp(){
+    var ps=cmp.map(function(id){return DATA.products.filter(function(p){return p.id===id})[0]});
+    var box=document.getElementById('cmp');
+    if(!ps.length){box.innerHTML='<p class="hint">아직 고른 모델이 없습니다.</p>';return}
+    var keys=[];ps.forEach(function(p){Object.keys(p.spec).forEach(function(k){if(keys.indexOf(k)<0)keys.push(k)})});
+    box.innerHTML='<table><thead><tr><th scope="col">항목</th>'+ps.map(function(p){return '<th scope="col">'+p.name+'</th>'}).join('')+'</tr></thead><tbody>'+
+      keys.map(function(k){return '<tr><th scope="row">'+k+'</th>'+ps.map(function(p){return '<td>'+(p.spec[k]||'–')+'</td>'}).join('')+'</tr>'}).join('')+
+      '<tr><th scope="row">적용 분야</th>'+ps.map(function(p){return '<td>'+p.apps.map(function(a){return app[a].name}).join(', ')+'</td>'}).join('')+'</tr>'+
+      '<tr><th scope="row">최소 주문 · 납기</th>'+ps.map(function(p){return '<td>'+p.moq+' · '+p.lead+'</td>'}).join('')+'</tr></tbody></table>';
+  }
+  render();
+})();
+</script>
+</body>
+</html>

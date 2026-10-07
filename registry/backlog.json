@@ -116,8 +116,14 @@
       "name": "중소 제조·B2B",
       "category": "biz",
       "level": "L1",
-      "status": "research",
-      "research": "concepts/biz-manufacturing/research/"
+      "status": "concepts",
+      "research": "concepts/biz-manufacturing/research/",
+      "concepts": [
+        "fieldmap",
+        "isoline",
+        "matrix"
+      ],
+      "choice": "https://github.com/hongjaang-star/agency-web-templates/issues/30"
     },
     {
       "order": 8,
