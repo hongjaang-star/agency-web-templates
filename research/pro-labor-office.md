@@ -19,3 +19,14 @@
 - 기존 `trust`의 swiss-grid/split-media, `almanac`의 editorial/statement, `docket`의 typographic/ticker 조합을 사용하지 않는다.
 - 세 시안은 layout·hero·typePair·palette를 서로 다르게 하고, 전문직의 권위보다 판단의 순서와 준비 과정을 앞세운다.
 
+## 국내 레퍼런스와 적용 결정 (2026-10-08)
+
+- 콘텐츠 — 노무법인 바로: https://www.barolabor.kr/
+  - 근로자·사업주 진입 구분, 상담 방식과 전환 흐름을 참고한다.
+- 콘텐츠 — 노무법인 인본: https://hrinbon.co.kr/
+  - 업무분야·공지·실무자료·온라인 상담의 정보 구조를 참고한다.
+- 디자인 — 재명노무사사무소: https://jmnomusa.com/
+  - 큰 문장, 숫자, 영문 라벨을 이용한 편집형 리듬과 구체적인 브랜드 관점을 참고한다.
+
+실제 업체의 문구와 화면을 복제하지 않는다. Workboard의 딥 틸·민트, 기한 숫자, 업무보드 구조는 유지하면서 사업주/근로자 입구, 자료 분류, 상담 방식, 대형 관점 문장으로 재해석한다.
+
