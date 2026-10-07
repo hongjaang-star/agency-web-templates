@@ -85,8 +85,8 @@
       "name": "건축·설계사무소",
       "category": "space",
       "level": "L1",
-      "status": "research",
-      "research": "concepts/space-architecture/research/"
+      "status": "hold",
+      "note": "2026-10-07 사용자: 이미 보유한 사례가 있어 보류"
     },
     {
       "order": 5,
@@ -105,7 +105,8 @@
       "name": "사진·영상 스튜디오",
       "category": "studio",
       "level": "L1",
-      "status": "wait"
+      "status": "research",
+      "research": "concepts/studio-photo/research/"
     },
     {
       "order": 7,
