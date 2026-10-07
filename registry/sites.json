@@ -191,6 +191,33 @@
         "signature": "빵·음료 조합 영수증과 메모 복사",
         "sectionOrder": "breakfast-hero, fresh-menu, bake-clock, hands-story, pairing-receipt, little-journal, shop-window, faq"
       }
+    },
+    {
+      "slug": "biz-manufacturing",
+      "variant": "fieldmap",
+      "name": "중소 제조·B2B",
+      "company": "세로결정밀(가상)",
+      "category": "biz",
+      "level": "L1",
+      "status": "deployed",
+      "role": "flagship",
+      "type": "분야 탐색형 · 구매 담당자가 '어디에 쓰는가'로 부품을 찾고 여러 모델을 한 번에 견적 요청하는 알루미늄 부품 제조사",
+      "path": "templates/biz-manufacturing/fieldmap",
+      "url": "https://hongjaang-star.github.io/agency-web-templates/biz-manufacturing/fieldmap/",
+      "editor": "https://hongjaang-star.github.io/agency-web-templates/biz-manufacturing/fieldmap/editor/",
+      "pages": 20,
+      "library": "library/biz-manufacturing/fieldmap/README.md",
+      "concept": "concepts/biz-manufacturing/fieldmap",
+      "fingerprint": {
+        "layout": "split",
+        "hero": "interactive",
+        "typePair": "IBM Plex Sans KR + IBM Plex Mono",
+        "palette": "graphite · aluminum · safety orange",
+        "imageTreatment": "category line drawings with virtual product image descriptions",
+        "motion": "none (instant filter, reduced-motion safe)",
+        "signature": "적용 분야 × 카테고리 제품 찾기와 견적 담기",
+        "sectionOrder": "application-picker, categories, featured-products, capability-numbers, certs-sectors, quote-cta"
+      }
     }
   ]
 }

@@ -152,6 +152,21 @@
       ]
     },
     {
+      "id": "manufacturing-fieldmap",
+      "name": "세로결정밀 · fieldmap",
+      "category": "manufacturing",
+      "categoryLabel": "제조 · B2B",
+      "kind": "site",
+      "kindLabel": "완성 사이트",
+      "path": "biz-manufacturing/fieldmap/",
+      "thumbnail": "manufacturing-fieldmap.jpg",
+      "summary": [
+        "흑연·알루미늄 바탕에 안전 주황, 품번·사양은 고정폭 숫자로 정리한 부품 제조사.",
+        "적용 분야 6종 × 카테고리 4종으로 모델을 걸러 보고 선화·이미지 설명·사양 확인.",
+        "여러 모델을 견적에 담아 용도·수량·납기·도면 체크리스트로 요청 내용 정리."
+      ]
+    },
+    {
       "id": "concept-ember-claw",
       "name": "Ember & Claw",
       "category": "food",
