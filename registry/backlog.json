@@ -1,5 +1,5 @@
 {
-  "_doc": "1항목 = 1업종. status: wait | concepts | building | done | hold. variants: 만든 변형, targetVariants: 목표 변형 수(기본 2). 변형 추가는 /concepts <slug>",
+  "_doc": "1항목 = 1업종. status: wait | research | concepts | building | done | hold. variants: 만든 변형, targetVariants: 목표 변형 수(기본 2). 변형 추가는 /concepts <slug>",
   "items": [
     {
       "order": 0,
@@ -85,7 +85,8 @@
       "name": "건축·설계사무소",
       "category": "space",
       "level": "L1",
-      "status": "wait"
+      "status": "research",
+      "research": "concepts/space-architecture/research/"
     },
     {
       "order": 5,
@@ -104,7 +105,8 @@
       "name": "사진·영상 스튜디오",
       "category": "studio",
       "level": "L1",
-      "status": "wait"
+      "status": "research",
+      "research": "concepts/studio-photo/research/"
     },
     {
       "order": 7,
