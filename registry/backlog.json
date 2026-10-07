@@ -85,8 +85,8 @@
       "name": "건축·설계사무소",
       "category": "space",
       "level": "L1",
-      "status": "hold",
-      "note": "2026-10-07 사용자: 이미 보유한 사례가 있어 보류"
+      "status": "research",
+      "research": "concepts/space-architecture/research/"
     },
     {
       "order": 5,
