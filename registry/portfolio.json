@@ -167,6 +167,21 @@
       ]
     },
     {
+      "id": "manufacturing-isoline",
+      "name": "세로결정밀 · isoline",
+      "category": "manufacturing",
+      "categoryLabel": "제조 · B2B",
+      "kind": "site",
+      "kindLabel": "완성 사이트",
+      "path": "biz-manufacturing/isoline/",
+      "thumbnail": "manufacturing-isoline.jpg",
+      "summary": [
+        "짙은 숲빛 검정에 연두 선, 등각 선화와 도면 표제란으로 보여 주는 부품 제조사.",
+        "하우징 분해 선화 히어로, 외곽선 글자 분야 링으로 부품 도면을 한 장씩 펼침.",
+        "공정 5단계 트랙과 분야·부품·준비 자료를 체크하는 견적 요청서 문안."
+      ]
+    },
+    {
       "id": "concept-ember-claw",
       "name": "Ember & Claw",
       "category": "food",

@@ -790,6 +790,106 @@
           "source": "src/components/Footer.tsx"
         }
       ]
+    },
+    "biz-manufacturing/isoline": {
+      "modules": [
+        {
+          "id": "header",
+          "kind": "header",
+          "label": "다크 헤더 (라임 점 워드마크, 견적 알약 버튼)",
+          "page": "/",
+          "select": "body > header",
+          "source": "src/components/TopBar.tsx"
+        },
+        {
+          "id": "home-hero",
+          "kind": "hero",
+          "label": "분해 선화 히어로 + 큰 숫자",
+          "page": "/",
+          "select": "main > section:nth-of-type(1)",
+          "source": "src/components/Exploded.tsx"
+        },
+        {
+          "id": "field-ring",
+          "kind": "signature",
+          "label": "외곽선 글자 분야 링 + 부품 도면",
+          "page": "/",
+          "select": "main > section:nth-of-type(2)",
+          "source": "src/components/FieldRing.tsx"
+        },
+        {
+          "id": "drawing-index",
+          "kind": "cards",
+          "label": "카테고리 도면 목록 4장",
+          "page": "/",
+          "select": "main > section:nth-of-type(3)",
+          "source": "src/app/page.tsx"
+        },
+        {
+          "id": "home-flow",
+          "kind": "process",
+          "label": "공정 5단계 큰 번호",
+          "page": "/",
+          "select": "main > section:nth-of-type(4)",
+          "source": "src/app/page.tsx"
+        },
+        {
+          "id": "certs",
+          "kind": "trust",
+          "label": "인증 카드 3칸",
+          "page": "/",
+          "select": "main > section:nth-of-type(5)",
+          "source": "src/app/page.tsx"
+        },
+        {
+          "id": "page-top",
+          "kind": "page-hero",
+          "label": "서브페이지 머리 (영문 경로)",
+          "page": "/parts/",
+          "select": "main > section.ptop",
+          "source": "src/components/PageTop.tsx"
+        },
+        {
+          "id": "category-section",
+          "kind": "list",
+          "label": "카테고리 고정 제목 + 도면 카드",
+          "page": "/parts/",
+          "select": "main > section:nth-of-type(2)",
+          "source": "src/app/parts/page.tsx"
+        },
+        {
+          "id": "drawing-sheet",
+          "kind": "detail",
+          "label": "도면지 + 표제란 상세",
+          "page": "/parts/CP-200/",
+          "select": "main > section.drawing-sheet",
+          "source": "src/components/TitleBlock.tsx"
+        },
+        {
+          "id": "track",
+          "kind": "process",
+          "label": "세로 공정 트랙",
+          "page": "/process/",
+          "select": "main > section:nth-of-type(2)",
+          "source": "src/app/process/page.tsx"
+        },
+        {
+          "id": "rfq",
+          "kind": "form",
+          "label": "견적 체크리스트 + 요청서 문안",
+          "page": "/rfq/",
+          "select": "main > section:nth-of-type(2)",
+          "source": "src/components/Rfq.tsx"
+        },
+        {
+          "id": "footer",
+          "kind": "footer",
+          "label": "다크 푸터",
+          "page": "/",
+          "select": "body > footer",
+          "source": "src/components/Foot.tsx"
+        }
+      ]
     }
   }
 }
