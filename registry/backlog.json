@@ -116,7 +116,7 @@
       "name": "중소 제조·B2B",
       "category": "biz",
       "level": "L1",
-      "status": "building",
+      "status": "done",
       "research": "concepts/biz-manufacturing/research/",
       "concepts": [
         "fieldmap",
@@ -125,9 +125,9 @@
       ],
       "choice": "https://github.com/hongjaang-star/agency-web-templates/issues/30",
       "variants": [
-        "fieldmap"
-      ],
-      "note": "fieldmap 완료, isoline 다음 순서 (사용자 요청 2개)"
+        "fieldmap",
+        "isoline"
+      ]
     },
     {
       "order": 8,

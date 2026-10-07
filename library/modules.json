@@ -1235,6 +1235,162 @@
         "mobile": "biz-manufacturing/fieldmap/shots/footer-mobile.jpg"
       },
       "code": "biz-manufacturing/fieldmap/code/footer.html"
+    },
+    {
+      "id": "header",
+      "kind": "header",
+      "label": "다크 헤더 (라임 점 워드마크, 견적 알약 버튼)",
+      "page": "/",
+      "source": "src/components/TopBar.tsx",
+      "site": "biz-manufacturing/isoline",
+      "shots": {
+        "desktop": "biz-manufacturing/isoline/shots/header-desktop.jpg",
+        "mobile": "biz-manufacturing/isoline/shots/header-mobile.jpg"
+      },
+      "code": "biz-manufacturing/isoline/code/header.html"
+    },
+    {
+      "id": "home-hero",
+      "kind": "hero",
+      "label": "분해 선화 히어로 + 큰 숫자",
+      "page": "/",
+      "source": "src/components/Exploded.tsx",
+      "site": "biz-manufacturing/isoline",
+      "shots": {
+        "desktop": "biz-manufacturing/isoline/shots/home-hero-desktop.jpg",
+        "mobile": "biz-manufacturing/isoline/shots/home-hero-mobile.jpg"
+      },
+      "code": "biz-manufacturing/isoline/code/home-hero.html"
+    },
+    {
+      "id": "field-ring",
+      "kind": "signature",
+      "label": "외곽선 글자 분야 링 + 부품 도면",
+      "page": "/",
+      "source": "src/components/FieldRing.tsx",
+      "site": "biz-manufacturing/isoline",
+      "shots": {
+        "desktop": "biz-manufacturing/isoline/shots/field-ring-desktop.jpg",
+        "mobile": "biz-manufacturing/isoline/shots/field-ring-mobile.jpg"
+      },
+      "code": "biz-manufacturing/isoline/code/field-ring.html"
+    },
+    {
+      "id": "drawing-index",
+      "kind": "cards",
+      "label": "카테고리 도면 목록 4장",
+      "page": "/",
+      "source": "src/app/page.tsx",
+      "site": "biz-manufacturing/isoline",
+      "shots": {
+        "desktop": "biz-manufacturing/isoline/shots/drawing-index-desktop.jpg",
+        "mobile": "biz-manufacturing/isoline/shots/drawing-index-mobile.jpg"
+      },
+      "code": "biz-manufacturing/isoline/code/drawing-index.html"
+    },
+    {
+      "id": "home-flow",
+      "kind": "process",
+      "label": "공정 5단계 큰 번호",
+      "page": "/",
+      "source": "src/app/page.tsx",
+      "site": "biz-manufacturing/isoline",
+      "shots": {
+        "desktop": "biz-manufacturing/isoline/shots/home-flow-desktop.jpg",
+        "mobile": "biz-manufacturing/isoline/shots/home-flow-mobile.jpg"
+      },
+      "code": "biz-manufacturing/isoline/code/home-flow.html"
+    },
+    {
+      "id": "certs",
+      "kind": "trust",
+      "label": "인증 카드 3칸",
+      "page": "/",
+      "source": "src/app/page.tsx",
+      "site": "biz-manufacturing/isoline",
+      "shots": {
+        "desktop": "biz-manufacturing/isoline/shots/certs-desktop.jpg",
+        "mobile": "biz-manufacturing/isoline/shots/certs-mobile.jpg"
+      },
+      "code": "biz-manufacturing/isoline/code/certs.html"
+    },
+    {
+      "id": "page-top",
+      "kind": "page-hero",
+      "label": "서브페이지 머리 (영문 경로)",
+      "page": "/parts/",
+      "source": "src/components/PageTop.tsx",
+      "site": "biz-manufacturing/isoline",
+      "shots": {
+        "desktop": "biz-manufacturing/isoline/shots/page-top-desktop.jpg",
+        "mobile": "biz-manufacturing/isoline/shots/page-top-mobile.jpg"
+      },
+      "code": "biz-manufacturing/isoline/code/page-top.html"
+    },
+    {
+      "id": "category-section",
+      "kind": "list",
+      "label": "카테고리 고정 제목 + 도면 카드",
+      "page": "/parts/",
+      "source": "src/app/parts/page.tsx",
+      "site": "biz-manufacturing/isoline",
+      "shots": {
+        "desktop": "biz-manufacturing/isoline/shots/category-section-desktop.jpg",
+        "mobile": "biz-manufacturing/isoline/shots/category-section-mobile.jpg"
+      },
+      "code": "biz-manufacturing/isoline/code/category-section.html"
+    },
+    {
+      "id": "drawing-sheet",
+      "kind": "detail",
+      "label": "도면지 + 표제란 상세",
+      "page": "/parts/CP-200/",
+      "source": "src/components/TitleBlock.tsx",
+      "site": "biz-manufacturing/isoline",
+      "shots": {
+        "desktop": "biz-manufacturing/isoline/shots/drawing-sheet-desktop.jpg",
+        "mobile": "biz-manufacturing/isoline/shots/drawing-sheet-mobile.jpg"
+      },
+      "code": "biz-manufacturing/isoline/code/drawing-sheet.html"
+    },
+    {
+      "id": "track",
+      "kind": "process",
+      "label": "세로 공정 트랙",
+      "page": "/process/",
+      "source": "src/app/process/page.tsx",
+      "site": "biz-manufacturing/isoline",
+      "shots": {
+        "desktop": "biz-manufacturing/isoline/shots/track-desktop.jpg",
+        "mobile": "biz-manufacturing/isoline/shots/track-mobile.jpg"
+      },
+      "code": "biz-manufacturing/isoline/code/track.html"
+    },
+    {
+      "id": "rfq",
+      "kind": "form",
+      "label": "견적 체크리스트 + 요청서 문안",
+      "page": "/rfq/",
+      "source": "src/components/Rfq.tsx",
+      "site": "biz-manufacturing/isoline",
+      "shots": {
+        "desktop": "biz-manufacturing/isoline/shots/rfq-desktop.jpg",
+        "mobile": "biz-manufacturing/isoline/shots/rfq-mobile.jpg"
+      },
+      "code": "biz-manufacturing/isoline/code/rfq.html"
+    },
+    {
+      "id": "footer",
+      "kind": "footer",
+      "label": "다크 푸터",
+      "page": "/",
+      "source": "src/components/Foot.tsx",
+      "site": "biz-manufacturing/isoline",
+      "shots": {
+        "desktop": "biz-manufacturing/isoline/shots/footer-desktop.jpg",
+        "mobile": "biz-manufacturing/isoline/shots/footer-mobile.jpg"
+      },
+      "code": "biz-manufacturing/isoline/code/footer.html"
     }
   ]
 }
