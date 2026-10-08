@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Drawing from "./Drawing";
+import ProductImage from "./ProductImage";
 import QuoteToggle from "./QuoteToggle";
 import { applicationOf, categoryOf, type Product } from "@/data/catalog";
 
@@ -8,11 +8,11 @@ export default function ProductCard({ p }: { p: Product }) {
     <article className="prod">
       <figure>
         <span className="code">{p.id}</span>
-        <Drawing category={p.category} />
-        <figcaption><b>이미지 설명</b> {p.image}</figcaption>
+        <Link href={`/products/${p.id}/`} aria-label={`${p.name} 상세 보기`}><ProductImage p={p} /></Link>
       </figure>
       <div className="prod-body">
         <h3><Link href={`/products/${p.id}/`}>{p.name}</Link></h3>
+        <p className="product-summary">{p.summary}</p>
         <div className="tags">
           <span>{categoryOf(p.category).name}</span>
           {p.apps.map((a) => <span key={a}>{applicationOf(a).name}</span>)}

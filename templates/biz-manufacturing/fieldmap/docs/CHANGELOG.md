@@ -5,3 +5,6 @@
 - 제품 데이터 `src/data/catalog.ts` (카테고리 4, 적용 분야 6, 모델 8, 모델별 가상 이미지 설명)
 - 견적 담기(localStorage)와 헤더 배지, 견적 요청 체크리스트
 - SEO: 페이지별 title·description·canonical·OG, sitemap, robots, manifest, og.png, Organization·Product·FAQPage·BreadcrumbList
+
+## 2026-10-09 — 제품 스튜디오와 제조 모션
+밝은 회색 배경의 제품 사진 8종을 생성해 제품 목록·상세·적용 분야에 연결했습니다. 홈을 제품 중심의 분할 히어로, 편집형 제품 카드와 어두운 제조 공정 섹션으로 개선했습니다. 압출 프로파일 기준 6단계 SVG/CSS 모션그래픽은 자동 재생·단계 선택·일시정지를 지원하며, 화면 밖/비활성 탭에서는 진행을 멈추고 동작 줄이기 설정을 따릅니다. 기존 제품 필터·견적 담기·에디터를 유지했습니다.

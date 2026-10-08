@@ -1,0 +1,130 @@
+[
+  {
+    "id": "SH-120",
+    "file": "sh-120.webp",
+    "prompt": "Use case: product-mockup. Asset: premium industrial engineering catalog photograph, square composition. Subject: A black anodized skived aluminum heat sink, rectangular 120 by 80 by 35 millimeters, many dense extremely thin vertical parallel fins integral with a solid base. No fans. Photorealistic industrial product studio photography, NOT a technical drawing. Uniform seamless light warm gray background #e8e9e6 and same gray tabletop, soft diffuse upper left light, realistic restrained brushed metal highlights, soft contact shadow, centered complete product with generous margin for responsive crop, three quarter view from slightly above. Sharp geometric details, understated German industrial catalog aesthetic. Only specified product(s), no tools, human, text, branding, watermarks, grid, dimension arrows or collage. This is a fictional demonstration product visualization, not a certified engineering drawing.",
+    "generator": "built-in image_gen",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "size": [
+      1200,
+      1200
+    ],
+    "bytes": 56870,
+    "sha256": "8db08613ffb4f57b982752ad0ac871538bda88802d8a6c86b5a953d767c22276"
+  },
+  {
+    "id": "CP-200",
+    "file": "cp-200.webp",
+    "prompt": "Use case: product-mockup. Asset: premium industrial engineering catalog photograph, square composition. Subject: An aluminum liquid cooling cold plate, flat rectangular 200 by 150 by 12 millimeters with two inlet outlet metal hose fittings. Closed sealed smooth machined top plate, subtle friction stir weld seam, do not show exposed channels on a closed plate. Photorealistic industrial product studio photography, NOT a technical drawing. Uniform seamless light warm gray background #e8e9e6 and same gray tabletop, soft diffuse upper left light, realistic restrained brushed metal highlights, soft contact shadow, centered complete product with generous margin for responsive crop, three quarter view from slightly above. Sharp geometric details, understated German industrial catalog aesthetic. Only specified product(s), no tools, human, text, branding, watermarks, grid, dimension arrows or collage. This is a fictional demonstration product visualization, not a certified engineering drawing.",
+    "generator": "built-in image_gen",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "size": [
+      1200,
+      1200
+    ],
+    "bytes": 40000,
+    "sha256": "8e166b22d4730b79769beb3ec39b6757beca0e8e02fe73f5c25b9e5e2227a1b4"
+  },
+  {
+    "id": "RX-4040",
+    "file": "rx-4040.webp",
+    "prompt": "Use case: product-mockup. Asset: premium industrial engineering catalog photograph, square composition. Subject: Three silver anodized 40 by 40 millimeter square T-slot aluminum extrusion profiles of varying short lengths arranged neatly diagonally; end cross section clearly visible with four side T-slots and central circular bore, realistic extrusion geometry. Photorealistic industrial product studio photography, NOT a technical drawing. Uniform seamless light warm gray background #e8e9e6 and same gray tabletop, soft diffuse upper left light, realistic restrained brushed metal highlights, soft contact shadow, centered complete product with generous margin for responsive crop, three quarter view from slightly above. Sharp geometric details, understated German industrial catalog aesthetic. Only specified product(s), no tools, human, text, branding, watermarks, grid, dimension arrows or collage. This is a fictional demonstration product visualization, not a certified engineering drawing.",
+    "generator": "built-in image_gen",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "size": [
+      1200,
+      1200
+    ],
+    "bytes": 48098,
+    "sha256": "44b51638b6aee34762fa359023bd17889d265d84ec744456ed7649353435e1e6"
+  },
+  {
+    "id": "LR-15",
+    "file": "lr-15.webp",
+    "prompt": "Use case: product-mockup. Asset: premium industrial engineering catalog photograph, square composition. Subject: One long silver aluminum linear rail mounting base, precision flat machined top, regularly spaced bolt mounting holes, slim rectangular elongated shape without bearings or carriage. Photorealistic industrial product studio photography, NOT a technical drawing. Uniform seamless light warm gray background #e8e9e6 and same gray tabletop, soft diffuse upper left light, realistic restrained brushed metal highlights, soft contact shadow, centered complete product with generous margin for responsive crop, three quarter view from slightly above. Sharp geometric details, understated German industrial catalog aesthetic. Only specified product(s), no tools, human, text, branding, watermarks, grid, dimension arrows or collage. This is a fictional demonstration product visualization, not a certified engineering drawing.",
+    "generator": "built-in image_gen",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "size": [
+      1200,
+      1200
+    ],
+    "bytes": 31210,
+    "sha256": "c5b3c1e0ecea45bac21a86c2f0f118e48755c730f7e41e59264c3800d6908d33"
+  },
+  {
+    "id": "HB-310",
+    "file": "hb-310.webp",
+    "prompt": "Use case: product-mockup. Asset: premium industrial engineering catalog photograph, square composition. Subject: Gray powder coated rectangular aluminum battery module housing, 310 by 220 by 90 millimeters. Empty box with three internal compartments separated by two partition walls, gasket groove and corner screw holes, matching flat lid placed beside it. No cells. Photorealistic industrial product studio photography, NOT a technical drawing. Uniform seamless light warm gray background #e8e9e6 and same gray tabletop, soft diffuse upper left light, realistic restrained brushed metal highlights, soft contact shadow, centered complete product with generous margin for responsive crop, three quarter view from slightly above. Sharp geometric details, understated German industrial catalog aesthetic. Only specified product(s), no tools, human, text, branding, watermarks, grid, dimension arrows or collage. This is a fictional demonstration product visualization, not a certified engineering drawing.",
+    "generator": "built-in image_gen",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "size": [
+      1200,
+      1200
+    ],
+    "bytes": 63634,
+    "sha256": "35a16ab10f4138631bb1c672588d8c0a2a9f4930897f76cf5a17752f84bd7a6f"
+  },
+  {
+    "id": "OT-500",
+    "file": "ot-500.webp",
+    "prompt": "Use case: product-mockup. Asset: premium industrial engineering catalog photograph, square composition. Subject: White weatherproof die cast aluminum outdoor telecom enclosure, 500 by 360 by 140 millimeters, close spaced vertical cooling ribs on cover, four cable glands along bottom edge, three quarter front angle. No logos. Photorealistic industrial product studio photography, NOT a technical drawing. Uniform seamless light warm gray background #e8e9e6 and same gray tabletop, soft diffuse upper left light, realistic restrained brushed metal highlights, soft contact shadow, centered complete product with generous margin for responsive crop, three quarter view from slightly above. Sharp geometric details, understated German industrial catalog aesthetic. Only specified product(s), no tools, human, text, branding, watermarks, grid, dimension arrows or collage. This is a fictional demonstration product visualization, not a certified engineering drawing.",
+    "generator": "built-in image_gen",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "size": [
+      1200,
+      1200
+    ],
+    "bytes": 43930,
+    "sha256": "65f7abf2324ac64e7fc5c3319b7e5ed197f74dfb9b70dbcb9d770e6c1735ad8a"
+  },
+  {
+    "id": "BK-07",
+    "file": "bk-07.webp",
+    "prompt": "Use case: product-mockup. Asset: premium industrial engineering catalog photograph, square composition. Subject: One dark gray hard anodized aluminum L-shaped robotic joint mounting bracket, 86 by 64 by 22 millimeters, round bearing seat opening and precision tapped holes, chamfered edges, realistic CNC machining geometry. Photorealistic industrial product studio photography, NOT a technical drawing. Uniform seamless light warm gray background #e8e9e6 and same gray tabletop, soft diffuse upper left light, realistic restrained brushed metal highlights, soft contact shadow, centered complete product with generous margin for responsive crop, three quarter view from slightly above. Sharp geometric details, understated German industrial catalog aesthetic. Only specified product(s), no tools, human, text, branding, watermarks, grid, dimension arrows or collage. This is a fictional demonstration product visualization, not a certified engineering drawing.",
+    "generator": "built-in image_gen",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "size": [
+      1200,
+      1200
+    ],
+    "bytes": 55110,
+    "sha256": "220e6a959b3ae0b5adc120d3f40215711161eed10aec167cb946cb7726bb4daf"
+  },
+  {
+    "id": "SM-3",
+    "file": "sm-3.webp",
+    "prompt": "Use case: product-mockup. Asset: premium industrial engineering catalog photograph, square composition. Subject: Three small silver CNC machined square sensor mounting brackets, each about 48 by 48 by 30 millimeters, central bore and mounting screw holes, clean aluminum finish, one clear blank vacuum packaging pouch placed beside them. No labels. Photorealistic industrial product studio photography, NOT a technical drawing. Uniform seamless light warm gray background #e8e9e6 and same gray tabletop, soft diffuse upper left light, realistic restrained brushed metal highlights, soft contact shadow, centered complete product with generous margin for responsive crop, three quarter view from slightly above. Sharp geometric details, understated German industrial catalog aesthetic. Only specified product(s), no tools, human, text, branding, watermarks, grid, dimension arrows or collage. This is a fictional demonstration product visualization, not a certified engineering drawing.",
+    "generator": "built-in image_gen",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "size": [
+      1200,
+      1200
+    ],
+    "bytes": 56228,
+    "sha256": "d8e85653586bea7dbdb0944796dd418f5770027e80122f0c20cdfb2b3ad1bf35"
+  }
+]

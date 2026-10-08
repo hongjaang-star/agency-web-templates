@@ -1,3 +1,4 @@
+import ManufacturingMotion from "@/components/ManufacturingMotion";
 import PageHead from "@/components/PageHead";
 import JsonLd from "@/components/JsonLd";
 import { categories } from "@/data/catalog";
@@ -15,6 +16,7 @@ export default function CapabilityPage() {
   return (
     <>
       <PageHead eyebrow="CAPABILITY" title="설비·공정" lead="도면 한 장에서 출하 검사까지 한 공장 안에서 진행합니다. 아래 설비와 수치는 데모용 가상 정보입니다." crumbs={[{ href: "/capability/", label: "설비·공정" }]} />
+      <ManufacturingMotion />
       <section className="band">
         <div className="nums">{capability.numbers.map((n) => (<div key={n.label}><b>{n.value}</b><span>{n.unit} {n.label}</span></div>))}</div>
       </section>

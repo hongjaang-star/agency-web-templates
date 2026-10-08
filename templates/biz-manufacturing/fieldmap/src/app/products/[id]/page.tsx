@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Drawing from "@/components/Drawing";
+import ProductImage from "@/components/ProductImage";
 import JsonLd from "@/components/JsonLd";
 import PageHead from "@/components/PageHead";
 import ProductCard from "@/components/ProductCard";
@@ -29,8 +29,8 @@ export default async function ProductPage({ params }: PageProps<"/products/[id]"
       <PageHead eyebrow={`${p.id} · ${cat.en}`} title={p.name} lead={p.summary} crumbs={[{ href: "/products/", label: "제품 찾기" }, { href: `/products/${p.id}/`, label: p.id }]} />
       <section className="detail">
         <figure className="detail-fig">
-          <Drawing category={p.category} />
-          <figcaption><b>이미지 설명</b> {p.image}</figcaption>
+          <ProductImage p={p} priority />
+          <figcaption>AI 제작 제품 이미지 · 형상 참고용. 실제 제작 치수는 승인 도면을 기준으로 합니다.</figcaption>
         </figure>
         <div className="detail-body">
           <h2>사양</h2>
