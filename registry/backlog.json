@@ -135,7 +135,9 @@
       "name": "청소·방역·이사",
       "category": "service",
       "level": "L1",
-      "status": "wait"
+      "status": "research",
+      "research": "concepts/service-cleaning/research/",
+      "note": "2026-10-09 레퍼런스 3곳(미소·클린벨·청연) 비교 보고서, 조합 선택 대기"
     },
     {
       "order": 9,
