@@ -11,9 +11,9 @@
       "path": "pro-labor-office/workboard/",
       "thumbnail": "labor-workboard.jpg",
       "summary": [
-        "딥 틸·민트와 큰 기한 숫자의 업무보드형 디자인.",
-        "인사노무·임금·해고·산재 등 6개 업무 안내.",
-        "상담 전 네 칸 메모·절차·노무자료·문의 제공."
+        "딥 틸·민트와 상담 사진, 숫자 애니메이션을 결합한 디자인.",
+        "6개 업무 상세 전환·6개 해결 사례 슬라이더와 아카이브.",
+        "4단계 상담절차·상담 메모 복사·파일 저장·노무자료 안내."
       ]
     },
     {
@@ -149,6 +149,36 @@
         "코발트와 버터 옐로, 식품 사진과 메뉴판의 밝은 브랜드 디자인.",
         "메뉴 분류·원재료 상세·굽는 시간 선택으로 구성한 9개 페이지.",
         "빵·음료 조합 영수증·메모 복사·사이트별 에디터 제공."
+      ]
+    },
+    {
+      "id": "manufacturing-fieldmap",
+      "name": "세로결정밀 · fieldmap",
+      "category": "manufacturing",
+      "categoryLabel": "제조 · B2B",
+      "kind": "site",
+      "kindLabel": "완성 사이트",
+      "path": "biz-manufacturing/fieldmap/",
+      "thumbnail": "manufacturing-fieldmap.jpg",
+      "summary": [
+        "흑연·알루미늄 바탕에 안전 주황, 품번·사양은 고정폭 숫자로 정리한 부품 제조사.",
+        "적용 분야 6종 × 카테고리 4종으로 모델을 걸러 보고 선화·이미지 설명·사양 확인.",
+        "여러 모델을 견적에 담아 용도·수량·납기·도면 체크리스트로 요청 내용 정리."
+      ]
+    },
+    {
+      "id": "manufacturing-isoline",
+      "name": "세로결정밀 · isoline",
+      "category": "manufacturing",
+      "categoryLabel": "제조 · B2B",
+      "kind": "site",
+      "kindLabel": "완성 사이트",
+      "path": "biz-manufacturing/isoline/",
+      "thumbnail": "manufacturing-isoline.jpg",
+      "summary": [
+        "짙은 숲빛 검정에 연두 선, 등각 선화와 도면 표제란으로 보여 주는 부품 제조사.",
+        "하우징 분해 선화 히어로, 외곽선 글자 분야 링으로 부품 도면을 한 장씩 펼침.",
+        "공정 5단계 트랙과 분야·부품·준비 자료를 체크하는 견적 요청서 문안."
       ]
     },
     {

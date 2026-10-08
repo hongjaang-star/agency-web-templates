@@ -690,6 +690,206 @@
           "source": "src/app/layout.tsx"
         }
       ]
+    },
+    "biz-manufacturing/fieldmap": {
+      "modules": [
+        {
+          "id": "header",
+          "kind": "header",
+          "label": "헤더 (견적 담은 수 배지, 모바일 가로 메뉴)",
+          "page": "/",
+          "select": "body > header",
+          "source": "src/components/Header.tsx"
+        },
+        {
+          "id": "home-hero",
+          "kind": "hero",
+          "label": "분야 고르기 히어로 (타일 7개)",
+          "page": "/",
+          "select": "main > section:nth-of-type(1)",
+          "source": "src/app/page.tsx"
+        },
+        {
+          "id": "home-categories",
+          "kind": "services",
+          "label": "카테고리 4칸 띠",
+          "page": "/",
+          "select": "main > section:nth-of-type(2)",
+          "source": "src/app/page.tsx"
+        },
+        {
+          "id": "product-card",
+          "kind": "cards",
+          "label": "제품 카드 (선화 + 이미지 설명 + 사양 + 견적 담기)",
+          "page": "/",
+          "select": "main > section:nth-of-type(3)",
+          "source": "src/components/ProductCard.tsx"
+        },
+        {
+          "id": "home-numbers",
+          "kind": "stats",
+          "label": "설비 수치 4칸",
+          "page": "/",
+          "select": "main > section:nth-of-type(4)",
+          "source": "src/app/page.tsx"
+        },
+        {
+          "id": "home-cta",
+          "kind": "cta",
+          "label": "견적 CTA 띠",
+          "page": "/",
+          "select": "main > section:nth-of-type(6)",
+          "source": "src/app/page.tsx"
+        },
+        {
+          "id": "finder",
+          "kind": "signature",
+          "label": "제품 찾기 (분야 × 카테고리 필터)",
+          "page": "/products/",
+          "select": "main > .finder",
+          "source": "src/components/Finder.tsx"
+        },
+        {
+          "id": "product-detail",
+          "kind": "detail",
+          "label": "제품 상세 (고정 그림 + 사양표)",
+          "page": "/products/HB-310/",
+          "select": "main > .detail",
+          "source": "src/app/products/[id]/page.tsx"
+        },
+        {
+          "id": "app-list",
+          "kind": "list",
+          "label": "적용 분야 번호 목록",
+          "page": "/applications/",
+          "select": "main > section:nth-of-type(2)",
+          "source": "src/app/applications/page.tsx"
+        },
+        {
+          "id": "steps",
+          "kind": "process",
+          "label": "공정 6단계",
+          "page": "/capability/",
+          "select": "main > section:nth-of-type(3)",
+          "source": "src/app/capability/page.tsx"
+        },
+        {
+          "id": "quote-form",
+          "kind": "form",
+          "label": "견적 요청 체크리스트",
+          "page": "/quote/",
+          "select": "main > section.band.dark",
+          "source": "src/components/QuoteForm.tsx"
+        },
+        {
+          "id": "footer",
+          "kind": "footer",
+          "label": "푸터 3단",
+          "page": "/",
+          "select": "body > footer",
+          "source": "src/components/Footer.tsx"
+        }
+      ]
+    },
+    "biz-manufacturing/isoline": {
+      "modules": [
+        {
+          "id": "header",
+          "kind": "header",
+          "label": "다크 헤더 (라임 점 워드마크, 견적 알약 버튼)",
+          "page": "/",
+          "select": "body > header",
+          "source": "src/components/TopBar.tsx"
+        },
+        {
+          "id": "home-hero",
+          "kind": "hero",
+          "label": "분해 선화 히어로 + 큰 숫자",
+          "page": "/",
+          "select": "main > section:nth-of-type(1)",
+          "source": "src/components/Exploded.tsx"
+        },
+        {
+          "id": "field-ring",
+          "kind": "signature",
+          "label": "외곽선 글자 분야 링 + 부품 도면",
+          "page": "/",
+          "select": "main > section:nth-of-type(2)",
+          "source": "src/components/FieldRing.tsx"
+        },
+        {
+          "id": "drawing-index",
+          "kind": "cards",
+          "label": "카테고리 도면 목록 4장",
+          "page": "/",
+          "select": "main > section:nth-of-type(3)",
+          "source": "src/app/page.tsx"
+        },
+        {
+          "id": "home-flow",
+          "kind": "process",
+          "label": "공정 5단계 큰 번호",
+          "page": "/",
+          "select": "main > section:nth-of-type(4)",
+          "source": "src/app/page.tsx"
+        },
+        {
+          "id": "certs",
+          "kind": "trust",
+          "label": "인증 카드 3칸",
+          "page": "/",
+          "select": "main > section:nth-of-type(5)",
+          "source": "src/app/page.tsx"
+        },
+        {
+          "id": "page-top",
+          "kind": "page-hero",
+          "label": "서브페이지 머리 (영문 경로)",
+          "page": "/parts/",
+          "select": "main > section.ptop",
+          "source": "src/components/PageTop.tsx"
+        },
+        {
+          "id": "category-section",
+          "kind": "list",
+          "label": "카테고리 고정 제목 + 도면 카드",
+          "page": "/parts/",
+          "select": "main > section:nth-of-type(2)",
+          "source": "src/app/parts/page.tsx"
+        },
+        {
+          "id": "drawing-sheet",
+          "kind": "detail",
+          "label": "도면지 + 표제란 상세",
+          "page": "/parts/CP-200/",
+          "select": "main > section.drawing-sheet",
+          "source": "src/components/TitleBlock.tsx"
+        },
+        {
+          "id": "track",
+          "kind": "process",
+          "label": "세로 공정 트랙",
+          "page": "/process/",
+          "select": "main > section:nth-of-type(2)",
+          "source": "src/app/process/page.tsx"
+        },
+        {
+          "id": "rfq",
+          "kind": "form",
+          "label": "견적 체크리스트 + 요청서 문안",
+          "page": "/rfq/",
+          "select": "main > section:nth-of-type(2)",
+          "source": "src/components/Rfq.tsx"
+        },
+        {
+          "id": "footer",
+          "kind": "footer",
+          "label": "다크 푸터",
+          "page": "/",
+          "select": "body > footer",
+          "source": "src/components/Foot.tsx"
+        }
+      ]
     }
   }
 }

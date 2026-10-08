@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>세로결정밀 · 적용 분야로 찾는 알루미늄 부품 (시안 A)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+KR:wght@400;600;700&display=swap">
+<style>
+:root{--ink:#1f2326;--steel:#5d656b;--alu:#d9dcdf;--paper:#f4f5f6;--white:#fff;--hot:#ff5a1f;--hot-ink:#b33a0c}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 "IBM Plex Sans KR",system-ui,sans-serif;word-break:keep-all}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--hot);outline-offset:2px}
+.demo{background:var(--ink);color:#fff;font-size:13px;text-align:center;padding:6px 12px}
+header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px clamp(16px,4vw,48px);border-bottom:1px solid var(--alu);background:var(--white);position:sticky;top:0;z-index:5}
+.logo{font-weight:700;letter-spacing:-.02em;font-size:20px;display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo i{display:block;width:22px;height:22px;background:repeating-linear-gradient(90deg,var(--ink) 0 3px,transparent 3px 6px)}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:15px}
+nav a{text-decoration:none}
+.quote-btn{background:var(--hot);color:#fff;text-decoration:none;font-weight:700;padding:9px 16px;border-radius:4px;white-space:nowrap}
+.hero{padding:clamp(40px,7vw,88px) clamp(16px,4vw,48px) 32px;background:var(--white);border-bottom:1px solid var(--alu)}
+.eyebrow{font:600 13px "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--hot-ink)}
+.hero h1{font-size:clamp(34px,6vw,72px);line-height:1.08;letter-spacing:-.03em;margin:10px 0 18px;max-width:14ch}
+.hero p{max-width:620px;color:var(--steel);margin:0 0 28px}
+.apps{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.apps button{font:inherit;text-align:left;background:var(--paper);border:1px solid var(--alu);border-radius:6px;padding:14px 14px 12px;cursor:pointer;min-height:96px;display:flex;flex-direction:column;justify-content:space-between}
+.apps button b{font-size:17px}
+.apps button span{font-size:13px;color:var(--steel)}
+.apps button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.apps button[aria-pressed=true] span{color:var(--alu)}
+.apps button[aria-pressed=true] b::after{content:" ●";color:var(--hot)}
+.finder{display:grid;grid-template-columns:280px 1fr;gap:0;min-height:60vh}
+.side{border-right:1px solid var(--alu);padding:28px clamp(16px,3vw,32px);position:sticky;top:64px;align-self:start;height:max-content}
+.side h2{font-size:14px;font-family:"IBM Plex Mono",monospace;letter-spacing:.06em;margin:0 0 12px;color:var(--steel)}
+.cats{display:grid;gap:6px;margin-bottom:24px}
+.cats button{font:inherit;text-align:left;background:none;border:0;border-left:3px solid transparent;padding:6px 10px;cursor:pointer;color:var(--steel)}
+.cats button[aria-pressed=true]{border-color:var(--hot);color:var(--ink);font-weight:700}
+.count{font:600 44px/1 "IBM Plex Mono",monospace;letter-spacing:-.04em}
+.count small{display:block;font:400 13px "IBM Plex Sans KR";color:var(--steel);margin-top:6px}
+.results{padding:28px clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;align-content:start}
+.prod{background:var(--white);border:1px solid var(--alu);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.prod figure{margin:0;background:linear-gradient(180deg,#eef0f2,#e2e5e8);position:relative}
+.prod figure svg{display:block;width:100%;height:170px}
+.prod figcaption{font-size:13px;color:var(--steel);padding:10px 14px;background:#f9fafa;border-top:1px dashed var(--alu)}
+.prod figcaption b{color:var(--ink)}
+.prod .code{position:absolute;top:10px;left:12px;font:600 12px "IBM Plex Mono",monospace;background:var(--white);padding:2px 8px;border-radius:3px}
+.prod .body{padding:14px;display:flex;flex-direction:column;gap:8px;flex:1}
+.prod h3{margin:0;font-size:18px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;font-size:12px}
+.tags span{border:1px solid var(--alu);border-radius:99px;padding:1px 8px}
+dl.spec{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:14px}
+dl.spec dt{color:var(--steel)}
+dl.spec dd{margin:0;font-family:"IBM Plex Mono",monospace;font-size:13px}
+.prod .add{margin-top:auto;font:inherit;font-weight:600;background:none;border:1px solid var(--ink);border-radius:4px;padding:8px;cursor:pointer}
+.prod .add[aria-pressed=true]{background:var(--hot);border-color:var(--hot);color:#fff}
+.empty{grid-column:1/-1;color:var(--steel)}
+section.band{padding:clamp(40px,6vw,72px) clamp(16px,4vw,48px);border-top:1px solid var(--alu)}
+.band h2{font-size:clamp(24px,3vw,34px);margin:0 0 20px;letter-spacing:-.02em}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--alu);background:var(--white)}
+.nums div{padding:22px;border-right:1px solid var(--alu)}
+.nums div:last-child{border-right:0}
+.nums b{display:block;font:600 clamp(28px,4vw,46px)/1 "IBM Plex Mono",monospace;letter-spacing:-.04em}
+.nums span{font-size:14px;color:var(--steel)}
+.trust{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.trust ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.trust li{background:var(--white);border:1px solid var(--alu);padding:12px 14px;border-radius:6px;display:flex;justify-content:space-between;gap:12px}
+.trust li em{font-style:normal;font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--steel)}
+.quote{background:var(--ink);color:#fff}
+.quote form{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:980px}
+.quote label{display:grid;gap:6px;font-size:14px}
+.quote input,.quote select,.quote textarea{font:inherit;padding:10px;border-radius:4px;border:1px solid #4a5056;background:#2a2f33;color:#fff}
+.quote .full{grid-column:1/-1}
+.quote .picked{font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--alu)}
+.quote button{font:inherit;font-weight:700;background:var(--hot);color:#fff;border:0;border-radius:4px;padding:12px 20px;cursor:pointer;justify-self:start}
+.quote .out{white-space:pre-wrap;background:#2a2f33;border-radius:6px;padding:14px;font-family:"IBM Plex Mono",monospace;font-size:13px;display:none}
+footer{padding:28px clamp(16px,4vw,48px);font-size:13px;color:var(--steel);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+@media (max-width:1100px){.apps{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:960px){.finder{grid-template-columns:1fr}.side{position:static;border-right:0;border-bottom:1px solid var(--alu)}.cats{grid-template-columns:repeat(2,1fr)}.nums{grid-template-columns:repeat(2,1fr)}.nums div:nth-child(2){border-right:0}.nums div:nth-child(-n+2){border-bottom:1px solid var(--alu)}.trust{grid-template-columns:1fr}}
+@media (max-width:640px){nav{display:none}.apps{grid-template-columns:repeat(2,1fr)}.quote form{grid-template-columns:1fr}.results{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="demo">가상 업체 데모 · 시안 A · fieldmap</div>
+<header class="top">
+  <a class="logo" href="#"><i></i>세로결정밀</a>
+  <nav aria-label="주요 메뉴"><ul><li><a href="#finder">제품 찾기</a></li><li><a href="#capa">설비·공정</a></li><li><a href="#trust">인증·고객</a></li><li><a href="#quote">견적 요청</a></li></ul></nav>
+  <a class="quote-btn" href="#quote">견적 요청</a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="eyebrow">ALUMINUM EXTRUSION · CNC · SINCE 1998 (가상)</div>
+    <h1>어디에 쓰실 부품인가요?</h1>
+    <p>적용 분야를 고르면 맞는 알루미늄 부품과 사양, 최소 주문 수량, 납기가 바로 아래에 정리됩니다. 도면이 있으면 견적 요청에 함께 보내 주세요.</p>
+    <div class="apps" id="apps" role="group" aria-label="적용 분야"></div>
+  </section>
+
+  <section class="finder" id="finder" aria-label="제품 찾기 결과">
+    <aside class="side">
+      <h2>CATEGORY</h2>
+      <div class="cats" id="cats" role="group" aria-label="제품 카테고리"></div>
+      <div class="count" aria-live="polite"><span id="count">0</span><small id="countLabel">개 제품</small></div>
+    </aside>
+    <div class="results" id="results"></div>
+  </section>
+
+  <section class="band" id="capa">
+    <h2>설비와 공정</h2>
+    <div class="nums">
+      <div><b>±0.02</b><span>mm 가공 공차 (BK-07 기준)</span></div>
+      <div><b>6,000</b><span>mm 최대 압출 길이</span></div>
+      <div><b>14</b><span>대 5축·3축 CNC (가상)</span></div>
+      <div><b>3</b><span>단계 출하 검사: 치수·외관·기밀</span></div>
+    </div>
+  </section>
+
+  <section class="band" id="trust">
+    <div class="trust">
+      <div>
+        <h2>인증 (가상 예시)</h2>
+        <ul>
+          <li>품질경영시스템 <em>ISO 9001 형식 예시</em></li>
+          <li>환경경영시스템 <em>ISO 14001 형식 예시</em></li>
+          <li>자동차 부품 품질 <em>IATF 16949 준비 중 (예시)</em></li>
+        </ul>
+      </div>
+      <div>
+        <h2>납품 분야 (가상 예시)</h2>
+        <ul>
+          <li>배터리 모듈 조립사 <em>콜드플레이트·하우징</em></li>
+          <li>반도체 장비 협력사 <em>프레임·센서 마운트</em></li>
+          <li>조명 제조사 <em>방열판</em></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band quote" id="quote">
+    <h2>견적 요청 체크리스트</h2>
+    <form id="qform">
+      <p class="full picked" id="picked">선택한 제품: 없음 (위 카드에서 "견적에 담기"를 누르세요)</p>
+      <label>용도<select name="use" id="use"></select></label>
+      <label>예상 수량<input name="qty" inputmode="numeric" placeholder="예: 500개 / 월"></label>
+      <label>희망 납기<input name="due" placeholder="예: 6주 이내"></label>
+      <label>도면<select name="dwg"><option>있음 (STEP·PDF)</option><option>없음, 샘플 있음</option><option>없음, 설계 상담 필요</option></select></label>
+      <label class="full">추가 요청<textarea name="memo" rows="3" placeholder="표면처리, 포장, 인증서 등"></textarea></label>
+      <button type="submit">보낼 내용 정리하기</button>
+      <div class="full out" id="out" role="status" aria-live="polite"></div>
+    </form>
+  </section>
+</main>
+<footer><span>세로결정밀(가상) · 경기도 ○○시 산업단지로 00 · 대표전화 000-0000-0000</span><span>가상 업체 데모입니다. 제품·인증·납품 정보는 예시입니다.</span></footer>
+
+<!--
+  제품 데이터 등록 방법
+  아래 product-data 블록이 화면의 원본입니다. 코드 수정 없이 이 JSON만 고치면 됩니다.
+  - categories: 제품 카테고리 (id, name, en, desc)
+  - applications: 적용 분야 (id, name, note)
+  - products: 제품 (id 품번, name, category = 카테고리 id, apps = 적용 분야 id 목록,
+              spec = 사양 이름:값, moq 최소 주문, lead 납기, image = 가상 제품 이미지 설명)
+-->
+<script type="application/json" id="product-data">{
+ "company": "세로결정밀",
+ "categories": [
+  {
+   "id": "heatsink",
+   "name": "방열판",
+   "en": "Heat Sink",
+   "desc": "핀 간격과 두께를 용도에 맞춰 압출·가공한 방열 부품"
+  },
+  {
+   "id": "profile",
+   "name": "압출 프로파일",
+   "en": "Extrusion Profile",
+   "desc": "장비 프레임과 레일에 쓰는 표준·주문형 단면"
+  },
+  {
+   "id": "housing",
+   "name": "하우징·케이스",
+   "en": "Housing",
+   "desc": "전장품·센서를 감싸는 밀폐형 알루미늄 케이스"
+  },
+  {
+   "id": "bracket",
+   "name": "정밀 가공 브래킷",
+   "en": "Machined Bracket",
+   "desc": "CNC로 깎아 만든 고정·지지 부품"
+  }
+ ],
+ "applications": [
+  {
+   "id": "ev",
+   "name": "전기차 배터리",
+   "note": "셀 냉각, 모듈 고정"
+  },
+  {
+   "id": "semi",
+   "name": "반도체 장비",
+   "note": "진공 챔버 주변 프레임"
+  },
+  {
+   "id": "led",
+   "name": "LED 조명",
+   "note": "고출력 조명 방열"
+  },
+  {
+   "id": "robot",
+   "name": "로봇·자동화",
+   "note": "리니어 레일, 관절 브래킷"
+  },
+  {
+   "id": "telecom",
+   "name": "통신 장비",
+   "note": "옥외 기지국 함체"
+  },
+  {
+   "id": "medical",
+   "name": "의료기기",
+   "note": "영상 장비 내부 구조물"
+  }
+ ],
+ "products": [
+  {
+   "id": "SH-120",
+   "name": "스카이빙 방열판 SH-120",
+   "category": "heatsink",
+   "apps": [
+    "led",
+    "telecom"
+   ],
+   "spec": {
+    "재질": "A6063-T5",
+    "핀 두께": "0.4mm",
+    "크기": "120×80×35mm",
+    "표면": "흑색 아노다이징"
+   },
+   "moq": "300개",
+   "lead": "3주",
+   "image": "검은색 아노다이징 방열판을 45도 위에서 내려다본 사진. 얇은 핀 52장이 빗살처럼 서 있고, 핀 끝에 측면 조명이 닿아 은색 결이 드러난다."
+  },
+  {
+   "id": "CP-200",
+   "name": "수랭 콜드플레이트 CP-200",
+   "category": "heatsink",
+   "apps": [
+    "ev",
+    "semi"
+   ],
+   "spec": {
+    "재질": "A3003 + 마찰교반접합",
+    "유로": "S자 2패스",
+    "크기": "200×150×12mm",
+    "기밀": "헬륨 누설 시험"
+   },
+   "moq": "100개",
+   "lead": "5주",
+   "image": "무광 은색 판 두 장을 겹친 콜드플레이트를 반쯤 뒤집어 세운 사진. 뒷면에 S자 냉각수 유로가 음각으로 보이고, 입·출구 니플 두 개가 앞으로 나와 있다."
+  },
+  {
+   "id": "RX-4040",
+   "name": "T슬롯 프로파일 RX-4040",
+   "category": "profile",
+   "apps": [
+    "robot",
+    "semi",
+    "medical"
+   ],
+   "spec": {
+    "재질": "A6063-T5",
+    "단면": "40×40mm, 8mm 슬롯",
+    "길이": "최대 6,000mm 절단",
+    "표면": "투명 아노다이징"
+   },
+   "moq": "50m",
+   "lead": "1주",
+   "image": "길이가 다른 프로파일 세 개를 계단처럼 세워 단면이 정면을 향하게 찍은 사진. 십자형 슬롯과 가운데 구멍이 그림자로 또렷하다."
+  },
+  {
+   "id": "LR-15",
+   "name": "리니어 레일 베이스 LR-15",
+   "category": "profile",
+   "apps": [
+    "robot"
+   ],
+   "spec": {
+    "재질": "A6061-T6",
+    "평면도": "0.05mm/m",
+    "길이": "300~3,000mm",
+    "가공": "레일 장착면 연삭"
+   },
+   "moq": "20개",
+   "lead": "3주",
+   "image": "긴 알루미늄 레일 베이스를 작업대 위에 비스듬히 놓은 사진. 연삭한 상면이 거울처럼 천장 조명을 비추고, 측면에 볼트 구멍이 일정 간격으로 나 있다."
+  },
+  {
+   "id": "HB-310",
+   "name": "배터리 모듈 하우징 HB-310",
+   "category": "housing",
+   "apps": [
+    "ev"
+   ],
+   "spec": {
+    "재질": "A6061-T6",
+    "방수": "IP67 (시험 조건 예시)",
+    "크기": "310×220×90mm",
+    "표면": "회색 분체도장"
+   },
+   "moq": "200개",
+   "lead": "6주",
+   "image": "회색 상자형 하우징의 뚜껑을 반쯤 열어 내부 격벽이 보이게 찍은 사진. 가장자리 가스켓 홈과 모서리 볼트 자리가 함께 보인다."
+  },
+  {
+   "id": "OT-500",
+   "name": "옥외 통신 함체 OT-500",
+   "category": "housing",
+   "apps": [
+    "telecom"
+   ],
+   "spec": {
+    "재질": "ADC12 다이캐스팅 + 가공",
+    "방수": "IP66 (시험 조건 예시)",
+    "크기": "500×360×140mm",
+    "표면": "백색 내후 도장"
+   },
+   "moq": "100개",
+   "lead": "8주",
+   "image": "흰색 통신 함체를 정면에서 찍은 사진. 바깥면에 방열 리브가 세로로 촘촘하고, 아래쪽에 케이블 글랜드 네 개가 한 줄로 달려 있다."
+  },
+  {
+   "id": "BK-07",
+   "name": "로봇 관절 브래킷 BK-07",
+   "category": "bracket",
+   "apps": [
+    "robot",
+    "medical"
+   ],
+   "spec": {
+    "재질": "A7075-T6",
+    "공차": "±0.02mm",
+    "크기": "86×64×22mm",
+    "표면": "경질 아노다이징"
+   },
+   "moq": "50개",
+   "lead": "2주",
+   "image": "짙은 회색 L자 브래킷을 손바닥 위에 올려 크기를 보여 주는 사진. 베어링 자리와 탭 구멍의 가공면이 밝게 반짝인다."
+  },
+  {
+   "id": "SM-3",
+   "name": "챔버 센서 마운트 SM-3",
+   "category": "bracket",
+   "apps": [
+    "semi"
+   ],
+   "spec": {
+    "재질": "A5052",
+    "공차": "±0.03mm",
+    "크기": "48×48×30mm",
+    "세척": "초음파 세척·진공 포장"
+   },
+   "moq": "30개",
+   "lead": "2주",
+   "image": "작은 사각 마운트 세 개를 진공 포장 봉투 옆에 나란히 놓은 사진. 가공면이 매끈하고 봉투에 품번 라벨이 붙어 있다."
+  }
+ ]
+}</script>
+<script>
+(function(){
+  var DATA=JSON.parse(document.getElementById('product-data').textContent);
+  function drawing(cat, stroke){
+    var s='fill="none" stroke="'+stroke+'" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"';
+    var d={
+      heatsink:'<path '+s+' d="M20 120 L100 150 L180 120 L100 90 Z"/><path '+s+' d="M20 120 v10 L100 160 L180 130 v-10"/>'+[0,1,2,3,4,5,6,7].map(function(i){var x=34+i*18,y=114-i*0;return '<path '+s+' d="M'+(x)+' '+(125-i*2.3)+' v-60 l14 -5 v60"/>'}).join(''),
+      profile:'<rect '+s+' x="50" y="40" width="100" height="100" rx="6"/><path '+s+' d="M88 40 v14 h-8 v10 h40 v-10 h-8 v-14 M88 140 v-14 h-8 v-10 h40 v10 h-8 v14 M50 88 h14 v-8 h10 v40 h-10 v-8 h-14 M150 88 h-14 v-8 h-10 v40 h10 v-8 h14"/><circle '+s+' cx="100" cy="90" r="9"/>',
+      housing:'<path '+s+' d="M30 80 L100 52 L170 80 L100 108 Z"/><path '+s+' d="M30 80 v54 L100 162 L170 134 v-54 M100 108 v54"/><path '+s+' d="M30 70 L100 42 L170 70" stroke-dasharray="5 6"/><circle '+s+' cx="58" cy="118" r="4"/><circle '+s+' cx="142" cy="118" r="4"/>',
+      bracket:'<path '+s+' d="M40 60 h40 v70 h80 v30 h-120 Z"/><path '+s+' d="M40 60 l14 -10 h40 l-14 10 M80 60 l14 -10 v70 M160 130 l14 -10 v30 l-14 10 M94 120 h80"/><circle '+s+' cx="60" cy="95" r="7"/><circle '+s+' cx="120" cy="145" r="5"/><circle '+s+' cx="145" cy="145" r="5"/>'
+    };
+    return '<svg viewBox="0 0 200 190" role="img" aria-hidden="true">'+(d[cat]||'')+'</svg>';
+  }
+
+  var state={app:null,cat:null,picked:[]};
+  var catName={};DATA.categories.forEach(function(c){catName[c.id]=c.name});
+  var appName={};DATA.applications.forEach(function(a){appName[a.id]=a.name});
+  function btn(label,sub,pressed){var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed',pressed?'true':'false');b.innerHTML='<b>'+label+'</b>'+(sub?'<span>'+sub+'</span>':'');return b}
+  var apps=document.getElementById('apps');
+  var all=btn('전체 보기','분야 상관없이',true);all.onclick=function(){state.app=null;render()};apps.appendChild(all);
+  DATA.applications.forEach(function(a){var b=btn(a.name,a.note,false);b.dataset.id=a.id;b.onclick=function(){state.app=a.id;render();document.getElementById('finder').scrollIntoView()};apps.appendChild(b)});
+  var cats=document.getElementById('cats');
+  var ca=document.createElement('button');ca.type='button';ca.textContent='전체';ca.onclick=function(){state.cat=null;render()};cats.appendChild(ca);
+  DATA.categories.forEach(function(c){var b=document.createElement('button');b.type='button';b.textContent=c.name;b.dataset.id=c.id;b.title=c.desc;b.onclick=function(){state.cat=c.id;render()};cats.appendChild(b)});
+  var use=document.getElementById('use');DATA.applications.forEach(function(a){var o=document.createElement('option');o.textContent=a.name;use.appendChild(o)});
+  function render(){
+    [].forEach.call(apps.children,function(b){b.setAttribute('aria-pressed',String((b.dataset.id||null)===state.app))});
+    [].forEach.call(cats.children,function(b){b.setAttribute('aria-pressed',String((b.dataset.id||null)===state.cat))});
+    if(state.app){use.value=appName[state.app]}
+    var list=DATA.products.filter(function(p){return(!state.app||p.apps.indexOf(state.app)>-1)&&(!state.cat||p.category===state.cat)});
+    document.getElementById('count').textContent=list.length;
+    document.getElementById('countLabel').textContent='개 제품'+(state.app?' · '+appName[state.app]:'');
+    var r=document.getElementById('results');r.innerHTML='';
+    if(!list.length){r.innerHTML='<p class="empty">이 조합에 맞는 등록 제품이 없습니다. 도면을 보내 주시면 주문 제작을 검토합니다.</p>'}
+    list.forEach(function(p){
+      var el=document.createElement('article');el.className='prod';
+      var spec=Object.keys(p.spec).map(function(k){return '<dt>'+k+'</dt><dd>'+p.spec[k]+'</dd>'}).join('');
+      el.innerHTML='<figure><span class="code">'+p.id+'</span>'+drawing(p.category,'#1f2326')+'<figcaption><b>이미지 설명</b> '+p.image+'</figcaption></figure><div class="body"><h3>'+p.name+'</h3><div class="tags"><span>'+catName[p.category]+'</span>'+p.apps.map(function(a){return '<span>'+appName[a]+'</span>'}).join('')+'</div><dl class="spec">'+spec+'<dt>최소 주문</dt><dd>'+p.moq+'</dd><dt>납기</dt><dd>'+p.lead+'</dd></dl><button type="button" class="add"></button></div>';
+      var add=el.querySelector('.add');var on=state.picked.indexOf(p.id)>-1;add.setAttribute('aria-pressed',String(on));add.textContent=on?'견적에 담김 ✓':'견적에 담기';
+      add.onclick=function(){var i=state.picked.indexOf(p.id);if(i>-1)state.picked.splice(i,1);else state.picked.push(p.id);render()};
+      r.appendChild(el);
+    });
+    document.getElementById('picked').textContent='선택한 제품: '+(state.picked.length?state.picked.join(', '):'없음 (위 카드에서 "견적에 담기"를 누르세요)');
+  }
+  document.getElementById('qform').addEventListener('submit',function(e){e.preventDefault();var f=e.target,o=document.getElementById('out');
+    o.style.display='block';o.textContent='[견적 요청] 세로결정밀\n제품: '+(state.picked.join(', ')||'미정')+'\n용도: '+f.use.value+'\n수량: '+(f.qty.value||'미정')+'\n납기: '+(f.due.value||'미정')+'\n도면: '+f.dwg.value+'\n요청: '+(f.memo.value||'없음')+'\n\n※ 데모에서는 전송하지 않습니다. 실제 사이트에서는 메일·폼으로 접수합니다.'});
+  render();
+})();
+</script>
+</body>
+</html>
