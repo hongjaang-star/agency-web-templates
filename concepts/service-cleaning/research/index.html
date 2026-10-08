@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>레퍼런스 보고서 · 청소·방역·이사</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{--ink:#1c1c1a;--sub:#5e5e58;--line:#d9d6cf;--paper:#f7f5f0;--card:#fff;--a:#2f5d50;--b:#8a5a2b;--c:#3b4a8c;--pick:#b8432f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 Pretendard,system-ui,sans-serif;word-break:keep-all}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:40px 20px 80px}
+.tag{display:inline-block;font-size:13px;letter-spacing:.04em;border:1px solid var(--ink);padding:2px 10px;border-radius:99px}
+h1{font-size:clamp(28px,4vw,40px);line-height:1.25;margin:16px 0 8px}
+h2{font-size:22px;margin:56px 0 16px;padding-top:16px;border-top:2px solid var(--ink)}
+h3{font-size:18px;margin:0 0 6px}
+.lead{color:var(--sub);max-width:720px}
+.note{background:#fff7e6;border:1px solid #ecd9a8;padding:12px 16px;border-radius:8px;font-size:15px}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:20px}
+.meta div{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.meta b{display:block;font-size:13px;color:var(--sub);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.role{font-size:13px;font-weight:700;color:#fff;padding:2px 10px;border-radius:4px;align-self:flex-start}
+.ra{background:var(--a)}.rb{background:var(--b)}.rc{background:var(--c)}
+.url{font-size:14px;color:var(--sub);overflow-wrap:anywhere}
+.card ul{margin:0;padding-left:18px;font-size:15px}
+.wire{border:1px dashed #b9b4aa;border-radius:6px;padding:10px;background:#fbfaf7;font-size:12px;color:var(--sub)}
+.wire .bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.wire .bar span{border:1px solid #c9c4b9;border-radius:3px;padding:1px 6px;background:#fff}
+.wire .blk{border:1px solid #d6d1c6;background:#fff;border-radius:3px;padding:6px;margin-top:6px}
+.wire .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:6px}
+.wire .grid i{display:block;height:26px;background:#e7e3da;border-radius:2px}
+.wire .cap{margin-top:6px;font-style:italic}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:15px}
+th,td{border:1px solid var(--line);padding:10px 12px;vertical-align:top;text-align:left}
+th{background:#efece5;font-weight:600}
+td.take{background:#f3f7f5}
+.tablewrap{overflow-x:auto}
+.combos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.combo{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+.combo.rec{border:2px solid var(--pick)}
+.combo .k{font-size:13px;font-weight:700;color:var(--pick)}
+.combo dl{margin:10px 0 0;font-size:15px}
+.combo dt{font-weight:600;margin-top:8px}
+.combo dd{margin:0;color:var(--sub)}
+.ask{background:var(--ink);color:#fff;border-radius:10px;padding:22px}
+.ask ol{margin:8px 0 0;padding-left:20px}
+.src{font-size:14px;color:var(--sub)}
+.src li{overflow-wrap:anywhere}
+@media (max-width:640px){.wrap{padding:28px 16px 64px}th,td{padding:8px}}
+.ask fieldset{border:0;margin:14px 0 0;padding:0;display:grid;gap:8px}
+.ask legend{font-weight:600;margin-bottom:6px}
+.ask label.opt{display:flex;gap:10px;align-items:flex-start;background:#2b2b28;border:1px solid #444;border-radius:8px;padding:10px 12px;cursor:pointer}
+.ask label.opt:has(input:checked){border-color:#f0b9ab;background:#3a2622}
+.ask input[type=radio]{margin-top:5px;accent-color:#f0b9ab}
+.ask textarea{width:100%;min-height:96px;margin-top:6px;border-radius:8px;border:1px solid #555;background:#2b2b28;color:#fff;padding:10px;font:inherit}
+.ask .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.ask button{font:inherit;font-weight:700;border-radius:8px;padding:10px 18px;cursor:pointer;border:1px solid #f0b9ab}
+.ask button.primary{background:#f0b9ab;color:#1c1c1a}
+.ask button.ghost{background:transparent;color:#fff}
+.ask .help{font-size:14px;color:#cfcac0;margin:10px 0 0}
+.ask .status{font-size:14px;color:#f0b9ab;min-height:1.4em;margin:8px 0 0}
+.ask :focus-visible{outline:3px solid #f0b9ab;outline-offset:2px}
+</style>
+</head>
+<body>
+
+<main class="wrap">
+<span class="tag">내부 보고서 · 시안 전 레퍼런스 검색</span>
+<h1>청소·방역·이사 레퍼런스 3곳<br>비교와 조합 제안</h1>
+<p class="lead">다음 대기 업종 <b>service-cleaning</b>을 선정했습니다. 최근 제조회사 보고서와 같은 순서로 콘텐츠 참고 2곳, 디자인 참고 1곳을 비교하고 조합 3개를 제안합니다. 선택한 조합으로 서로 다른 시안 3개를 만드는 단계로 이어집니다.</p>
+<p><a href="#choice" style="font-weight:700;color:var(--pick)">조합 선택하기 ↓</a></p>
+<div class="meta"><div><b>작성일</b>2026-10-09</div><div><b>검색 범위</b>국내 공식 사이트</div><div><b>검토 후보</b>6곳 → 3곳 선정</div><div><b>상태</b>조합 선택 대기</div></div>
+<h2>1. 업종 선정과 검색 결과</h2>
+<p>최신 업종 대기열에서 제조·B2B 다음의 첫 대기 업종입니다. 건축·설계와 사진·영상 스튜디오는 보류 상태를 유지합니다. 추천 제작 범위는 <b>입주·이사청소, 거주청소, 사업장 정기청소</b>입니다. 이삿짐 운송과 전문 방역은 별도 서비스로 둘지 조합 선택 시 결정합니다.</p>
+<p><b>검토 후보:</b> 미소, 클린벨, 청연(청소연구소), 한스클린, 온다클린, 런드리고. 미소는 서비스별 진입, 클린벨은 견적 조건 비교, 청연은 생활 장면을 연결하는 브랜드 구성으로 역할이 달라 선정했습니다. 한스클린은 보안 확인, 온다클린은 403 응답으로 본문 검증이 제한됐고, 런드리고는 현재 기업 소개 중심으로 열려 이번 목적과 거리가 있었습니다. 국내에서 3곳을 찾았으므로 해외 대체는 없습니다.</p>
+<p class="note"><b>확인 범위:</b> 공식 사이트의 현재 본문·메뉴·링크를 2026-10-09에 확인했습니다. 아래 그림은 확인된 정보 구조를 요약한 도식이며 실제 화면 캡처가 아닙니다. 브라우저 연결 오류로 색상·애니메이션·모바일 화면은 직접 검증하지 못했습니다. 디자인 카드의 적용안은 기획 제안으로 구분했습니다.</p>
+<h2>2. 레퍼런스 카드</h2>
+<div class="cards">
+<article class="card"><span class="role ra">콘텐츠 참고 A</span><h3>미소</h3><a class="url" href="https://miso.kr/" target="_blank" rel="noopener">miso.kr · 공식 사이트 열기 ↗</a>
+<div class="wire"><div class="bar"><span>생활 청소</span><span>이사·이사청소</span><span>서비스 찾기</span></div><div class="blk">필요한 서비스 선택 → 서비스별 상세</div><div class="blk">진행 절차 → 요금 → 청소 범위 → FAQ</div><div class="cap">확인된 구조 요약 · 캡처 아님</div></div>
+<ul><li>대상: 집 청소 이용자와 사업장 담당자.</li><li>생활청소와 이사·입주청소를 나눠 진입시킴.</li><li>입주청소 상세는 절차·비용·공간별 범위를 설명.</li><li>사무실 상세는 시간제·정기 요금과 가능/불가 범위를 구분.</li><li>무료 견적 또는 예약으로 이어지는 서비스별 링크.</li></ul><p><b>가져올 점:</b> 목적별 서비스 선택과 포함·제외 범위 설명. 플랫폼의 업체 매칭 기능은 자체 청소업체에 맞게 상담으로 바꿉니다.</p></article>
+<article class="card"><span class="role rb">콘텐츠 참고 B</span><h3>클린벨</h3><a class="url" href="https://www.cleanbell.co.kr/" target="_blank" rel="noopener">cleanbell.co.kr · 공식 사이트 열기 ↗</a>
+<div class="wire"><div class="bar"><span>이용가이드</span><span>업체순위</span><span>지역별 시세</span></div><div class="blk">청소 선택 → 신청 → 견적 → 예약</div><div class="blk">후기 · 지역별 비용 · 인원/작업방법/AS/계약금</div><div class="cap">확인된 구조 요약 · 캡처 아님</div></div>
+<ul><li>대상: 입주·이사청소 업체를 비교하는 이용자.</li><li>메인은 견적 안내 → 서비스 → 절차 → 후기 → 지역 시세 순.</li><li>견적 예시에 투입 인원·작업 방법·AS·계약금 조건을 제시.</li><li>청소 범위와 계약 전 확인 사항을 이용가이드로 제공.</li><li>견적받기를 반복 배치해 다음 행동을 안내.</li></ul><p><b>가져올 점:</b> 상담 전 작업 조건의 공개. 지역 시세·후기·실적은 가상 업체의 사실로 옮기지 않습니다.</p></article>
+<article class="card"><span class="role rc">디자인 추천</span><h3>청연 · 청소연구소</h3><a class="url" href="https://www.chyeon.com/" target="_blank" rel="noopener">chyeon.com · 공식 사이트 열기 ↗</a>
+<div class="wire"><div class="blk">일상 도움 → 집청소 소개</div><div class="grid"><i></i><i></i><i></i></div><div class="blk">사무실 · 입주청소 → B2B → 브랜드 이야기</div><div class="cap">이미지와 문단의 구성 요약 · 캡처 아님</div></div>
+<ul><li>대상: 가정·사무실 청소 이용자와 기업 제휴 담당자.</li><li>기존 cleaninglab.co.kr은 현재 청연으로 연결됨.</li><li>브랜드 메시지 → 집청소 → 관련 서비스 → B2B → 이야기 순.</li><li>이미지와 짧은 설명을 연결하고 서비스 상세로 안내.</li><li>집청소의 교육·매뉴얼을 소개해 과정에 대한 신뢰를 설명.</li></ul><p><b>적용 제안:</b> 생활 장면 사진과 짧은 문장, 집/사업장 구분을 참고합니다. 우리 시안은 따뜻한 백색·잉크색·라임 포인트로 별도 설계하며 이는 원본 색상 설명이 아닙니다.</p></article>
+</div>
+<h2>3. 5개 주제 비교</h2>
+<div class="tablewrap"><table><thead><tr><th>주제</th><th>A · 미소</th><th>B · 클린벨</th><th>디자인 · 청연</th><th>우리 사이트 적용안</th></tr></thead><tbody>
+<tr><th>정보 구조</th><td>서비스 종류 → 상세</td><td>견적·비용·조건 비교</td><td>일상 → 서비스 → 브랜드</td><td class="take">집 / 사업장 선택 → 서비스 범위 → 문의</td></tr>
+<tr><th>콘텐츠와 메시지</th><td>절차·요금·가능 범위</td><td>작업 조건·후기·가이드</td><td>일상 도움·교육·매뉴얼</td><td class="take">범위, 추가 작업, 검수 기준을 구체적으로</td></tr>
+<tr><th>전환 경로</th><td>서비스별 견적·예약</td><td>신청 → 견적 → 예약</td><td>앱·상세·기업 문의</td><td class="take">공간·면적·희망일·요청 항목의 상담 메모</td></tr>
+<tr><th>비주얼 디자인</th><td>공간별 이미지 확인</td><td>절차·견적 예시 이미지 확인</td><td>생활 이미지·짧은 문단 확인</td><td class="take">공간 사진과 범위 도식 조합. 색·모션은 독자 설계</td></tr>
+<tr><th>모바일과 사용성</th><td>현재 모바일 화면 미검증</td><td>현재 모바일 화면 미검증</td><td>현재 모바일 화면 미검증</td><td class="take">360px에서 큰 선택 버튼·짧은 폼·하단 문의. 시안 단계에서 확인</td></tr>
+</tbody></table></div>
+<h2>4. 조합 제안</h2>
+<div class="combos">
+<section class="combo rec"><div class="k">조합 1 · 추천</div><h3>공간별 청소 안내·범위 확인형</h3><dl><dt>콘텐츠 조합</dt><dd>미소의 서비스 진입 + 클린벨의 작업 조건 안내.</dd><dt>디자인 조합</dt><dd>청연의 생활 장면 설명을 공간 도식과 결합. 사진과 작업 범위를 나란히.</dd><dt>대표 구성</dt><dd>공간 선택 → 청소 범위 → 포함/추가 항목 → 진행·검수 → 상담.</dd><dt>시그니처 후보</dt><dd>방·욕실·주방을 누르면 청소할 항목이 보이는 공간별 체크리스트.</dd><dt>추천 이유</dt><dd>서비스가 다양한 지역 청소업체에 맞고, 상담 전에 범위·추가비용을 이해시키기 좋음.</dd><dt>선택할 때</dt><dd>집과 사업장을 함께 소개하고 싶은 경우.</dd></dl></section>
+<section class="combo"><div class="k">조합 2</div><h3>입주 전후 변화·사진 중심형</h3><dl><dt>콘텐츠 조합</dt><dd>클린벨의 후기·가이드 흐름 + 미소의 공간별 범위.</dd><dt>디자인 조합</dt><dd>청연의 생활 이미지 흐름을 크게 확장. 밝은 공간·사진 중심의 여유 있는 구성.</dd><dt>대표 구성</dt><dd>입주 공간 → 전후 비교 → 사례별 범위 → 작업 과정 → 상담.</dd><dt>시그니처 후보</dt><dd>같은 구도의 전후 사진 비교와 사례별 검수 목록.</dd><dt>장점과 부담</dt><dd>결과를 빠르게 전달. 일관된 전후 사진 확보가 필요하고 이미지 제작량이 큼. 데모는 가상 사례를 명시.</dd><dt>선택할 때</dt><dd>입주·이사청소를 대표 서비스로 판매하고 싶은 경우.</dd></dl></section>
+<section class="combo"><div class="k">조합 3</div><h3>사업장 정기관리·계획 제안형</h3><dl><dt>콘텐츠 조합</dt><dd>미소의 정기/시간제 안내 + 클린벨의 인원·조건 + 청연의 B2B 진입.</dd><dt>디자인 조합</dt><dd>정돈된 일정표와 청소 구역표. 차분한 잉크색·백색·앰버 포인트의 업무용 화면.</dd><dt>대표 구성</dt><dd>업종 선택 → 관리 구역 → 방문 주기 → 작업·보고 → 계약 상담.</dd><dt>시그니처 후보</dt><dd>업종·면적·주기를 고르면 예시 관리 계획을 정리하는 도구.</dd><dt>장점과 부담</dt><dd>사무실·상가 반복 계약에 맞음. 실제 현장 확인 전 확정 견적을 약속하지 않도록 설계.</dd><dt>선택할 때</dt><dd>가정청소보다 사업장 정기계약을 중심으로 영업하는 경우.</dd></dl></section>
+</div>
+<h2>5. 선택 제출</h2>
+<form class="ask" id="choice" data-slug="service-cleaning" data-name="청소·방역·이사" data-repo="hongjaang-star/agency-web-templates">
+    <p style="margin:0">조합을 고르고 제출해 주세요. 제출하면 이 선택으로 시안 3개를 만듭니다.</p>
+    <fieldset>
+      <legend>1. 어떤 조합으로 만들까요?</legend>
+        <label class="opt"><input type="radio" name="combo" value="1" checked><span><b>조합 1 · 추천</b> 공간별 청소 안내·범위 확인형</span></label>
+        <label class="opt"><input type="radio" name="combo" value="2"><span><b>조합 2</b> 입주 전후 변화·사진 중심형</span></label>
+        <label class="opt"><input type="radio" name="combo" value="3"><span><b>조합 3</b> 사업장 정기관리·계획 제안형</span></label>
+    </fieldset>
+    <label for="memo" style="display:block;margin-top:14px;font-weight:600">2. 더하거나 빼고 싶은 점 (선택)</label>
+    <textarea id="memo" name="memo" placeholder="예: 메뉴는 조합 1처럼, 첫 화면은 조합 2처럼"></textarea>
+    <div class="btns">
+      <button type="submit" class="primary">GitHub에 선택 제출</button>
+      <button type="button" class="ghost" id="copy">내용 복사</button>
+    </div>
+    <p class="help">버튼을 누르면 GitHub 새 이슈 화면이 내용이 채워진 채로 열립니다. 로그인된 상태에서 <b>Submit new issue</b>를 누르면 제출이 끝납니다. GitHub를 쓰기 어려우면 "내용 복사" 후 채팅에 붙여 넣어 주세요.</p>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </form>
+  <script>
+  (function(){
+    var f=document.getElementById('choice'), st=document.getElementById('status');
+    function text(){
+      var c=f.querySelector('input[name=combo]:checked'), label=c.parentNode.textContent.replace(/\s+/g,' ').trim(), memo=f.memo.value.trim();
+      return {title:'[조합 선택] '+f.dataset.slug+' · 조합 '+c.value,
+        body:'## 업종\n'+f.dataset.name+' (`'+f.dataset.slug+'`)\n\n## 선택한 조합\n'+label+'\n\n## 더하거나 뺄 점\n'+(memo||'없음')+'\n\n보고서: '+location.href.split('#')[0]};
+    }
+    f.addEventListener('submit',function(e){
+      e.preventDefault(); var t=text();
+      var url='https://github.com/'+f.dataset.repo+'/issues/new?labels=concept-choice&title='+encodeURIComponent(t.title)+'&body='+encodeURIComponent(t.body);
+      window.open(url,'_blank','noopener'); st.textContent='GitHub 새 이슈 화면을 열었습니다. Submit new issue 를 눌러 주세요.';
+    });
+    document.getElementById('copy').addEventListener('click',function(){
+      var t=text(), s=t.title+'\n\n'+t.body;
+      (navigator.clipboard?navigator.clipboard.writeText(s):Promise.reject()).then(function(){st.textContent='복사했습니다. 채팅에 붙여 넣어 주세요.';},function(){f.memo.value=s; f.memo.select(); st.textContent='메모 칸에 내용을 넣었습니다. 직접 복사해 주세요.';});
+    });
+  })();
+  </script>
+
+<h2>출처와 다음 단계</h2><ul class="src">
+<li>콘텐츠 A: <a href="https://miso.kr/">미소</a> · <a href="https://miso.kr/deepclean">입주·이사청소</a> · <a href="https://miso.kr/officeclean">사업장청소</a></li>
+<li>콘텐츠 B: <a href="https://www.cleanbell.co.kr/">클린벨</a></li>
+<li>디자인: <a href="https://www.chyeon.com/">청연</a> · <a href="https://www.cleaninglab.co.kr/">이전 청소연구소 주소(리디렉션)</a></li>
+<li>검토 후보: <a href="https://hans-clean.com/">한스클린(보안 확인)</a> · <a href="https://www.ondaclean.kr/89">온다클린(403)</a> · <a href="https://www.laundrygo.com/">런드리고(기업 소개)</a></li></ul>
+<p class="src">조합 선택 → 서로 다른 시안 3개 → 시안 선택 → 완성 사이트 제작. 레퍼런스의 상호·문구·사진·수치·후기를 가상 업체 콘텐츠로 복제하지 않습니다. 전문 방역의 작업·약품·안내는 별도 서비스 기준을 정한 후 구체화합니다.</p></main></body></html>
