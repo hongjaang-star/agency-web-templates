@@ -337,8 +337,9 @@ table.spec.wide th { width: 22%; }
 .growth-table { border-top:1px solid var(--line); padding-top:18px; color:var(--muted); font-size:14px; }
 .growth-table summary { cursor:pointer; }
 .table-scroll { overflow:auto; }
-.table-scroll table { min-width:560px; }
-.table-scroll th,.table-scroll td { width:auto; padding:10px; }
+.growth-table table.spec { min-width:620px; table-layout:fixed; }
+.growth-table table.spec th,.growth-table table.spec td { width:15.2%; padding:12px 14px; text-align:center; white-space:nowrap; font-variant-numeric:tabular-nums; }
+.growth-table table.spec th:first-child { width:24%; text-align:left; }
 .partner-window { overflow:hidden; mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent); margin-top:40px; }
 .partner-track { display:flex; width:max-content; animation:partner-drift 38s linear infinite; }
 .partner-group { margin:0; padding:0; list-style:none; display:flex; }
