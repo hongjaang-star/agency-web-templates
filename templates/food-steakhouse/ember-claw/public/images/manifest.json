@@ -432,5 +432,89 @@
     ],
     "bytes": 158438,
     "sha256": "2f4c1475cb2ed890bdacfe670c17ce9bc332b82e20d4ffb5e3dd8172b2526b9c"
+  },
+  {
+    "number": 32,
+    "file": "menu-truffle-fries.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "webpSize": [
+      1200,
+      1200
+    ],
+    "bytes": 153126,
+    "sha256": "74dce56637f1bd9a675a14682cfb7523a33186cc8b8d154efb28625d64d49099"
+  },
+  {
+    "number": 33,
+    "file": "menu-creamed-spinach.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "webpSize": [
+      1200,
+      1200
+    ],
+    "bytes": 137460,
+    "sha256": "af47689f15dccc0125d7fab3df2eb1aba15932c375934884f63b4e2efe4a0508"
+  },
+  {
+    "number": 34,
+    "file": "menu-grilled-asparagus.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "webpSize": [
+      1200,
+      1200
+    ],
+    "bytes": 139802,
+    "sha256": "e3b078beb3538e19234f62b5a56eca2130ad0a4d1aefbd0afceb68f5ada38b0c"
+  },
+  {
+    "number": 35,
+    "file": "menu-house-red.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "webpSize": [
+      1200,
+      1200
+    ],
+    "bytes": 73468,
+    "sha256": "120cf3bc0392c6bc7dbd2ae7614ed4795ffcfce298a724603d6f13dfbb093661"
+  },
+  {
+    "number": 36,
+    "file": "menu-malbec.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "webpSize": [
+      1200,
+      1200
+    ],
+    "bytes": 76134,
+    "sha256": "fffc61e59d92e5fd1ddd98a18052a3645cec9958b6227213e0b5e884df919b43"
+  },
+  {
+    "number": 37,
+    "file": "menu-chardonnay.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "webpSize": [
+      1200,
+      1200
+    ],
+    "bytes": 84436,
+    "sha256": "765900e6de562196403431800c4283e2ca492f581f4d83af8782f1293e3d5e73"
   }
 ]
