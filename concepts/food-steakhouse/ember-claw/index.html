@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex">
-<title>시안 · ember-claw — 엠버 &amp; 클로 (가상 업체 데모)</title>
+<title>엠버 & 클로 — 엠버 &amp; 클로 (가상 업체 데모)</title>
 <!--
   시안 · ember-claw (food-steakhouse)
   지문: layout=dark-showcase · hero=fullbleed-photo+ember-particles · typePair=Yellowtail script + Bodoni Moda + Gowun Batang · palette=charcoal·deep green·burgundy·gold
@@ -260,6 +260,16 @@ footer{border-top:1px solid #22261f;padding-block:48px 72px;color:var(--muted);f
   .fab a.on{background:var(--gold);color:var(--char)}
   footer{padding-bottom:110px}
 }
+
+/* Photography development: warm light, quiet frames and generous editorial rhythm. */
+body{margin:0}.ph{background:#151716;min-height:0}.ph::after{display:none}.ph img{display:block;width:100%;height:100%;object-fit:cover}.hero>.ph img{height:100%}
+.brand-cover,.quote-cover{position:relative;isolation:isolate;overflow:hidden}.brand-cover>img,.quote-cover>img{position:absolute;width:100%;height:100%;object-fit:cover;z-index:-2}.brand-cover:after,.quote-cover:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(12,13,12,.94),rgba(12,13,12,.25))}.brand-cover .brand-hero{padding-block:100px 110px}
+.pillar .ph{aspect-ratio:4/3;margin-bottom:24px}.pillar{padding:0 0 30px}.pillar>.k,.pillar>h3,.pillar>p{margin-inline:22px}.picks{gap:28px}.pick .ph{overflow:hidden}.pick img{transition:transform .7s ease}.pick:hover img{transform:scale(1.035)}
+.lunch{position:relative;isolation:isolate;overflow:hidden;min-height:230px}.lunch>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}.lunch:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(78,28,34,.93),rgba(12,13,12,.65))}
+.menu-photo{grid-column:1/-1;margin:0 0 18px;aspect-ratio:1;overflow:hidden}.menu-photo img{width:100%;height:100%;object-fit:cover}.store-photo{grid-column:1/-1;margin:0;aspect-ratio:16/7}.store-photo img{height:100%;width:100%;object-fit:cover}.eyebrow,.demo{font-size:13px}.muted{color:#bab4a9}
+.holiday{position:relative;isolation:isolate;overflow:hidden}.holiday>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}.holiday:before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(12,13,12,.72)}
+@media(max-width:760px){.brand-cover .brand-hero{padding-block:70px}.store-photo{aspect-ratio:4/3}.hero>.ph img{object-position:65%}.hero:before{background:linear-gradient(90deg,rgba(12,13,12,.88),rgba(12,13,12,.3))}.menu-photo{aspect-ratio:4/3}.doneness div:nth-child(n+4){display:flex}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pick img{transition:none}}
 </style>
 </head>
 <body>
@@ -285,7 +295,7 @@ footer{border-top:1px solid #22261f;padding-block:48px 72px;color:var(--muted);f
 <!-- HOME -->
 <section data-page="home">
   <div class="hero">
-    <figure class="ph"><figcaption>사진 자리 · 참숯 그릴 위 티본 단면 클로즈업, 스팟 조명으로 육즙과 불꽃 강조</figcaption></figure>
+    <figure class="ph"><img src="images/hero-home.webp" alt="참숯 그릴 위 티본 단면 클로즈업, 스팟 조명으로 육즙과 불꽃 강조" fetchpriority="high" decoding="async"></figure>
     <canvas id="embers" aria-hidden="true"></canvas>
     <div class="wrap hero-in">
       <p class="script">Charcoal &amp; Lobster</p>
@@ -299,24 +309,24 @@ footer{border-top:1px solid #22261f;padding-block:48px 72px;color:var(--muted);f
   <div class="wrap sec">
     <div class="sec-hd">
       <p class="eyebrow">Recommended</p>
-      <h2>오늘 가장 많이 나간 세 접시</h2>
+      <h2>처음 만나는 세 접시</h2>
       <p>처음 오셨다면 플래터로 시작해 보세요. 두 명이면 서프앤터프가 알맞습니다.</p>
     </div>
     <div class="picks">
       <a class="pick" href="#menu">
-        <figure class="ph board"><figcaption>원목 도마 위 차콜 스테이크 플래터</figcaption></figure>
+        <figure class="ph board"><img src="images/pick-platter.webp" alt="원목 도마 위 차콜 스테이크 플래터" loading="lazy" decoding="async"></figure>
         <span class="en">Steak Platter</span>
         <div class="row"><h3>차콜 스테이크 플래터 (3~4인)</h3><span class="price">139,000</span></div>
         <p>티본 600g, 립아이 300g, 포크찹, 감자튀김·구운 아스파라거스·버섯, 소스 3종.</p>
       </a>
       <a class="pick" href="#menu">
-        <figure class="ph lob"><figcaption>화이트 림 접시의 서프앤터프</figcaption></figure>
+        <figure class="ph lob"><img src="images/pick-surfturf.webp" alt="화이트 림 접시의 서프앤터프" loading="lazy" decoding="async"></figure>
         <span class="en">Surf &amp; Turf</span>
         <div class="row"><h3>서프앤터프 세트 (2인)</h3><span class="price">98,000</span></div>
         <p>통 랍스터 한 마리와 한우 안심 200g, 수프와 하우스 와인 2잔.</p>
       </a>
       <a class="pick" href="#menu">
-        <figure class="ph lob"><figcaption>랍스터 로제 파스타</figcaption></figure>
+        <figure class="ph lob"><img src="images/pick-lobster-pasta.webp" alt="랍스터 로제 파스타" loading="lazy" decoding="async"></figure>
         <span class="en">Lobster Pasta</span>
         <div class="row"><h3>하프 랍스터 로제 파스타</h3><span class="price">36,000</span></div>
         <p>랍스터 반 마리를 통째로 올린 로제 링귀네. 비스크로 소스를 냅니다.</p>
@@ -325,7 +335,7 @@ footer{border-top:1px solid #22261f;padding-block:48px 72px;color:var(--muted);f
   </div>
 
   <div class="wrap" style="padding-bottom:clamp(56px,9vw,112px)">
-    <div class="lunch">
+    <div class="lunch"><img src="images/lunch-set.webp" alt="부채살 스테이크와 수프·샐러드의 평일 런치" loading="lazy" decoding="async">
       <span class="script">Weekday Lunch</span>
       <div><h3>평일 런치 스테이크 세트 24,900원부터</h3><p>월~금 11:30–15:00 · 부채살 스테이크, 수프, 샐러드, 음료</p></div>
       <a class="btn" style="border-color:#f0d9a8;color:#f0d9a8" href="#menu">런치 메뉴</a>
@@ -335,7 +345,7 @@ footer{border-top:1px solid #22261f;padding-block:48px 72px;color:var(--muted);f
   <div class="marble">
     <div class="wrap sec">
       <div class="split">
-        <figure class="ph room"><figcaption>사진 자리 · 딥그린 벽, 버건디 레더 부스, 골드 샹들리에</figcaption></figure>
+        <figure class="ph room"><img src="images/rooms-overview.webp" alt="딥그린 벽, 버건디 레더 부스, 골드 샹들리에" loading="lazy" decoding="async"></figure>
         <div>
           <p class="eyebrow">Our Rooms</p>
           <h2>숙성고 앞 바, 레더 부스, 가족 플래터 홀</h2>
@@ -349,18 +359,18 @@ footer{border-top:1px solid #22261f;padding-block:48px 72px;color:var(--muted);f
 
 <!-- BRAND -->
 <section data-page="brand" hidden>
-  <div class="wrap brand-hero">
+  <div class="brand-cover"><img src="images/hero-brand.webp" alt="참숯 그릴 위 스테이크와 랍스터" loading="lazy" decoding="async"><div class="wrap brand-hero">
     <p class="eyebrow">Brand Story</p>
     <p class="script" style="margin-top:18px">Ember &amp; Claw</p>
     <h1>불씨와 집게, 두 가지만 잘하는 집</h1>
     <p>엠버(Ember)는 참숯의 불씨, 클로(Claw)는 랍스터의 집게입니다. 2020년 성수동 정육 쇼룸 옆 작은 그릴에서 시작해, 숙성육과 랍스터를 한 도마에 올려 나눠 먹는 지금의 방식이 되었습니다.</p>
   </div>
 
-  <div class="wrap sec" style="padding-top:24px">
+  </div><div class="wrap sec" style="padding-top:24px">
     <div class="pillars">
-      <div class="pillar"><span class="k">Dry Aged</span><h3>21일 드라이에이징</h3><p>유리 챔버에서 온도와 습도를 맞춰 21일 숙성합니다. 겉면을 걷어 내고 남은 살만 그릴에 올립니다.</p></div>
-      <div class="pillar"><span class="k">Charcoal</span><h3>참숯 900도 그릴</h3><p>비장탄 참숯으로 겉을 빠르게 굽고, 레스팅 시간을 두께별로 지켜 육즙을 가둡니다.</p></div>
-      <div class="pillar"><span class="k">Carving</span><h3>테이블 앞 카빙</h3><p>티본과 토마호크는 테이블 옆에서 뼈를 발라 썰어 드립니다. 굽기는 썰기 전에 함께 확인합니다.</p></div>
+      <div class="pillar"><figure class="ph"><img src="images/brand-dryaging.webp" alt="유리 숙성고의 뼈 붙은 숙성육" loading="lazy" decoding="async"></figure><span class="k">Dry Aged</span><h3>21일 드라이에이징</h3><p>유리 챔버에서 온도와 습도를 맞춰 21일 숙성합니다. 겉면을 걷어 내고 남은 살만 그릴에 올립니다.</p></div>
+      <div class="pillar"><figure class="ph"><img src="images/brand-charcoal.webp" alt="참숯 위에서 굽는 두꺼운 스테이크" loading="lazy" decoding="async"></figure><span class="k">Charcoal</span><h3>참숯 900도 그릴</h3><p>비장탄 참숯으로 겉을 빠르게 굽고, 레스팅 시간을 두께별로 지켜 육즙을 가둡니다.</p></div>
+      <div class="pillar"><figure class="ph"><img src="images/brand-carving.webp" alt="테이블 옆에서 스테이크를 써는 셰프의 손" loading="lazy" decoding="async"></figure><span class="k">Carving</span><h3>테이블 앞 카빙</h3><p>티본과 토마호크는 테이블 옆에서 뼈를 발라 썰어 드립니다. 굽기는 썰기 전에 함께 확인합니다.</p></div>
     </div>
     <div class="chamber">
       <p class="eyebrow">Dry Aging Chamber · 숙성 기준</p>
@@ -381,7 +391,7 @@ footer{border-top:1px solid #22261f;padding-block:48px 72px;color:var(--muted);f
 
   <div class="wrap sec" style="padding-top:0">
     <div class="split rev">
-      <figure class="ph"><figcaption>사진 자리 · 유리 쇼케이스 속 드라이에이징 숙성육</figcaption></figure>
+      <figure class="ph"><img src="images/brand-showcase.webp" alt="유리 쇼케이스 속 드라이에이징 숙성육" loading="lazy" decoding="async"></figure>
       <div>
         <p class="eyebrow">Showcase</p>
         <h2>입구에서 보이는 숙성고</h2>
@@ -391,10 +401,10 @@ footer{border-top:1px solid #22261f;padding-block:48px 72px;color:var(--muted);f
   </div>
 
   <div class="marble">
-    <div class="wrap sec quote">
+    <div class="quote-cover"><img src="images/brand-grillmaster.webp" alt="참숯 그릴 앞 그릴 마스터의 뒷모습" loading="lazy" decoding="async"><div class="wrap sec quote">
       <p>“숯은 거짓말을 못 합니다. 고기가 좋으면 소금만 있으면 되고, 남은 일은 기다리는 겁니다. 숙성 21일, 레스팅 7분.”</p>
       <cite>그릴 마스터 · 한태오 (가상 인물)</cite>
-    </div>
+    </div></div>
   </div>
 </section>
 
@@ -435,16 +445,16 @@ footer{border-top:1px solid #22261f;padding-block:48px 72px;color:var(--muted);f
       <p>가을에만 들어오는 송이와 검은 트러플을 숙성육과 랍스터에 더했습니다. 재료가 떨어지면 일찍 마감합니다.</p>
       <span class="period">2026.10.01 — 2026.11.30</span>
     </div>
-    <figure class="ph"><figcaption>사진 자리 · 트러플 버터를 올린 숙성 립아이, 연기와 불꽃</figcaption></figure>
+    <figure class="ph"><img src="images/hero-season.webp" alt="트러플 버터를 올린 숙성 립아이, 연기와 불꽃" loading="lazy" decoding="async"></figure>
   </div>
   <div class="wrap" style="padding-bottom:clamp(56px,9vw,112px)">
     <div class="slist">
-      <article class="sitem"><figure class="ph"><figcaption>트러플 립아이</figcaption></figure><div><h3>블랙 트러플 버터 립아이 400g</h3><p>21일 숙성 립아이에 검은 트러플 버터를 녹여 올리고, 구운 마늘을 곁들였습니다.</p><span class="price">69,000</span></div></article>
-      <article class="sitem"><figure class="ph"><figcaption>송이 안심</figcaption></figure><div><h3>송이 숯불 안심 200g</h3><p>양양 송이를 참숯에 함께 구워 한우 안심 위에 저며 올립니다.</p><span class="price">62,000</span></div></article>
-      <article class="sitem"><figure class="ph lob"><figcaption>랍스터 리조또</figcaption></figure><div><h3>랍스터 포르치니 리조또</h3><p>랍스터 꼬리살과 포르치니, 비스크로 지은 리조또.</p><span class="price">42,000</span></div></article>
-      <article class="sitem"><figure class="ph board"><figcaption>가을 플래터</figcaption></figure><div><h3>오텀 파이어 플래터 (2인)</h3><p>트러플 립아이, 송이 안심, 하프 랍스터, 구운 단호박과 밤.</p><span class="price">148,000</span></div></article>
+      <article class="sitem"><figure class="ph"><img src="images/season-truffle-ribeye.webp" alt="트러플 립아이" loading="lazy" decoding="async"></figure><div><h3>블랙 트러플 버터 립아이 400g</h3><p>21일 숙성 립아이에 검은 트러플 버터를 녹여 올리고, 구운 마늘을 곁들였습니다.</p><span class="price">69,000</span></div></article>
+      <article class="sitem"><figure class="ph"><img src="images/season-songi.webp" alt="송이 안심" loading="lazy" decoding="async"></figure><div><h3>송이 숯불 안심 200g</h3><p>양양 송이를 참숯에 함께 구워 한우 안심 위에 저며 올립니다.</p><span class="price">62,000</span></div></article>
+      <article class="sitem"><figure class="ph lob"><img src="images/season-lobster-risotto.webp" alt="랍스터 리조또" loading="lazy" decoding="async"></figure><div><h3>랍스터 포르치니 리조또</h3><p>랍스터 꼬리살과 포르치니, 비스크로 지은 리조또.</p><span class="price">42,000</span></div></article>
+      <article class="sitem"><figure class="ph board"><img src="images/season-autumn-platter.webp" alt="가을 플래터" loading="lazy" decoding="async"></figure><div><h3>오텀 파이어 플래터 (2인)</h3><p>트러플 립아이, 송이 안심, 하프 랍스터, 구운 단호박과 밤.</p><span class="price">148,000</span></div></article>
     </div>
-    <div class="holiday">
+    <div class="holiday"><img src="images/season-holiday.webp" alt="토마호크와 랍스터의 홀리데이 플래터" loading="lazy" decoding="async">
       <div>
         <span class="script">Holiday Platter</span>
         <p>토마호크 1.2kg과 통 랍스터 두 마리, 12월 한정 홀리데이 플래터 사전 예약은 11월 1일에 엽니다.</p>
@@ -507,13 +517,14 @@ footer{border-top:1px solid #22261f;padding-block:48px 72px;color:var(--muted);f
       <p style="margin-top:14px">엠버 &amp; 클로 (가상 업체) · 대표 한태오<br>사업자등록번호 000-00-00000 (데모)</p>
     </div>
     <div><b>영업시간</b><p style="margin-top:8px">런치 11:30–15:00 (평일)<br>디너 17:00–22:00 (L.O. 21:00)<br>연중무휴 · 명절 당일 휴무</p></div>
-    <div><b>바로가기</b><p style="margin-top:8px"><a href="#season">시즌 메뉴</a> · <a href="#stores">매장 찾기</a> · <a href="#reserve">예약하기</a><br>본 사이트는 에이전시 포트폴리오용 가상 데모입니다.</p></div>
+    <div><b>바로가기</b><p style="margin-top:8px"><a href="#season">시즌 메뉴</a> · <a href="#stores">매장 찾기</a> · <a href="#reserve">예약하기</a><br>본 사이트는 에이전시 포트폴리오용 가상 데모입니다. 사진은 AI 제작 이미지이며 메뉴·가격·매장은 예시입니다.</p></div>
   </div>
 </footer>
 
 <nav class="fab" aria-label="빠른 이동"><a href="#stores">매장 찾기</a><a href="#reserve" class="on">예약하기</a></nav>
 
 <script>
+const MENU_PHOTOS={"steak":["menu-tbone","menu-porterhouse","menu-tomahawk","menu-ribeye","menu-tenderloin","menu-flatiron"],"platter":["pick-platter","pick-surfturf","pick-platter"],"lobster":["menu-lobster-grill","menu-thermidor","pick-lobster-pasta","menu-seafood-pasta"],"lunch":["lunch-set","pick-lobster-pasta","lunch-set"],"side":["menu-sides","menu-sides","menu-sides"]};
 const MENU={
   steak:{s:"Dry Aged Steak",k:"스테이크",items:[
     ["드라이에이징 티본","900g · 2~3인","안심과 채끝을 한 번에. 21일 숙성, 테이블 카빙.",118000,["best","share"]],
@@ -548,8 +559,8 @@ const won=n=>n.toLocaleString("ko-KR");
 function renderMenu(cat){
   const keys=cat==="all"?Object.keys(MENU):[cat];
   document.getElementById("menuBody").innerHTML=keys.map(k=>{const g=MENU[k];
-    return `<div class="mgroup"><h3><span class="script">${g.s}</span>${g.k}</h3><div class="mlist">${g.items.map(([n,w,d,p,t])=>
-      `<div class="mi"><h4>${n}${t.map(x=>`<span class="tag ${TAGS[x][1]}">${TAGS[x][0]}</span>`).join("")}</h4><span class="price">${won(p)}</span>${w?`<span class="w">${w}</span>`:""}<p>${d}</p></div>`).join("")}</div></div>`;
+    return `<div class="mgroup"><h3><span class="script">${g.s}</span>${g.k}</h3><div class="mlist">${g.items.map(([n,w,d,p,t],index)=>
+      `<div class="mi">${MENU_PHOTOS[k]?.[index]?`<figure class="menu-photo"><img src="images/${MENU_PHOTOS[k][index]}.webp" alt="${n}" loading="lazy" decoding="async"></figure>`:''}<h4>${n}${t.map(x=>`<span class="tag ${TAGS[x][1]}">${TAGS[x][0]}</span>`).join("")}</h4><span class="price">${won(p)}</span>${w?`<span class="w">${w}</span>`:""}<p>${d}</p></div>`).join("")}</div></div>`;
   }).join("");
 }
 document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{
@@ -565,7 +576,7 @@ const STORES={
 const mapSvg=`<svg viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true"><g stroke="#29483a" stroke-width="10" fill="none"><path d="M-10 170 L410 120"/><path d="M150 -10 L190 310"/><path d="M-10 60 L410 40"/></g><g stroke="#203b2e" stroke-width="4" fill="none"><path d="M-10 240 L410 210"/><path d="M60 -10 L90 310"/><path d="M300 -10 L280 310"/><path d="M220 -10 L250 310"/></g><path d="M-10 285 C120 250 260 300 410 260" stroke="#1d3f3a" stroke-width="22" fill="none"/></svg>`;
 function renderStore(id){const s=STORES[id];
   document.getElementById("storeBody").innerHTML=`<div class="store">
-    <div class="map" role="img" aria-label="${s.name} 위치 약도">${mapSvg}
+    <figure class="store-photo">${'<img src="images/store-'+id+'.webp" alt="'+s.name+' 인테리어" loading="lazy">'}</figure><div class="map" role="img" aria-label="${s.name} 위치 약도">${mapSvg}
       <div class="pin" style="left:${s.pin[0]}%;top:${s.pin[1]}%"><span>Ember &amp; Claw · ${s.name}</span><i></i></div>
       <div class="pin" style="left:${s.pin[0]-16}%;top:${s.pin[1]+24}%;opacity:.85"><span>${s.label}</span></div></div>
     <div class="info"><h2>${s.name}</h2><p class="sub">${s.sub}</p>
@@ -603,9 +614,11 @@ document.addEventListener("click",e=>{const b=e.target.closest(".copy");if(!b)re
   window.__embers=()=>{if(running)return;running=true;size();draw()};
 })();
 
+const titles={home:"참숯 스테이크와 랍스터",brand:"브랜드 이야기",menu:"메뉴",season:"시즌 메뉴",stores:"매장 찾기",reserve:"예약 안내"};
 const pages=[...document.querySelectorAll("[data-page]")],links=[...document.querySelectorAll("nav.gnb a")];
 const gnb=document.getElementById("gnb"),burger=document.getElementById("burger");
 function route(){const id=(location.hash||"#home").slice(1);const page=pages.some(p=>p.dataset.page===id)?id:"home";
+  document.title=(titles[page]||titles.home)+" · 엠버 & 클로 | 가상 업체 데모";
   pages.forEach(p=>p.hidden=p.dataset.page!==page);
   links.forEach(a=>a.getAttribute("href")==="#"+page?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
   gnb.classList.remove("open");burger.setAttribute("aria-expanded","false");window.scrollTo(0,0);

@@ -182,18 +182,18 @@
       ]
     },
     {
-      "id": "concept-ember-claw",
+      "id": "food-ember-claw",
       "name": "Ember & Claw",
       "category": "food",
       "categoryLabel": "스테이크 · 랍스터",
-      "kind": "concept",
-      "kindLabel": "콘셉트 시안",
-      "path": "concepts/food-steakhouse/ember-claw/",
-      "thumbnail": "concept-ember-claw.jpg",
+      "kind": "site",
+      "kindLabel": "완성 사이트",
+      "path": "food-steakhouse/ember-claw/",
+      "thumbnail": "food-ember-claw.jpg",
       "summary": [
-        "차콜·딥그린·버건디·골드와 손글씨 스크립트의 로우키 스테이크하우스.",
-        "브랜드·메뉴·시즌 메뉴·매장 찾기·예약하기 5개 화면, 굽기 온도 안내.",
-        "숯불 불씨 히어로, 지점 3곳 약도·네이버 예약 연결. 사진 31컷 생성 예정."
+        "차콜·딥그린·버건디·골드와 로우키 사진의 스테이크하우스.",
+        "메뉴·시즌·브랜드·3개 매장·예약 안내, AI 제작 사진 31컷.",
+        "제품별 사진·메뉴 분류·지점 사진 전환·사이트별 에디터 제공."
       ]
     }
   ]

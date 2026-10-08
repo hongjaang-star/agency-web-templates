@@ -1,0 +1,436 @@
+[
+  {
+    "number": 1,
+    "file": "hero-home.webp",
+    "sourceSize": [
+      1672,
+      941
+    ],
+    "webpSize": [
+      1672,
+      940
+    ],
+    "bytes": 160824,
+    "sha256": "a234609f6a2ddaf7e57b2bee02a6888a78680cee49ef3257245671e46338e685"
+  },
+  {
+    "number": 2,
+    "file": "hero-brand.webp",
+    "sourceSize": [
+      1672,
+      940
+    ],
+    "webpSize": [
+      1672,
+      940
+    ],
+    "bytes": 148570,
+    "sha256": "87c40e9a712897842ac7d37b01ae91c29250c1a9dbb738ccc193bc6f270bfb6b"
+  },
+  {
+    "number": 3,
+    "file": "hero-season.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "webpSize": [
+      1254,
+      1254
+    ],
+    "bytes": 199602,
+    "sha256": "952d3bdcf9cb9d447ef548bd3091a0070090a759c97decb9c1d4795facc5c49b"
+  },
+  {
+    "number": 4,
+    "file": "pick-platter.webp",
+    "sourceSize": [
+      1448,
+      1086
+    ],
+    "webpSize": [
+      1200,
+      900
+    ],
+    "bytes": 236746,
+    "sha256": "d3e118abc069472ffa5d24ab47ac05c1784a75a0fd83d78fa5153794e9126ed4"
+  },
+  {
+    "number": 5,
+    "file": "pick-surfturf.webp",
+    "sourceSize": [
+      1448,
+      1086
+    ],
+    "webpSize": [
+      1200,
+      900
+    ],
+    "bytes": 137628,
+    "sha256": "dd945149889a032babf93121af8c1782d360847ce71d3e892e8195ad8e8fa61a"
+  },
+  {
+    "number": 6,
+    "file": "pick-lobster-pasta.webp",
+    "sourceSize": [
+      1448,
+      1086
+    ],
+    "webpSize": [
+      1200,
+      900
+    ],
+    "bytes": 114192,
+    "sha256": "4ba98b7356704a489d6962082048561f70735446b600bd580877fe23aa18e90e"
+  },
+  {
+    "number": 7,
+    "file": "lunch-set.webp",
+    "sourceSize": [
+      1672,
+      941
+    ],
+    "webpSize": [
+      1200,
+      675
+    ],
+    "bytes": 108082,
+    "sha256": "59de3873c481f1b0b840c8e795c11eb56fd383307f944c3549f78d3aa782386d"
+  },
+  {
+    "number": 8,
+    "file": "rooms-overview.webp",
+    "sourceSize": [
+      1402,
+      1122
+    ],
+    "webpSize": [
+      1200,
+      960
+    ],
+    "bytes": 147516,
+    "sha256": "5f485980def954b09c6618b097386508cc454e68d75bc64cd0bc8ddb8c6099c9"
+  },
+  {
+    "number": 9,
+    "file": "brand-dryaging.webp",
+    "sourceSize": [
+      1448,
+      1086
+    ],
+    "webpSize": [
+      1200,
+      900
+    ],
+    "bytes": 188636,
+    "sha256": "b24225937af9e340b421dc92896e61c5a3abd54e008f1378188d27957678eca4"
+  },
+  {
+    "number": 10,
+    "file": "brand-charcoal.webp",
+    "sourceSize": [
+      1448,
+      1086
+    ],
+    "webpSize": [
+      1200,
+      900
+    ],
+    "bytes": 127438,
+    "sha256": "20fa103928097c5d6bfd36ce235cc3ce9f0eb5629f5eccd717535f1e1cfb2b84"
+  },
+  {
+    "number": 11,
+    "file": "brand-carving.webp",
+    "sourceSize": [
+      1448,
+      1086
+    ],
+    "webpSize": [
+      1200,
+      900
+    ],
+    "bytes": 105466,
+    "sha256": "2f4f3d1a875c96c35eb0f6e97aa956ce46a4882f1238d74928c5008ade5dad51"
+  },
+  {
+    "number": 12,
+    "file": "brand-showcase.webp",
+    "sourceSize": [
+      1402,
+      1122
+    ],
+    "webpSize": [
+      1200,
+      960
+    ],
+    "bytes": 198614,
+    "sha256": "b951ff0c9cc7c9db15775363c5a403939d78adf2cb663558be3b4c1b4c031d7b"
+  },
+  {
+    "number": 13,
+    "file": "brand-grillmaster.webp",
+    "sourceSize": [
+      1672,
+      941
+    ],
+    "webpSize": [
+      1200,
+      675
+    ],
+    "bytes": 91458,
+    "sha256": "114ec8135f4359713f72c94f7d6aa018a634e98ccb3507ac58374b2262037333"
+  },
+  {
+    "number": 14,
+    "file": "menu-tbone.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "webpSize": [
+      1200,
+      1200
+    ],
+    "bytes": 236188,
+    "sha256": "9ab421c5fa8bdd9c6e1c0050d35ab8fd115b231818b8218b04f0fa9edbd58448"
+  },
+  {
+    "number": 15,
+    "file": "menu-porterhouse.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "webpSize": [
+      1200,
+      1200
+    ],
+    "bytes": 173296,
+    "sha256": "c2ad0bc3415d8cf594fd49f2f3099d3b28a34c74bcb4d8df72756c9dbdbbe6d8"
+  },
+  {
+    "number": 16,
+    "file": "menu-tomahawk.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "webpSize": [
+      1200,
+      1200
+    ],
+    "bytes": 184284,
+    "sha256": "fd387bf14b64dcd617eda1e4482a8ebe65b79632d1c73eb412be9b91724d151d"
+  },
+  {
+    "number": 17,
+    "file": "menu-ribeye.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "webpSize": [
+      1200,
+      1200
+    ],
+    "bytes": 188244,
+    "sha256": "a86e59f04b2e41260392ae6587c756a8a51027bab8e5eaccdf9774719c8b8b45"
+  },
+  {
+    "number": 18,
+    "file": "menu-tenderloin.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "webpSize": [
+      1200,
+      1200
+    ],
+    "bytes": 111834,
+    "sha256": "775e8797445f7c0ccce171649cc8678b3a2fa78edd1a50e9ec6d406a1e8ceebf"
+  },
+  {
+    "number": 19,
+    "file": "menu-flatiron.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "webpSize": [
+      1200,
+      1200
+    ],
+    "bytes": 172836,
+    "sha256": "25d68a2b25f6d760e716545c0284bbb9868ce25dd5778d88bd675ddcd6c8d79a"
+  },
+  {
+    "number": 20,
+    "file": "menu-lobster-grill.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "webpSize": [
+      1200,
+      1200
+    ],
+    "bytes": 196950,
+    "sha256": "2e0e2116abb0a791feae64466a574273cf45799b4893c466d36cedbea54b8e8b"
+  },
+  {
+    "number": 21,
+    "file": "menu-thermidor.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "webpSize": [
+      1200,
+      1200
+    ],
+    "bytes": 179484,
+    "sha256": "c3faf7dba1a0504d47a268134eac3092f0e5768cc51c7daa091ff052dfb80191"
+  },
+  {
+    "number": 22,
+    "file": "menu-seafood-pasta.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "webpSize": [
+      1200,
+      1200
+    ],
+    "bytes": 152688,
+    "sha256": "738f6906b44e51079d64ebcdf0ae4d14fd0cbdbff1f0e0e3a2200ee68a286206"
+  },
+  {
+    "number": 23,
+    "file": "menu-sides.webp",
+    "sourceSize": [
+      1672,
+      941
+    ],
+    "webpSize": [
+      1200,
+      675
+    ],
+    "bytes": 116648,
+    "sha256": "52f50b417edc16bab73cb3c8dd2af803d5cd0f3e252debee5be95811ce5af1dc"
+  },
+  {
+    "number": 24,
+    "file": "season-truffle-ribeye.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "webpSize": [
+      1200,
+      1200
+    ],
+    "bytes": 178302,
+    "sha256": "909b897735bdc1db3c6b5d6bc468d5ba02e3800e6c24cbacf3afb077d7a1bb9f"
+  },
+  {
+    "number": 25,
+    "file": "season-songi.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "webpSize": [
+      1200,
+      1200
+    ],
+    "bytes": 149668,
+    "sha256": "6f8e161c2a9dcb05d49bf7c241022dcc43711f155204f354701c2da136bd491e"
+  },
+  {
+    "number": 26,
+    "file": "season-lobster-risotto.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "webpSize": [
+      1200,
+      1200
+    ],
+    "bytes": 149526,
+    "sha256": "a95a08793015dc723ab65abaf2c7271fb84d2a20e537802b82d94c2b77393068"
+  },
+  {
+    "number": 27,
+    "file": "season-autumn-platter.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "webpSize": [
+      1200,
+      1200
+    ],
+    "bytes": 206560,
+    "sha256": "9684fc692c655bd7c5d6c4f587b2232d780b467a8d51a2b6744e27098d214eaf"
+  },
+  {
+    "number": 28,
+    "file": "season-holiday.webp",
+    "sourceSize": [
+      1672,
+      941
+    ],
+    "webpSize": [
+      1200,
+      675
+    ],
+    "bytes": 155824,
+    "sha256": "5f070af95d4726bf84a15f6543ba2b045ae1c60496610670f557061d74e90439"
+  },
+  {
+    "number": 29,
+    "file": "store-seongsu.webp",
+    "sourceSize": [
+      1448,
+      1086
+    ],
+    "webpSize": [
+      1200,
+      900
+    ],
+    "bytes": 177726,
+    "sha256": "cb7eecf71ff824e02b57b998816ffc312e503febeef4b5a9d5f261a34325da55"
+  },
+  {
+    "number": 30,
+    "file": "store-hannam.webp",
+    "sourceSize": [
+      1448,
+      1086
+    ],
+    "webpSize": [
+      1200,
+      900
+    ],
+    "bytes": 141110,
+    "sha256": "992c00046698342f89f6045ae569602e66f87103ef30ea172cdf6dc373e89df6"
+  },
+  {
+    "number": 31,
+    "file": "store-pangyo.webp",
+    "sourceSize": [
+      1448,
+      1086
+    ],
+    "webpSize": [
+      1200,
+      900
+    ],
+    "bytes": 158438,
+    "sha256": "2f4c1475cb2ed890bdacfe670c17ce9bc332b82e20d4ffb5e3dd8172b2526b9c"
+  }
+]
