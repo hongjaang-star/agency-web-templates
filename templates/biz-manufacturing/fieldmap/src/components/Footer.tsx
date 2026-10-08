@@ -17,7 +17,7 @@ export default function Footer() {
         <p className="foot-h">바로가기</p>
         <ul>{site.nav.map((n) => (<li key={n.href}><Link href={`${n.href}/`}>{n.label}</Link></li>))}<li><Link href="/quote/">견적 요청</Link></li></ul>
       </div>
-      <p className="foot-demo">가상 업체 데모입니다. 제품·인증·납품·설비 정보는 예시이며 실제 업체와 관계없습니다.</p>
+      <p className="foot-demo">가상 업체 데모입니다. 제품 사진은 AI 제작 시각화이며 제품·인증·납품·설비 정보는 예시입니다. 실제 제작은 승인 도면 기준이며 실제 업체와 관계없습니다.</p>
     </footer>
   );
 }
