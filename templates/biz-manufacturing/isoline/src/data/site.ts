@@ -12,8 +12,8 @@ export const site = {
   phone: "000-0000-0000",
   email: "rfq@example.co.kr",
   hours: "평일 08:30–17:30",
-  address: "경기도 ○○시 산업단지로 00 (가상 주소)",
-  postal: { addressCountry: "KR", addressRegion: "경기도", addressLocality: "○○시", streetAddress: "산업단지로 00" },
+  address: "경기도 시흥시 정왕동 시화국가산업단지 일대 (데모 위치)",
+  postal: { addressCountry: "KR", addressRegion: "경기도", addressLocality: "시흥시", streetAddress: "시화국가산업단지 일대 (데모 위치)" },
   nav: [
     { href: "/parts", label: "제품 카탈로그" },
     { href: "/fields", label: "적용 분야" },
