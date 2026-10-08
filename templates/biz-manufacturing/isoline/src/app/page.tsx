@@ -40,7 +40,7 @@ export default function Home() {
       </section>
 
       <section className="sec">
-        <div className="sec-head"><div><p className="kicker">Drawing index</p><h2>{c.sheetsTitle}</h2></div><Link className="more" href="/parts/">전체 {products.length}장 보기 →</Link></div>
+        <div className="sec-head"><div><p className="kicker">Product categories</p><h2>{c.sheetsTitle}</h2></div><Link className="more" href="/parts/">전체 {products.length}종 보기 →</Link></div>
         <ol className="index">
           {categories.map((cat, i) => (
             <li key={cat.id}>
@@ -68,8 +68,8 @@ export default function Home() {
 
       <section className="sec cta">
         <h2>{c.rfqTitle}</h2>
-        <p>분야, 부품, 준비된 자료만 체크하면 견적 요청서 문안이 만들어집니다.</p>
-        <Link className="go" href="/rfq/">견적 체크리스트 열기</Link>
+        <p>제품·수량·희망 납기와 준비 자료를 정리해 견적 준비 메모를 복사하거나 저장하세요.</p>
+        <Link className="go" href="/rfq/">견적 준비 메모 만들기</Link>
       </section>
     </>
   );

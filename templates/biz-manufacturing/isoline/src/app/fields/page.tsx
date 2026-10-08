@@ -10,7 +10,7 @@ export const metadata = meta("적용 분야", `${applications.map((a) => a.name)
 export default function FieldsPage() {
   return (
     <>
-      <PageTop kicker="Application" title="적용 분야" lead="분야 이름을 누르면 그 분야에서 먼저 보는 조건과 맞는 부품 도면이 펼쳐집니다. 주소 끝의 #분야 로 바로 공유할 수 있습니다." trail={[{ href: "/fields/", label: "FIELDS" }]} />
+      <PageTop kicker="Application" title="어디에 쓰실 부품인가요?" lead="분야를 선택하면 설계에서 확인할 조건과 관련 제품을 함께 보여 드립니다. 제품 이름을 눌러 상세 사양과 가공 옵션을 확인하세요." trail={[{ href: "/fields/", label: "적용 분야" }]} />
       <section className="sec flush"><FieldRing /></section>
       <Ld data={crumbs([{ href: "/fields", label: "적용 분야" }])} />
     </>

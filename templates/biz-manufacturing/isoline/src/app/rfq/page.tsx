@@ -5,7 +5,7 @@ import { rfq } from "@/data/content";
 import { crumbs, faq } from "@/lib/schema";
 import { meta } from "@/lib/seo";
 
-export const metadata = meta("견적 체크리스트", "적용 분야, 부품, 준비된 자료를 체크하면 견적 요청서 문안이 만들어집니다. 도면·시제품·성적서에 관한 질문도 확인하세요.", "/rfq");
+export const metadata = meta("견적 준비", "제품·수량·납기·준비 자료를 정리하고 견적 준비 메모를 복사하거나 파일로 저장하세요. 실제 접수 없는 가상 데모입니다.", "/rfq");
 
 export default function RfqPage() {
   return (
