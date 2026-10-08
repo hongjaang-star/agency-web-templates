@@ -27,6 +27,7 @@ export const product = (p: Product) => ({
   sku: p.id,
   category: categoryOf(p.category).name,
   description: p.summary,
+  image: absoluteUrl(`/images/${p.id}.webp`),
   url: absoluteUrl(`/parts/${p.id}`),
   manufacturer: { "@id": ORG },
   additionalProperty: Object.entries(p.spec).map(([name, value]) => ({ "@type": "PropertyValue", name, value })),

@@ -1,15 +1,25 @@
 "use client";
 // 첫 화면 분해 선화. 처음 열릴 때 부품이 위아래로 벌어지고, 버튼으로 분해/조립을 바꾼다.
 import { useEffect, useState } from "react";
+import ProductImage from "./ProductImage";
+import { products } from "@/data/catalog";
 
 export default function Exploded() {
   const [open, setOpen] = useState(false);
+  const [playing, setPlaying] = useState(true);
   useEffect(() => {
     const t = requestAnimationFrame(() => setOpen(true));
     return () => cancelAnimationFrame(t);
   }, []);
+  useEffect(() => {
+    if (!playing || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = window.setInterval(() => setOpen((v) => !v), 4200);
+    return () => window.clearInterval(timer);
+  }, [playing]);
   return (
     <div className={`explode${open ? " open" : ""}`}>
+      <div className="model-label"><span className="live-dot" />HB-310 / ASSEMBLY STUDY<span>01 — 03</span></div>
+      <div className="hero-product"><ProductImage p={products[4]} eager /></div>
       <svg viewBox="0 0 480 360" role="img" aria-label="배터리 모듈 하우징 분해 선화: 뚜껑, 기판 트레이, 바닥 케이스">
         <g fill="none" stroke="var(--lime)" strokeWidth="1.6" strokeLinejoin="round">
           <g className="part lid">
@@ -30,7 +40,7 @@ export default function Exploded() {
         </g>
         <g className="lbl"><text x="352" y="70">LID · A6061</text><text x="322" y="152">PCB TRAY</text><text x="352" y="300">CASE · IP67 예시</text></g>
       </svg>
-      <button type="button" aria-pressed={open} onClick={() => setOpen((v) => !v)}>{open ? "조립해 보기" : "분해해 보기"}</button>
+      <div className="motion-controls"><button type="button" aria-pressed={playing} onClick={() => setPlaying((v) => !v)}>{playing ? "자동 모션 정지" : "자동 모션 재생"}</button><button type="button" aria-pressed={open} onClick={() => { setPlaying(false); setOpen((v) => !v); }}>{open ? "조립해 보기" : "분해해 보기"}</button></div>
     </div>
   );
 }

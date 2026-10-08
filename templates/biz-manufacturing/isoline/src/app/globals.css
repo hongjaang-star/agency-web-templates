@@ -6,7 +6,7 @@
   --panel: #16211d;
   --line: #2b3a34;
   --text: #e6ece8;
-  --muted: #8fa199;
+  --muted: #a5b6ad;
   --lime: #c6f432;
   --pad: clamp(16px, 4vw, 56px);
   --sans: "Pretendard Variable", Pretendard, system-ui, sans-serif;
@@ -214,3 +214,38 @@ table.spec.wide th { width: 22%; }
   html { scroll-behavior: auto; }
   .explode .part, .explode .lbl { transition: none; }
 }
+
+/* ISOLINE material studies */
+.hero { background: radial-gradient(ellipse at 80% 30%, #263b2633, transparent 60%); }
+.hero-actions { display:flex; align-items:center; gap:24px; margin:28px 0; flex-wrap:wrap; }
+.hero-actions .more { margin:0; }
+.explode { border:1px solid var(--line); padding:26px 14px 60px; background:linear-gradient(#2b3a3422 1px,transparent 1px),linear-gradient(90deg,#2b3a3422 1px,transparent 1px); background-size:32px 32px; }
+.model-label { display:flex; align-items:center; gap:10px; font:11px var(--num); letter-spacing:.06em; padding:0 8px; }
+.model-label span:last-child { margin-left:auto; }
+.live-dot { width:6px; height:6px; border-radius:50%; background:var(--lime); box-shadow:0 0 12px #c6f455; }
+.motion-controls { position:absolute; bottom:18px; left:20px; right:20px; display:flex; justify-content:flex-end; gap:10px; }
+.motion-controls button { position:static; font-size:12px; }
+.hero-product { position:absolute; inset:55px 12px 65px; opacity:1; transition:opacity 1.2s ease,transform 1.8s ease; }
+.hero-product img { height:100%; object-fit:contain; background:transparent; }
+.explode svg { position:relative; opacity:0; transition:opacity 1.2s ease; }
+.explode.open svg { opacity:1; }
+.explode.open .hero-product { opacity:0; transform:scale(.93); }
+.product-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; }
+.product-card { text-decoration:none; min-width:0; }
+.photo-wrap { position:relative; overflow:hidden; border:1px solid var(--line); }
+.product-photo { display:block; width:100%; height:auto; aspect-ratio:3/2; object-fit:cover; background:var(--panel); }
+.photo-wrap img { transition:transform .7s ease; }
+.product-card:hover img { transform:scale(1.035); }
+.photo-number { position:absolute; top:18px; left:20px; color:var(--lime); font-size:13px; }
+.product-card-copy { padding:18px 0 28px; border-bottom:1px solid var(--line); }
+.product-card-copy h3 { font-size:24px; margin:8px 0; }
+.product-card-copy p { color:var(--muted); max-width:480px; margin:0 0 14px; }
+.product-card-copy small { color:var(--lime); font-size:13px; }
+.showcase .sec-head { margin-bottom:30px; }
+.showcase .product-card:nth-child(even) { margin-top:64px; }
+.drawing-toggle { margin-top:16px; color:var(--muted); font-size:13px; }
+.drawing-toggle summary { cursor:pointer; padding:12px 0; }
+.sheet figure img { border:1px solid var(--line); }
+.paper { padding:16px; background:var(--panel); }
+@media(max-width:560px) { .product-grid { grid-template-columns:1fr; gap:20px; } .showcase .product-card:nth-child(even) { margin-top:0; } .hero { padding-top:36px; } .hero-actions { gap:18px; } .product-card-copy h3 { font-size:22px; } }
+@media(prefers-reduced-motion:reduce) { .photo-wrap img,.hero-product,.explode svg { transition:none; } }
