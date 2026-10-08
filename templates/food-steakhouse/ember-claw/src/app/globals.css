@@ -254,3 +254,11 @@ body{margin:0}.ph{background:#151716;min-height:0}.ph::after{display:none}.ph im
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pick img{transition:none}}
 
 .mi p{font-size:15px}.mi .w{font-size:14px}.store .info{min-width:0}.kv dd{overflow-wrap:anywhere}
+
+/* Header and category navigation share a single sticky container. */
+.menu-subnav[hidden]{display:none}
+.menu-subnav{background:rgba(12,13,12,.98);border-top:1px solid #292c25}
+.menu-subnav .tabs{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;margin:0;padding:12px 0;scrollbar-width:thin}
+.menu-subnav .tab{flex:0 0 auto;white-space:nowrap;font-size:15px}
+.mgroup{scroll-margin-top:150px}
+@media(max-width:640px){.menu-subnav .tab{padding:9px 12px;font-size:14px}}
