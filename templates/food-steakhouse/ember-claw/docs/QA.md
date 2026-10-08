@@ -9,3 +9,5 @@
 - 31컷 contact sheet와 실제 홈페이지 전체 화면 육안 확인. WebP 최대 236,746 bytes.
 
 자동 검증: 저장소 루트 `node tests/steak-browser.mjs`. 공개 배포는 `STEAK_ORIGIN=https://hongjaang-star.github.io`로 같은 검증 수행.
+
+- 2026-10-09: 사이드·와인 6개 항목별 이미지 경로의 일대일 연결 및 두 사이트에서 6장 디코딩 검증 통과. 6개 이미지 contact sheet 육안 확인, 기존 전체 브라우저 검증 및 빌드 통과.

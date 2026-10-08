@@ -1,5 +1,5 @@
 
-const MENU_PHOTOS={"steak":["menu-tbone","menu-porterhouse","menu-tomahawk","menu-ribeye","menu-tenderloin","menu-flatiron"],"platter":["pick-platter","pick-surfturf","pick-platter"],"lobster":["menu-lobster-grill","menu-thermidor","pick-lobster-pasta","menu-seafood-pasta"],"lunch":["lunch-set","pick-lobster-pasta","lunch-set"],"side":["menu-sides","menu-sides","menu-sides"]};
+const MENU_PHOTOS={"steak":["menu-tbone","menu-porterhouse","menu-tomahawk","menu-ribeye","menu-tenderloin","menu-flatiron"],"platter":["pick-platter","pick-surfturf","pick-platter"],"lobster":["menu-lobster-grill","menu-thermidor","pick-lobster-pasta","menu-seafood-pasta"],"lunch":["lunch-set","pick-lobster-pasta","lunch-set"],"side":["menu-truffle-fries","menu-creamed-spinach","menu-grilled-asparagus","menu-house-red","menu-malbec","menu-chardonnay"]};
 const MENU={
   steak:{s:"Dry Aged Steak",k:"스테이크",items:[
     ["드라이에이징 티본","900g · 2~3인","안심과 채끝을 한 번에. 21일 숙성, 테이블 카빙.",118000,["best","share"]],
