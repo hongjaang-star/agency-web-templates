@@ -34,13 +34,10 @@ const won=n=>n.toLocaleString("ko-KR");
 function renderMenu(cat){
   const keys=cat==="all"?Object.keys(MENU):[cat];
   document.getElementById("menuBody").innerHTML=keys.map(k=>{const g=MENU[k];
-    return `<div class="mgroup"><h3><span class="script">${g.s}</span>${g.k}</h3><div class="mlist">${g.items.map(([n,w,d,p,t],index)=>
+    return `<div class="mgroup" id="menu-${k}" data-menu-group="${k}"><h3><span class="script">${g.s}</span>${g.k}</h3><div class="mlist">${g.items.map(([n,w,d,p,t],index)=>
       `<div class="mi">${MENU_PHOTOS[k]?.[index]?`<figure class="menu-photo"><img src="/agency-web-templates/food-steakhouse/ember-claw/images/${MENU_PHOTOS[k][index]}.webp" alt="${n}" loading="lazy" decoding="async"></figure>`:''}<h4>${n}${t.map(x=>`<span class="tag ${TAGS[x][1]}">${TAGS[x][0]}</span>`).join("")}</h4><span class="price">${won(p)}</span>${w?`<span class="w">${w}</span>`:""}<p>${d}</p></div>`).join("")}</div></div>`;
   }).join("");
 }
-document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{
-  document.querySelectorAll(".tab").forEach(x=>x.setAttribute("aria-selected",x===b));renderMenu(b.dataset.cat);
-}));
 renderMenu("all");
 
 const STORES={
@@ -95,8 +92,21 @@ const gnb=document.getElementById("gnb"),burger=document.getElementById("burger"
 function route(){const segments=location.pathname.split("/").filter(Boolean);const last=segments.at(-1);const id=location.hash?location.hash.slice(1):(["brand","menu","season","stores","reserve"].includes(last)?last:"home");const page=pages.some(p=>p.dataset.page===id)?id:"home";
   document.title=(titles[page]||titles.home)+" · 엠버 & 클로 | 가상 업체 데모";
   pages.forEach(p=>p.hidden=p.dataset.page!==page);
+  if(typeof menuBar!=="undefined")syncMenu();
   links.forEach(a=>(new URL(a.href).pathname.endsWith("/"+page+"/")||(page==="home"&&new URL(a.href).pathname===new URL(document.getElementById("brand-home").href).pathname))?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
   gnb.classList.remove("open");burger.setAttribute("aria-expanded","false");window.scrollTo(0,0);
   if(page==="home")window.__embers&&window.__embers();}
 burger.addEventListener("click",()=>{const o=gnb.classList.toggle("open");burger.setAttribute("aria-expanded",o)});
-addEventListener("hashchange",route);route();
+addEventListener("hashchange",route);
+
+const menuBar=document.querySelector('.menu-subnav'),menuLink=document.querySelector('nav.gnb a[href$="/menu/"],nav.gnb a[href="#menu"]');
+function markMenu(cat){document.querySelectorAll('.tab').forEach(b=>{const active=b.dataset.cat===cat;b.setAttribute('aria-selected',String(active));if(active)b.setAttribute('aria-current','location');else b.removeAttribute('aria-current')})}
+function menuOffset(){return document.querySelector('header').getBoundingClientRect().height+16}
+function syncMenu(){const visible=!document.querySelector('[data-page="menu"]').hidden;menuBar.hidden=!visible;menuLink.setAttribute('aria-expanded',String(visible));menuLink.setAttribute('aria-controls','menu-subnav');}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{const cat=b.dataset.cat;const target=cat==='all'?document.querySelector('[data-page="menu"]'):document.getElementById('menu-'+cat);markMenu(cat);window.scrollTo({top:Math.max(0,target.getBoundingClientRect().top+scrollY-menuOffset()),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}));
+menuLink.addEventListener('click',e=>{if(!document.querySelector('[data-page="menu"]').hidden){e.preventDefault();menuBar.hidden=!menuBar.hidden;menuLink.setAttribute('aria-expanded',String(!menuBar.hidden));gnb.classList.remove('open');burger.setAttribute('aria-expanded','false');}});
+let menuTick=false;
+addEventListener('scroll',()=>{if(menuTick)return;menuTick=true;requestAnimationFrame(()=>{menuTick=false;if(document.querySelector('[data-page="menu"]').hidden)return;let cat='all';for(const group of document.querySelectorAll('#menuBody .mgroup')){if(group.getBoundingClientRect().top<=menuOffset()+8)cat=group.dataset.menuGroup;}markMenu(cat);});},{passive:true});
+syncMenu();
+
+route();

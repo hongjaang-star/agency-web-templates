@@ -270,6 +270,15 @@ body{margin:0}.ph{background:#151716;min-height:0}.ph::after{display:none}.ph im
 .holiday{position:relative;isolation:isolate;overflow:hidden}.holiday>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}.holiday:before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(12,13,12,.72)}
 @media(max-width:760px){.brand-cover .brand-hero{padding-block:70px}.store-photo{aspect-ratio:4/3}.hero>.ph img{object-position:65%}.hero:before{background:linear-gradient(90deg,rgba(12,13,12,.88),rgba(12,13,12,.3))}.menu-photo{aspect-ratio:4/3}.doneness div:nth-child(n+4){display:flex}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pick img{transition:none}}
+
+/* Header and category navigation share a single sticky container. */
+.menu-subnav[hidden]{display:none}
+.menu-subnav{background:rgba(12,13,12,.98);border-top:1px solid #292c25}
+.menu-subnav .tabs{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;margin:0;padding:12px 0;scrollbar-width:thin}
+.menu-subnav .tab{flex:0 0 auto;white-space:nowrap;font-size:15px}
+.mgroup{scroll-margin-top:150px}
+@media(max-width:640px){.menu-subnav .tab{padding:9px 12px;font-size:14px}}
+
 </style>
 </head>
 <body>
@@ -288,6 +297,14 @@ body{margin:0}.ph{background:#151716;min-height:0}.ph::after{display:none}.ph im
       <a href="#reserve" class="cta">예약하기</a>
     </nav>
   </div>
+<div class="menu-subnav" id="menu-subnav" hidden><div class="wrap">    <div class="tabs" role="tablist" aria-label="메뉴 분류">
+      <button class="tab" role="tab" id="mt-all" aria-selected="true" data-cat="all">전체</button>
+      <button class="tab" role="tab" id="mt-steak" aria-selected="false" data-cat="steak">스테이크</button>
+      <button class="tab" role="tab" id="mt-platter" aria-selected="false" data-cat="platter">플래터 · 세트</button>
+      <button class="tab" role="tab" id="mt-lobster" aria-selected="false" data-cat="lobster">랍스터 · 파스타</button>
+      <button class="tab" role="tab" id="mt-lunch" aria-selected="false" data-cat="lunch">평일 런치</button>
+      <button class="tab" role="tab" id="mt-side" aria-selected="false" data-cat="side">사이드 · 와인</button>
+    </div></div></div>
 </header>
 
 <main>
@@ -423,14 +440,7 @@ body{margin:0}.ph{background:#151716;min-height:0}.ph::after{display:none}.ph im
       <div><b>미디엄 웰</b><i>65°C</i>옅은 분홍</div>
       <div><b>웰던</b><i>70°C</i>완전히 익힘</div>
     </div>
-    <div class="tabs" role="tablist" aria-label="메뉴 분류">
-      <button class="tab" role="tab" id="mt-all" aria-selected="true" data-cat="all">전체</button>
-      <button class="tab" role="tab" id="mt-steak" aria-selected="false" data-cat="steak">스테이크</button>
-      <button class="tab" role="tab" id="mt-platter" aria-selected="false" data-cat="platter">플래터 · 세트</button>
-      <button class="tab" role="tab" id="mt-lobster" aria-selected="false" data-cat="lobster">랍스터 · 파스타</button>
-      <button class="tab" role="tab" id="mt-lunch" aria-selected="false" data-cat="lunch">평일 런치</button>
-      <button class="tab" role="tab" id="mt-side" aria-selected="false" data-cat="side">사이드 · 와인</button>
-    </div>
+
     <div id="menuBody"></div>
   </div>
 </section>
@@ -559,13 +569,10 @@ const won=n=>n.toLocaleString("ko-KR");
 function renderMenu(cat){
   const keys=cat==="all"?Object.keys(MENU):[cat];
   document.getElementById("menuBody").innerHTML=keys.map(k=>{const g=MENU[k];
-    return `<div class="mgroup"><h3><span class="script">${g.s}</span>${g.k}</h3><div class="mlist">${g.items.map(([n,w,d,p,t],index)=>
+    return `<div class="mgroup" id="menu-${k}" data-menu-group="${k}"><h3><span class="script">${g.s}</span>${g.k}</h3><div class="mlist">${g.items.map(([n,w,d,p,t],index)=>
       `<div class="mi">${MENU_PHOTOS[k]?.[index]?`<figure class="menu-photo"><img src="images/${MENU_PHOTOS[k][index]}.webp" alt="${n}" loading="lazy" decoding="async"></figure>`:''}<h4>${n}${t.map(x=>`<span class="tag ${TAGS[x][1]}">${TAGS[x][0]}</span>`).join("")}</h4><span class="price">${won(p)}</span>${w?`<span class="w">${w}</span>`:""}<p>${d}</p></div>`).join("")}</div></div>`;
   }).join("");
 }
-document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{
-  document.querySelectorAll(".tab").forEach(x=>x.setAttribute("aria-selected",x===b));renderMenu(b.dataset.cat);
-}));
 renderMenu("all");
 
 const STORES={
@@ -620,11 +627,24 @@ const gnb=document.getElementById("gnb"),burger=document.getElementById("burger"
 function route(){const id=(location.hash||"#home").slice(1);const page=pages.some(p=>p.dataset.page===id)?id:"home";
   document.title=(titles[page]||titles.home)+" · 엠버 & 클로 | 가상 업체 데모";
   pages.forEach(p=>p.hidden=p.dataset.page!==page);
+  if(typeof menuBar!=="undefined")syncMenu();
   links.forEach(a=>a.getAttribute("href")==="#"+page?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
   gnb.classList.remove("open");burger.setAttribute("aria-expanded","false");window.scrollTo(0,0);
   if(page==="home")window.__embers&&window.__embers();}
 burger.addEventListener("click",()=>{const o=gnb.classList.toggle("open");burger.setAttribute("aria-expanded",o)});
-addEventListener("hashchange",route);route();
+addEventListener("hashchange",route);
+
+const menuBar=document.querySelector('.menu-subnav'),menuLink=document.querySelector('nav.gnb a[href$="/menu/"],nav.gnb a[href="#menu"]');
+function markMenu(cat){document.querySelectorAll('.tab').forEach(b=>{const active=b.dataset.cat===cat;b.setAttribute('aria-selected',String(active));if(active)b.setAttribute('aria-current','location');else b.removeAttribute('aria-current')})}
+function menuOffset(){return document.querySelector('header').getBoundingClientRect().height+16}
+function syncMenu(){const visible=!document.querySelector('[data-page="menu"]').hidden;menuBar.hidden=!visible;menuLink.setAttribute('aria-expanded',String(visible));menuLink.setAttribute('aria-controls','menu-subnav');}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{const cat=b.dataset.cat;const target=cat==='all'?document.querySelector('[data-page="menu"]'):document.getElementById('menu-'+cat);markMenu(cat);window.scrollTo({top:Math.max(0,target.getBoundingClientRect().top+scrollY-menuOffset()),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}));
+menuLink.addEventListener('click',e=>{if(!document.querySelector('[data-page="menu"]').hidden){e.preventDefault();menuBar.hidden=!menuBar.hidden;menuLink.setAttribute('aria-expanded',String(!menuBar.hidden));gnb.classList.remove('open');burger.setAttribute('aria-expanded','false');}});
+let menuTick=false;
+addEventListener('scroll',()=>{if(menuTick)return;menuTick=true;requestAnimationFrame(()=>{menuTick=false;if(document.querySelector('[data-page="menu"]').hidden)return;let cat='all';for(const group of document.querySelectorAll('#menuBody .mgroup')){if(group.getBoundingClientRect().top<=menuOffset()+8)cat=group.dataset.menuGroup;}markMenu(cat);});},{passive:true});
+syncMenu();
+
+route();
 </script>
 
 </body>

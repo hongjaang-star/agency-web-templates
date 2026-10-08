@@ -13,18 +13,32 @@ try{
   await page.evaluate(()=>window.scrollTo(0,0));await page.screenshot({path:'../steak-qa/'+view+'.jpg',fullPage:true});
  }
  assert.equal(new Set(titles).size,6);
- await page.goto(origin+prefix+'/menu/');await page.getByRole('tab',{name:'스테이크',exact:true}).click();assert.equal(await page.locator('.menu-photo img').count(),6);
+ await page.goto(origin+prefix+'/menu/');await page.getByRole('tab',{name:'스테이크',exact:true}).click();assert.equal(await page.locator('#menu-steak .menu-photo img').count(),6);
  await page.goto(origin+prefix+'/stores/');for(const id of ['seongsu','hannam','pangyo']){await page.locator('[data-store="'+id+'"]').click();assert.ok((await page.locator('.store-photo img').getAttribute('src')).includes('store-'+id));await page.locator('.store-photo img').evaluate(el=>el.decode())}
  await page.goto(origin+prefix+'/editor/');await page.locator('iframe').waitFor();await page.waitForFunction(()=>document.querySelectorAll('#pages option').length===6);assert.equal(await page.locator('#pages option').count(),6);
  await page.goto(origin+concept+'/');for(const view of ['home','brand','menu','season','stores','reserve']){await page.goto(origin+concept+'/#'+view);assert.equal(await page.locator('main>section:visible').getAttribute('data-page'),view);for(const img of await page.locator('main>section:visible img').all()){await img.scrollIntoViewIfNeeded();await img.evaluate(el=>el.decode())}}
  for(const url of [prefix+'/menu/',concept+'/#menu']){
   await page.goto(origin+url);await page.getByRole('tab',{name:'사이드 · 와인',exact:true}).click();
   const expected=['menu-truffle-fries','menu-creamed-spinach','menu-grilled-asparagus','menu-house-red','menu-malbec','menu-chardonnay'];
-  const images=page.locator('.menu-photo img');assert.equal(await images.count(),6);
+  const images=page.locator('#menu-side .menu-photo img');assert.equal(await images.count(),6);
   for(let i=0;i<6;i++){const img=images.nth(i);assert.ok((await img.getAttribute('src')).endsWith(expected[i]+'.webp'));await img.scrollIntoViewIfNeeded();await img.evaluate(el=>el.decode());}
   assert.equal(new Set(await images.evaluateAll(nodes=>nodes.map(n=>n.src))).size,6);
   await page.screenshot({path:'../steak-qa/sides-'+(url.startsWith(concept)?'concept':'site')+'.jpg',fullPage:true});
  }
- assert.deepEqual(errors,[]);console.log('PASS: 6 routes/titles, all photos decode, 360/768/1440, menu filter, 3 store images, 6 editor pages and original concept views.');
+ for(const url of [prefix+'/menu/',concept+'/#menu']){
+  await page.goto(origin+url);await page.locator('#menu-subnav').waitFor({state:'visible'});
+  for(const width of [360,768,1440]){
+   await page.setViewportSize({width,height:900});
+   await page.locator('#mt-lobster').click();await page.waitForTimeout(250);
+   assert.equal(await page.locator('#mt-lobster').getAttribute('aria-current'),'location');
+   const header=await page.locator('header').boundingBox(),bar=await page.locator('#menu-subnav').boundingBox();assert.ok(Math.abs(header.y)<2);assert.ok(bar.y>=0&&bar.y+bar.height<=header.height+2);
+   assert.ok(await page.locator('.tabs').evaluate(el=>getComputedStyle(el).flexWrap==='nowrap'));
+   await page.locator('#menu-side').evaluate(el=>window.scrollTo(0,el.getBoundingClientRect().top+scrollY-document.querySelector('header').getBoundingClientRect().height));await page.waitForTimeout(250);
+   assert.equal(await page.locator('#mt-side').getAttribute('aria-current'),'location');
+   await page.locator('#mt-all').click();await page.waitForTimeout(250);assert.equal(await page.locator('#mt-all').getAttribute('aria-current'),'location');
+  }
+  const topMenu=page.locator('nav.gnb a').filter({hasText:'메뉴'}).first();await topMenu.click();await page.locator('#menu-subnav').waitFor({state:'hidden'});await topMenu.click();await page.locator('#menu-subnav').waitFor({state:'visible'});
+ }
+ assert.deepEqual(errors,[]);console.log('PASS: 6 routes/titles, all photos decode, 360/768/1440, sticky category navigation and scroll tracking, 3 store images, 6 editor pages and original concept views.');
  await page.goto(origin+prefix+'/');await page.setViewportSize({width:1440,height:900});await page.screenshot({path:'agency/assets/images/portfolio/food-ember-claw.png'});
 }finally{await browser.close();await new Promise(r=>server.close(r));}
