@@ -135,9 +135,15 @@
       "name": "청소·방역·이사",
       "category": "service",
       "level": "L1",
-      "status": "research",
+      "status": "concepts",
       "research": "concepts/service-cleaning/research/",
-      "note": "2026-10-09 레퍼런스 3곳(미소·클린벨·청연) 비교 보고서, 조합 선택 대기"
+      "note": "조합 1 사용자 선택. 모션·카운트·서비스 유입 카피 요청 반영, 시안 3개 공개",
+      "concepts": [
+        "roomnote",
+        "clearline",
+        "dayplan"
+      ],
+      "choice": "https://github.com/hongjaang-star/agency-web-templates/issues/44"
     },
     {
       "order": 9,
