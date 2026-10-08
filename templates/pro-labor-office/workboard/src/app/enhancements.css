@@ -22,3 +22,75 @@
 
 .memoMethod{margin:0 0 28px;padding:20px;border:1px solid var(--line)}.memoMethod legend{padding:0 8px;font-weight:800}.memoActions{display:flex;gap:12px;flex-wrap:wrap}.memoStatus{min-height:3em;font-size:14px;font-weight:700;color:var(--ink)}
 .memoActions .ghost{color:var(--ink);border-color:var(--ink);background:transparent}.memoActions .ghost:hover{background:var(--ink);color:white}
+
+/* 고정 상단 메뉴 */
+.siteTop{position:fixed;top:0;left:0;right:0;z-index:50}
+.siteTop .header{position:relative;top:auto;transition:background .25s,height .25s,box-shadow .25s}
+.siteTop.scrolled .header{height:70px;background:rgba(9,41,45,.97);box-shadow:0 8px 24px rgba(3,20,23,.25)}
+body{padding-top:28px}
+html{scroll-padding-top:130px}
+
+/* 사례 라벨 */
+.caseLabel{display:inline-block;background:#d92b2b;color:#fff;font-size:12px;font-weight:800;letter-spacing:.02em;line-height:1;padding:7px 11px;border-radius:3px}
+.caseMeta{margin:0 0 18px;display:grid;gap:6px;font-size:13px}
+.caseMeta div{display:grid;grid-template-columns:62px 1fr;gap:10px}
+.caseMeta dt{font-weight:800;opacity:.7}
+.caseMeta dd{margin:0}
+
+/* 홈 사례 카드(텍스트형) */
+.caseCard{padding:28px;display:flex;flex-direction:column}
+.caseCardTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+.caseCardTop b{font-size:34px;font-weight:900;color:var(--mint);line-height:1}
+.caseCard h3{font-size:24px;min-height:56px;margin-bottom:20px}
+.caseCard .caseMeta{color:#d3e2df;border-top:1px solid #36504f;border-bottom:1px solid #36504f;padding:14px 0}
+.caseSituation{font-size:15px;color:#a7beba;flex:1}
+.caseCard small{color:var(--mint);font-weight:800;font-size:14px}
+
+/* 사례 목록(텍스트형) */
+.caseGrid article{padding:30px;display:flex;flex-direction:column}
+.caseGridHead{display:flex;justify-content:space-between;align-items:center}
+.caseGridHead b{font-size:13px;color:var(--muted)}
+.caseGrid article h2{font-size:25px;margin:22px 0 20px}
+.caseGrid .caseMeta{background:var(--paper);padding:14px 16px}
+.caseGrid article h3{font-size:14px;letter-spacing:0;margin:14px 0 6px}
+.caseGrid article>p,.caseGrid ol{color:var(--muted);font-size:15px;margin:0}
+.caseGrid ol{padding-left:20px}
+.caseGrid ol li{margin-bottom:4px}
+.casePoint{margin-top:18px!important;border-left:3px solid #d92b2b;padding-left:12px}
+.casePoint b{display:block;font-size:11px;letter-spacing:.15em;color:#d92b2b}
+.caseGrid article strong{display:block;border-top:1px solid var(--line);padding-top:16px;margin-top:auto;font-size:14px}
+.caseGrid article .casePoint+strong{margin-top:22px}
+
+/* 상담 절차 */
+.stepFlow{display:grid;gap:70px}
+.stepFlow article{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center}
+.stepFlow article:nth-child(even) .stepMedia{order:2}
+.stepMedia{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--ink)}
+.stepMedia img{object-fit:cover}
+.stepMedia>b{position:absolute;left:22px;bottom:14px;font-size:64px;font-weight:900;color:var(--mint);line-height:1;text-shadow:0 2px 16px rgba(0,0,0,.4)}
+.stepNote{position:absolute;inset:0;padding:40px;color:white;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.stepNote p:not(.eyebrow){font-size:24px;font-weight:700;line-height:1.5;margin:0}
+.stepNote small{color:#a7beba;max-width:380px}
+.stepBody h2{font-size:38px;margin:6px 0 14px}
+.stepLead{font-size:19px;font-weight:700}
+.stepBody>p:not(.eyebrow):not(.stepLead):not(.stepOutput){color:var(--muted)}
+.stepBody h3{font-size:15px;letter-spacing:0;margin:22px 0 8px}
+.stepBody ul{margin:0;padding-left:20px;color:var(--muted)}
+.stepOutput{margin:22px 0 0;background:white;border:1px solid var(--line);padding:14px 18px;font-weight:700}
+.stepOutput span{display:block;font-size:11px;letter-spacing:.15em;color:#d92b2b}
+
+@media(max-width:900px){
+  body{padding-top:0}
+  .siteTop{position:sticky}
+  .siteTop.scrolled .header{height:62px}
+  html{scroll-padding-top:100px}
+  .stepFlow{gap:54px}
+  .stepFlow article{grid-template-columns:1fr;gap:24px}
+  .stepFlow article:nth-child(even) .stepMedia{order:0}
+}
+@media(max-width:560px){
+  .caseGrid article,.caseCard{padding:22px}
+  .stepBody h2{font-size:30px}
+  .stepNote{padding:26px}.stepNote p:not(.eyebrow){font-size:19px}
+  .stepMedia>b{font-size:44px}
+}
