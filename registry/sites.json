@@ -191,6 +191,32 @@
         "signature": "빵·음료 조합 영수증과 메모 복사",
         "sectionOrder": "breakfast-hero, fresh-menu, bake-clock, hands-story, pairing-receipt, little-journal, shop-window, faq"
       }
+    },
+    {
+      "slug": "food-steakhouse",
+      "variant": "ember-claw",
+      "name": "스테이크·랍스터 하우스",
+      "company": "엠버 & 클로(가상)",
+      "category": "food",
+      "level": "L1",
+      "status": "deployed",
+      "role": "flagship",
+      "type": "로우키 쇼케이스형 · 참숯 불씨, 숙성육과 랍스터, 저녁 매장의 따뜻한 조명",
+      "path": "templates/food-steakhouse/ember-claw",
+      "url": "https://hongjaang-star.github.io/agency-web-templates/food-steakhouse/ember-claw/",
+      "editor": "https://hongjaang-star.github.io/agency-web-templates/food-steakhouse/ember-claw/editor/",
+      "pages": 6,
+      "concept": "concepts/food-steakhouse/ember-claw",
+      "fingerprint": {
+        "layout": "dark-food-showcase",
+        "hero": "fullbleed-charcoal-steak-with-ember-particles",
+        "typePair": "Yellowtail + Bodoni Moda + Gowun Batang + IBM Plex",
+        "palette": "charcoal · forest green · burgundy · brass gold",
+        "imageTreatment": "31 original AI low-key food and interior photographs",
+        "motion": "ember particles, quiet image hover, reduced-motion fallback",
+        "signature": "dry-aging chamber metrics and doneness temperature guide",
+        "sectionOrder": "charcoal hero, three recommended dishes, weekday lunch, three rooms"
+      }
     }
   ]
 }

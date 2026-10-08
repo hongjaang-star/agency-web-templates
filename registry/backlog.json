@@ -208,8 +208,10 @@
       "name": "스테이크·랍스터 하우스",
       "category": "food",
       "level": "L1",
-      "status": "concepts",
-      "variants": [],
+      "status": "done",
+      "variants": [
+        "ember-claw"
+      ],
       "targetVariants": 2,
       "concepts": [
         "ember-claw"

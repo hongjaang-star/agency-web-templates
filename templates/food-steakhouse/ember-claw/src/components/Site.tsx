@@ -1,0 +1,3 @@
+import Script from 'next/script';
+import {base,shell} from '../data/site';
+export default function Site({view='home'}:{view?:string}){let markup=shell.replace(/src="images\//g,'src="'+base+'/images/').replace(/href="#(home|brand|menu|season|stores|reserve)"/g,(_,id)=>'href="'+base+'/'+(id==='home'?'':id+'/')+'"').replace(/<section data-page="([^"]+)"(?: hidden)?>/g,(_,id)=>'<section data-page="'+id+'"'+(id===view?'':' hidden')+'>').replace('class="logo"','id="brand-home" class="logo"');return <><div dangerouslySetInnerHTML={{__html:markup}}/><Script src={base+'/site.js'} strategy="afterInteractive"/></>;}

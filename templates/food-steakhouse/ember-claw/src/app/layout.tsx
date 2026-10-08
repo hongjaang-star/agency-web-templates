@@ -1,0 +1,3 @@
+import type {Metadata} from 'next';import './globals.css';import {description} from '../data/site';
+export const metadata:Metadata={title:'엠버 & 클로 | 가상 업체 데모',description,robots:{index:false,follow:false}};
+export default function Layout({children}:{children:React.ReactNode}){return <html lang="ko"><head><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Yellowtail&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"/></head><body>{children}</body></html>;}

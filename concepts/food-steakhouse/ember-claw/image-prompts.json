@@ -1,0 +1,224 @@
+{
+  "source": "https://docs.google.com/document/d/1YWm-u5FKOWm8qS9NOLka-QQxegDMuGUxxeqBsIvSjbY/edit",
+  "generator": "built-in image_gen",
+  "common": "Photorealistic editorial food and interior photography for a premium casual steak and lobster house at night. Low-key warm lighting, single soft spotlight upper left, deep shadows, 3000K. Black marble faint white veins, deep forest green walls #14281F, burgundy leather, dark walnut wood, brushed gold cutlery and brass, glowing charcoal. Shallow depth of field, 50–85mm lens, fine film grain, natural rich color and glistening meat juices. No text, logos, signage, watermarks or recognizable faces. Not illustration or 3D. ",
+  "scenes": [
+    {
+      "number": 1,
+      "file": "hero-home.webp",
+      "ratio": "16:9",
+      "position": "홈 히어로",
+      "scene": "Extreme close-up of a thick dry-aged T-bone steak just sliced on a dark walnut board, rosy medium-rare cross-section glistening, charcoal embers glowing behind, wisps of smoke, subject on the right, left 40% dark and empty"
+    },
+    {
+      "number": 2,
+      "file": "hero-brand.webp",
+      "ratio": "16:9",
+      "position": "브랜드 상단",
+      "scene": "Glowing binchotan charcoal grill at night, flames licking a seared ribeye and a halved lobster side by side, sparks rising, subject on the right, left 40% dark"
+    },
+    {
+      "number": 3,
+      "file": "hero-season.webp",
+      "ratio": "1:1",
+      "position": "시즌 메뉴 상단",
+      "scene": "Dry-aged ribeye topped with melting black truffle butter and shaved truffle, roasted garlic, autumn chestnuts and pine mushrooms on black marble"
+    },
+    {
+      "number": 4,
+      "file": "pick-platter.webp",
+      "ratio": "4:3",
+      "position": "홈 추천 · 플래터",
+      "scene": "Overhead 45-degree view of a large walnut cutting board sharing platter: sliced T-bone, ribeye, pork chop, fries, grilled asparagus, cherry tomatoes, mushrooms, three small sauce cups, two red wine glasses"
+    },
+    {
+      "number": 5,
+      "file": "pick-surfturf.webp",
+      "ratio": "4:3",
+      "position": "홈 추천 · 서프앤터프",
+      "scene": "White rim plate with a whole butter-grilled lobster beside a 200g tenderloin medallion, lemon, gold cutlery, black marble table"
+    },
+    {
+      "number": 6,
+      "file": "pick-lobster-pasta.webp",
+      "ratio": "4:3",
+      "position": "홈 추천 · 랍스터 파스타",
+      "scene": "Half lobster in shell resting on rosé linguine in a shallow white bowl, glossy bisque sauce, basil, eye-level close-up"
+    },
+    {
+      "number": 7,
+      "file": "lunch-set.webp",
+      "ratio": "16:9",
+      "position": "홈 평일 런치 띠",
+      "scene": "Weekday lunch set on burgundy leather booth table: sliced flat iron steak, cup of soup, small green salad, iced drink, soft daylight mixed with warm lamps"
+    },
+    {
+      "number": 8,
+      "file": "rooms-overview.webp",
+      "ratio": "5:4",
+      "position": "홈 공간 소개",
+      "scene": "Restaurant interior at night: deep green walls, burgundy leather booths, black marble tables, brass chandelier, empty and inviting, no people"
+    },
+    {
+      "number": 9,
+      "file": "brand-dryaging.webp",
+      "ratio": "4:3",
+      "position": "브랜드 · 원칙 1",
+      "scene": "Glass dry-aging chamber with bone-in beef loins on steel racks, dark crust, cool blue-white inner light against warm room"
+    },
+    {
+      "number": 10,
+      "file": "brand-charcoal.webp",
+      "ratio": "4:3",
+      "position": "브랜드 · 원칙 2",
+      "scene": "Tongs turning a thick steak over white-hot binchotan, grill marks, flame flare, heat shimmer"
+    },
+    {
+      "number": 11,
+      "file": "brand-carving.webp",
+      "ratio": "4:3",
+      "position": "브랜드 · 원칙 3",
+      "scene": "Chef's hands in black apron carving a tomahawk off the bone at the tableside, knife and board, guests' wine glasses blurred"
+    },
+    {
+      "number": 12,
+      "file": "brand-showcase.webp",
+      "ratio": "5:4",
+      "position": "브랜드 · 쇼케이스",
+      "scene": "Entrance display case of dry-aged beef cuts with blank kraft tags, brass frame, green tiled wall"
+    },
+    {
+      "number": 13,
+      "file": "brand-grillmaster.webp",
+      "ratio": "16:9",
+      "position": "브랜드 · 인용구 배경",
+      "scene": "Grill master's back silhouette in front of the charcoal grill, sparks, face not visible, darker frame for text overlay"
+    },
+    {
+      "number": 14,
+      "file": "menu-tbone.webp",
+      "ratio": "1:1",
+      "position": "메뉴 · 티본",
+      "scene": "Sliced dry-aged T-bone 900g arranged around the bone on a walnut board"
+    },
+    {
+      "number": 15,
+      "file": "menu-porterhouse.webp",
+      "ratio": "1:1",
+      "position": "메뉴 · 포터하우스",
+      "scene": "Porterhouse steak whole with rosemary and coarse salt on a cast-iron plate"
+    },
+    {
+      "number": 16,
+      "file": "menu-tomahawk.webp",
+      "ratio": "1:1",
+      "position": "메뉴 · 토마호크",
+      "scene": "Wagyu tomahawk with long frenched bone, partially sliced, rich marbling, on black marble"
+    },
+    {
+      "number": 17,
+      "file": "menu-ribeye.webp",
+      "ratio": "1:1",
+      "position": "메뉴 · 립아이",
+      "scene": "Ribeye 300g sliced, medium-rare, small dish of red wine sauce"
+    },
+    {
+      "number": 18,
+      "file": "menu-tenderloin.webp",
+      "ratio": "1:1",
+      "position": "메뉴 · 안심",
+      "scene": "Tall tenderloin medallion with red wine reduction on a white rim plate"
+    },
+    {
+      "number": 19,
+      "file": "menu-flatiron.webp",
+      "ratio": "1:1",
+      "position": "메뉴 · 부채살",
+      "scene": "Sliced flat iron steak with green chimichurri"
+    },
+    {
+      "number": 20,
+      "file": "menu-lobster-grill.webp",
+      "ratio": "1:1",
+      "position": "메뉴 · 랍스터 그릴",
+      "scene": "Whole lobster split and grilled, garlic herb butter bubbling, lemon wedge"
+    },
+    {
+      "number": 21,
+      "file": "menu-thermidor.webp",
+      "ratio": "1:1",
+      "position": "메뉴 · 테르미도르",
+      "scene": "Lobster thermidor in shell, golden broiled cheese crust"
+    },
+    {
+      "number": 22,
+      "file": "menu-seafood-pasta.webp",
+      "ratio": "1:1",
+      "position": "메뉴 · 시푸드 파스타",
+      "scene": "Spaghettini aglio olio with shrimp, scallops and mussels"
+    },
+    {
+      "number": 23,
+      "file": "menu-sides.webp",
+      "ratio": "16:9",
+      "position": "메뉴 · 사이드 묶음",
+      "scene": "Three side dishes in small copper pans: truffle fries, creamed spinach, grilled asparagus"
+    },
+    {
+      "number": 24,
+      "file": "season-truffle-ribeye.webp",
+      "ratio": "1:1",
+      "position": "시즌 · 트러플 립아이",
+      "scene": "Ribeye 400g with black truffle butter melting, roasted garlic bulb"
+    },
+    {
+      "number": 25,
+      "file": "season-songi.webp",
+      "ratio": "1:1",
+      "position": "시즌 · 송이 안심",
+      "scene": "Tenderloin topped with thin slices of charcoal-grilled pine mushrooms (matsutake)"
+    },
+    {
+      "number": 26,
+      "file": "season-lobster-risotto.webp",
+      "ratio": "1:1",
+      "position": "시즌 · 랍스터 리조또",
+      "scene": "Lobster tail meat on porcini risotto in a shallow bowl"
+    },
+    {
+      "number": 27,
+      "file": "season-autumn-platter.webp",
+      "ratio": "1:1",
+      "position": "시즌 · 가을 플래터",
+      "scene": "Two-person platter: truffle ribeye, pine mushroom tenderloin, half lobster, roasted kabocha squash and chestnuts"
+    },
+    {
+      "number": 28,
+      "file": "season-holiday.webp",
+      "ratio": "16:9",
+      "position": "시즌 · 연말 배너",
+      "scene": "Holiday platter of tomahawk and two lobsters, small red ribbons and pine branches, blurred Christmas tree lights behind"
+    },
+    {
+      "number": 29,
+      "file": "store-seongsu.webp",
+      "ratio": "4:3",
+      "position": "매장 · 성수",
+      "scene": "Bar counter facing a glass dry-aging showcase, brass stools, green tiles"
+    },
+    {
+      "number": 30,
+      "file": "store-hannam.webp",
+      "ratio": "4:3",
+      "position": "매장 · 한남",
+      "scene": "Private dining room with burgundy leather booth for eight, brass wall lamps, wine rack"
+    },
+    {
+      "number": 31,
+      "file": "store-pangyo.webp",
+      "ratio": "4:3",
+      "position": "매장 · 판교",
+      "scene": "Bright family dining hall with six-seat platter tables, high chairs, warm wood, early evening"
+    }
+  ]
+}
