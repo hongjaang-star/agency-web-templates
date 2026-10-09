@@ -212,6 +212,7 @@
     try {
       if (data.type === 'state') { state = Core.validate(data.state, config.siteId); apply(); if (selected?.isConnected) send('selection', { selection: describe(selected) }); }
       else if (data.type === 'select' && elements.get(data.key)?.isConnected) { const element = elements.get(data.key); element.scrollIntoView({ block: 'center', behavior: 'smooth' }); select(element); }
+      else if (data.type === 'clear-selection') { selected = null; updateOutline(); send('selection-cleared'); }
       else if (data.type === 'mode') { pickMode = data.pick; outline.hidden = !pickMode; if (pickMode) updateOutline(); }
       else if (data.type === 'export-html') {
         const copy = document.documentElement.cloneNode(true);
