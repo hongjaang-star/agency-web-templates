@@ -8,6 +8,14 @@
   const base = new URL(config.basePath + '/', location.origin);
   const normalize = value => '/' + value.replace(/^\/+|\/+$/g, '') + (value.replace(/^\/+|\/+$/g, '') ? '/' : '');
   const page = normalize(location.pathname.slice(base.pathname.length));
+  if (!editing) {
+    // Appending /editor after a section hash never changes the browser pathname.
+    const openHashEditor = () => {
+      if (/^#(?:.*\/)?editor\/?$/.test(location.hash)) location.replace(Core.editorURL(config.basePath, page, location.origin));
+    };
+    openHashEditor();
+    window.addEventListener('hashchange', openHashEditor);
+  }
   const storage = Core.database(config.siteId);
   let state = Core.empty(config.siteId), selected = null, pickMode = true;
   const elements = new Map(), originals = new Map();
@@ -117,6 +125,17 @@
   function sections() { return [...document.querySelectorAll('header, main > section, main > div, main > article, footer')].filter(element => !ignore(element)).map(element => ({ key: element.dataset.agencyKey, label: element.localName + ' · ' + (element.querySelector('h1,h2,h3')?.textContent || element.textContent || '').trim().slice(0, 50) })); }
   if (document.readyState !== 'complete') await new Promise(resolve => window.addEventListener('load', resolve, { once: true }));
   await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+  if (!editing && window.parent === window) {
+    const link = document.createElement('a');
+    link.dataset.agencyUi = 'editor-link'; link.textContent = '사이트 편집 ↗';
+    link.href = Core.editorURL(config.basePath, page, location.origin);
+    link.target = '_blank'; link.rel = 'noopener noreferrer';
+    link.setAttribute('aria-label', '현재 페이지를 사이트 편집기에서 열기 (새 창)');
+    Object.assign(link.style, { position: 'fixed', left: '16px', bottom: '16px', zIndex: '2147483645', padding: '8px 12px', border: '1px solid #d5d5d5', borderRadius: '6px', background: '#fff', color: '#222', font: '13px/1.5 system-ui,sans-serif', textDecoration: 'none', boxShadow: '0 2px 8px #0001' });
+    const style = document.createElement('style'); style.dataset.agencyUi = 'editor-link-style';
+    style.textContent = '[data-agency-ui="editor-link"]:focus-visible{outline:3px solid #2563eb;outline-offset:3px}@media print{[data-agency-ui="editor-link"]{display:none!important}}';
+    document.body.append(style, link);
+  }
   try { const response = await fetch(new URL('editor/published.json', base)); if (response.ok) state = Core.validate(await response.json(), config.siteId); } catch (error) { console.warn('Published editor settings:', error.message); }
   try { const draft = await storage.get(); if (draft) state = Core.validate(draft, config.siteId); } catch (error) { send('error', { message: '브라우저의 저장 공간을 읽지 못했습니다: ' + error.message }); }
   if (!editing && !Object.values(state.pages).some(records => Object.keys(records).length)) return;
