@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>레퍼런스 보고서 · 컨설팅</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{--ink:#1c1c1a;--sub:#5e5e58;--line:#d9d6cf;--paper:#f7f5f0;--card:#fff;--a:#2f5d50;--b:#8a5a2b;--c:#3b4a8c;--pick:#b8432f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 Pretendard,system-ui,sans-serif;word-break:keep-all}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:40px 20px 80px}
+.tag{display:inline-block;font-size:13px;letter-spacing:.04em;border:1px solid var(--ink);padding:2px 10px;border-radius:99px}
+h1{font-size:clamp(28px,4vw,40px);line-height:1.25;margin:16px 0 8px}
+h2{font-size:22px;margin:56px 0 16px;padding-top:16px;border-top:2px solid var(--ink)}
+h3{font-size:18px;margin:0 0 6px}
+.lead{color:var(--sub);max-width:720px}
+.note{background:#fff7e6;border:1px solid #ecd9a8;padding:12px 16px;border-radius:8px;font-size:15px}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:20px}
+.meta div{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.meta b{display:block;font-size:13px;color:var(--sub);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.role{font-size:13px;font-weight:700;color:#fff;padding:2px 10px;border-radius:4px;align-self:flex-start}
+.ra{background:var(--a)}.rb{background:var(--b)}.rc{background:var(--c)}
+.url{font-size:14px;color:var(--sub);overflow-wrap:anywhere}
+.card ul{margin:0;padding-left:18px;font-size:15px}
+.wire{border:1px dashed #b9b4aa;border-radius:6px;padding:10px;background:#fbfaf7;font-size:12px;color:var(--sub)}
+.wire .bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.wire .bar span{border:1px solid #c9c4b9;border-radius:3px;padding:1px 6px;background:#fff}
+.wire .blk{border:1px solid #d6d1c6;background:#fff;border-radius:3px;padding:6px;margin-top:6px}
+.wire .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:6px}
+.wire .grid i{display:block;height:26px;background:#e7e3da;border-radius:2px}
+.wire .cap{margin-top:6px;font-style:italic}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:15px}
+th,td{border:1px solid var(--line);padding:10px 12px;vertical-align:top;text-align:left}
+th{background:#efece5;font-weight:600}
+td.take{background:#f3f7f5}
+.tablewrap{overflow-x:auto}
+.combos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.combo{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+.combo.rec{border:2px solid var(--pick)}
+.combo .k{font-size:13px;font-weight:700;color:var(--pick)}
+.combo dl{margin:10px 0 0;font-size:15px}
+.combo dt{font-weight:600;margin-top:8px}
+.combo dd{margin:0;color:var(--sub)}
+.ask{background:var(--ink);color:#fff;border-radius:10px;padding:22px}
+.ask ol{margin:8px 0 0;padding-left:20px}
+.src{font-size:14px;color:var(--sub)}
+.src li{overflow-wrap:anywhere}
+@media (max-width:640px){.wrap{padding:28px 16px 64px}th,td{padding:8px}}
+.ask fieldset{border:0;margin:14px 0 0;padding:0;display:grid;gap:8px}
+.ask legend{font-weight:600;margin-bottom:6px}
+.ask label.opt{display:flex;gap:10px;align-items:flex-start;background:#2b2b28;border:1px solid #444;border-radius:8px;padding:10px 12px;cursor:pointer}
+.ask label.opt:has(input:checked){border-color:#f0b9ab;background:#3a2622}
+.ask input[type=radio]{margin-top:5px;accent-color:#f0b9ab}
+.ask textarea{width:100%;min-height:96px;margin-top:6px;border-radius:8px;border:1px solid #555;background:#2b2b28;color:#fff;padding:10px;font:inherit}
+.ask .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.ask button{font:inherit;font-weight:700;border-radius:8px;padding:10px 18px;cursor:pointer;border:1px solid #f0b9ab}
+.ask button.primary{background:#f0b9ab;color:#1c1c1a}
+.ask button.ghost{background:transparent;color:#fff}
+.ask .help{font-size:14px;color:#cfcac0;margin:10px 0 0}
+.ask .status{font-size:14px;color:#f0b9ab;min-height:1.4em;margin:8px 0 0}
+.ask :focus-visible{outline:3px solid #f0b9ab;outline-offset:2px}
+</style>
+</head>
+<body>
+
+<main class="wrap">
+<span class="tag">내부 보고서 · 시안 전 레퍼런스 검색</span>
+<h1>컨설팅 레퍼런스 3곳<br>비교와 조합 제안</h1>
+<p class="lead">다음 대기 업종 <b>pro-consulting</b>을 선정했습니다. 앞선 청소업종 보고서와 같은 순서로 콘텐츠 참고 2곳, 디자인 참고 1곳을 비교하고 조합 3개를 제안합니다. 선택한 조합으로 서로 다른 시안 3개를 만드는 단계로 이어집니다.</p>
+<p><a href="#choice" style="font-weight:700;color:var(--pick)">조합 선택하기 ↓</a></p>
+<div class="meta"><div><b>작성일</b>2026-10-09</div><div><b>검색 범위</b>국내 공식 사이트 · GDWEB</div><div><b>검토 후보</b>9곳 → 3곳 선정</div><div><b>상태</b>조합 선택 대기</div></div>
+<h2>1. 업종 선정과 검색 결과</h2>
+<p>대기열에서 청소·방역·이사 다음의 첫 대기 업종입니다(청소업종은 시안 선택 대기). 추천 제작 범위는 <b>중소기업·소상공인 대상 경영·조직(HR) 부티크 컨설팅</b>입니다. 대형 전략 컨설팅과 정책자금 대행은 대상 고객과 표현 위험(확보액·승인률 강조)이 달라 제외했습니다.</p>
+<p><b>검토 후보:</b> KMAC(한국능률협회컨설팅), 한국생산성본부(KPC) 조직&amp;HR, BX컨설팅, 채움경영컨설팅, HR체인지, 비즈파트너즈, SBKM 중소기업 지식경영센터, 이퓨전아이(GDWEB 2026 선정), 인스플래닛(GDWEB 2026 선정). BX컨설팅은 과제별 서비스→사례→인사이트, 채움경영컨설팅은 소규모 기업을 위한 비용·지원사업·강좌 안내로 정보 구조가 서로 달라 콘텐츠 참고로 골랐습니다. KMAC·KPC는 대기업·공공 대상으로 메뉴가 방대해 구조 비교에만 썼고, HR체인지는 403 응답으로 본문을 확인하지 못했습니다. 비즈파트너즈는 누적 건수·확보 금액을 앞세우는 방식이라 이 업종 규제(rules/pro.md)와 맞지 않아 제외했습니다. 국내에서 3곳을 찾았으므로 해외 대체는 없습니다.</p>
+<p class="note"><b>확인 범위:</b> 공식 사이트와 GDWEB 선정작 페이지의 본문·메뉴·링크를 2026-10-09에 확인했습니다. 아래 그림은 확인된 정보 구조를 요약한 도식이며 실제 화면 캡처가 아닙니다. 색상·애니메이션·모바일 화면은 직접 검증하지 못했고, 디자인 카드의 적용안은 기획 제안으로 구분했습니다.</p>
+<h2>2. 레퍼런스 카드</h2>
+<div class="cards">
+<article class="card"><span class="role ra">콘텐츠 참고 A</span><h3>BX컨설팅</h3><a class="url" href="https://www.bxcon.co.kr/" target="_blank" rel="noopener">bxcon.co.kr · 공식 사이트 열기 ↗</a>
+<div class="wire"><div class="bar"><span>서비스</span><span>수행사례</span><span>인사이트</span><span>회사소개</span></div><div class="blk">과제별 히어로 3장 → 서비스 카드 7개</div><div class="blk">교육 → 사례 3건 → 인사이트·리포트 → 네트워크 → 고객 로고</div><div class="cap">확인된 구조 요약 · 캡처 아님</div></div>
+<ul><li>대상: 중견·대기업의 영업·고객경험·조직 담당자.</li><li>과제(영업 전략·고객경험·AI) 단위로 서비스를 나누고 카드로 진입.</li><li>서비스 상세는 고객의 문제 → 진단·설계 항목 순으로 설명.</li><li>"프로젝트 문의"를 섹션마다 반복, 팝업 폼에서 과제 분류를 고르게 함.</li><li>세일즈 영역에 셀프 진단 도구, 인사이트 레터·기획조사로 전문성 표현.</li></ul><p><b>가져올 점:</b> 과제 → 프로그램 → 사례 → 인사이트의 흐름과 문의 시 과제 분류. 고객사 로고·실적은 가상 업체로 옮기지 않습니다.</p></article>
+<article class="card"><span class="role rb">콘텐츠 참고 B</span><h3>채움경영컨설팅</h3><a class="url" href="http://www.chaeum.re.kr/" target="_blank" rel="noopener">chaeum.re.kr · 공식 사이트 열기 ↗</a>
+<div class="wire"><div class="bar"><span>회사소개</span><span>함께하는 분</span><span>사업분야</span><span>무료강좌&amp;자료실</span><span>갤러리</span><span>공지&amp;문의</span></div><div class="blk">메인 비주얼 → 회사·멤버·강의 바로가기</div><div class="blk">공지 → 컨설팅 갤러리 → 무료강좌·자료</div><div class="cap">확인된 구조 요약 · 캡처 아님</div></div>
+<ul><li>대상: 소상공인과 중소기업 대표.</li><li>"컨설팅의 개념과 계약 원리", 비용·지원사업 구분을 별도 페이지로 설명.</li><li>국책 지원과 개별 의뢰를 나누고, 개별 의뢰는 범위·기간에 따라 협의한다고 안내.</li><li>대표 컨설턴트·스태프를 메뉴로 두어 사람 중심 신뢰를 만듦.</li><li>무료 온라인 강좌와 자료실로 상담 전 접점을 제공.</li></ul><p><b>가져올 점:</b> 비용 구조와 계약 원리의 투명한 설명, 컨설턴트 소개, 자료실. 지원 비율 등 수치는 공고마다 달라 데모에 단정하지 않습니다.</p></article>
+<article class="card"><span class="role rc">디자인 추천</span><h3>이퓨전아이</h3><a class="url" href="https://www.efusioni.com/" target="_blank" rel="noopener">efusioni.com · 공식 사이트 열기 ↗</a>
+<div class="wire"><div class="blk">DIGITAL ↔ PHYSICAL 대문자 메시지</div><div class="grid"><i></i><i></i><i></i></div><div class="blk">프로젝트 그리드(이미지 2장 전환) → 뉴스룸 → LAB → 소개</div><div class="cap">이미지와 문단의 구성 요약 · 캡처 아님</div></div>
+<ul><li>GDWEB 2026-10 선정작(WINNER PRIZE, 기업 대상·실버 톤 모던 콘셉트).</li><li>큰 영문 대문자 단어로 가치를 대비시켜 첫 화면을 구성.</li><li>풀블리드 이미지 그리드, 마우스를 올리면 두 장의 이미지가 전환.</li><li>프로젝트 → 뉴스룸 → 연구(LAB) → 회사 순으로 작업물이 먼저 보임.</li></ul><p><b>적용 제안:</b> 대비되는 두 단어(진단↔실행, 지금↔다음)의 큰 타이포와 전환 그리드를 컨설팅의 "현재 → 개선" 이야기에 씁니다. 색은 우리 시안에서 별도 설계하며 원본 색상 설명이 아닙니다.</p></article>
+</div>
+<h2>3. 5개 주제 비교</h2>
+<div class="tablewrap"><table><thead><tr><th>주제</th><th>A · BX컨설팅</th><th>B · 채움경영컨설팅</th><th>디자인 · 이퓨전아이</th><th>우리 사이트 적용안</th></tr></thead><tbody>
+<tr><th>정보 구조</th><td>과제별 서비스 → 사례 → 인사이트</td><td>회사·사람 → 사업분야 → 강좌·자료 → 문의</td><td>작업물 → 뉴스 → 연구 → 회사</td><td class="take">과제 선택 → 프로그램 → 절차·비용 → 사례 → 상담</td></tr>
+<tr><th>콘텐츠와 메시지</th><td>문제 정의·진단 항목</td><td>계약 원리·비용 구분·무료 강좌</td><td>대비되는 짧은 가치 문장</td><td class="take">과제별 산출물·기간·참여 인원을 구체적으로, 결과 보장 표현 없음</td></tr>
+<tr><th>전환 경로</th><td>섹션별 프로젝트 문의 팝업, 과제 분류 선택</td><td>문의 게시판·메일</td><td>Contact 메뉴·전화·메일</td><td class="take">자가 진단 결과로 채워지는 상담 메모 복사·저장(서버 전송 없음)</td></tr>
+<tr><th>비주얼 디자인</th><td>슬로건 + 영문 태그라인, 서비스 카드</td><td>슬라이드 비주얼·게시판형 목록</td><td>대문자 타이포·풀블리드 이미지 전환</td><td class="take">큰 대비 타이포와 도식 중심. 사무실 사진보다 다이어그램·데이터 연출</td></tr>
+<tr><th>모바일과 사용성</th><td>현재 모바일 화면 미검증</td><td>현재 모바일 화면 미검증</td><td>현재 모바일 화면 미검증</td><td class="take">360px에서 진단 문항 한 화면 1개, 하단 상담 버튼. 시안 단계에서 확인</td></tr>
+</tbody></table></div>
+<h2>4. 조합 제안</h2>
+<div class="combos">
+<section class="combo rec"><div class="k">조합 1 · 추천</div><h3>과제 진단·프로그램 선택형</h3><dl><dt>콘텐츠 조합</dt><dd>BX컨설팅의 과제별 서비스·문의 분류 + 채움경영컨설팅의 비용·계약 원리 안내.</dd><dt>디자인 조합</dt><dd>이퓨전아이의 대비 타이포를 "지금의 문제 → 다음 체계"로 바꿔 첫 화면에 사용.</dd><dt>대표 구성</dt><dd>과제 진단 → 추천 프로그램(범위·기간·산출물) → 진행 절차 → 비용 안내 → 상담 메모.</dd><dt>시그니처 후보</dt><dd>5~6문항 자가 진단으로 과제 영역과 준비 자료가 정리되는 도구.</dd><dt>추천 이유</dt><dd>컨설팅은 "무엇을 사는지"가 보이지 않는 서비스. 상담 전 범위·산출물을 이해시키기 좋고 결과 보장 없이도 전문성을 보여 줌.</dd><dt>선택할 때</dt><dd>여러 프로그램을 가진 소규모 컨설팅사를 소개하는 경우.</dd></dl></section>
+<section class="combo"><div class="k">조합 2</div><h3>인사이트·사례 매거진형</h3><dl><dt>콘텐츠 조합</dt><dd>BX컨설팅의 인사이트 레터·수행사례 + 채움경영컨설팅의 무료강좌·자료실.</dd><dt>디자인 조합</dt><dd>이퓨전아이의 그리드와 이미지 전환을 아티클·사례 카드에 적용한 편집형 화면.</dd><dt>대표 구성</dt><dd>대표 글 → 주제별 인사이트 → 유형별 사례(가상) → 자료 받기 → 상담.</dd><dt>시그니처 후보</dt><dd>업종·규모·과제로 거르는 사례 보드와 읽는 시간 표시 아카이브.</dd><dt>장점과 부담</dt><dd>검색 유입과 전문성 표현에 강함. 글 콘텐츠 제작량이 많고 사례는 가상 예시임을 명시해야 함.</dd><dt>선택할 때</dt><dd>콘텐츠 마케팅으로 고객을 모으는 컨설팅사인 경우.</dd></dl></section>
+<section class="combo"><div class="k">조합 3</div><h3>컨설턴트·방법론 중심형</h3><dl><dt>콘텐츠 조합</dt><dd>채움경영컨설팅의 대표 컨설턴트·함께하는 분 + BX컨설팅의 진단·설계 항목.</dd><dt>디자인 조합</dt><dd>이퓨전아이의 두 이미지 전환을 "인물 ↔ 작업 도식" 카드로. 차분한 서체와 넓은 여백.</dd><dt>대표 구성</dt><dd>대표 컨설턴트 → 일하는 방식(단계별 산출물) → 전문 분야 → 강의·자료 → 상담.</dd><dt>시그니처 후보</dt><dd>진단·설계·정착 단계를 스크롤하면 단계별 회의·산출물이 쌓이는 방법론 타임라인.</dd><dt>장점과 부담</dt><dd>1인·소수 전문가 사무소에 맞음. 인물 사진(가상)과 자격 표기 정확성이 중요.</dd><dt>선택할 때</dt><dd>경영지도사 등 대표 개인의 전문성으로 영업하는 경우.</dd></dl></section>
+</div>
+<h2>5. 선택 제출</h2>
+<form class="ask" id="choice" data-slug="pro-consulting" data-name="컨설팅" data-repo="hongjaang-star/agency-web-templates">
+    <p style="margin:0">조합을 고르고 제출해 주세요. 제출하면 이 선택으로 시안 3개를 만듭니다.</p>
+    <fieldset>
+      <legend>1. 어떤 조합으로 만들까요?</legend>
+        <label class="opt"><input type="radio" name="combo" value="1" checked><span><b>조합 1 · 추천</b> 과제 진단·프로그램 선택형</span></label>
+        <label class="opt"><input type="radio" name="combo" value="2"><span><b>조합 2</b> 인사이트·사례 매거진형</span></label>
+        <label class="opt"><input type="radio" name="combo" value="3"><span><b>조합 3</b> 컨설턴트·방법론 중심형</span></label>
+    </fieldset>
+    <label for="memo" style="display:block;margin-top:14px;font-weight:600">2. 더하거나 빼고 싶은 점 (선택)</label>
+    <textarea id="memo" name="memo" placeholder="예: 구성은 조합 1, 사례 보드는 조합 2처럼"></textarea>
+    <div class="btns">
+      <button type="submit" class="primary">GitHub에 선택 제출</button>
+      <button type="button" class="ghost" id="copy">내용 복사</button>
+    </div>
+    <p class="help">버튼을 누르면 GitHub 새 이슈 화면이 내용이 채워진 채로 열립니다. 로그인된 상태에서 <b>Submit new issue</b>를 누르면 제출이 끝납니다. GitHub를 쓰기 어려우면 "내용 복사" 후 채팅에 붙여 넣어 주세요.</p>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </form>
+  <script>
+  (function(){
+    var f=document.getElementById('choice'), st=document.getElementById('status');
+    function text(){
+      var c=f.querySelector('input[name=combo]:checked'), label=c.parentNode.textContent.replace(/\s+/g,' ').trim(), memo=f.memo.value.trim();
+      return {title:'[조합 선택] '+f.dataset.slug+' · 조합 '+c.value,
+        body:'## 업종\n'+f.dataset.name+' (`'+f.dataset.slug+'`)\n\n## 선택한 조합\n'+label+'\n\n## 더하거나 뺄 점\n'+(memo||'없음')+'\n\n보고서: '+location.href.split('#')[0]};
+    }
+    f.addEventListener('submit',function(e){
+      e.preventDefault(); var t=text();
+      var url='https://github.com/'+f.dataset.repo+'/issues/new?labels=concept-choice&title='+encodeURIComponent(t.title)+'&body='+encodeURIComponent(t.body);
+      window.open(url,'_blank','noopener'); st.textContent='GitHub 새 이슈 화면을 열었습니다. Submit new issue 를 눌러 주세요.';
+    });
+    document.getElementById('copy').addEventListener('click',function(){
+      var t=text(), s=t.title+'\n\n'+t.body;
+      (navigator.clipboard?navigator.clipboard.writeText(s):Promise.reject()).then(function(){st.textContent='복사했습니다. 채팅에 붙여 넣어 주세요.';},function(){f.memo.value=s; f.memo.select(); st.textContent='메모 칸에 내용을 넣었습니다. 직접 복사해 주세요.';});
+    });
+  })();
+  </script>
+
+<h2>출처와 다음 단계</h2><ul class="src">
+<li>콘텐츠 A: <a href="https://www.bxcon.co.kr/">BX컨설팅</a> · <a href="https://www.bxcon.co.kr/service/group/">인사조직(HR) 서비스</a></li>
+<li>콘텐츠 B: <a href="http://www.chaeum.re.kr/">채움경영컨설팅</a> · <a href="http://www.chaeum.re.kr/index.php?hCode=RESEARCH_03_01_03">컨설팅의 비용</a></li>
+<li>디자인: <a href="https://www.efusioni.com/">이퓨전아이</a> · <a href="https://www.gdweb.co.kr/sub/view.asp?str_no=27678">GDWEB 선정 페이지</a></li>
+<li>검토 후보: <a href="https://www.kmac.co.kr/">KMAC</a> · <a href="https://www.kpc.or.kr/kpc/PTWHP002_consulting_002.do">KPC 조직&amp;HR</a> · <a href="https://www.hrchange.co.kr/">HR체인지(403)</a> · <a href="https://businesspartners.co.kr/">비즈파트너즈(실적 수치 중심)</a> · <a href="http://sbkm.co.kr/04.html">SBKM</a> · <a href="https://www.insplanet.co.kr/">인스플래닛(GDWEB)</a></li></ul>
+<p class="src">조합 선택 → 서로 다른 시안 3개 → 시안 선택 → 완성 사이트 제작. 레퍼런스의 상호·문구·사진·고객사·실적 수치를 가상 업체 콘텐츠로 복제하지 않습니다. 성공률·지원금 확보액 같은 결과 보장 표현은 쓰지 않습니다(rules/pro.md).</p></main></body></html>
