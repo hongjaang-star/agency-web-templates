@@ -31,3 +31,18 @@
 1. 경영 과제 자가 진단: 5~6문항에 답하면 해당 과제 영역과 추천 프로그램, 준비 자료가 정리됨
 2. 프로그램 범위표: 진단·설계·정착 단계별 기간·산출물·참여 인원을 비교
 3. 유형별 사례 보드: 업종·규모·과제로 필터되는 가상 사례 카드(과제 → 접근 → 산출물)
+
+## 시안 기획 (조합 1 선택, 이슈 #51)
+
+- 요청: BX컨설팅의 1차 > 2차(> 3차) 메뉴 구성 형식으로 메뉴와 콘텐츠를 구성.
+- 메뉴: 서비스(컨설팅 5 · 디지털·AI 3 · 리더 교육 6) / 수행사례 / 인사이트(레터·기획조사·소식) / 회사소개(비전·일하는 방식, 거점 네트워크). 라벨은 가상 업체 맥락에 맞게 바꾸고(세일즈 교육 → 리더 교육, VMC → 비전·일하는 방식) 구조는 유지.
+- 메인 흐름: 핵심 과제 3개 → 서비스 → 진단·교육 → 사례 3 → 인사이트 3 → 거점 3 → 업종(로고 대신 업종명).
+- 가상 업체: 다음칸 경영컨설팅(DAEUMKAN). 세 시안의 콘텐츠 원본은 각 HTML의 `consult-data` JSON 블록(서비스·진단 문항·준비 자료·절차·진행 방식·사례·인사이트).
+
+| 시안 | layout | hero | typePair | palette | signature |
+|---|---|---|---|---|---|
+| pivot | contrast-type grid | NOW↔NEXT statement toggle | Archivo(확장폭) + Pretendard | silver mist · ink · electric blue | 단계형 6문항 진단 → 막대·추천·메모 |
+| sidebook | sidebar-index | interactive symptom board | Gothic A1 + Space Mono | bone · plum · saffron | 증상 16개 → 과제 시트 |
+| atlas | bento mosaic | program tile map | Noto Serif KR + Bricolage Grotesque | midnight navy · ivory · copper | 6개 눈금 → 12주 로드맵 간트 |
+
+pro 대분류 기존 사이트(trust swiss-grid/split-media, almanac editorial/statement, docket typographic/ticker, workboard data-workboard)와 layout+hero+typePair 조합이 겹치지 않는다. 폰트는 Google Fonts·jsDelivr 오픈 라이선스, 이미지 없이 SVG/CSS 도식.
