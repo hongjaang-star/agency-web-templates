@@ -73,5 +73,10 @@
     }
     return template.innerHTML;
   }
-  root.AgencyEditorCore = { properties, keyPattern, safeURL, validate, empty, database, sanitizeHTML };
+  function editorURL(basePath, page, origin) {
+    const url = new URL(basePath.replace(/\/$/, '') + '/editor/', origin);
+    if (page && page !== '/') url.searchParams.set('page', page);
+    return url.href;
+  }
+  root.AgencyEditorCore = { properties, keyPattern, safeURL, validate, empty, database, sanitizeHTML, editorURL };
 })(globalThis);

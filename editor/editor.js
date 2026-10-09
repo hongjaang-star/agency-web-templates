@@ -162,7 +162,8 @@
     $('site-name').textContent = config.name + ' · 편집기'; $('site-id').textContent = config.siteId; document.title = config.name + ' · 사이트 편집기';
     $('view-site').href = config.basePath + '/';
     for (const page of config.pages) $('pages').append(new Option(page.title, page.path));
-    loaded = true; navigate(config.pages[0]?.path || '/');
+    const requestedPage = new URL(location.href).searchParams.get('page');
+    loaded = true; navigate(config.pages.some(page => page.path === requestedPage) ? requestedPage : config.pages[0]?.path || '/');
   } catch (error) { status(error.message); return; }
   $('pages').addEventListener('change', event => navigate(event.target.value));
   $('sections').addEventListener('change', event => send('select', { key: event.target.value }));

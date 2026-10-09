@@ -10,6 +10,7 @@ import { installEditor } from '../scripts/install-editor.mjs';
 const context = { URL };
 vm.runInNewContext(fs.readFileSync(new URL('../editor/core.js', import.meta.url), 'utf8'), context);
 const core = context.AgencyEditorCore;
+const editorVersion = JSON.parse(fs.readFileSync(new URL('../editor/release.json', import.meta.url), 'utf8')).version;
 const siteId = 'test-site/original';
 const key = 'body > main:nth-of-type(1) > h1:nth-of-type(1)';
 const data = () => ({ version: 1, siteId, pages: { '/': { [key]: { styles: { 'letter-spacing': '2px' }, text: '수정 제목' } } } });
@@ -59,7 +60,7 @@ test('future templates get an independent editor without source imports; install
     assert.equal(manifest.siteId, 'new-site/new-variant');
     assert.ok(html.includes('/agency-web-templates/new-site/new-variant/editor/runtime.js'));
     assert.equal(manifest.source, 'shared-editor');
-    assert.equal(manifest.editorVersion, '1.1.0');
+    assert.equal(manifest.editorVersion, editorVersion);
     assert.equal(fs.existsSync(path.join(output, 'site-editor')), false);
     const second = path.join(output, 'second'); fs.mkdirSync(second);
     fs.writeFileSync(path.join(second, 'index.html'), '<html><body>다른 사이트</body></html>');
