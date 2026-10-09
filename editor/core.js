@@ -24,7 +24,7 @@
           if (!properties.has(property) || typeof value !== 'string' || value.length > 8_000_100 || /[{}<>\x00-\x1f]|(?:expression|@import|javascript\s*:)/i.test(value) || (property !== 'background-image' && value.includes(';'))) throw new Error('지원하지 않는 스타일입니다.');
           if (property === 'background-image') {
             const match = /^url\("([^"\n]+)"\)$/.exec(value);
-            const gradient = /^linear-gradient\([\d.]+deg, #[a-f\d]{6}, #[a-f\d]{6}\)$/i.test(value);
+            const gradient = /^linear-gradient\([\d.]+deg, #[a-f\d]{6}(?:[a-f\d]{2})?, #[a-f\d]{6}(?:[a-f\d]{2})?\)$/i.test(value);
             if (value !== 'none' && !gradient && (!match || !safeURL(match[1], true))) throw new Error('배경 이미지 주소를 확인하세요.');
           } else if (/url\s*\(/i.test(value)) throw new Error('지원하지 않는 스타일 주소입니다.');
           clean.styles[property] = value;

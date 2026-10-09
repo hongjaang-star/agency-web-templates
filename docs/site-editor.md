@@ -75,3 +75,6 @@ node scripts/install-editor.mjs templates/pro-tax-office/almanac/out pro-tax-off
 - `npm run test:editor:browser`: 세 실제 앱을 먼저 배포용 basePath로 빌드한 후 실행. 실제 브라우저에서 세 앱·HTML 시안 3종·미래 템플릿의 편집·저장·새로고침·페이지 이동·동일 도메인 사이트 분리·이미지와 배경 업로드·되돌리기·가져오기·배포 설정을 검사한다. Windows는 설치된 Chrome, Linux는 Playwright Chromium을 사용한다. `EDITOR_BROWSER_PATH`로 실행 파일을 지정할 수 있다.
 
 편집기는 관리자 인증 시스템이 아니다. 정적 페이지 편집과 브라우저별 저장만 제공하며, 방문자가 에디터를 열어도 원격 저장소나 다른 방문자의 설정을 변경할 수 없다.
+
+### 1.2.0 compact controls
+`ui-controls.js` decorates the native DOM without modifying vendored modules. It preserves native event handlers, adds Korean accessible names/tooltips, converts native font choices into compact selects, and updates selected states. `integration.css` isolates fixed editor chrome from the native builder's mobile layout. Content controls initialize from the actual selection; solid/gradient opacity round-trips through authored styles. Run `node tests/editor-access-browser.mjs` for control interactions, uploads, import/export, persistence and three viewport sizes.
