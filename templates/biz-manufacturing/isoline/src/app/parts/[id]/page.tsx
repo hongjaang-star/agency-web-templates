@@ -57,6 +57,7 @@ export default async function PartPage({ params }: PageProps<"/parts/[id]">) {
       </section>
       <nav className="pager sec" aria-label="다른 제품">
         <Link href={`/parts/${prev.id}/`}>← <span className="num">{prev.id}</span> {prev.name}</Link>
+        <Link className="pager-list" href="/parts/" aria-label="전체 제품 목록으로 돌아가기"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M9 6h12M9 12h12M9 18h12" /><path d="M3 6h1M3 12h1M3 18h1" strokeWidth="3" strokeLinecap="round" /></svg><span>목록</span></Link>
         <Link href={`/parts/${next.id}/`}><span className="num">{next.id}</span> {next.name} →</Link>
       </nav>
       <Ld data={[product(p), crumbs([{ href: "/parts", label: "제품 카탈로그" }, { href: `/parts/${p.id}`, label: p.name }])]} />

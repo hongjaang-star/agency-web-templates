@@ -139,7 +139,10 @@ table.spec.wide th { width: 22%; }
 .apps a { border: 1px solid var(--line); border-radius: 99px; padding: 4px 12px; text-decoration: none; }
 .apps a:hover { border-color: var(--lime); color: var(--lime); }
 .side .go { margin-top: 28px; }
-.pager { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.pager { display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); align-items:center; gap: 16px; }
+.pager a:last-child { text-align:right; }
+.pager .pager-list { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:8px 16px; border:1px solid var(--line); }
+@media(max-width:640px) { .pager { gap:10px; } .pager a { font-size:.8rem; overflow-wrap:anywhere; } .pager .pager-list { padding:8px; } }
 .pager a { text-decoration: none; color: var(--muted); }
 .pager a:hover { color: var(--lime); }
 
