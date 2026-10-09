@@ -27,10 +27,11 @@ window.LocalEditor = (() => {
     for (const key of AgencyEditorCore.properties) proxy.style.setProperty(key, s[key] || '');
     content = { selected: { text: item.text } }; contentBefore = item.text;
     styleState = {}; styleBefore = {}; htmlModeKeys.clear();
-    FIELDS = item.editableText ? [{ key: 'selected.text', label: item.tag + ' · ' + item.label, group: '선택한 텍스트', type: 'textarea' }] : [];
+    FIELDS = item.editableText ? [{ key: 'selected.text', label: item.tag + ' · ' + item.label + (item.textMode === 'direct' ? ' (하위 요소는 별도로 선택)' : item.textMode === 'placeholder' ? ' (입력 안내 문구)' : ''), group: '선택한 텍스트', type: 'textarea' }] : [];
     FONT_OPTIONS[0].l = '기존 사이트 서체';
     for (const font of [s['font-family'], ...(item.fonts || []).map(v => '"' + v + '"')]) if (font && !FONT_OPTIONS.some(entry => entry.v === font)) FONT_OPTIONS.push({ v: font, l: font.replaceAll('"', '') });
     buildContentForm();
+    if (item.textMode && item.textMode !== 'full') document.querySelectorAll('#contentForm .html-toggle-btn').forEach(button => button.hidden = true);
     if (!item.editableText) document.getElementById('contentForm').textContent = '이 요소는 요소 탭에서 이미지·배경·여백을 수정하세요.';
     if (!item.editableText && document.getElementById('tab-content').classList.contains('active')) switchTab('divbox');
     box = {
@@ -71,6 +72,7 @@ window.LocalEditor = (() => {
   }
   function decorate() {
     const body = document.getElementById('divBoxPanelBody');
+    if (selection?.textMode && selection.textMode !== 'full') body.querySelectorAll('.divbox-richtext').forEach(control => control.hidden = true);
     // Changing an existing React element into a different node type or wrapping
     // images in links would invalidate stable selectors. Use its existing type.
     const unavailable = new Set(['유형 선택', '등장 애니메이션', '그라데이션 텍스트', '모바일 글자 크기 비율', '호버 효과', '다크 오버레이 불투명도', '클릭 링크 (선택)']);
