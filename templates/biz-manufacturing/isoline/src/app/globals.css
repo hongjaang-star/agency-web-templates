@@ -265,8 +265,11 @@ table.spec.wide th { width: 22%; }
 .filter-chips,.request-actions { display:flex; flex-wrap:wrap; gap:10px; }
 .filter-chips button,.outline-button,.menu-toggle { font:inherit; border:1px solid var(--line); background:var(--panel); color:var(--text); padding:10px 16px; cursor:pointer; border-radius:4px; }
 .filter-chips button[aria-pressed="true"] { background:var(--lime); color:var(--bg); border-color:var(--lime); }
-.catalog-controls { position:sticky; top:var(--catalog-top, 88px); z-index:15; padding:24px; border:1px solid var(--line); background:var(--panel); box-shadow:0 8px 24px #0002; }
-.catalog-inputs { display:grid; grid-template-columns:2fr 1fr auto; gap:16px; align-items:end; margin-top:20px; }
+.catalog-controls { position:sticky; top:var(--catalog-top, 88px); z-index:15; padding:14px 18px; border:1px solid var(--line); background:var(--panel); box-shadow:0 8px 24px #0002; }
+.catalog-controls .filter-chips button { padding:7px 12px; font-size:13px; }
+.catalog-inputs { display:grid; grid-template-columns:2fr 1fr auto; gap:10px; align-items:center; margin-top:10px; }
+.catalog-inputs>.outline-button { padding:7px 12px; font-size:13px; }
+.catalog-inputs input,.catalog-inputs select { height:38px; }
 .catalog-inputs label { display:grid; gap:6px; font-size:14px; }
 .catalog-inputs input,.catalog-inputs select,.rfq input[type="text"],.rfq input[type="date"] { min-width:0; width:100%; font:inherit; padding:10px 12px; border:1px solid var(--line); border-radius:4px; color:var(--text); background:var(--bg); }
 .result-count { color:var(--muted); font-size:14px; margin:22px 0; }
@@ -283,7 +286,7 @@ table.spec.wide th { width: 22%; }
 .catalog-product p { color:var(--muted); font-size:15px; }
 .catalog-product small { display:block; color:var(--muted); font-size:13px; }
 .catalog-detail { display:block; color:var(--lime); font-size:14px; margin-top:18px; }
-.catalog-rfq { text-decoration:none; padding:14px 20px; border-top:1px solid var(--line); font-size:14px; }
+.catalog-rfq { text-decoration:none; padding:14px 20px; border-top:1px solid var(--line); font-size:14px; text-align:right; }
 .catalog-rfq:hover,.catalog-product:hover h2 { color:var(--lime); }
 .empty-state { padding:40px 20px; text-align:center; border:1px solid var(--line); }
 .empty-state h2 { font-size:24px; }

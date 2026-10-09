@@ -29,7 +29,7 @@ export default function Catalog() {
   return <section className="sec flush">
     <div className="catalog-controls" ref={controls}>
       <div className="filter-chips" role="group" aria-label="제품 카테고리"><button aria-pressed={category === "all"} onClick={() => choose("all")}>전체 제품</button>{categories.map(c => <button key={c.id} aria-pressed={category === c.id} onClick={() => choose(c.id)}>{c.name}</button>)}</div>
-      <div className="catalog-inputs"><label>제품 검색<input type="search" placeholder="품번, 제품명, 재질 검색" value={query} onChange={e => setQuery(e.target.value)} /></label><label>적용 분야<select aria-label="적용 분야" value={app} onChange={e => setApp(e.target.value)}><option value="all">전체 분야</option>{applications.map(a => <option key={a.id} value={a.id}>{a.name}</option>)}</select></label><button className="outline-button" onClick={reset}>필터 초기화</button></div>
+      <div className="catalog-inputs"><label><input aria-label="제품 검색" type="search" placeholder="품번, 제품명, 재질 검색" value={query} onChange={e => setQuery(e.target.value)} /></label><label><select aria-label="적용 분야" value={app} onChange={e => setApp(e.target.value)}><option value="all">전체 분야</option>{applications.map(a => <option key={a.id} value={a.id}>{a.name}</option>)}</select></label><button className="outline-button" onClick={reset}>필터 초기화</button></div>
     </div>
     <p className="result-count" role="status">전체 {products.length}종 중 {list.length}종 표시 · 사양과 납기는 가상 예시입니다.</p>
     {category !== "all" && <p className="proc">{categories.find(c => c.id === category)?.process}</p>}
