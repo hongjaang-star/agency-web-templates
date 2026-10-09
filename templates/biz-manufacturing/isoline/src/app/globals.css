@@ -281,6 +281,8 @@ table.spec.wide th { width: 22%; }
 .text-button { font:inherit; cursor:pointer; color:var(--muted); background:none; border:0; text-decoration:underline; }
 .recommended { display:inline-block; color:var(--lime); font-size:11px; margin-left:8px; }
 .rfq .quantity-row,.rfq .date-row { display:grid; grid-template-columns:80px minmax(0,1fr); }
+.rfq input[aria-invalid="true"] { border-color:#ff9d87; }
+.rfq .quantity-error { color:#ffb5a5; font-size:.8rem; margin:4px 0 12px 80px; }
 .summary-label { display:block; margin-top:12px; font-size:14px; }
 .summary-label textarea { display:block; width:100%; resize:vertical; font:14px/1.8 var(--sans); color:var(--text); border:1px solid var(--line); white-space:pre-wrap; overflow-wrap:anywhere; margin:8px 0 18px; }
 .quality-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
