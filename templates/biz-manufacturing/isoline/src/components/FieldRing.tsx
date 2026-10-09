@@ -1,5 +1,5 @@
 "use client";
-// 적용 분야 링: 큰 외곽선 글자로 분야를 고르면 해당 부품 도면이 한 장씩 펼쳐진다.
+// 분야를 선택하면 설계 조건과 관련 제품을 함께 표시한다.
 import { useEffect, useState } from "react";
 import Sheet from "./Sheet";
 import { applications, productsFor, type AppId } from "@/data/catalog";
@@ -24,7 +24,7 @@ export default function FieldRing({ initial = "ev" as AppId }: { initial?: AppId
   }
   return (
     <div className="field">
-      <div className="ring" role="group" aria-label="적용 분야">
+      <div className="ring filter-chips compact-filters" role="group" aria-label="적용 분야">
         {applications.map((x) => (
           <button key={x.id} type="button" aria-pressed={x.id === cur} onClick={() => pick(x.id)}>{x.name}</button>
         ))}

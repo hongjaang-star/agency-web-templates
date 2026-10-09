@@ -67,10 +67,7 @@ h1, h2 { letter-spacing: -0.03em; }
 .cta p { color: var(--muted); }
 
 /* 분야 링 */
-.ring { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-bottom: 36px; }
-.ring button { font: 700 clamp(24px, 3.4vw, 44px)/1.25 var(--sans); letter-spacing: -0.03em; background: none; border: 0; color: transparent; -webkit-text-stroke: 1px var(--muted); cursor: pointer; padding: 2px 0; }
-.ring button:hover { color: var(--line); }
-.ring button[aria-pressed="true"] { color: var(--lime); -webkit-text-stroke: 0; }
+.ring { margin-bottom: 36px; }
 .scene { display: grid; grid-template-columns: 320px 1fr; gap: 36px; }
 .scene .about { position: sticky; top: 90px; align-self: start; }
 .scene .about b { font-size: 26px; display: block; margin-bottom: 8px; }
@@ -265,8 +262,11 @@ table.spec.wide th { width: 22%; }
 .filter-chips,.request-actions { display:flex; flex-wrap:wrap; gap:10px; }
 .filter-chips button,.outline-button,.menu-toggle { font:inherit; border:1px solid var(--line); background:var(--panel); color:var(--text); padding:10px 16px; cursor:pointer; border-radius:4px; }
 .filter-chips button[aria-pressed="true"] { background:var(--lime); color:var(--bg); border-color:var(--lime); }
-.catalog-controls { position:sticky; top:var(--catalog-top, 88px); z-index:15; padding:24px; border:1px solid var(--line); background:var(--panel); box-shadow:0 8px 24px #0002; }
-.catalog-inputs { display:grid; grid-template-columns:2fr 1fr auto; gap:16px; align-items:end; margin-top:20px; }
+.catalog-controls { position:sticky; top:var(--catalog-top, 88px); z-index:15; padding:14px 18px; border:1px solid var(--line); background:var(--panel); box-shadow:0 8px 24px #0002; }
+.compact-filters button { padding:7px 12px; font-size:13px; }
+.catalog-inputs { display:grid; grid-template-columns:2fr 1fr auto; gap:10px; align-items:center; margin-top:10px; }
+.catalog-inputs>.outline-button { padding:7px 12px; font-size:13px; }
+.catalog-inputs input,.catalog-inputs select { height:38px; }
 .catalog-inputs label { display:grid; gap:6px; font-size:14px; }
 .catalog-inputs input,.catalog-inputs select,.rfq input[type="text"],.rfq input[type="date"] { min-width:0; width:100%; font:inherit; padding:10px 12px; border:1px solid var(--line); border-radius:4px; color:var(--text); background:var(--bg); }
 .result-count { color:var(--muted); font-size:14px; margin:22px 0; }
@@ -283,7 +283,7 @@ table.spec.wide th { width: 22%; }
 .catalog-product p { color:var(--muted); font-size:15px; }
 .catalog-product small { display:block; color:var(--muted); font-size:13px; }
 .catalog-detail { display:block; color:var(--lime); font-size:14px; margin-top:18px; }
-.catalog-rfq { text-decoration:none; padding:14px 20px; border-top:1px solid var(--line); font-size:14px; }
+.catalog-rfq { text-decoration:none; padding:14px 20px; border-top:1px solid var(--line); font-size:14px; text-align:right; }
 .catalog-rfq:hover,.catalog-product:hover h2 { color:var(--lime); }
 .empty-state { padding:40px 20px; text-align:center; border:1px solid var(--line); }
 .empty-state h2 { font-size:24px; }
@@ -319,6 +319,7 @@ table.spec.wide th { width: 22%; }
   .catalog-inputs>.outline-button { padding:9px 12px; font-size:13px; }
   .filter-chips { gap:8px; }
   .filter-chips button { padding:8px 12px; font-size:14px; }
+  .compact-filters button { padding:7px 12px; font-size:13px; }
 }
 
 /* Company / history and growth */

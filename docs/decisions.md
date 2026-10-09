@@ -170,3 +170,7 @@
 - 매출·거래처·생산라인·제품 품번의 가상 성장 데이터를 애니메이션 그래프와 숫자, 수치 표로 제공한다. 공개 카탈로그 대표 8종과 누적 대응 품번을 구분한다.
 - 가상 인증서 3종(SVG, 확대/닫기), 가상 산업별 업체 6종 로고(SVG, 슬라이드 정지/재생), 시화산업단지 일대 지도 예시를 추가한다. 실제 인증기관 마크·고객사 로고·거래 실적·실제 공장 주소는 사용하지 않는다.
 - 회사 소개에 전체 콘텐츠, 홈에 공장 연혁 연결·성장 그래프·로고 슬라이드를 제공. 동작 줄이기·모바일·키보드·기존 카탈로그/견적/에디터 기능을 검증한다.
+
+
+## 2026-10-09 Cleaning FAQ and office scope
+Expand all three cleaning concepts with 15 filterable FAQ entries and four accessible office scope tabs. Include basic tasks, prior requests, exclusions and timing considerations. Use four original AI conceptual interior photographs with explicit conceptual captions; retain demo pricing and local memo behavior.
