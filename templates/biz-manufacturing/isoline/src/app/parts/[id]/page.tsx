@@ -16,7 +16,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps<"/parts/[id]">) {
   const p = getProduct((await params).id);
-  return p ? meta(`${p.name} 도면`, `${p.summary} 재질 ${p.spec["재질"]}, 최소 주문 ${p.moq}, 납기 ${p.lead}.`, `/parts/${p.id}`) : {};
+  return p ? meta(`${p.name} 제품 상세`, `${p.summary} 재질 ${p.spec["재질"]}, 최소 주문 ${p.moq}, 납기 ${p.lead}.`, `/parts/${p.id}`) : {};
 }
 
 export default async function PartPage({ params }: PageProps<"/parts/[id]">) {
@@ -52,14 +52,14 @@ export default async function PartPage({ params }: PageProps<"/parts/[id]">) {
           <h2>견적 전 준비할 정보</h2>
           <ul className="ticks">{engineering[p.category].checks.map((x) => <li key={x}>{x}</li>)}</ul>
           <p className="hint">최소 주문 {p.moq} · 예상 납기 {p.lead}. 모든 사양은 가상 예시이며 실제 제작 시 도면·수량·시험 조건에 따라 협의합니다.</p>
-          <Link className="go" href="/rfq/">이 부품으로 견적 체크</Link>
+          <Link className="go" href={`/rfq/?part=${p.id}`}>이 제품으로 견적 준비 →</Link>
         </div>
       </section>
-      <nav className="pager sec" aria-label="다른 도면">
+      <nav className="pager sec" aria-label="다른 제품">
         <Link href={`/parts/${prev.id}/`}>← <span className="num">{prev.id}</span> {prev.name}</Link>
         <Link href={`/parts/${next.id}/`}><span className="num">{next.id}</span> {next.name} →</Link>
       </nav>
-      <Ld data={[product(p), crumbs([{ href: "/parts", label: "부품 도면 목록" }, { href: `/parts/${p.id}`, label: p.name }])]} />
+      <Ld data={[product(p), crumbs([{ href: "/parts", label: "제품 카탈로그" }, { href: `/parts/${p.id}`, label: p.name }])]} />
     </>
   );
 }

@@ -3,6 +3,10 @@ import Exploded from "@/components/Exploded";
 import FieldRing from "@/components/FieldRing";
 import PartLines from "@/components/PartLines";
 import ProductImage from "@/components/ProductImage";
+import GrowthChart from "@/components/GrowthChart";
+import PartnerMarquee from "@/components/PartnerMarquee";
+import Image from "next/image";
+import { BASE_PATH } from "@/lib/config";
 import { applications, categories, products } from "@/data/catalog";
 import { about, processSteps, stats } from "@/data/content";
 import { homeCopy as c, site } from "@/data/site";
@@ -40,7 +44,7 @@ export default function Home() {
       </section>
 
       <section className="sec">
-        <div className="sec-head"><div><p className="kicker">Drawing index</p><h2>{c.sheetsTitle}</h2></div><Link className="more" href="/parts/">전체 {products.length}장 보기 →</Link></div>
+        <div className="sec-head"><div><p className="kicker">Product categories</p><h2>{c.sheetsTitle}</h2></div><Link className="more" href="/parts/">전체 {products.length}종 보기 →</Link></div>
         <ol className="index">
           {categories.map((cat, i) => (
             <li key={cat.id}>
@@ -60,16 +64,20 @@ export default function Home() {
         <ol className="flow">{processSteps.map((s) => (<li key={s.title}><b>{s.title}</b><span>{s.body}</span></li>))}</ol>
       </section>
 
+      <section className="sec company-preview"><Image className="product-photo" src={`${BASE_PATH}/images/factory-2026.webp`} alt="자동화 생산동의 모습을 표현한 AI 공장 사진" width={1200} height={800} /><div><p className="kicker">Our journey / 1998—2026</p><h2>공장의 시간을<br />따라가 보세요.</h2><p className="lead">한 대의 선반에서 시작해 압출·정밀 가공·전장 부품과 자동화 생산동으로. 시대별 사진과 함께 세로결의 가상 성장 이야기를 펼칩니다.</p><Link className="go" href="/about/#history">스크롤 연혁 살펴보기 →</Link><p className="hint">가상 연혁 · AI 제작 공장 사진</p></div></section>
+      <GrowthChart />
+      <PartnerMarquee />
       <section className="sec">
         <p className="kicker">Certification · 가상 예시</p>
         <h2>확인할 수 있는 근거</h2>
         <div className="certs">{about.certs.map((x) => (<div key={x.name}><b>{x.name}</b><span>{x.note}</span></div>))}</div>
+        <p><Link className="more" href="/about/#certificates">가상 인증서 디자인 크게 보기 →</Link></p>
       </section>
 
       <section className="sec cta">
         <h2>{c.rfqTitle}</h2>
-        <p>분야, 부품, 준비된 자료만 체크하면 견적 요청서 문안이 만들어집니다.</p>
-        <Link className="go" href="/rfq/">견적 체크리스트 열기</Link>
+        <p>제품·수량·희망 납기와 준비 자료를 정리해 견적 준비 메모를 복사하거나 저장하세요.</p>
+        <Link className="go" href="/rfq/">견적 준비 메모 만들기</Link>
       </section>
     </>
   );

@@ -7,16 +7,20 @@ import { applications, productsFor, type AppId } from "@/data/catalog";
 export default function FieldRing({ initial = "ev" as AppId }: { initial?: AppId }) {
   const [cur, setCur] = useState<AppId>(initial);
   useEffect(() => {
-    const h = window.location.hash.slice(1) as AppId;
-    // 주소의 #분야 는 첫 렌더 이후에만 읽을 수 있다(정적 export)
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (applications.some((a) => a.id === h)) setCur(h);
-  }, []);
+    const sync = () => {
+      const h = window.location.hash.slice(1) as AppId;
+      setCur(applications.some((a) => a.id === h) ? h : initial);
+    };
+    sync();
+    window.addEventListener("hashchange", sync);
+    window.addEventListener("popstate", sync);
+    return () => { window.removeEventListener("hashchange", sync); window.removeEventListener("popstate", sync); };
+  }, [initial]);
   const a = applications.find((x) => x.id === cur)!;
   const list = productsFor(cur);
   function pick(id: AppId) {
     setCur(id);
-    window.history.replaceState(null, "", `#${id}`);
+    window.history.pushState(null, "", `#${id}`);
   }
   return (
     <div className="field">
