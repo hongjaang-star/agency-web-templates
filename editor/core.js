@@ -66,6 +66,9 @@
     const allowed = new Set(['P','BR','STRONG','B','EM','I','U','S','SPAN','H2','H3','H4','UL','OL','LI','A']);
     for (const el of [...template.content.querySelectorAll('*')].reverse()) {
       if (['SCRIPT','STYLE','IFRAME','OBJECT','EMBED','SVG','MATH','TEMPLATE'].includes(el.tagName)) { el.remove(); continue; }
+      // Chromium contenteditable creates DIV blocks on Enter. Preserve their
+      // paragraph boundaries while dropping every untrusted block attribute.
+      if (el.tagName === 'DIV') { const paragraph = document.createElement('p'); paragraph.append(...el.childNodes); el.replaceWith(paragraph); continue; }
       if (!allowed.has(el.tagName)) { el.replaceWith(...el.childNodes); continue; }
       const href = el.tagName === 'A' && safeURL(el.getAttribute('href')) ? el.getAttribute('href') : null;
       for (const attr of [...el.attributes]) el.removeAttribute(attr.name);

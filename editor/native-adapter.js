@@ -150,10 +150,9 @@ document.querySelectorAll('#panel .tab-btn').forEach(button => button.addEventLi
 document.getElementById('panelClose').onclick = () => document.body.classList.remove('panel-open');
 document.getElementById('adminToggle').onclick = () => document.body.classList.toggle('panel-open');
 document.getElementById('nativeSave').onclick = () => document.getElementById('save').click();
-document.getElementById('divBoxPanelBody').addEventListener('input', event => {
-  const body = event.target.closest('.builder-richtext-body');
-  if (body) { const clean = Builder.sanitize(body.innerHTML); if (clean !== body.innerHTML) body.innerHTML = clean; }
-}, true);
+// The native input commit already sanitizes the stored HTML. Replacing the
+// focused DOM on every Enter resets the caret; sanitize external paste/drop
+// before insertion below and let the native blur handler normalize the UI.
 for (const name of ['paste', 'drop']) document.getElementById('divBoxPanelBody').addEventListener(name, event => {
   const body = event.target.closest('.builder-richtext-body');
   if (!body) return;
