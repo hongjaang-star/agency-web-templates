@@ -1,5 +1,6 @@
 import Ld from "@/components/Ld";
 import PageTop from "@/components/PageTop";
+import ProcessTrack from "@/components/ProcessTrack";
 import { categories } from "@/data/catalog";
 import { processSteps } from "@/data/content";
 import { crumbs, howTo } from "@/lib/schema";
@@ -13,14 +14,7 @@ export default function ProcessPage() {
     <>
       <PageTop kicker="Process" title="빌릿에서 출하까지" lead="알루미늄 빌릿 하나가 부품이 되기까지의 다섯 단계입니다. 설비 대수와 수치는 데모용 가상 정보입니다." trail={[{ href: "/process/", label: "PROCESS" }]} />
       <section className="sec">
-        <ol className="track">
-          {processSteps.map((s, i) => (
-            <li key={s.title}>
-              <span className="num step">0{i + 1}</span>
-              <div><h2>{s.title}</h2><p>{s.body}</p><small className="num">{s.detail}</small></div>
-            </li>
-          ))}
-        </ol>
+        <ProcessTrack />
       </section>
       <section className="sec">
         <p className="kicker">By category</p>

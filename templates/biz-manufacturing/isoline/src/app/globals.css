@@ -159,6 +159,13 @@ table.spec.wide th { width: 22%; }
 .track h2 { margin: 8px 0 6px; font-size: clamp(22px, 3vw, 34px); }
 .track p { margin: 0 0 4px; color: var(--muted); }
 .track small { color: var(--lime); }
+.scroll-track::before,.scroll-track::after { left:var(--track-x,34px); top:var(--track-start,55px); bottom:auto; height:var(--track-length,calc(100% - 110px)); width:2px; }
+.scroll-track::before { background:var(--line); opacity:1; }
+.scroll-track::after { content:""; position:absolute; background:var(--lime); transform:scaleY(var(--track-progress,0)); transform-origin:top; box-shadow:0 0 10px #c6f43235; pointer-events:none; }
+.scroll-track .step { z-index:1; border-color:var(--line); color:var(--muted); transition:background .35s,color .35s,border-color .35s,box-shadow .35s,transform .35s; }
+.scroll-track li[data-reached="true"] .step { border-color:var(--lime); color:var(--lime); }
+.scroll-track li[data-active="true"] .step { background:var(--lime); color:var(--bg); transform:scale(1.06); box-shadow:0 0 0 6px #c6f43210,0 0 22px #c6f43220; }
+@media(prefers-reduced-motion:reduce) { .scroll-track .step { transition:none; transform:none !important; } .scroll-track::after { box-shadow:none; } }
 
 /* 회사 */
 .certs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
