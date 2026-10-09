@@ -188,3 +188,7 @@
 
 ## 2026-10-09 Cleaning FAQ and office scope
 Expand all three cleaning concepts with 15 filterable FAQ entries and four accessible office scope tabs. Include basic tasks, prior requests, exclusions and timing considerations. Use four original AI conceptual interior photographs with explicit conceptual captions; retain demo pricing and local memo behavior.
+
+## 2026-10-09 — 공통 편집기 도구 UI 개선
+- 사용자 요청으로 정렬·미리보기·실행 취소를 작은 아이콘 버튼으로, 배경 종류를 미리보기 세그먼트로, 폰트를 서체 선택 메뉴로 정리한다. 한글 툴팁·접근성 이름·키보드 포커스를 유지한다.
+- 편집기 도구만 공통 적용하며 사이트의 시각 디자인과 콘텐츠는 변경하지 않는다. 현재 스타일을 컨트롤에 동기화하고 배경 불투명도·모바일 패널 충돌을 함께 수정한다.

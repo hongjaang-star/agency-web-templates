@@ -10,6 +10,8 @@ const root = fs.mkdtempSync(path.join(os.tmpdir(), 'editor-access-'));
 const base = '/agency-web-templates/test-site/access';
 fs.mkdirSync(path.join(root, 'about'));
 for (const page of ['index.html', 'about/index.html']) fs.writeFileSync(path.join(root, page), '<!doctype html><html><head><title>Access test</title></head><body><main><section id="services"><h1>Original heading</h1><details open><summary id="summary">FAQ question</summary><p>Answer</p></details><figure><figcaption id="caption">Photo caption</figcaption></figure><table><tr><th id="cell">Table heading</th><td>Table value</td></tr></table><div id="plain">Plain div</div><div id="mixed">Direct copy <span id="nested">Nested copy</span></div><button id="icon">Button copy <svg width="20" height="20"><path d="M0 0L20 20"/></svg></button><label id="label">Label copy<input id="placeholder" placeholder="Example placeholder"></label><svg width="200" height="40"><text id="svgtext" x="0" y="25">Diagram text</text></svg></section></main></body></html>');
+const pixel = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a8f8AAAAASUVORK5CYII=';
+fs.writeFileSync(path.join(root, 'index.html'), fs.readFileSync(path.join(root, 'index.html'), 'utf8').replace('</section>', `<img id="photo" alt="Original" src="data:image/png;base64,${pixel}"></section>`));
 installEditor(root, 'test-site/access', base);
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, 'http://localhost');
@@ -120,6 +122,75 @@ try {
   await preview().waitForFunction(() => document.querySelector('#mixed').textContent.startsWith('Direct copy'));
   assert.equal(await preview().locator('#nested').textContent(), 'Edited nested');
   assert.equal(await preview().locator('#icon svg path').count(), 1);
+  // Exercise the compact controls through real user interactions, then persist.
+  await page.locator('#sections').selectOption(await preview().locator('h1').getAttribute('data-agency-key'));
+  await page.locator('[data-tab="content"]').click();
+  await page.locator('.style-toggle-btn').click();
+  await page.locator('#contentForm [data-align="center"]').click();
+  await preview().waitForFunction(() => getComputedStyle(document.querySelector('h1')).textAlign === 'center');
+  await page.locator('.style-font').selectOption('Georgia, serif');
+  await preview().waitForFunction(() => getComputedStyle(document.querySelector('h1')).fontFamily.includes('Georgia'));
+  await page.locator('[data-tab="divbox"]').click();
+  const row = label => page.locator('#divBoxPanelBody .option-row').filter({ has: page.locator(':scope > label', { hasText: label }) });
+  await row('텍스트 정렬').getByRole('button', { name: '오른쪽', exact: true }).click();
+  await preview().waitForFunction(() => getComputedStyle(document.querySelector('h1')).textAlign === 'right');
+  await row('배경 종류').getByRole('button', { name: '그라데이션', exact: true }).click();
+  await preview().waitForFunction(() => getComputedStyle(document.querySelector('h1')).backgroundImage.includes('linear-gradient'));
+  await row('배경 불투명도').locator('input[type=range]').fill('50');
+  await row('배경 불투명도').locator('input[type=range]').dispatchEvent('input');
+  await preview().waitForFunction(() => document.querySelector('h1').style.backgroundImage.includes('0.5'));
+  await row('배경 불투명도').locator('input[type=range]').fill('100');
+  await row('배경 불투명도').locator('input[type=range]').dispatchEvent('input');
+  await row('배경 종류').getByRole('button', { name: '단색', exact: true }).click();
+  await row('배경 색상').locator('.hex-input').fill('#bbccdd');
+  await row('배경 색상').locator('.hex-input').dispatchEvent('change');
+  await preview().waitForFunction(() => getComputedStyle(document.querySelector('h1')).backgroundColor === 'rgb(187, 204, 221)');
+  await row('폰트').getByRole('combobox').selectOption({ label: '모노스페이스' });
+  await preview().waitForFunction(() => getComputedStyle(document.querySelector('h1')).fontFamily.includes('Courier'));
+  await page.locator('#save').click();
+  await page.waitForFunction(() => document.querySelector('#status').textContent.startsWith('저장됨'));
+  await page.reload(); await ready();
+  await preview().waitForFunction(() => getComputedStyle(document.querySelector('h1')).textAlign === 'right');
+  assert.equal(await preview().locator('h1').evaluate(el => getComputedStyle(el).textAlign), 'right');
+  assert.equal(await preview().locator('h1').evaluate(el => getComputedStyle(el).backgroundColor), 'rgb(187, 204, 221)');
+  for (const [device, width] of [['tablet',768],['mobile',390]]) {
+    await page.locator(`[data-device="${device}"]`).click();
+    assert.equal(await page.locator('#preview').evaluate(el => el.style.width), width + 'px');
+  }
+  await page.locator('#panelClose').click();
+  assert.ok(!(await page.locator('body').getAttribute('class')).includes('panel-open'));
+  await page.locator('#adminToggle').click();
+  assert.ok((await page.locator('body').getAttribute('class')).includes('panel-open'));
+  await preview().locator('#photo').evaluate(el => el.dispatchEvent(new MouseEvent('click', { bubbles:true })));
+  await page.locator('[data-tab="advanced"]').click();
+  await page.locator('#image-upload').setInputFiles({ name:'test.png', mimeType:'image/png', buffer:Buffer.from(pixel,'base64') });
+  await page.locator('#field-alt').fill('Uploaded image'); await page.locator('#field-alt').dispatchEvent('change');
+  await preview().waitForFunction(() => document.querySelector('#photo').alt === 'Uploaded image');
+  await page.locator('#undo').click();
+  await preview().waitForFunction(() => document.querySelector('#photo').alt === 'Original');
+  await page.locator('#redo').click();
+  await preview().waitForFunction(() => document.querySelector('#photo').alt === 'Uploaded image');
+  await preview().locator('#photo').evaluate(el => el.dispatchEvent(new MouseEvent('click', { bubbles:true })));
+  await page.locator('#controls details').last().locator('summary').click();
+  await page.locator('#background-upload').setInputFiles({ name:'background.png', mimeType:'image/png', buffer:Buffer.from(pixel,'base64') });
+  await preview().waitForFunction(() => document.querySelector('#photo').style.backgroundImage.includes('data:image/png'));
+  await page.locator('.file-menu summary').click();
+  const downloading = page.waitForEvent('download'); await page.locator('#export').click();
+  const downloaded = await downloading; const savedFile = path.join(root,'saved.json'); await downloaded.saveAs(savedFile);
+  const saved = JSON.parse(fs.readFileSync(savedFile,'utf8')); assert.equal(saved.siteId,'test-site/access');
+  const htmlDownloading = page.waitForEvent('download'); await page.locator('#export-html').click();
+  assert.ok((await htmlDownloading).suggestedFilename().endsWith('.html'));
+  await page.locator('#import-file').setInputFiles({ name:'foreign.json', mimeType:'application/json', buffer:Buffer.from(JSON.stringify({...saved,siteId:'foreign/site'})) });
+  await page.waitForFunction(() => document.querySelector('#status').textContent.includes('다른 사이트'));
+  await page.locator('#import-file').setInputFiles(savedFile);
+  await page.waitForFunction(() => document.querySelector('#status').textContent.includes('가져오기 완료'));
+  await page.locator('.file-menu summary').click();
+  for (const width of [1440,768,390]) {
+    await page.setViewportSize({ width, height:900 });
+    await page.waitForTimeout(250);
+    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'Horizontal overflow at ' + width);
+    assert.ok(await page.locator('#nativeSave').isVisible());
+  }
   assert.deepEqual(errors, []);
-  console.log('Editor access and line breaks: textarea, blank lines, rich Enter, save/reload, live site and reset passed');
+  console.log('Editor audit passed: text access, line breaks, rich text, fonts, alignment, backgrounds, image upload, undo/redo, import/export, persistence, panel and responsive layouts');
 } finally { await browser.close(); await new Promise(resolve => server.close(resolve)); fs.rmSync(root, { recursive: true, force: true }); }
