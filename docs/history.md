@@ -71,3 +71,5 @@
 - 2026-10-09: service-cleaning 조합 1 선택과 모션·카운트·유입 카피를 반영한 roomnote/clearline/dayplan 시안 3개 및 비교·선택 페이지 작성.
 
 - 2026-10-09: 청소 시안 3종에 서비스별 예시 요금표와 공간별 이미지·청소 범위 탭을 추가. 원본 참고: https://miso.kr/deepclean .
+
+- 2026-10-09: pro-consulting 레퍼런스 3곳(BX컨설팅·채움경영컨설팅·이퓨전아이)과 조합 선택 보고서 작성, 리서치 카드 추가, backlog research 기록.
