@@ -184,6 +184,16 @@ try {
   await page.waitForFunction(() => document.querySelector('#status').textContent.includes('다른 사이트'));
   await page.locator('#import-file').setInputFiles(savedFile);
   await page.waitForFunction(() => document.querySelector('#status').textContent.includes('가져오기 완료'));
+  assert.equal(await page.locator('#contentForm .field-input').count(), 0);
+  assert.equal(await page.locator('#divBoxPanelBody .option-row').count(), 0);
+  await page.locator('.file-menu summary').click();
+  await page.locator('#sections').selectOption(await preview().locator('h1').getAttribute('data-agency-key'));
+  await page.locator('.file-menu summary').click();
+  page.once('dialog', dialog => dialog.accept()); await page.locator('#reset').click();
+  await page.waitForFunction(() => document.querySelector('#status').textContent.includes('초기화했습니다'));
+  assert.equal(await page.locator('#contentForm .field-input').count(), 0);
+  assert.equal(await page.locator('#divBoxPanelBody .option-row').count(), 0);
+  await preview().waitForFunction(() => document.querySelector('h1').textContent === 'Original heading');
   await page.locator('.file-menu summary').click();
   for (const width of [1440,768,390]) {
     await page.setViewportSize({ width, height:900 });
