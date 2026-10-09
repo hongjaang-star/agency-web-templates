@@ -1,0 +1,82 @@
+[
+  {
+    "year": "1998",
+    "file": "factory-1998.webp",
+    "prompt": "Use case: photorealistic-natural. Asset: wide 3:2 factory history photograph for a fictional Korean aluminum components manufacturer. Late 1990s small South Korean aluminum machining workshop, modest brick industrial building interior, low corrugated roof and fluorescent tubes, old manual milling machine and metal cutting saw, aluminum profile stock neatly on simple racks, handwritten documents WITHOUT visible writing, worn concrete floor. Restrained faded analog 35mm film colors, warm aged photographic archive texture, grain and slight soft focus. No modern robots or digital displays. Wide environmental composition, strong believable industrial architecture and realistic machinery, no human faces, no text, logos, signage or watermarks. Each image must reflect its historical era rather than a vintage filter applied to a contemporary plant. No collage or multiple frames.",
+    "generator": "built-in image_gen",
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "size": [
+      1536,
+      1024
+    ],
+    "bytes": 247914,
+    "sha256": "36a155839e57f89c46ea49862b13ca3796b32b53122f9eefbe1be3dba19cb1ec"
+  },
+  {
+    "year": "2006",
+    "file": "factory-2006.webp",
+    "prompt": "Use case: photorealistic-natural. Asset: wide 3:2 factory history photograph for a fictional Korean aluminum components manufacturer. Mid 2000s South Korean aluminum extrusion plant after expansion, medium industrial shed with steel rafters, bulky hydraulic extrusion press and long silver profile run-out table, practical older industrial machinery, subdued fluorescent lighting. Early digital documentary camera colors, slightly cool pale palette. No robotics, no futuristic machinery. Wide environmental composition, strong believable industrial architecture and realistic machinery, no human faces, no text, logos, signage or watermarks. Each image must reflect its historical era rather than a vintage filter applied to a contemporary plant. No collage or multiple frames.",
+    "generator": "built-in image_gen",
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "size": [
+      1536,
+      1024
+    ],
+    "bytes": 257740,
+    "sha256": "2d6591669885e0268679cd3b622c49c4125850c54b5286de003349ac900fc2a8"
+  },
+  {
+    "year": "2014",
+    "file": "factory-2014.webp",
+    "prompt": "Use case: photorealistic-natural. Asset: wide 3:2 factory history photograph for a fictional Korean aluminum components manufacturer. 2014 South Korean thermal component manufacturing floor, organized blue-gray skiving machines and compact CNC milling enclosures, trays of fine-finned aluminum heat sinks, clean marked walkways, brighter LED lighting, moderately automated manufacturing. Crisp natural documentary colors, equipment characteristic of the 2010s, no exaggerated sci-fi. Wide environmental composition, strong believable industrial architecture and realistic machinery, no human faces, no text, logos, signage or watermarks. Each image must reflect its historical era rather than a vintage filter applied to a contemporary plant. No collage or multiple frames.",
+    "generator": "built-in image_gen",
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "size": [
+      1536,
+      1024
+    ],
+    "bytes": 261308,
+    "sha256": "cc38c4fd200df3b01188cc787d24a3a6dd2601dd2ce2d36a6583f398edb04afc"
+  },
+  {
+    "year": "2019",
+    "file": "factory-2019.webp",
+    "prompt": "Use case: photorealistic-natural. Asset: wide 3:2 factory history photograph for a fictional Korean aluminum components manufacturer. 2019 South Korean advanced aluminum liquid cooling plate production cell, precision friction stir welding machine with spindle above an aluminum plate clamped to fixture, closed CNC enclosure, neighboring leak testing station, clean bright factory with practical cables and equipment. Realistic documentary industrial photograph, controlled cooler light and modern but ordinary machinery. Wide environmental composition, strong believable industrial architecture and realistic machinery, no human faces, no text, logos, signage or watermarks. Each image must reflect its historical era rather than a vintage filter applied to a contemporary plant. No collage or multiple frames.",
+    "generator": "built-in image_gen",
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "size": [
+      1536,
+      1024
+    ],
+    "bytes": 163826,
+    "sha256": "5fc792ca02fa7950400007d8e42e1d3428cb7577e731867f7ce85653a68d0a2c"
+  },
+  {
+    "year": "2024",
+    "file": "factory-2024.webp",
+    "prompt": "Use case: photorealistic-natural. Asset: wide 3:2 factory history photograph for a fictional Korean aluminum components manufacturer. 2024 modern South Korean aluminum battery housing manufacturing factory, spacious high-ceiling bright clean production hall with a realistic robot arm transferring an empty rectangular aluminum battery module housing between CNC stations, organized production cell, orange safety robot, safety barriers, white LED lights, modern clean epoxy floor and subtle yellow aisle markings. Premium sharp contemporary industrial editorial photography, not futuristic science fiction. Wide environmental composition, strong believable industrial architecture and realistic machinery, no human faces, no text, logos, signage or watermarks. Each image must reflect its historical era rather than a vintage filter applied to a contemporary plant. No collage or multiple frames.",
+    "generator": "built-in image_gen",
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "size": [
+      1536,
+      1024
+    ],
+    "bytes": 179088,
+    "sha256": "5dc65edac5e8352bee59c8c7987977bae3a3d718cfcbc33b83980a23426e5c2c"
+  }
+]

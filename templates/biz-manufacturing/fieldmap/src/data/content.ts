@@ -1,3 +1,4 @@
+import {history} from "./history";
 // 설비·공정, 회사, 견적 화면의 문구와 데이터 (모두 가상 예시)
 
 export const capability = {
@@ -27,13 +28,7 @@ export const capability = {
 
 export const company = {
   intro: "세로결정밀은 알루미늄의 결 방향을 따라 압출하고 깎는 부품 제조사입니다. 작은 브래킷 하나부터 배터리 하우징까지, 도면 한 장으로 시작해 출하 검사까지 한 공장에서 진행합니다. (가상 업체 소개)",
-  history: [
-    { year: "1998", text: "압출 프로파일 절단·가공으로 시작 (가상)" },
-    { year: "2006", text: "1,800톤 압출 프레스 도입 (가상)" },
-    { year: "2014", text: "방열판 스카이빙 라인 구축 (가상)" },
-    { year: "2019", text: "마찰교반접합 콜드플레이트 양산 (가상)" },
-    { year: "2024", text: "배터리 모듈 하우징 라인 증설 (가상)" },
-  ],
+  history: history.map(h => ({year:h.year, text:h.milestone})),
   certs: [
     { name: "품질경영시스템", code: "ISO 9001 형식 예시", note: "실제 인증 아님" },
     { name: "환경경영시스템", code: "ISO 14001 형식 예시", note: "실제 인증 아님" },
