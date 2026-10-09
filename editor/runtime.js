@@ -197,6 +197,12 @@
     event.preventDefault(); event.stopImmediatePropagation();
     let element = event.target;
     if (element.closest('svg') && !element.matches('text,tspan')) element = element.closest('svg').parentElement;
+    if (!textMode(element) && !element.matches('img,video,input,textarea,select')) {
+      const node = document.caretPositionFromPoint?.(event.clientX, event.clientY)?.offsetNode || document.caretRangeFromPoint?.(event.clientX, event.clientY)?.startContainer;
+      const textElement = node?.nodeType === Node.TEXT_NODE ? node.parentElement : null;
+      const box = textElement?.getBoundingClientRect();
+      if (box && event.clientX >= box.left && event.clientX <= box.right && event.clientY >= box.top && event.clientY <= box.bottom && !ignore(textElement) && textMode(textElement)) element = textElement;
+    }
     if (!ignore(element) && element !== document.documentElement) select(element);
   }, true);
   document.addEventListener('submit', event => { event.preventDefault(); event.stopImmediatePropagation(); }, true);

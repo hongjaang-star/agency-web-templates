@@ -88,6 +88,13 @@ try {
   assert.equal(await preview().locator('h1').textContent(), 'Original heading');
   await page.goto(origin + base + '/editor/?page=https%3A%2F%2Fevil.example%2F'); await ready();
   assert.equal(await page.locator('#pages').inputValue(), '/');
+  await preview().evaluate(() => { const wrapper = document.createElement('div'); wrapper.innerHTML = '<span id="pointer" style="pointer-events:none">Pointer copy</span>'; document.querySelector('main').append(wrapper); });
+  await preview().locator('#pointer').waitFor();
+  await page.waitForTimeout(150);
+  await preview().locator('#pointer').click({ force: true });
+  await page.locator('[data-tab="content"]').click();
+  await page.locator('#contentForm .field-input').fill('Pointer edited');
+  await preview().waitForFunction(() => document.querySelector('#pointer').textContent === 'Pointer edited');
   for (const id of ['summary','caption','cell','plain','mixed','nested','icon','label','placeholder','svgtext']) {
     const target = preview().locator('#' + id);
     const key = await target.getAttribute('data-agency-key');
