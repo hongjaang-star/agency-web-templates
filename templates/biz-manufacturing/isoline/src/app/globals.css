@@ -255,13 +255,18 @@ table.spec.wide th { width: 22%; }
 .filter-chips,.request-actions { display:flex; flex-wrap:wrap; gap:10px; }
 .filter-chips button,.outline-button,.menu-toggle { font:inherit; border:1px solid var(--line); background:var(--panel); color:var(--text); padding:10px 16px; cursor:pointer; border-radius:4px; }
 .filter-chips button[aria-pressed="true"] { background:var(--lime); color:var(--bg); border-color:var(--lime); }
-.catalog-controls { padding:24px; border:1px solid var(--line); background:var(--panel); }
+.catalog-controls { position:sticky; top:var(--catalog-top, 88px); z-index:15; padding:24px; border:1px solid var(--line); background:var(--panel); box-shadow:0 8px 24px #0002; }
 .catalog-inputs { display:grid; grid-template-columns:2fr 1fr auto; gap:16px; align-items:end; margin-top:20px; }
 .catalog-inputs label { display:grid; gap:6px; font-size:14px; }
 .catalog-inputs input,.catalog-inputs select,.rfq input[type="text"],.rfq input[type="date"] { min-width:0; width:100%; font:inherit; padding:10px 12px; border:1px solid var(--line); border-radius:4px; color:var(--text); background:var(--bg); }
 .result-count { color:var(--muted); font-size:14px; margin:22px 0; }
 .catalog-grid { list-style:none; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
-.catalog-grid li { border:1px solid var(--line); background:var(--panel); display:flex; flex-direction:column; }
+.catalog-grid li { position:relative; isolation:isolate; border:1px solid var(--line); background:var(--panel); display:flex; flex-direction:column; transition:border-color .35s ease,box-shadow .35s ease; }
+.catalog-grid li::after { content:""; position:absolute; inset:-1px; padding:1px; pointer-events:none; background:linear-gradient(120deg,transparent 10%,#c6f432aa 35%,transparent 60%); background-size:300% 300%; opacity:0; -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0); mask-composite:exclude; transition:opacity .35s ease; }
+.catalog-grid li:focus-within { border-color:#c6f43270; box-shadow:0 8px 26px #0003,0 0 14px #c6f43208; }
+.catalog-grid li:focus-within::after { opacity:1; animation:catalog-border-flow 2.8s linear infinite; }
+@media(hover:hover) { .catalog-grid li:hover { border-color:#c6f43270; box-shadow:0 8px 26px #0003,0 0 14px #c6f43208; } .catalog-grid li:hover::after { opacity:1; animation:catalog-border-flow 2.8s linear infinite; } }
+@keyframes catalog-border-flow { 0% { background-position:0% 0%; } 50% { background-position:100% 100%; } 100% { background-position:0% 0%; } }
 .catalog-product { text-decoration:none; display:block; flex:1; }
 .catalog-product>div { padding:20px; }
 .catalog-product h2 { font-size:22px; margin:8px 0 12px; line-height:1.3; }
@@ -291,8 +296,15 @@ table.spec.wide th { width: 22%; }
   .bar nav { display:none; }
   .bar nav.menu-open { display:grid; grid-template-columns:1fr 1fr; gap:0; }
   .bar nav a { padding:12px 0; border-top:1px solid var(--line); }
-  .catalog-controls { padding:16px; }
-  .catalog-inputs,.catalog-grid { grid-template-columns:1fr; }
+  .catalog-controls { padding:12px; max-height:calc(100svh - var(--catalog-top, 88px) - 72px); overflow:auto; }
+  .catalog-grid { grid-template-columns:1fr; }
+  .catalog-controls .filter-chips { flex-wrap:nowrap; overflow-x:auto; scrollbar-width:thin; }
+  .catalog-controls .filter-chips button { flex-shrink:0; }
+  .catalog-inputs { grid-template-columns:minmax(0,1fr) auto; gap:10px; margin-top:12px; }
+  .catalog-inputs label:first-child { grid-column:1/-1; }
+  .catalog-inputs label { font-size:12px; }
+  .catalog-inputs input,.catalog-inputs select { padding:8px 10px; font-size:14px; }
+  .catalog-inputs>.outline-button { padding:9px 12px; font-size:13px; }
   .filter-chips { gap:8px; }
   .filter-chips button { padding:8px 12px; font-size:14px; }
 }
@@ -392,3 +404,4 @@ table.spec.wide th { width: 22%; }
   .partner-group li { width:260px; }
 }
 @media(prefers-reduced-motion:reduce) { .history-photo img,.history-chapter { transition:none; transform:none; } .partner-track { animation:none; } }
+@media(prefers-reduced-motion:reduce) { .catalog-grid li,.catalog-grid li::after { transition:none; } .catalog-grid li:hover::after,.catalog-grid li:focus-within::after { animation:none; } }

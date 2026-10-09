@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import ProductImage from "./ProductImage";
 import { applications, categories, products } from "@/data/catalog";
@@ -8,6 +8,16 @@ export default function Catalog() {
   const [category, setCategory] = useState("all");
   const [app, setApp] = useState("all");
   const [query, setQuery] = useState("");
+  const controls = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const header = document.querySelector(".bar");
+    if (!header) return;
+    const sync = () => controls.current?.style.setProperty("--catalog-top", `${header.getBoundingClientRect().height + 8}px`);
+    sync();
+    const observer = new ResizeObserver(sync);
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
   useEffect(() => {
     const sync = () => { const id = window.location.hash.slice(1); setCategory(categories.some(c => c.id === id) ? id : "all"); };
     sync(); window.addEventListener("hashchange", sync); window.addEventListener("popstate", sync);
@@ -17,7 +27,7 @@ export default function Catalog() {
   const list = products.filter(p => (category === "all" || p.category === category) && (app === "all" || p.apps.some(a => a === app)) && `${p.id} ${p.name} ${p.summary} ${Object.values(p.spec).join(" ")}`.toLowerCase().includes(query.trim().toLowerCase()));
   const reset = () => { choose("all"); setApp("all"); setQuery(""); };
   return <section className="sec flush">
-    <div className="catalog-controls">
+    <div className="catalog-controls" ref={controls}>
       <div className="filter-chips" role="group" aria-label="제품 카테고리"><button aria-pressed={category === "all"} onClick={() => choose("all")}>전체 제품</button>{categories.map(c => <button key={c.id} aria-pressed={category === c.id} onClick={() => choose(c.id)}>{c.name}</button>)}</div>
       <div className="catalog-inputs"><label>제품 검색<input type="search" placeholder="품번, 제품명, 재질 검색" value={query} onChange={e => setQuery(e.target.value)} /></label><label>적용 분야<select aria-label="적용 분야" value={app} onChange={e => setApp(e.target.value)}><option value="all">전체 분야</option>{applications.map(a => <option key={a.id} value={a.id}>{a.name}</option>)}</select></label><button className="outline-button" onClick={reset}>필터 초기화</button></div>
     </div>
