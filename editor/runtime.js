@@ -44,7 +44,11 @@
     const globalRules = state.pages['*'] || {}, pageRules = state.pages[page] || {};
     const records = new Map();
     for (const key of new Set([...Object.keys(globalRules), ...Object.keys(pageRules)])) {
-      records.set(key, { ...globalRules[key], ...pageRules[key], styles: { ...globalRules[key]?.styles, ...pageRules[key]?.styles } });
+      const record = { ...globalRules[key], ...pageRules[key], styles: { ...globalRules[key]?.styles, ...pageRules[key]?.styles } };
+      // Plain textarea newlines must remain visible even on white-space: normal sites.
+      // Track this with the other overrides so undo/reset restores authored styling.
+      if (record.text !== undefined && /[\r\n]/.test(record.text)) record.styles['white-space'] = 'pre-wrap';
+      records.set(key, record);
     }
     for (const [key, original] of originals) {
       const element = elements.get(key);

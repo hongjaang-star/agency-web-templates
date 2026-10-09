@@ -50,6 +50,36 @@ try {
   await page.waitForFunction(() => document.querySelector('#status').textContent.startsWith('저장됨'));
   await page.reload(); await ready();
   assert.equal(await preview().locator('h1').textContent(), 'Saved from corrected URL');
+  await preview().locator('h1').evaluate(el => el.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true })));
+  await page.locator('[data-tab="content"]').click();
+  await page.locator('#contentForm .field-input').fill('First line\n\nThird line');
+  await page.waitForFunction(() => document.querySelector('#status').textContent.includes('미저장'));
+  await preview().waitForFunction(() => document.querySelector('h1').innerText === 'First line\n\nThird line');
+  assert.equal(await preview().locator('h1').evaluate(el => getComputedStyle(el).whiteSpace), 'pre-wrap');
+  await page.locator('#save').click();
+  await page.waitForFunction(() => document.querySelector('#status').textContent.startsWith('저장됨'));
+  await page.reload(); await ready();
+  await preview().waitForFunction(() => document.querySelector('h1').innerText === 'First line\n\nThird line');
+  await preview().locator('h1').evaluate(el => el.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true })));
+  await page.locator('[data-tab="advanced"]').click();
+  await page.locator('#reset-element').click();
+  await preview().waitForFunction(() => document.querySelector('h1').textContent === 'Original heading');
+  assert.equal(await preview().locator('h1').evaluate(el => getComputedStyle(el).whiteSpace), 'normal');
+  await page.waitForTimeout(200); // Reset rebuilds the inspector on its deferred refresh.
+  await page.locator('[data-tab="divbox"]').click();
+  const rich = page.locator('.builder-richtext-body');
+  await rich.fill('Rich first');
+  await rich.press('End'); await rich.press('Enter'); await rich.pressSequentially('Rich second');
+  await preview().waitForFunction(() => document.querySelector('h1').innerText.includes('\n') && document.querySelector('h1').innerText.includes('Rich second'));
+  await page.locator('#save').click();
+  await page.waitForFunction(() => document.querySelector('#status').textContent.startsWith('저장됨'));
+  await page.reload(); await ready();
+  assert.match(await preview().locator('h1').innerText(), /Rich first\s*\n\s*Rich second/);
+  const sitePage = await context.newPage();
+  await sitePage.goto(origin + base + '/');
+  await sitePage.waitForFunction(() => document.querySelector('h1').innerText.includes('Rich second'));
+  assert.match(await sitePage.locator('h1').innerText(), /Rich first\s*\n\s*Rich second/);
+  await sitePage.close();
   await page.goto(origin + base + '/about/');
   await page.waitForFunction(() => document.querySelector('[data-agency-ui="editor-link"]'));
   await page.evaluate(() => location.hash = 'services/editor');
@@ -59,5 +89,5 @@ try {
   await page.goto(origin + base + '/editor/?page=https%3A%2F%2Fevil.example%2F'); await ready();
   assert.equal(await page.locator('#pages').inputValue(), '/');
   assert.deepEqual(errors, []);
-  console.log('Editor access: link, subpage, hash recovery, save/reload and invalid route checks passed');
+  console.log('Editor access and line breaks: textarea, blank lines, rich Enter, save/reload, live site and reset passed');
 } finally { await browser.close(); await new Promise(resolve => server.close(resolve)); fs.rmSync(root, { recursive: true, force: true }); }
