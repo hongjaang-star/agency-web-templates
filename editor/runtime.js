@@ -20,7 +20,14 @@
   let state = Core.empty(config.siteId), selected = null, pickMode = true;
   const elements = new Map(), originals = new Map();
   const originalStyles = new WeakMap();
-  const ignore = element => element.closest('[data-agency-ui]') || element.matches('script,style,link,meta,noscript,svg,svg *,iframe,canvas');
+  const ignore = element => element.closest('[data-agency-ui]') || element.matches('script,style,link,meta,noscript,iframe,canvas') || (element.closest('svg') && !element.matches('text,tspan'));
+  const directText = element => [...element.childNodes].filter(node => node.nodeType === Node.TEXT_NODE);
+  function textMode(element) {
+    if (element.matches('input,textarea')) return element.hasAttribute('placeholder') ? 'placeholder' : '';
+    if (element.matches('body,form,select,svg,img,video,audio,iframe,canvas')) return '';
+    if (element.querySelector('img,svg,video,input,textarea,select,ul,ol,div,form,section,article,table') || !element.matches('h1,h2,h3,h4,h5,h6,p,span,a,button,small,strong,b,em,i,u,s,label,li,dt,dd,summary,figcaption,caption,td,th,address,legend,option,text,tspan') && element.children.length) return directText(element).some(node => node.data.trim()) ? 'direct' : '';
+    return element.textContent.trim() ? 'full' : '';
+  }
   function keyFor(element) {
     if (element === document.body) return 'body';
     if (!element.parentElement) return '';
@@ -54,6 +61,8 @@
       const element = elements.get(key);
       if (!element?.isConnected) continue;
       const record = records.get(key);
+      if (original.direct && record?.text === undefined && record?.html === undefined) { original.direct.forEach(([node, value]) => { if (node.parentNode === element) node.data = value; }); delete original.direct; }
+      if (original.placeholder !== undefined && record?.text === undefined) { element.setAttribute('placeholder', original.placeholder); delete original.placeholder; }
       if (original.children && record?.text === undefined && record?.html === undefined) { element.replaceChildren(...original.children.map(child => child.cloneNode(true))); original.children = null; }
       if (original.src !== undefined && record?.image === undefined) {
         for (const [attr, value] of Object.entries(original.media)) value === null ? element.removeAttribute(attr) : element.setAttribute(attr, value);
@@ -72,11 +81,18 @@
       if (!element?.isConnected || ignore(element)) continue;
       const original = originals.get(key) || {};
       originals.set(key, original);
-      if (record.text !== undefined && !element.matches('img,video,input,textarea,select,form,body')) {
+      const mode = textMode(element);
+      if (record.text !== undefined && mode === 'placeholder') {
+        if (original.placeholder === undefined) original.placeholder = element.getAttribute('placeholder');
+        element.setAttribute('placeholder', record.text);
+      } else if (record.text !== undefined && (mode === 'direct' || original.direct)) {
+        if (!original.direct) original.direct = directText(element).filter(node => node.data.trim()).map(node => [node, node.data]);
+        original.direct.forEach(([node], index) => { if (node.parentNode === element) node.data = index === 0 ? record.text : ''; });
+      } else if (record.text !== undefined && !element.matches('img,video,input,textarea,select,form,body')) {
         if (!original.children) original.children = [...element.childNodes].map(child => child.cloneNode(true));
         if (element.textContent !== record.text) element.textContent = record.text;
       }
-      if (record.html !== undefined && element.matches('h1,h2,h3,h4,h5,h6,p,span,a,button,small,strong,b,em,label,li,dt,dd')) {
+      if (record.html !== undefined && (mode === 'full' || original.children)) {
         if (!original.children) original.children = [...element.childNodes].map(child => child.cloneNode(true));
         const safe = Core.sanitizeHTML(record.html);
         if (element.innerHTML !== safe) element.innerHTML = safe;
@@ -113,10 +129,10 @@
     for (const property of Core.properties) values[property] = computed.getPropertyValue(property);
     return {
       key: element.dataset.agencyKey || 'body', tag: element.localName,
-      editableText: element.matches('h1,h2,h3,h4,h5,h6,p,span,a,button,small,strong,b,em,label,li,dt,dd') && !element.querySelector('img,svg,video,input,ul,ol,div,form'),
+      editableText: !!textMode(element), textMode: textMode(element),
       sharedAllowed: !!element.closest('header,footer'),
-      text: element.textContent?.trim().slice(0, 20000) || '',
-      html: element.innerHTML?.slice(0, 60000) || '',
+      text: (textMode(element) === 'placeholder' ? element.getAttribute('placeholder') : textMode(element) === 'direct' ? directText(element).map(node => node.data).join('') : element.textContent)?.trim().slice(0, 20000) || '',
+      html: textMode(element) === 'full' ? element.innerHTML?.slice(0, 60000) || '' : '',
       image: element.matches('img') ? element.getAttribute('src') : '', alt: element.getAttribute('alt') || '',
       styles: values, fonts: [...new Set([...document.fonts].map(font => font.family.replace(/^["']|["']$/g, '')))].slice(0, 40),
       authoredStyles: { ...state.pages['*']?.[element.dataset.agencyKey]?.styles, ...state.pages[page]?.[element.dataset.agencyKey]?.styles },
@@ -126,7 +142,11 @@
     };
   }
   function select(element) { selected = element; updateOutline(); send('selection', { selection: describe(element) }); }
-  function sections() { return [...document.querySelectorAll('header, main > section, main > div, main > article, footer')].filter(element => !ignore(element)).map(element => ({ key: element.dataset.agencyKey, label: element.localName + ' · ' + (element.querySelector('h1,h2,h3')?.textContent || element.textContent || '').trim().slice(0, 50) })); }
+  function sections() {
+    const regions = [...document.querySelectorAll('header, main > section, main > div, main > article, footer')].filter(element => !ignore(element));
+    const texts = [...document.body.querySelectorAll('*')].filter(element => !ignore(element) && textMode(element));
+    return [...new Set([...regions, ...texts])].map(element => ({ key: element.dataset.agencyKey, label: (regions.includes(element) ? '영역 · ' : '텍스트 · ') + element.localName + ' · ' + (element.getAttribute('placeholder') || element.querySelector('h1,h2,h3')?.textContent || element.textContent || '').trim().slice(0, 50) }));
+  }
   if (document.readyState !== 'complete') await new Promise(resolve => window.addEventListener('load', resolve, { once: true }));
   await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
   if (!editing && window.parent === window) {
@@ -176,7 +196,7 @@
     }
     event.preventDefault(); event.stopImmediatePropagation();
     let element = event.target;
-    if (element.closest('svg')) element = element.closest('svg').parentElement;
+    if (element.closest('svg') && !element.matches('text,tspan')) element = element.closest('svg').parentElement;
     if (!ignore(element) && element !== document.documentElement) select(element);
   }, true);
   document.addEventListener('submit', event => { event.preventDefault(); event.stopImmediatePropagation(); }, true);

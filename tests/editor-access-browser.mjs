@@ -9,7 +9,7 @@ import { installEditor } from '../scripts/install-editor.mjs';
 const root = fs.mkdtempSync(path.join(os.tmpdir(), 'editor-access-'));
 const base = '/agency-web-templates/test-site/access';
 fs.mkdirSync(path.join(root, 'about'));
-for (const page of ['index.html', 'about/index.html']) fs.writeFileSync(path.join(root, page), '<!doctype html><html><head><title>Access test</title></head><body><main><section id="services"><h1>Original heading</h1></section></main></body></html>');
+for (const page of ['index.html', 'about/index.html']) fs.writeFileSync(path.join(root, page), '<!doctype html><html><head><title>Access test</title></head><body><main><section id="services"><h1>Original heading</h1><details open><summary id="summary">FAQ question</summary><p>Answer</p></details><figure><figcaption id="caption">Photo caption</figcaption></figure><table><tr><th id="cell">Table heading</th><td>Table value</td></tr></table><div id="plain">Plain div</div><div id="mixed">Direct copy <span id="nested">Nested copy</span></div><button id="icon">Button copy <svg width="20" height="20"><path d="M0 0L20 20"/></svg></button><label id="label">Label copy<input id="placeholder" placeholder="Example placeholder"></label><svg width="200" height="40"><text id="svgtext" x="0" y="25">Diagram text</text></svg></section></main></body></html>');
 installEditor(root, 'test-site/access', base);
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, 'http://localhost');
@@ -88,6 +88,31 @@ try {
   assert.equal(await preview().locator('h1').textContent(), 'Original heading');
   await page.goto(origin + base + '/editor/?page=https%3A%2F%2Fevil.example%2F'); await ready();
   assert.equal(await page.locator('#pages').inputValue(), '/');
+  for (const id of ['summary','caption','cell','plain','mixed','nested','icon','label','placeholder','svgtext']) {
+    const target = preview().locator('#' + id);
+    const key = await target.getAttribute('data-agency-key');
+    // Inspector selection also reaches text with disabled pointer events or SVG.
+    await page.locator('#sections').selectOption(key);
+    await page.locator('[data-tab="content"]').click();
+    const input = page.locator('#contentForm .field-input');
+    await input.fill('Edited ' + id);
+    await preview().waitForFunction(({id}) => { const el = document.getElementById(id); return (id === 'placeholder' ? el.placeholder : el.textContent).includes('Edited ' + id); }, {id});
+    if (id === 'mixed') assert.equal(await preview().locator('#nested').count(), 1);
+    if (id === 'icon') assert.equal(await preview().locator('#icon svg path').count(), 1);
+    if (id === 'label') assert.equal(await preview().locator('#placeholder').count(), 1);
+  }
+  await page.locator('#save').click();
+  await page.waitForFunction(() => document.querySelector('#status').textContent.startsWith('저장됨'));
+  await page.reload(); await ready();
+  for (const id of ['summary','caption','cell','plain','mixed','nested','icon','label','placeholder','svgtext']) {
+    const value = await preview().locator('#'+id).evaluate(el => el.getAttribute('placeholder') || el.textContent);
+    assert.ok(value.includes('Edited '+id), id + ' did not persist');
+  }
+  await page.locator('#sections').selectOption(await preview().locator('#mixed').getAttribute('data-agency-key'));
+  await page.locator('[data-tab="advanced"]').click(); await page.locator('#reset-element').click();
+  await preview().waitForFunction(() => document.querySelector('#mixed').textContent.startsWith('Direct copy'));
+  assert.equal(await preview().locator('#nested').textContent(), 'Edited nested');
+  assert.equal(await preview().locator('#icon svg path').count(), 1);
   assert.deepEqual(errors, []);
   console.log('Editor access and line breaks: textarea, blank lines, rich Enter, save/reload, live site and reset passed');
 } finally { await browser.close(); await new Promise(resolve => server.close(resolve)); fs.rmSync(root, { recursive: true, force: true }); }
