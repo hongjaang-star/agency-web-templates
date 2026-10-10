@@ -40,7 +40,7 @@ export function installEditor(outputDirectory, siteId, basePath) {
     pages.push({ path: route, title });
     html = html.replace(/<!-- agency-editor:start -->[\s\S]*?<!-- agency-editor:end -->/g, '');
     const config = escape(JSON.stringify({ siteId, basePath }));
-    const injection = `<!-- agency-editor:start --><script defer src="${escape(basePath)}/editor/core.js"></script><script defer src="${escape(basePath)}/editor/runtime.js" data-agency-editor="${config}"></script><!-- agency-editor:end -->`;
+    const injection = `<!-- agency-editor:start --><script defer src="${escape(basePath)}/editor/core.js?v=${editorRelease.version}"></script><script defer src="${escape(basePath)}/editor/runtime.js?v=${editorRelease.version}" data-agency-editor="${config}"></script><!-- agency-editor:end -->`;
     if (!html.includes('</body>')) throw new Error('Missing body in ' + relative);
     fs.writeFileSync(file, html.replace('</body>', injection + '</body>'));
   }
@@ -48,6 +48,8 @@ export function installEditor(outputDirectory, siteId, basePath) {
   const target = path.join(output, 'editor');
   fs.mkdirSync(target, { recursive: true });
   fs.cpSync(editorSource, target, { recursive: true });
+  const editorHTML = path.join(target, 'index.html');
+  fs.writeFileSync(editorHTML, fs.readFileSync(editorHTML, 'utf8').replace(/(src|href)="(\.\/[^"?]+\.(?:js|css))"/g, `$1="$2?v=${editorRelease.version}"`));
   fs.writeFileSync(path.join(target, 'manifest.json'), JSON.stringify({ version: 1, siteId, basePath, source: 'shared-editor', editorVersion: editorRelease.version, name: pages[0]?.title.split('|')[0].trim() || siteId, pages }, null, 2));
   const settingsFile = path.join(output, 'editor-state.json');
   const published = fs.existsSync(settingsFile) ? context.AgencyEditorCore.validate(JSON.parse(fs.readFileSync(settingsFile, 'utf8')), siteId) : context.AgencyEditorCore.empty(siteId);

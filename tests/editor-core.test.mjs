@@ -60,6 +60,9 @@ test('future templates get an independent editor without source imports; install
     assert.equal(manifest.siteId, 'new-site/new-variant');
     assert.ok(html.includes('/agency-web-templates/new-site/new-variant/editor/runtime.js'));
     assert.equal(manifest.source, 'shared-editor');
+    const editorHTML = fs.readFileSync(path.join(output, 'editor/index.html'), 'utf8');
+    assert.ok(editorHTML.includes(`native-adapter.js?v=${editorVersion}`));
+    assert.ok(editorHTML.includes(`editor.js?v=${editorVersion}`));
     assert.equal(manifest.editorVersion, editorVersion);
     assert.equal(fs.existsSync(path.join(output, 'site-editor')), false);
     const second = path.join(output, 'second'); fs.mkdirSync(second);
@@ -79,7 +82,7 @@ test('future templates get an independent editor without source imports; install
     fs.writeFileSync(path.join(output, 'editor-state.json'), JSON.stringify(settings));
     installEditor(output, 'new-site/new-variant', '');
     assert.equal(JSON.parse(fs.readFileSync(path.join(output, 'editor/published.json'), 'utf8')).pages['/'][key].image, 'https://example.com/photo.webp');
-    assert.ok(fs.readFileSync(path.join(output, 'index.html'), 'utf8').includes('src="/editor/runtime.js"'));
+    assert.ok(fs.readFileSync(path.join(output, 'index.html'), 'utf8').includes(`src="/editor/runtime.js?v=${editorVersion}"`));
     fs.writeFileSync(path.join(output, 'editor-state.json'), JSON.stringify(data()));
     assert.throws(() => installEditor(output, 'new-site/new-variant', '/new-site/new-variant'));
   } finally { fs.rmSync(output, { recursive: true, force: true }); }
