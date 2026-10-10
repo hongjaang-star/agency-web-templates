@@ -84,7 +84,18 @@ window.LocalEditor = (() => {
       if (unavailable.has(row.querySelector(':scope > label')?.textContent)) row.hidden = true;
     });
     const deleteButton = body.querySelector('.divbox-delete-btn');
-    if (deleteButton) { deleteButton.textContent = '숨기기'; deleteButton.onclick = () => apply({ styles: { display: 'none' } }); }
+    if (deleteButton) {
+      deleteButton.textContent = '숨기기'; deleteButton.ariaLabel = '이 요소 숨기기';
+      deleteButton.onclick = () => apply({ styles: { display: 'none' } });
+      body.querySelector('.divbox-remove-btn')?.remove();
+      const removeButton = document.createElement('button');
+      removeButton.type = 'button'; removeButton.className = 'divbox-delete-btn divbox-remove-btn';
+      removeButton.textContent = '삭제'; removeButton.ariaLabel = '이 요소 삭제';
+      removeButton.onclick = () => {
+        if (confirm('이 요소와 하위 요소를 삭제할까요? 실행 취소로 복원할 수 있습니다.')) apply({ styles: {}, deleted: true });
+      };
+      deleteButton.after(removeButton);
+    }
     body.querySelectorAll('.image-file-input').forEach(input => input.accept = 'image/png,image/jpeg,image/webp,image/gif,image/avif');
   }
   const originalRender = renderDivBoxPanel;

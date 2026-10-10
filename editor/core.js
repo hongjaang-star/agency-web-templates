@@ -20,6 +20,7 @@
       for (const [key, record] of Object.entries(records)) {
         if (!keyPattern.test(key) || !record || typeof record !== 'object') throw new Error('편집 대상이 올바르지 않습니다.');
         const clean = { styles: {} };
+        if (record.deleted !== undefined) { if (typeof record.deleted !== 'boolean' || key === 'body') throw new Error('삭제 대상이 올바르지 않습니다.'); clean.deleted = record.deleted; }
         for (const [property, value] of Object.entries(record.styles || {})) {
           if (!properties.has(property) || typeof value !== 'string' || value.length > 8_000_100 || /[{}<>\x00-\x1f]|(?:expression|@import|javascript\s*:)/i.test(value) || (property !== 'background-image' && value.includes(';'))) throw new Error('지원하지 않는 스타일입니다.');
           if (property === 'background-image') {

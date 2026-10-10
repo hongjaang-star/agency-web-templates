@@ -89,3 +89,7 @@ button:disabled { opacity:.35; cursor:default; }
 }
 @media(max-width:900px) { :root { --panel-w:360px; } .toolbar { padding-right:12px; } .identity { min-width:120px; } }
 @media(max-width:650px) { :root { --panel-w:min(420px,92vw); } body.panel-open .workspace { margin-right:0; } .preview-area { height:auto; } .workspace { height:auto; } }
+
+.divbox-panel-header { gap:8px; }
+.divbox-panel-header > .structure-hint { flex:1; min-width:0; }
+.divbox-panel-header > button { flex-shrink:0; }

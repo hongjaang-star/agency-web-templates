@@ -20,6 +20,7 @@
   let state = Core.empty(config.siteId), selected = null, pickMode = true;
   const elements = new Map(), originals = new Map();
   const originalStyles = new WeakMap();
+  const removed = new Map();
   const ignore = element => element.closest('[data-agency-ui]') || element.matches('script,style,link,meta,noscript,iframe,canvas') || (element.closest('svg') && !element.matches('text,tspan'));
   const directText = element => [...element.childNodes].filter(node => node.nodeType === Node.TEXT_NODE);
   function textMode(element) {
@@ -56,6 +57,21 @@
       // Track this with the other overrides so undo/reset restores authored styling.
       if (record.text !== undefined && /[\r\n]/.test(record.text)) record.styles['white-space'] = 'pre-wrap';
       records.set(key, record);
+    }
+    // Comment anchors preserve sibling selectors and the original nodes for undo.
+    for (const [key, entry] of removed) {
+      if (!records.get(key)?.deleted) {
+        entry.anchor.replaceWith(entry.element);
+        removed.delete(key);
+      }
+    }
+    for (const [key, record] of records) {
+      const element = elements.get(key);
+      if (record.deleted && element?.parentNode && element !== document.body && !removed.has(key)) {
+        const anchor = document.createComment('agency-editor:deleted');
+        element.replaceWith(anchor);
+        removed.set(key, { element, anchor });
+      }
     }
     for (const [key, original] of originals) {
       const element = elements.get(key);
