@@ -83,14 +83,14 @@
   function drawControls() {
     $('controls').replaceChildren();
     if (!selection) return;
-    window.LocalEditor?.select(selection, patch => commit(() => {
+    window.LocalEditor?.select(selection, patch => { commit(() => {
       const rules = state.pages[scope === 'site' ? '*' : route] ||= {};
       const record = rules[selection.key] ||= { styles: {} };
       for (const [property, value] of Object.entries(patch.styles)) { if (value === '') delete record.styles[property]; else record.styles[property] = value; }
       for (const [key, value] of Object.entries(patch)) if (key !== 'styles') { if (value === undefined) delete record[key]; else record[key] = value; }
       if (patch.html !== undefined) delete record.text;
       if (patch.text !== undefined) delete record.html;
-    }));
+    }); if (patch.deleted) clearSelection(); });
     document.body.classList.add('panel-open');
     $('selection-empty').hidden = true; $('selection-panel').hidden = false;
     $('selected-label').textContent = selection.tag + ' · ' + selection.label;
