@@ -12,6 +12,8 @@ export function renderAgency() {
   for (const item of items) {
     if (!/^(?:concepts\/)?[a-z0-9-]+\/[a-z0-9-]+\/$/.test(item.path) || item.summary.length !== 3) throw new Error('Invalid portfolio entry: ' + item.id);
     if (!fs.existsSync(path.join(source, 'assets/images/portfolio', item.thumbnail))) throw new Error('Missing portfolio screenshot: ' + item.id);
+    // Text saved in a non-UTF-8 encoding turns Korean into "??"; fail the build instead of publishing it.
+    if (/\?{2,}|�/.test([item.name, item.categoryLabel, item.kindLabel, ...item.summary].join(' '))) throw new Error('Broken text encoding in portfolio entry: ' + item.id);
     const key = item.category + '-' + item.kind;
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(item);
