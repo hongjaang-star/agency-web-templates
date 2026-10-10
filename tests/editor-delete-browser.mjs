@@ -26,6 +26,23 @@ try {
   const remove = page.getByRole('button', { name: '이 요소 삭제', exact: true });
   assert.equal(await remove.count(), 1);
   assert.equal(await page.getByRole('button', { name: '이 요소 숨기기', exact: true }).count(), 1);
+  const toggle = page.getByRole('switch', { name: '숨김 컨텐츠 보기' });
+  await page.getByRole('button', { name: '이 요소 숨기기', exact: true }).click();
+  await frame.locator('h1').waitFor({ state: 'hidden' });
+  await toggle.click(); await frame.locator('h1').waitFor({ state: 'visible' });
+  await frame.locator('[data-agency-ui="hidden-overlay"]').waitFor();
+  assert.match(await frame.locator('[data-agency-ui="hidden-overlay"]').innerText(), /숨김 처리 중/);
+  assert.match(await frame.locator('[data-agency-ui="hidden-overlay"]').evaluate(el => el.style.background), /repeating-linear-gradient/);
+  await page.locator('.file-menu summary').click();
+  const downloaded = page.waitForEvent('download'); await page.locator('#export-html').click();
+  const exported = fs.readFileSync(await (await downloaded).path(), 'utf8');
+  assert.ok(exported.includes('display: none !important'));
+  assert.ok(!exported.includes('hidden-overlay'));
+  await page.locator('.file-menu summary').click();
+  await toggle.click(); await frame.locator('h1').waitFor({ state: 'hidden' });
+  await frame.locator('[data-agency-ui="hidden-overlay"]').waitFor({ state: 'detached' });
+  await page.locator('#undo').click(); await frame.locator('h1').waitFor();
+  await frame.locator('h1').click(); await page.locator('[data-tab=divbox]').click();
   page.once('dialog', d => d.dismiss()); await remove.click();
   assert.equal(await frame.locator('h1').count(), 1);
   page.once('dialog', d => d.accept()); await remove.click();
@@ -38,7 +55,7 @@ try {
   await frame.locator('h1').waitFor({ state: 'detached' });
   assert.equal(await frame.locator('h1').count(), 0);
   assert.equal(await frame.locator('p').innerText(), 'Sibling');
-  console.log('PASS: delete/cancel, separate hide button, undo/redo, save/reload, sibling preserved');
+  console.log('PASS: hidden preview toggle/stripes/export, delete/cancel, separate hide button, undo/redo, save/reload, sibling preserved');
 } finally {
   await browser.close(); await new Promise(resolve => server.close(resolve));
   fs.rmSync(root, { recursive: true, force: true });
