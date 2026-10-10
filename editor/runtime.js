@@ -21,6 +21,24 @@
   const elements = new Map(), originals = new Map();
   const originalStyles = new WeakMap();
   const removed = new Map();
+  let showHidden = false;
+  const revealed = new Map(), displays = new WeakMap();
+  function clearRevealed() {
+    for (const [element, entry] of revealed) {
+      element.style.setProperty('display', 'none', 'important');
+      entry.overlay.remove();
+    }
+    revealed.clear();
+  }
+  function updateHiddenOverlays() {
+    for (const [element, entry] of revealed) {
+      const rect = element.getBoundingClientRect();
+      Object.assign(entry.overlay.style, { left: rect.left + 'px', top: rect.top + 'px', width: rect.width + 'px', height: rect.height + 'px' });
+    }
+  }
+  window.addEventListener('scroll', updateHiddenOverlays, true);
+  window.addEventListener('resize', updateHiddenOverlays);
+  if (editing) new ResizeObserver(updateHiddenOverlays).observe(document.body);
   const ignore = element => element.closest('[data-agency-ui]') || element.matches('script,style,link,meta,noscript,iframe,canvas') || (element.closest('svg') && !element.matches('text,tspan'));
   const directText = element => [...element.childNodes].filter(node => node.nodeType === Node.TEXT_NODE);
   function textMode(element) {
@@ -48,6 +66,7 @@
   let observer;
   function apply() {
     observer?.disconnect();
+    clearRevealed();
     indexElements();
     const globalRules = state.pages['*'] || {}, pageRules = state.pages[page] || {};
     const records = new Map();
@@ -126,9 +145,25 @@
       originalStyles.set(element, styles);
       for (const [property, value] of Object.entries(record.styles || {})) {
         if (!styles.has(property)) styles.set(property, { value: element.style.getPropertyValue(property), priority: element.style.getPropertyPriority(property) });
+        if (property === 'display' && value === 'none' && !displays.has(element)) displays.set(element, getComputedStyle(element).display);
         element.style.setProperty(property, value, 'important');
       }
     }
+    if (editing && showHidden) for (const [key, record] of records) {
+      const element = elements.get(key);
+      if (record.deleted || record.styles?.display !== 'none' || !element?.isConnected) continue;
+      const display = displays.get(element);
+      element.style.setProperty('display', display && display !== 'none' ? display : 'revert', 'important');
+      const overlay = document.createElement('div');
+      overlay.dataset.agencyUi = 'hidden-overlay';
+      overlay.setAttribute('aria-hidden', 'true');
+      overlay.style.cssText = 'position:fixed;pointer-events:none;z-index:2147483645;box-sizing:border-box;border:2px dashed #d97706;background:repeating-linear-gradient(135deg,rgba(217,119,6,.22) 0,rgba(217,119,6,.22) 6px,transparent 6px,transparent 14px)';
+      const badge = document.createElement('span'); badge.textContent = '숨김 처리 중';
+      badge.style.cssText = 'background:#92400e;color:white;font:12px/1.5 system-ui;padding:2px 6px';
+      overlay.append(badge); document.body.append(overlay);
+      revealed.set(element, { overlay });
+    }
+    updateHiddenOverlays();
     observer?.observe(document.body, { childList: true, subtree: true });
     updateOutline();
   }
@@ -150,7 +185,7 @@
       text: (textMode(element) === 'placeholder' ? element.getAttribute('placeholder') : textMode(element) === 'direct' ? directText(element).map(node => node.data).join('') : element.textContent)?.trim().slice(0, 20000) || '',
       html: textMode(element) === 'full' ? element.innerHTML?.slice(0, 60000) || '' : '',
       image: element.matches('img') ? element.getAttribute('src') : '', alt: element.getAttribute('alt') || '',
-      styles: values, fonts: [...new Set([...document.fonts].map(font => font.family.replace(/^["']|["']$/g, '')))].slice(0, 40),
+      styles: { ...values, ...(revealed.has(element) ? { display: 'none' } : {}) }, fonts: [...new Set([...document.fonts].map(font => font.family.replace(/^["']|["']$/g, '')))].slice(0, 40),
       authoredStyles: { ...state.pages['*']?.[element.dataset.agencyKey]?.styles, ...state.pages[page]?.[element.dataset.agencyKey]?.styles },
       label: element.getAttribute('aria-label') || element.textContent?.trim().slice(0, 65) || element.localName,
       parent: element.parentElement?.dataset.agencyKey || '',
@@ -230,9 +265,11 @@
       else if (data.type === 'select' && elements.get(data.key)?.isConnected) { const element = elements.get(data.key); element.scrollIntoView({ block: 'center', behavior: 'smooth' }); select(element); }
       else if (data.type === 'clear-selection') { selected = null; updateOutline(); send('selection-cleared'); }
       else if (data.type === 'mode') { pickMode = data.pick; outline.hidden = !pickMode; if (pickMode) updateOutline(); }
+      else if (data.type === 'show-hidden') { showHidden = data.enabled === true; apply(); }
       else if (data.type === 'export-html') {
         const copy = document.documentElement.cloneNode(true);
         copy.querySelectorAll('script,[data-agency-ui],link[rel="preload"][as="script"]').forEach(element => element.remove());
+        copy.querySelectorAll('[data-agency-key]').forEach(element => { if (revealed.has(elements.get(element.dataset.agencyKey))) element.style.setProperty('display', 'none', 'important'); });
         copy.querySelectorAll('[data-agency-key]').forEach(element => element.removeAttribute('data-agency-key'));
         copy.classList.remove('js'); copy.querySelectorAll('.rise,.draw').forEach(element => element.classList.add('on'));
         const baseTag = document.createElement('base'); baseTag.href = location.href.split('?')[0]; copy.querySelector('head').prepend(baseTag);

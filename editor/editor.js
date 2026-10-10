@@ -152,7 +152,7 @@
     const data = event.data;
     if (!config || event.source !== frame.contentWindow || event.origin !== location.origin || data?.channel !== 'agency-editor' || data.siteId !== config.siteId || data.page !== route) return;
     if (data.type === 'ready') {
-      ready = true; send('state', { state }); send('mode', { pick: $('pick').getAttribute('aria-pressed') === 'true' });
+      ready = true; send('state', { state }); send('show-hidden', { enabled: $('show-hidden').getAttribute('aria-checked') === 'true' }); send('mode', { pick: $('pick').getAttribute('aria-pressed') === 'true' });
       $('sections').replaceChildren(new Option('영역 선택', '')); for (const section of data.sections) $('sections').append(new Option(section.label, section.key)); changed();
     } else if (data.type === 'selection') { const fresh = selection?.key !== data.selection.key; selection = data.selection; window.LocalEditor?.update(selection); if (fresh) drawControls(); }
     else if (data.type === 'selection-cleared') clearSelection(false);
@@ -174,6 +174,11 @@
     loaded = true; navigate(config.pages.some(page => page.path === requestedPage) ? requestedPage : config.pages[0]?.path || '/');
   } catch (error) { status(error.message); return; }
   $('pages').addEventListener('change', event => navigate(event.target.value));
+  $('show-hidden').addEventListener('click', () => {
+    const enabled = $('show-hidden').getAttribute('aria-checked') !== 'true';
+    $('show-hidden').setAttribute('aria-checked', String(enabled));
+    send('show-hidden', { enabled });
+  });
   $('sections').addEventListener('change', event => send('select', { key: event.target.value }));
   $('parent').addEventListener('click', () => send('select', { key: selection?.parent }));
   $('children').addEventListener('change', event => send('select', { key: event.target.value }));

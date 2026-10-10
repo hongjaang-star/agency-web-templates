@@ -93,3 +93,8 @@ button:disabled { opacity:.35; cursor:default; }
 .divbox-panel-header { gap:8px; }
 .divbox-panel-header > .structure-hint { flex:1; min-width:0; }
 .divbox-panel-header > button { flex-shrink:0; }
+
+#show-hidden { width:100%; padding:7px 10px; border:1px solid var(--line); border-radius:5px; background:white; color:var(--ink); text-align:left; cursor:pointer; }
+#show-hidden::before { content:"○"; margin-right:8px; }
+#show-hidden[aria-checked="true"] { background:#fff7ed; border-color:#d97706; color:#92400e; }
+#show-hidden[aria-checked="true"]::before { content:"●"; }
