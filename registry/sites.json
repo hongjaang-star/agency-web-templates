@@ -271,6 +271,87 @@
         "signature": "dry-aging chamber metrics and doneness temperature guide",
         "sectionOrder": "charcoal hero, three recommended dishes, weekday lunch, three rooms"
       }
+    },
+    {
+      "slug": "pro-consulting",
+      "variant": "pivot",
+      "name": "컨설팅",
+      "company": "Nextframe 경영컨설팅(가상)",
+      "category": "pro",
+      "level": "L1",
+      "status": "deployed",
+      "role": "flagship",
+      "type": "대비 타이포형 · 지금의 문제와 다음 체계를 나란히 보여 주는 진단형 컨설팅",
+      "path": "concepts/pro-consulting/pivot",
+      "url": "https://hongjaang-star.github.io/agency-web-templates/concepts/pro-consulting/pivot/",
+      "editor": "https://hongjaang-star.github.io/agency-web-templates/concepts/pro-consulting/pivot/editor/",
+      "about": "https://hongjaang-star.github.io/agency-web-templates/concepts/pro-consulting/pivot/about/",
+      "pages": 2,
+      "concept": "concepts/pro-consulting/pivot",
+      "fingerprint": {
+        "layout": "contrast-type grid",
+        "hero": "NOW↔NEXT statement toggle",
+        "typePair": "Archivo + Pretendard",
+        "palette": "silver mist · ink · electric blue",
+        "imageTreatment": "no photos; CSS/SVG diagrams",
+        "motion": "scroll reveal, reduced-motion fallback",
+        "signature": "6-question step diagnosis with area bars and memo",
+        "sectionOrder": "hero, programs, diagnosis, process, academy, cases, insight, company"
+      }
+    },
+    {
+      "slug": "pro-consulting",
+      "variant": "sidebook",
+      "name": "컨설팅",
+      "company": "Nextframe 경영컨설팅(가상)",
+      "category": "pro",
+      "level": "L1",
+      "status": "deployed",
+      "role": "alternative",
+      "type": "목차형 · 왼쪽 고정 메뉴와 과제 시트로 상담을 준비하는 컨설팅",
+      "path": "concepts/pro-consulting/sidebook",
+      "url": "https://hongjaang-star.github.io/agency-web-templates/concepts/pro-consulting/sidebook/",
+      "editor": "https://hongjaang-star.github.io/agency-web-templates/concepts/pro-consulting/sidebook/editor/",
+      "about": "https://hongjaang-star.github.io/agency-web-templates/concepts/pro-consulting/sidebook/about/",
+      "pages": 2,
+      "concept": "concepts/pro-consulting/sidebook",
+      "fingerprint": {
+        "layout": "sidebar-index",
+        "hero": "interactive symptom board",
+        "typePair": "Gothic A1 + Space Mono",
+        "palette": "bone · plum · saffron",
+        "imageTreatment": "no photos; CSS/SVG diagrams",
+        "motion": "scroll reveal, reduced-motion fallback",
+        "signature": "symptom picker that fills a case sheet",
+        "sectionOrder": "hero, programs, diagnosis, process, academy, cases, insight, company"
+      }
+    },
+    {
+      "slug": "pro-consulting",
+      "variant": "atlas",
+      "name": "컨설팅",
+      "company": "Nextframe 경영컨설팅(가상)",
+      "category": "pro",
+      "level": "L1",
+      "status": "deployed",
+      "role": "alternative",
+      "type": "지도형 · 프로그램을 타일 지도로 펼치고 12주 로드맵을 그리는 컨설팅",
+      "path": "concepts/pro-consulting/atlas",
+      "url": "https://hongjaang-star.github.io/agency-web-templates/concepts/pro-consulting/atlas/",
+      "editor": "https://hongjaang-star.github.io/agency-web-templates/concepts/pro-consulting/atlas/editor/",
+      "about": "https://hongjaang-star.github.io/agency-web-templates/concepts/pro-consulting/atlas/about/",
+      "pages": 2,
+      "concept": "concepts/pro-consulting/atlas",
+      "fingerprint": {
+        "layout": "bento mosaic",
+        "hero": "program tile map",
+        "typePair": "Noto Serif KR + Bricolage Grotesque",
+        "palette": "midnight navy · ivory · copper",
+        "imageTreatment": "no photos; CSS/SVG diagrams",
+        "motion": "scroll reveal, reduced-motion fallback",
+        "signature": "6-scale self check that draws a 12-week Gantt roadmap",
+        "sectionOrder": "hero, programs, diagnosis, process, academy, cases, insight, company"
+      }
     }
   ]
 }

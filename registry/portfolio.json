@@ -246,14 +246,14 @@
       "name": "Nextframe · Pivot",
       "category": "consulting",
       "categoryLabel": "컨설팅 · 경영",
-      "kind": "concept",
-      "kindLabel": "디자인 시안",
+      "kind": "site",
+      "kindLabel": "완성 사이트",
       "path": "concepts/pro-consulting/pivot/",
       "thumbnail": "consulting-pivot.jpg",
       "summary": [
-        "실버·잉크·일렉트릭 블루, NOW↔NEXT 초대형 대비 타이포.",
-        "메가 드롭다운 1차>2차>3차 메뉴, 프로그램 8개 카드와 상세.",
-        "6문항 과제 진단·영역별 막대·추천 프로그램·상담 메모."
+        "실버·잉크·일렉트릭 블루, NOW↔NEXT 초대형 대비 타이포의 경영컨설팅.",
+        "메가 드롭다운 메뉴, 프로그램 8개 상세, 6문항 진단·추천·상담 메모.",
+        "회사 소개 페이지: 연혁 7단계·성장 지표·수행 실적 12건·컨설턴트·거점."
       ]
     },
     {
@@ -261,14 +261,14 @@
       "name": "Nextframe · Sidebook",
       "category": "consulting",
       "categoryLabel": "컨설팅 · 경영",
-      "kind": "concept",
-      "kindLabel": "디자인 시안",
+      "kind": "site",
+      "kindLabel": "완성 사이트",
       "path": "concepts/pro-consulting/sidebook/",
       "thumbnail": "consulting-sidebook.jpg",
       "summary": [
-        "본·플럼·사프란, 왼쪽 고정 목차와 종이 과제 시트.",
-        "트리형 메뉴와 현재 위치 표시, 표 형식 프로그램 목록.",
-        "증상 16개 선택으로 과제 시트·기간·산출물·메모 완성."
+        "본·플럼·사프란, 왼쪽 고정 트리 메뉴와 종이 과제 시트.",
+        "증상 16개로 과제 시트 작성, 프로그램 표·수행사례·인사이트 6편.",
+        "메뉴 현재 위치 표시, 같은 왼쪽 메뉴의 회사 소개 페이지."
       ]
     },
     {
@@ -276,14 +276,14 @@
       "name": "Nextframe · Atlas",
       "category": "consulting",
       "categoryLabel": "컨설팅 · 경영",
-      "kind": "concept",
-      "kindLabel": "디자인 시안",
+      "kind": "site",
+      "kindLabel": "완성 사이트",
       "path": "concepts/pro-consulting/atlas/",
       "thumbnail": "consulting-atlas.jpg",
       "summary": [
-        "미드나잇 네이비·아이보리·코퍼, 프로그램 타일 지도.",
-        "전체 화면 인덱스 메뉴, 뒷면에 지금→다음이 보이는 타일.",
-        "6개 눈금 진단으로 12주 로드맵 간트와 메모 생성."
+        "미드나잇 네이비·아이보리·코퍼, 프로그램 타일 지도의 경영컨설팅.",
+        "전체 화면 인덱스 메뉴, 6개 눈금 진단으로 12주 로드맵 간트.",
+        "회사 소개 페이지: 연혁·성장 지표·실적·컨설턴트·문서·거점 지도."
       ]
     }
   ]
