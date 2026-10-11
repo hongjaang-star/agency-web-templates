@@ -125,7 +125,9 @@ h1,h2{font-weight:900;letter-spacing:-.05em}.hero h1 em{font-style:normal;backgr
 .tree>li>button:hover,.tree>li>a.solo:hover{background:rgba(255,255,255,.08)}
 .tree .sub{display:none;padding:2px 0 10px 12px;border-left:1px dashed rgba(255,255,255,.25);margin-left:16px}.tree .sub.open{display:block}
 .tree .sub a{display:flex;align-items:center;gap:8px;padding:6px 10px;text-decoration:none;font-size:14.5px;border-radius:6px;color:#efdde9}.tree .sub a:hover{background:rgba(255,255,255,.08);color:#fff}
-.tree .sub a.cur{background:#f2a51a;color:#2b1327;font-weight:700}
+.tree .sub a.cur,.tree .sub a.cur:hover{background:#f2a51a;color:#2b1327;font-weight:700}
+.here-now{display:flex;flex-direction:column;gap:2px;margin:0 0 12px;padding:10px 12px;border:1px dashed rgba(255,255,255,.3);border-radius:8px;font-size:12px;color:#d9b6cf}.here-now b{color:#fff;font-size:14px}
+.tree>li.here>button{color:#f2a51a;background:rgba(255,255,255,.07);box-shadow:inset 3px 0 0 #f2a51a}
 .tree b.tg{margin-left:auto;font-family:var(--num);font-size:10.5px;font-weight:700;color:#2b1327;background:#f2a51a;border-radius:4px;padding:1px 7px}
 .side-foot{padding:18px 24px 24px;border-top:1px solid rgba(255,255,255,.14);font-size:13px}.side-foot a.go{display:block;text-align:center;background:#f2a51a;color:#2b1327;font-weight:800;text-decoration:none;padding:12px;border-radius:8px;margin-bottom:10px}.side-foot p{color:#d9b6cf}
 .shell{margin-left:300px}.topbar{display:none}
@@ -139,7 +141,7 @@ h1,h2{font-weight:900;letter-spacing:-.05em}.hero h1 em{font-style:normal;backgr
 <body>
 
 <p class="demo">가상 업체 데모 · 시안 B · Sidebook · 회사 소개 — Nextframe 경영컨설팅은 실제 업체가 아니며 연혁·수치·인물·문서는 모두 예시입니다.</p>
-<div class="topbar"><b>Nextframe</b><button id="sb-open" aria-controls="side" aria-expanded="false">메뉴 목차</button></div><aside class="side" id="side" aria-label="사이트 목차"><a class="brand" href="../"><b>Nextframe</b><span>NEXTFRAME CONSULTING</span></a><nav aria-label="주 메뉴"><ul class="tree"><li><button aria-expanded="false" aria-controls="sub-svc">컨설팅 목록</button><div class="sub" id="sub-svc"><a href="../#programs">전체</a><a href="../#programs">컨설팅</a><a href="../#programs">디지털·AI</a><a href="../#academy">리더 교육</a></div></li><li><button aria-expanded="false" aria-controls="sub-case">수행사례</button><div class="sub" id="sub-case"><a href="../#cases">영업·마케팅<b class="tg">SL</b></a><a href="../#cases">고객경험<b class="tg">CX</b></a><a href="../#cases">인사조직<b class="tg">HR</b></a></div></li><li><a class="solo" href="../#insight">인사이트</a></li><li><button aria-expanded="true" aria-controls="sub-about">회사소개</button><div class="sub open" id="sub-about"><a href="#top">회사 개요</a><a href="#history">연혁</a><a href="#growth">성장 지표</a><a href="#record">수행 실적</a><a href="#people">컨설턴트</a><a href="#docs">인증과 기록</a><a href="#location">오시는 길</a></div></li></ul></nav><div class="side-foot"><a class="go" href="../#board">증상으로 과제 찾기</a><p>회사 소개 · 가상 업체 데모</p></div></aside>
+<div class="topbar"><b>Nextframe</b><button id="sb-open" aria-controls="side" aria-expanded="false">메뉴 목차</button></div><aside class="side" id="side" aria-label="사이트 목차"><a class="brand" href="../"><b>Nextframe</b><span>NEXTFRAME CONSULTING</span></a><nav aria-label="주 메뉴"><ul class="tree"><li><button aria-expanded="false" aria-controls="sub-svc">컨설팅 목록</button><div class="sub" id="sub-svc"><a href="../#programs">전체</a><a href="../#programs">컨설팅</a><a href="../#programs">디지털·AI</a><a href="../#academy">리더 교육</a></div></li><li><button aria-expanded="false" aria-controls="sub-case">수행사례</button><div class="sub" id="sub-case"><a href="../#cases">영업·마케팅<b class="tg">SL</b></a><a href="../#cases">고객경험<b class="tg">CX</b></a><a href="../#cases">인사조직<b class="tg">HR</b></a></div></li><li><a class="solo" href="../#insight">인사이트</a></li><li class="here"><button aria-expanded="true" aria-controls="sub-about">회사소개</button><div class="sub open" id="sub-about"><a href="#top">회사 개요</a><a href="#history">연혁</a><a href="#growth">성장 지표</a><a href="#record">수행 실적</a><a href="#people">컨설턴트</a><a href="#docs">인증과 기록</a><a href="#location">오시는 길</a></div></li></ul></nav><div class="side-foot"><a class="go" href="../#board">증상으로 과제 찾기</a><p>회사 소개 · 가상 업체 데모</p></div></aside>
 <div class="shell"><main id="top">
 <section class="hero"><div class="wrap">
  <span class="eyebrow">About · 2011—2026</span>
@@ -267,9 +269,14 @@ function close(){if(side.classList.contains('open')){side.classList.remove('open
 open.addEventListener('click',function(){side.classList.add('open');open.setAttribute('aria-expanded','true');side.querySelector('a,button').focus()});
 side.addEventListener('click',function(e){if(e.target.closest('a'))close()});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&side.classList.contains('open')){close();open.focus()}});
-var ids=['top','history','growth','record','people','docs','location'],links=document.querySelectorAll('#sub-about a');
-if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){var id=x.target.classList.contains('hero')?'top':x.target.id;links.forEach(function(a){a.classList.toggle('cur',a.getAttribute('href')==='#'+id)})}})},{rootMargin:'-45% 0px -50% 0px'});
-ids.forEach(function(i){var el=i==='top'?document.querySelector('.hero'):document.getElementById(i);if(el)io.observe(el)})}
+var ids=['top','history','growth','record','people','docs','location'],names={top:'회사 개요',history:'연혁',growth:'성장 지표',record:'수행 실적',people:'컨설턴트',docs:'인증과 기록',location:'오시는 길'},links=document.querySelectorAll('#sub-about a');
+var foot=document.querySelector('.side-foot');foot.insertAdjacentHTML('afterbegin','<p class="here-now" aria-live="polite"><span>지금 보는 곳</span><b id="here-now"></b></p>');
+function el(i){return i==='top'?document.querySelector('.hero'):document.getElementById(i)}
+function spy(){var y=innerHeight*.35,id='top';ids.forEach(function(i){var e=el(i);if(e&&e.getBoundingClientRect().top<=y)id=i});
+ if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)id='location';
+ links.forEach(function(a){var on=a.getAttribute('href')==='#'+id;a.classList.toggle('cur',on);if(on)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});
+ document.getElementById('here-now').textContent='회사소개 › '+names[id]}
+var raf=0;addEventListener('scroll',function(){cancelAnimationFrame(raf);raf=requestAnimationFrame(spy)},{passive:true});addEventListener('resize',spy);addEventListener('hashchange',function(){setTimeout(spy,50)});spy();
 })();</script>
 </body>
 </html>
