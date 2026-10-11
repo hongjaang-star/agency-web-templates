@@ -21,5 +21,13 @@ await page.mouse.move(0,0);const trigger=cards.first().locator('button');await t
 const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});await mobile.goto(origin);const card=mobile.locator('.equipment-card').first();await card.locator('button').tap();await mobile.waitForTimeout(500);assert.equal(await card.getAttribute('data-open'),'true');assert.ok(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
 if(process.env.EQUIPMENT_SCREENSHOTS)await mobile.screenshot({path:path.join(process.env.EQUIPMENT_SCREENSHOTS,'equipment-mobile.png')});
 await card.locator('button').tap();assert.equal(await card.getAttribute('data-open'),'false');
+const routes=page.locator('.process-route');assert.equal(await routes.count(),4);
+assert.equal(await page.locator('.process-timeline > li').count(),16);
+await routes.first().scrollIntoViewIfNeeded();
+if(process.env.EQUIPMENT_SCREENSHOTS)await page.screenshot({path:path.join(process.env.EQUIPMENT_SCREENSHOTS,'category-process-desktop.png')});
+await mobile.locator('.process-route').first().scrollIntoViewIfNeeded();
+assert.ok(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Process section horizontal overflow');
+const markerBounds=await mobile.locator('.process-marker').evaluateAll(es=>es.map(e=>e.getBoundingClientRect().left));assert.ok(markerBounds.every(left=>left>=0));
+if(process.env.EQUIPMENT_SCREENSHOTS)await mobile.screenshot({path:path.join(process.env.EQUIPMENT_SCREENSHOTS,'category-process-mobile.png')});
 assert.deepEqual(errors,[]);console.log('PASS: 6 images, hover overlays, text bounds, keyboard, mobile tap, no horizontal overflow');
 }finally{await browser.close();await new Promise(r=>server.close(r));}
