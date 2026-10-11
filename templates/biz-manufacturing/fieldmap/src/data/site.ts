@@ -3,8 +3,8 @@
 // ─────────────────────────────────────────────
 
 export const site = {
-  nameKo: "세로결정밀",
-  nameEn: "SEROGYEOL PRECISION",
+  nameKo: "AXEN",
+  nameEn: "AXEN PRECISION",
   tagline: "어디에 쓰실 부품인가요?",
   description: "알루미늄 압출과 CNC 가공으로 방열판, 프로파일, 하우징, 정밀 브래킷을 만드는 가상 제조사 데모. 적용 분야를 고르면 맞는 제품과 사양, 최소 주문 수량, 납기를 바로 확인할 수 있습니다.",
   demoNotice: "가상 업체 데모 · 제품·인증·납품 정보는 예시입니다",

@@ -1,4 +1,4 @@
-/* 세로결정밀 · fieldmap — 흑연·알루미늄·안전 주황. 품번·사양은 고정폭 숫자. */
+/* AXEN · fieldmap — 흑연·알루미늄·안전 주황. 품번·사양은 고정폭 숫자. */
 :root {
   --ink: #1f2326;
   --steel: #5d656b;
@@ -324,3 +324,6 @@ dl.spec dd { margin: 0; font: 13px var(--mono); }
 .process-disclaimer{font-size:12px;color:#586368;margin:24px 0 0}
 @media(max-width:1150px){.process-route{grid-template-columns:1fr}.process-route-head{border-right:0;border-bottom:1px solid #d8dfdb;display:block;padding:24px}.process-route-head h3{margin:8px 0}.process-route-head>p{margin:0 0 12px}.process-step-count{border:0;padding:0}}
 @media(max-width:760px){.process-timeline{grid-template-columns:1fr;padding:24px;gap:0}.process-timeline>li{position:relative;padding:0 0 28px 54px;min-height:140px}.process-timeline>li:last-child{padding-bottom:0}.process-marker{position:absolute;left:0;top:0;margin:0;height:100%;align-items:flex-start}.process-marker::after{position:absolute;left:18.5px;top:38px;bottom:0;width:1px;height:auto;margin:0}.process-arrow{display:none}.process-timeline h4{padding-top:6px;margin-bottom:10px}.process-timeline>li>p{margin-bottom:14px}.process-check{margin-top:0}.process-section-head{margin-bottom:26px}}
+
+/* AXEN wordmark */
+.logo{font-size:24px;letter-spacing:.14em;font-weight:600}
