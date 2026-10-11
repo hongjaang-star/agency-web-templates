@@ -29,7 +29,9 @@ h1,h2,h3,h4,p,ul,ol,dl,dd{margin:0}ul,ol{list-style:none;padding:0}a{color:inher
 .tree .g{font-size:12px;letter-spacing:.02em;color:#d9b6cf;margin:10px 0 2px 10px;text-transform:uppercase}
 .tree .sub a{display:flex;gap:8px;align-items:baseline;padding:5px 10px;text-decoration:none;font-size:14.5px;border-radius:6px;color:#efdde9}
 .tree .sub a:hover{background:rgba(255,255,255,.08);color:#fff}
-.tree a.cur{background:var(--saffron);color:var(--ink)!important;font-weight:700}
+.tree>li.here>button,.tree>li.here>a{color:var(--saffron);background:rgba(255,255,255,.07);box-shadow:inset 3px 0 0 var(--saffron)}
+.here-now{display:flex;flex-direction:column;gap:2px;margin:0 0 12px;padding:10px 12px;border:1px dashed rgba(255,255,255,.3);border-radius:8px;font-size:12px;color:#d9b6cf}.here-now b{color:#fff;font-size:14px}
+.tree .sub a.cur,.tree .sub a.cur:hover,.tree a.cur{background:var(--saffron);color:var(--ink)!important;font-weight:700}
 .tree .sub a b.tg{margin-left:auto;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.06em;color:var(--ink);background:var(--saffron);border-radius:4px;padding:1px 7px}
 .tree a.cur b.tg{background:var(--ink);color:var(--saffron)}
 .tree .sub a i{font-style:normal;font-family:var(--mono);font-size:10px;opacity:.7}
@@ -256,9 +258,24 @@ open.addEventListener('click',()=>{side.classList.add('open');open.setAttribute(
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&side.classList.contains('open')){closeSide();open.focus()}});
 document.addEventListener('click',e=>{if(side.classList.contains('open')&&!side.contains(e.target)&&e.target!==open)closeSide()});
 $('#side-mail').textContent=D.company.mail;
-/* scrollspy */
+/* scrollspy: one source of truth for where the reader is */
 const spyIds=['board','programs','process','academy','cases','insight','about','contact'];
-if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){const id=x.target.id;document.querySelectorAll('#tree a').forEach(a=>{const h=a.getAttribute('href').slice(1);a.classList.toggle('cur',h===id)})}}),{rootMargin:'-45% 0px -50% 0px'});spyIds.forEach(i=>{const e=document.getElementById(i);e&&io.observe(e)})}
+const lis=[...document.querySelectorAll('#tree>li')],secLi={programs:0,process:0,academy:0,cases:1,insight:2,about:3};
+const secName={board:'증상으로 과제 찾기',programs:'컨설팅 목록',process:'컨설팅 목록 › 진행 순서·비용',academy:'컨설팅 목록',cases:'수행사례',insight:'인사이트',about:'회사소개',contact:'문의'};
+$('.side-foot').insertAdjacentHTML('afterbegin','<p class="here-now" aria-live="polite"><span>지금 보는 곳</span><b id="here-now"></b></p>');
+function spyChild(id){if(id==='programs'){const f=document.querySelector('#filter [aria-pressed=true]');return({'전체':'list-all','컨설팅':'list-consulting','디지털·AI':'list-digital'})[f&&f.textContent]}
+ if(id==='academy')return 'academy-intro';
+ if(id==='cases'){const k=[...document.querySelectorAll('#acc details')].findIndex(x=>x.open);return['case-sales','case-cx','case-hr'][k]}
+ if(id==='insight'){const f=document.querySelector('#ifilter [aria-pressed=true]');return({'레터':'letter','기획조사':'report','소식':'news'})[f&&f.textContent]}}
+let spySec=null;
+function spy(){const y=innerHeight*.35;let id=spyIds[0];spyIds.forEach(s=>{const e=document.getElementById(s);if(e&&e.getBoundingClientRect().top<=y)id=s});
+ const li=secLi[id];lis.forEach((l,k)=>l.classList.toggle('here',k===li));
+ if(li!==undefined&&id!==spySec){const b=lis[li].querySelector('button[aria-controls]');if(b&&b.getAttribute('aria-expanded')!=='true'){b.setAttribute('aria-expanded','true');document.getElementById(b.getAttribute('aria-controls')).classList.add('open')}}
+ const c=spyChild(id),cur=c&&document.querySelector('#tree a[data-go="'+c+'"]');document.querySelectorAll('#tree a').forEach(a=>{a.classList.toggle('cur',a===cur);a.toggleAttribute('aria-current',a===cur)});
+ $('#here-now').textContent=secName[id]+(cur?' › '+cur.firstChild.textContent.replace(/^[A-Z]{2}/,''):'');spySec=id}
+let spyRaf=0;addEventListener('scroll',()=>{cancelAnimationFrame(spyRaf);spyRaf=requestAnimationFrame(spy)},{passive:true});addEventListener('resize',spy);
+document.addEventListener('click',()=>setTimeout(spy,0));document.getElementById('acc').addEventListener('toggle',()=>setTimeout(spy,0),true);
+setTimeout(spy,0);
 /* symptom board */
 const picked=new Set();
 const areaOrder=['strategy','sales','cx','hr','research','system','ai','data'];
