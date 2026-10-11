@@ -151,9 +151,9 @@
       "name": "컨설팅",
       "category": "pro",
       "level": "L1",
-      "status": "concepts",
+      "status": "done",
       "research": "concepts/pro-consulting/research/",
-      "note": "조합 1 사용자 선택(BX컨설팅 1차>2차 메뉴 구성 반영). 가상 업체 Nextframe, 시안 3개 공개",
+      "note": "2026-10-11 사용자 결정: 시안 3개(pivot·sidebook·atlas) 모두 완성 사이트로 등록. 대표 pivot.",
       "concepts": [
         "pivot",
         "sidebook",
