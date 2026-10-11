@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>세로결정밀 · 적용 분야로 찾는 알루미늄 부품 (시안 A)</title>
+<title>AXEN · 적용 분야로 찾는 알루미늄 부품 (시안 A)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+KR:wght@400;600;700&display=swap">
 <style>
@@ -86,7 +86,7 @@ footer{padding:28px clamp(16px,4vw,48px);font-size:13px;color:var(--steel);displ
 <body>
 <div class="demo">가상 업체 데모 · 시안 A · fieldmap</div>
 <header class="top">
-  <a class="logo" href="#"><i></i>세로결정밀</a>
+  <a class="logo" href="#"><i></i>AXEN</a>
   <nav aria-label="주요 메뉴"><ul><li><a href="#finder">제품 찾기</a></li><li><a href="#capa">설비·공정</a></li><li><a href="#trust">인증·고객</a></li><li><a href="#quote">견적 요청</a></li></ul></nav>
   <a class="quote-btn" href="#quote">견적 요청</a>
 </header>
@@ -153,7 +153,7 @@ footer{padding:28px clamp(16px,4vw,48px);font-size:13px;color:var(--steel);displ
     </form>
   </section>
 </main>
-<footer><span>세로결정밀(가상) · 경기도 ○○시 산업단지로 00 · 대표전화 000-0000-0000</span><span>가상 업체 데모입니다. 제품·인증·납품 정보는 예시입니다.</span></footer>
+<footer><span>AXEN(가상) · 경기도 ○○시 산업단지로 00 · 대표전화 000-0000-0000</span><span>가상 업체 데모입니다. 제품·인증·납품 정보는 예시입니다.</span></footer>
 
 <!--
   제품 데이터 등록 방법
@@ -164,7 +164,7 @@ footer{padding:28px clamp(16px,4vw,48px);font-size:13px;color:var(--steel);displ
               spec = 사양 이름:값, moq 최소 주문, lead 납기, image = 가상 제품 이미지 설명)
 -->
 <script type="application/json" id="product-data">{
- "company": "세로결정밀",
+ "company": "AXEN",
  "categories": [
   {
    "id": "heatsink",
@@ -412,7 +412,7 @@ footer{padding:28px clamp(16px,4vw,48px);font-size:13px;color:var(--steel);displ
     document.getElementById('picked').textContent='선택한 제품: '+(state.picked.length?state.picked.join(', '):'없음 (위 카드에서 "견적에 담기"를 누르세요)');
   }
   document.getElementById('qform').addEventListener('submit',function(e){e.preventDefault();var f=e.target,o=document.getElementById('out');
-    o.style.display='block';o.textContent='[견적 요청] 세로결정밀\n제품: '+(state.picked.join(', ')||'미정')+'\n용도: '+f.use.value+'\n수량: '+(f.qty.value||'미정')+'\n납기: '+(f.due.value||'미정')+'\n도면: '+f.dwg.value+'\n요청: '+(f.memo.value||'없음')+'\n\n※ 데모에서는 전송하지 않습니다. 실제 사이트에서는 메일·폼으로 접수합니다.'});
+    o.style.display='block';o.textContent='[견적 요청] AXEN\n제품: '+(state.picked.join(', ')||'미정')+'\n용도: '+f.use.value+'\n수량: '+(f.qty.value||'미정')+'\n납기: '+(f.due.value||'미정')+'\n도면: '+f.dwg.value+'\n요청: '+(f.memo.value||'없음')+'\n\n※ 데모에서는 전송하지 않습니다. 실제 사이트에서는 메일·폼으로 접수합니다.'});
   render();
 })();
 </script>
