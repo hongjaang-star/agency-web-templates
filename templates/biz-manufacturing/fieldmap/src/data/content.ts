@@ -27,7 +27,7 @@ export const capability = {
 };
 
 export const company = {
-  intro: "세로결정밀은 알루미늄의 결 방향을 따라 압출하고 깎는 부품 제조사입니다. 작은 브래킷 하나부터 배터리 하우징까지, 도면 한 장으로 시작해 출하 검사까지 한 공장에서 진행합니다. (가상 업체 소개)",
+  intro: "AXEN은 정밀한 기준축을 중심으로 알루미늄을 압출하고 가공하는 부품 제조사입니다. 작은 브래킷 하나부터 배터리 하우징까지, 도면 한 장으로 시작해 출하 검사까지 한 공장에서 진행합니다. (가상 업체 소개)",
   history: history.map(h => ({year:h.year, text:h.milestone})),
   certs: [
     { name: "품질경영시스템", code: "ISO 9001 형식 예시", note: "실제 인증 아님" },

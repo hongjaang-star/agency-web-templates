@@ -2,7 +2,7 @@ import EquipmentGallery from "@/components/EquipmentGallery";
 import ManufacturingMotion from "@/components/ManufacturingMotion";
 import PageHead from "@/components/PageHead";
 import JsonLd from "@/components/JsonLd";
-import { categories } from "@/data/catalog";
+import CategoryProcesses from "@/components/CategoryProcesses";
 import { capability } from "@/data/content";
 import { breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
@@ -26,12 +26,7 @@ export default function CapabilityPage() {
         <ol className="steps">{capability.steps.map((s) => (<li key={s.no}><span className="mono">{s.no}</span><b>{s.title}</b><p>{s.body}</p></li>))}</ol>
       </section>
       <EquipmentGallery />
-      <section className="band">
-        <div>
-          <h2>카테고리별 제작 공정</h2>
-          <ul className="rows stack">{categories.map((c) => (<li key={c.id}><b>{c.name}</b><em>{c.process}</em></li>))}</ul>
-        </div>
-      </section>
+      <CategoryProcesses />
       <JsonLd data={breadcrumbSchema([{ href: "/capability", label: "설비·공정" }])} />
     </>
   );
