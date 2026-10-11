@@ -243,7 +243,7 @@
     },
     {
       "id": "consulting-pivot",
-      "name": "다음칸 · Pivot",
+      "name": "Nextframe · Pivot",
       "category": "consulting",
       "categoryLabel": "컨설팅 · 경영",
       "kind": "concept",
@@ -258,7 +258,7 @@
     },
     {
       "id": "consulting-sidebook",
-      "name": "다음칸 · Sidebook",
+      "name": "Nextframe · Sidebook",
       "category": "consulting",
       "categoryLabel": "컨설팅 · 경영",
       "kind": "concept",
@@ -273,7 +273,7 @@
     },
     {
       "id": "consulting-atlas",
-      "name": "다음칸 · Atlas",
+      "name": "Nextframe · Atlas",
       "category": "consulting",
       "categoryLabel": "컨설팅 · 경영",
       "kind": "concept",
