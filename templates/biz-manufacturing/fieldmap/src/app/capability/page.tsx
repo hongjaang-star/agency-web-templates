@@ -1,3 +1,4 @@
+import EquipmentGallery from "@/components/EquipmentGallery";
 import ManufacturingMotion from "@/components/ManufacturingMotion";
 import PageHead from "@/components/PageHead";
 import JsonLd from "@/components/JsonLd";
@@ -24,11 +25,8 @@ export default function CapabilityPage() {
         <h2>공정 6단계</h2>
         <ol className="steps">{capability.steps.map((s) => (<li key={s.no}><span className="mono">{s.no}</span><b>{s.title}</b><p>{s.body}</p></li>))}</ol>
       </section>
-      <section className="band two">
-        <div>
-          <h2>보유 설비</h2>
-          <table className="spec-table"><tbody>{capability.equipment.map((e) => (<tr key={e.name}><th scope="row">{e.name}</th><td>{e.spec} <small>({e.note})</small></td></tr>))}</tbody></table>
-        </div>
+      <EquipmentGallery />
+      <section className="band">
         <div>
           <h2>카테고리별 제작 공정</h2>
           <ul className="rows stack">{categories.map((c) => (<li key={c.id}><b>{c.name}</b><em>{c.process}</em></li>))}</ul>

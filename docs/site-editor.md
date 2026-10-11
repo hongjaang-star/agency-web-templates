@@ -26,15 +26,17 @@ Next.js 기존 요소의 유형 변환, 새 섹션 생성/재배치, 원본 PHP 
 
 **에디터 기능 개선이 모든 편집기에 적용되는 것**과 **한 사이트의 콘텐츠 수정이 다른 사이트로 전파되는 것**은 다르다. 전자는 일관성을 위해 의도한 동작이고 후자는 차단한다. 에디터 소스를 수정하는 작업 자체가 사이트의 콘텐츠나 저장값을 덮어쓰지는 않는다.
 
-`editor/release.json`의 버전을 각 manifest의 `editorVersion`에 기록한다. 현재 공통 버전은 `1.1.0`이다. 기능 변경 때 공통 버전을 올리고 빌드/편집/사이트 분리 검사를 수행한다. 각 배포 폴더에는 모든 편집기 파일을 포함하므로 개별 사이트를 별도로 호스팅할 수도 있다.
+`editor/release.json`의 버전을 각 manifest의 `editorVersion`에 기록한다. 현재 공통 버전은 `1.1.3`이다. 기능 변경 때 공통 버전을 올리고 빌드/편집/사이트 분리 검사를 수행한다. 각 배포 폴더에는 모든 편집기 파일을 포함하므로 개별 사이트를 별도로 호스팅할 수도 있다.
 
 ## 사용
 
+- 각 데모 페이지 왼쪽 아래 **사이트 편집** 링크로 현재 페이지를 편집기에서 연다. `?page=/about/`처럼 이 사이트 manifest에 등록된 페이지만 직접 선택할 수 있다. `#services/editor`처럼 해시 뒤에 붙인 편집 주소도 올바른 편집기로 연결한다.
 - 사이트 주소 뒤에 `editor/`를 붙인다. 저장소 포트폴리오 목록의 **사이트 편집** 링크에서도 열 수 있다.
-- 페이지를 고른 뒤 미리보기의 요소를 클릭한다. 상위 영역 및 하위 요소 선택으로 배경 이미지나 컨테이너에도 접근할 수 있다.
+- 페이지를 고른 뒤 미리보기의 요소를 클릭한다. FAQ 제목·표 셀·캡션·일반 박스·SVG 글자·입력 안내 문구도 선택할 수 있다. 페이지 영역 목록의 `텍스트` 항목으로 직접 클릭하기 어려운 글자를 고른다. 아이콘·폼·하위 요소가 섞인 영역은 직접 텍스트만 수정하며 하위 문구는 따로 선택한다. 상위 영역 및 하위 요소 선택으로 배경 이미지나 컨테이너에도 접근할 수 있다.
 - **콘텐츠** 탭에서 원본 입력창과 스타일 펼침 메뉴, **요소** 탭에서 원본 리치 텍스트·텍스트/이미지 옵션·공통 스타일을 사용한다. **크기 · 여백** 탭에서 네 방향 여백·너비/높이·배경 이미지 등 추가 설정을 사용한다.
 - 서체·크기·굵기·자간·줄 간격·정렬·색상, 이미지 교체·대체 텍스트·맞춤·밝기/대비/블러/흑백/세피아, 단색/그라데이션 배경·테두리·그림자 등을 수정한다.
 - 서체 선택에는 해당 사이트에 실제 등록된 서체가 자동으로 표시된다. 다른 사이트의 서체 파일을 가져오지 않는다.
+- 일반 텍스트 입력의 Enter·빈 줄을 미리보기·저장·재로딩 후에도 유지한다. 기존에 저장된 줄바꿈도 다시 열면 표시된다. 리치 텍스트의 Enter 문단과 입력 위치를 보존하며 초기화 시 원래 텍스트·공백 스타일로 되돌린다.
 - 일반 텍스트 입력은 인라인 서식도 교체한다. 요소 탭 리치 텍스트나 콘텐츠 탭 HTML 모드는 굵게·기울임·밑줄·문단·목록·안전한 링크를 보존한다. 가져온 HTML도 적용 때 실행 코드/이벤트 속성을 제거한다. 되돌리기는 원래 마크업도 복원한다.
 - 기본 적용 범위는 **현재 페이지**다. 헤더·푸터 요소에서는 **사이트 공통 헤더·푸터**를 선택해 같은 사이트의 같은 위치에 적용할 수 있다. 페이지별 설정이 공통 설정보다 우선한다.
 - PC·태블릿·모바일 버튼은 실제 iframe 너비를 변경하는 미리보기다. 별도의 기기별 저장 규칙을 만들지 않는다.
@@ -73,3 +75,6 @@ node scripts/install-editor.mjs templates/pro-tax-office/almanac/out pro-tax-off
 - `npm run test:editor:browser`: 세 실제 앱을 먼저 배포용 basePath로 빌드한 후 실행. 실제 브라우저에서 세 앱·HTML 시안 3종·미래 템플릿의 편집·저장·새로고침·페이지 이동·동일 도메인 사이트 분리·이미지와 배경 업로드·되돌리기·가져오기·배포 설정을 검사한다. Windows는 설치된 Chrome, Linux는 Playwright Chromium을 사용한다. `EDITOR_BROWSER_PATH`로 실행 파일을 지정할 수 있다.
 
 편집기는 관리자 인증 시스템이 아니다. 정적 페이지 편집과 브라우저별 저장만 제공하며, 방문자가 에디터를 열어도 원격 저장소나 다른 방문자의 설정을 변경할 수 없다.
+
+### 1.2.0 compact controls
+`ui-controls.js` decorates the native DOM without modifying vendored modules. It preserves native event handlers, adds Korean accessible names/tooltips, converts native font choices into compact selects, and updates selected states. `integration.css` isolates fixed editor chrome from the native builder's mobile layout. Content controls initialize from the actual selection; solid/gradient opacity round-trips through authored styles. Run `node tests/editor-access-browser.mjs` for control interactions, uploads, import/export, persistence and three viewport sizes.

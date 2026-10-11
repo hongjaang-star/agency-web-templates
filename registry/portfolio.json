@@ -200,14 +200,14 @@
       "id": "cleaning-roomnote",
       "name": "틈새온 · Roomnote",
       "category": "service",
-      "categoryLabel": "청소 · 생활서비스",
+      "categoryLabel": "청소 · 방역",
       "kind": "concept",
       "kindLabel": "디자인 시안",
       "path": "concepts/service-cleaning/roomnote/",
       "thumbnail": "cleaning-roomnote.jpg",
       "summary": [
-        "따뜻한 백색·세이지·라임, 공간 도식과 범위 체크리스트를 나란히 보는 분할형.",
-        "서비스별 예시 요금표, 공간별 일러스트와 청소 범위 탭.",
+        "따뜻한 백색·세이지·라임, 공간 도식과 범위 체크리스트를 나란히 보는 분할형 시안.",
+        "입주·거주·사업장 청소 안내, 요금 안내와 공간별 작업 범위 탭.",
         "공간별 청소 범위·오피스 4개 구역·FAQ 15개와 상담 메모 준비."
       ]
     },
@@ -215,14 +215,14 @@
       "id": "cleaning-clearline",
       "name": "틈새온 · Clearline",
       "category": "service",
-      "categoryLabel": "청소 · 생활서비스",
+      "categoryLabel": "청소 · 방역",
       "kind": "concept",
       "kindLabel": "디자인 시안",
       "path": "concepts/service-cleaning/clearline/",
       "thumbnail": "cleaning-clearline.jpg",
       "summary": [
-        "안개 블루·살구, 창문 청소 비교 일러스트와 큰 문장의 장면형.",
-        "서비스별 예시 요금표, 공간별 일러스트와 청소 범위 탭.",
+        "안개 블루·살구, 창문 청소 비교 일러스트와 큰 문장으로 이어지는 장면형 시안.",
+        "입주·거주·사업장 청소 안내, 요금 안내와 공간별 작업 범위 탭.",
         "공간별 청소 범위·오피스 4개 구역·FAQ 15개와 상담 메모 준비."
       ]
     },
@@ -230,14 +230,14 @@
       "id": "cleaning-dayplan",
       "name": "틈새온 · Dayplan",
       "category": "service",
-      "categoryLabel": "청소 · 생활서비스",
+      "categoryLabel": "청소 · 방역",
       "kind": "concept",
       "kindLabel": "디자인 시안",
       "path": "concepts/service-cleaning/dayplan/",
       "thumbnail": "cleaning-dayplan.jpg",
       "summary": [
-        "잉크색·백색·앰버, 방문 요일과 공간별 작업을 정리하는 계획형.",
-        "서비스별 예시 요금표, 공간별 일러스트와 청소 범위 탭.",
+        "잉크색·백색·앰버, 방문 요일과 공간별 작업을 정리하는 관리 계획형 시안.",
+        "입주·거주·사업장 청소 안내, 요금 안내와 공간별 작업 범위 탭.",
         "공간별 청소 범위·오피스 4개 구역·FAQ 15개와 상담 메모 준비."
       ]
     },

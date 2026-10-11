@@ -26,11 +26,14 @@ window.LocalEditor = (() => {
     proxy.innerHTML = Builder.sanitize(item.html || item.text || '');
     for (const key of AgencyEditorCore.properties) proxy.style.setProperty(key, s[key] || '');
     content = { selected: { text: item.text } }; contentBefore = item.text;
-    styleState = {}; styleBefore = {}; htmlModeKeys.clear();
-    FIELDS = item.editableText ? [{ key: 'selected.text', label: item.tag + ' · ' + item.label, group: '선택한 텍스트', type: 'textarea' }] : [];
+    const initialStyle = { fontFamily: s['font-family'] || '', fontSize: size,
+      letterSpacing: number(s['letter-spacing']) / size, color: hex(s.color), align: s['text-align'] || 'left' };
+    styleState = { 'selected.text': clone(initialStyle) }; styleBefore = clone(initialStyle); htmlModeKeys.clear();
+    FIELDS = item.editableText ? [{ key: 'selected.text', label: item.tag + ' · ' + item.label + (item.textMode === 'direct' ? ' (하위 요소는 별도로 선택)' : item.textMode === 'placeholder' ? ' (입력 안내 문구)' : ''), group: '선택한 텍스트', type: 'textarea' }] : [];
     FONT_OPTIONS[0].l = '기존 사이트 서체';
     for (const font of [s['font-family'], ...(item.fonts || []).map(v => '"' + v + '"')]) if (font && !FONT_OPTIONS.some(entry => entry.v === font)) FONT_OPTIONS.push({ v: font, l: font.replaceAll('"', '') });
     buildContentForm();
+    if (item.textMode && item.textMode !== 'full') document.querySelectorAll('#contentForm .html-toggle-btn').forEach(button => button.hidden = true);
     if (!item.editableText) document.getElementById('contentForm').textContent = '이 요소는 요소 탭에서 이미지·배경·여백을 수정하세요.';
     if (!item.editableText && document.getElementById('tab-content').classList.contains('active')) switchTab('divbox');
     box = {
@@ -46,8 +49,10 @@ window.LocalEditor = (() => {
         hoverEffect: 'none', hoverSpeed: 300, overlayOpacity: 0, overlayColor: '#000000', mask: 'none', link: '', newTab: false },
     };
     before = clone(box);
-    const bg = /^linear-gradient\(([\d.]+)deg,\s*(#[a-f\d]{6}),\s*(#[a-f\d]{6})\)$/i.exec(item.authoredStyles?.['background-image'] || '');
-    if (bg) { box.common.bg = { ...box.common.bg, mode: 'gradient', gradAngle: Number(bg[1]), gradFrom: bg[2], gradTo: bg[3] }; }
+    const alpha = /rgba\([^,]+,[^,]+,[^,]+,\s*([\d.]+)\)/.exec(s['background-color'] || '');
+    if (alpha && box.common.bg.mode === 'solid') box.common.bg.opacity = Math.round(Number(alpha[1]) * 100);
+    const bg = /^linear-gradient\(([\d.]+)deg,\s*(#[a-f\d]{6}(?:[a-f\d]{2})?),\s*(#[a-f\d]{6}(?:[a-f\d]{2})?)\)$/i.exec(item.authoredStyles?.['background-image'] || '');
+    if (bg) { box.common.bg = { ...box.common.bg, mode: 'gradient', gradAngle: Number(bg[1]), gradFrom: bg[2].slice(0,7), gradTo: bg[3].slice(0,7), opacity: bg[2].length === 9 ? Math.round(parseInt(bg[2].slice(7),16) / 255 * 100) : 100 }; }
     const shadow = value => {
       const color = hex(value) || '#000000', numbers = (value || '').replace(/rgba?\([^)]*\)/g, '').match(/-?[\d.]+px/g)?.map(parseFloat) || [];
       return { x:numbers[0] || 0, y:numbers[1] || 0, blur:numbers[2] || 0, spread:numbers[3] || 0, color };
@@ -71,6 +76,7 @@ window.LocalEditor = (() => {
   }
   function decorate() {
     const body = document.getElementById('divBoxPanelBody');
+    if (selection?.textMode && selection.textMode !== 'full') body.querySelectorAll('.divbox-richtext').forEach(control => control.hidden = true);
     // Changing an existing React element into a different node type or wrapping
     // images in links would invalidate stable selectors. Use its existing type.
     const unavailable = new Set(['유형 선택', '등장 애니메이션', '그라데이션 텍스트', '모바일 글자 크기 비율', '호버 효과', '다크 오버레이 불투명도', '클릭 링크 (선택)']);
@@ -78,7 +84,18 @@ window.LocalEditor = (() => {
       if (unavailable.has(row.querySelector(':scope > label')?.textContent)) row.hidden = true;
     });
     const deleteButton = body.querySelector('.divbox-delete-btn');
-    if (deleteButton) { deleteButton.textContent = '숨기기'; deleteButton.onclick = () => apply({ styles: { display: 'none' } }); }
+    if (deleteButton) {
+      deleteButton.textContent = '숨기기'; deleteButton.ariaLabel = '이 요소 숨기기';
+      deleteButton.onclick = () => apply({ styles: { display: 'none' } });
+      body.querySelector('.divbox-remove-btn')?.remove();
+      const removeButton = document.createElement('button');
+      removeButton.type = 'button'; removeButton.className = 'divbox-delete-btn divbox-remove-btn';
+      removeButton.textContent = '삭제'; removeButton.ariaLabel = '이 요소 삭제';
+      removeButton.onclick = () => {
+        if (confirm('이 요소와 하위 요소를 삭제할까요? 실행 취소로 복원할 수 있습니다.')) apply({ styles: {}, deleted: true });
+      };
+      deleteButton.after(removeButton);
+    }
     body.querySelectorAll('.image-file-input').forEach(input => input.accept = 'image/png,image/jpeg,image/webp,image/gif,image/avif');
   }
   const originalRender = renderDivBoxPanel;
@@ -95,7 +112,11 @@ window.LocalEditor = (() => {
     style('common.align', 'text-align'); style('common.radius', 'border-radius', v => v + 'px');
     for (const key of ['width','style','color']) style('common.border.' + key, 'border-' + key, v => key === 'width' ? v + 'px' : v);
     changed('common.bg', () => {
-      if (c.bg.mode === 'gradient') patch.styles['background-image'] = `linear-gradient(${c.bg.gradAngle}deg, ${c.bg.gradFrom}, ${c.bg.gradTo})`;
+      if (c.bg.mode === 'gradient') {
+        const alpha = c.bg.opacity === 100 ? '' : Math.round(c.bg.opacity / 100 * 255).toString(16).padStart(2,'0');
+        patch.styles['background-image'] = `linear-gradient(${c.bg.gradAngle}deg, ${c.bg.gradFrom}${alpha}, ${c.bg.gradTo}${alpha})`;
+        patch.styles['background-color'] = 'transparent';
+      }
       else { patch.styles['background-image'] = 'none'; patch.styles['background-color'] = c.bg.mode === 'none' ? 'transparent' : rgba(c.bg.color || '#ffffff', c.bg.opacity / 100); }
     });
     changed('common.shadow', () => patch.styles['box-shadow'] = `${c.shadow.x}px ${c.shadow.y}px ${c.shadow.blur}px ${c.shadow.spread}px ${c.shadow.color}`);
@@ -150,10 +171,9 @@ document.querySelectorAll('#panel .tab-btn').forEach(button => button.addEventLi
 document.getElementById('panelClose').onclick = () => document.body.classList.remove('panel-open');
 document.getElementById('adminToggle').onclick = () => document.body.classList.toggle('panel-open');
 document.getElementById('nativeSave').onclick = () => document.getElementById('save').click();
-document.getElementById('divBoxPanelBody').addEventListener('input', event => {
-  const body = event.target.closest('.builder-richtext-body');
-  if (body) { const clean = Builder.sanitize(body.innerHTML); if (clean !== body.innerHTML) body.innerHTML = clean; }
-}, true);
+// The native input commit already sanitizes the stored HTML. Replacing the
+// focused DOM on every Enter resets the caret; sanitize external paste/drop
+// before insertion below and let the native blur handler normalize the UI.
 for (const name of ['paste', 'drop']) document.getElementById('divBoxPanelBody').addEventListener(name, event => {
   const body = event.target.closest('.builder-richtext-body');
   if (!body) return;

@@ -10,6 +10,7 @@ import { installEditor } from '../scripts/install-editor.mjs';
 const context = { URL };
 vm.runInNewContext(fs.readFileSync(new URL('../editor/core.js', import.meta.url), 'utf8'), context);
 const core = context.AgencyEditorCore;
+const editorVersion = JSON.parse(fs.readFileSync(new URL('../editor/release.json', import.meta.url), 'utf8')).version;
 const siteId = 'test-site/original';
 const key = 'body > main:nth-of-type(1) > h1:nth-of-type(1)';
 const data = () => ({ version: 1, siteId, pages: { '/': { [key]: { styles: { 'letter-spacing': '2px' }, text: '수정 제목' } } } });
@@ -59,7 +60,10 @@ test('future templates get an independent editor without source imports; install
     assert.equal(manifest.siteId, 'new-site/new-variant');
     assert.ok(html.includes('/agency-web-templates/new-site/new-variant/editor/runtime.js'));
     assert.equal(manifest.source, 'shared-editor');
-    assert.equal(manifest.editorVersion, '1.1.0');
+    const editorHTML = fs.readFileSync(path.join(output, 'editor/index.html'), 'utf8');
+    assert.ok(editorHTML.includes(`native-adapter.js?v=${editorVersion}`));
+    assert.ok(editorHTML.includes(`editor.js?v=${editorVersion}`));
+    assert.equal(manifest.editorVersion, editorVersion);
     assert.equal(fs.existsSync(path.join(output, 'site-editor')), false);
     const second = path.join(output, 'second'); fs.mkdirSync(second);
     fs.writeFileSync(path.join(second, 'index.html'), '<html><body>다른 사이트</body></html>');
@@ -78,7 +82,7 @@ test('future templates get an independent editor without source imports; install
     fs.writeFileSync(path.join(output, 'editor-state.json'), JSON.stringify(settings));
     installEditor(output, 'new-site/new-variant', '');
     assert.equal(JSON.parse(fs.readFileSync(path.join(output, 'editor/published.json'), 'utf8')).pages['/'][key].image, 'https://example.com/photo.webp');
-    assert.ok(fs.readFileSync(path.join(output, 'index.html'), 'utf8').includes('src="/editor/runtime.js"'));
+    assert.ok(fs.readFileSync(path.join(output, 'index.html'), 'utf8').includes(`src="/editor/runtime.js?v=${editorVersion}"`));
     fs.writeFileSync(path.join(output, 'editor-state.json'), JSON.stringify(data()));
     assert.throws(() => installEditor(output, 'new-site/new-variant', '/new-site/new-variant'));
   } finally { fs.rmSync(output, { recursive: true, force: true }); }

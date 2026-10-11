@@ -20,11 +20,12 @@
       for (const [key, record] of Object.entries(records)) {
         if (!keyPattern.test(key) || !record || typeof record !== 'object') throw new Error('편집 대상이 올바르지 않습니다.');
         const clean = { styles: {} };
+        if (record.deleted !== undefined) { if (typeof record.deleted !== 'boolean' || key === 'body') throw new Error('삭제 대상이 올바르지 않습니다.'); clean.deleted = record.deleted; }
         for (const [property, value] of Object.entries(record.styles || {})) {
           if (!properties.has(property) || typeof value !== 'string' || value.length > 8_000_100 || /[{}<>\x00-\x1f]|(?:expression|@import|javascript\s*:)/i.test(value) || (property !== 'background-image' && value.includes(';'))) throw new Error('지원하지 않는 스타일입니다.');
           if (property === 'background-image') {
             const match = /^url\("([^"\n]+)"\)$/.exec(value);
-            const gradient = /^linear-gradient\([\d.]+deg, #[a-f\d]{6}, #[a-f\d]{6}\)$/i.test(value);
+            const gradient = /^linear-gradient\([\d.]+deg, #[a-f\d]{6}(?:[a-f\d]{2})?, #[a-f\d]{6}(?:[a-f\d]{2})?\)$/i.test(value);
             if (value !== 'none' && !gradient && (!match || !safeURL(match[1], true))) throw new Error('배경 이미지 주소를 확인하세요.');
           } else if (/url\s*\(/i.test(value)) throw new Error('지원하지 않는 스타일 주소입니다.');
           clean.styles[property] = value;
@@ -66,6 +67,9 @@
     const allowed = new Set(['P','BR','STRONG','B','EM','I','U','S','SPAN','H2','H3','H4','UL','OL','LI','A']);
     for (const el of [...template.content.querySelectorAll('*')].reverse()) {
       if (['SCRIPT','STYLE','IFRAME','OBJECT','EMBED','SVG','MATH','TEMPLATE'].includes(el.tagName)) { el.remove(); continue; }
+      // Chromium contenteditable creates DIV blocks on Enter. Preserve their
+      // paragraph boundaries while dropping every untrusted block attribute.
+      if (el.tagName === 'DIV') { const paragraph = document.createElement('p'); paragraph.append(...el.childNodes); el.replaceWith(paragraph); continue; }
       if (!allowed.has(el.tagName)) { el.replaceWith(...el.childNodes); continue; }
       const href = el.tagName === 'A' && safeURL(el.getAttribute('href')) ? el.getAttribute('href') : null;
       for (const attr of [...el.attributes]) el.removeAttribute(attr.name);
@@ -73,5 +77,10 @@
     }
     return template.innerHTML;
   }
-  root.AgencyEditorCore = { properties, keyPattern, safeURL, validate, empty, database, sanitizeHTML };
+  function editorURL(basePath, page, origin) {
+    const url = new URL(basePath.replace(/\/$/, '') + '/editor/', origin);
+    if (page && page !== '/') url.searchParams.set('page', page);
+    return url.href;
+  }
+  root.AgencyEditorCore = { properties, keyPattern, safeURL, validate, empty, database, sanitizeHTML, editorURL };
 })(globalThis);

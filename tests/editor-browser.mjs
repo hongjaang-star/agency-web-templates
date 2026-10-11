@@ -8,6 +8,7 @@ import { chromium } from 'playwright';
 import { installEditor } from '../scripts/install-editor.mjs';
 
 const apps = ['pro-tax-office/almanac', 'medical-dermatology/lumiere', 'pro-tax-office/trust'];
+const editorVersion = JSON.parse(fs.readFileSync('editor/release.json', 'utf8')).version;
 for (const app of apps) installEditor(`templates/${app}/out`, app, `/agency-web-templates/${app}`);
 const fixtures = fs.mkdtempSync(path.join(os.tmpdir(), 'agency-editor-browser-'));
 fs.writeFileSync(path.join(fixtures, 'index.html'), '<!doctype html><html lang="ko"><head><title>Future template</title></head><body><header><a href="./">브랜드</a></header><main><section><h1>새로운 <b>사이트</b></h1><p>설명</p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a8f8AAAAASUVORK5CYII=" alt="원본 이미지"></section></main><footer>푸터</footer></body></html>');
@@ -44,7 +45,7 @@ const selectedFrame = () => page.frames().find(frame => frame.url().includes('ag
 async function openEditor(app) {
   await page.goto(`${origin}/agency-web-templates/${app}/editor/`);
   const manifest = await (await page.request.get(`${origin}/agency-web-templates/${app}/editor/manifest.json`)).json();
-  assert.equal(manifest.siteId, app); assert.equal(manifest.source, 'shared-editor'); assert.equal(manifest.editorVersion, '1.1.0');
+  assert.equal(manifest.siteId, app); assert.equal(manifest.source, 'shared-editor'); assert.equal(manifest.editorVersion, editorVersion);
   await wait(async () => { const frame = selectedFrame(); return frame && await frame.locator('main').count() && !(await page.locator('#status').textContent()).includes('불러오는'); }, 'Editor did not become ready: ' + app);
   return selectedFrame();
 }

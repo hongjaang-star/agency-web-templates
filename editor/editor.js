@@ -7,6 +7,13 @@
   const status = text => { $('status').textContent = text; };
   const clone = value => JSON.parse(JSON.stringify(value));
   function send(type, extra = {}) { if (ready) frame.contentWindow.postMessage({ channel: 'agency-editor', siteId: config.siteId, type, ...extra }, location.origin); }
+  function clearSelection(notify = true) {
+    selection = null; window.LocalEditor?.clear();
+    $('selected-label').textContent = '미리보기에서 편집할 요소를 선택하세요.';
+    $('selection-panel').hidden = true; $('selection-empty').hidden = false;
+    $('parent').disabled = true; $('children').replaceChildren(new Option('하위 요소 선택', ''));
+    if (notify) send('clear-selection');
+  }
   function buttons() { $('undo').disabled = !history.length; $('redo').disabled = !future.length; $('save').textContent = dirty ? '변경사항 저장' : '저장'; }
   function changed() { dirty = JSON.stringify(state) !== savedFingerprint; buttons(); status(dirty ? '미저장 변경사항 · 저장을 눌러주세요' : '저장된 설정'); }
   function commit(update) {
@@ -76,14 +83,14 @@
   function drawControls() {
     $('controls').replaceChildren();
     if (!selection) return;
-    window.LocalEditor?.select(selection, patch => commit(() => {
+    window.LocalEditor?.select(selection, patch => { commit(() => {
       const rules = state.pages[scope === 'site' ? '*' : route] ||= {};
       const record = rules[selection.key] ||= { styles: {} };
       for (const [property, value] of Object.entries(patch.styles)) { if (value === '') delete record.styles[property]; else record.styles[property] = value; }
       for (const [key, value] of Object.entries(patch)) if (key !== 'styles') { if (value === undefined) delete record[key]; else record[key] = value; }
       if (patch.html !== undefined) delete record.text;
       if (patch.text !== undefined) delete record.html;
-    }));
+    }); if (patch.deleted) clearSelection(); });
     document.body.classList.add('panel-open');
     $('selection-empty').hidden = true; $('selection-panel').hidden = false;
     $('selected-label').textContent = selection.tag + ' · ' + selection.label;
@@ -145,9 +152,10 @@
     const data = event.data;
     if (!config || event.source !== frame.contentWindow || event.origin !== location.origin || data?.channel !== 'agency-editor' || data.siteId !== config.siteId || data.page !== route) return;
     if (data.type === 'ready') {
-      ready = true; send('state', { state }); send('mode', { pick: $('pick').getAttribute('aria-pressed') === 'true' });
+      ready = true; send('state', { state }); send('show-hidden', { enabled: $('show-hidden').getAttribute('aria-checked') === 'true' }); send('mode', { pick: $('pick').getAttribute('aria-pressed') === 'true' });
       $('sections').replaceChildren(new Option('영역 선택', '')); for (const section of data.sections) $('sections').append(new Option(section.label, section.key)); changed();
     } else if (data.type === 'selection') { const fresh = selection?.key !== data.selection.key; selection = data.selection; window.LocalEditor?.update(selection); if (fresh) drawControls(); }
+    else if (data.type === 'selection-cleared') clearSelection(false);
     else if (data.type === 'navigate') navigate(data.route);
     else if (data.type === 'html') download(config.siteId.replaceAll('/', '-') + '-page.html', data.html, 'text/html');
     else if (data.type === 'error') status(data.message);
@@ -162,9 +170,15 @@
     $('site-name').textContent = config.name + ' · 편집기'; $('site-id').textContent = config.siteId; document.title = config.name + ' · 사이트 편집기';
     $('view-site').href = config.basePath + '/';
     for (const page of config.pages) $('pages').append(new Option(page.title, page.path));
-    loaded = true; navigate(config.pages[0]?.path || '/');
+    const requestedPage = new URL(location.href).searchParams.get('page');
+    loaded = true; navigate(config.pages.some(page => page.path === requestedPage) ? requestedPage : config.pages[0]?.path || '/');
   } catch (error) { status(error.message); return; }
   $('pages').addEventListener('change', event => navigate(event.target.value));
+  $('show-hidden').addEventListener('click', () => {
+    const enabled = $('show-hidden').getAttribute('aria-checked') !== 'true';
+    $('show-hidden').setAttribute('aria-checked', String(enabled));
+    send('show-hidden', { enabled });
+  });
   $('sections').addEventListener('change', event => send('select', { key: event.target.value }));
   $('parent').addEventListener('click', () => send('select', { key: selection?.parent }));
   $('children').addEventListener('change', event => send('select', { key: event.target.value }));
@@ -180,14 +194,14 @@
   $('reset-element').addEventListener('click', () => { if (!selection) return; commit(() => { delete state.pages[scope === 'site' ? '*' : route]?.[selection.key]; }); setTimeout(drawControls, 100); });
   $('reset').addEventListener('click', async () => {
     if (!confirm('이 사이트의 브라우저 편집 내용만 초기화합니다. 배포된 기본 설정은 유지됩니다.')) return;
-    try { await storage.clear(); history.push(clone(state)); future = []; state = clone(published); savedFingerprint = JSON.stringify(state); dirty = false; buttons(); send('state', { state }); selection = null; $('selection-panel').hidden = true; $('selection-empty').hidden = false; status('이 사이트의 브라우저 편집을 초기화했습니다.'); } catch (error) { status('초기화 실패: ' + error.message); }
+    try { await storage.clear(); history.push(clone(state)); future = []; state = clone(published); savedFingerprint = JSON.stringify(state); dirty = false; buttons(); send('state', { state }); clearSelection(); status('이 사이트의 브라우저 편집을 초기화했습니다.'); } catch (error) { status('초기화 실패: ' + error.message); }
   });
   $('export').addEventListener('click', () => download('editor-state-' + config.siteId.replaceAll('/', '-') + '.json', JSON.stringify(state, null, 2), 'application/json'));
   $('export-html').addEventListener('click', () => send('export-html'));
   $('import').addEventListener('click', () => $('import-file').click());
   $('import-file').addEventListener('change', async event => {
     const file = event.target.files[0]; if (!file) return;
-    try { if (file.size > 30_000_000) throw new Error('편집 파일은 30MB 이하여야 합니다.'); const next = Core.validate(JSON.parse(await file.text()), config.siteId); commit(() => { state = next; }); selection = null; $('selection-panel').hidden = true; $('selection-empty').hidden = false; status('가져오기 완료 · 저장을 눌러주세요'); } catch (error) { status(error.message); } event.target.value = '';
+    try { if (file.size > 30_000_000) throw new Error('편집 파일은 30MB 이하여야 합니다.'); const next = Core.validate(JSON.parse(await file.text()), config.siteId); commit(() => { state = next; }); clearSelection(); status('가져오기 완료 · 저장을 눌러주세요'); } catch (error) { status(error.message); } event.target.value = '';
   });
   document.addEventListener('keydown', event => { if ((event.ctrlKey || event.metaKey) && event.key === 's') { event.preventDefault(); $('save').click(); } });
   window.addEventListener('beforeunload', event => { if (loaded && dirty) { event.preventDefault(); event.returnValue = ''; } });

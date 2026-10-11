@@ -279,3 +279,31 @@ dl.spec dd { margin: 0; font: 13px var(--mono); }
 @media(max-width:900px){.certificate-grid{grid-template-columns:1fr}.certificate-grid>article{display:grid;grid-template-columns:minmax(280px,1fr) 1fr;gap:30px;align-items:center}.certificate-paper{max-width:460px;min-height:610px;padding:44px}.certificate-label{display:block}.certificate-label b{font-size:23px}.certificate-label button{margin-top:20px;font-size:15px}.directions-layout{grid-template-columns:1fr}.company-map iframe{height:420px}.company-section-head{align-items:flex-start;flex-direction:column;gap:20px}}
 @media(max-width:640px){.company-history{padding-top:40px;padding-bottom:48px}.history-heading{margin-bottom:20px;padding-bottom:25px}.history-heading h2{font-size:37px}.history-heading>p:last-child{font-size:15px}.history-layout{display:block}.era-rail{position:sticky;top:var(--company-header-height);z-index:6;background:#e8eae5;display:grid;grid-template-columns:100px 1fr;gap:0 15px;padding:16px 0 10px;border-bottom:1px solid #b5c1b8;margin-bottom:26px}.era-rail>.mono,.era-rail>small,.era-progress{display:none}.era-year{font-size:47px;margin:0;line-height:1.2}.era-chapter{font-size:14px;margin:0;min-height:0;max-width:none;align-self:center}.era-nav{grid-column:1/-1;display:flex;justify-content:space-between;gap:8px;margin:12px 0 0}.era-nav a{font-size:13px;padding:7px 0;border-bottom:0;gap:6px}.era-nav i{width:4px;height:4px}.era{margin-bottom:56px;scroll-margin-top:calc(var(--company-header-height) + 152px)}.era figure{transform:none}.era figcaption{font-size:10px;gap:8px;line-height:1.7}.era-body{padding-top:25px}.era-body h3{font-size:29px;margin:12px 0 18px}.era-body>p{font-size:16px;line-height:1.9}.era-body .era-detail{font-size:15px}.era-milestone{display:block;margin-top:20px;padding-top:16px}.era-milestone b{display:block;font-size:14px;line-height:1.7;margin-top:8px}.certificate-grid>article{display:block}.certificate-paper{min-height:560px;padding:36px;max-width:none}.certificate-grid{gap:44px}.certificate-label{display:flex;align-items:center}.certificate-label b{font-size:17px}.certificate-label button{margin-top:0;font-size:13px}.cert-body{font-size:12px}.certificate-dialog{padding:18px}.certificate-dialog .certificate-paper{padding:34px;min-height:650px}.certificate-dialog h3{font-size:21px}.certificate-dialog .cert-body{font-size:13px}.certificate-dialog dd{font-size:10px}.certificate-dialog .cert-watermark{font-size:76px}.company-partners{padding-top:44px;padding-bottom:44px}.partner-logo{width:260px;padding:28px 18px}.company-map iframe{height:340px}.directions-contact{padding:24px}.map-caption{font-size:12px}.directions-contact dl div{grid-template-columns:68px 1fr}}
 @media(prefers-reduced-motion:reduce){.era-year{animation:none}.era figure{transition:none;transform:none;opacity:1}.partner-belt{animation:none}.partner-window{overflow-x:auto}.partner-track[aria-hidden=true]{display:none}}
+
+/* Equipment gallery */
+.equipment-section{background:#202a2d;color:#fff}
+.equipment-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:32px}
+.equipment-heading h2{margin:0;font-size:clamp(30px,3.8vw,48px);letter-spacing:-.05em}
+.equipment-eyebrow{color:#ff9b70;font-size:12px;letter-spacing:.12em;margin:0 0 12px}
+.equipment-heading>p{margin:0 0 4px;font-weight:600}.equipment-heading>p span{display:block;font-size:13px;color:#bcc7ca;margin-top:6px;font-weight:400}
+.equipment-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.equipment-card{position:relative;min-height:430px;isolation:isolate;overflow:hidden;background:#3b4548;border:1px solid #667175}
+.equipment-card .equipment-image{object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .5s}
+.equipment-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,24,.3),transparent 35%,rgba(10,20,24,.92));transition:background .5s}
+.equipment-top{position:absolute;top:20px;left:20px;right:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;font-size:10px;letter-spacing:.04em;text-shadow:0 1px 5px #000}
+.equipment-top>span:last-child{background:#202a2dbf;padding:2px 6px}
+.equipment-copy{position:absolute;bottom:28px;left:24px;right:24px;pointer-events:none}
+.equipment-count{font-size:12px;color:#ffaf88}.equipment-copy h3{font-size:27px;margin:5px 40px 0 0;letter-spacing:-.04em}
+.equipment-info{display:grid;grid-template-rows:0fr;opacity:0;transform:translateY(12px);transition:grid-template-rows .45s,opacity .35s,transform .45s}
+.equipment-info dl{min-height:0;overflow:hidden;margin:0}.equipment-info dl>div{border-top:1px solid #ffffff30;padding-top:10px;margin-top:10px}
+.equipment-info dt{color:#ffaf88;font-size:11px;margin-bottom:3px}.equipment-info dd{margin:0;font-size:13px;line-height:1.65}
+.equipment-trigger{position:absolute;inset:0;border:0;background:transparent;cursor:pointer;color:white}.equipment-trigger:focus-visible{outline:3px solid #ff9b70;outline-offset:-5px}
+.equipment-plus{position:absolute;bottom:27px;right:22px;display:grid;place-items:center;width:32px;height:32px;border:1px solid #ffffff90;border-radius:50%;font-size:23px;line-height:1}
+.equipment-card[data-open="true"] .equipment-image{transform:scale(1.1);filter:brightness(.5) saturate(.75)}
+.equipment-card[data-open="true"] .equipment-shade{background:linear-gradient(180deg,rgba(10,20,24,.3),rgba(10,20,24,.7))}
+.equipment-card[data-open="true"] .equipment-info{grid-template-rows:1fr;opacity:1;transform:none}
+.equipment-note{margin:22px 0 0;color:#bcc7ca;font-size:12px}
+.equipment-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:1000px){.equipment-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.equipment-heading{align-items:flex-start;flex-direction:column;gap:14px}}
+@media(max-width:640px){.equipment-grid{grid-template-columns:1fr;gap:16px}.equipment-card{min-height:440px}.equipment-heading{margin-bottom:24px}}
+@media(prefers-reduced-motion:reduce){.equipment-card .equipment-image,.equipment-info,.equipment-shade{transition:none}}
