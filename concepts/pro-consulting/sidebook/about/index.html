@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ko" data-theme="sidebook">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>회사 소개 · 시안 B · Sidebook · Nextframe 경영컨설팅 · 가상 업체 시안</title>
+<meta name="description" content="가상 경영컨설팅사 Nextframe의 연혁·성장 지표·수행 실적·컨설턴트·거점 소개 (시안 B · Sidebook)">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<!-- 이미지 없음: 프레임·그래프·문서·지도는 CSS/SVG 자체 제작. 모든 연혁·수치·인물·문서는 가상 -->
+<style>
+:root{--bg:#f3eee4;--paper:#fbf8f2;--ink:#2b1327;--muted:#6a5866;--line:#d9cdbd;--acc:#4a1f44;--fill:#4a1f44;--on-fill:#fff;--dark:#4a1f44;--on-dark:#f5e9f1;--muted-d:#e3cddc;--line-d:rgba(255,255,255,.2);--hl:#f2a51a;--r:12px;--num:"Space Mono",monospace;--head:"Gothic A1",system-ui,sans-serif;--body:"Gothic A1",system-ui,sans-serif}
+
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 var(--body);word-break:keep-all;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,p,ul,ol,dl,dd,figure{margin:0}ul,ol{padding:0;list-style:none}a{color:inherit}button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+:focus-visible{outline:3px solid var(--fill);outline-offset:3px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(16px,4vw,52px)}
+.demo{background:var(--dark);color:var(--on-dark);font-size:13px;text-align:center;padding:7px 14px}
+.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:24px;height:68px}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none}.brand b{font-family:var(--head);font-size:22px}.brand span{font-size:12px;letter-spacing:.12em;color:var(--muted)}
+.top nav{margin-left:auto;display:flex;gap:22px;font-size:15px;font-weight:600}.top nav a{text-decoration:none;opacity:.85}.top nav a[aria-current]{opacity:1;border-bottom:2px solid currentColor}
+.back{font-size:14px;font-weight:700;text-decoration:none;border:1px solid currentColor;border-radius:999px;padding:7px 14px;white-space:nowrap}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
+.hero{padding:clamp(60px,8vw,120px) 0 clamp(50px,6vw,80px);border-bottom:1px solid var(--line)}
+.hero h1{font-family:var(--head);font-size:clamp(40px,6.4vw,92px);line-height:1.08;margin:16px 0 22px}
+.hero .lede{max-width:40em;font-size:18px;color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:46px;border-top:1px solid currentColor}
+.facts div{padding:18px 18px 0 0}.facts div+div{padding-left:18px;border-left:1px solid var(--line)}
+.facts b{display:block;font-family:var(--num);font-size:clamp(30px,3.6vw,48px);line-height:1.1}.facts span{font-size:14px;opacity:.75}
+.anch{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}.anch a{font-size:14px;font-weight:600;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 14px}.anch a:hover{border-color:currentColor}
+.sec{padding:clamp(70px,9vw,120px) 0;scroll-margin-top:70px}
+.sec h2{font-family:var(--head);font-size:clamp(30px,4vw,54px);line-height:1.18;margin:10px 0 14px}
+.sec .intro{color:var(--muted);max-width:40em;font-size:17px;margin-bottom:40px}
+.dark{background:var(--dark);color:var(--on-dark)}.dark .intro,.dark .muted{color:var(--muted-d)}.dark .eyebrow{color:var(--hl)}
+/* history */
+.hist{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(24px,4vw,60px)}
+.stage{position:sticky;top:90px;align-self:start}
+.ytabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:16px}
+.ytabs button{font-family:var(--num);font-size:14px;font-weight:700;padding:6px 12px;border:1px solid var(--line-d);border-radius:var(--r)}
+.ytabs button[aria-current=true]{background:var(--hl);color:var(--dark);border-color:var(--hl)}
+.frame{position:relative;aspect-ratio:4/3;border:1px solid var(--line-d);border-radius:var(--r);padding:18px;display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(4,1fr);gap:8px;overflow:hidden}
+.frame i{border:1px dashed var(--line-d);border-radius:calc(var(--r)/2);transition:background .5s,border-color .5s,transform .5s}
+.frame i.on{background:var(--hl);border-color:var(--hl);border-style:solid}
+.frame i.new{animation:pop .6s ease}
+@keyframes pop{0%{transform:scale(.6)}100%{transform:scale(1)}}
+.frame .yr{position:absolute;right:18px;bottom:8px;font-family:var(--num);font-weight:900;font-size:clamp(54px,8vw,110px);line-height:1;color:var(--on-dark);mix-blend-mode:difference;opacity:.9;pointer-events:none}
+.stage .cap{font-size:13px;color:var(--muted-d);margin-top:10px}
+.prog{height:3px;background:var(--line-d);margin-top:14px}.prog i{display:block;height:100%;width:0;background:var(--hl);transition:width .4s}
+.eras li{padding:34px 0;border-top:1px solid var(--line-d);opacity:.45;transition:opacity .4s}
+.eras li.cur{opacity:1}
+.eras .y{font-family:var(--num);font-size:15px;font-weight:700;color:var(--hl)}
+.eras h3{font-family:var(--head);font-size:clamp(22px,2.4vw,30px);margin:6px 0 8px;letter-spacing:-.03em}
+.eras p{color:var(--muted-d)}
+.eras ul{margin-top:12px;display:grid;gap:4px}.eras ul li{padding:0 0 0 18px;border:0;opacity:1;position:relative;font-size:15px}.eras ul li::before{content:"";position:absolute;left:0;top:.75em;width:8px;height:2px;background:var(--hl)}
+/* growth */
+.mtabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.mtabs button{border:1px solid var(--ink);border-radius:999px;padding:7px 16px;font-weight:700;font-size:14px}.mtabs button[aria-selected=true]{background:var(--ink);color:var(--bg)}
+.chart{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,.7fr);gap:20px}
+.plot{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:20px 20px 8px}
+.plot svg{display:block;width:100%;height:auto;overflow:visible}
+.plot .bar{fill:var(--fill);transition:height .7s cubic-bezier(.2,.7,.2,1),y .7s cubic-bezier(.2,.7,.2,1)}
+.plot .bar.last{fill:var(--ink)}
+.plot text{font-size:12px;fill:var(--muted);font-family:var(--body)}.plot .vl{font-size:13px;font-weight:700;fill:var(--ink);font-family:var(--num)}
+.plot .grid{stroke:var(--line);stroke-width:1}
+.sum{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:10px}
+.sum b{font-family:var(--num);font-size:clamp(44px,5vw,68px);line-height:1}.sum small{color:var(--muted);font-size:14px}
+.sum .delta{margin-top:auto;font-size:14px;border-top:1px solid var(--line);padding-top:12px}
+details.tbl{margin-top:16px}details.tbl summary{cursor:pointer;font-weight:700;font-size:15px}
+.tbl table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px;background:var(--paper)}.tbl th,.tbl td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:right}.tbl th:first-child,.tbl td:first-child{text-align:left}.tbl th{color:var(--muted);font-weight:600}
+.note{font-size:13px;color:var(--muted);margin-top:12px}.dark .note{color:var(--muted-d)}
+/* record */
+.rec{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:clamp(20px,3vw,40px)}
+.share li{display:grid;grid-template-columns:110px 1fr 40px;gap:10px;align-items:center;font-size:14px;padding:7px 0}
+.share .t{height:12px;background:var(--line);border-radius:6px;overflow:hidden}.share .t i{display:block;height:100%;background:var(--fill);width:0;transition:width .9s cubic-bezier(.2,.7,.2,1)}
+.share.in .t i{width:var(--w)}
+.share b{font-family:var(--num);text-align:right}
+.inds{display:flex;flex-wrap:wrap;gap:6px;margin-top:24px}.inds span{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:3px 11px;background:var(--paper)}
+.rfilter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.rfilter button{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:600;background:var(--paper)}.rfilter button[aria-pressed=true]{background:var(--fill);color:var(--on-fill);border-color:var(--fill)}
+.rlist{border-top:2px solid var(--ink)}
+.rlist li{display:grid;grid-template-columns:62px 1.1fr 1fr 1.4fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);font-size:14.5px;align-items:baseline}
+.rlist li[hidden]{display:none}
+.rlist .y{font-family:var(--num);font-weight:700;color:var(--acc)}
+.rlist .p strong{display:block;font-size:16px}.rlist .p span{font-size:12.5px;color:var(--muted)}
+.rlist .w{color:var(--muted)}
+/* people */
+.ppl{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:start}
+.av{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-family:var(--head);font-weight:800;font-size:22px;background:var(--dark);color:var(--hl)}
+.card h3{font-size:20px;font-family:var(--head)}.card .r{font-size:13px;color:var(--acc);font-weight:700}.card .c{font-size:13.5px;color:var(--muted)}
+.card q{grid-column:1/-1;display:block;font-size:15px;border-top:1px solid var(--line);padding-top:12px;quotes:"“" "”"}
+/* docs */
+.docs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.doc{text-align:left;border:1px solid var(--line-d);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:10px;transition:border-color .2s}
+.doc:hover{border-color:var(--hl)}
+.doc .pv{aspect-ratio:3/4;background:#fbfaf6;border-radius:calc(var(--r)/2);overflow:hidden}
+.doc .pv svg{width:100%;height:100%;display:block}
+.doc h3{font-size:17px}.doc span{font-size:13px;color:var(--muted-d)}
+dialog{border:0;border-radius:var(--r);padding:0;max-width:min(560px,92vw);width:100%;background:#fbfaf6;color:#222}
+dialog::backdrop{background:rgba(10,12,18,.7)}
+dialog .dh{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #ddd;font-size:14px;font-weight:700}
+dialog .dh button{border:1px solid #333;border-radius:999px;padding:4px 12px;font-size:13px}
+dialog svg{display:block;width:100%;height:auto}
+/* location */
+.loc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+.map{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);min-height:380px;overflow:hidden}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.pin{position:absolute;transform:translate(-50%,-100%);font-size:13px;font-weight:700;text-align:center;padding:2px 6px}
+.pin i{display:block;width:16px;height:16px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--line);margin:4px auto 0;border:2px solid #fff;transition:background .3s}
+.pin[aria-pressed=true] i{background:var(--fill)}
+.otabs{display:flex;gap:6px;margin-bottom:14px}.otabs button{border:1px solid var(--ink);border-radius:999px;padding:7px 18px;font-weight:700}.otabs button[aria-selected=true]{background:var(--ink);color:var(--bg)}
+.ocard{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.ocard h3{font-family:var(--head);font-size:28px}.ocard dl{display:grid;grid-template-columns:90px 1fr;gap:8px 14px;margin-top:16px;font-size:15px}.ocard dt{color:var(--muted)}
+.cta{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;padding:clamp(60px,8vw,100px) 0}
+.cta h2{font-family:var(--head);font-size:clamp(32px,4.6vw,60px);line-height:1.15}
+.btn{display:inline-block;background:var(--fill);color:var(--on-fill);font-weight:700;padding:13px 22px;border-radius:999px;text-decoration:none}
+footer{border-top:1px solid var(--line-d);padding:30px 0;font-size:13px;color:var(--muted-d)}footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.rise{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}.rise.in{opacity:1;transform:none}
+@media(max-width:960px){.top nav{display:none}.back{margin-left:auto}.facts{grid-template-columns:1fr 1fr}.facts div:nth-child(3){padding-left:0;border-left:0}.facts div{padding-bottom:14px}
+ .hist,.chart,.rec,.loc{grid-template-columns:1fr}.stage{position:static}.ppl,.docs{grid-template-columns:1fr 1fr}.rlist li{grid-template-columns:52px 1fr;gap:4px 12px}.rlist .w,.rlist .o{grid-column:2}}
+@media(max-width:560px){.ppl,.docs{grid-template-columns:1fr}.share li{grid-template-columns:96px 1fr 36px}.brand span{display:none}.map{min-height:300px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}.rise{opacity:1;transform:none}}
+
+h1,h2{font-weight:900;letter-spacing:-.05em}.hero h1 em{font-style:normal;background:linear-gradient(transparent 58%,#f2a51a 58%)}.top{background:var(--dark);color:var(--on-dark)}.top a{color:var(--on-dark)}.brand span{color:#f2a51a}.eyebrow::before{content:"";display:inline-block;width:22px;height:2px;background:#f2a51a;margin-right:10px;vertical-align:middle}
+</style>
+</head>
+<body>
+
+<p class="demo">가상 업체 데모 · 시안 B · Sidebook · 회사 소개 — Nextframe 경영컨설팅은 실제 업체가 아니며 연혁·수치·인물·문서는 모두 예시입니다.</p>
+<header class="top"><div class="wrap"><a class="brand" href="../" ><b>Nextframe</b><span>CONSULTING</span></a>
+<nav aria-label="회사 소개 메뉴"><a href="#history">연혁</a><a href="#growth">성장 지표</a><a href="#record">수행 실적</a><a href="#people">사람들</a><a href="#docs">기록</a><a href="#location">오시는 길</a></nav>
+<a class="back" href="../" >← 메인으로</a></div></header>
+<main id="top">
+<section class="hero"><div class="wrap">
+ <span class="eyebrow">About · 2011—2026</span>
+ <h1>지금을 정리하고,<br><em>다음</em>을 남기는 회사</h1>
+ <p class="lede">Nextframe은 2011년 대전의 작은 자문실에서 시작했습니다. 중소기업의 일하는 기준(frame)을 함께 세우고, 프로젝트가 끝난 뒤에도 회사가 스스로 운영할 수 있게 넘기는 일을 해 왔습니다.</p>
+ <div class="facts" id="facts"></div>
+ <nav class="anch" aria-label="바로가기"><a href="#history">연혁</a><a href="#growth">성장 지표</a><a href="#record">수행 실적</a><a href="#people">컨설턴트</a><a href="#docs">인증과 기록</a><a href="#location">오시는 길</a></nav>
+</div></section>
+
+<section class="sec dark" id="history" aria-labelledby="h-h"><div class="wrap">
+ <span class="eyebrow">History</span><h2 id="h-h">두 사람의 자문실에서,<br>세 개의 거점까지</h2>
+ <p class="intro">스크롤하면 연도가 바뀌고, 왼쪽 프레임의 칸이 채워집니다. 칸 하나는 회사가 표준으로 정리한 일하는 방식 하나를 뜻합니다.</p>
+ <div class="hist">
+  <div class="stage"><div class="ytabs" id="ytabs" role="group" aria-label="연도 이동"></div><div class="frame" id="frame" aria-hidden="true"><span class="yr" id="yr">2011</span></div><div class="prog"><i id="prog"></i></div><p class="cap" id="cap"></p></div>
+  <ol class="eras" id="eras"></ol>
+ </div>
+</div></section>
+
+<section class="sec" id="growth" aria-labelledby="g-h"><div class="wrap">
+ <span class="eyebrow">Growth</span><h2 id="g-h">쌓인 프로젝트,<br>넓어진 업종</h2>
+ <p class="intro">지표를 고르면 막대가 바뀝니다. 성공률이나 매출 증가율 같은 결과 수치 대신, 회사가 해 온 일의 양과 범위를 보여 줍니다.</p>
+ <div class="mtabs" id="mtabs" role="tablist" aria-label="성장 지표"></div>
+ <div class="chart"><div class="plot"><svg id="plot" viewBox="0 0 640 300" role="img" aria-labelledby="plot-t"><title id="plot-t">연도별 지표 막대 그래프</title></svg></div><div class="sum" id="sum" aria-live="polite"></div></div>
+ <details class="tbl"><summary>모든 지표를 표로 보기</summary><div id="tbl"></div></details>
+ <p class="note">모든 수치는 포트폴리오용 가상 데모 값입니다.</p>
+</div></section>
+
+<section class="sec" id="record" aria-labelledby="r-h" style="padding-top:0"><div class="wrap">
+ <span class="eyebrow">Record</span><h2 id="r-h">수행 실적</h2>
+ <p class="intro">고객사 이름 대신 업종과 규모, 성과 수치 대신 남긴 산출물로 기록합니다. 분류를 눌러 걸러 볼 수 있습니다.</p>
+ <div class="rec">
+  <div><h3 style="font-size:17px;margin-bottom:10px">프로그램별 비중 <small style="font-weight:400;color:var(--muted)">· 누적 520건 기준(가상)</small></h3><ul class="share" id="share"></ul><h3 style="font-size:17px;margin-top:28px">함께 일해 온 업종</h3><div class="inds" id="inds"></div></div>
+  <div><div class="rfilter" id="rfilter" role="group" aria-label="실적 분류"></div><ol class="rlist" id="rlist"></ol><p class="note">유형별 가상 실적입니다. 실제 결과는 기업의 상황과 실행 정도에 따라 다릅니다.</p></div>
+ </div>
+</div></section>
+
+<section class="sec" id="people" aria-labelledby="p-h" style="padding-top:0"><div class="wrap">
+ <span class="eyebrow">People</span><h2 id="p-h">프로젝트를 끝까지<br>맡는 사람들</h2>
+ <p class="intro">첫 상담에는 대표 컨설턴트가 직접 참여하고, 프로젝트마다 담당자 한 명이 정착 단계까지 함께합니다. 모든 인물과 자격은 가상 예시입니다.</p>
+ <div class="ppl" id="ppl"></div>
+</div></section>
+
+<section class="sec dark" id="docs" aria-labelledby="d-h"><div class="wrap">
+ <span class="eyebrow">Documents</span><h2 id="d-h">일하는 기준을<br>기록하는 방식</h2>
+ <p class="intro">문서를 누르면 크게 볼 수 있습니다. 모두 샘플이며 인증기관이 발급한 문서가 아닙니다.</p>
+ <div class="docs" id="docs-list"></div>
+</div></section>
+
+<section class="sec" id="location" aria-labelledby="l-h"><div class="wrap">
+ <span class="eyebrow">Location</span><h2 id="l-h">세 개의 거점</h2>
+ <p class="intro">서울 본사와 대전·광주 거점에서 가까운 지역의 프로젝트를 맡습니다. 방문 상담은 사전 예약제입니다.</p>
+ <div class="loc"><div class="map" id="map"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><path d="M150 20 C210 10 260 40 250 90 C290 120 300 170 270 210 C250 260 200 290 150 270 C110 255 120 210 100 190 C70 160 90 120 110 100 C100 60 120 30 150 20Z" fill="var(--line)" opacity=".55"/></svg><span style="position:absolute;left:14px;bottom:10px;font-size:12px;color:var(--muted)">위치는 도식이며 실제 주소가 아닙니다</span></div>
+ <div><div class="otabs" id="otabs" role="tablist" aria-label="거점 선택"></div><div class="ocard" id="ocard" aria-live="polite"></div></div></div>
+</div></section>
+
+<section class="dark"><div class="wrap cta"><h2>회사의 지금을<br>먼저 들려주세요</h2><a class="btn" href="../#diagnosis">자가 진단 하러 가기 →</a></div></section>
+</main>
+<footer class="dark"><div class="wrap"><span>Nextframe 경영컨설팅 · 가상 업체 데모 · 사업자 정보 예시</span><span>© 2026 NEXTFRAME (demo)</span></div></footer>
+<dialog id="dlg" aria-labelledby="dlg-t"><div class="dh"><span id="dlg-t"></span><button id="dlg-x">닫기 ✕</button></div><div id="dlg-b"></div></dialog>
+
+<script type="application/json" id="about-data">{"history":[{"y":"2011","t":"두 사람의 자문실","d":"경영지도사 두 사람이 대전 유성에서 시작했습니다. 소상공인 사업계획과 창업 초기 조직 정리를 맡았습니다.","m":["대전 유성 사무실 개소","소상공인 사업계획 자문 시작","첫 해 프로젝트 4건(가상)"],"fill":2},{"y":"2014","t":"첫 번째 표준 프로그램","d":"반복되는 인사 과제를 묶어 직무 정의서와 평가 기준표 양식을 처음 표준화했습니다.","m":["인사조직(HR) 프로그램 표준화","직무 정의서·평가 기준표 양식 제작","제조·유통 고객 비중 확대"],"fill":5},{"y":"2017","t":"서울 본사와 리서치 팀","d":"서울로 본사를 옮기고 리서치 팀을 만들었습니다. 고객과 구성원의 목소리를 조사해 결정 자료로 바꾸는 일을 시작했습니다.","m":["서울 본사 이전, 대전은 중부권 거점","리서치 팀 신설","고객경험(CX) 프로그램 출시"],"fill":9},{"y":"2019","t":"리더 아카데미","d":"제도를 만들어도 팀장이 바뀌지 않으면 운영되지 않는다는 점을 확인했습니다. 팀장 대상 짧은 과정을 열었습니다.","m":["리더 교육 과정 3종 개설","광주 호남권 거점 개소","교육 뒤 현장 적용 상담 도입"],"fill":12},{"y":"2022","t":"디지털·AI 그룹","d":"엑셀과 메신저에 흩어진 업무를 정리하는 요청이 늘어 디지털 그룹을 만들었습니다.","m":["업무 시스템 정비 프로그램","데이터 리포트 구축 프로그램","원격 회의 기반 프로젝트 운영"],"fill":16},{"y":"2024","t":"만든 체계를 운영하는 단계로","d":"프로젝트가 끝난 뒤의 운영을 돕는 정착 자문과 AI 활용 진단을 더했습니다.","m":["정착 자문(월 단위) 상품화","AI 활용 진단 프로그램","사내 보안·자료 관리 지침 정비"],"fill":20},{"y":"2026","t":"NOW → NEXT 방법론","d":"15년 동안 쌓은 진행 방식을 사전 진단·과제 정의·설계·정착 네 단계로 정리했습니다.","m":["4단계 진행 방식과 산출물 기준 공개","자가 진단 도구 공개","3개 거점 · 컨설턴트 18명(가상)"],"fill":24}],"metrics":[{"id":"projects","label":"누적 프로젝트","unit":"건","v":[4,38,112,186,298,402,520]},{"id":"people","label":"컨설턴트","unit":"명","v":[2,4,8,10,13,15,18]},{"id":"industries","label":"고객 업종","unit":"개","v":[2,5,9,11,14,16,18]},{"id":"leaders","label":"리더 교육 수료","unit":"명","v":[0,0,0,120,640,1180,1750]}],"years":["2011","2014","2017","2019","2022","2024","2026"],"share":[["인사조직(HR)",31],["경영전략",18],["영업·마케팅",14],["고객경험(CX)",11],["디지털·AI",10],["리서치",8],["리더 교육",8]],"records":[{"y":2026,"g":"디지털·AI","p":"AI 활용 진단","who":"회계·세무 서비스 · 40명대","w":"5주","out":"업무별 적용 후보표, 사용 기준·보안 지침 초안"},{"y":2025,"g":"컨설팅","p":"인사조직(HR)","who":"IT 서비스 · 30명대","w":"10주","out":"직무 정의서, 평가 기준표, 면담 가이드"},{"y":2025,"g":"리더 교육","p":"팀장 첫 90일","who":"물류 · 신임 팀장 14명","w":"4회","out":"1:1 면담 계획표, 팀 기대 합의서"},{"y":2025,"g":"디지털·AI","p":"데이터 리포트 구축","who":"식품 유통 · 70명대","w":"7주","out":"핵심 지표 정의서, 주간 리포트 화면"},{"y":2024,"g":"컨설팅","p":"고객경험(CX)","who":"생활용품 매장 12곳 본사","w":"9주","out":"고객 여정 지도, 응대 기준서"},{"y":2024,"g":"컨설팅","p":"영업·마케팅","who":"지역 식품 제조 · 60명대","w":"8주","out":"거래처 등급 기준, 영업 단계 정의서"},{"y":2023,"g":"컨설팅","p":"경영전략","who":"부품 가공 · 120명대","w":"10주","out":"중기 방향 1장, 부서별 실행 과제표"},{"y":2023,"g":"디지털·AI","p":"업무 시스템 정비","who":"프랜차이즈 본부 · 50명대","w":"6주","out":"업무 흐름도, 도구 선정 비교표"},{"y":2022,"g":"컨설팅","p":"리서치","who":"교육 서비스 · 30명대","w":"6주","out":"구성원 인터뷰 보고서, 개선 우선순위"},{"y":2021,"g":"리더 교육","p":"회의와 피드백","who":"의료기관 운영 · 팀장 9명","w":"3회","out":"회의 운영 규칙, 피드백 대화 카드"},{"y":2020,"g":"컨설팅","p":"인사조직(HR)","who":"건설 자재 유통 · 80명대","w":"12주","out":"직급 체계안, 평가 운영 매뉴얼"},{"y":2019,"g":"컨설팅","p":"고객경험(CX)","who":"지역 의원 네트워크 4곳","w":"8주","out":"접점별 응대 기준, 불만 기록 절차"}],"industries":["식품 제조","부품 가공","유통·매장","IT 서비스","교육","의료기관 운영","프랜차이즈 본사","물류","건설 자재","회계·세무 서비스","화장품 제조","지역 관광"],"people":[{"n":"한서윤","r":"대표 컨설턴트","c":"경영지도사(인적자원관리)","f":"인사조직 · 리더 교육","q":"좋은 제도는 문서보다 다음 달 회의에서 드러납니다."},{"n":"오지훈","r":"전략 그룹장","c":"경영지도사(재무관리)","f":"경영전략 · 사업계획","q":"우선순위는 하지 않을 일을 적을 때 정해집니다."},{"n":"문다현","r":"리서치 리드","c":"사회조사분석사 1급","f":"고객·구성원 조사","q":"숫자보다 먼저, 질문을 바르게 세웁니다."},{"n":"강태오","r":"디지털 그룹장","c":"정보처리기사","f":"업무 시스템 · 데이터","q":"도구는 마지막에 고릅니다. 흐름이 먼저입니다."},{"n":"임가은","r":"CX 컨설턴트","c":"서비스경영 석사","f":"고객 여정 · 응대 기준","q":"고객은 한 번의 응대로 회사를 기억합니다."},{"n":"박서진","r":"아카데미 매니저","c":"HRD 실무 12년","f":"리더 과정 설계","q":"교육은 다음 주 회의에서 끝납니다."}],"docs":[{"id":"iso","k":"품질경영 인증서","no":"NF-QMS-2026-001","d":"2024.03 ~ 2027.02","note":"샘플 · 인증기관 발급 문서 아님"},{"id":"sec","k":"정보보호 운영 지침","no":"NF-SEC-v3.2","d":"2026.01 개정","note":"사내 문서 예시"},{"id":"rep","k":"프로젝트 종료 보고서","no":"NF-PRJ-2025-118","d":"2025.11 제출","note":"표지 예시 · 고객 정보 없음"}],"offices":[{"city":"서울","role":"본사 · 전략·조직·디지털","addr":"서울특별시 중구 세종대로 00, 9층 (예시)","x":38,"y":26},{"city":"대전","role":"중부권 · 제조·유통","addr":"대전광역시 유성구 대학로 00, 3층 (예시)","x":47,"y":50},{"city":"광주","role":"호남권 · 교육·공공·의료","addr":"광주광역시 서구 상무중앙로 00, 7층 (예시)","x":33,"y":76}]}</script>
+<script>
+(function(){
+const D=JSON.parse(document.getElementById('about-data').textContent);
+const $=s=>document.querySelector(s),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const last=a=>a[a.length-1];
+/* facts */
+$('#facts').innerHTML=[['2011','설립'],[last(D.metrics[0].v)+'건','누적 프로젝트'],[last(D.metrics[1].v)+'명','컨설턴트'],[D.offices.length+'곳','거점']].map(f=>'<div><b class="num">'+f[0]+'</b><span>'+f[1]+'</span></div>').join('');
+/* history */
+const H=D.history,frame=$('#frame');
+frame.insertAdjacentHTML('afterbegin',Array.from({length:24},()=>'<i></i>').join(''));
+const cells=[...frame.querySelectorAll('i')];
+$('#ytabs').innerHTML=H.map((h,i)=>'<button data-i="'+i+'" aria-current="'+(i===0)+'">'+h.y+'</button>').join('');
+$('#eras').innerHTML=H.map((h,i)=>'<li data-i="'+i+'" id="era-'+h.y+'"><span class="y">'+h.y+'</span><h3>'+h.t+'</h3><p>'+h.d+'</p><ul>'+h.m.map(m=>'<li>'+m+'</li>').join('')+'</ul></li>').join('');
+let cur=-1;
+function era(i){if(i===cur)return;const prev=cur<0?0:H[cur].fill;cur=i;const h=H[i];
+ cells.forEach((c,k)=>{const on=k<h.fill;c.classList.toggle('on',on);c.classList.toggle('new',on&&k>=prev&&!reduce)});
+ $('#yr').textContent=h.y;$('#cap').textContent=h.y+' · '+h.t+' — 채운 칸 '+h.fill+' / 24';$('#prog').style.width=((i+1)/H.length*100)+'%';
+ document.querySelectorAll('#ytabs button').forEach((b,k)=>b.setAttribute('aria-current',String(k===i)));
+ document.querySelectorAll('#eras>li').forEach((l,k)=>l.classList.toggle('cur',k===i))}
+era(0);
+$('#ytabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const i=+b.dataset.i;era(i);document.getElementById('era-'+H[i].y).scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'})});
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)era(+x.target.dataset.i)}),{rootMargin:'-45% 0px -50% 0px'});document.querySelectorAll('#eras>li').forEach(l=>io.observe(l))}
+/* growth */
+const M=D.metrics,Y=D.years,svg=$('#plot');let mi=0,drawn=false;
+$('#mtabs').innerHTML=M.map((m,i)=>'<button role="tab" aria-selected="'+(i===0)+'" data-i="'+i+'">'+m.label+'</button>').join('');
+const W=640,Hh=300,pl=8,pr=8,pt=30,pb=34,bw=(W-pl-pr)/Y.length;
+svg.insertAdjacentHTML('beforeend','<line class="grid" x1="0" x2="'+W+'" y1="'+(Hh-pb)+'" y2="'+(Hh-pb)+'"/>'+Y.map((y,i)=>'<rect class="bar'+(i===Y.length-1?' last':'')+'" x="'+(pl+i*bw+bw*.18)+'" width="'+(bw*.64)+'" y="'+(Hh-pb)+'" height="0" rx="2"></rect><text class="vl" text-anchor="middle" x="'+(pl+i*bw+bw/2)+'" y="'+(Hh-pb-6)+'"></text><text text-anchor="middle" x="'+(pl+i*bw+bw/2)+'" y="'+(Hh-10)+'">'+y+'</text>').join(''));
+const bars=[...svg.querySelectorAll('.bar')],vls=[...svg.querySelectorAll('.vl')];
+function plot(i){mi=i;const m=M[i],max=Math.max(...m.v)||1;
+ m.v.forEach((v,k)=>{const h=drawn?(v/max)*(Hh-pt-pb):0;bars[k].setAttribute('height',h);bars[k].setAttribute('y',Hh-pb-h);vls[k].setAttribute('y',Hh-pb-h-6);vls[k].textContent=drawn?v.toLocaleString():''});
+ document.querySelectorAll('#mtabs button').forEach((b,k)=>b.setAttribute('aria-selected',String(k===i)));
+ const a=m.v.find(v=>v>0),ai=m.v.indexOf(a);
+ $('#sum').innerHTML='<small>'+m.label+' · '+last(Y)+'</small><b class="num">'+last(m.v).toLocaleString()+'<span style="font-size:.4em;margin-left:4px">'+m.unit+'</span></b><small>'+Y[ai]+'년 '+a.toLocaleString()+m.unit+'에서 시작</small><p class="delta">'+({projects:'한 해 평균 30~50건을 진행합니다.',people:'모든 프로젝트에 전담 컨설턴트 1명을 둡니다.',industries:'제조·유통·서비스·의료기관 운영까지 넓어졌습니다.',leaders:'2019년 아카데미 개설 이후 누적 수료 인원입니다.'})[m.id]+'</p>'}
+$('#mtabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b)plot(+b.dataset.i)});
+plot(0);
+const show=()=>{if(drawn)return;drawn=true;plot(mi)};
+if('IntersectionObserver' in window&&!reduce){const io=new IntersectionObserver(es=>{if(es.some(x=>x.isIntersecting)){show();io.disconnect()}},{threshold:.3});io.observe(svg)}else show();
+$('#tbl').innerHTML='<table><thead><tr><th>지표</th>'+Y.map(y=>'<th>'+y+'</th>').join('')+'</tr></thead><tbody>'+M.map(m=>'<tr><td>'+m.label+' ('+m.unit+')</td>'+m.v.map(v=>'<td>'+v.toLocaleString()+'</td>').join('')+'</tr>').join('')+'</tbody></table>';
+/* record */
+$('#share').innerHTML=D.share.map(s=>'<li><span>'+s[0]+'</span><span class="t"><i style="--w:'+(s[1]/D.share[0][1]*100)+'%"></i></span><b>'+s[1]+'%</b></li>').join('');
+$('#inds').innerHTML=D.industries.map(i=>'<span>'+i+'</span>').join('');
+const groups=['전체','컨설팅','디지털·AI','리더 교육'];
+$('#rfilter').innerHTML=groups.map((g,i)=>'<button aria-pressed="'+(i===0)+'">'+g+'</button>').join('');
+$('#rlist').innerHTML=D.records.map(r=>'<li data-g="'+r.g+'"><span class="y">'+r.y+'</span><span class="p"><strong>'+r.p+'</strong><span>'+r.g+'</span></span><span class="w">'+r.who+' · '+r.w+'</span><span class="o">'+r.out+'</span></li>').join('');
+$('#rfilter').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const g=b.textContent;document.querySelectorAll('#rfilter button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));document.querySelectorAll('#rlist li').forEach(l=>l.hidden=g!=='전체'&&l.dataset.g!==g)});
+/* people */
+$('#ppl').innerHTML=D.people.map(p=>'<article class="card rise"><span class="av" aria-hidden="true">'+p.n[0]+'</span><div><span class="r">'+p.r+'</span><h3>'+p.n+'</h3><p class="c">'+p.c+' · '+p.f+'</p><p class="c">가상 인물</p></div><q>'+p.q+'</q></article>').join('');
+/* docs */
+function docSvg(d){const head={iso:'CERTIFICATE',sec:'INTERNAL POLICY',rep:'PROJECT REPORT'}[d.id];
+ const body=d.id==='iso'?'<circle cx="150" cy="300" r="34" fill="none" stroke="#b5402b" stroke-width="3"/><text x="150" y="296" text-anchor="middle" font-size="10" fill="#b5402b" font-weight="700">SAMPLE</text><text x="150" y="310" text-anchor="middle" font-size="8" fill="#b5402b">NOT ISSUED</text>'
+ :d.id==='sec'?[0,1,2,3,4,5].map(k=>'<rect x="40" y="'+(180+k*26)+'" width="'+(220-k*18)+'" height="8" fill="#d6d2c8"/>').join(''):'<rect x="40" y="180" width="220" height="110" fill="none" stroke="#d6d2c8"/><path d="M50 270 L100 240 L150 250 L200 210 L250 200" fill="none" stroke="#888" stroke-width="2"/>';
+ return '<svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="280" height="380" fill="#fff" stroke="#c9c4b8"/><rect x="22" y="22" width="256" height="356" fill="none" stroke="#e3dfd5"/><text x="150" y="70" text-anchor="middle" font-size="11" letter-spacing="3" fill="#777">'+head+'</text><text x="150" y="104" text-anchor="middle" font-size="19" font-weight="700" fill="#222">'+d.k+'</text><text x="150" y="130" text-anchor="middle" font-size="11" fill="#555">Nextframe 경영컨설팅 (가상)</text><text x="150" y="150" text-anchor="middle" font-size="10" fill="#888">'+d.no+' · '+d.d+'</text>'+body+'<text x="150" y="370" text-anchor="middle" font-size="9" fill="#b5402b">'+d.note+'</text></svg>'}
+$('#docs-list').innerHTML=D.docs.map((d,i)=>'<button class="doc rise" data-i="'+i+'" aria-haspopup="dialog"><span class="pv">'+docSvg(d)+'</span><h3>'+d.k+'</h3><span>'+d.no+' · '+d.note+'</span></button>').join('');
+const dlg=$('#dlg');let opener=null;
+$('#docs-list').addEventListener('click',e=>{const b=e.target.closest('.doc');if(!b)return;const d=D.docs[+b.dataset.i];opener=b;$('#dlg-t').textContent=d.k+' · '+d.note;$('#dlg-b').innerHTML=docSvg(d);dlg.showModal?dlg.showModal():dlg.setAttribute('open','');$('#dlg-x').focus()});
+const closeD=()=>{dlg.close?dlg.close():dlg.removeAttribute('open');opener&&opener.focus()};
+$('#dlg-x').addEventListener('click',closeD);dlg.addEventListener('click',e=>{if(e.target===dlg)closeD()});dlg.addEventListener('cancel',e=>{e.preventDefault();closeD()});
+/* location */
+const O=D.offices,map=$('#map');
+map.insertAdjacentHTML('beforeend',O.map((o,i)=>'<button class="pin" data-i="'+i+'" aria-pressed="'+(i===0)+'" style="left:'+o.x+'%;top:'+o.y+'%">'+o.city+'<i></i></button>').join(''));
+$('#otabs').innerHTML=O.map((o,i)=>'<button role="tab" aria-selected="'+(i===0)+'" data-i="'+i+'">'+o.city+'</button>').join('');
+function office(i){const o=O[i];document.querySelectorAll('#otabs button').forEach((b,k)=>b.setAttribute('aria-selected',String(k===i)));document.querySelectorAll('.pin').forEach((b,k)=>b.setAttribute('aria-pressed',String(k===i)));
+ $('#ocard').innerHTML='<span class="eyebrow">'+(i===0?'HEAD OFFICE':'BRANCH')+'</span><h3>'+o.city+'</h3><dl><dt>역할</dt><dd>'+o.role+'</dd><dt>주소</dt><dd>'+o.addr+'</dd><dt>운영</dt><dd>평일 09:00–18:00 · 방문 상담 사전 예약</dd><dt>준비</dt><dd>자가 진단 메모, 조직도, 최근 회의 자료 1회분</dd><dt>연락</dt><dd>02-000-0000 · hello@nextframe.example (예시)</dd></dl>'}
+document.addEventListener('click',e=>{const b=e.target.closest('#otabs button,.pin');if(b)office(+b.dataset.i)});office(0);
+/* reveal */
+const els=document.querySelectorAll('.rise,.share');
+if('IntersectionObserver' in window&&!reduce){const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.15});els.forEach(x=>io.observe(x))}else els.forEach(x=>x.classList.add('in'));
+})();
+</script>
+</body>
+</html>

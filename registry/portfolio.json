@@ -240,6 +240,51 @@
         "입주·거주·사업장 청소 안내, 요금 안내와 공간별 작업 범위 탭.",
         "공간별 청소 범위·오피스 4개 구역·FAQ 15개와 상담 메모 준비."
       ]
+    },
+    {
+      "id": "consulting-pivot",
+      "name": "Nextframe · Pivot",
+      "category": "consulting",
+      "categoryLabel": "컨설팅 · 경영",
+      "kind": "concept",
+      "kindLabel": "디자인 시안",
+      "path": "concepts/pro-consulting/pivot/",
+      "thumbnail": "consulting-pivot.jpg",
+      "summary": [
+        "실버·잉크·일렉트릭 블루, NOW↔NEXT 초대형 대비 타이포.",
+        "메가 드롭다운 1차>2차>3차 메뉴, 프로그램 8개 카드와 상세.",
+        "6문항 과제 진단·영역별 막대·추천 프로그램·상담 메모."
+      ]
+    },
+    {
+      "id": "consulting-sidebook",
+      "name": "Nextframe · Sidebook",
+      "category": "consulting",
+      "categoryLabel": "컨설팅 · 경영",
+      "kind": "concept",
+      "kindLabel": "디자인 시안",
+      "path": "concepts/pro-consulting/sidebook/",
+      "thumbnail": "consulting-sidebook.jpg",
+      "summary": [
+        "본·플럼·사프란, 왼쪽 고정 목차와 종이 과제 시트.",
+        "트리형 메뉴와 현재 위치 표시, 표 형식 프로그램 목록.",
+        "증상 16개 선택으로 과제 시트·기간·산출물·메모 완성."
+      ]
+    },
+    {
+      "id": "consulting-atlas",
+      "name": "Nextframe · Atlas",
+      "category": "consulting",
+      "categoryLabel": "컨설팅 · 경영",
+      "kind": "concept",
+      "kindLabel": "디자인 시안",
+      "path": "concepts/pro-consulting/atlas/",
+      "thumbnail": "consulting-atlas.jpg",
+      "summary": [
+        "미드나잇 네이비·아이보리·코퍼, 프로그램 타일 지도.",
+        "전체 화면 인덱스 메뉴, 뒷면에 지금→다음이 보이는 타일.",
+        "6개 눈금 진단으로 12주 로드맵 간트와 메모 생성."
+      ]
     }
   ]
 }

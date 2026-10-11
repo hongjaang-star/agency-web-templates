@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>시안 A · Pivot · Nextframe 경영컨설팅 · 가상 업체 시안</title>
+<meta name="description" content="지금의 문제와 다음 체계를 대비시키는 가상 경영컨설팅사 Nextframe 시안 A">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<!-- 서체: Archivo(SIL OFL, Google Fonts), Pretendard(SIL OFL). 이미지 없음: 도식은 SVG/CSS 자체 제작 -->
+<style>
+:root{--bg:#e8eaee;--paper:#f5f6f8;--ink:#101317;--muted:#4d5562;--line:#c3c9d2;--blue:#2c47ff;--blue-ink:#1a2fd1;--on-blue:#fff;--wide:"Archivo",sans-serif;--body:"Pretendard Variable",Pretendard,system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 var(--body);word-break:keep-all;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,ul,ol,dl,dd{margin:0}ul,ol{padding:0;list-style:none}a{color:inherit}button,input,textarea{font:inherit;color:inherit}button{cursor:pointer;background:none;border:0;padding:0}
+:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.wrap{max-width:1360px;margin:0 auto;padding:0 clamp(18px,4vw,56px)}
+.demo{background:var(--ink);color:#d9dde4;font-size:13px;text-align:center;padding:7px 16px}.demo b{color:#fff}
+.en{font-family:var(--wide);font-stretch:118%;letter-spacing:-.01em;text-transform:uppercase}
+.kicker{font-family:var(--wide);font-stretch:112%;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+/* header + mega menu */
+header{position:sticky;top:0;z-index:40;background:rgba(232,234,238,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;height:76px;gap:28px}
+.logo{display:flex;align-items:baseline;gap:10px;text-decoration:none}.logo b{font-family:var(--wide);font-stretch:125%;font-weight:900;font-size:22px;letter-spacing:-.02em}.logo span{font-size:13px;color:var(--muted)}
+header nav{margin-left:auto;height:100%}.gnb{display:flex;height:100%}.gnb>li{position:static;display:flex}
+.gnb>li>button,.gnb>li>a{display:flex;align-items:center;padding:0 20px;font-weight:600;font-size:16px;text-decoration:none;border-bottom:3px solid transparent}
+.gnb>li>button[aria-expanded=true],.gnb>li>button:hover,.gnb>li>a:hover{border-color:var(--blue);color:var(--blue-ink)}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:var(--on-blue);padding:12px 20px;font-weight:700;text-decoration:none;border-radius:999px;white-space:nowrap}.cta:hover{background:var(--blue-ink)}
+.mega{position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(16,19,23,.35);display:none}
+.mega.open{display:block}
+.mega .wrap{display:grid;grid-template-columns:260px 1fr;gap:40px;padding-top:34px;padding-bottom:40px}
+.mega .lead{font-family:var(--wide);font-stretch:125%;font-weight:900;font-size:44px;line-height:1;text-transform:uppercase}
+.mega .lead small{display:block;font:500 15px/1.6 var(--body);margin-top:14px;color:var(--muted);text-transform:none}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:28px}
+.cols h3{font-size:14px;color:var(--muted);font-weight:600;padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.cols a{display:block;padding:7px 0;text-decoration:none;font-weight:600;font-size:17px}.cols a:hover{color:var(--blue-ink)}.cols a::after{content:" →";opacity:0;transition:opacity .2s}.cols a:hover::after{opacity:1}
+.burger{display:none;margin-left:auto;width:46px;height:46px;border:1px solid var(--ink);border-radius:50%}
+.burger i{display:block;width:18px;height:2px;background:var(--ink);margin:4px auto}
+.drawer{display:none}
+/* hero */
+.hero{padding:clamp(40px,7vw,90px) 0 0}
+.hero-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:30px}
+.hero-tabs button{font-family:var(--wide);font-stretch:115%;font-weight:700;font-size:13px;letter-spacing:.1em;padding:9px 16px;border:1px solid var(--ink);border-radius:999px}
+.hero-tabs button[aria-selected=true]{background:var(--ink);color:#fff}
+.hero-tabs .pause{margin-left:auto;border-color:var(--line);color:var(--muted);font-family:var(--body);letter-spacing:0}
+.duo{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--ink)}
+.duo>div{padding:28px 0 40px;min-width:0;overflow:hidden}.duo>div+div{border-left:1px solid var(--ink);padding-left:clamp(18px,3vw,44px)}
+.word{font-family:var(--wide);font-weight:900;font-size:clamp(60px,11.5vw,190px);line-height:.82;letter-spacing:-.04em;font-stretch:125%;display:block}
+.now .word{color:transparent;-webkit-text-stroke:2px var(--ink)}
+.next .word{color:var(--blue)}
+.duo .label{display:block;font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--muted);margin:22px 0 8px}
+.duo .say{font-size:clamp(22px,2.6vw,36px);font-weight:700;line-height:1.3;letter-spacing:-.03em;min-height:2.6em}
+.now .say{text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:rgba(16,19,23,.45);color:var(--muted)}
+.hero-desc{display:flex;justify-content:space-between;gap:30px;align-items:end;padding:26px 0 46px;border-top:1px solid var(--line)}
+.hero-desc p{max-width:36em;font-size:18px;color:var(--muted)}
+.swap{position:relative;height:clamp(180px,22vw,300px);border-top:1px solid var(--ink);overflow:hidden;background:var(--paper)}
+.swap svg{position:absolute;inset:0;width:100%;height:100%}
+.swap .tangle{transition:opacity .7s}.swap .order{transition:opacity .7s;opacity:0}
+.swap.is-next .tangle{opacity:.15}.swap.is-next .order{opacity:1}
+.swap-btn{position:absolute;right:16px;bottom:16px;background:var(--ink);color:#fff;border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700}
+.swap-cap{position:absolute;left:16px;bottom:16px;font-size:13px;color:var(--muted);background:var(--paper);padding:4px 8px}
+/* sections */
+section{scroll-margin-top:96px}.sec{padding:clamp(70px,9vw,130px) 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:46px}
+.sec-head h2{font-size:clamp(34px,4.6vw,66px);line-height:1.08;letter-spacing:-.045em;font-weight:800;margin-top:12px}
+.sec-head p{color:var(--muted);font-size:17px;max-width:32em;justify-self:end}
+.dark{background:var(--ink);color:#e9ecf1}.dark .sec-head p,.dark .muted{color:#a9b1bd}.dark .kicker{color:#8fa0ff}
+/* services */
+.svc-tabs{display:flex;gap:0;border-bottom:1px solid var(--line);margin-bottom:0;overflow-x:auto}
+.svc-tabs button{padding:16px 22px;font-weight:700;font-size:17px;border-bottom:3px solid transparent;white-space:nowrap}
+.svc-tabs button[aria-selected=true]{border-color:var(--blue);color:var(--blue-ink)}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));border-left:1px solid var(--line)}
+.svc{position:relative;text-align:left;padding:28px 26px 30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:250px;display:flex;flex-direction:column;gap:14px;background:var(--bg);transition:background .25s,color .25s}
+.svc .code{font-family:var(--wide);font-stretch:125%;font-weight:900;font-size:56px;line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--ink);transition:color .25s}
+.svc h3{font-size:22px;letter-spacing:-.03em}.svc p{color:var(--muted);font-size:15px}
+.svc .more{margin-top:auto;font-weight:700;font-size:14px}
+.svc:hover,.svc[aria-expanded=true]{background:var(--blue);color:#fff}.svc:hover p,.svc[aria-expanded=true] p{color:#e3e8ff}.svc:hover .code,.svc[aria-expanded=true] .code{color:#fff;-webkit-text-stroke-color:#fff}
+.detail{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:0;border:1px solid var(--ink);background:var(--paper);margin-top:26px}
+.detail>div{padding:28px}.detail>div+div{border-left:1px solid var(--line)}
+.detail h3{font-size:30px;letter-spacing:-.04em;margin:8px 0 10px}
+.detail h4{margin:0 0 12px;font-size:14px;color:var(--muted)}
+.detail li{padding:9px 0;border-top:1px solid var(--line);font-weight:600}
+.detail .pain li::before{content:"NOW ";font-family:var(--wide);font-size:11px;font-weight:800;color:var(--muted);letter-spacing:.08em}
+.detail .out li::before{content:"NEXT ";font-family:var(--wide);font-size:11px;font-weight:800;color:var(--blue);letter-spacing:.08em}
+.facts{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.facts span{border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:14px}
+/* diagnosis */
+.diag{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:0;border:1px solid #39404b}
+.quiz{padding:clamp(24px,4vw,48px);border-right:1px solid #39404b;min-height:470px;display:flex;flex-direction:column}
+.progress{display:flex;gap:6px;margin-bottom:34px}.progress i{flex:1;height:4px;background:#39404b}.progress i.on{background:#8fa0ff}
+.qnum{font-family:var(--wide);font-stretch:125%;font-weight:900;font-size:64px;line-height:1;color:transparent;-webkit-text-stroke:1.5px #8fa0ff}
+.qtext{font-size:clamp(22px,2.4vw,32px);font-weight:700;line-height:1.35;letter-spacing:-.03em;margin:18px 0 28px;min-height:3em}
+.opts{display:grid;gap:10px}
+.opts button{display:flex;justify-content:space-between;align-items:center;text-align:left;padding:16px 20px;border:1px solid #4a525e;border-radius:12px;font-weight:600;font-size:17px;transition:border-color .2s,background .2s}
+.opts button:hover,.opts button[aria-pressed=true]{border-color:#8fa0ff;background:#1b2130}
+.opts button span{font-size:13px;color:#a9b1bd}
+.qnav{display:flex;justify-content:space-between;margin-top:auto;padding-top:24px}
+.qnav button{font-weight:700;color:#c9d0ff;padding:8px 0}.qnav button:disabled{opacity:.35;cursor:default}
+.result{padding:clamp(24px,4vw,48px);display:flex;flex-direction:column;gap:18px}
+.bars{display:grid;gap:10px}
+.bars div{display:grid;grid-template-columns:120px 1fr 40px;align-items:center;gap:10px;font-size:14px}
+.bars .track{height:10px;background:#262c37;border-radius:6px;overflow:hidden}.bars .track,.bars .fill{display:block}.bars .fill{height:100%;background:#8fa0ff;width:0;transition:width .6s}
+.bars div.top .fill{background:#fff}
+.rec{border-top:1px solid #39404b;padding-top:18px}.rec h3{font-size:24px;letter-spacing:-.03em}
+.rec ul{display:grid;gap:6px;margin-top:10px}.rec li{font-size:15px;color:#c8ced8}.rec li::before{content:"□ ";color:#8fa0ff}
+.memo{width:100%;min-height:130px;background:#161b24;border:1px solid #39404b;border-radius:10px;padding:14px;color:#e9ecf1;font-size:14px;line-height:1.6;resize:vertical}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{padding:12px 18px;border-radius:999px;font-weight:700;border:1px solid currentColor}.btn.solid{background:#8fa0ff;color:var(--ink);border-color:#8fa0ff}
+.status{min-height:1.4em;font-size:14px;color:#c9d0ff}
+.empty{color:#a9b1bd;border:1px dashed #4a525e;border-radius:12px;padding:22px}
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink)}
+.step{padding:26px 24px 30px 0;position:relative}.step+.step{padding-left:24px;border-left:1px solid var(--line)}
+.step .n{font-family:var(--wide);font-stretch:125%;font-weight:900;font-size:46px;color:var(--blue);line-height:1}
+.step h3{font-size:22px;margin:16px 0 8px}.step p{color:var(--muted);font-size:15px}.step .o{display:inline-block;margin-top:16px;font-size:13px;font-weight:700;border:1px solid var(--ink);padding:4px 10px;border-radius:999px}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:60px}
+.plan{background:var(--paper);border:1px solid var(--line);padding:28px;display:flex;flex-direction:column;gap:12px}
+.plan .p{font-family:var(--wide);font-stretch:118%;font-weight:800;font-size:15px;color:var(--blue)}.plan h3{font-size:26px;letter-spacing:-.03em}.plan .fit{color:var(--muted);font-size:15px}
+.plan li{padding:8px 0;border-top:1px solid var(--line);font-size:15px;font-weight:600}
+.cost{margin-top:18px;padding:18px 22px;border-left:4px solid var(--blue);background:var(--paper);color:var(--muted);font-size:15px}
+/* academy */
+.acad{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:50px}
+.ladder{display:grid;gap:0;counter-reset:a}
+.ladder li{display:grid;grid-template-columns:90px 1fr;gap:16px;align-items:center;padding:18px 0;border-top:1px solid #39404b}
+.ladder b{font-family:var(--wide);font-stretch:125%;font-size:26px;font-weight:900;color:#8fa0ff}
+.courses{display:grid;gap:12px}
+.course{display:grid;grid-template-columns:1fr auto;gap:6px 18px;padding:22px 24px;border:1px solid #39404b;border-radius:14px;transition:border-color .2s}
+.course:hover{border-color:#8fa0ff}.course h3{font-size:21px}.course .len{font-size:13px;color:#a9b1bd;align-self:center}.course p{grid-column:1/-1;color:#a9b1bd;font-size:15px}
+/* cases */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.case{background:var(--paper);border:1px solid var(--line);display:flex;flex-direction:column}
+.case header{position:static;background:none;backdrop-filter:none;padding:22px 24px;border-bottom:1px solid var(--line)}
+.case .t{font-size:13px;font-weight:700;color:var(--blue)}.case h3{font-size:19px;margin-top:6px;letter-spacing:-.02em}
+.case dl{padding:6px 24px 24px}.case dt{font-family:var(--wide);font-stretch:118%;font-size:12px;font-weight:800;letter-spacing:.1em;margin-top:16px;color:var(--muted)}.case dd{font-size:15px;margin-top:4px}
+.case dd.out{font-weight:700}
+.note{font-size:14px;color:var(--muted);margin-top:16px}
+/* insight */
+.ins{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--ink)}
+.ins a{display:flex;flex-direction:column;gap:30px;padding:26px 24px 34px 0;text-decoration:none;min-height:230px}
+.ins a+a{padding-left:24px;border-left:1px solid var(--line)}
+.ins .ty{font-size:13px;font-weight:700;color:var(--blue)}.ins h3{font-size:22px;line-height:1.35;letter-spacing:-.03em}.ins .m{margin-top:auto;font-size:13px;color:var(--muted)}
+.ins a:hover h3{text-decoration:underline;text-underline-offset:6px}
+/* about */
+.about{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--ink)}
+.about div{padding:24px 24px 30px 0}.about div+div{padding-left:24px;border-left:1px solid var(--line)}
+.about b{font-family:var(--wide);font-stretch:125%;font-weight:900;font-size:40px;display:block;line-height:1;margin-bottom:12px}
+.net{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.net div{border:1px solid var(--line);padding:22px;background:var(--paper)}.net strong{font-size:26px;display:block}.net span{color:var(--muted);font-size:15px}
+.ticker{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:40px}
+.ticker div{display:flex;gap:44px;width:max-content;padding:18px 0;animation:tick 40s linear infinite}
+.ticker span{font-weight:700;font-size:18px;color:var(--muted)}.ticker span::before{content:"◆ ";color:var(--blue)}
+@keyframes tick{to{transform:translateX(-50%)}}
+.cta-band{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;padding:clamp(60px,8vw,110px) 0}
+.cta-band h2{font-family:var(--wide);font-stretch:125%;font-weight:900;font-size:clamp(46px,8vw,120px);line-height:.9;text-transform:uppercase;letter-spacing:-.03em}
+.cta-band h2 em{font-style:normal;color:var(--blue)}
+.cta-band p{color:var(--muted);margin-top:16px;max-width:30em}
+footer{background:var(--ink);color:#a9b1bd;padding:56px 0 40px;font-size:14px}
+.sitemap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-bottom:36px;border-bottom:1px solid #39404b}
+.sitemap h3{color:#fff;font-size:15px;margin-bottom:10px}.sitemap a{display:block;text-decoration:none;padding:3px 0}.sitemap a:hover{color:#fff}.sitemap small{display:block;color:#6f7885;margin-top:8px}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:24px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.reveal.in{opacity:1;transform:none}
+@media (max-width:1080px){.gnb,.bar>.cta{display:none}.burger{display:block}
+ .drawer{display:block;position:fixed;inset:0;z-index:60;background:var(--paper);overflow:auto;padding:20px;transform:translateX(100%);transition:transform .3s;visibility:hidden}
+ .drawer.open{transform:none;visibility:visible}
+ .drawer .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+ .drawer details{border-top:1px solid var(--line)}.drawer summary{list-style:none;padding:16px 0;font-weight:800;font-size:20px;display:flex;justify-content:space-between;cursor:pointer}.drawer summary::after{content:"+"}.drawer details[open] summary::after{content:"–"}
+ .drawer h4{margin:8px 0 4px;font-size:13px;color:var(--muted)}.drawer a{display:block;padding:8px 0 8px 12px;text-decoration:none;font-weight:600}
+ .drawer .solo{display:block;border-top:1px solid var(--line);padding:16px 0;font-weight:800;font-size:20px}
+ .detail{grid-template-columns:1fr}.detail>div+div{border-left:0;border-top:1px solid var(--line)}
+ .diag,.acad{grid-template-columns:1fr}.quiz{border-right:0;border-bottom:1px solid #39404b}
+ .cases,.plans{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.step:nth-child(3){padding-left:0;border-left:0}.step{border-top:1px solid var(--line)}
+}
+@media (max-width:720px){.word{font-size:24vw}.duo{grid-template-columns:1fr}.duo>div+div{border-left:0;border-top:1px solid var(--ink);padding-left:0}.duo .say{min-height:0}
+ .sec-head{grid-template-columns:1fr}.sec-head p{justify-self:start}.hero-desc{flex-direction:column;align-items:start}
+ .steps,.ins,.about,.net,.sitemap{grid-template-columns:1fr}.step,.step+.step,.ins a,.ins a+a,.about div,.about div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+ .bars div{grid-template-columns:96px 1fr 32px}.cta-band{grid-template-columns:1fr}.logo span{display:none}.hero-tabs .pause{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="demo"><b>가상 업체 데모 · 시안 A · Pivot</b> — Nextframe 경영컨설팅은 실제 업체가 아닙니다. 사례·인물·연락처는 예시입니다.</div>
+<header>
+ <div class="wrap bar">
+  <a class="logo" href="#top" aria-label="Nextframe 경영컨설팅 처음으로"><b>NEXTFRAME</b><span>Nextframe 경영컨설팅</span></a>
+  <nav aria-label="주 메뉴"><ul class="gnb" id="gnb"></ul></nav>
+  <a class="cta" href="#contact">프로젝트 문의 →</a>
+  <button class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="drawer"><i></i><i></i><i></i></button>
+ </div>
+ <div id="megas"></div>
+</header>
+<div class="drawer" id="drawer" aria-label="모바일 메뉴"><div class="top"><b class="en" style="font-weight:900;font-size:22px">NEXTFRAME</b><button class="burger" style="display:block;margin:0" id="close" aria-label="메뉴 닫기">✕</button></div><div id="drawer-body"></div><a class="cta" href="#contact" style="margin-top:20px">프로젝트 문의 →</a></div>
+
+<main id="top">
+ <section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+   <h1 id="hero-title" class="kicker" style="margin-bottom:22px;letter-spacing:.02em;font-family:var(--body);font-size:15px">중소기업 경영·조직 컨설팅 — 지금의 문제를 다음 체계로</h1>
+   <div class="hero-tabs" role="tablist" aria-label="핵심 과제" id="hero-tabs"></div>
+   <div class="duo" aria-live="polite">
+    <div class="now"><span class="word" aria-hidden="true">NOW</span><span class="label">지금 회사에서 들리는 말</span><p class="say" id="say-now"></p></div>
+    <div class="next"><span class="word" aria-hidden="true">NEXT</span><span class="label">Nextframe이 함께 만드는 것</span><p class="say" id="say-next"></p></div>
+   </div>
+   <div class="hero-desc"><p id="hero-desc"></p><a class="cta" href="#diagnosis">3분 과제 진단 시작 →</a></div>
+  </div>
+  <div class="swap" id="swap">
+   <svg viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true">
+    <g class="tangle" fill="none" stroke="#101317" stroke-width="1.6">
+     <path d="M0 210 C180 40 260 280 420 130 S700 40 760 220 S1040 260 1120 90 S1340 160 1440 60"/><path d="M0 90 C140 260 330 30 480 200 S760 260 860 70 S1110 30 1180 230 S1380 250 1440 170"/><path d="M0 150 C220 150 240 20 380 60 S600 290 720 160 S980 10 1060 160 S1300 300 1440 120"/><path d="M60 0 C120 140 340 160 300 300 M520 0 C600 120 420 220 600 300 M900 0 C820 160 1040 140 960 300 M1260 0 C1180 120 1380 200 1300 300"/>
+    </g>
+    <g class="order" fill="none" stroke="#2c47ff" stroke-width="2">
+     <path d="M0 75 H1440 M0 150 H1440 M0 225 H1440"/><path d="M240 40 V260 M480 40 V260 M720 40 V260 M960 40 V260 M1200 40 V260" stroke="#101317" stroke-width="1"/>
+     <g fill="#2c47ff" stroke="none"><circle cx="240" cy="75" r="7"/><circle cx="480" cy="150" r="7"/><circle cx="720" cy="75" r="7"/><circle cx="960" cy="225" r="7"/><circle cx="1200" cy="150" r="7"/></g>
+    </g>
+   </svg>
+   <span class="swap-cap" id="swap-cap">지금: 업무가 얽힌 상태 (도식)</span>
+   <button class="swap-btn" id="swap-btn" aria-pressed="false">NEXT 보기</button>
+  </div>
+ </section>
+
+ <section class="sec" id="services" aria-labelledby="svc-title">
+  <div class="wrap">
+   <div class="sec-head reveal"><div><span class="kicker">Service</span><h2 id="svc-title">과제에 맞는<br>프로그램을 고르세요</h2></div><p>컨설팅 5개, 디지털·AI 3개 프로그램은 모두 범위·기간·산출물을 먼저 정하고 시작합니다. 카드를 누르면 지금의 문제와 다음 산출물이 나란히 보입니다.</p></div>
+   <div class="svc-tabs" role="tablist" aria-label="서비스 분류" id="svc-tabs"></div>
+   <div class="svc-grid" id="svc-grid"></div>
+   <div class="detail" id="svc-detail" aria-live="polite"></div>
+  </div>
+ </section>
+
+ <section class="sec dark" id="diagnosis" aria-labelledby="dg-title">
+  <div class="wrap">
+   <div class="sec-head reveal"><div><span class="kicker">Self check · 3 min</span><h2 id="dg-title">어디가 막혀 있는지<br>6문항으로 확인하세요</h2></div><p>답변은 이 브라우저 안에서만 계산되며 서버로 보내지 않습니다. 결과로 추천 프로그램과 상담 전에 준비할 자료, 상담 메모가 만들어집니다.</p></div>
+   <div class="diag">
+    <div class="quiz"><div class="progress" id="progress" aria-hidden="true"></div><span class="qnum" id="qnum" aria-hidden="true">01</span><p class="qtext" id="qtext"></p><div class="opts" id="opts" role="group" aria-labelledby="qtext"></div><div class="qnav"><button id="prev">← 이전</button><button id="reset">처음부터</button></div></div>
+    <div class="result" id="result" aria-live="polite"><div class="empty">문항에 답하면 영역별 막힘 정도가 여기에 표시됩니다.</div></div>
+   </div>
+  </div>
+ </section>
+
+ <section class="sec" id="process" aria-labelledby="pr-title">
+  <div class="wrap">
+   <div class="sec-head reveal"><div><span class="kicker">Process &amp; Cost</span><h2 id="pr-title">시작 전에 범위를,<br>끝날 때 운영 방법을</h2></div><p>모든 프로젝트는 네 단계로 진행합니다. 단계마다 남는 산출물을 미리 정해 두어, 컨설팅이 끝나도 회사가 스스로 운영할 수 있게 합니다.</p></div>
+   <ol class="steps" id="steps"></ol>
+   <div class="plans" id="plans"></div>
+   <p class="cost" id="cost"></p>
+  </div>
+ </section>
+
+ <section class="sec dark" id="academy" aria-labelledby="ac-title">
+  <div class="wrap">
+   <div class="sec-head reveal"><div><span class="kicker">Leader academy</span><h2 id="ac-title">리더 교육은<br>현장 적용까지</h2></div><p>팀장의 회의·피드백·숫자 읽기를 다루는 짧은 과정입니다. 진단 → 분류 → 설계 → 상담 순서로 회사 상황에 맞춰 구성합니다.</p></div>
+   <div class="acad"><ol class="ladder" id="ladder"></ol><div class="courses" id="courses"></div></div>
+  </div>
+ </section>
+
+ <section class="sec" id="cases" aria-labelledby="cs-title">
+  <div class="wrap">
+   <div class="sec-head reveal"><div><span class="kicker">Cases</span><h2 id="cs-title">과제 → 접근 → 산출물</h2></div><p>업종과 규모가 다른 세 가지 유형의 진행 예시입니다. 성과 수치 대신 무엇을 만들었는지를 보여 줍니다.</p></div>
+   <div class="cases" id="case-list"></div>
+   <p class="note" id="case-note"></p>
+  </div>
+ </section>
+
+ <section class="sec" id="insight" aria-labelledby="in-title" style="padding-top:0">
+  <div class="wrap">
+   <div class="sec-head reveal"><div><span class="kicker">Insight</span><h2 id="in-title">레터 · 기획조사 · 소식</h2></div><p>상담 전에 읽어 보면 좋은 글을 모았습니다. 데모에서는 제목만 제공합니다.</p></div>
+   <div class="ins" id="ins"></div>
+  </div>
+ </section>
+
+ <section class="sec" id="about" aria-labelledby="ab-title" style="padding-top:0">
+  <div class="wrap">
+   <div class="sec-head reveal"><div><span class="kicker">Company</span><h2 id="ab-title">정의하고, 시범하고,<br>넘겨 드립니다</h2></div><p>Nextframe은 회사가 스스로 운영할 수 있는 체계를 남기는 것을 일의 끝으로 봅니다.</p></div>
+   <div class="about" id="vision"></div>
+   <div class="net" id="network"></div>
+   <div class="ticker" aria-label="함께 일해 온 업종 예시"><div id="ticker"></div></div>
+  </div>
+ </section>
+
+ <section id="contact" class="dark" aria-labelledby="ct-title">
+  <div class="wrap cta-band">
+   <div><h2 id="ct-title">From <em>now</em><br>to next</h2><p>자가 진단 메모를 복사해 메일에 붙여 주시면 첫 상담이 빨라집니다. 데모이므로 실제 접수는 이루어지지 않습니다.</p></div>
+   <div class="btns"><a class="btn solid" href="#diagnosis">진단 메모 만들기</a><a class="btn" id="mail" href="#contact">메일 주소 보기</a></div>
+  </div>
+ </section>
+</main>
+<footer><div class="wrap"><div class="sitemap" id="sitemap"></div><div class="foot"><span>Nextframe 경영컨설팅 · 가상 업체 데모 · 사업자 정보 예시</span><span>© 2026 NEXTFRAME (demo)</span></div></div></footer>
+
+<script>
+(function(){var ABOUT='about/';
+document.addEventListener('click',function(e){var a=e.target.closest('[data-go^="about:"]');if(!a)return;e.preventDefault();e.stopImmediatePropagation();var h=a.dataset.go.slice(6);location.href=ABOUT+(h==='top'?'':'#'+h)},true);
+document.addEventListener('DOMContentLoaded',function(){var s=document.getElementById('about');if(!s)return;var l=document.createElement('a');l.href=ABOUT;l.textContent='회사 소개 · 연혁 · 실적 자세히 보기 →';l.setAttribute('style','display:inline-block;margin-top:24px;padding:12px 20px;border:1.5px solid currentColor;border-radius:999px;font-weight:700;text-decoration:none');s.appendChild(l)});
+})();
+</script>
+<script type="application/json" id="consult-data">{"company":{"name":"Nextframe 경영컨설팅","en":"NEXTFRAME","line":"중소기업의 다음 체계를 함께 설계하는 경영·조직 컨설팅","phone":"02-000-0000","mail":"hello@nextframe.example","note":"가상 업체 데모입니다. 연락처·주소·사례·인물은 모두 예시입니다."},"menu":[{"id":"service","label":"서비스","groups":[{"id":"consulting","label":"컨설팅","items":[["strategy","경영전략"],["sales","영업·마케팅"],["cx","고객경험(CX)"],["hr","인사조직(HR)"],["research","리서치"]]},{"id":"digital","label":"디지털·AI","items":[["system","업무 시스템 정비"],["ai","AI 활용 진단"],["data","데이터 리포트 구축"]]},{"id":"academy","label":"리더 교육","items":[["academy-intro","소개"],["academy-course","교육 과정"],["academy-solution","과제별 솔루션"],["diagnosis","자가 진단"],["academy-process","진행 과정"],["academy-case","교육 사례"]]}]},{"id":"cases","label":"수행사례","groups":[]},{"id":"insight","label":"인사이트","groups":[{"id":"insight-list","label":"","items":[["letter","레터"],["report","기획조사"],["news","소식"]]}]},{"id":"about","label":"회사소개","groups":[{"id":"about-list","label":"","items":[["about:top","회사 개요"],["about:history","연혁"],["about:growth","성장 지표"],["about:record","수행 실적"],["about:people","컨설턴트"],["about:location","오시는 길"]]}]}],"heroes":[{"key":"STRUCTURE","now":"매출이 우연히 생긴다","next":"매출이 생기는 구조를 정리합니다","desc":"거래처 등급, 영업 단계, 회의 방식을 하나의 흐름으로 묶습니다."},{"key":"EXPERIENCE","now":"불만 응대가 매장마다 다르다","next":"고객이 다시 오는 경험을 설계합니다","desc":"고객 여정의 접점마다 응대 기준과 기록 방법을 정합니다."},{"key":"PEOPLE","now":"평가 기준을 설명하기 어렵다","next":"사람이 일하는 기준을 세웁니다","desc":"직무 정의, 평가 항목, 성장 단계를 회사 규모에 맞게 만듭니다."}],"services":[{"id":"strategy","group":"컨설팅","code":"ST","title":"경영전략","summary":"3년 방향과 올해 실행 과제를 한 장으로 연결합니다.","pains":["사업 방향은 있는데 부서별 우선순위가 다르다","신사업 검토가 회의에서만 반복된다"],"outputs":["중기 방향·핵심 지표 1장","부서별 실행 과제표","분기 점검 회의 양식"],"weeks":"6~10주","team":"컨설턴트 2명"},{"id":"sales","group":"컨설팅","code":"SL","title":"영업·마케팅","summary":"거래처 관리와 영업 단계를 표준으로 정리합니다.","pains":["담당자가 바뀌면 거래처 정보가 사라진다","영업 회의가 실적 보고로만 끝난다"],"outputs":["거래처 등급 기준","영업 단계 정의서","주간 영업 회의 양식"],"weeks":"6~8주","team":"컨설턴트 2명"},{"id":"cx","group":"컨설팅","code":"CX","title":"고객경험(CX)","summary":"고객이 만나는 접점과 응대 기준을 설계합니다.","pains":["매장·담당자마다 응대 방식이 다르다","불만이 반복되는데 원인이 기록되지 않는다"],"outputs":["고객 여정 지도","접점별 응대 기준서","불만 기록·공유 절차"],"weeks":"6~10주","team":"컨설턴트 2~3명"},{"id":"hr","group":"컨설팅","code":"HR","title":"인사조직(HR)","summary":"직무·평가·보상의 기준을 회사 규모에 맞게 세웁니다.","pains":["평가 결과를 구성원에게 설명하기 어렵다","직무 범위가 겹쳐 책임이 모호하다"],"outputs":["직무 정의서","평가 항목·기준표","운영 매뉴얼과 설명회 자료"],"weeks":"8~12주","team":"컨설턴트 2~3명"},{"id":"research","group":"컨설팅","code":"RS","title":"리서치","summary":"고객·구성원·시장의 목소리를 의사결정 자료로 바꿉니다.","pains":["감으로 결정하고 근거가 남지 않는다","설문을 해도 다음 행동으로 이어지지 않는다"],"outputs":["조사 설계서","인터뷰·설문 결과 보고서","실행 우선순위 정리"],"weeks":"4~8주","team":"연구원 2명"},{"id":"system","group":"디지털·AI","code":"SY","title":"업무 시스템 정비","summary":"흩어진 엑셀과 메신저 업무를 정리된 도구로 옮깁니다.","pains":["같은 자료를 여러 파일에 반복 입력한다","업무 현황을 한눈에 볼 수 없다"],"outputs":["업무 흐름도","도구 선정 비교표","전환 일정과 사용 안내"],"weeks":"4~8주","team":"컨설턴트 2명"},{"id":"ai","group":"디지털·AI","code":"AI","title":"AI 활용 진단","summary":"반복 업무 가운데 AI로 돕기 좋은 일을 골라냅니다.","pains":["AI를 써 보라는 말만 있고 대상 업무가 없다","보안·정확성 기준 없이 개인별로 쓰고 있다"],"outputs":["업무별 적용 후보표","사용 기준·보안 지침 초안","시범 적용 계획"],"weeks":"3~6주","team":"컨설턴트 2명"},{"id":"data","group":"디지털·AI","code":"DT","title":"데이터 리포트 구축","summary":"대표와 팀장이 매주 볼 지표 화면을 함께 만듭니다.","pains":["숫자를 모으는 데만 며칠이 걸린다","지표마다 기준이 달라 회의가 길어진다"],"outputs":["핵심 지표 정의서","주간 리포트 화면","데이터 입력 규칙"],"weeks":"4~8주","team":"컨설턴트 2명"}],"diagnosis":[{"area":"strategy","q":"올해 가장 중요한 과제 세 가지를 팀장들이 같은 순서로 말할 수 있나요?"},{"area":"sales","q":"담당자가 바뀌어도 거래처 이력과 다음 할 일이 그대로 이어지나요?"},{"area":"cx","q":"고객 불만이 생기면 누가 어떻게 기록하고 공유하는지 정해져 있나요?"},{"area":"hr","q":"평가 결과를 구성원에게 기준과 근거로 설명할 수 있나요?"},{"area":"data","q":"주간 회의에 필요한 숫자를 하루 안에 모을 수 있나요?"},{"area":"ai","q":"반복 문서 작업에 대해 도구 사용 기준이 회사 차원에서 있나요?"}],"answers":[["잘 되고 있다",0],["가끔 막힌다",1],["자주 막힌다",2]],"prepare":{"strategy":["최근 2년 매출·이익 추이","부서별 올해 목표"],"sales":["거래처 목록(이름 가림 가능)","영업 회의 자료 1회분"],"cx":["최근 3개월 문의·불만 유형","매장·채널 목록"],"hr":["조직도와 직무 목록","현재 평가 양식"],"data":["주간 보고 양식","사용 중인 엑셀·시스템 목록"],"ai":["반복 문서 작업 목록","사내 보안 규정"]},"process":[{"step":"01","title":"사전 진단","desc":"자가 진단과 60분 인터뷰로 과제의 범위를 좁힙니다.","out":"과제 요약 1장"},{"step":"02","title":"과제 정의","desc":"현장 자료를 보고 해결할 범위와 하지 않을 범위를 정합니다.","out":"제안서·일정표"},{"step":"03","title":"설계·시범 적용","desc":"기준과 양식을 만들고 한 팀에서 먼저 써 봅니다.","out":"기준서·양식 초안"},{"step":"04","title":"정착·점검","desc":"전사 적용 뒤 정해진 시점에 함께 점검하고 고칩니다.","out":"운영 매뉴얼·점검 기록"}],"plans":[{"name":"단기 진단","period":"2~3주","fit":"과제가 무엇인지부터 정리하고 싶을 때","includes":["인터뷰 5회 내외","과제 우선순위 보고서","다음 단계 제안"]},{"name":"프로젝트","period":"6~12주","fit":"기준·양식·체계를 새로 만들 때","includes":["주 1회 실무 회의","설계 산출물 일체","시범 적용과 설명회"]},{"name":"정착 자문","period":"월 단위","fit":"만든 체계를 운영하며 다듬을 때","includes":["월 2회 점검 회의","양식·기준 수정","신규 리더 안내"]}],"costNote":"비용은 범위·기간·참여 인원에 따라 협의합니다. 정부 컨설팅 지원사업은 해마다 대상·지원 비율이 바뀌므로 해당 연도 공고를 함께 확인합니다.","academy":{"steps":[["진단","팀의 회의·피드백 방식을 짧게 진단"],["분류","리더의 과제를 유형별로 분류"],["설계","회사 상황에 맞춘 과정 구성"],["상담","교육 뒤 현장 적용 상담"]],"courses":[{"title":"팀장 첫 90일","len":"4회 · 회당 3시간","desc":"역할 전환, 기대 합의, 첫 1:1 면담 설계"},{"title":"회의와 피드백","len":"3회 · 회당 3시간","desc":"결정이 남는 회의, 기준을 말하는 피드백"},{"title":"숫자로 말하기","len":"2회 · 회당 4시간","desc":"지표 고르기, 주간 리포트 읽고 설명하기"}]},"cases":[{"tag":"영업·마케팅","who":"지역 식품 제조사 · 직원 60명대","problem":"영업 담당 4명의 거래처가 겹치고 회의는 실적 보고로 끝남","approach":"거래처 등급 기준과 영업 단계 5개를 정의하고 회의 양식을 바꿈","output":"거래처 등급표 · 영업 단계 정의서 · 주간 회의 양식"},{"tag":"고객경험(CX)","who":"생활용품 매장 12곳 운영 본사","problem":"같은 불만에 매장마다 다른 응대, 기록이 남지 않음","approach":"구매·교환·문의 접점을 지도로 그리고 응대 기준과 기록 절차를 만듦","output":"고객 여정 지도 · 응대 기준서 · 불만 공유 절차"},{"tag":"인사조직(HR)","who":"IT 서비스 기업 · 직원 30명대","problem":"첫 평가를 앞두고 직무 범위와 평가 기준이 정해지지 않음","approach":"직무를 4개 군으로 정리하고 역할별 평가 항목과 면담 방식을 설계","output":"직무 정의서 · 평가 기준표 · 면담 가이드"}],"caseNote":"유형별 가상 사례입니다. 실제 결과는 기업의 상황과 실행 정도에 따라 다릅니다.","insights":[{"type":"레터","id":"letter","title":"작은 회사의 첫 평가, 항목보다 먼저 정할 것","min":6},{"type":"기획조사","id":"report","title":"주간 영업 회의를 바꾸는 다섯 가지 질문 (가상 리포트)","min":9},{"type":"소식","id":"news","title":"하반기 리더 교육 과정 일정 안내 (예시)","min":2}],"vision":[["정의","해결할 범위와 하지 않을 범위를 먼저 씁니다."],["시범","한 팀에서 먼저 써 보고 고칩니다."],["이양","끝나면 회사가 스스로 운영할 수 있게 넘깁니다."]],"network":[{"city":"서울","role":"본사 · 전략·조직"},{"city":"대전","role":"중부권 · 제조·유통"},{"city":"광주","role":"호남권 · 교육·공공"}],"industries":["식품 제조","부품 가공","유통·매장","IT 서비스","교육","의료기관 운영","프랜차이즈 본사","물류"]}</script>
+<script>
+(function(){
+const D=JSON.parse(document.getElementById('consult-data').textContent);
+const $=s=>document.querySelector(s),el=(t,a={},h='')=>{const e=document.createElement(t);for(const k in a)e.setAttribute(k,a[k]);e.innerHTML=h;return e};
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const svcIds=D.services.map(s=>s.id);
+/* --- navigation: 1D > 2D > 3D --- */
+const gnb=$('#gnb'),megas=$('#megas');let openMega=null;
+function closeMega(){if(!openMega)return;openMega.panel.classList.remove('open');openMega.btn.setAttribute('aria-expanded','false');openMega=null}
+D.menu.forEach(m=>{
+ const li=el('li');
+ if(!m.groups.length){li.append(el('a',{href:'#'+m.id,'data-go':m.id},m.label));gnb.append(li);return}
+ const b=el('button',{'aria-expanded':'false','aria-controls':'mega-'+m.id},m.label);li.append(b);gnb.append(li);
+ const p=el('div',{class:'mega',id:'mega-'+m.id});
+ const cols=m.groups.map(g=>'<div>'+(g.label?'<h3>'+g.label+'</h3>':'<h3>'+m.label+'</h3>')+g.items.map(i=>'<a href="#" data-go="'+i[0]+'">'+i[1]+'</a>').join('')+'</div>').join('');
+ p.innerHTML='<div class="wrap"><p class="lead">'+({service:'Service',insight:'Insight',about:'Company'}[m.id]||m.label)+'<small>'+({service:'컨설팅 · 디지털·AI · 리더 교육',insight:'상담 전에 읽는 글',about:'일하는 방식과 거점'}[m.id]||'')+'</small></p><div class="cols">'+cols+'</div></div>';
+ megas.append(p);
+ const open=()=>{if(openMega&&openMega.btn===b)return;closeMega();p.classList.add('open');b.setAttribute('aria-expanded','true');openMega={btn:b,panel:p}};
+ b.addEventListener('click',()=>{openMega&&openMega.btn===b?closeMega():open()});
+ li.addEventListener('mouseenter',()=>{if(matchMedia('(hover:hover)').matches)open()});
+});
+$('header').addEventListener('mouseleave',()=>{if(matchMedia('(hover:hover)').matches)closeMega()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(openMega){const b=openMega.btn;closeMega();b.focus()}closeDrawer()}});
+/* drawer */
+const drawer=$('#drawer'),burger=$('#burger');
+$('#drawer-body').innerHTML=D.menu.map(m=>m.groups.length?'<details><summary>'+m.label+'</summary>'+m.groups.map(g=>(g.label?'<h4>'+g.label+'</h4>':'')+g.items.map(i=>'<a href="#" data-go="'+i[0]+'">'+i[1]+'</a>').join('')).join('')+'</details>':'<a class="solo" href="#'+m.id+'" data-go="'+m.id+'">'+m.label+'</a>').join('');
+function closeDrawer(){if(!drawer.classList.contains('open'))return;drawer.classList.remove('open');burger.setAttribute('aria-expanded','false');burger.focus()}
+burger.addEventListener('click',()=>{drawer.classList.add('open');burger.setAttribute('aria-expanded','true');$('#close').focus()});$('#close').addEventListener('click',closeDrawer);
+/* sitemap */
+$('#sitemap').innerHTML=D.menu.map(m=>'<div><h3>'+m.label+'</h3>'+(m.groups.length?m.groups.map(g=>(g.label?'<small>'+g.label+'</small>':'')+g.items.map(i=>'<a href="#" data-go="'+i[0]+'">'+i[1]+'</a>').join('')).join(''):'<a href="#" data-go="'+m.id+'">전체 사례 보기</a>')+'</div>').join('');
+/* routing for 3D items */
+const target={'academy-intro':'academy','academy-course':'academy','academy-solution':'academy','academy-process':'academy','academy-case':'cases',diagnosis:'diagnosis',cases:'cases',letter:'insight',report:'insight',news:'insight',vision:'about',network:'network'};
+document.addEventListener('click',e=>{const a=e.target.closest('[data-go]');if(!a)return;e.preventDefault();const id=a.dataset.go;closeMega();if(drawer.classList.contains('open')){drawer.classList.remove('open');burger.setAttribute('aria-expanded','false')}
+ if(svcIds.includes(id)){selectSvc(id,true);return}
+ const t=document.getElementById(target[id]||id);if(t){t.scrollIntoView({behavior:reduce?'auto':'smooth'});t.setAttribute('tabindex','-1');t.focus({preventScroll:true})}});
+/* --- hero --- */
+const tabs=$('#hero-tabs');let hi=0,timer=null,playing=!reduce;
+D.heroes.forEach((h,i)=>tabs.append(el('button',{role:'tab','aria-selected':i?'false':'true','data-i':i},h.key)));
+const pause=el('button',{class:'pause','aria-pressed':String(!playing)},playing?'자동 전환 멈춤':'자동 전환 재생');tabs.append(pause);
+function hero(i){hi=i;const h=D.heroes[i];$('#say-now').textContent='“'+h.now+'”';$('#say-next').textContent=h.next;$('#hero-desc').textContent=h.desc;tabs.querySelectorAll('[role=tab]').forEach((b,j)=>b.setAttribute('aria-selected',String(i===j)))}
+tabs.addEventListener('click',e=>{const b=e.target.closest('[role=tab]');if(b){hero(+b.dataset.i);stop()}});
+function stop(){playing=false;clearInterval(timer);pause.textContent='자동 전환 재생';pause.setAttribute('aria-pressed','true')}
+function play(){playing=true;timer=setInterval(()=>hero((hi+1)%D.heroes.length),5200);pause.textContent='자동 전환 멈춤';pause.setAttribute('aria-pressed','false')}
+pause.addEventListener('click',()=>playing?stop():play());hero(0);if(playing)play();
+const swap=$('#swap'),sb=$('#swap-btn');
+sb.addEventListener('click',()=>{const n=!swap.classList.contains('is-next');swap.classList.toggle('is-next',n);sb.setAttribute('aria-pressed',String(n));sb.textContent=n?'NOW 보기':'NEXT 보기';$('#swap-cap').textContent=n?'다음: 기준과 순서가 정리된 상태 (도식)':'지금: 업무가 얽힌 상태 (도식)'});
+swap.addEventListener('mouseenter',()=>{if(!swap.classList.contains('is-next'))sb.click()});
+/* --- services --- */
+const groups=['컨설팅','디지털·AI'];let curG='컨설팅',curS='strategy';
+const st=$('#svc-tabs');groups.forEach(g=>st.append(el('button',{role:'tab','aria-selected':String(g===curG)},g)));
+st.append(el('button',{role:'tab','aria-selected':'false','data-go':'academy-intro'},'리더 교육 →'));
+st.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.dataset.go)return;curG=b.textContent;st.querySelectorAll('button').forEach(x=>x.getAttribute('data-go')||x.setAttribute('aria-selected',String(x===b)));const first=D.services.find(s=>s.group===curG);renderSvc(first.id)});
+function renderSvc(id){curS=id;const s=D.services.find(x=>x.id===id);
+ $('#svc-grid').innerHTML=D.services.filter(x=>x.group===curG).map(x=>'<button class="svc" aria-expanded="'+(x.id===id)+'" aria-controls="svc-detail" data-s="'+x.id+'"><span class="code" aria-hidden="true">'+x.code+'</span><h3>'+x.title+'</h3><p>'+x.summary+'</p><span class="more">'+(x.id===id?'선택됨':'자세히 보기 +')+'</span></button>').join('');
+ $('#svc-detail').innerHTML='<div><span class="kicker">'+s.group+' · '+s.code+'</span><h3>'+s.title+'</h3><p class="muted" style="color:var(--muted)">'+s.summary+'</p><div class="facts"><span>기간 '+s.weeks+'</span><span>'+s.team+'</span></div><a class="cta" style="margin-top:22px" href="#diagnosis">이 과제로 진단하기 →</a></div><div class="pain"><h4>이런 말이 들린다면</h4><ul>'+s.pains.map(p=>'<li>'+p+'</li>').join('')+'</ul></div><div class="out"><h4>남는 산출물</h4><ul>'+s.outputs.map(p=>'<li>'+p+'</li>').join('')+'</ul></div>'}
+function selectSvc(id,scroll){const s=D.services.find(x=>x.id===id);curG=s.group;st.querySelectorAll('button').forEach(x=>x.getAttribute('data-go')||x.setAttribute('aria-selected',String(x.textContent===curG)));renderSvc(id);if(scroll){const d=$('#services');d.scrollIntoView({behavior:reduce?'auto':'smooth'})}}
+$('#svc-grid').addEventListener('click',e=>{const b=e.target.closest('.svc');if(b){renderSvc(b.dataset.s);$('#svc-grid [data-s="'+b.dataset.s+'"]').focus()}});
+renderSvc('strategy');
+/* --- diagnosis --- */
+const Q=D.diagnosis,ans=new Array(Q.length).fill(null);let qi=0;
+const areaName=id=>(D.services.find(s=>s.id===id)||{}).title;
+$('#progress').innerHTML=Q.map(()=>'<i></i>').join('');
+function q(){const x=Q[qi];$('#qnum').textContent=String(qi+1).padStart(2,'0');$('#qtext').textContent=x.q;
+ $('#opts').innerHTML=D.answers.map((a,i)=>'<button aria-pressed="'+(ans[qi]===a[1])+'" data-v="'+a[1]+'">'+a[0]+'<span>'+['0점','1점','2점'][i]+'</span></button>').join('');
+ $('#progress').querySelectorAll('i').forEach((b,i)=>b.classList.toggle('on',ans[i]!==null||i===qi));$('#prev').disabled=qi===0}
+$('#opts').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;ans[qi]=+b.dataset.v;result();if(qi<Q.length-1){qi++;q();$('#opts button').focus()}else q()});
+$('#prev').addEventListener('click',()=>{if(qi>0){qi--;q()}});$('#reset').addEventListener('click',()=>{ans.fill(null);qi=0;q();result()});
+function result(){const done=ans.filter(v=>v!==null).length,r=$('#result');
+ if(!done){r.innerHTML='<div class="empty">문항에 답하면 영역별 막힘 정도가 여기에 표시됩니다.</div>';return}
+ const rows=Q.map((x,i)=>({area:x.area,v:ans[i]})).filter(x=>x.v!==null).sort((a,b)=>b.v-a.v);
+ const top=rows.filter(x=>x.v>0).slice(0,2);
+ let h='<p class="kicker">'+done+' / '+Q.length+' 응답</p><div class="bars">'+Q.map((x,i)=>'<div class="'+(top.some(t=>t.area===x.area)?'top':'')+'"><span>'+areaName(x.area)+'</span><span class="track"><span class="fill" style="width:'+(ans[i]===null?0:(ans[i]/2*100))+'%"></span></span><span>'+(ans[i]===null?'–':ans[i]+'/2')+'</span></div>').join('')+'</div>';
+ if(!top.length){h+='<div class="rec"><h3>지금은 큰 막힘이 보이지 않습니다</h3><p class="muted">정착 자문이나 리더 교육으로 현재 방식을 점검해 볼 수 있습니다.</p></div>'}
+ else{h+='<div class="rec"><span class="kicker">추천 프로그램</span><h3>'+top.map(t=>areaName(t.area)).join(' + ')+'</h3><ul>'+top.flatMap(t=>D.prepare[t.area]).map(p=>'<li>'+p+'</li>').join('')+'</ul></div>'}
+ const memo=['[Nextframe 상담 메모 · 데모]','응답: '+done+'/'+Q.length,'우선 과제: '+(top.length?top.map(t=>areaName(t.area)).join(', '):'뚜렷한 막힘 없음'),'준비 자료: '+(top.flatMap(t=>D.prepare[t.area]).join(', ')||'없음'),'회사 규모: ','희망 상담 방식(방문/화상/전화): ','메모: '].join('\n');
+ h+='<label for="memo" class="kicker">상담 메모 (수정 가능)</label><textarea id="memo" class="memo">'+memo+'</textarea><div class="btns"><button class="btn solid" id="copy">메모 복사</button><button class="btn" id="save">텍스트 파일 저장</button></div><p class="status" id="dstatus" role="status"></p>';
+ r.innerHTML=h;
+ $('#copy').onclick=()=>{const t=$('#memo').value;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>$('#dstatus').textContent='복사했습니다. 메일에 붙여 넣어 주세요.',()=>{$('#memo').select();$('#dstatus').textContent='메모를 선택했습니다. 직접 복사해 주세요.'})};
+ $('#save').onclick=()=>{const u=URL.createObjectURL(new Blob([$('#memo').value],{type:'text/plain'}));const a=el('a',{href:u,download:'nextframe-memo.txt'});document.body.append(a);a.click();a.remove();URL.revokeObjectURL(u);$('#dstatus').textContent='파일로 저장했습니다.'}}
+q();
+/* --- process, plans, academy, cases, insights, about --- */
+$('#steps').innerHTML=D.process.map(p=>'<li class="step reveal"><span class="n">'+p.step+'</span><h3>'+p.title+'</h3><p>'+p.desc+'</p><span class="o">'+p.out+'</span></li>').join('');
+$('#plans').innerHTML=D.plans.map(p=>'<article class="plan reveal"><span class="p">'+p.period+'</span><h3>'+p.name+'</h3><p class="fit">'+p.fit+'</p><ul>'+p.includes.map(i=>'<li>'+i+'</li>').join('')+'</ul></article>').join('');
+$('#cost').textContent=D.costNote;
+$('#ladder').innerHTML=D.academy.steps.map((s,i)=>'<li><b>0'+(i+1)+'</b><div><strong style="font-size:20px">'+s[0]+'</strong><p class="muted">'+s[1]+'</p></div></li>').join('');
+$('#courses').innerHTML=D.academy.courses.map(c=>'<article class="course"><h3>'+c.title+'</h3><span class="len">'+c.len+'</span><p>'+c.desc+'</p></article>').join('');
+$('#case-list').innerHTML=D.cases.map(c=>'<article class="case reveal"><header><span class="t">'+c.tag+'</span><h3>'+c.who+'</h3></header><dl><dt>Problem</dt><dd>'+c.problem+'</dd><dt>Approach</dt><dd>'+c.approach+'</dd><dt>Output</dt><dd class="out">'+c.output+'</dd></dl></article>').join('');
+$('#case-note').textContent=D.caseNote;
+$('#ins').innerHTML=D.insights.map(n=>'<a href="#insight" id="'+n.id+'"><span class="ty">'+n.type+'</span><h3>'+n.title+'</h3><span class="m">읽는 시간 약 '+n.min+'분 · 데모 제목</span></a>').join('');
+$('#vision').innerHTML=D.vision.map(v=>'<div class="reveal"><b>'+v[0]+'</b><p>'+v[1]+'</p></div>').join('');
+$('#network').innerHTML=D.network.map(n=>'<div><strong>'+n.city+'</strong><span>'+n.role+' · 주소는 데모에서 비공개</span></div>').join('');
+const t=D.industries.map(i=>'<span>'+i+'</span>').join('');$('#ticker').innerHTML=t+t;
+$('#mail').addEventListener('click',e=>{e.preventDefault();e.currentTarget.textContent=D.company.mail+' (예시)'});
+/* reveal */
+const io='IntersectionObserver' in window&&!reduce?new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12}):null;
+document.querySelectorAll('.reveal').forEach(x=>io?io.observe(x):x.classList.add('in'));
+})();
+</script>
+</body>
+</html>
