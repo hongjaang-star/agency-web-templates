@@ -890,6 +890,66 @@
           "source": "src/components/Foot.tsx"
         }
       ]
+    },
+    "edu-academy/orbit": {
+      "modules": [
+        {
+          "id": "header",
+          "kind": "header",
+          "label": "독서·토론·글쓰기 안내 헤더",
+          "page": "/",
+          "select": "header",
+          "source": "src/data/site.json"
+        },
+        {
+          "id": "hero",
+          "kind": "hero",
+          "label": "교육 분야가 드러나는 첫 화면",
+          "page": "/",
+          "select": ".hero",
+          "source": "src/data/site.json"
+        },
+        {
+          "id": "program",
+          "kind": "services",
+          "label": "학년별 교육과정",
+          "page": "/",
+          "select": "#program",
+          "source": "src/data/site.json"
+        },
+        {
+          "id": "lesson",
+          "kind": "process",
+          "label": "수업 시간표와 활동 예시",
+          "page": "/",
+          "select": "#lesson",
+          "source": "src/data/site.json"
+        },
+        {
+          "id": "materials",
+          "kind": "materials",
+          "label": "가상 교재와 교구 설명",
+          "page": "/",
+          "select": "#materials",
+          "source": "src/data/site.json"
+        },
+        {
+          "id": "finder",
+          "kind": "finder",
+          "label": "학년별 과정 찾기",
+          "page": "/",
+          "select": "#finder",
+          "source": "src/data/site.json"
+        },
+        {
+          "id": "footer",
+          "kind": "footer",
+          "label": "교육 안내 푸터",
+          "page": "/",
+          "select": "footer",
+          "source": "src/data/site.json"
+        }
+      ]
     }
   }
 }

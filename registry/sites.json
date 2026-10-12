@@ -352,6 +352,34 @@
         "signature": "6-scale self check that draws a 12-week Gantt roadmap",
         "sectionOrder": "hero, programs, diagnosis, process, academy, cases, insight, company"
       }
+    },
+    {
+      "slug": "edu-academy",
+      "variant": "orbit",
+      "name": "소규모 교육기관",
+      "company": "질문결 배움학원(가상)",
+      "category": "edu",
+      "level": "L1",
+      "status": "building",
+      "role": "flagship",
+      "type": "초등 독서·토론·글쓰기 · 학년별 읽기와 표현의 성장 과정",
+      "concept": "orbit",
+      "path": "templates/edu-academy/orbit",
+      "url": "https://hongjaang-star.github.io/agency-web-templates/edu-academy/orbit/",
+      "editor": "https://hongjaang-star.github.io/agency-web-templates/edu-academy/orbit/editor/",
+      "pages": 15,
+      "library": "library/edu-academy/orbit/README.md",
+      "notes": "Orbit 선택 확정. 15페이지 구현·검증, PR 병합 및 공개 배포 대기.",
+      "fingerprint": {
+        "layout": "organic",
+        "hero": "split-media",
+        "typePair": "Gowun Dodum + Manrope",
+        "palette": "ivory-olive",
+        "imageTreatment": "arch classroom photo",
+        "motion": "subtle hover",
+        "signature": "학년별 읽기·토론·쓰기 과정과 수업 활동지",
+        "sectionOrder": "hero,subject,learning,path,lesson,materials,parents,studio,journal,finder,faq"
+      }
     }
   ]
 }

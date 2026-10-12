@@ -291,14 +291,14 @@
       "name": "질문결 · Orbit",
       "category": "education",
       "categoryLabel": "교육 · 배움학원",
-      "kind": "concept",
-      "kindLabel": "디자인 시안",
-      "path": "concepts/edu-academy/orbit/",
+      "kind": "site",
+      "kindLabel": "완성 사이트",
+      "path": "edu-academy/orbit/",
       "thumbnail": "edu-orbit.png",
       "summary": [
-        "아이보리·올리브와 곡선 사진의 따뜻한 배움 공간.",
-        "학년별 과정 상세·수업 찾기·상담 준비 메모 복사와 저장.",
-        "배움노트 모달·FAQ·모바일 메뉴와 독립된 편집기."
+        "아이보리·올리브와 곡선 사진의 초등 독서·토론·글쓰기 학원.",
+        "학년별 3개 과정·12주 주제·수업 활동지·교재와 교구 안내.",
+        "15개 페이지·학부모 피드백·과정 탐색·상담 메모 복사와 저장."
       ]
     },
     {
