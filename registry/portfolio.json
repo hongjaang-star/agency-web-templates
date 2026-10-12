@@ -300,6 +300,51 @@
         "4개 메뉴 16쪽: 연령별 연간계획, 숲 활동 사계절표, 특별활동 요일표.",
         "입학대기·설명회 신청 폼, 펼침 게시판·검색, 식단 알레르기 표시."
       ]
+    },
+    {
+      "id": "edu-orbit",
+      "name": "질문결 · Orbit",
+      "category": "education",
+      "categoryLabel": "교육 · 배움학원",
+      "kind": "site",
+      "kindLabel": "완성 사이트",
+      "path": "edu-academy/orbit/",
+      "thumbnail": "edu-orbit.png",
+      "summary": [
+        "아이보리·올리브, 둥근 제목과 종이 공예 일러스트의 초등 독서학원.",
+        "읽기·말하기·글쓰기 탐험 탭과 새로 제작한 이미지 3종.",
+        "15페이지·학년별 과정·수업과 교재·학부모 안내·상담 준비 메모."
+      ]
+    },
+    {
+      "id": "edu-margin",
+      "name": "질문결 · Margin",
+      "category": "education",
+      "categoryLabel": "교육 · 배움학원",
+      "kind": "concept",
+      "kindLabel": "디자인 시안",
+      "path": "concepts/edu-academy/margin/",
+      "thumbnail": "edu-margin.png",
+      "summary": [
+        "명조 타이포와 고정 내비게이션의 차분한 편집 지면.",
+        "학년별 과정 상세·수업 찾기·상담 준비 메모 복사와 저장.",
+        "배움노트 모달·FAQ·모바일 메뉴와 독립된 편집기."
+      ]
+    },
+    {
+      "id": "edu-prism",
+      "name": "질문결 · Prism",
+      "category": "education",
+      "categoryLabel": "교육 · 배움학원",
+      "kind": "concept",
+      "kindLabel": "디자인 시안",
+      "path": "concepts/edu-academy/prism/",
+      "thumbnail": "edu-prism.png",
+      "summary": [
+        "플럼·라임과 질문 타일의 생동감 있는 모자이크.",
+        "학년별 과정 상세·수업 찾기·상담 준비 메모 복사와 저장.",
+        "배움노트 모달·FAQ·모바일 메뉴와 독립된 편집기."
+      ]
     }
   ]
 }

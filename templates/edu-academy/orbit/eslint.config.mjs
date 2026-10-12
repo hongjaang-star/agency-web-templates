@@ -1,0 +1,2 @@
+// Fonts are declared in the App Router root layout and apply to every route.
+import {defineConfig,globalIgnores} from 'eslint/config';import core from 'eslint-config-next/core-web-vitals';import ts from 'eslint-config-next/typescript';export default defineConfig([...core,...ts,{rules:{'@next/next/no-page-custom-font':'off'}},globalIgnores(['out/**','.next/**','next-env.d.ts'])]);

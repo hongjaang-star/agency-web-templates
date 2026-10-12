@@ -377,6 +377,34 @@
         "signature": "four-season garden/orchard quad and per-age forest tables",
         "sectionOrder": "hero, quick links, philosophy, numbers, ages, day, seasons, episodes, news/contact"
       }
+    },
+    {
+      "slug": "edu-academy",
+      "variant": "orbit",
+      "name": "소규모 교육기관",
+      "company": "질문결 배움학원(가상)",
+      "category": "edu",
+      "level": "L1",
+      "status": "building",
+      "role": "flagship",
+      "type": "초등 독서·토론·글쓰기 · 학년별 읽기와 표현의 성장 과정",
+      "concept": "orbit",
+      "path": "templates/edu-academy/orbit",
+      "url": "https://hongjaang-star.github.io/agency-web-templates/edu-academy/orbit/",
+      "editor": "https://hongjaang-star.github.io/agency-web-templates/edu-academy/orbit/editor/",
+      "pages": 15,
+      "library": "library/edu-academy/orbit/README.md",
+      "notes": "Orbit 1.2: 15페이지·메뉴 확대·주제별 3D 그림·신규 이미지 5종. PR 병합 대기.",
+      "fingerprint": {
+        "layout": "organic",
+        "hero": "split-media",
+        "typePair": "Jua + Gowun Dodum + Manrope",
+        "palette": "ivory-olive",
+        "imageTreatment": "8 original tactile 3D/paper-craft illustrations across hero, subpages and lesson stages",
+        "motion": "subtle hover",
+        "signature": "읽기·말하기·글쓰기 탐험 탭과 학년별 수업",
+        "sectionOrder": "hero,subject,curiosity,adventure,learning,path,lesson,materials,parents,studio,journal,finder,faq"
+      }
     }
   ]
 }

@@ -1,0 +1,1 @@
+import type {MetadataRoute} from 'next';import site from '../data/site.json';export const dynamic='force-static';export default function sitemap():MetadataRoute.Sitemap{return Object.keys(site.pages).map(k=>({url:(process.env.NEXT_PUBLIC_SITE_URL||'https://hongjaang-star.github.io')+(process.env.NEXT_PUBLIC_BASE_PATH||'')+'/'+(k?k+'/':'')}));}
