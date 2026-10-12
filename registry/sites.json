@@ -394,7 +394,7 @@
       "editor": "https://hongjaang-star.github.io/agency-web-templates/edu-academy/orbit/editor/",
       "pages": 15,
       "library": "library/edu-academy/orbit/README.md",
-      "notes": "Orbit 1.2: 15페이지·메뉴 확대·주제별 3D 그림·신규 이미지 5종. PR 병합 대기.",
+      "notes": "Orbit 1.3: 정규반 시간표·학년 필터·고정 카톡/전화 상담 데모. 실제 연락처 및 PR 병합 대기.",
       "fingerprint": {
         "layout": "organic",
         "hero": "split-media",
@@ -402,7 +402,7 @@
         "palette": "ivory-olive",
         "imageTreatment": "8 original tactile 3D/paper-craft illustrations across hero, subpages and lesson stages",
         "motion": "subtle hover",
-        "signature": "읽기·말하기·글쓰기 탐험 탭과 학년별 수업",
+        "signature": "수업 탐험 탭·연령별 정원과 주간 시간표·고정 상담",
         "sectionOrder": "hero,subject,curiosity,adventure,learning,path,lesson,materials,parents,studio,journal,finder,faq"
       }
     }

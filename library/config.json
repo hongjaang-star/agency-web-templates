@@ -950,6 +950,14 @@
           "source": "src/data/site.json"
         },
         {
+          "id": "timetable",
+          "kind": "schedule",
+          "label": "연령별 정원·횟수와 주간 시간표",
+          "page": "/visit/",
+          "select": "#timetable",
+          "source": "src/data/site.json"
+        },
+        {
           "id": "footer",
           "kind": "footer",
           "label": "교육 안내 푸터",
