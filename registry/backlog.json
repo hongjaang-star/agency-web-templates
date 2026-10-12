@@ -164,10 +164,11 @@
     {
       "order": 10,
       "slug": "edu-academy",
-      "name": "교육기관(소규모)",
+      "name": "중고등 학원",
       "category": "edu",
       "level": "L1",
-      "status": "wait"
+      "status": "research",
+      "note": "2026-10-13 사용자 선택. 유아·초등 독서토론 학원은 사용자가 운영 중이라 제외, 중고등 내신·수능 학원으로 범위 지정. 레퍼런스 보고서(매스타트·구주이배·Revolution Prep) 제출, 조합 선택 대기"
     },
     {
       "order": 11,

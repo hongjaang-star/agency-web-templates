@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>레퍼런스 보고서 · 중고등 학원</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{--ink:#1c1c1a;--sub:#5e5e58;--line:#d9d6cf;--paper:#f7f5f0;--card:#fff;--a:#2f6b4f;--b:#9a5b1e;--c:#3b4a8c;--pick:#c2410c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 Pretendard,system-ui,sans-serif;word-break:keep-all}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:40px 20px 80px}
+.tag{display:inline-block;font-size:13px;letter-spacing:.04em;border:1px solid var(--ink);padding:2px 10px;border-radius:99px}
+h1{font-size:clamp(28px,4vw,40px);line-height:1.25;margin:16px 0 8px}
+h2{font-size:22px;margin:56px 0 16px;padding-top:16px;border-top:2px solid var(--ink)}
+h3{font-size:18px;margin:0 0 6px}
+.lead{color:var(--sub);max-width:720px}
+.note{background:#fff7e6;border:1px solid #ecd9a8;padding:12px 16px;border-radius:8px;font-size:15px}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:20px}
+.meta div{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.meta b{display:block;font-size:13px;color:var(--sub);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.role{font-size:13px;font-weight:700;color:#fff;padding:2px 10px;border-radius:4px;align-self:flex-start}
+.ra{background:var(--a)}.rb{background:var(--b)}.rc{background:var(--c)}
+.url{font-size:14px;color:var(--sub);overflow-wrap:anywhere}
+.card ul{margin:0;padding-left:18px;font-size:15px}
+.wire{border:1px dashed #b9b4aa;border-radius:6px;padding:10px;background:#fbfaf7;font-size:12px;color:var(--sub)}
+.wire .bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.wire .bar span{border:1px solid #c9c4b9;border-radius:3px;padding:1px 6px;background:#fff}
+.wire .blk{border:1px solid #d6d1c6;background:#fff;border-radius:3px;padding:6px;margin-top:6px}
+.wire .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:6px}
+.wire .grid i{display:block;height:26px;background:#e7e3da;border-radius:2px}
+.wire .cap{margin-top:6px;font-style:italic}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:15px}
+th,td{border:1px solid var(--line);padding:10px 12px;vertical-align:top;text-align:left}
+th{background:#efece5;font-weight:600}
+td.take{background:#f3f7f5}
+.tablewrap{overflow-x:auto}
+.combos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.combo{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+.combo.rec{border:2px solid var(--pick)}
+.combo .k{font-size:13px;font-weight:700;color:var(--pick)}
+.combo dl{margin:10px 0 0;font-size:15px}
+.combo dt{font-weight:600;margin-top:8px}
+.combo dd{margin:0;color:var(--sub)}
+.ask{background:var(--ink);color:#fff;border-radius:10px;padding:22px}
+.ask ol{margin:8px 0 0;padding-left:20px}
+.src{font-size:14px;color:var(--sub)}
+.src li{overflow-wrap:anywhere}
+@media (max-width:640px){.wrap{padding:28px 16px 64px}th,td{padding:8px}}
+.ask fieldset{border:0;margin:14px 0 0;padding:0;display:grid;gap:8px}
+.ask legend{font-weight:600;margin-bottom:6px}
+.ask label.opt{display:flex;gap:10px;align-items:flex-start;background:#2b2b28;border:1px solid #444;border-radius:8px;padding:10px 12px;cursor:pointer}
+.ask label.opt:has(input:checked){border-color:#f0b9ab;background:#3a2622}
+.ask input[type=radio]{margin-top:5px;accent-color:#f0b9ab}
+.ask textarea{width:100%;min-height:96px;margin-top:6px;border-radius:8px;border:1px solid #555;background:#2b2b28;color:#fff;padding:10px;font:inherit}
+.ask .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.ask button{font:inherit;font-weight:700;border-radius:8px;padding:10px 18px;cursor:pointer;border:1px solid #f0b9ab}
+.ask button.primary{background:#f0b9ab;color:#1c1c1a}
+.ask button.ghost{background:transparent;color:#fff}
+.ask .help{font-size:14px;color:#cfcac0;margin:10px 0 0}
+.ask .status{font-size:14px;color:#f0b9ab;min-height:1.4em;margin:8px 0 0}
+.ask :focus-visible{outline:3px solid #f0b9ab;outline-offset:2px}
+</style>
+</head>
+<body>
+<main class="wrap">
+<span class="tag">내부 보고서 · 시안 전 레퍼런스 검색</span>
+<h1>중고등 학원 레퍼런스 3곳<br>비교와 조합 제안</h1>
+<p class="lead">새 업종 <b>edu-academy</b>를 <b>중·고등학생 대상 내신·수능 학원</b>으로 정했습니다. 유아·초등 독서토론 학원은 이미 운영 중이라 이번 범위에서 뺐습니다. 콘텐츠 참고 2곳, 디자인 참고 1곳을 비교하고 조합 3개를 제안합니다.</p>
+<p><a class="tag" href="#pick" style="text-decoration:none">조합 선택하기 ↓</a></p>
+<div class="meta"><div><b>작성일</b>2026-10-13</div><div><b>검색 범위</b>국내 중고등 학원 공식 사이트 · 해외 튜터링/입시 컨설팅</div><div><b>검토 후보</b>7곳 → 3곳 선정</div><div><b>상태</b>조합 선택 대기</div></div>
+
+<h2>1. 업종 정의와 검색 결과</h2>
+<p><b>범위:</b> 중1~고3 대상, 원생 30~150명 규모의 단과·종합 학원(수학 중심, 영어 병행). 대형 입시학원·인강 플랫폼은 정보 구조 비교에만 썼습니다.</p>
+<p><b>학부모·학생이 홈페이지에서 확인하는 것:</b> ① 우리 아이 수준과 목표에 맞는 반이 있는지 ② 수업이 어떻게 돌아가고 관리되는지(테스트·클리닉·보고) ③ 학교별 내신 시험 대비 방식 ④ 강사 ⑤ 교습비·시간표 ⑥ 상담·레벨테스트 방법.</p>
+<p><b>2026년 기준 변화:</b> 고교학점제 시행과 2028학년도 대입(내신 5등급제·통합형 수능)으로 <b>과목 선택·학생부 상담</b> 수요가 늘었습니다. 다만 대입 세부안은 수정 논의가 이어지고 있어 데모에서는 단정하지 않고 "교육부 발표 기준" 안내로 씁니다. 2025년 하반기부터 홈페이지·블로그·플레이스 등 <b>인터넷 광고에도 교습비 등 표시</b>가 의무로 점검되고 있습니다.</p>
+<p><b>검토 후보:</b> 매스타트 수학학원(1:1 수학, 수준별 트랙), 구주이배 수학학원(다지점 브랜드), 와코칭 수학학원(지점 목록·상담폼), 시대인재(로봇 차단으로 확인 불가), Revolution Prep(미국 튜터링·시험 대비), Crimson Education(입시 컨설팅), 학원 홈페이지 제작 포트폴리오(아임웹·크몽, 개별 사이트 확인 제한).</p>
+
+<h2>2. 레퍼런스 카드</h2>
+<div class="cards">
+<article class="card"><span class="role ra">콘텐츠 참고 A</span><h3>매스타트 수학학원</h3><span class="url">mathstartacademy.com · <a href="https://mathstartacademy.com/curriculum">커리큘럼 페이지 열기 ↗</a></span>
+<div class="wire"><div class="bar"><span>학원 소개</span><span>커뮤니티</span><span>실적 공개</span><span>수학 공부법</span><span>인강</span><span>이벤트</span></div><div class="blk">커리큘럼 탭: 노베이스 · 내신 · 수능</div><div class="grid"><i></i><i></i><i></i></div><div class="cap">트랙별 추천 대상 → 교재 → 상담 신청 · 확인된 구조 요약</div></div>
+<ul><li>서울 중계동 중·고등 1:1 수학. 학년이 아니라 <b>학생 상태·목표</b>로 트랙을 나눔(기초 없음 / 내신 / 수능).</li><li>트랙마다 "이런 학생에게" 추천 대상 블록.</li><li>공부법 칼럼, 후기, FAQ, 1:1 문의 등 신뢰·소통 메뉴가 많음.</li><li>푸터에 학원 등록번호 표기. 교습비는 페이지에 없음.</li><li>"1등급 메이킹"처럼 결과를 앞세운 문구가 반복됨 → 우리 데모에선 쓰지 않음.</li></ul>
+<p><b>가져올 점:</b> 학년보다 '지금 상태 + 목표'로 반을 고르게 하는 구성, 추천 대상 블록, 공부법 칼럼.</p></article>
+
+<article class="card"><span class="role rb">콘텐츠 참고 B</span><h3>구주이배 수학학원</h3><span class="url">goojoo.net · <a href="https://goojoo.net/">공식 사이트 열기 ↗</a></span>
+<div class="wire"><div class="bar"><span>소개</span><span>학원 찾기</span><span>콘텐츠</span><span>선생님</span><span>공지사항</span></div><div class="blk">학원 안내 탭: 고등 · 중등 · 초등</div><div class="blk">공지: 설명회/세미나 · 개강/입학고사 · 평가 일정</div><div class="cap">학년 탭 → 공지 5건 → 외부 평가 배너 · 확인된 구조 요약</div></div>
+<ul><li>서울 동부·경기 지점을 둔 수학 전문 브랜드. 학년별(중등·고등·수능) 콘텐츠.</li><li>공지를 <b>설명회 · 개강/입학고사 · 평가 일정</b>으로 분류해 학부모가 일정을 찾기 쉬움.</li><li>선생님을 지점별로 소개.</li><li>상담 신청 폼 없이 대표 전화만 있음. 교습비·학원 등록번호 미표기.</li><li>합격자 '명예의 전당' 운영 → 데모에서는 실적 수치 대신 수업 과정으로 신뢰를 만듦.</li></ul>
+<p><b>가져올 점:</b> 학년별 과정 안내, 일정형 공지 분류(설명회·개강·평가), 강사 소개. 보완할 점은 상담 신청 경로와 법정 표시사항.</p></article>
+
+<article class="card"><span class="role rc">디자인 추천</span><h3>Revolution Prep</h3><span class="url">revolutionprep.com · <a href="https://www.revolutionprep.com/">공식 사이트 열기 ↗</a></span>
+<div class="wire"><div class="bar"><span>Free Tests</span><span>Test Prep</span><span>Academics</span><span>Programs</span><span>Resources</span></div><div class="blk">히어로 + "내 프로그램 찾기" 버튼</div><div class="grid"><i></i><i></i><i></i></div><div class="cap">프로그램 카드 3 → 방법론 3기둥 → 무료 진단 시험 → 웨비나 → 학교 로고 · 확인된 구조 요약</div></div>
+<ul><li>미국 고등학생 학업·시험 대비 튜터링. 프로그램을 <b>형식(1:1 · 소그룹) × 목표(학업 · 시험)</b>로 나눔.</li><li>카드마다 체크 3개로 핵심만, '무료 진단 시험 → 결과 리포트 → 상담'으로 이어지는 단계형 전환.</li><li>상단 전화번호, 반복되는 상담 버튼, 웨비나(설명회) 섹션.</li><li>참고로 같이 본 Crimson Education은 큰 숫자 타일·비교표가 인상적이지만 근거 없는 합격률 수치가 많아 디자인 참고에서 뺐습니다.</li></ul>
+<p><b>적용 제안:</b> 프로그램 카드·단계형 전환·명확한 위계를 가져오되, 색·서체는 우리 시안에서 새로 설계합니다. 학생 얼굴 실사 사진 대신 교재·노트·시간표 같은 사물과 도식으로 표현합니다.</p></article>
+</div>
+
+<h2>3. 5개 주제 비교</h2>
+<div class="tablewrap"><table>
+<tr><th>주제</th><th>A · 매스타트</th><th>B · 구주이배</th><th>디자인 · Revolution Prep</th><th>우리 사이트 적용안</th></tr>
+<tr><th>정보 구조</th><td>소개·실적·공부법·인강·이벤트</td><td>소개·지점·학년별 콘텐츠·강사·공지</td><td>무료 진단·시험 대비·학업·프로그램·자료</td><td class="take">학원 소개 · 과정(중등·고등·수능) · 수업 시스템 · 강사 · 시험 일정 · 상담</td></tr>
+<tr><th>콘텐츠와 메시지</th><td>상태·목표별 트랙</td><td>학년별 과정, 일정 공지</td><td>개인 맞춤 계획, 진단 리포트</td><td class="take">"지금 상태 → 목표" 로드맵, 수업·관리 과정 공개</td></tr>
+<tr><th>전환 경로</th><td>상담 신청·무료 체험</td><td>대표 전화만</td><td>무료 진단 → 리포트 → 상담</td><td class="take">학년·목표 선택 → 추천 반 → 상담 메모(통화 희망 시간) · 진단 테스트 예약 안내</td></tr>
+<tr><th>비주얼 디자인</th><td>검정 테마·이미지 배너</td><td>배너·아이콘 중심(확인 제한)</td><td>카드·체크 리스트·명확한 위계</td><td class="take">학생 사진 없이 노트·시간표·그래프 도식, 정돈된 위계</td></tr>
+<tr><th>모바일과 사용성</th><td>모바일 우선, 탭</td><td>탭·목록</td><td>상단 전화, 반복 CTA</td><td class="take">하단 고정 상담 버튼, 시험 기간에는 '이번 주 보강' 우선 노출</td></tr>
+</table></div>
+
+<h2>4. 조합 제안</h2>
+<div class="combos">
+<section class="combo rec"><span class="k">조합 1 · 추천</span><h3>학습 로드맵 진단형</h3><dl>
+<dt>콘텐츠 조합</dt><dd>A의 상태·목표별 트랙 + B의 학년별 과정을 하나의 로드맵으로.</dd>
+<dt>디자인 조합</dt><dd>Revolution Prep의 "내 프로그램 찾기"와 단계형 전환을 질문 3개짜리 진단으로.</dd>
+<dt>대표 구성</dt><dd>학년·목표 선택 → 추천 반과 주간 시간표 → 수업 시스템(개념 → 클리닉 → 테스트 → 피드백) → 강사 → 교습비 표 → 상담.</dd>
+<dt>시그니처 후보</dt><dd>학년 · 현재 수준 · 목표(내신/수능)를 고르면 학기별 로드맵과 추천 반이 나오고, 상담 메모로 복사되는 '로드맵 진단'.</dd>
+<dt>추천 이유</dt><dd>학부모 첫 질문 "우리 애는 어느 반?"에 바로 답하고, 고교학점제·2028 대입으로 늘어난 진로 상담 수요와 맞음.</dd></dl></section>
+<section class="combo"><span class="k">조합 2</span><h3>수업 관리 공개형</h3><dl>
+<dt>콘텐츠 조합</dt><dd>B의 강사·과정 소개 + A의 공부법 칼럼·FAQ.</dd>
+<dt>디자인 조합</dt><dd>Revolution Prep의 방법론 3기둥을 '일주일 수업 흐름'으로.</dd>
+<dt>대표 구성</dt><dd>주간 수업 흐름 → 학부모 리포트 미리보기 → 출결·과제 알림 → 강사 → 공부법 칼럼 → 상담.</dd>
+<dt>시그니처 후보</dt><dd>월~토를 넘기면 수업·클리닉·테스트·리포트가 어떻게 이어지는지 보여 주는 '한 주 따라가기' + 예시 성적 리포트.</dd>
+<dt>장점과 부담</dt><dd>실적 수치 없이 신뢰를 주기에 좋음. 리포트 예시를 정성껏 설계해야 함.</dd></dl></section>
+<section class="combo"><span class="k">조합 3</span><h3>내신 시험 일정형</h3><dl>
+<dt>콘텐츠 조합</dt><dd>B의 설명회·개강·평가 일정 공지를 메인 달력으로.</dd>
+<dt>디자인 조합</dt><dd>Revolution Prep의 무료 진단 시험·웨비나 섹션을 시험 대비 일정으로.</dd>
+<dt>대표 구성</dt><dd>학교 선택 → 시험 D-day와 범위·직전 보강 일정 → 과정 → 설명회 → 상담.</dd>
+<dt>시그니처 후보</dt><dd>주변 중·고등학교(가상)를 고르면 다음 시험까지 남은 날과 대비 일정이 바뀌는 '학교별 시험 달력'.</dd>
+<dt>장점과 부담</dt><dd>재원생이 시험 기간마다 다시 찾는 사이트가 됨. 학기마다 일정 갱신이 필요함.</dd></dl></section>
+</div>
+
+<h2>5. 업종 표기·주의 사항</h2>
+<ul>
+<li><b>법정 표시사항:</b> 홈페이지도 인터넷 광고에 포함되므로 학원 명칭(등록 명칭과 동일)·등록번호·교습과정·교습비 등을 표시합니다. 데모는 표 형식만 보여 주고 금액은 "예시"로 둡니다.</li>
+<li><b>과장 광고 금지:</b> "합격 보장", "최다 1등급", "100% 환급", 사실과 다른 강사 경력(예: 출제위원 출신) 같은 표현은 쓰지 않습니다. 합격·성적 실적은 데모에 넣지 않습니다.</li>
+<li><b>선행학습 광고 금지:</b> 공교육정상화법에 따라 학원은 선행학습을 유발하는 광고를 할 수 없어 "○학년 과정 미리 끝내기" 같은 문구를 쓰지 않습니다.</li>
+<li><b>교습 시간:</b> 시·도 조례의 교습 시간 범위(지역마다 다름) 안에서 시간표를 구성합니다.</li>
+<li><b>개인정보:</b> 상담 폼은 보호자 정보 중심으로 받고, 만 14세 미만은 법정대리인 동의가 필요하다는 점을 반영합니다. 데모는 실제 접수 없음.</li>
+<li><b>사진:</b> 학생 얼굴 실사 사진(실존·AI 모두) 없이 사물·공간·도식으로 표현합니다.</li>
+<li>참고: 2026년 10월부터 유아 대상 학원의 입학 레벨테스트가 금지됐습니다. 중고등 대상에는 해당하지 않지만, 진단 테스트는 "반 배정 참고용"으로 설명합니다.</li>
+</ul>
+
+<h2 id="pick">6. 선택 제출</h2>
+<div class="ask"><p>조합을 고르고 제출해 주세요. 제출하면 이 선택으로 시안 3개를 만듭니다.</p>
+<form id="choice" data-slug="edu-academy" data-name="중고등 학원" data-repo="hongjaang-star/agency-web-templates">
+<fieldset><legend>1. 어떤 조합으로 만들까요?</legend>
+<label class="opt"><input type="radio" name="combo" value="1" checked> <span>조합 1 · 추천 · 학습 로드맵 진단형</span></label>
+<label class="opt"><input type="radio" name="combo" value="2"> <span>조합 2 · 수업 관리 공개형</span></label>
+<label class="opt"><input type="radio" name="combo" value="3"> <span>조합 3 · 내신 시험 일정형</span></label></fieldset>
+<fieldset><legend>2. 더하거나 빼고 싶은 점 (선택)</legend><textarea name="memo" placeholder="예: 수학·영어 종합, 고등부 중심, 관리형 독서실 포함 등"></textarea></fieldset>
+<div class="btns"><button class="primary" type="submit">GitHub에 선택 제출</button><button class="ghost" type="button" id="copy">내용 복사</button></div>
+<p class="help">버튼을 누르면 GitHub 새 이슈 화면이 내용이 채워진 채로 열립니다. 채팅에서 "조합 1"처럼 알려 주셔도 됩니다.</p><p class="status" id="status" role="status"></p></form></div>
+<script>
+  (function(){
+    var f=document.getElementById('choice'), st=document.getElementById('status');
+    function text(){
+      var c=f.querySelector('input[name=combo]:checked'), label=c.parentNode.textContent.replace(/\s+/g,' ').trim(), memo=f.memo.value.trim();
+      return {title:'[조합 선택] '+f.dataset.slug+' · 조합 '+c.value,
+        body:'## 업종\n'+f.dataset.name+' (`'+f.dataset.slug+'`)\n\n## 선택한 조합\n'+label+'\n\n## 더하거나 뺄 점\n'+(memo||'없음')+'\n\n보고서: '+location.href.split('#')[0]};
+    }
+    f.addEventListener('submit',function(e){
+      e.preventDefault(); var t=text();
+      var url='https://github.com/'+f.dataset.repo+'/issues/new?labels=concept-choice&title='+encodeURIComponent(t.title)+'&body='+encodeURIComponent(t.body);
+      window.open(url,'_blank','noopener'); st.textContent='GitHub 새 이슈 화면을 열었습니다. Submit new issue 를 눌러 주세요.';
+    });
+    document.getElementById('copy').addEventListener('click',function(){
+      var t=text(), s=t.title+'\n\n'+t.body;
+      (navigator.clipboard?navigator.clipboard.writeText(s):Promise.reject()).then(function(){st.textContent='복사했습니다. 채팅에 붙여 넣어 주세요.';},function(){f.memo.value=s; f.memo.select(); st.textContent='메모 칸에 내용을 넣었습니다. 직접 복사해 주세요.';});
+    });
+  })();
+  </script>
+<h2>출처와 다음 단계</h2><ul class="src">
+<li>콘텐츠 A: <a href="https://mathstartacademy.com/curriculum">매스타트 수학학원 · 커리큘럼</a></li>
+<li>콘텐츠 B: <a href="https://goojoo.net/">구주이배 수학학원</a></li>
+<li>디자인: <a href="https://www.revolutionprep.com/">Revolution Prep</a> · 함께 검토 <a href="https://www.crimsoneducation.org/">Crimson Education</a> · <a href="https://www.krishaweb.com/blog/best-tutoring-website-designs/">튜터링 사이트 사례 모음(2026)</a></li>
+<li>검토 후보: <a href="https://www.real-ability.com/000_M4/">와코칭 수학학원</a> · <a href="https://www.sdij.com/">시대인재(로봇 차단)</a></li>
+<li>규정: <a href="https://bbedu.sen.go.kr/CMS/adminfo/adminfo03/adminfo0301/1348471_4973.html">서울시교육청 북부 · 인터넷 광고 표시사항 안내(2025.06)</a> · <a href="https://www.easylaw.go.kr/CSP/CnpClsMainBtr.laf?popMenu=ov&amp;csmSeq=1140&amp;ccfNo=2&amp;cciNo=3&amp;cnpClsNo=2&amp;menuType=cnpcls">찾기쉬운 생활법령 · 학원의 운영</a> · <a href="https://m.seoul.co.kr/news/2023/12/10/20231210500085">공정위 입시업계 부당광고 제재(2023.12)</a> · <a href="https://www.newspim.com/news/view/20260922000198">유아 레벨테스트 금지(2026.09)</a></li>
+<li>대입: <a href="https://www.etoday.co.kr/news/view/2477240">2028 대입 개편 수정 논의(2025.06)</a> · <a href="https://kbmaeil.com/article/20260714500157">고교학점제·2028 대입 학부모 연수(2026.07)</a></li></ul>
+<p class="src">조합 선택 → 서로 다른 시안 3개 → 시안 선택 → 완성 사이트 제작. 레퍼런스의 상호·문구·사진·표 구성은 복제하지 않고 주제만 참고합니다.</p></main></body></html>
