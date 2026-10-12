@@ -910,6 +910,14 @@
           "source": "src/data/site.json"
         },
         {
+          "id": "adventure",
+          "kind": "interactive",
+          "label": "읽기·말하기·글쓰기 탐험 탭",
+          "page": "/",
+          "select": "#adventure",
+          "source": "src/data/site.json"
+        },
+        {
           "id": "program",
           "kind": "services",
           "label": "학년별 교육과정",
