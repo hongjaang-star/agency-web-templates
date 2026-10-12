@@ -255,6 +255,13 @@
       "concepts": [
         "ember-claw"
       ]
+    },
+    {
+      "slug": "edu-kindergarten",
+      "status": "research",
+      "level": "L1",
+      "name": "유치원",
+      "note": "2026-10-12 사용자 요청으로 착수. 레퍼런스 보고서(오산숲유치원·미래유치원·MEplace) 제출, 조합 선택 대기"
     }
   ]
 }
