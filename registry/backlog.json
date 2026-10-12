@@ -167,9 +167,15 @@
       "name": "교육기관(소규모)",
       "category": "edu",
       "level": "L1",
-      "status": "research",
+      "status": "concepts",
       "research": "concepts/edu-academy/research/",
-      "note": "2026-10-12 사용자 업종 선택. 국내 레퍼런스 비교·조합 3개 보고서 작성, 과목은 초등 독서·사고력 교실 제안이며 조합 선택 대기."
+      "note": "2026-10-12 사용자 업종 선택. 국내 레퍼런스 비교·조합 3개 보고서 작성, 과목은 초등 독서·사고력 교실 제안이며 조합 선택 대기.",
+      "concepts": [
+        "orbit",
+        "margin",
+        "prism"
+      ],
+      "selectionIssue": "https://github.com/hongjaang-star/agency-web-templates/issues/73"
     },
     {
       "order": 11,
