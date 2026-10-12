@@ -522,10 +522,43 @@ a.eco:hover{transform:translateY(-3px)}
 @media (max-width:760px){.vals,.two,.sea,.ecos.sub{grid-template-columns:1fr}.areas{grid-template-columns:repeat(2,1fr)}.gcal{grid-template-columns:repeat(2,1fr)}.sc dl{grid-template-columns:1fr;gap:2px}.sc dt{padding-top:8px}}
 @media (max-width:440px){.ecos,.flows,.safety,.feature.mind,.areas{grid-template-columns:1fr}}
 
+
+/* 이미지 톤: 크림 · 잎사귀 초록 · 하늘색 · 살구, 부드러운 햇빛 */
+.hero{background:#fff4e6}
+.hero::after{background:linear-gradient(90deg,rgba(255,253,248,.96),rgba(255,253,248,.88) 24%,rgba(255,253,248,.28) 49%,transparent 65%)}
+.hero .copy{color:#2d442d}
+.hero .copy small{color:#2a7a34;opacity:1}
+.hero .copy h1{font-size:clamp(44px,6vw,80px);text-shadow:none}
+.hero .copy h1 .c1{color:#1f7fc4}.hero .copy h1 .c2{color:#2a7a34}.hero .copy h1 .c3{color:#d96f0c}
+.hero .copy p{max-width:480px;width:43%;text-shadow:none;color:#3b4b38}
+.hero .btn.w{border:1px solid #d6e3cf;background:#fffdf8}
+.dots button{background:#c0cdb6}.dots button.on{background:#2a7a34}
+.ph.scene img{object-position:64% 50%}
+.ph.scene[data-image^="space-"] img{object-position:center}
+.hero .ph.scene img{object-position:center}
+.subvis .ph.scene img{object-position:center 42%}
+.subvis::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(29,58,36,.65),rgba(29,58,36,.12) 70%);pointer-events:none}
+.lyr .staff img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%}
+.lb .ph img{object-fit:contain;object-position:center;background:#fffdf8}
+@media(max-width:760px){
+ .hero{height:650px}
+ .hero .ph{height:340px;bottom:auto}
+ .hero .ph.scene img{object-position:72% center}
+ .hero::after{background:linear-gradient(180deg,transparent 42%,#fff4e6 53%)}
+ .hero .copy{top:auto;bottom:24px;transform:none}
+ .hero .copy small{font-size:18px}
+ .hero .copy h1{font-size:clamp(38px,8vw,54px);margin:.1em 0 .2em}
+ .hero .copy p{width:100%;max-width:none;font-size:15px;line-height:1.65;min-height:75px}
+ .hero .copy .cta{margin-top:14px}
+ .hero .copy .btn{padding:11px 17px;font-size:14px}
+ .hero .dots{top:318px;bottom:auto}
+ .quick{margin-top:0;padding-top:18px}
+}
+
 </style>
 </head>
 <body>
-<div class="demo"><b>가상 업체 데모</b> <span class="d">— 꿈틀숲유치원은 실제 유치원이 아닙니다. 주소 · 연락처 · 게시물 · 일정은 모두 예시이며, 아이 사진 대신 일러스트를 씁니다.</span><span class="m">· 실제 유치원이 아닙니다</span></div>
+<div class="demo"><b>가상 업체 데모</b> <span class="d">— 꿈틀숲유치원은 실제 유치원이 아닙니다. 주소 · 연락처 · 게시물 · 일정은 모두 예시이며, 3D 일러스트와 AI 생성 공간 예시를 씁니다.</span><span class="m">· 실제 유치원이 아닙니다</span></div>
 <div class="util"><div class="wrap"><a href="#home">처음화면</a><a href="#login">로그인</a><a href="#join">회원가입</a><a href="#location">찾아오시는 길</a></div></div>
 <header class="gh">
  <div class="wrap">
@@ -727,44 +760,20 @@ const COLUMNS=[
  {t:'떼쓰는 순간, 감정에 이름 붙여 주기',d:'2026.07.30',b:['감정을 말로 표현하기 어려운 유아는 울음과 몸으로 마음을 드러냅니다. 이때 “속상했구나, 더 놀고 싶었구나”처럼 감정에 이름을 붙여 주면 아이는 자기 마음을 알아차리기 시작합니다.','감정을 받아 주는 것과 행동을 허용하는 것은 다릅니다. “속상한 건 괜찮아. 하지만 던지는 건 안 돼”처럼 둘을 나눠 말해 주세요.','유치원에서는 매일 ‘마음 날씨’ 카드로 같은 연습을 합니다.']}];
 const LYRICS=[['숲길 따라 꿈틀꿈틀','햇살 친구 손을 잡고','나무처럼 쑥쑥 크는','우리는 꿈틀숲 어린이'],['도토리 줍고 씨앗 심고','궁금한 건 물어보며','서로서로 아껴 주는','우리는 꿈틀숲 어린이']];
 
-/* ---------- 일러스트 장면 (사진 대신 SVG · 사람 얼굴 없음) ---------- */
-let _sid=0;
-const S={
- sky:(id,a,b)=>`<defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><rect width="600" height="400" fill="url(#${id})"/>`,
- sun:(x,y,r=34,c='#ffd45a')=>`<circle cx="${x}" cy="${y}" r="${r+16}" fill="${c}" opacity=".25"/><circle cx="${x}" cy="${y}" r="${r}" fill="${c}"/>`,
- cloud:(x,y,s=1)=>`<g transform="translate(${x} ${y}) scale(${s})" fill="#fff" opacity=".92"><ellipse cx="0" cy="0" rx="38" ry="18"/><ellipse cx="28" cy="-10" rx="28" ry="20"/><ellipse cx="56" cy="2" rx="30" ry="16"/></g>`,
- hill:(d,c)=>`<path d="${d}" fill="${c}"/>`,
- pine:(x,y,s=1,c='#2f7d3a')=>`<g transform="translate(${x} ${y}) scale(${s})"><rect x="-5" y="-6" width="10" height="26" fill="#7a5233"/><path d="M0-110L-36-40H-18L-46 0H46L18-40H36Z" fill="${c}"/></g>`,
- round:(x,y,s=1,c='#4caf50',fruit='')=>`<g transform="translate(${x} ${y}) scale(${s})"><rect x="-6" y="-20" width="12" height="40" rx="4" fill="#7a5233"/><circle cx="0" cy="-56" r="44" fill="${c}"/><circle cx="-26" cy="-40" r="26" fill="${c}"/><circle cx="26" cy="-40" r="26" fill="${c}"/>${fruit?[[-20,-64],[14,-74],[24,-44],[-6,-40],[-30,-36],[4,-58]].map(([a,b])=>`<circle cx="${a}" cy="${b}" r="6" fill="${fruit}"/>`).join(''):''}</g>`,
- grass:(y,c)=>`<path d="M0 ${y} ${Array.from({length:31},(_,i)=>`L${i*20} ${y-(i%2?8:0)}`).join(' ')} L600 400 L0 400Z" fill="${c}"/>`,
- leaf:(x,y,r,c)=>`<path transform="translate(${x} ${y}) rotate(${r})" d="M0 0C8-10 22-10 28 0C22 10 8 10 0 0Z" fill="${c}"/>`
+/* ---------- 통일된 3D 활동 이미지 · 실사풍 공간 이미지 ---------- */
+const IMAGE_KINDS=['forest','garden','playground','classroom','library','cook','pond','bus','autumn','snow','art','music','english','sport'];
+const SPACE_IMAGES={classroom:'space-classroom',library:'space-library',cook:'space-cook',hall:'space-hall'};
+function imageTag(kind,label='',hero=false,first=false){
+ const file=IMAGE_KINDS.includes(kind)||Object.values(SPACE_IMAGES).includes(kind)?kind:'forest';
+ const loading=hero?'eager':'lazy';
+ return `<img src="images/${file}.webp" srcset="images/${file}-small.webp 800w, images/${file}.webp 1672w" sizes="${hero?'100vw':'(max-width:760px) 100vw, (max-width:1080px) 50vw, 600px'}" width="1672" height="941" alt="${label}" loading="${loading}" decoding="async"${first?' fetchpriority="high"':''}>`;
+}
+const pic=(kind,cap='',label='',mode='activity',hero=false,first=false)=>{
+ const key=mode==='space'?(SPACE_IMAGES[kind]||kind):kind;
+ const alt=label||cap||({forest:'선생님과 아이들이 숲길에서 개미를 관찰하는 3D 일러스트',garden:'텃밭에서 채소를 키우고 수확하는 3D 일러스트',art:'자연 재료와 재활용품으로 함께 만드는 3D 일러스트',pond:'작은 연못의 생명을 관찰하는 3D 일러스트'}[kind])||'꿈틀숲의 놀이를 담은 3D 일러스트';
+ return `<div class="ph scene" data-image="${key}">${imageTag(key,alt,hero,first)}${cap?`<span class="cap">${cap}</span>`:''}</div>`;
 };
-function scene(kind){const id='g'+(++_sid);let b='';
- switch(kind){
- case 'forest':b=S.sky(id,'#bfe6ff','#e9f8e4')+S.sun(470,80)+S.cloud(90,70,.9)+S.hill('M0 260C120 200 260 230 600 190V400H0Z','#8fcf86')+[[60,250,1.1],[150,235,.9],[420,215,1.2],[520,225,1],[580,240,.8]].map(([x,y,s])=>S.pine(x,y,s)).join('')+S.round(300,250,.9,'#5bb65f')+S.hill('M0 320C200 290 400 300 600 280V400H0Z','#6db564')+'<path d="M250 400C270 350 300 320 330 300C350 290 380 290 400 300C370 310 340 330 320 400Z" fill="#d9b88a"/>'+S.leaf(140,340,-20,'#3a9d45')+S.leaf(470,350,30,'#3a9d45');break;
- case 'garden':b=S.sky(id,'#cdeeff','#fff6dc')+S.sun(100,80,30)+S.cloud(380,60)+S.hill('M0 200C200 180 400 190 600 170V400H0Z','#a8d98f')+[0,1,2,3].map(i=>`<path d="M${-40+i*20} ${230+i*44}L${640-i*20} ${220+i*44}L${640-i*20} ${250+i*44}L${-40+i*20} ${260+i*44}Z" fill="#a86f45"/>`+Array.from({length:9},(_,j)=>{const x=40+j*64+(i%2)*20,y=228+i*44;return `<path d="M${x} ${y}V${y-18}" stroke="#2f7d3a" stroke-width="3"/>${S.leaf(x,y-16,-40,'#4caf50')}${S.leaf(x,y-12,200,'#5bb65f')}`}).join('')).join('')+'<g fill="#e9c58f" stroke="#a87b4f" stroke-width="2"><rect x="470" y="150" width="70" height="40" rx="6"/></g><text x="505" y="176" text-anchor="middle" font-size="16" fill="#6b4a2a" font-family="sans-serif">새싹반</text><rect x="503" y="190" width="5" height="40" fill="#a87b4f"/>';break;
- case 'orchard':b=S.sky(id,'#ffe2c4','#fff8ea')+S.sun(500,90,36,'#ffb347')+S.hill('M0 240C150 210 400 230 600 200V400H0Z','#b5dc94')+[[80,280,1,'#e5483f'],[230,260,1.15,'#f2a33a'],[390,270,1.05,'#e5483f'],[530,285,.95,'#8e5bd1']].map(([x,y,s,f])=>S.round(x,y,s,'#58a957',f)).join('')+S.grass(330,'#8cc97a')+'<g transform="translate(300 330)"><path d="M-36 0H36L28 34H-28Z" fill="#c98a4b"/><path d="M-36 0C-20-26 20-26 36 0" fill="none" stroke="#a86f45" stroke-width="5"/><circle cx="-12" cy="-4" r="9" fill="#e5483f"/><circle cx="6" cy="-6" r="9" fill="#f2a33a"/><circle cx="20" cy="-2" r="8" fill="#e5483f"/></g>';break;
- case 'playground':b=S.sky(id,'#c6ecff','#effbe9')+S.cloud(60,60)+S.cloud(420,90,.8)+S.hill('M0 270C200 250 400 260 600 240V400H0Z','#9ad08b')+S.pine(560,260,.9)+S.pine(40,270,.8)+'<g transform="translate(150 140)"><rect x="0" y="40" width="10" height="150" fill="#9b6a3f"/><rect x="150" y="40" width="10" height="150" fill="#9b6a3f"/><rect x="-10" y="30" width="180" height="14" rx="6" fill="#b47a46"/>'+Array.from({length:5},(_,i)=>`<path d="M${20+i*30} 44V170" stroke="#e7c48c" stroke-width="4"/>`).join('')+Array.from({length:4},(_,i)=>`<path d="M14 ${74+i*28}H146" stroke="#e7c48c" stroke-width="4"/>`).join('')+'</g><g transform="translate(380 150)"><path d="M0 60L60 0L120 60Z" fill="#e26d3d"/><rect x="10" y="60" width="100" height="80" fill="#d9a066"/><rect x="45" y="90" width="30" height="50" rx="14" fill="#7a5233"/><rect x="0" y="140" width="10" height="50" fill="#9b6a3f"/><rect x="110" y="140" width="10" height="50" fill="#9b6a3f"/><path d="M120 170L190 250" stroke="#f0b33c" stroke-width="16" stroke-linecap="round"/></g>';break;
- case 'classroom':b=S.sky(id,'#fff3dd','#fffaf0')+'<rect x="40" y="40" width="300" height="190" rx="10" fill="#bfe6ff" stroke="#c99b62" stroke-width="10"/><path d="M190 40V230M40 135H340" stroke="#c99b62" stroke-width="8"/>'+S.pine(110,225,.7)+S.round(270,225,.6,'#5bb65f')+'<rect x="380" y="70" width="180" height="180" rx="8" fill="#e9c58f"/>'+[0,1,2].map(r=>`<rect x="380" y="${70+r*60+52}" width="180" height="8" fill="#c99b62"/>`+[0,1,2,3].map(c=>`<circle cx="${405+c*42}" cy="${70+r*60+36}" r="${12-c%2*3}" fill="${['#f08a24','#3a9d45','#1f7fc4','#ef6f86'][(c+r)%4]}"/>`).join('')).join('')+'<rect y="300" width="600" height="100" fill="#d6b78a"/><g fill="#b47a46"><rect x="80" y="280" width="200" height="16" rx="6"/><rect x="95" y="296" width="10" height="50"/><rect x="255" y="296" width="10" height="50"/><rect x="330" y="290" width="200" height="16" rx="6"/><rect x="345" y="306" width="10" height="50"/><rect x="505" y="306" width="10" height="50"/></g><g transform="translate(180 268)"><path d="M0 0L14-30L28 0Z" fill="#8a5a2b"/><circle cx="14" cy="-34" r="7" fill="#a0703a"/></g>';break;
- case 'library':b=S.sky(id,'#fff2e2','#fff9f2')+'<rect x="40" y="50" width="330" height="260" rx="10" fill="#c99b62"/>'+[0,1,2].map(r=>Array.from({length:11},(_,i)=>`<rect x="${58+i*28}" y="${66+r*82+(i%3)*6}" width="22" height="${66-(i%3)*6}" rx="3" fill="${['#f08a24','#3a9d45','#1f7fc4','#ef6f86','#ffcc3d'][(i+r)%5]}"/>`).join('')+`<rect x="40" y="${132+r*82}" width="330" height="10" fill="#a87b4f"/>`).join('')+'<rect y="320" width="600" height="80" fill="#e9d2ad"/><ellipse cx="470" cy="330" rx="90" ry="26" fill="#9cc8f2"/><ellipse cx="470" cy="312" rx="70" ry="22" fill="#b9daf7"/><circle cx="540" cy="80" r="0"/><path d="M500 60V200" stroke="#7a5233" stroke-width="6"/><path d="M470 60H530L515 30H485Z" fill="#ffcc3d"/><g transform="translate(430 280) rotate(-8)"><rect width="70" height="10" rx="2" fill="#ef6f86"/><rect y="-10" width="64" height="10" rx="2" fill="#3a9d45"/></g>';break;
- case 'cook':b=S.sky(id,'#fff6e8','#fffdf6')+'<rect x="0" y="60" width="600" height="8" fill="#e9c58f"/>'+Array.from({length:6},(_,i)=>`<rect x="${60+i*85}" y="20" width="16" height="40" rx="4" fill="#c99b62"/>`).join('')+'<rect y="250" width="600" height="150" fill="#d6b78a"/><rect x="0" y="236" width="600" height="20" fill="#b47a46"/><ellipse cx="160" cy="226" rx="80" ry="22" fill="#fff"/><ellipse cx="160" cy="220" rx="66" ry="14" fill="#f2f2f2"/><circle cx="140" cy="212" r="12" fill="#e5483f"/><circle cx="170" cy="210" r="10" fill="#4caf50"/><circle cx="188" cy="216" r="9" fill="#ffb347"/><rect x="290" y="180" width="140" height="50" rx="10" fill="#9cc8f2"/><path d="M300 180C320 150 400 150 420 180" fill="none" stroke="#7aa9d6" stroke-width="6"/><g transform="translate(480 210)"><path d="M0 0C10-50 30-60 40-60C40-30 30-10 0 0Z" fill="#f08a24"/><path d="M36-58C44-74 54-70 50-62" stroke="#3a9d45" stroke-width="5" fill="none"/></g><g transform="translate(60 160)"><ellipse cx="0" cy="40" rx="26" ry="30" fill="#8e5bd1"/><path d="M-6 10L6 10L0 0Z" fill="#3a9d45"/></g>';break;
- case 'hall':b=S.sky(id,'#f2ece2','#fbf7f0')+[0,1,2].map(i=>`<rect x="${50+i*190}" y="40" width="130" height="150" rx="65" fill="#b9d3e6"/>`+Array.from({length:8},(_,j)=>`<path d="M${70+i*190+j*14} ${70+(j%3)*20}l-6 16" stroke="#7aa9d6" stroke-width="3" stroke-linecap="round"/>`).join('')).join('')+'<rect y="250" width="600" height="150" fill="#e0b47f"/>'+Array.from({length:8},(_,i)=>`<path d="M${i*80} 250V400" stroke="#cf9e66" stroke-width="2"/>`).join('')+'<circle cx="150" cy="300" r="34" fill="#ef6f86"/><path d="M118 300H182M150 266V334" stroke="#fff" stroke-width="3" opacity=".6"/><ellipse cx="320" cy="330" rx="60" ry="14" fill="none" stroke="#3a9d45" stroke-width="8"/><ellipse cx="440" cy="300" rx="50" ry="12" fill="none" stroke="#1f7fc4" stroke-width="8"/><path d="M500 360L520 310L540 360Z" fill="#f08a24"/>';break;
- case 'pond':b=S.sky(id,'#d7f0ff','#eefbe9')+S.hill('M0 190C150 170 400 180 600 160V400H0Z','#9ad08b')+'<ellipse cx="300" cy="290" rx="250" ry="80" fill="#5fb4e6"/><ellipse cx="300" cy="290" rx="220" ry="62" fill="#7cc6ee"/>'+[[200,280],[330,300],[410,270],[260,320]].map(([x,y])=>`<ellipse cx="${x}" cy="${y}" rx="28" ry="10" fill="#4caf50"/>`).join('')+'<circle cx="330" cy="292" r="8" fill="#ef9cc0"/>'+Array.from({length:7},(_,i)=>`<path d="M${520+i*8} 300C${516+i*8} 250 ${524+i*8} 220 ${520+i*8} ${190+i*4}" stroke="#2f7d3a" stroke-width="4" fill="none"/><ellipse cx="${520+i*8}" cy="${200+i*4}" rx="4" ry="14" fill="#8a5a2b"/>`).join('')+'<g transform="translate(140 150)"><path d="M0 0H60" stroke="#1f7fc4" stroke-width="5" stroke-linecap="round"/><ellipse cx="20" cy="-8" rx="18" ry="6" fill="#bfe6ff" opacity=".9"/><ellipse cx="38" cy="-8" rx="18" ry="6" fill="#bfe6ff" opacity=".9"/></g>';break;
- case 'bus':b=S.sky(id,'#cdeeff','#f4fbff')+S.cloud(380,60)+S.hill('M0 240C200 220 400 230 600 210V400H0Z','#a8d98f')+S.pine(60,250,.8)+S.round(540,250,.8,'#5bb65f')+'<rect y="300" width="600" height="100" fill="#8d8a86"/><path d="M0 350H600" stroke="#fff" stroke-width="5" stroke-dasharray="40 30"/><g transform="translate(150 190)"><rect width="300" height="120" rx="22" fill="#ffcc3d"/><rect x="0" y="80" width="300" height="12" fill="#2d2a26" opacity=".7"/>'+[0,1,2,3].map(i=>`<rect x="${22+i*62}" y="20" width="50" height="44" rx="8" fill="#bfe6ff"/>`).join('')+'<rect x="262" y="20" width="26" height="80" rx="6" fill="#bfe6ff"/><circle cx="70" cy="122" r="22" fill="#2d2a26"/><circle cx="70" cy="122" r="9" fill="#ccc"/><circle cx="240" cy="122" r="22" fill="#2d2a26"/><circle cx="240" cy="122" r="9" fill="#ccc"/><rect x="292" y="70" width="12" height="14" rx="3" fill="#ffefb0"/></g>';break;
- case 'autumn':b=S.sky(id,'#ffe6c9','#fff7ec')+S.sun(90,80,28,'#ffb347')+S.hill('M0 250C150 220 400 240 600 210V400H0Z','#e8c07a')+[[150,280,1.1,'#e8743b'],[300,260,1.2,'#f2a33a'],[460,275,1,'#d9542f']].map(([x,y,s,c])=>S.round(x,y,s,c)).join('')+S.grass(330,'#d9a35c')+Array.from({length:14},(_,i)=>S.leaf(30+i*42,350+(i%3)*14,i*37,['#e8743b','#f2a33a','#d9542f'][i%3])).join('')+'<g transform="translate(300 360)"><ellipse cx="0" cy="0" rx="12" ry="15" fill="#a86f45"/><path d="M-13-6C-10-20 10-20 13-6Z" fill="#6b4a2a"/></g><g transform="translate(340 368)"><ellipse cx="0" cy="0" rx="10" ry="13" fill="#a86f45"/><path d="M-11-5C-8-17 8-17 11-5Z" fill="#6b4a2a"/></g>';break;
- case 'snow':b=S.sky(id,'#dbeaf7','#f6fbff')+S.cloud(100,70)+S.cloud(420,50,.8)+S.hill('M0 250C150 180 350 200 600 220V400H0Z','#ffffff')+[[90,250,1,'#3f7d5a'],[170,235,.8,'#3f7d5a'],[480,240,1.1,'#3f7d5a']].map(([x,y,s,c])=>S.pine(x,y,s,c)+`<path transform="translate(${x} ${y}) scale(${s})" d="M0-110L-16-82H16Z" fill="#fff"/>`).join('')+S.hill('M0 320C200 290 400 310 600 290V400H0Z','#eef5fb')+'<g transform="translate(300 300) rotate(-8)"><rect x="0" y="0" width="90" height="14" rx="7" fill="#e5483f"/><path d="M0 24H96C104 24 108 18 104 12" stroke="#7a5233" stroke-width="5" fill="none"/><path d="M14 14V24M76 14V24" stroke="#7a5233" stroke-width="5"/></g>'+Array.from({length:22},(_,i)=>`<circle cx="${(i*97)%600}" cy="${(i*53)%240}" r="${2+i%3}" fill="#fff"/>`).join('');break;
- case 'art':b=S.sky(id,'#fff1e0','#fffaf2')+'<g transform="translate(110 60)"><path d="M20 290L90 0L160 290" stroke="#a87b4f" stroke-width="10" fill="none"/><rect x="0" y="40" width="180" height="150" fill="#fff" stroke="#e0d2bb" stroke-width="4"/>'+[[40,90,-20,'#3a9d45'],[90,120,30,'#e8743b'],[130,80,-60,'#1f7fc4']].map(([x,y,r,c])=>`<path transform="translate(${x} ${y}) rotate(${r}) scale(2)" d="M0 0C8-10 22-10 28 0C22 10 8 10 0 0Z" fill="${c}" opacity=".85"/>`).join('')+'</g><g transform="translate(380 240)"><path d="M0 40C0-20 80-40 140 0C180 30 150 80 110 70C90 66 96 90 70 92C30 96 0 80 0 40Z" fill="#e9c58f"/>'+[[30,20,'#e5483f'],[62,4,'#ffcc3d'],[98,10,'#3a9d45'],[124,36,'#1f7fc4'],[34,60,'#ef6f86']].map(([x,y,c])=>`<circle cx="${x}" cy="${y}" r="12" fill="${c}"/>`).join('')+'</g><path d="M400 200L520 120" stroke="#7a5233" stroke-width="6" stroke-linecap="round"/><path d="M520 120L534 110" stroke="#ef6f86" stroke-width="10" stroke-linecap="round"/>';break;
- case 'music':b=S.sky(id,'#eaf3ff','#fbfdff')+'<g fill="none" stroke="#c8d6e8" stroke-width="3">'+[0,1,2,3,4].map(i=>`<path d="M30 ${70+i*16}H570"/>`).join('')+'</g>'+[[100,118],[180,102],[260,86],[340,110],[420,94],[500,78]].map(([x,y])=>`<ellipse cx="${x}" cy="${y}" rx="11" ry="8" fill="#2d2a26" transform="rotate(-20 ${x} ${y})"/><path d="M${x+10} ${y}V${y-46}" stroke="#2d2a26" stroke-width="3"/>`).join('')+'<g transform="translate(90 220)">'+['#e5483f','#f08a24','#ffcc3d','#3a9d45','#1f7fc4','#8e5bd1'].map((c,i)=>`<rect x="${i*36}" y="${i*6}" width="30" height="${130-i*12}" rx="6" fill="${c}"/>`).join('')+'<rect x="-10" y="40" width="230" height="10" rx="5" fill="#a87b4f"/></g><g transform="translate(440 300)"><ellipse cx="0" cy="0" rx="70" ry="24" fill="#d9a066"/><ellipse cx="0" cy="-8" rx="70" ry="24" fill="#f6e7cf" stroke="#d9a066" stroke-width="6"/><path d="M-90-90L-20-20M90-90L20-20" stroke="#7a5233" stroke-width="6" stroke-linecap="round"/><circle cx="-90" cy="-90" r="10" fill="#ef6f86"/><circle cx="90" cy="-90" r="10" fill="#ef6f86"/></g>';break;
- case 'english':b=S.sky(id,'#eaf7ef','#fbfff9')+[['A','#e5483f',80,210],['B','#1f7fc4',170,220],['C','#3a9d45',260,210],['D','#ffb347',125,140]].map(([t,c,x,y])=>`<g transform="translate(${x} ${y})"><rect width="84" height="84" rx="10" fill="${c}"/><rect x="8" y="8" width="68" height="68" rx="6" fill="#fff" opacity=".18"/><text x="42" y="60" text-anchor="middle" font-size="52" font-family="sans-serif" font-weight="700" fill="#fff">${t}</text></g>`).join('')+'<rect y="304" width="600" height="96" fill="#e9d2ad"/><g transform="translate(380 150)"><path d="M0 20L90 0V150L0 170Z" fill="#fff" stroke="#e0d2bb" stroke-width="3"/><path d="M180 20L90 0V150L180 170Z" fill="#fff" stroke="#e0d2bb" stroke-width="3"/>'+S.round(45,120,.45,'#4caf50','#e5483f')+'<text x="135" y="70" text-anchor="middle" font-size="22" font-family="sans-serif" fill="#6f685f">apple</text><text x="135" y="110" text-anchor="middle" font-size="22" font-family="sans-serif" fill="#6f685f">tree</text></g>';break;
- case 'sport':b=S.sky(id,'#d7f0ff','#f0fbe9')+S.cloud(420,60)+S.hill('M0 230C200 210 400 220 600 200V400H0Z','#8fcf86')+'<path d="M40 380C140 300 460 300 560 380" stroke="#fff" stroke-width="6" fill="none" opacity=".7"/>'+[[120,300],[220,320],[320,300],[420,320]].map(([x,y],i)=>`<path d="M${x-14} ${y+20}L${x} ${y-16}L${x+14} ${y+20}Z" fill="${i%2?'#f08a24':'#ffcc3d'}"/>`).join('')+'<circle cx="500" cy="300" r="30" fill="#fff"/><path d="M500 270L512 288L500 300L488 288Z" fill="#2d2a26"/><circle cx="500" cy="300" r="30" fill="none" stroke="#2d2a26" stroke-width="2"/><ellipse cx="160" cy="210" rx="56" ry="56" fill="none" stroke="#ef6f86" stroke-width="10"/><path d="M60 140C120 160 180 120 240 150C300 180 340 140 380 160" stroke="#c98a4b" stroke-width="7" fill="none" stroke-linecap="round"/>';break;
- default:b=S.sky(id,'#ffe9c8','#fff8ee')+S.hill('M0 270C200 230 400 250 600 220V400H0Z','#9ad08b');
- }
- return `<svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${b}</svg>`}
-const pic=(kind,cap='',label='')=>`<div class="ph scene" role="img" aria-label="${label||cap||'숲유치원 일러스트'}">${scene(kind)}${cap?`<span class="cap">${cap}</span>`:''}</div>`;
-/* 서브 비주얼용 가로 띠 장면 (그룹별 색) */
-function band(g){const pal=[['#bfe6ff','#e9f8e4','#8fcf86','#6db564','#2f7d3a'],['#ffe2c4','#fff4e0','#b5dc94','#8cc97a','#3a8f45'],['#d7f0ff','#f4fbff','#a8d98f','#7fbf6e','#2f7d3a'],['#fde6ef','#fff6ea','#bfe0a0','#94cc80','#3f7d5a']][g]||['#bfe6ff','#e9f8e4','#8fcf86','#6db564','#2f7d3a'];
- const id='b'+(++_sid);let t='';for(let i=0;i<26;i++){const x=40+i*58+(i%3)*9,y=170+(i%4)*10,s=.45+(i%5)*.08;t+=i%3?S.pine(x,y,s,pal[4]):S.round(x,y,s*.9,'#4caf50',g===1&&i%2?'#e5483f':'')}
- return `<svg viewBox="0 0 1440 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${pal[0]}"/><stop offset="1" stop-color="${pal[1]}"/></linearGradient></defs><rect width="1440" height="220" fill="url(#${id})"/>${S.sun(1220,60,30)}${S.cloud(260,50,.8)}${S.cloud(820,40,.6)}<path d="M0 160C300 120 600 150 900 125C1150 105 1300 130 1440 120V220H0Z" fill="${pal[2]}"/>${t}<path d="M0 200C400 180 900 195 1440 178V220H0Z" fill="${pal[3]}"/></svg>`}
+function band(g){return imageTag(['forest','garden','library','music'][g]||'forest','',true)}
 
 /* ---------- 메뉴 ---------- */
 const PAGE={};MENU.forEach((g,gi)=>g.items.forEach(([id,name])=>PAGE[id]={g:gi,name}));
@@ -793,7 +802,7 @@ const QUICK=[['philosophy','교육철학','#3a9d45','철'],['program','하루 �
 const STATS=[['바깥놀이','60','분+','날마다 지키는 원 기준'],['아침 · 저녁','07:30','~19:00','아침돌봄부터 방과후까지'],['숲 놀이','주 3','회','정해진 구역 · 교사 동행'],['특성화','1일 1','개','방과후 · 1시간 이내']];
 function home(){return `
 <section class="hero" aria-label="메인 비주얼" aria-roledescription="carousel">
- ${HERO.map((h,i)=>`<div class="slide${i?'':' on'}" aria-hidden="${i?'true':'false'}">${pic(h.k,'',h.small)}</div>`).join('')}
+ ${HERO.map((h,i)=>`<div class="slide${i?'':' on'}" aria-hidden="${i?'true':'false'}">${pic(h.k,'',h.small,'activity',true,i===0)}</div>`).join('')}
  <div class="copy"><div class="wrap">
   <small id="hsmall">${HERO[0].small}</small>
   <h1>${KG.parts.map((p,i)=>`<span class="c${i+1}">${p}</span>`).join('')}</h1>
@@ -868,8 +877,8 @@ P.philosophy=()=>`
 P.environment=()=>`
 <h3 class="h3">공간이 놀이를 만듭니다</h3>
 <div class="feature"><div><h4>열린 놀이 공간</h4><p>교실을 놀이 공간별로 나누고, 아이들이 재료를 직접 꺼내고 정리할 수 있도록 낮은 선반을 둡니다.</p></div><div><h4>숲 · 텃밭 · 연못</h4><p>원 뒤편 숲길과 반별 텃밭, 빗물을 모으는 작은 연못이 바깥 교실이 됩니다.</p></div><div><h4>비 오는 날에도</h4><p>미세먼지 · 폭염 · 한파 기준을 넘는 날은 강당에서 몸 놀이를 이어 갑니다.</p></div></div>
-<p class="prose" style="margin-bottom:18px">그림을 누르면 크게 볼 수 있습니다. <span style="color:var(--muted)">(아이 사진 대신 일러스트로 공간을 소개하는 데모입니다)</span></p>
-<div class="gal">${ENV.map(([k,c])=>`<button data-lb aria-label="${c} 크게 보기">${pic(k,c)}</button>`).join('')}</div>
+<p class="prose" style="margin-bottom:18px">이미지를 누르면 크게 볼 수 있습니다. <span style="color:var(--muted)">(3D 일러스트와 AI 생성 공간 예시이며, 실제 시설 사진이 아닙니다)</span></p>
+<div class="gal">${ENV.map(([k,c])=>`<button data-lb aria-label="${c} 크게 보기">${pic(k,c,SPACE_IMAGES[k]?`${c} — AI 생성 공간 예시`:`${c} — 3D 일러스트`,'space')}</button>`).join('')}</div>
 <h3 class="h3">공간 안내</h3>
 <div class="tbl-x"><table class="t"><thead><tr><th style="width:120px">층</th><th>공간</th><th>이렇게 써요</th></tr></thead><tbody>
 <tr><td class="mo">1층</td><td style="font-weight:700">만 3세 교실 2 · 조리실 · 강당 · 돌봄교실</td><td>어린 연령이 바깥과 가장 가까운 곳에서 생활합니다. 아침돌봄과 방과후 과정은 돌봄교실에서 운영합니다.</td></tr>
@@ -880,7 +889,7 @@ P.environment=()=>`
 P.song=()=>`
 <h3 class="h3">꿈틀숲유치원 원가</h3>
 <div class="song">
- <div class="lyr"><div class="staff" aria-hidden="true">${scene('music')}</div>
+ <div class="lyr"><div class="staff" aria-hidden="true">${imageTag('music')}</div>
   ${LYRICS.map((v,i)=>`<div class="verse"><span>${i+1}절</span><p>${v.join('<br>')}</p></div>`).join('')}
   <p class="note">※ 데모용으로 새로 지은 가사입니다. 실제 제작 시 유치원의 악보와 음원을 넣습니다.</p></div>
  <div class="songinfo"><div><small>언제 불러요</small><b>아침 숲길 산책, 생일 축하, 졸업식</b></div><div><small>누가 만들었나요</small><b>2026년 만 5세 열매반과 선생님들 (예시)</b></div><div style="background:var(--soft2)"><small>노랫말 이야기</small><b>“궁금한 건 물어보며”는 아이들이 직접 고른 구절입니다.</b></div></div>
