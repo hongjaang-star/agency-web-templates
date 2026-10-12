@@ -354,6 +354,31 @@
       }
     },
     {
+      "slug": "edu-kindergarten",
+      "variant": "kkumteul",
+      "name": "유치원",
+      "company": "꿈틀숲유치원(가상)",
+      "category": "edu",
+      "level": "L1",
+      "status": "deployed",
+      "role": "flagship",
+      "type": "기관형 · 상단 GNB와 왼쪽 LNB 서브페이지로 교육과정을 꼼꼼히 보여 주는 숲유치원",
+      "path": "concepts/edu-kindergarten/kkumteul",
+      "url": "https://hongjaang-star.github.io/agency-web-templates/concepts/edu-kindergarten/kkumteul/",
+      "pages": 16,
+      "concept": "concepts/edu-kindergarten/kkumteul",
+      "fingerprint": {
+        "layout": "institutional GNB + left LNB sub pages (hash routing)",
+        "hero": "illustrated scene slider with rotating copy",
+        "typePair": "Jua + Noto Sans KR",
+        "palette": "crayon orange · forest green · sky blue",
+        "imageTreatment": "no photos; generated SVG scenes, no faces",
+        "motion": "hero crossfade, reduced-motion fallback",
+        "signature": "four-season garden/orchard quad and per-age forest tables",
+        "sectionOrder": "hero, quick links, philosophy, numbers, ages, day, seasons, episodes, news/contact"
+      }
+    },
+    {
       "slug": "edu-academy",
       "variant": "orbit",
       "name": "소규모 교육기관",
