@@ -285,6 +285,21 @@
         "전체 화면 인덱스 메뉴, 6개 눈금 진단으로 12주 로드맵 간트.",
         "회사 소개 페이지: 연혁·성장 지표·실적·컨설턴트·문서·거점 지도."
       ]
+    },
+    {
+      "id": "edu-kkumteul",
+      "name": "꿈틀숲유치원",
+      "category": "edu",
+      "categoryLabel": "교육 · 유치원",
+      "kind": "site",
+      "kindLabel": "완성 사이트",
+      "path": "concepts/edu-kindergarten/kkumteul/",
+      "thumbnail": "edu-kkumteul.jpg",
+      "summary": [
+        "주황 상단바·3색 로고·Jua 서체, 숲·텃밭·과수원 일러스트의 숲유치원.",
+        "4개 메뉴 16쪽: 연령별 연간계획, 숲 활동 사계절표, 특별활동 요일표.",
+        "입학대기·설명회 신청 폼, 펼침 게시판·검색, 식단 알레르기 표시."
+      ]
     }
   ]
 }

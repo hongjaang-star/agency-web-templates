@@ -1,0 +1,991 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>꿈틀숲유치원 | 숲에서 자라는 유치원 (가상 데모)</title>
+<meta name="description" content="숲 · 텃밭 · 과수원에서 사계절을 배우는 가상 유치원 홈페이지 데모. 연령별 교육과정, 숲 활동 연간계획, 입학 안내.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: 원본의 주황 상단바 + 흰 헤더 + 서브비주얼 + 좌측 LNB 구조를 유지, 숲(초록)·하늘(파랑)·크레파스(주황) 3색 로고 팔레트 */
+:root{
+  --bg:#fffdf8; --surface:#ffffff; --soft:#fff4e6; --soft2:#eef7ec; --line:#ece4d6;
+  --fg:#2d2a26; --muted:#6f685f;
+  --orange:#f08a24; --orange-d:#d96f0c; --green:#3a9d45; --green-d:#2a7a34; --blue:#1f7fc4; --pink:#ef6f86; --sky:#3bb3d6; --sun:#ffcc3d;
+  --on-accent:#ffffff;
+  --display:"Jua","Noto Sans KR",system-ui,sans-serif;
+  --body:"Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --r:18px; --wrap:1200px;
+  --shadow:0 10px 30px -14px rgba(120,80,20,.28);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#17150f; --surface:#211e17; --soft:#2c2316; --soft2:#1b2a1d; --line:#3a3428;
+  --fg:#f3eee4; --muted:#b4ab9c; --orange:#f59a3c; --orange-d:#f7ad5e; --green:#5cc068; --green-d:#7fd389; --blue:#55a8e6; --pink:#f48aa0; --sky:#5cc6e6; --sun:#ffd65e;
+  --on-accent:#1a140c; --shadow:0 10px 30px -14px rgba(0,0,0,.6); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#17150f; --surface:#211e17; --soft:#2c2316; --soft2:#1b2a1d; --line:#3a3428;
+  --fg:#f3eee4; --muted:#b4ab9c; --orange:#f59a3c; --orange-d:#f7ad5e; --green:#5cc068; --green-d:#7fd389; --blue:#55a8e6; --pink:#f48aa0; --sky:#5cc6e6; --sun:#ffd65e;
+  --on-accent:#1a140c; --shadow:0 10px 30px -14px rgba(0,0,0,.6); color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.75;word-break:keep-all;margin:0}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:6px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:20px}
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;line-height:1.3;text-wrap:balance;margin:0}
+p{margin:0}
+
+/* ---------- 상단 유틸바 ---------- */
+.util{background:var(--orange);color:var(--on-accent);font-size:13px}
+.util .wrap{display:flex;justify-content:flex-end;gap:2px;flex-wrap:wrap}
+.util a{padding:5px 12px;opacity:.95}
+.util a:hover{background:rgba(0,0,0,.08)}
+/* ---------- 헤더 ---------- */
+header.gh{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--surface);border-bottom:3px solid var(--orange);box-shadow:0 4px 18px -12px rgba(0,0,0,.25)}
+.gh .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:78px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo .mark{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--green) 0 33%,var(--blue) 0 66%,var(--orange) 0);position:relative;flex:none}
+.logo .mark::after{content:"숲";position:absolute;inset:6px;border-radius:50%;background:var(--surface);display:grid;place-items:center;font-family:var(--display);font-size:20px;color:var(--green)}
+.logo b{font-family:var(--display);font-weight:400;font-size:30px;letter-spacing:-.5px;white-space:nowrap}
+.logo b .c1{color:var(--blue)} .logo b .c2{color:var(--green);font-size:1.15em} .logo b .c3{color:var(--orange)}
+nav.gnb>ul{list-style:none;margin:0;padding:0;display:flex;gap:4px}
+nav.gnb>ul>li{position:relative}
+nav.gnb>ul>li>a{display:block;padding:24px 22px;font-weight:700;font-size:17px;border-radius:10px}
+nav.gnb>ul>li>a.on,nav.gnb>ul>li:hover>a{color:var(--orange-d)}
+nav.gnb .sub{position:absolute;left:50%;top:100%;transform:translate(-50%,6px);min-width:190px;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--orange);border-radius:0 0 14px 14px;box-shadow:var(--shadow);padding:8px;list-style:none;margin:0;opacity:0;visibility:hidden;transition:.18s}
+nav.gnb>ul>li:hover .sub,nav.gnb>ul>li:focus-within .sub{opacity:1;visibility:visible;transform:translate(-50%,0)}
+nav.gnb .sub a{display:block;padding:8px 14px;border-radius:8px;font-size:15px;white-space:nowrap}
+nav.gnb .sub a:hover{background:var(--soft);color:var(--orange-d)}
+.burger{display:none;border:0;background:var(--soft);width:46px;height:46px;border-radius:12px;color:var(--fg)}
+.burger span{display:block;width:22px;height:2px;background:currentColor;margin:5px auto;border-radius:2px}
+.drawer{display:none}
+
+/* ---------- 이미지 프레임 (원본 사진 + 일러스트 대체) ---------- */
+.ph{position:relative;overflow:hidden;background:
+  radial-gradient(120% 70% at 20% 110%,var(--green) 0 38%,transparent 39%),
+  radial-gradient(110% 60% at 85% 115%,var(--green-d) 0 40%,transparent 41%),
+  radial-gradient(circle at 80% 22%,var(--sun) 0 9%,transparent 10%),
+  linear-gradient(180deg,var(--sky),#bfe7f3);
+  max-width:100%}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ph img.err{display:none}
+.ph .cap{position:absolute;left:12px;bottom:10px;background:rgba(255,255,255,.88);color:#2d2a26;font-size:13px;font-weight:700;padding:3px 10px;border-radius:99px}
+
+/* ---------- 메인 ---------- */
+.hero{position:relative;height:clamp(360px,52vw,560px);overflow:hidden;background:#1d3a24}
+.hero .slide{position:absolute;inset:0;opacity:0;transition:opacity 1s}
+.hero .slide.on{opacity:1}
+.hero .ph{position:absolute;inset:0}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,14,6,.62),rgba(20,14,6,.15) 60%,transparent);pointer-events:none}
+.hero .copy{position:absolute;z-index:2;left:0;right:0;top:50%;transform:translateY(-50%);color:#fff}
+.hero .copy small{font-family:var(--display);font-size:clamp(18px,2.4vw,26px);opacity:.95}
+.hero .copy h1{font-size:clamp(46px,8vw,96px);line-height:1.05;margin:.1em 0 .25em;text-shadow:0 4px 18px rgba(0,0,0,.35)}
+.hero .copy h1 .c1{color:#5fb4ff}.hero .copy h1 .c2{color:#7be08a;font-size:1.12em}.hero .copy h1 .c3{color:#ffb15c}
+.hero .copy p{max-width:34em;font-size:clamp(15px,1.6vw,18px);text-shadow:0 2px 8px rgba(0,0,0,.4)}
+.hero .copy .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:99px;font-weight:700;border:0;font-size:15px}
+.btn.o{background:var(--orange);color:var(--on-accent)} .btn.o:hover{background:var(--orange-d)}
+.btn.w{background:rgba(255,255,255,.92);color:#2d2a26}
+.btn.g{background:var(--green);color:var(--on-accent)}
+.btn.line{background:transparent;border:2px solid var(--line);color:var(--fg)}
+.dots{position:absolute;z-index:3;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+.dots button{width:11px;height:11px;border-radius:99px;border:0;background:rgba(255,255,255,.55);padding:0;transition:.3s}
+.dots button.on{width:30px;background:#fff}
+
+section.blk{padding-block:72px}
+.eyebrow{font-weight:700;color:var(--orange-d);font-size:14px;letter-spacing:.12em}
+.sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:28px;flex-wrap:wrap}
+.sec-h h2{font-size:clamp(28px,3.6vw,40px)}
+.sec-h p{color:var(--muted);max-width:36em}
+
+.quick{margin-top:-46px;position:relative;z-index:5}
+.quick .grid{display:grid;grid-template-columns:repeat(6,1fr);background:var(--surface);border-radius:22px;box-shadow:var(--shadow);border:1px solid var(--line);overflow:hidden}
+.quick a{display:flex;flex-direction:column;align-items:center;gap:6px;padding:20px 8px;font-weight:700;font-size:15px;text-align:center;border-right:1px solid var(--line)}
+.quick a:last-child{border-right:0}
+.quick a:hover{background:var(--soft)}
+.quick i{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-style:normal;font-family:var(--display);font-size:20px;color:var(--on-accent)}
+
+.tlh{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+.tlh .lead{font-size:18px;color:var(--muted)}
+.tlh .lead b{color:var(--fg)}
+.tlh-cards{display:grid;gap:14px}
+.tl{display:flex;gap:18px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 20px}
+.tl .L{font-family:var(--display);font-size:54px;line-height:1;width:60px;text-align:center}
+.tl h3{font-size:22px}
+.tl p{color:var(--muted);font-size:15px}
+
+.ages{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.age{border-radius:22px;padding:24px 22px 22px;position:relative;overflow:hidden;color:#2d2a26;min-height:250px;display:flex;flex-direction:column;gap:8px;transition:transform .2s}
+.age:hover{transform:translateY(-4px)}
+.age .n{font-family:var(--display);font-size:64px;line-height:.9}
+.age .n small{font-size:20px}
+.age h3{font-size:22px}
+.age p{font-size:14.5px;line-height:1.6}
+.age .go{margin-top:auto;font-weight:700;font-size:14px}
+.age.a3{background:#d9f2d6}.age.a3 .n{color:#2f8f3b}
+.age.a4{background:#ffdfe4}.age.a4 .n{color:#d94a66}
+.age.a5{background:#d6eef8}.age.a5 .n{color:#1777b5}
+.age.af{background:#ece4fb}.age.af .n{color:#6a4cc2;font-size:44px}
+
+.day{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:var(--surface)}
+.day>div{padding:26px 24px;border-right:1px dashed var(--line)}
+.day>div:last-child{border-right:0}
+.day .t{font-variant-numeric:tabular-nums;font-weight:900;font-size:22px}
+.day .k{display:inline-block;font-size:13px;font-weight:700;padding:2px 10px;border-radius:99px;color:var(--on-accent);margin-bottom:8px}
+.day ul{margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:15px}
+
+.seasons{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.season{border-radius:20px;padding:22px;background:var(--surface);border:1px solid var(--line)}
+.season .dot{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-size:22px;color:#2d2a26;margin-bottom:12px}
+.season h4{font-size:19px;margin-bottom:6px}
+.season p{font-size:14.5px;color:var(--muted)}
+
+.news{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:20px}
+.news>*{min-width:0}
+.contact .row span:last-child{text-align:right}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:24px}
+.panel h3{font-size:22px;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.panel h3 a{font-family:var(--body);font-size:13px;color:var(--muted);font-weight:500}
+.plist{list-style:none;margin:0;padding:0}
+.plist li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.plist li:last-child{border-bottom:0}
+.plist li span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.plist time{color:var(--muted);font-variant-numeric:tabular-nums;font-size:13px;flex:none}
+.contact{background:var(--green);color:var(--on-accent);border:0}
+.contact .tel{font-family:var(--display);font-size:40px;line-height:1.1;font-variant-numeric:tabular-nums}
+.contact .row{display:flex;justify-content:space-between;font-size:14px;padding:6px 0;border-top:1px solid rgba(255,255,255,.25)}
+.awards{display:grid;gap:10px}
+.award{display:flex;gap:12px;align-items:flex-start;padding:12px;background:var(--soft);border-radius:14px}
+.award b{font-family:var(--display);font-weight:400;font-size:18px;color:var(--orange-d);flex:none;width:48px;font-variant-numeric:tabular-nums}
+.award span{font-size:14.5px}
+
+/* ---------- 서브 ---------- */
+.subvis{position:relative;height:220px;overflow:hidden;background:linear-gradient(120deg,#ffcf6b,#ffb347)}
+.subvis .ph{position:absolute;inset:0;background:radial-gradient(circle at 12% 30%,#ffe9a8 0 6%,transparent 7%),radial-gradient(circle at 88% 70%,#ffe9a8 0 8%,transparent 9%),radial-gradient(120% 80% at 50% 130%,var(--green) 0 45%,transparent 46%),linear-gradient(120deg,#ffcf6b,#ffa94d)}
+.subvis .t{position:absolute;inset:auto 0 26px;z-index:2;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.35)}
+.subvis .t b{font-family:var(--display);font-weight:400;font-size:38px}
+.subvis::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.4),transparent 60%)}
+.subwrap{display:grid;grid-template-columns:250px minmax(0,1fr);gap:56px;padding-block:44px 80px}
+.lnb .tit{background:var(--orange);color:var(--on-accent);font-family:var(--display);font-size:26px;text-align:center;padding:18px;border-radius:14px 14px 0 0}
+.lnb ul{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-top:0;border-radius:0 0 14px 14px;overflow:hidden;background:var(--surface)}
+.lnb li a{display:block;padding:15px 20px;border-top:1px solid var(--line);font-size:16px}
+.lnb li:first-child a{border-top:0}
+.lnb li a.on{color:var(--orange-d);font-weight:700;background:var(--soft)}
+.lnb li a:hover{color:var(--orange-d)}
+.telbox{margin-top:18px;padding:20px;border-radius:14px;background:var(--soft2);border:1px solid var(--line)}
+.telbox small{color:var(--muted)}
+.telbox b{display:block;font-family:var(--display);font-weight:400;font-size:28px;color:var(--green-d);font-variant-numeric:tabular-nums}
+.pagehead{border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:34px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.pagehead h2{font-size:36px}
+.crumb{font-size:13px;color:var(--muted)}
+.crumb b{color:var(--fg)}
+.h3{font-size:24px;margin:44px 0 18px;padding-top:14px;position:relative}
+.h3::before{content:"";position:absolute;top:0;left:0;width:30px;height:4px;border-radius:2px;background:var(--orange)}
+.h3:first-child{margin-top:0}
+.prose{color:var(--fg);font-size:16.5px;max-width:46em}
+.prose+.prose{margin-top:12px}
+.note{font-size:13.5px;color:var(--pink);margin-top:10px}
+
+.motto{position:relative;border-radius:24px;padding:56px 24px;text-align:center;background:
+ radial-gradient(60% 60% at 10% 110%,rgba(58,157,69,.22),transparent 70%),
+ radial-gradient(60% 60% at 90% -10%,rgba(240,138,36,.2),transparent 70%),var(--surface);border:3px dashed var(--sun)}
+.motto p{font-family:var(--display);font-size:clamp(28px,4.4vw,48px);line-height:1.3}
+.motto .a{color:var(--blue)}.motto .b{color:var(--green)}.motto .c{color:var(--orange)}
+.tree{display:grid;gap:14px;justify-items:center}
+.pill{padding:12px 28px;border-radius:99px;color:var(--on-accent);font-weight:700;text-align:center}
+.goals{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;width:100%}
+.goals div{background:var(--green);color:var(--on-accent);border-radius:14px;padding:16px 12px;text-align:center;font-size:14.5px;font-weight:500;display:grid;place-items:center}
+.roles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;width:100%}
+.roles div{border:2px solid var(--orange);border-radius:14px;overflow:hidden;background:var(--surface);text-align:center}
+.roles b{display:block;background:var(--orange);color:var(--on-accent);padding:8px;font-family:var(--display);font-weight:400;font-size:20px;letter-spacing:.2em}
+.roles p{padding:14px 10px;font-size:14.5px}
+
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal button{border:0;padding:0;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:none;max-width:100%}
+.gal .ph{width:100%;height:100%}
+.gal button:hover img{transform:scale(1.05)}
+.gal img{transition:transform .4s}
+.feature{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+.feature div{padding:18px;border-radius:16px;background:var(--soft2)}
+.feature h4{font-size:19px;color:var(--green-d);margin-bottom:4px}
+.feature p{font-size:14.5px;color:var(--muted)}
+.lb{position:fixed;inset:0;z-index:99;background:rgba(10,8,4,.86);display:grid;place-items:center;padding:20px}
+.lb .ph{width:min(960px,100%);aspect-ratio:3/2;border-radius:12px}
+.lb .x{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;background:#fff;color:#222;border:0;width:44px;height:44px;border-radius:50%;font-size:22px}
+.lb .nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.9);color:#222;border:0;width:48px;height:48px;border-radius:50%;font-size:22px}
+.lb .prev{left:14px}.lb .next{right:14px}
+
+.tabs{display:flex;gap:6px;border-bottom:3px solid var(--green);margin-bottom:30px;flex-wrap:wrap}
+.tabs button{flex:1 1 120px;border:0;padding:12px 10px;border-radius:14px 14px 0 0;background:var(--line);color:var(--muted);font-family:var(--display);font-size:18px}
+.tabs button.on{background:var(--green);color:var(--on-accent)}
+.tbl-x{overflow-x:auto;border-radius:14px;border:1px solid var(--line);background:var(--surface)}
+table.t{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px}
+table.t th,table.t td{padding:11px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);text-align:left;vertical-align:top}
+table.t tr>*:last-child{border-right:0}
+table.t tbody tr:last-child>*{border-bottom:0}
+table.t thead th{background:var(--soft);font-weight:700;text-align:center}
+table.t th.g{background:var(--soft2);text-align:center;vertical-align:middle;white-space:nowrap}
+table.t .tm{display:block;font-weight:500;color:var(--muted);font-variant-numeric:tabular-nums;font-size:13px}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chips span{background:var(--soft);border-radius:8px;padding:2px 8px;font-size:13.5px}
+.chips.g span{background:var(--soft2)}
+.mo{font-family:var(--display);font-size:20px;color:var(--orange-d);text-align:center;vertical-align:middle!important;white-space:nowrap}
+.ageintro{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;padding:22px;border-radius:20px;margin-bottom:22px}
+.ageintro .big{font-family:var(--display);font-size:72px;line-height:1}
+.ageintro h3{font-size:24px}
+.ageintro ol{margin:8px 0 0;padding-left:20px;font-size:15px}
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}
+.step{border-radius:18px;padding:20px;color:#2d2a26;display:flex;flex-direction:column;gap:6px}
+.step .n{font-family:var(--display);font-size:46px;line-height:1}
+.step h4{font-size:19px}
+.step .kw{display:flex;gap:6px;flex-wrap:wrap}
+.step .kw span{background:rgba(255,255,255,.75);border-radius:99px;padding:1px 10px;font-size:13px;font-weight:700}
+.step .p{margin-top:auto;font-weight:700;background:rgba(255,255,255,.6);border-radius:10px;padding:8px 10px;font-size:14px;text-align:center}
+
+.garden{display:grid;grid-template-columns:1fr 1fr;gap:0;border:4px solid var(--green);border-radius:30px;overflow:hidden;position:relative;background:var(--surface)}
+.garden.orch{border-color:var(--orange)}
+.garden>div{padding:22px 24px;border:1px solid var(--line)}
+.garden h4{font-size:22px;display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.garden h4 i{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:16px;color:#2d2a26}
+.garden ul{margin:0;padding-left:18px;font-size:15px}
+.garden .crop{margin-top:10px;font-size:14.5px;background:var(--soft);border-radius:10px;padding:8px 12px}
+.garden .crop b{color:var(--orange-d)}
+.garden .center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:118px;height:118px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-size:24px;color:var(--on-accent);border:6px solid var(--surface)}
+
+.sp{display:grid;gap:18px}
+.spc{display:grid;grid-template-columns:300px minmax(0,1fr);gap:24px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:16px}
+.spc .ph{aspect-ratio:4/3;border-radius:14px}
+.spc h3{font-size:26px;margin-bottom:6px}
+.spc h3 small{font-family:var(--body);font-size:13px;color:var(--muted);margin-left:8px;letter-spacing:.1em}
+.spc p{font-size:15.5px;color:var(--muted)}
+
+.board-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.search{display:flex;gap:6px}
+.search select,.search input{padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);font:inherit;font-size:14px}
+.search input{width:180px}
+table.bd{min-width:560px}
+table.bd td{vertical-align:middle}
+table.bd td.c{text-align:center;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+table.bd .notice{display:inline-block;background:var(--orange);color:var(--on-accent);font-size:12px;font-weight:700;border-radius:6px;padding:1px 8px}
+table.bd tr:hover td{background:var(--soft)}
+.empty{text-align:center;padding:56px 20px!important;color:var(--muted)}
+.empty b{display:block;font-family:var(--display);font-weight:400;font-size:22px;color:var(--fg);margin-bottom:4px}
+
+form.f{display:grid;gap:16px;max-width:760px}
+.f .row{display:grid;grid-template-columns:170px minmax(0,1fr);gap:12px;align-items:center;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.f label.l{font-weight:700}
+.f label.l em{color:var(--pink);font-style:normal}
+.f input[type=text],.f input[type=tel],.f input[type=date],.f select,.f textarea{width:100%;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);font:inherit}
+.f .inl{display:flex;gap:16px;flex-wrap:wrap}
+.f .hint{font-size:13px;color:var(--pink);margin-top:4px}
+.agree{background:var(--soft);border-radius:14px;padding:16px 18px;font-size:14px;color:var(--muted)}
+.agree ul{margin:6px 0 10px;padding-left:18px}
+.msg{padding:14px 18px;border-radius:12px;font-weight:700}
+.msg.ok{background:var(--soft2);color:var(--green-d)}
+.msg.no{background:var(--soft);color:var(--orange-d)}
+
+.loc{display:grid;grid-template-columns:1.3fr 1fr;gap:20px}
+.map{border-radius:22px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;max-width:100%}
+.map svg{width:100%;height:100%;display:block}
+.info dl{margin:0;display:grid;gap:0}
+.info dl>div{display:grid;grid-template-columns:90px 1fr;gap:10px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.info dt{font-weight:700;color:var(--orange-d)}
+.info dd{margin:0}
+.copyb{border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:8px;padding:2px 10px;font-size:13px;margin-left:6px}
+
+.song{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:24px;align-items:start}
+.score{border-radius:18px;border:1px solid var(--line);background:#fff;min-height:420px;position:relative;overflow:hidden}
+.score img{width:100%;display:block}
+.score img.err{display:none}
+.score .fb{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:24px;color:#6f685f;background:repeating-linear-gradient(180deg,transparent 0 22px,#e8e2d6 22px 23px,transparent 23px 26px,#e8e2d6 26px 27px,transparent 27px 30px,#e8e2d6 30px 31px,transparent 31px 34px,#e8e2d6 34px 35px,transparent 35px 38px,#e8e2d6 38px 39px,transparent 39px 70px)}
+.score .fb b{display:block;font-family:var(--display);font-weight:400;font-size:24px;color:#2d2a26;background:#fff;padding:4px 12px;border-radius:10px}
+.score img:not(.err)+.fb{display:none}
+.songinfo{display:grid;gap:10px}
+.songinfo div{background:var(--soft);border-radius:14px;padding:14px 16px}
+.songinfo small{color:var(--muted);display:block;font-size:12.5px;letter-spacing:.08em}
+.songinfo b{font-family:var(--display);font-weight:400;font-size:20px}
+
+footer.gf{background:#2f2a22;color:#d8cfbf;padding-block:40px;font-size:14px}
+footer.gf .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer.gf b{color:#fff;font-family:var(--display);font-weight:400;font-size:22px}
+footer.gf p{line-height:1.9}
+footer.gf .fl{display:flex;gap:16px;flex-wrap:wrap}
+footer.gf .fl a:hover{color:#fff}
+
+#tlh3{display:grid;grid-template-columns:repeat(3,1fr);margin-bottom:22px}
+/* ---------- 반응형 ---------- */
+@media (max-width:1080px){
+  nav.gnb{display:none}.burger{display:block}
+  .drawer.open{display:block;position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.4)}
+  .drawer .in{position:absolute;right:0;top:0;bottom:0;width:min(330px,88vw);background:var(--surface);overflow:auto;padding:calc(20px + env(safe-area-inset-top,0px)) 20px 40px}
+  .drawer h5{font-family:var(--display);font-weight:400;font-size:20px;color:var(--orange-d);margin:18px 0 6px}
+  .drawer a{display:block;padding:8px 4px;border-bottom:1px solid var(--line)}
+  .drawer .close{float:right;border:0;background:var(--soft);color:var(--fg);width:40px;height:40px;border-radius:10px;font-size:18px}
+  .quick .grid{grid-template-columns:repeat(3,1fr)}
+  .quick a:nth-child(3){border-right:0}.quick a:nth-child(-n+3){border-bottom:1px solid var(--line)}
+  .ages,.seasons{grid-template-columns:repeat(2,1fr)}
+  .news{grid-template-columns:1fr 1fr}.news .panel:first-child{grid-column:1/-1}
+  .subwrap{grid-template-columns:minmax(0,1fr);gap:24px}
+  .lnb{display:none}
+  .mtabs{display:flex!important}
+  .goals{grid-template-columns:repeat(3,1fr)}
+  .gal{grid-template-columns:repeat(3,1fr)}
+}
+.mtabs{display:none;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:20px}
+.mtabs a{flex:none;padding:8px 14px;border-radius:99px;background:var(--soft);font-size:14px;white-space:nowrap}
+.mtabs a.on{background:var(--orange);color:var(--on-accent);font-weight:700}
+@media (max-width:760px){
+  .wrap{padding-inline:16px}
+  .logo b{font-size:24px}.logo .mark{width:42px;height:42px}
+  .gh .wrap{min-height:64px}
+  .util{display:none}
+  section.blk{padding-block:52px}
+  .tlh,.loc,.song{grid-template-columns:1fr;gap:28px}
+  .day{grid-template-columns:1fr}.day>div{border-right:0;border-bottom:1px dashed var(--line)}
+  .news{grid-template-columns:1fr}
+  .goals,.roles{grid-template-columns:repeat(2,1fr)}
+  #tlh3{grid-template-columns:1fr}
+  .gal{grid-template-columns:repeat(2,1fr)}
+  .feature,.steps3{grid-template-columns:1fr}
+  .garden{grid-template-columns:1fr}.garden .center{position:static;transform:none;margin:14px auto;width:100%;height:auto;border-radius:0;border:0;padding:10px}
+  .spc{grid-template-columns:1fr}
+  .f .row{grid-template-columns:1fr;gap:6px}
+  .ageintro{grid-template-columns:1fr}
+  .subvis{height:160px}.subvis .t b{font-size:30px}
+  .pagehead h2{font-size:30px}
+}
+@media (max-width:440px){.ages,.seasons{grid-template-columns:1fr}.quick .grid{grid-template-columns:repeat(2,1fr)}.quick a{border-right:1px solid var(--line)!important;border-bottom:1px solid var(--line)}.search input{width:120px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+
+/* ---------- 추가: 데모 표기 · 일러스트 · 신규 블록 ---------- */
+.demo{background:#2d2a26;color:#f3eee4;font-size:13px;text-align:center;padding:6px 16px}.demo b{color:var(--sun)}
+.ph.scene{overflow:hidden;background:var(--soft2)}
+.ph.scene svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.gal .ph,.spc .ph,.ep .ph,.lb .ph{position:relative}
+.gal button{display:block;width:100%}
+.gal button:hover svg{transform:scale(1.05)}.gal svg{transition:transform .4s}
+.tabs a{flex:1 1 120px;text-align:center;padding:12px 10px;border-radius:14px 14px 0 0;background:var(--line);color:var(--muted);font-family:var(--display);font-size:18px}
+.tabs a.on{background:var(--green);color:var(--on-accent)}
+.tabs a:not(.on):hover{color:var(--fg)}
+a.step{transition:transform .2s}a.step:hover{transform:translateY(-3px)}
+.plist li>a{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.plist li>a:hover{color:var(--orange-d)}
+/* 숫자 */
+.stats-blk{padding-block:0!important}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:2px dashed var(--line);border-radius:24px;background:var(--surface)}
+.stats>div{padding:22px 24px;display:flex;flex-direction:column;gap:2px;border-right:2px dashed var(--line)}
+.stats>div:last-child{border-right:0}
+.stats small{color:var(--green-d);font-weight:700;font-size:14px}
+.stats b{font-family:var(--display);font-weight:400;font-size:44px;line-height:1.1;color:var(--fg)}
+.stats b em{font-style:normal;font-size:18px;margin-left:4px;color:var(--muted)}
+.stats span{font-size:13.5px;color:var(--muted)}
+/* 에피소드 */
+.epi{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ep{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.ep .ph{aspect-ratio:16/10;border-radius:0}
+.ep>div{padding:18px 20px 22px}
+.ep small{color:var(--orange-d);font-weight:700;font-size:13px}
+.ep h3{font-size:21px;margin:4px 0 8px}
+.ep p{font-size:15px;color:var(--muted)}
+.subwrap .epi{grid-template-columns:repeat(2,1fr)}
+/* 게시판 펼침 */
+.bd .ttl{border:0;background:none;padding:0;text-align:left;color:inherit;font:inherit;line-height:1.5}
+.bd .ttl:hover{color:var(--orange-d);text-decoration:underline}
+.bd .ttl[aria-expanded="true"]{color:var(--orange-d);font-weight:700}
+.bd tr.body td{background:var(--soft)!important}
+.post{padding:6px 0;font-size:15px}
+.search input[type=search]{border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--surface);color:var(--fg);font:inherit;font-size:14px}
+/* 입학 단계 */
+.steps-in{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:26px;counter-reset:s}
+.steps-in>div{position:relative;background:var(--soft2);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:2px}
+.steps-in i{font-style:normal;font-family:var(--display);width:34px;height:34px;border-radius:50%;background:var(--green);color:var(--on-accent);display:grid;place-items:center;margin-bottom:6px}
+.steps-in b{font-family:var(--display);font-weight:400;font-size:19px}
+.steps-in span{font-size:14px;color:var(--muted)}
+/* 숲 활동 4요소 */
+.fx{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:6px}
+.fx>div{border:2px solid var(--green);border-radius:16px;padding:14px 16px}
+.fx b{font-family:var(--display);font-weight:400;font-size:19px;color:var(--green-d)}
+.fx p{font-size:14px;color:var(--muted)}
+/* 특별활동 요일표 */
+.wk td{text-align:center}
+.tag{display:inline-block;padding:3px 12px;border-radius:99px;font-size:14px;font-weight:700;color:#2d2a26}
+.tag.t0{background:#ffe0b8}.tag.t1{background:#e3d9fb}.tag.t2{background:#d6eef8}.tag.t3{background:#d9f2d6}.tag.t4{background:#ffdfe4}
+/* 부모교육 */
+.pe{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.pe>div{border:1px solid var(--line);border-radius:18px;padding:18px 20px;background:var(--surface);display:flex;flex-direction:column;gap:4px}
+.pe .k{align-self:flex-start;background:var(--blue);color:var(--on-accent);font-size:12.5px;font-weight:700;border-radius:99px;padding:1px 10px}
+.pe time{color:var(--orange-d);font-weight:700;font-variant-numeric:tabular-nums}
+.pe h4{font-size:20px}
+.pe p{font-size:14px;color:var(--muted)}
+/* 식단 */
+.meal ul{list-style:none;margin:0;padding:0;font-size:14.5px;line-height:1.7}
+.meal sup{color:var(--pink);font-size:11px;font-weight:700}
+.allergy{margin-top:14px;background:var(--soft);border-radius:14px;padding:14px 16px;font-size:14px}
+.allergy b{color:var(--orange-d)}
+/* 칼럼 */
+.cols{display:grid;gap:10px}
+.cols details{border:1px solid var(--line);border-radius:16px;background:var(--surface);overflow:hidden}
+.cols summary{cursor:pointer;padding:16px 20px;display:flex;gap:14px;align-items:baseline;list-style:none}
+.cols summary::-webkit-details-marker{display:none}
+.cols summary::after{content:"+";margin-left:auto;font-family:var(--display);font-size:24px;color:var(--orange)}
+.cols details[open] summary::after{content:"−"}
+.cols summary time{flex:none;color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.cols summary b{font-family:var(--display);font-weight:400;font-size:20px}
+.cols details>div{padding:0 20px 20px;display:grid;gap:10px;font-size:15.5px}
+/* 원가 */
+.lyr{border:1px solid var(--line);border-radius:18px;background:var(--surface);overflow:hidden;padding-bottom:18px}
+.lyr .staff{position:relative;aspect-ratio:5/2;overflow:hidden}
+.lyr .staff svg{position:absolute;inset:0;width:100%;height:100%}
+.verse{display:flex;gap:16px;padding:18px 22px 0}
+.verse span{flex:none;font-family:var(--display);background:var(--orange);color:var(--on-accent);border-radius:99px;padding:2px 12px;height:fit-content}
+.verse p{font-family:var(--display);font-size:22px;line-height:1.7}
+.lyr .note{padding:14px 22px 0}
+@media (max-width:1080px){.stats{grid-template-columns:repeat(2,1fr)}.stats>div:nth-child(2){border-right:0}.stats>div:nth-child(-n+2){border-bottom:2px dashed var(--line)}.epi{grid-template-columns:repeat(2,1fr)}.epi-home .ep:nth-child(3){display:none}.steps-in,.fx{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:760px){.epi,.subwrap .epi,.pe{grid-template-columns:1fr}.epi-home .ep:nth-child(3){display:flex}.stats b{font-size:34px}.stats>div{padding:16px}.verse p{font-size:19px}}
+@media (max-width:440px){.steps-in,.fx{grid-template-columns:1fr}}
+.subvis .ph.scene{background:none}
+@media (min-width:761px){.garden>div:nth-child(odd){padding-right:74px}.garden>div:nth-child(even){padding-left:74px}}
+.demo .m{display:none}
+@media (max-width:760px){.demo .d{display:none}.demo .m{display:inline}}
+
+</style>
+</head>
+<body>
+<div class="demo"><b>가상 업체 데모</b> <span class="d">— 꿈틀숲유치원은 실제 유치원이 아닙니다. 주소 · 연락처 · 게시물 · 일정은 모두 예시이며, 아이 사진 대신 일러스트를 씁니다.</span><span class="m">· 실제 유치원이 아닙니다</span></div>
+<div class="util"><div class="wrap"><a href="#home">처음화면</a><a href="#login">로그인</a><a href="#join">회원가입</a><a href="#location">찾아오시는 길</a></div></div>
+<header class="gh">
+ <div class="wrap">
+  <a class="logo" href="#home" aria-label="꿈틀숲유치원 처음화면"><span class="mark" aria-hidden="true"></span><b><span class="c1">꿈틀</span><span class="c2">숲</span><span class="c3">유치원</span></b></a>
+  <nav class="gnb" aria-label="주메뉴"><ul id="gnb"></ul></nav>
+  <button class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button>
+ </div>
+</header>
+<div class="drawer" id="drawer"><div class="in" id="drawerIn"></div></div>
+<main id="app"></main>
+<footer class="gf">
+ <div class="wrap">
+  <div>
+   <b>꿈틀숲유치원</b>
+   <p>경기도 가람시 숲내로 00 (가상 주소)<br>연락처 031-000-0000 · 팩스 031-000-0001 · 업무시간 평일 09:00 ~ 18:00</p>
+   <p style="opacity:.7">가상 업체 데모 · © 2026 KKUMTEUL FOREST KINDERGARTEN (demo)</p>
+  </div>
+  <div class="fl"><a href="#philosophy">유치원소개</a><a href="#program">교육프로그램</a><a href="#notice">소식란</a><a href="#episode">커뮤니티</a><a href="#location">오시는 길</a></div>
+ </div>
+</footer>
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="크게 보기"></div>
+<script>
+/* 꿈틀숲유치원(가상) 데이터 — 실존 유치원의 문구·사진·연락처를 쓰지 않은 데모 콘텐츠 */
+const KG={name:'꿈틀숲유치원',parts:['꿈틀','숲','유치원'],tel:'031-000-0000',fax:'031-000-0001',hours:'평일 09:00 ~ 18:00',
+ addr:'경기도 가람시 숲내로 00 (가상 주소)',zip:'00000',mail:'hello@kkumteul.example'};
+
+const MENU=[
+ {t:'유치원소개',items:[['philosophy','교육철학'],['environment','교육환경'],['song','유치원가'],['admission','입학관련안내'],['waitlist','입학대기 신청'],['briefing','입학설명회 신청'],['location','오시는 길']]},
+ {t:'교육프로그램',items:[['program','교육프로그램'],['forest','숲 활동'],['special','특별 활동']]},
+ {t:'소식란',items:[['notice','가정통신문'],['plan','월간 · 주간 교육계획안'],['parentedu','부모교육'],['meal','식단']]},
+ {t:'커뮤니티',items:[['episode','유치원 에피소드'],['column','부모교육 칼럼']]}
+];
+
+const HERO=[
+ {k:'forest',small:'숲에서 꿈틀, 마음이 자라는 곳',p:'매일 아침 숲길을 걸으며 하루를 여는 유치원. 아이가 궁금해하는 것에서 배움을 시작합니다.'},
+ {k:'garden',small:'심고, 기다리고, 거두는 시간',p:'반마다 텃밭 두 고랑. 씨앗이 싹 트는 날을 아이들이 직접 기록합니다.'},
+ {k:'orchard',small:'사계절 과수원 산책',p:'꽃 피는 봄부터 홍시가 익는 겨울까지, 열매의 한 해를 곁에서 지켜봅니다.'},
+ {k:'playground',small:'흙 묻은 손이 자랑인 아이들',p:'밧줄 놀이터와 나무 오두막에서 몸을 쓰며 스스로 할 수 있는 일을 늘려 갑니다.'},
+ {k:'classroom',small:'숲에서 가져온 질문을 교실에서',p:'주워 온 솔방울 하나가 일주일짜리 프로젝트가 됩니다.'}
+];
+
+const PILLARS=[
+ ['C','Curious','궁금해하는 아이','왜? 어떻게? 질문을 끝까지 따라가 스스로 답을 찾는 힘','var(--blue)'],
+ ['T','Together','함께하는 아이','친구와 역할을 나누고, 생명과 이웃을 아끼는 마음','var(--pink)'],
+ ['S','Strong','튼튼한 아이','숲길과 텃밭에서 길러지는 건강한 몸과 단단한 마음','var(--green)']
+];
+
+const DAY=[
+ {g:'누리과정',t:'09:00 ~ 13:30',c:'var(--green)',rows:[
+  ['등원 · 아침 숲길','현관 인사, 소지품 정리, 투약의뢰서 확인 후 원 뒤 숲길 10분 산책으로 몸과 마음을 깨웁니다.'],
+  ['놀이 계획 · 자유놀이','오늘 하고 싶은 놀이를 그림 카드로 정하고 쌓기 · 역할 · 미술 · 수조작 · 과학 · 언어 영역에서 놀이합니다.'],
+  ['모임 시간','날씨와 오늘의 숲 소식, 친구가 가져온 자연물 이야기를 나눕니다.'],
+  ['숲 놀이 · 바깥놀이','계절 숲 활동과 텃밭 · 과수원 돌보기. 비 오는 날은 우비를 입고 나가거나 강당 대체 활동을 합니다.'],
+  ['대 · 소그룹 활동','동화 · 동시 · 음률 · 신체 · 요리 · 과학 활동을 주제에 맞춰 엮습니다.'],
+  ['점심 · 양치 · 쉼','텃밭 채소가 들어간 점심, 스스로 하는 양치, 조용한 그림책 쉼 시간.']]},
+ {g:'특별 활동',t:'13:30 ~ 14:30',c:'var(--orange)',rows:[
+  ['숲 특색 교육','숲 탐구 노트 쓰기, 세밀화 그리기, 생태 그림책 읽기'],
+  ['특성화 활동','영어 놀이 · 체육 · 악기(소고, 실로폰, 우쿨렐레) · 요리 — 요일별 운영'],
+  ['하루 돌아보기 · 귀가 지도','오늘 가장 즐거웠던 일 한 문장 말하기, 내일 준비물 확인, 안전한 귀가 지도']]},
+ {g:'방과후 과정',t:'14:30 ~ 19:00',c:'var(--blue)',rows:[
+  ['쉼 · 간식','교실 이동, 오후 간식과 휴식, 조용한 놀이'],
+  ['방과후 놀이','생활 주제와 이어지는 놀이, 요일별 활동, 숲 산책과 바깥놀이'],
+  ['석식 · 차량 하원','17:00 석식 후 1차 차량 하원(17:30)'],
+  ['자유놀이 · 보호자 하원','보호자 하원은 19:00까지, 마지막 30분은 정리 놀이']]}
+];
+
+const AGE={
+ 3:{title:'오감으로 만나는 세상, 만 3세',short:'오감으로 놀이해요',prog:'감각 놀이 중심 통합교육',color:'#d9f2d6',ink:'#2f8f3b',kw:['적응','기본생활','감각','소근육'],
+  pts:['처음 단체생활을 시작하는 시기라 하루 흐름을 예측할 수 있도록 같은 순서의 일과를 반복하고, 정리 · 손 씻기 · 인사 같은 생활 습관을 놀이로 익힙니다.','흙 · 물 · 나뭇잎을 만지고 냄새 맡는 감각 놀이로 숲과 친해지며, 손끝 힘을 기르는 조작 놀이를 매일 이어갑니다.','감정 그림 카드로 기분을 말로 표현하는 연습을 하고, 친구와 차례를 지키는 작은 약속을 함께 만듭니다.'],
+  head:['월','생활 주제','함께 놀아요','현장 체험 · 행사'],
+  rows:[['3월','유치원과 친구',['우리 반 둘러보기','내 사물함','선생님과 친구 이름','함께 쓰는 놀잇감'],'입학식, 원내 숲길 탐험'],
+  ['4월','봄 숲',['새싹 찾기','민들레 불기','봄비 소리','개미 따라가기'],'근처 수목원 봄 소풍'],
+  ['5월','나와 가족',['내 몸 그리기','가족 사진 이야기','엄마 아빠 어릴 때','고마워요 편지'],'가족 숲 운동회'],
+  ['6월','우리 동네',['동네 가게 놀이','버스 타고 가요','우리를 돕는 사람들'],'동네 도서관 방문'],
+  ['7월','여름과 물',['물놀이 약속','시원한 과일','비 오는 날 우산'],'원내 물놀이 날'],
+  ['8월','교통기관',['자동차 · 기차','하늘을 나는 것','안전띠 매요'],'교통안전 인형극'],
+  ['9월','가을 열매',['도토리 줍기','고구마 캐기','송편 빚기'],'텃밭 고구마 수확'],
+  ['10월','곤충과 동물',['메뚜기 관찰','숲 속 동물 흉내','동물 가족'],'곤충 체험관'],
+  ['11월','생활 도구',['숟가락과 젓가락','청소 도구 놀이','도구를 안전하게'],'원내 김장 놀이'],
+  ['12월','겨울',['눈사람 만들기','따뜻한 옷','나눔 상자'],'작은 음악회'],
+  ['1월','놀이와 전통',['윷놀이','팽이 돌리기','떡국 이야기'],'설맞이 놀이 마당'],
+  ['2월','형님이 돼요',['자란 나 사진첩','고마운 친구','새 반 구경'],'수료 사진전']]},
+ 4:{title:'그림책으로 생각을 넓히는 만 4세',short:'탐색하고 표현해요',prog:'그림책 · 문학 중심 통합교육',color:'#ffdfe4',ink:'#d94a66',kw:['언어','상상','표현','관계'],
+  pts:['한 달 동안 한두 권의 그림책을 깊이 읽고 등장인물 되어 보기, 이야기 바꿔 쓰기, 극놀이로 이어 가며 말하기와 표현의 즐거움을 키웁니다.','질문이 폭발하는 시기라 “왜 그럴까?”를 숲 관찰과 연결해 작은 실험으로 확인해 봅니다.','모둠 놀이에서 역할을 나누고 의견을 조율하는 경험을 늘립니다.'],
+  head:['월','생활 주제','중심 그림책 활동','현장 체험 · 행사'],
+  rows:[['3월','나와 친구',['이름 그림책 만들기','마음 날씨 일기','친구 소개하기'],'입학식, 숲 지도 만들기'],
+  ['4월','봄과 씨앗',['씨앗 여행 이야기','꽃잎 동시','봄 소리 녹음'],'수목원 봄 탐험'],
+  ['5월','가족과 집',['우리 집 지도','가족 인터뷰 그림책','고마움 카드'],'가족 숲 운동회'],
+  ['6월','동네와 시장',['시장 그림책 극놀이','가게 간판 만들기','물건 값 놀이'],'전통시장 탐방'],
+  ['7월','여름 날씨',['구름 모양 이야기','비 오는 날 동시','그림자 극장'],'소방서 안전 교육'],
+  ['8월','물과 생물',['연못 속 친구들','물방울 여행','바다 그림책'],'생태 연못 관찰'],
+  ['9월','가을과 수확',['커다란 고구마 이야기','열매 요리책','추석 그림책'],'고구마 캐기'],
+  ['10월','옛이야기',['옛이야기 바꿔 쓰기','탈 만들기','전래놀이'],'민속 놀이 체험'],
+  ['11월','그림책 작가',['작가 따라 그리기','우리 반 그림책 출판','작가에게 편지'],'원내 그림책 전시회'],
+  ['12월','겨울과 나눔',['눈 오는 날 동시','산타 우체국','나눔 장터'],'작은 음악회'],
+  ['1월','열두 띠',['띠 동물 이야기','새해 소원 그림','동물 흉내 극'],'눈썰매 놀이'],
+  ['2월','형님이 돼요',['자란 나 그림책','동생에게 주는 선물','새 반 약속'],'수료 그림책 낭독회']]},
+ 5:{title:'질문으로 탐구하는 만 5세',short:'스스로 발견해요',prog:'프로젝트 탐구 중심 통합교육',color:'#d6eef8',ink:'#1777b5',kw:['탐구','수학적 사고','문제해결','초등 연계'],
+  pts:['아이들의 질문에서 한 달짜리 프로젝트를 시작해 관찰 → 가설 → 확인 → 발표의 흐름을 경험합니다. 결과보다 탐구 과정을 기록으로 남깁니다.','숲에서 세고, 재고, 비교하는 활동으로 수 · 측정 · 분류 개념을 자연스럽게 익힙니다.','하반기에는 초등학교 연계 프로그램으로 스스로 시간 관리하기, 발표하기, 긴 글 듣기 연습을 이어갑니다.'],
+  head:['월','프로젝트 · 생활 주제','현장 체험 · 행사'],
+  rows:[['3월','우리가 만드는 반 규칙',null,'입학식, 숲 지도 그리기'],['4월','쑥과 봄나물 프로젝트',null,'봄나물 캐기 · 쑥버무리'],['5월','개미 마을 프로젝트',null,'곤충 생태 체험'],['6월','비와 물길 프로젝트',null,'빗물 저금통 만들기'],['7월','여름 과일 시장',null,'과수원 자두 따기'],['8월','에너지와 환경',null,'자원순환센터 견학'],['9월','돈과 가게 프로젝트',null,'마트 · 은행 견학'],['10월','우리나라 이야기',null,'박물관 견학, 졸업 여행'],['11월','김치 프로젝트',null,'텃밭 배추로 김장하기'],['12월','겨울 동물 프로젝트',null,'겨울 숲 동물 발자국 찾기'],['1월','시간과 달력',null,'나만의 달력 만들기'],['2월','초등학교 프로젝트',null,'초등학교 방문, 졸업 발표회']]}
+};
+
+const SEASONS=[['봄','3월~5월','#f7b3c2'],['여름','6월~8월','#9cc8f2'],['가을','9월~11월','#f6b98a'],['겨울','12월~2월','#f8dc8a']];
+const FOREST={
+ 3:{last:'숲 그림책',rows:[
+  [['숲에서의 약속','숲길 익히기','봄숲 산책','나뭇잎 왕관','민들레 씨 날리기','애벌레 꼬물꼬물'],['새싹','민들레','쑥','개미','나비','봄구름'],['흙 놀이','루페로 보기','숲 속 보물찾기','꽃잎 소꿉','밧줄 다리'],['나무가 쑥쑥','개미가 줄줄','민들레는 민들레']],
+  [['여름숲 산책','나뭇잎 도장','비 오는 날 숲길','물웅덩이 첨벙'],['나팔꽃','달팽이','지렁이','매미 허물'],['물 놀이','숨은 곤충 찾기','나뭇잎 배 띄우기','그늘 쉼터'],['비가 오면','달팽이의 하루']],
+  [['가을숲 산책','도토리 줍기','낙엽 이불','솔방울 굴리기'],['도토리','단풍잎','은행잎','메뚜기'],['낙엽 비 놀이','도토리 인형','숲속 운동회','열매 색깔 찾기'],['도토리 형제','가을 소풍']],
+  [['겨울숲 산책','동물 발자국','나뭇가지 리스'],['겨울눈','소나무','눈 결정'],['눈 놀이','얼음 모빌','숲속 썰매'],['눈 오는 날','겨울잠 자는 곰']]]},
+ 4:{last:'세밀화',rows:[
+  [['숲에서의 약속','봄숲 트레킹','숲 도구 사용법(루페 · 하늘거울 · 곤충경)','꽃잎 목걸이','나무껍질 탁본','무당벌레 만들기'],['로제트 식물','봄나물','꽃의 생김새','나비의 한살이','개미집 관찰','구름 관찰'],['나뭇가지 놀이','숲 속 모양 찾기','풀싸움','밧줄 놀이','자연물 빙고'],['쑥','진달래','민들레','목련']],
+  [['여름숲 트레킹','지렁이는 땅속 일꾼','흙의 색 찾기','나무 심기'],['잎맥과 잎차례','거미줄','연못 식물','소금쟁이'],['비 오는 날 숲놀이','뜰채 놀이','숲속 짝꿍 찾기','잎 가면 놀이'],['강아지풀','닭의장풀','토마토','잠자리']],
+  [['가을숲 트레킹','잠자리 관찰','가을꽃 화관','곤충 채집 약속'],['코스모스','국화','벼의 변화','상수리나무','배추흰나비'],['그림자 놀이','도토리 팽이','숲속 운동회','열매 물감 놀이'],['도토리','밤송이','단풍잎','배추']],
+  [['겨울숲 트레킹','청설모 미로','늘 푸른 나무'],['소나무와 잣나무','겨울눈','동물의 겨울나기','먹이 사슬'],['숲속 마라톤','눈 찍기','숲속 노래자랑','산가지 놀이'],['솔방울','모과','겨울눈','눈 결정']]]},
+ 5:{last:'세밀화 · 탐구 노트',rows:[
+  [['봄숲 트레킹','자연물 만다라','숲 도구 사용법','로제트 식물 도감 만들기','나뭇가지로 본 세상','작은 정원 만들기'],['꽃의 구조(꽃잎 · 꽃받침 · 암술 · 수술)','식물의 성장 기록','곤충의 한살이','흙의 종류','나무껍질 비교'],['비석치기','봄숲 보물찾기','봄숲 모양 · 색깔 놀이','산가지 놀이','밧줄 놀이'],['쑥','냉이','진달래','사과꽃','개미','나비']],
+  [['여름숲 트레킹','식물의 물 마시기 실험','침엽수와 활엽수','나이테로 나이 세기','숲 액자'],['매미 · 거미 · 잠자리','해바라기 성장','수서 곤충','달팽이','숲 온도 재기'],['징검다리 건너기','여름숲 숫자 놀이','나뭇잎 퍼즐','잎 브로치'],['닭의장풀','감자꽃','옥수수','연꽃','오디']],
+  [['가을숲 트레킹','솔방울 모여라','숲 속 음악회','곤충 채집 방법'],['곤충의 보호색','나무와 풀의 열매','씨앗 여행','가을 곡식','버섯 관찰'],['숲속 운동회','칡고리 던지기','가을숲 숫자 놀이','도토리 6형제'],['떡갈나무잎','밤송이','고구마','모과','배추','무']],
+  [['겨울숲 트레킹','생태계 피라미드','나뭇가지 움막','넝쿨 별 리스'],['땅속 생물','늘 푸른 나무','겨울눈','멸종 위기 동물','숲이 없다면'],['눈 놀이','얼음 얼리기','숲속 민속놀이','겨울숲 숫자 놀이'],['주목나무','잣방울','동백꽃','고드름','눈 결정']]]}
+};
+const GARDEN=[
+ {s:'봄',acts:['반 이름 푯말 세우기','흙 고르기 · 퇴비 뿌리기','씨앗 관찰하고 심기','모종 지지대 세우기','잡초 뽑기 · 물 주기'],crop:'씨감자, 상추 · 토마토 · 가지 · 오이 · 고추 모종, 시금치 수확'},
+ {s:'여름',acts:['감자꽃 관찰','채소 키 재기 기록','열매 수확하고 맛보기','다음 작물을 위한 땅 고르기'],crop:'고구마 순 심기, 감자 · 토마토 · 오이 수확, 배추 · 무 씨앗 심기'},
+ {s:'가을',acts:['배추 · 무 돌보기','배추벌레 잡아 주기','배추 묶어 주기'],crop:'고구마 캐기, 배추 · 무 · 쪽파 수확'},
+ {s:'겨울',acts:['수확한 채소로 김장하기','시래기 말리기','퇴비 만들기','텃밭 쉬는 기간 관찰'],crop:'양파 모종, 시금치 씨앗 심기'}];
+const ORCHARD=[
+ {s:'봄',acts:['과수원 한 바퀴 (사과 · 배 · 자두 · 매실)','꽃 비교하기: 매화 · 살구꽃 · 사과꽃 · 배꽃'],food:'봄나물 밥상 · 우리 농산물 알기'},
+ {s:'여름',acts:['매실 따서 매실청 담그기','자두 · 오디 맛보기','과일 화채 만들기'],food:'여름 과일의 색과 영양'},
+ {s:'가을',acts:['사과 · 배 수확','모과차 만들기','감잎 관찰'],food:'추석 음식 · 곡식과 가루 · 김치의 종류'},
+ {s:'겨울',acts:['감 따서 언 홍시 만들기','겨울눈 관찰 (목련 · 사과 · 포도)'],food:'슬로푸드와 패스트푸드 · 음식 속 영양소'}];
+const SPECIAL=[
+ ['숲 미술','ART','art','자연물로 그리고, 찍고, 엮는 시간입니다. 나뭇잎 판화, 흙 물감, 나뭇가지 조형처럼 숲에서 얻은 재료가 표현의 언어가 됩니다. 완성품보다 고민한 과정을 함께 기록합니다.'],
+ ['음악 놀이','MUSIC','music','몸으로 박자를 느끼는 리듬 놀이에서 시작해 소고 · 실로폰 · 우쿨렐레로 이어집니다. 숲에서 들은 새소리와 바람 소리를 악기로 흉내 내며 소리를 탐색합니다.'],
+ ['영어 놀이','ENGLISH','english','노래와 그림책, 역할 놀이 속에서 영어를 듣고 말합니다. 숲에서 만난 동식물 이름을 영어로 불러 보는 등 일상 주제와 이어지는 표현을 반복해 자연스럽게 익힙니다.'],
+ ['체육','PHYSICAL','sport','주 1회 체육 선생님과 함께 균형 · 협응 · 순발력을 기르는 신체 놀이를 합니다. 밧줄 오르기, 공 굴리기, 장애물 놀이로 숲 놀이에 필요한 몸을 만듭니다.'],
+ ['요리 활동','COOKING','cook','텃밭과 과수원에서 거둔 재료로 직접 씻고, 자르고, 섞습니다. 재료의 변화를 관찰하며 수 · 과학 개념을 만나고, 함께 만든 음식을 나누는 기쁨을 배웁니다.']];
+const SP_WEEK=[['월','숲 미술','영어 놀이','숲 미술'],['화','음악 놀이','체육','영어 놀이'],['수','요리 활동','숲 미술','체육'],['목','체육','음악 놀이','요리 활동'],['금','영어 놀이','요리 활동','음악 놀이']];
+
+const ENV=[['forest','숲 입구 나무 데크'],['playground','밧줄 놀이터'],['garden','반별 텃밭'],['orchard','과수원 산책길'],['classroom','햇살 교실'],['library','그림책 쉼터'],['cook','어린이 요리실'],['hall','비 오는 날 강당'],['pond','생태 연못'],['bus','노란 통학 차량'],['autumn','도토리 언덕'],['snow','겨울 썰매 비탈']];
+
+const ADMISSION=[
+ {n:'공지',t:'2027학년도 입학설명회 일정 안내',d:'2026.10.06',v:812,b:'2027학년도 입학설명회를 11월 2일(월) 오전 10시와 11월 4일(수) 오후 7시, 두 차례 엽니다. 설명회 후 30분간 교실과 숲길을 함께 둘러봅니다. 홈페이지의 입학설명회 신청 메뉴에서 미리 신청해 주세요. (예시 일정)'},
+ {n:'공지',t:'처음학교로 입학 신청 · 추첨 일정',d:'2026.10.01',v:1240,b:'유치원 입학 신청은 교육부 처음학교로(통합 포털)에서 진행합니다. 일반 모집 신청 · 추첨 · 등록 기간은 해당 연도 교육청 공고를 꼭 확인해 주세요. 원에서는 신청 방법 안내와 서류 상담을 도와드립니다.'},
+ {n:'공지',t:'유치원비와 학비 지원 안내',d:'2026.09.20',v:964,b:'누리과정 유아학비 지원 금액과 원비는 해마다 바뀌어 단정해 안내하기 어렵습니다. 최신 원비와 수익자 부담 경비는 유치원 알리미 공시 정보를 기준으로 확인해 주시고, 궁금한 점은 상담 전화로 문의해 주세요.'},
+ {n:5,t:'2027학년도 통학 차량 운행 지역',d:'2026.09.15',v:688,b:'통학 차량은 3개 노선(숲내동 · 가람 신도시 · 은솔마을)으로 운행할 예정입니다. 정류장 위치와 시간은 원아 등록 후 개별 안내합니다. 모든 차량에 동승 선생님이 함께 탑니다.'},
+ {n:4,t:'방과후 과정(종일반) 운영 안내',d:'2026.09.10',v:540,b:'방과후 과정은 14:30부터 19:00까지 운영하며 석식과 오후 간식을 제공합니다. 요일별 활동과 숲 산책이 이어집니다.'},
+ {n:3,t:'입학 준비물과 첫 주 적응 프로그램',d:'2026.09.01',v:731,b:'첫 주는 하원 시간을 단계적으로 늘리는 적응 주간입니다. 준비물: 여벌 옷 한 벌, 숲 활동용 장화, 개인 컵, 낮잠 이불(만 3세). 모든 물건에 이름을 적어 주세요.'},
+ {n:2,t:'대기자 등록 방법',d:'2026.08.20',v:455,b:'정원이 찬 연령은 입학대기 신청 메뉴로 대기 등록이 가능합니다. 결원이 생기면 등록 순서대로 연락드립니다.'},
+ {n:1,t:'숲 활동 복장과 안전 약속',d:'2026.08.11',v:399,b:'숲 활동 날에는 긴바지 · 운동화 · 모자를 권합니다. 선생님 시야 안에서 활동하고, 정해진 길로만 다니는 약속을 매번 함께 확인합니다.'}];
+const NOTICE=[
+ {n:'공지',t:'e알림장 가입 방법 안내',d:'2026.03.03',v:210,b:'가정통신문과 투약 의뢰는 e알림장 앱으로 받습니다. 원에서 받은 초대 코드로 가입해 주세요.'},
+ {n:'공지',t:'투약 의뢰서 작성 안내',d:'2026.03.03',v:188,b:'약은 원래 용기에 담아 이름을 적고, 투약 의뢰서를 함께 보내 주세요. 의뢰서가 없으면 투약할 수 없습니다.'},
+ {n:6,t:'10월 가정통신문 — 가을 숲 소풍',d:'2026.10.05',v:96,b:'10월 15일(목) 가을 숲 소풍을 갑니다. 도시락은 원에서 준비합니다. 편한 운동화와 모자를 준비해 주세요.'},
+ {n:5,t:'고구마 캐기 날 복장 안내',d:'2026.09.24',v:84,b:'9월 30일(수) 텃밭 고구마를 캡니다. 흙이 묻어도 괜찮은 옷과 여벌 옷을 보내 주세요.'},
+ {n:4,t:'2학기 학부모 상담 주간',d:'2026.09.07',v:120,b:'9월 21일부터 25일까지 개별 상담을 진행합니다. e알림장에서 원하는 시간을 선택해 주세요.'},
+ {n:3,t:'2026학년도 제2회 운영위원회 회의록',d:'2026.07.03',v:31,b:'급식 · 통학 · 방과후 운영 안건을 논의했습니다. 회의록 전문은 원 행정실에서 열람할 수 있습니다. (예시)'}];
+const PARENTEDU=[
+ {d:'11.12 (목) 19:00',t:'숲에서 노는 아이, 집에서는 어떻게?',who:'원장',k:'강의'},
+ {d:'11.26 (목) 10:00',t:'그림책 함께 읽기 — 질문하는 대화법',who:'만 4세 담임',k:'워크숍'},
+ {d:'12.10 (목) 19:00',t:'초등 입학 전, 생활 습관 체크리스트',who:'만 5세 담임',k:'강의'},
+ {d:'2027.01.14 (목) 10:00',t:'아이 마음 읽기 — 감정 코칭 기초',who:'외부 강사(예시)',k:'강의'}];
+const MEAL={week:'10월 2주 (10.12 ~ 10.16)',days:['월','화','수','목','금'],
+ lunch:[['현미밥','배추된장국 5.6','닭고기채소볶음 5.6.15','시금치나물','깍두기 9'],['차조밥','어묵무국 1.5.6','돼지불고기 5.6.10','감자채볶음','배추김치 9'],['카레라이스 2.5.6.16','달걀파국 1','고구마맛탕','오이무침','깍두기 9'],['기장밥','미역국 5.6','고등어구이 7','숙주나물','배추김치 9'],['비빔밥(텃밭 채소) 1.5.6','콩나물국','두부조림 5.6','과일','열무김치 9']],
+ snack:[['찐 단호박','우유 2'],['사과','보리차'],['떡(쑥버무리)','두유 5'],['고구마','우유 2'],['바나나','요거트 2']],
+ allergy:'1 난류 · 2 우유 · 5 대두 · 6 밀 · 7 고등어 · 9 새우 · 10 돼지고기 · 15 닭고기 · 16 쇠고기 (숫자는 알레르기 유발 식품 표시 예시)'};
+const PLAN={month:'10월',theme:{3:'곤충과 동물',4:'옛이야기',5:'우리나라 이야기'},weeks:[
+ ['1주','메뚜기와 귀뚜라미','팥죽 할멈 극놀이','태극기와 무궁화'],
+ ['2주','숲 속 동물 흉내','탈 만들기','한글 이야기'],
+ ['3주','가을 숲 소풍','전래놀이 마당','박물관 견학'],
+ ['4주','동물 가족 그림책','옛이야기 바꿔 쓰기','우리 동네 지도']]};
+const EPISODES=[
+ {k:'garden',d:'10.08',a:'만 4세 햇살반',t:'고구마가 너무 커서 못 꺼냈어요',b:'다섯 명이 줄다리기하듯 당겨서야 나온 고구마. 무게를 재 보니 1.2kg! 그날 오후 내내 “고구마 자동차” 이야기가 이어졌습니다.'},
+ {k:'forest',d:'09.24',a:'만 3세 새싹반',t:'개미 길을 따라간 30분',b:'숲길에서 개미 행렬을 발견한 아이들. 산책은 개미 집 앞에서 멈췄고, 교실로 돌아와 개미 그림이 벽 하나를 채웠어요.'},
+ {k:'cook',d:'09.17',a:'만 5세 열매반',t:'우리가 딴 자두로 만든 잼',b:'과수원 자두를 씻고 씨를 빼고 설탕 양을 계산했어요. “설탕이 녹으면 어디로 가?”라는 질문으로 다음 실험이 정해졌습니다.'},
+ {k:'pond',d:'09.03',a:'만 4세 이슬반',t:'소금쟁이는 왜 안 빠질까',b:'생태 연못에서 소금쟁이를 본 날, 아이들은 종이배와 클립으로 물 위에 뜨는 것 실험을 했습니다.'},
+ {k:'autumn',d:'08.27',a:'만 3세 새싹반',t:'첫 도토리를 주운 날',b:'반짝이는 첫 도토리에 이름을 붙여 주고 반 친구로 삼았어요. 도토리 “도리”는 지금 창가 바구니에서 지냅니다.'},
+ {k:'music',d:'08.20',a:'만 5세 열매반',t:'숲 소리로 만든 노래',b:'바람 · 새 · 나뭇잎 소리를 녹음해 악기로 흉내 냈어요. 반 노래 “숲이 부르는 노래”가 완성됐습니다.'}];
+const COLUMNS=[
+ {t:'흙 묻은 옷, 걱정 대신 이렇게 물어봐 주세요',d:'2026.10.02',b:['하원한 아이 옷에 흙이 잔뜩 묻어 있으면 “또 이렇게 됐어?”라는 말이 먼저 나오기 쉽습니다. 흙 자국은 아이가 오늘 무언가에 깊이 몰두했다는 표시이기도 합니다.','“오늘 숲에서 뭘 발견했어?”, “어디가 제일 재미있었어?”처럼 장소와 발견을 묻는 질문은 아이가 하루를 다시 떠올리고 말로 정리하게 돕습니다.','세탁이 쉬운 숲 활동복을 정해 두면 부모님의 부담도 덜 수 있습니다.']},
+ {t:'“왜?”가 많은 만 4세, 답보다 질문을 돌려주기',d:'2026.09.12',b:['만 4세는 하루에도 수십 번 “왜?”를 묻습니다. 모든 질문에 정답을 주기보다 “너는 왜 그럴 것 같아?”라고 되물어 보세요.','아이의 엉뚱한 가설도 끝까지 들어 주면 생각을 말로 표현하는 힘과 자신감이 함께 자랍니다.','함께 그림책이나 도감을 찾아보는 것으로 대화를 마무리하면 좋습니다.']},
+ {t:'초등 입학 전 1년, 꼭 연습해 볼 생활 습관',d:'2026.08.25',b:['스스로 가방 챙기기, 화장실 혼자 다녀오기, 40분 앉아 듣기처럼 생활 습관이 학습보다 먼저입니다.','집에서 내일 준비물을 아이와 함께 확인하는 5분 루틴을 만들어 보세요.','유치원에서도 하반기부터 같은 습관을 함께 연습합니다.']},
+ {t:'숲 활동 다음 날 아이가 피곤해한다면',d:'2026.07.30',b:['숲 활동은 실내 놀이보다 몸을 많이 씁니다. 활동한 날은 저녁 시간을 조용히 보내고 평소보다 30분 일찍 재우는 것을 권합니다.','충분한 수분과 간단한 간식도 회복에 도움이 됩니다.','피곤함이 며칠 계속되면 담임 선생님과 활동량을 함께 조정합니다.']}];
+const LYRICS=[['숲길 따라 꿈틀꿈틀','햇살 친구 손을 잡고','나무처럼 쑥쑥 크는','우리는 꿈틀숲 어린이'],['도토리 줍고 씨앗 심고','궁금한 건 물어보며','서로서로 아껴 주는','우리는 꿈틀숲 어린이']];
+
+/* ---------- 일러스트 장면 (사진 대신 SVG · 사람 얼굴 없음) ---------- */
+let _sid=0;
+const S={
+ sky:(id,a,b)=>`<defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><rect width="600" height="400" fill="url(#${id})"/>`,
+ sun:(x,y,r=34,c='#ffd45a')=>`<circle cx="${x}" cy="${y}" r="${r+16}" fill="${c}" opacity=".25"/><circle cx="${x}" cy="${y}" r="${r}" fill="${c}"/>`,
+ cloud:(x,y,s=1)=>`<g transform="translate(${x} ${y}) scale(${s})" fill="#fff" opacity=".92"><ellipse cx="0" cy="0" rx="38" ry="18"/><ellipse cx="28" cy="-10" rx="28" ry="20"/><ellipse cx="56" cy="2" rx="30" ry="16"/></g>`,
+ hill:(d,c)=>`<path d="${d}" fill="${c}"/>`,
+ pine:(x,y,s=1,c='#2f7d3a')=>`<g transform="translate(${x} ${y}) scale(${s})"><rect x="-5" y="-6" width="10" height="26" fill="#7a5233"/><path d="M0-110L-36-40H-18L-46 0H46L18-40H36Z" fill="${c}"/></g>`,
+ round:(x,y,s=1,c='#4caf50',fruit='')=>`<g transform="translate(${x} ${y}) scale(${s})"><rect x="-6" y="-20" width="12" height="40" rx="4" fill="#7a5233"/><circle cx="0" cy="-56" r="44" fill="${c}"/><circle cx="-26" cy="-40" r="26" fill="${c}"/><circle cx="26" cy="-40" r="26" fill="${c}"/>${fruit?[[-20,-64],[14,-74],[24,-44],[-6,-40],[-30,-36],[4,-58]].map(([a,b])=>`<circle cx="${a}" cy="${b}" r="6" fill="${fruit}"/>`).join(''):''}</g>`,
+ grass:(y,c)=>`<path d="M0 ${y} ${Array.from({length:31},(_,i)=>`L${i*20} ${y-(i%2?8:0)}`).join(' ')} L600 400 L0 400Z" fill="${c}"/>`,
+ leaf:(x,y,r,c)=>`<path transform="translate(${x} ${y}) rotate(${r})" d="M0 0C8-10 22-10 28 0C22 10 8 10 0 0Z" fill="${c}"/>`
+};
+function scene(kind){const id='g'+(++_sid);let b='';
+ switch(kind){
+ case 'forest':b=S.sky(id,'#bfe6ff','#e9f8e4')+S.sun(470,80)+S.cloud(90,70,.9)+S.hill('M0 260C120 200 260 230 600 190V400H0Z','#8fcf86')+[[60,250,1.1],[150,235,.9],[420,215,1.2],[520,225,1],[580,240,.8]].map(([x,y,s])=>S.pine(x,y,s)).join('')+S.round(300,250,.9,'#5bb65f')+S.hill('M0 320C200 290 400 300 600 280V400H0Z','#6db564')+'<path d="M250 400C270 350 300 320 330 300C350 290 380 290 400 300C370 310 340 330 320 400Z" fill="#d9b88a"/>'+S.leaf(140,340,-20,'#3a9d45')+S.leaf(470,350,30,'#3a9d45');break;
+ case 'garden':b=S.sky(id,'#cdeeff','#fff6dc')+S.sun(100,80,30)+S.cloud(380,60)+S.hill('M0 200C200 180 400 190 600 170V400H0Z','#a8d98f')+[0,1,2,3].map(i=>`<path d="M${-40+i*20} ${230+i*44}L${640-i*20} ${220+i*44}L${640-i*20} ${250+i*44}L${-40+i*20} ${260+i*44}Z" fill="#a86f45"/>`+Array.from({length:9},(_,j)=>{const x=40+j*64+(i%2)*20,y=228+i*44;return `<path d="M${x} ${y}V${y-18}" stroke="#2f7d3a" stroke-width="3"/>${S.leaf(x,y-16,-40,'#4caf50')}${S.leaf(x,y-12,200,'#5bb65f')}`}).join('')).join('')+'<g fill="#e9c58f" stroke="#a87b4f" stroke-width="2"><rect x="470" y="150" width="70" height="40" rx="6"/></g><text x="505" y="176" text-anchor="middle" font-size="16" fill="#6b4a2a" font-family="sans-serif">새싹반</text><rect x="503" y="190" width="5" height="40" fill="#a87b4f"/>';break;
+ case 'orchard':b=S.sky(id,'#ffe2c4','#fff8ea')+S.sun(500,90,36,'#ffb347')+S.hill('M0 240C150 210 400 230 600 200V400H0Z','#b5dc94')+[[80,280,1,'#e5483f'],[230,260,1.15,'#f2a33a'],[390,270,1.05,'#e5483f'],[530,285,.95,'#8e5bd1']].map(([x,y,s,f])=>S.round(x,y,s,'#58a957',f)).join('')+S.grass(330,'#8cc97a')+'<g transform="translate(300 330)"><path d="M-36 0H36L28 34H-28Z" fill="#c98a4b"/><path d="M-36 0C-20-26 20-26 36 0" fill="none" stroke="#a86f45" stroke-width="5"/><circle cx="-12" cy="-4" r="9" fill="#e5483f"/><circle cx="6" cy="-6" r="9" fill="#f2a33a"/><circle cx="20" cy="-2" r="8" fill="#e5483f"/></g>';break;
+ case 'playground':b=S.sky(id,'#c6ecff','#effbe9')+S.cloud(60,60)+S.cloud(420,90,.8)+S.hill('M0 270C200 250 400 260 600 240V400H0Z','#9ad08b')+S.pine(560,260,.9)+S.pine(40,270,.8)+'<g transform="translate(150 140)"><rect x="0" y="40" width="10" height="150" fill="#9b6a3f"/><rect x="150" y="40" width="10" height="150" fill="#9b6a3f"/><rect x="-10" y="30" width="180" height="14" rx="6" fill="#b47a46"/>'+Array.from({length:5},(_,i)=>`<path d="M${20+i*30} 44V170" stroke="#e7c48c" stroke-width="4"/>`).join('')+Array.from({length:4},(_,i)=>`<path d="M14 ${74+i*28}H146" stroke="#e7c48c" stroke-width="4"/>`).join('')+'</g><g transform="translate(380 150)"><path d="M0 60L60 0L120 60Z" fill="#e26d3d"/><rect x="10" y="60" width="100" height="80" fill="#d9a066"/><rect x="45" y="90" width="30" height="50" rx="14" fill="#7a5233"/><rect x="0" y="140" width="10" height="50" fill="#9b6a3f"/><rect x="110" y="140" width="10" height="50" fill="#9b6a3f"/><path d="M120 170L190 250" stroke="#f0b33c" stroke-width="16" stroke-linecap="round"/></g>';break;
+ case 'classroom':b=S.sky(id,'#fff3dd','#fffaf0')+'<rect x="40" y="40" width="300" height="190" rx="10" fill="#bfe6ff" stroke="#c99b62" stroke-width="10"/><path d="M190 40V230M40 135H340" stroke="#c99b62" stroke-width="8"/>'+S.pine(110,225,.7)+S.round(270,225,.6,'#5bb65f')+'<rect x="380" y="70" width="180" height="180" rx="8" fill="#e9c58f"/>'+[0,1,2].map(r=>`<rect x="380" y="${70+r*60+52}" width="180" height="8" fill="#c99b62"/>`+[0,1,2,3].map(c=>`<circle cx="${405+c*42}" cy="${70+r*60+36}" r="${12-c%2*3}" fill="${['#f08a24','#3a9d45','#1f7fc4','#ef6f86'][(c+r)%4]}"/>`).join('')).join('')+'<rect y="300" width="600" height="100" fill="#d6b78a"/><g fill="#b47a46"><rect x="80" y="280" width="200" height="16" rx="6"/><rect x="95" y="296" width="10" height="50"/><rect x="255" y="296" width="10" height="50"/><rect x="330" y="290" width="200" height="16" rx="6"/><rect x="345" y="306" width="10" height="50"/><rect x="505" y="306" width="10" height="50"/></g><g transform="translate(180 268)"><path d="M0 0L14-30L28 0Z" fill="#8a5a2b"/><circle cx="14" cy="-34" r="7" fill="#a0703a"/></g>';break;
+ case 'library':b=S.sky(id,'#fff2e2','#fff9f2')+'<rect x="40" y="50" width="330" height="260" rx="10" fill="#c99b62"/>'+[0,1,2].map(r=>Array.from({length:11},(_,i)=>`<rect x="${58+i*28}" y="${66+r*82+(i%3)*6}" width="22" height="${66-(i%3)*6}" rx="3" fill="${['#f08a24','#3a9d45','#1f7fc4','#ef6f86','#ffcc3d'][(i+r)%5]}"/>`).join('')+`<rect x="40" y="${132+r*82}" width="330" height="10" fill="#a87b4f"/>`).join('')+'<rect y="320" width="600" height="80" fill="#e9d2ad"/><ellipse cx="470" cy="330" rx="90" ry="26" fill="#9cc8f2"/><ellipse cx="470" cy="312" rx="70" ry="22" fill="#b9daf7"/><circle cx="540" cy="80" r="0"/><path d="M500 60V200" stroke="#7a5233" stroke-width="6"/><path d="M470 60H530L515 30H485Z" fill="#ffcc3d"/><g transform="translate(430 280) rotate(-8)"><rect width="70" height="10" rx="2" fill="#ef6f86"/><rect y="-10" width="64" height="10" rx="2" fill="#3a9d45"/></g>';break;
+ case 'cook':b=S.sky(id,'#fff6e8','#fffdf6')+'<rect x="0" y="60" width="600" height="8" fill="#e9c58f"/>'+Array.from({length:6},(_,i)=>`<rect x="${60+i*85}" y="20" width="16" height="40" rx="4" fill="#c99b62"/>`).join('')+'<rect y="250" width="600" height="150" fill="#d6b78a"/><rect x="0" y="236" width="600" height="20" fill="#b47a46"/><ellipse cx="160" cy="226" rx="80" ry="22" fill="#fff"/><ellipse cx="160" cy="220" rx="66" ry="14" fill="#f2f2f2"/><circle cx="140" cy="212" r="12" fill="#e5483f"/><circle cx="170" cy="210" r="10" fill="#4caf50"/><circle cx="188" cy="216" r="9" fill="#ffb347"/><rect x="290" y="180" width="140" height="50" rx="10" fill="#9cc8f2"/><path d="M300 180C320 150 400 150 420 180" fill="none" stroke="#7aa9d6" stroke-width="6"/><g transform="translate(480 210)"><path d="M0 0C10-50 30-60 40-60C40-30 30-10 0 0Z" fill="#f08a24"/><path d="M36-58C44-74 54-70 50-62" stroke="#3a9d45" stroke-width="5" fill="none"/></g><g transform="translate(60 160)"><ellipse cx="0" cy="40" rx="26" ry="30" fill="#8e5bd1"/><path d="M-6 10L6 10L0 0Z" fill="#3a9d45"/></g>';break;
+ case 'hall':b=S.sky(id,'#f2ece2','#fbf7f0')+[0,1,2].map(i=>`<rect x="${50+i*190}" y="40" width="130" height="150" rx="65" fill="#b9d3e6"/>`+Array.from({length:8},(_,j)=>`<path d="M${70+i*190+j*14} ${70+(j%3)*20}l-6 16" stroke="#7aa9d6" stroke-width="3" stroke-linecap="round"/>`).join('')).join('')+'<rect y="250" width="600" height="150" fill="#e0b47f"/>'+Array.from({length:8},(_,i)=>`<path d="M${i*80} 250V400" stroke="#cf9e66" stroke-width="2"/>`).join('')+'<circle cx="150" cy="300" r="34" fill="#ef6f86"/><path d="M118 300H182M150 266V334" stroke="#fff" stroke-width="3" opacity=".6"/><ellipse cx="320" cy="330" rx="60" ry="14" fill="none" stroke="#3a9d45" stroke-width="8"/><ellipse cx="440" cy="300" rx="50" ry="12" fill="none" stroke="#1f7fc4" stroke-width="8"/><path d="M500 360L520 310L540 360Z" fill="#f08a24"/>';break;
+ case 'pond':b=S.sky(id,'#d7f0ff','#eefbe9')+S.hill('M0 190C150 170 400 180 600 160V400H0Z','#9ad08b')+'<ellipse cx="300" cy="290" rx="250" ry="80" fill="#5fb4e6"/><ellipse cx="300" cy="290" rx="220" ry="62" fill="#7cc6ee"/>'+[[200,280],[330,300],[410,270],[260,320]].map(([x,y])=>`<ellipse cx="${x}" cy="${y}" rx="28" ry="10" fill="#4caf50"/>`).join('')+'<circle cx="330" cy="292" r="8" fill="#ef9cc0"/>'+Array.from({length:7},(_,i)=>`<path d="M${520+i*8} 300C${516+i*8} 250 ${524+i*8} 220 ${520+i*8} ${190+i*4}" stroke="#2f7d3a" stroke-width="4" fill="none"/><ellipse cx="${520+i*8}" cy="${200+i*4}" rx="4" ry="14" fill="#8a5a2b"/>`).join('')+'<g transform="translate(140 150)"><path d="M0 0H60" stroke="#1f7fc4" stroke-width="5" stroke-linecap="round"/><ellipse cx="20" cy="-8" rx="18" ry="6" fill="#bfe6ff" opacity=".9"/><ellipse cx="38" cy="-8" rx="18" ry="6" fill="#bfe6ff" opacity=".9"/></g>';break;
+ case 'bus':b=S.sky(id,'#cdeeff','#f4fbff')+S.cloud(380,60)+S.hill('M0 240C200 220 400 230 600 210V400H0Z','#a8d98f')+S.pine(60,250,.8)+S.round(540,250,.8,'#5bb65f')+'<rect y="300" width="600" height="100" fill="#8d8a86"/><path d="M0 350H600" stroke="#fff" stroke-width="5" stroke-dasharray="40 30"/><g transform="translate(150 190)"><rect width="300" height="120" rx="22" fill="#ffcc3d"/><rect x="0" y="80" width="300" height="12" fill="#2d2a26" opacity=".7"/>'+[0,1,2,3].map(i=>`<rect x="${22+i*62}" y="20" width="50" height="44" rx="8" fill="#bfe6ff"/>`).join('')+'<rect x="262" y="20" width="26" height="80" rx="6" fill="#bfe6ff"/><circle cx="70" cy="122" r="22" fill="#2d2a26"/><circle cx="70" cy="122" r="9" fill="#ccc"/><circle cx="240" cy="122" r="22" fill="#2d2a26"/><circle cx="240" cy="122" r="9" fill="#ccc"/><rect x="292" y="70" width="12" height="14" rx="3" fill="#ffefb0"/></g>';break;
+ case 'autumn':b=S.sky(id,'#ffe6c9','#fff7ec')+S.sun(90,80,28,'#ffb347')+S.hill('M0 250C150 220 400 240 600 210V400H0Z','#e8c07a')+[[150,280,1.1,'#e8743b'],[300,260,1.2,'#f2a33a'],[460,275,1,'#d9542f']].map(([x,y,s,c])=>S.round(x,y,s,c)).join('')+S.grass(330,'#d9a35c')+Array.from({length:14},(_,i)=>S.leaf(30+i*42,350+(i%3)*14,i*37,['#e8743b','#f2a33a','#d9542f'][i%3])).join('')+'<g transform="translate(300 360)"><ellipse cx="0" cy="0" rx="12" ry="15" fill="#a86f45"/><path d="M-13-6C-10-20 10-20 13-6Z" fill="#6b4a2a"/></g><g transform="translate(340 368)"><ellipse cx="0" cy="0" rx="10" ry="13" fill="#a86f45"/><path d="M-11-5C-8-17 8-17 11-5Z" fill="#6b4a2a"/></g>';break;
+ case 'snow':b=S.sky(id,'#dbeaf7','#f6fbff')+S.cloud(100,70)+S.cloud(420,50,.8)+S.hill('M0 250C150 180 350 200 600 220V400H0Z','#ffffff')+[[90,250,1,'#3f7d5a'],[170,235,.8,'#3f7d5a'],[480,240,1.1,'#3f7d5a']].map(([x,y,s,c])=>S.pine(x,y,s,c)+`<path transform="translate(${x} ${y}) scale(${s})" d="M0-110L-16-82H16Z" fill="#fff"/>`).join('')+S.hill('M0 320C200 290 400 310 600 290V400H0Z','#eef5fb')+'<g transform="translate(300 300) rotate(-8)"><rect x="0" y="0" width="90" height="14" rx="7" fill="#e5483f"/><path d="M0 24H96C104 24 108 18 104 12" stroke="#7a5233" stroke-width="5" fill="none"/><path d="M14 14V24M76 14V24" stroke="#7a5233" stroke-width="5"/></g>'+Array.from({length:22},(_,i)=>`<circle cx="${(i*97)%600}" cy="${(i*53)%240}" r="${2+i%3}" fill="#fff"/>`).join('');break;
+ case 'art':b=S.sky(id,'#fff1e0','#fffaf2')+'<g transform="translate(110 60)"><path d="M20 290L90 0L160 290" stroke="#a87b4f" stroke-width="10" fill="none"/><rect x="0" y="40" width="180" height="150" fill="#fff" stroke="#e0d2bb" stroke-width="4"/>'+[[40,90,-20,'#3a9d45'],[90,120,30,'#e8743b'],[130,80,-60,'#1f7fc4']].map(([x,y,r,c])=>`<path transform="translate(${x} ${y}) rotate(${r}) scale(2)" d="M0 0C8-10 22-10 28 0C22 10 8 10 0 0Z" fill="${c}" opacity=".85"/>`).join('')+'</g><g transform="translate(380 240)"><path d="M0 40C0-20 80-40 140 0C180 30 150 80 110 70C90 66 96 90 70 92C30 96 0 80 0 40Z" fill="#e9c58f"/>'+[[30,20,'#e5483f'],[62,4,'#ffcc3d'],[98,10,'#3a9d45'],[124,36,'#1f7fc4'],[34,60,'#ef6f86']].map(([x,y,c])=>`<circle cx="${x}" cy="${y}" r="12" fill="${c}"/>`).join('')+'</g><path d="M400 200L520 120" stroke="#7a5233" stroke-width="6" stroke-linecap="round"/><path d="M520 120L534 110" stroke="#ef6f86" stroke-width="10" stroke-linecap="round"/>';break;
+ case 'music':b=S.sky(id,'#eaf3ff','#fbfdff')+'<g fill="none" stroke="#c8d6e8" stroke-width="3">'+[0,1,2,3,4].map(i=>`<path d="M30 ${70+i*16}H570"/>`).join('')+'</g>'+[[100,118],[180,102],[260,86],[340,110],[420,94],[500,78]].map(([x,y])=>`<ellipse cx="${x}" cy="${y}" rx="11" ry="8" fill="#2d2a26" transform="rotate(-20 ${x} ${y})"/><path d="M${x+10} ${y}V${y-46}" stroke="#2d2a26" stroke-width="3"/>`).join('')+'<g transform="translate(90 220)">'+['#e5483f','#f08a24','#ffcc3d','#3a9d45','#1f7fc4','#8e5bd1'].map((c,i)=>`<rect x="${i*36}" y="${i*6}" width="30" height="${130-i*12}" rx="6" fill="${c}"/>`).join('')+'<rect x="-10" y="40" width="230" height="10" rx="5" fill="#a87b4f"/></g><g transform="translate(440 300)"><ellipse cx="0" cy="0" rx="70" ry="24" fill="#d9a066"/><ellipse cx="0" cy="-8" rx="70" ry="24" fill="#f6e7cf" stroke="#d9a066" stroke-width="6"/><path d="M-90-90L-20-20M90-90L20-20" stroke="#7a5233" stroke-width="6" stroke-linecap="round"/><circle cx="-90" cy="-90" r="10" fill="#ef6f86"/><circle cx="90" cy="-90" r="10" fill="#ef6f86"/></g>';break;
+ case 'english':b=S.sky(id,'#eaf7ef','#fbfff9')+[['A','#e5483f',80,210],['B','#1f7fc4',170,220],['C','#3a9d45',260,210],['D','#ffb347',125,140]].map(([t,c,x,y])=>`<g transform="translate(${x} ${y})"><rect width="84" height="84" rx="10" fill="${c}"/><rect x="8" y="8" width="68" height="68" rx="6" fill="#fff" opacity=".18"/><text x="42" y="60" text-anchor="middle" font-size="52" font-family="sans-serif" font-weight="700" fill="#fff">${t}</text></g>`).join('')+'<rect y="304" width="600" height="96" fill="#e9d2ad"/><g transform="translate(380 150)"><path d="M0 20L90 0V150L0 170Z" fill="#fff" stroke="#e0d2bb" stroke-width="3"/><path d="M180 20L90 0V150L180 170Z" fill="#fff" stroke="#e0d2bb" stroke-width="3"/>'+S.round(45,120,.45,'#4caf50','#e5483f')+'<text x="135" y="70" text-anchor="middle" font-size="22" font-family="sans-serif" fill="#6f685f">apple</text><text x="135" y="110" text-anchor="middle" font-size="22" font-family="sans-serif" fill="#6f685f">tree</text></g>';break;
+ case 'sport':b=S.sky(id,'#d7f0ff','#f0fbe9')+S.cloud(420,60)+S.hill('M0 230C200 210 400 220 600 200V400H0Z','#8fcf86')+'<path d="M40 380C140 300 460 300 560 380" stroke="#fff" stroke-width="6" fill="none" opacity=".7"/>'+[[120,300],[220,320],[320,300],[420,320]].map(([x,y],i)=>`<path d="M${x-14} ${y+20}L${x} ${y-16}L${x+14} ${y+20}Z" fill="${i%2?'#f08a24':'#ffcc3d'}"/>`).join('')+'<circle cx="500" cy="300" r="30" fill="#fff"/><path d="M500 270L512 288L500 300L488 288Z" fill="#2d2a26"/><circle cx="500" cy="300" r="30" fill="none" stroke="#2d2a26" stroke-width="2"/><ellipse cx="160" cy="210" rx="56" ry="56" fill="none" stroke="#ef6f86" stroke-width="10"/><path d="M60 140C120 160 180 120 240 150C300 180 340 140 380 160" stroke="#c98a4b" stroke-width="7" fill="none" stroke-linecap="round"/>';break;
+ default:b=S.sky(id,'#ffe9c8','#fff8ee')+S.hill('M0 270C200 230 400 250 600 220V400H0Z','#9ad08b');
+ }
+ return `<svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${b}</svg>`}
+const pic=(kind,cap='',label='')=>`<div class="ph scene" role="img" aria-label="${label||cap||'숲유치원 일러스트'}">${scene(kind)}${cap?`<span class="cap">${cap}</span>`:''}</div>`;
+/* 서브 비주얼용 가로 띠 장면 (그룹별 색) */
+function band(g){const pal=[['#bfe6ff','#e9f8e4','#8fcf86','#6db564','#2f7d3a'],['#ffe2c4','#fff4e0','#b5dc94','#8cc97a','#3a8f45'],['#d7f0ff','#f4fbff','#a8d98f','#7fbf6e','#2f7d3a'],['#fde6ef','#fff6ea','#bfe0a0','#94cc80','#3f7d5a']][g]||['#bfe6ff','#e9f8e4','#8fcf86','#6db564','#2f7d3a'];
+ const id='b'+(++_sid);let t='';for(let i=0;i<26;i++){const x=40+i*58+(i%3)*9,y=170+(i%4)*10,s=.45+(i%5)*.08;t+=i%3?S.pine(x,y,s,pal[4]):S.round(x,y,s*.9,'#4caf50',g===1&&i%2?'#e5483f':'')}
+ return `<svg viewBox="0 0 1440 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${pal[0]}"/><stop offset="1" stop-color="${pal[1]}"/></linearGradient></defs><rect width="1440" height="220" fill="url(#${id})"/>${S.sun(1220,60,30)}${S.cloud(260,50,.8)}${S.cloud(820,40,.6)}<path d="M0 160C300 120 600 150 900 125C1150 105 1300 130 1440 120V220H0Z" fill="${pal[2]}"/>${t}<path d="M0 200C400 180 900 195 1440 178V220H0Z" fill="${pal[3]}"/></svg>`}
+
+/* ---------- 메뉴 ---------- */
+const PAGE={};MENU.forEach((g,gi)=>g.items.forEach(([id,name])=>PAGE[id]={g:gi,name}));
+PAGE.login={g:-1,name:'로그인'};PAGE.join={g:-1,name:'회원가입'};
+const $=s=>document.querySelector(s);
+const telDot=KG.tel.replace(/-/g,'.');
+$('#gnb').innerHTML=MENU.map((g,i)=>`<li><a href="#${g.items[0][0]}" data-g="${i}">${g.t}</a><ul class="sub">${g.items.map(([id,n])=>`<li><a href="#${id}">${n}</a></li>`).join('')}</ul></li>`).join('');
+$('#drawerIn').innerHTML='<button class="close" id="dclose" aria-label="메뉴 닫기">✕</button><a href="#home" style="border:0;font-weight:700">처음화면</a>'+MENU.map(g=>`<h5>${g.t}</h5>${g.items.map(([id,n])=>`<a href="#${id}">${n}</a>`).join('')}`).join('');
+const drawer=$('#drawer');
+$('#burger').onclick=()=>{drawer.classList.add('open');$('#burger').setAttribute('aria-expanded','true')};
+drawer.onclick=e=>{if(e.target===drawer||e.target.id==='dclose'||e.target.tagName==='A'){drawer.classList.remove('open');$('#burger').setAttribute('aria-expanded','false')}};
+
+/* ---------- 공통 ---------- */
+const chips=(a,g)=>`<div class="chips${g?' g':''}">${a.map(x=>`<span>${x}</span>`).join('')}</div>`;
+const tabs=(id,names,on)=>`<div class="tabs" role="tablist">${names.map((t,i)=>`<a role="tab" href="#${id}/${i}" class="${i==on?'on':''}" aria-selected="${i==on}">${t}</a>`).join('')}</div>`;
+function board(rows,id){return `<div class="board-top"><span>전체 <b>${rows.length}</b>건</span><form class="search" data-board="${id}"><select aria-label="검색 범위"><option value="t">제목</option><option value="b">내용</option><option value="tb">제목+내용</option></select><input type="search" placeholder="검색어 입력" aria-label="검색어"><button class="btn o" style="padding:8px 14px">검색</button></form></div>
+<div class="tbl-x"><table class="t bd"><thead><tr><th style="width:70px">번호</th><th>제목</th><th style="width:90px">작성자</th><th style="width:110px">작성일</th><th style="width:70px">조회</th></tr></thead><tbody>
+${rows.map((r,i)=>`<tr class="hd" data-t="${r.t}" data-b="${r.b}"><td class="c">${r.n==='공지'?'<span class="notice">공지</span>':r.n}</td><td><button class="ttl" aria-expanded="false" aria-controls="${id}-b${i}">${r.t}</button></td><td class="c">행정실</td><td class="c">${r.d}</td><td class="c">${r.v.toLocaleString()}</td></tr><tr class="body" id="${id}-b${i}" hidden><td></td><td colspan="4"><div class="post">${r.b}<p class="note" style="margin-top:12px">※ 가상 유치원 데모의 예시 게시물입니다.</p></div></td></tr>`).join('')}
+<tr class="nores" hidden><td colspan="5" class="empty"><b>검색 결과가 없습니다</b>다른 검색어로 다시 찾아보세요.</td></tr></tbody></table></div>`}
+function filterBoard(f){const q=f.querySelector('input').value.trim(),mode=f.querySelector('select').value;const tb=f.closest('.board-top').nextElementSibling.querySelector('tbody');let n=0;
+ tb.querySelectorAll('tr.hd').forEach(tr=>{const hay=(mode.includes('t')?tr.dataset.t:'')+' '+(mode.includes('b')?tr.dataset.b:'');const hit=!q||hay.includes(q);tr.hidden=!hit;if(!hit){tr.nextElementSibling.hidden=true;tr.querySelector('.ttl').setAttribute('aria-expanded','false')}if(hit)n++});
+ tb.querySelector('.nores').hidden=n>0}
+
+/* ---------- 메인 ---------- */
+const QUICK=[['philosophy','교육철학','#3a9d45','철'],['program','교육프로그램','#f08a24','교'],['forest','숲 활동','#2a7a34','숲'],['admission','입학안내','#1f7fc4','입'],['waitlist','입학대기 신청','#ef6f86','대'],['location','오시는 길','#6a4cc2','길']];
+const SEASON_TXT=['봄숲 트레킹, 로제트 식물 관찰, 씨감자 심기, 과수원 꽃 비교','비 오는 날 숲놀이, 감자 수확, 매실청 담그기, 오디 맛보기','숲속 운동회, 고구마 캐기, 도토리 팽이, 모과차 만들기','숲속 썰매, 텃밭 김장, 겨울눈 관찰, 언 홍시 만들기'];
+const STATS=[['숲길','1.2','km','원 뒤편 산책로 (예시)'],['텃밭','12','고랑','반마다 두 고랑 (예시)'],['과수','24','그루','사과 · 배 · 자두 · 매실'],['숲 놀이','주 3','회','계절별 숲 활동']];
+function home(){return `
+<section class="hero" aria-label="메인 비주얼" aria-roledescription="carousel">
+ ${HERO.map((h,i)=>`<div class="slide${i?'':' on'}" aria-hidden="${i?'true':'false'}">${pic(h.k,'',h.small)}</div>`).join('')}
+ <div class="copy"><div class="wrap">
+  <small id="hsmall">${HERO[0].small}</small>
+  <h1>${KG.parts.map((p,i)=>`<span class="c${i+1}">${p}</span>`).join('')}</h1>
+  <p id="hp">${HERO[0].p}</p>
+  <div class="cta"><a class="btn o" href="#briefing">입학설명회 신청</a><a class="btn w" href="#program">교육프로그램 보기</a></div>
+ </div></div>
+ <div class="dots" id="dots">${HERO.map((h,i)=>`<button aria-label="${i+1}번 장면: ${h.small}" class="${i?'':'on'}" data-i="${i}"></button>`).join('')}</div>
+</section>
+<div class="wrap quick"><div class="grid">${QUICK.map(([h,t,c,k])=>`<a href="#${h}"><i style="background:${c}">${k}</i>${t}</a>`).join('')}</div></div>
+
+<section class="blk"><div class="wrap tlh">
+ <div>
+  <p class="eyebrow">EDUCATION PHILOSOPHY</p>
+  <h2 style="font-size:clamp(30px,4vw,44px);margin:8px 0 18px">숲에서 꿈틀,<br>스스로 자라는 아이</h2>
+  <p class="lead">${KG.name}은 아이가 <b>궁금해하는 것에서 배움을 시작</b>합니다. 매일 걷는 숲길과 반별 텃밭, 사계절 과수원이 교실이 되고, 선생님은 답을 주기보다 <b>질문을 함께 따라가는 사람</b>이 됩니다.</p>
+  <p style="margin-top:22px"><a class="btn line" href="#philosophy">교육철학 자세히 보기 →</a></p>
+ </div>
+ <div class="tlh-cards">${PILLARS.map(p=>`<div class="tl"><span class="L" style="color:${p[4]}">${p[0]}</span><div><h3>${p[1]} · ${p[2]}</h3><p>${p[3]}</p></div></div>`).join('')}</div>
+</div></section>
+
+<section class="blk stats-blk"><div class="wrap"><div class="stats">${STATS.map(s=>`<div><small>${s[0]}</small><b>${s[1]}<em>${s[2]}</em></b><span>${s[3]}</span></div>`).join('')}</div></div></section>
+
+<section class="blk" style="background:var(--soft)"><div class="wrap">
+ <div class="sec-h"><div><p class="eyebrow">CLASS BY AGE</p><h2>연령별 교육 프로그램</h2></div><p>감각 놀이 → 그림책 → 프로젝트 탐구로 이어지는 3년, 그리고 저녁 7시까지 이어지는 방과후 과정.</p></div>
+ <div class="ages">
+  ${[3,4,5].map(a=>`<a class="age a${a}" href="#program/${a-2}"><span class="n">${a+2}<small>세반</small></span><h3>${AGE[a].short}</h3><p>${AGE[a].pts[0].split('. ')[0].replace(/[.。]$/,'')}.</p><span class="go">연간 계획 보기 →</span></a>`).join('')}
+  <a class="age af" href="#program/0"><span class="n">방과후</span><h3>14:30 ~ 19:00</h3><p>생활 주제와 이어지는 놀이, 요일별 활동, 숲 산책과 석식 · 간식까지 하루를 이어 돌봅니다.</p><span class="go">하루일과 보기 →</span></a>
+ </div>
+</div></section>
+
+<section class="blk"><div class="wrap">
+ <div class="sec-h"><div><p class="eyebrow">A DAY IN THE FOREST</p><h2>꿈틀숲의 하루</h2></div><a class="btn line" href="#program/0">1일 교육활동계획안 →</a></div>
+ <div class="day">${DAY.map(d=>`<div><span class="k" style="background:${d.c}">${d.g}</span><div class="t">${d.t}</div><ul>${d.rows.slice(0,4).map(r=>`<li>${r[0]}</li>`).join('')}</ul></div>`).join('')}</div>
+</div></section>
+
+<section class="blk" style="background:var(--soft2)"><div class="wrap">
+ <div class="sec-h"><div><p class="eyebrow">FOREST · GARDEN · ORCHARD</p><h2>사계절 숲 활동</h2></div><p>숲체험 · 숲탐구 · 숲놀이와 텃밭, 과수원 활동이 계절마다 이어집니다.</p></div>
+ <div class="seasons">${SEASONS.map(([s,m,c],i)=>`<a class="season" href="#forest/0"><div class="dot" style="background:${c}">${s}</div><h4>${m}</h4><p>${SEASON_TXT[i]}</p></a>`).join('')}</div>
+</div></section>
+
+<section class="blk"><div class="wrap">
+ <div class="sec-h"><div><p class="eyebrow">EPISODES</p><h2>요즘 꿈틀숲에서는</h2></div><a class="btn line" href="#episode">에피소드 더보기 →</a></div>
+ <div class="epi epi-home">${EPISODES.slice(0,3).map(epCard).join('')}</div>
+</div></section>
+
+<section class="blk" style="padding-top:0"><div class="wrap news">
+ <div class="panel"><h3>입학관련안내 <a href="#admission">더보기 +</a></h3><ul class="plist">${ADMISSION.slice(0,6).map(r=>`<li><a href="#admission"><span>${r.t}</span></a><time>${r.d}</time></li>`).join('')}</ul></div>
+ <div class="panel"><h3>가정통신문 <a href="#notice">더보기 +</a></h3><ul class="plist">${NOTICE.slice(0,4).map(r=>`<li><a href="#notice"><span>${r.t}</span></a><time>${r.d}</time></li>`).join('')}</ul>
+  <h3 style="margin-top:22px">이번 주 식단 <a href="#meal">더보기 +</a></h3>
+  <div class="awards">${MEAL.days.slice(0,3).map((d,i)=>`<div class="award"><b>${d}</b><span>${MEAL.lunch[i].slice(0,3).map(x=>x.replace(/ [\d.]+$/,'')).join(' · ')}</span></div>`).join('')}</div>
+ </div>
+ <div class="panel contact"><h3>상담문의 연락처</h3><div class="tel">${telDot}</div><p style="margin:6px 0 16px;opacity:.9">입학 · 방과후 · 통학차량 문의</p>
+  <div class="row"><span>팩스</span><span>${KG.fax.replace(/-/g,'.')}</span></div><div class="row"><span>업무시간</span><span>${KG.hours}</span></div><div class="row"><span>주소</span><span>${KG.addr}</span></div>
+  <p style="margin-top:18px"><a class="btn w" href="#location">오시는 길 →</a></p></div>
+</div></section>`}
+function epCard(e){return `<article class="ep">${pic(e.k,e.a,e.t)}<div><small>${e.d} · ${e.a}</small><h3>${e.t}</h3><p>${e.b}</p></div></article>`}
+
+/* ---------- 서브 페이지 ---------- */
+const P={};
+P.philosophy=()=>`
+<h3 class="h3">교육 철학</h3>
+<div class="tlh-cards" id="tlh3">${PILLARS.map(p=>`<div class="tl" style="flex-direction:column;text-align:center"><span class="L" style="color:${p[4]}">${p[0]}</span><div><h3>${p[1]}</h3><p><b>${p[2]}</b></p><p style="margin-top:6px;font-size:14.5px">${p[3]}</p></div></div>`).join('')}</div>
+<p class="prose">${KG.name}은 숲이 가장 좋은 교실이라고 믿습니다. 정해진 교구보다 오늘 숲에서 만난 개미 한 마리, 비 온 뒤 생긴 물웅덩이가 아이의 질문을 더 크게 키우기 때문입니다. 교사는 그 질문을 놓치지 않고 기록하며, 놀이가 깊어질 수 있도록 시간과 재료를 준비합니다.</p>
+<p class="prose">누리과정의 다섯 영역(신체운동 · 건강, 의사소통, 사회관계, 예술경험, 자연탐구)을 숲과 텃밭, 과수원의 사계절 속에서 통합적으로 경험하도록 하루를 설계합니다. 유치원과 교사, 가정이 같은 방향을 보고 아이의 속도를 기다리는 교육공동체를 지향합니다.</p>
+<h3 class="h3">원훈</h3>
+<div class="motto"><p><span class="a">궁금해</span>하고 <span class="b">함께</span>하며 <span class="c">튼튼한</span> 어린이</p></div>
+<h3 class="h3">교육목표와 실천 계획</h3>
+<div class="tree">
+ <div class="pill" style="background:var(--blue)">자연 속에서 스스로 묻고 함께 답을 찾는 어린이</div>
+ <div class="pill" style="background:var(--green)">누리과정 5개 영역과 이어지는 실천 목표</div>
+ <div class="goals">
+  <div><b>신체운동 · 건강</b><br>숲길 걷기와 바깥놀이로 몸을 즐겁게 움직이고 건강한 생활 습관을 기른다.</div>
+  <div><b>의사소통</b><br>보고 느낀 것을 말과 그림, 글자로 표현하고 친구의 이야기를 끝까지 듣는다.</div>
+  <div><b>사회관계</b><br>역할을 나누고 약속을 함께 정하며, 이웃과 우리 문화를 소중히 여긴다.</div>
+  <div><b>예술경험</b><br>자연의 소리 · 색 · 모양에서 아름다움을 찾고 자유롭게 표현한다.</div>
+  <div><b>자연탐구</b><br>생명을 존중하고, 궁금한 것을 관찰 · 비교 · 기록하며 탐구한다.</div>
+ </div>
+ <div class="roles"><div><b>원아</b><p>궁금한 것을 묻고 친구와 나누는 어린이</p></div><div><b>교사</b><p>아이의 질문을 기록하고 기다려 주는 선생님</p></div><div><b>유치원</b><p>사계절 자연이 살아 있는 배움터</p></div><div><b>가정</b><p>아이의 속도를 믿고 함께 걷는 부모님</p></div></div>
+</div>
+<h3 class="h3">숲 교육의 세 가지 약속</h3>
+<div class="feature"><div><h4>매일 숲으로</h4><p>날씨가 허락하는 날은 매일 아침 숲길을 걷습니다. 미세먼지 · 폭염 · 한파 기준을 넘는 날은 실내 대체 활동으로 바꿉니다.</p></div><div><h4>안전이 먼저</h4><p>숲에 들어가기 전 약속을 함께 확인하고, 교사 시야 안에서 정해진 구역을 활동합니다.</p></div><div><h4>기록으로 나눠요</h4><p>아이들의 발견을 탐구 노트와 사진 기록으로 남겨 가정과 매주 공유합니다.</p></div></div>`;
+
+P.environment=()=>`
+<h3 class="h3">자연 속 배움터</h3>
+<div class="feature"><div><h4>숲과 맞닿은 원사</h4><p>큰 창으로 사계절 숲이 교실까지 들어오는 밝은 건물입니다. 모든 교실이 1 · 2층에 있어 바로 바깥으로 나갈 수 있습니다.</p></div><div><h4>텃밭 · 과수원</h4><p>반마다 두 고랑의 텃밭과 사과 · 배 · 자두 · 매실 과수원에서 직접 심고 거둡니다.</p></div><div><h4>숲 놀이터 · 강당</h4><p>밧줄 놀이터와 나무 오두막, 비 오는 날 마음껏 뛰는 강당이 있습니다.</p></div></div>
+<p class="prose" style="margin-bottom:18px">그림을 누르면 크게 볼 수 있습니다. <span style="color:var(--muted)">(사진 대신 일러스트로 공간을 소개하는 데모입니다)</span></p>
+<div class="gal">${ENV.map(([k,c],i)=>`<button data-lb aria-label="${c} 크게 보기">${pic(k,c)}</button>`).join('')}</div>
+<h3 class="h3">공간 안내</h3>
+<div class="tbl-x"><table class="t"><thead><tr><th style="width:120px">층</th><th>공간</th><th>이렇게 써요</th></tr></thead><tbody>
+<tr><td class="mo">1층</td><td style="font-weight:700">만 3세 교실 2 · 요리실 · 강당</td><td>어린 연령이 바깥과 가장 가까운 곳에서 생활합니다. 강당은 비 오는 날 신체 놀이 공간입니다.</td></tr>
+<tr><td class="mo">2층</td><td style="font-weight:700">만 4 · 5세 교실 4 · 그림책 쉼터</td><td>복도 끝 그림책 쉼터에서 조용한 시간을 보냅니다. 비상 계단은 숲 쪽 데크로 바로 이어집니다.</td></tr>
+<tr><td class="mo">바깥</td><td style="font-weight:700">숲길 · 텃밭 · 과수원 · 생태 연못</td><td>원 뒤편 숲길(약 1.2km, 예시)과 텃밭, 과수원이 한 바퀴로 이어집니다.</td></tr>
+</tbody></table></div>`;
+
+P.song=()=>`
+<h3 class="h3">꿈틀숲유치원 원가</h3>
+<div class="song">
+ <div class="lyr"><div class="staff" aria-hidden="true">${scene('music')}</div>
+  ${LYRICS.map((v,i)=>`<div class="verse"><span>${i+1}절</span><p>${v.join('<br>')}</p></div>`).join('')}
+  <p class="note">※ 데모용으로 새로 지은 가사입니다. 악보는 실제 사이트 제작 시 유치원 원본으로 넣습니다.</p></div>
+ <div class="songinfo"><div><small>KEY</small><b>바장조 (F Major)</b></div><div><small>TIME</small><b>3/4 박자</b></div><div><small>FORM</small><b>2절 · 16마디</b></div><div><small>TEMPO</small><b>걷는 빠르기</b></div><div style="background:var(--soft2)"><small>MOOD</small><b>숲길을 걸으며 흥얼거리는 산책 노래</b></div></div>
+</div>`;
+
+P.program=(tab)=>{tab=+tab||0;return tabs('program',['1일 교육활동계획안','만 3세','만 4세','만 5세'],tab)+`<div>${tab==0?programDay():programAge(tab+2)}</div>`};
+function programDay(){return `
+<h3 class="h3">하루일과</h3>
+<div class="tbl-x"><table class="t"><tbody>${DAY.map(d=>d.rows.map((r,i)=>`<tr>${i?'':`<th class="g" rowspan="${d.rows.length}">${d.g}<span class="tm">${d.t}</span></th>`}<td style="width:24%;font-weight:700">${r[0]}</td><td>${r[1]}</td></tr>`).join('')).join('')}</tbody></table></div>
+<h3 class="h3">연령별 교육 프로그램</h3>
+<div class="steps3">${[3,4,5].map(a=>{const A=AGE[a];return `<a class="step" href="#program/${a-2}" style="background:${A.color}"><span class="n" style="color:${A.ink}">${a+2}<small style="font-size:18px"> (만${a}세)</small></span><h4>${A.title}</h4><div class="kw">${A.kw.map(k=>`<span>${k}</span>`).join('')}</div><div class="p">${A.prog}</div></a>`}).join('')}</div>
+<div class="tbl-x"><table class="t" style="min-width:760px"><thead><tr><th style="width:120px">구분</th>${[3,4,5].map(a=>`<th>만 ${a}세</th>`).join('')}</tr></thead><tbody>
+<tr><th class="g">프로그램</th>${[3,4,5].map(a=>`<td style="text-align:center;font-weight:700">${AGE[a].prog}</td>`).join('')}</tr>
+<tr><th class="g">연령별 특징 및<br>교수방법</th>${[3,4,5].map(a=>`<td><ol style="margin:0;padding-left:18px">${AGE[a].pts.map(p=>`<li style="margin-bottom:6px">${p}</li>`).join('')}</ol></td>`).join('')}</tr></tbody></table></div>`}
+function programAge(a){const A=AGE[a];return `
+<div class="ageintro" style="background:${A.color};color:#2d2a26"><span class="big" style="color:${A.ink}">만${a}세</span><div><h3>${A.title}</h3><p style="font-weight:700;color:${A.ink}">${A.prog}</p><ol>${A.pts.map(p=>`<li>${p}</li>`).join('')}</ol></div></div>
+<h3 class="h3">연간 교육계획</h3>
+<div class="tbl-x"><table class="t"><thead><tr>${A.head.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>
+${A.rows.map(r=>`<tr><td class="mo">${r[0]}</td><td style="font-weight:700;white-space:nowrap">${r[1]}</td>${r[2]?`<td>${chips(r[2])}</td>`:''}<td>${chips(r[3].split(', '),1)}</td></tr>`).join('')}
+</tbody></table></div><p class="note">※ 연간 행사와 현장 체험은 교육과정 운영과 날씨에 따라 바뀔 수 있습니다.</p>`}
+
+P.forest=(tab)=>{tab=+tab||0;return tabs('forest',['숲 활동 연간계획안','만 3세','만 4세','만 5세'],tab)+`<div>${tab==0?forestYear():forestAge(tab+2)}</div>`};
+function quad(data,kind){const cols={'봄':'#f7b3c2','여름':'#9cc8f2','가을':'#f6b98a','겨울':'#f8dc8a'};return `<div class="garden${kind==='과수원'?' orch':''}">${data.map(d=>`<div><h4><i style="background:${cols[d.s]}">${d.s}</i>${d.s}</h4><ul>${d.acts.map(a=>`<li>${a}</li>`).join('')}</ul><div class="crop">${d.crop?`<b>${d.s}의 작물</b> · ${d.crop}`:`<b>먹거리 이야기</b> · ${d.food}`}</div></div>`).join('')}<div class="center" style="background:${kind==='과수원'?'var(--orange)':'var(--green)'}">${kind}</div></div>`}
+function forestYear(){return `
+<div class="fx"><div><b>숲체험</b><p>계절마다 같은 숲길을 걸으며 변화를 몸으로 느낍니다.</p></div><div><b>숲탐구</b><p>루페 · 하늘거울 · 곤충경으로 보고, 재고, 기록합니다.</p></div><div><b>숲놀이</b><p>밧줄 · 나뭇가지 · 열매로 규칙을 만들어 함께 놉니다.</p></div><div><b>숲 그림책 · 세밀화</b><p>만난 생명을 그림책으로 다시 읽고 세밀화로 그립니다.</p></div></div>
+<h3 class="h3">텃밭활동</h3>${quad(GARDEN,'텃밭활동')}
+<h3 class="h3">과수원 활동</h3>${quad(ORCHARD,'과수원')}
+<p class="note">※ 연령별로 텃밭 작물과 과수원 연계 활동은 조금씩 다릅니다.</p>
+<h3 class="h3">숲 활동 장면</h3>
+<div class="gal" style="grid-template-columns:repeat(3,1fr)">${[['garden','텃밭 가꾸기'],['orchard','과수원 수확'],['pond','생태 연못 관찰']].map(([k,c])=>`<button data-lb aria-label="${c} 크게 보기">${pic(k,c)}</button>`).join('')}</div>`}
+function forestAge(a){const F=FOREST[a];return `
+<h3 class="h3">만 ${a}세 숲 활동 연간계획</h3>
+<div class="tbl-x"><table class="t" style="min-width:860px"><thead><tr><th style="width:90px">계절</th><th>숲체험</th><th>숲탐구</th><th>숲놀이</th><th>${F.last}</th></tr></thead><tbody>
+${F.rows.map((r,i)=>`<tr><td class="mo">${SEASONS[i][0]}<span class="tm">${SEASONS[i][1]}</span></td>${r.map((c,j)=>`<td>${j==1?`<p style="font-size:13px;font-weight:700;color:var(--green-d);margin-bottom:6px">${SEASONS[i][0]}의 ${i==3?'식물과 동물':'식물과 곤충'}</p>`:''}${chips(c,j%2)}</td>`).join('')}</tr>`).join('')}
+</tbody></table></div><p class="note">※ 숲 활동 계획은 날씨와 유치원 행사에 따라 바뀔 수 있습니다.</p>`}
+
+P.special=()=>`
+<h3 class="h3">특별 활동</h3>
+<p class="prose" style="margin-bottom:22px">매일 13:30 ~ 14:30, 누리과정 이후 연령별로 특성화 활동이 이어집니다. 모든 활동은 숲과 생활 주제와 연결해 운영합니다.</p>
+<div class="sp">${SPECIAL.map(s=>`<div class="spc">${pic(s[2],'',s[0])}<div><h3>${s[0]}<small>${s[1]}</small></h3><p>${s[3]}</p></div></div>`).join('')}</div>
+<h3 class="h3">요일별 운영표</h3>
+<div class="tbl-x"><table class="t wk"><thead><tr><th style="width:90px">요일</th><th>만 3세</th><th>만 4세</th><th>만 5세</th></tr></thead><tbody>${SP_WEEK.map(r=>`<tr><td class="mo">${r[0]}</td>${r.slice(1).map(x=>`<td><span class="tag t${SPECIAL.findIndex(s=>s[0]===x)}">${x}</span></td>`).join('')}</tr>`).join('')}</tbody></table></div>
+<p class="note">※ 특성화 활동의 수익자 부담 경비는 유치원 알리미 공시 정보를 기준으로 확인해 주세요.</p>`;
+
+P.admission=()=>`<h3 class="h3">입학관련안내</h3>
+<div class="steps-in">${[['1','입학설명회','원 둘러보기 · 교육과정 안내'],['2','처음학교로 신청','교육부 통합 포털에서 접수'],['3','추첨 · 결과 확인','포털에서 결과 확인'],['4','등록 · 적응 주간','서류 제출 후 첫 주 적응']].map(s=>`<div><i>${s[0]}</i><b>${s[1]}</b><span>${s[2]}</span></div>`).join('')}</div>
+${board(ADMISSION,'admission')}`;
+P.notice=()=>`<h3 class="h3">가정통신문</h3>${board(NOTICE,'notice')}`;
+P.plan=()=>`<h3 class="h3">${PLAN.month} 교육계획안</h3>
+<div class="steps3">${[3,4,5].map(a=>`<div class="step" style="background:${AGE[a].color}"><span class="n" style="color:${AGE[a].ink}">만${a}세</span><h4>${PLAN.theme[a]}</h4><div class="p">${PLAN.month} 생활 주제</div></div>`).join('')}</div>
+<h3 class="h3">주간 계획</h3>
+<div class="tbl-x"><table class="t"><thead><tr><th style="width:90px">주</th><th>만 3세</th><th>만 4세</th><th>만 5세</th></tr></thead><tbody>${PLAN.weeks.map(w=>`<tr><td class="mo">${w[0]}</td>${w.slice(1).map(x=>`<td>${x}</td>`).join('')}</tr>`).join('')}</tbody></table></div>
+<p class="note">※ 주간 계획안 전문은 매주 금요일 e알림장으로 보내 드립니다.</p>`;
+P.parentedu=()=>`<h3 class="h3">부모교육</h3>
+<p class="prose" style="margin-bottom:20px">가정과 유치원이 같은 언어로 아이를 바라볼 수 있도록 학기마다 부모교육을 엽니다. 저녁 강의는 온라인으로도 함께 볼 수 있습니다.</p>
+<div class="pe">${PARENTEDU.map(p=>`<div><span class="k">${p.k}</span><time>${p.d}</time><h4>${p.t}</h4><p>${p.who}</p></div>`).join('')}</div>
+<p class="note">※ 신청은 e알림장 설문으로 받습니다. 강사명은 예시입니다.</p>`;
+P.meal=()=>`<h3 class="h3">식단</h3>
+<div class="board-top"><span><b>${MEAL.week}</b></span><span style="color:var(--muted);font-size:14px">텃밭 채소가 들어간 날은 🌱 표시</span></div>
+<div class="tbl-x"><table class="t meal" style="min-width:720px"><thead><tr><th style="width:90px">구분</th>${MEAL.days.map(d=>`<th>${d}</th>`).join('')}</tr></thead><tbody>
+<tr><th class="g">점심</th>${MEAL.lunch.map(l=>`<td><ul>${l.map(x=>{const m=x.match(/^(.*?)(?: ([\d.]+))?$/);return `<li>${m[1]}${m[1].includes('텃밭')?' 🌱':''}${m[2]?` <sup>${m[2]}</sup>`:''}</li>`}).join('')}</ul></td>`).join('')}</tr>
+<tr><th class="g">오후 간식</th>${MEAL.snack.map(l=>`<td><ul>${l.map(x=>{const m=x.match(/^(.*?)(?: ([\d.]+))?$/);return `<li>${m[1]}${m[2]?` <sup>${m[2]}</sup>`:''}</li>`}).join('')}</ul></td>`).join('')}</tr>
+</tbody></table></div>
+<div class="allergy"><b>알레르기 유발 식품</b><p>${MEAL.allergy}</p></div>
+<p class="note">※ 식재료 수급에 따라 식단이 바뀔 수 있습니다. 알레르기가 있는 유아는 담임과 대체식을 상의해 주세요.</p>`;
+P.episode=()=>`<h3 class="h3">유치원 에피소드</h3><p class="prose" style="margin-bottom:20px">아이들의 소소하고 반짝이는 하루를 나누는 공간입니다. 아이 사진 대신 장면 그림으로 소개합니다.</p><div class="epi">${EPISODES.map(epCard).join('')}</div>`;
+P.column=()=>`<h3 class="h3">부모교육 칼럼</h3><p class="prose" style="margin-bottom:20px">가정에서 함께 실천할 수 있는 유아교육 이야기를 전합니다.</p>
+<div class="cols">${COLUMNS.map((c,i)=>`<details${i?'':' open'}><summary><time>${c.d}</time><b>${c.t}</b></summary><div>${c.b.map(p=>`<p>${p}</p>`).join('')}<p class="note">글 · ${KG.name} 교사회 (예시)</p></div></details>`).join('')}</div>`;
+
+const agreeBox=id=>`<div class="agree"><b>개인정보 수집 및 이용 안내</b><ul><li>수집 항목: 보호자 이름, 휴대폰 번호, 어린이 이름 · 생년월일 · 성별, 주소</li><li>이용 목적: 입학 대기 및 입학 상담 연락</li><li>보유 기간: 해당 학년도 입학 절차 종료 시까지</li></ul><label><input type="checkbox" id="${id}" required> 개인정보 수집 및 이용에 동의합니다.</label></div>`;
+P.waitlist=()=>`
+<h3 class="h3">입학 대기 신청</h3>
+<p class="prose" style="margin-bottom:18px">정원이 찬 연령은 대기 등록 후 결원이 생기면 등록 순서대로 연락드립니다. 정식 입학 신청은 <b>처음학교로</b>에서 진행합니다.</p>
+<form class="f" id="fwait" novalidate>
+ <div class="row"><label class="l" for="w-pname">보호자 이름 <em>*</em></label><input type="text" id="w-pname" autocomplete="name" required></div>
+ <div class="row"><label class="l" for="w-tel">휴대폰 번호 <em>*</em></label><input type="tel" id="w-tel" placeholder="010-0000-0000" autocomplete="tel" required></div>
+ <div class="row"><label class="l" for="w-cname">어린이 이름 <em>*</em></label><input type="text" id="w-cname" required></div>
+ <div class="row"><label class="l" for="w-birth">어린이 생년월일 <em>*</em></label><input type="date" id="w-birth" required></div>
+ <div class="row"><span class="l">성별</span><div class="inl"><label><input type="radio" name="w-sex" checked> 남</label><label><input type="radio" name="w-sex"> 여</label></div></div>
+ <div class="row"><label class="l" for="w-age">희망 연령</label><select id="w-age"><option>만 3세</option><option>만 4세</option><option>만 5세</option></select></div>
+ <div class="row"><label class="l" for="w-addr">도로명 주소 <em>*</em></label><div><input type="text" id="w-addr" placeholder="예) 숲내로 00, 00아파트 00동" required><p class="hint">※ 통학 차량 노선 확인을 위해 단지 이름까지 적어 주세요.</p></div></div>
+ <div class="row"><span class="l">방과후 과정</span><div class="inl"><label><input type="radio" name="w-after" checked> 신청</label><label><input type="radio" name="w-after"> 미신청</label></div></div>
+ ${agreeBox('agree')}
+ <div id="w-msg" role="status"></div>
+ <div><button class="btn o" type="submit">입학 대기 신청하기</button></div>
+</form>`;
+P.briefing=()=>`
+<h3 class="h3">입학설명회 신청</h3>
+<div class="award" style="margin-bottom:22px"><b>NEW</b><span><strong>2027학년도 입학설명회</strong> 신청을 받고 있습니다. 11.2(월) 10:00 / 11.4(수) 19:00 두 차례 (예시 일정)</span></div>
+<form class="f" id="fbrief" novalidate>
+ <div class="row"><label class="l" for="b-pname">신청자 이름 <em>*</em></label><input type="text" id="b-pname" autocomplete="name" required></div>
+ <div class="row"><label class="l" for="b-tel">휴대폰 번호 <em>*</em></label><input type="tel" id="b-tel" placeholder="010-0000-0000" autocomplete="tel" required></div>
+ <div class="row"><label class="l" for="b-day">참석 회차 <em>*</em></label><select id="b-day" required><option value="">선택해 주세요</option><option>11.2(월) 오전 10시</option><option>11.4(수) 오후 7시</option></select></div>
+ <div class="row"><label class="l" for="b-age">입학 희망 연령</label><select id="b-age"><option>만 3세</option><option>만 4세</option><option>만 5세</option></select></div>
+ <div class="row"><label class="l" for="b-num">참석 인원</label><select id="b-num"><option>1명</option><option>2명</option></select></div>
+ <div class="row"><label class="l" for="b-q">궁금한 점</label><textarea id="b-q" rows="4" placeholder="통학 차량, 방과후 과정, 숲 활동 복장 등 미리 궁금한 점을 적어 주세요."></textarea></div>
+ ${agreeBox('agree2')}
+ <div id="b-msg" role="status"></div>
+ <div><button class="btn o" type="submit">입학설명회 신청하기</button></div>
+</form>`;
+P.location=()=>`
+<h3 class="h3">오시는 길</h3>
+<div class="loc">
+ <div class="map"><svg viewBox="0 0 400 300" role="img" aria-label="${KG.name} 위치 약도 (가상)">
+  <rect width="400" height="300" fill="var(--soft2)"/>
+  <circle cx="90" cy="70" r="56" fill="var(--green)" opacity=".35"/><circle cx="140" cy="110" r="40" fill="var(--green)" opacity=".3"/><circle cx="60" cy="130" r="30" fill="var(--green)" opacity=".28"/>
+  <text x="62" y="60" font-size="13" fill="var(--green-d)" font-family="sans-serif">꿈틀숲 산책로</text>
+  <path d="M0 210 C90 190 160 230 400 160" stroke="var(--line)" stroke-width="26" fill="none"/>
+  <path d="M0 210 C90 190 160 230 400 160" stroke="var(--surface)" stroke-width="20" fill="none"/>
+  <text x="305" y="152" font-size="13" fill="var(--muted)" font-family="sans-serif">숲내로</text>
+  <path d="M300 0 C290 80 320 140 300 300" stroke="var(--surface)" stroke-width="10" fill="none"/>
+  <rect x="314" y="236" width="70" height="24" rx="12" fill="var(--blue)"/><text x="349" y="253" text-anchor="middle" font-size="12" fill="#fff" font-family="sans-serif">가람역 (가상)</text>
+  <path d="M220 205 C230 170 240 140 220 110" stroke="var(--orange)" stroke-width="5" fill="none" stroke-dasharray="8 6"/>
+  <circle cx="220" cy="100" r="18" fill="var(--orange)"/><circle cx="220" cy="100" r="7" fill="var(--surface)"/>
+  <rect x="160" y="52" width="122" height="28" rx="14" fill="var(--surface)" stroke="var(--orange)"/>
+  <text x="221" y="71" text-anchor="middle" font-size="14" font-weight="700" fill="var(--fg)" font-family="sans-serif">${KG.name}</text>
+ </svg></div>
+ <div class="info"><dl>
+  <div><dt>주소</dt><dd>${KG.addr} <button class="copyb" data-copy="${KG.addr}" data-label="주소 복사">주소 복사</button></dd></div>
+  <div><dt>대표전화</dt><dd><b style="font-variant-numeric:tabular-nums">${KG.tel}</b> <button class="copyb" data-copy="${KG.tel}" data-label="복사">복사</button></dd></div>
+  <div><dt>팩스</dt><dd>${KG.fax}</dd></div>
+  <div><dt>업무시간</dt><dd>${KG.hours}</dd></div>
+  <div><dt>대중교통</dt><dd>가람역(가상) 2번 출구에서 숲내로 방향 도보 10분, 마을버스 7번 ‘숲내공원’ 하차</dd></div>
+  <div><dt>주차</dt><dd>방문객 주차 4면. 등 · 하원 시간(08:40~09:20, 13:20~13:50)에는 차량 통행을 자제해 주세요.</dd></div>
+  <div><dt>통학차량</dt><dd>운행 지역은 <a href="#admission" style="color:var(--orange-d);font-weight:700">입학관련안내 공지</a>를 확인해 주세요.</dd></div>
+ </dl>
+ <p class="note">※ 가상 업체 데모의 예시 주소 · 연락처입니다. 실제 지도 연결은 제작 시 적용합니다.</p>
+ </div>
+</div>`;
+P.login=()=>`<h3 class="h3">로그인</h3><form class="f" id="flogin" novalidate style="max-width:440px"><div class="row"><label class="l" for="l-id">아이디</label><input type="text" id="l-id" autocomplete="username"></div><div class="row"><label class="l" for="l-pw">비밀번호</label><input type="password" id="l-pw" autocomplete="current-password"></div><div id="l-msg" role="status"></div><div style="display:flex;gap:8px"><button class="btn o">로그인</button><a class="btn line" href="#join">회원가입</a></div></form>`;
+P.join=()=>`<h3 class="h3">회원가입</h3><p class="prose">회원가입은 재원생 보호자를 대상으로 하며, 가입 후 유치원 승인 시 커뮤니티 게시판을 이용하실 수 있습니다. 문의 ${KG.tel}</p>`;
+
+/* ---------- 라우터 ---------- */
+const app=$('#app');let timer;
+function sub(id,tab){const pg=PAGE[id];const g=MENU[pg.g];const title=g?g.t:pg.name;
+ return `<div class="subvis"><div class="ph scene">${band(Math.max(pg.g,0))}</div><div class="t"><div class="wrap"><b>${title}</b></div></div></div>
+ <div class="wrap subwrap">
+  ${g?`<aside class="lnb"><div class="tit">${g.t}</div><ul>${g.items.map(([i,n])=>`<li><a href="#${i}" class="${i===id?'on':''}" ${i===id?'aria-current="page"':''}>${n}</a></li>`).join('')}</ul><div class="telbox"><small>상담문의 연락처</small><b>${telDot}</b><small>fax ${KG.fax.replace(/-/g,'.')} · ${KG.hours}</small></div></aside>`:'<aside></aside>'}
+  <div style="min-width:0">
+   ${g?`<nav class="mtabs" aria-label="하위메뉴">${g.items.map(([i,n])=>`<a href="#${i}" class="${i===id?'on':''}">${n}</a>`).join('')}</nav>`:''}
+   <div class="pagehead"><h2>${pg.name}</h2><div class="crumb">홈 › ${title} › <b>${pg.name}</b></div></div>
+   ${P[id](tab)}
+  </div></div>`}
+let lastId='';
+function route(){clearInterval(timer);const [id,tab]=(location.hash||'#home').slice(1).split('/');
+ if(!PAGE[id]){app.innerHTML=home();startHero();markGnb(-1);document.title=`${KG.name} | 숲에서 자라는 유치원 (가상 데모)`;window.scrollTo(0,0);lastId='home';return}
+ app.innerHTML=sub(id,tab);markGnb(PAGE[id].g);document.title=`${PAGE[id].name} | ${KG.name}`;
+ if(lastId===id){const t=document.querySelector('.tabs');if(t)t.scrollIntoView({block:'nearest'})}else window.scrollTo(0,0);
+ lastId=id;bindForms()}
+function markGnb(g){document.querySelectorAll('#gnb>li>a').forEach(a=>a.classList.toggle('on',+a.dataset.g===g))}
+function startHero(){const s=[...document.querySelectorAll('.hero .slide')],d=[...document.querySelectorAll('#dots button')];let i=0;
+ const go=n=>{s[i].classList.remove('on');s[i].setAttribute('aria-hidden','true');d[i].classList.remove('on');i=(n+s.length)%s.length;s[i].classList.add('on');s[i].setAttribute('aria-hidden','false');d[i].classList.add('on');$('#hsmall').textContent=HERO[i].small;$('#hp').textContent=HERO[i].p};
+ d.forEach(b=>b.onclick=()=>{go(+b.dataset.i);clearInterval(timer);timer=setInterval(()=>go(i+1),6000)});
+ if(!matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(()=>go(i+1),6000)}
+function bindForms(){
+ const okText='입력 내용 확인이 끝났습니다. 가상 업체 데모라 실제로 접수되지는 않습니다.';
+ const check=(f,msgId)=>f.onsubmit=e=>{e.preventDefault();const miss=[...f.querySelectorAll('[required]')].filter(x=>x.type==='checkbox'?!x.checked:!x.value.trim());const m=document.getElementById(msgId);
+  const tel=f.querySelector('input[type=tel]');
+  if(miss.length){const lab=miss[0].type==='checkbox'?'개인정보 수집 및 이용 동의':f.querySelector(`label[for="${miss[0].id}"]`)?.textContent.replace('*','').trim();m.className='msg no';m.textContent=`${lab} 항목을 입력해 주세요.`;miss[0].focus();return}
+  if(tel&&!/^01[0-9]-?\d{3,4}-?\d{4}$/.test(tel.value.trim())){m.className='msg no';m.textContent='휴대폰 번호 형식을 확인해 주세요. 예) 010-1234-5678';tel.focus();return}
+  m.className='msg ok';m.textContent=okText};
+ const fw=$('#fwait'),fb=$('#fbrief'),fl=$('#flogin');
+ if(fw)check(fw,'w-msg');if(fb)check(fb,'b-msg');
+ if(fl)fl.onsubmit=e=>{e.preventDefault();const m=$('#l-msg');m.className='msg no';m.textContent='가상 업체 데모에서는 로그인이 지원되지 않습니다.'};
+ document.querySelectorAll('form.search').forEach(f=>f.onsubmit=e=>{e.preventDefault();filterBoard(f)})}
+document.addEventListener('click',e=>{
+ const tt=e.target.closest('.bd .ttl');if(tt){const row=document.getElementById(tt.getAttribute('aria-controls'));const open=row.hidden;row.hidden=!open;tt.setAttribute('aria-expanded',open)}
+ const cp=e.target.closest('[data-copy]');if(cp){const done=()=>{cp.textContent='복사됨';setTimeout(()=>cp.textContent=cp.dataset.label,1500)};try{navigator.clipboard.writeText(cp.dataset.copy).then(done,()=>{cp.textContent=cp.dataset.copy})}catch(_){cp.textContent=cp.dataset.copy}}
+ const lb=e.target.closest('[data-lb]');if(lb){const all=[...lb.parentElement.children];openLb(all,all.indexOf(lb))}
+});
+const lbEl=$('#lb');let lbBack=null;
+function openLb(items,i){lbBack=document.activeElement;const show=()=>{lbEl.innerHTML=`<button class="x" aria-label="닫기">✕</button><button class="nav prev" aria-label="이전">‹</button>${items[i].querySelector('.ph').outerHTML}<button class="nav next" aria-label="다음">›</button>`;
+ lbEl.querySelector('.x').onclick=closeLb;lbEl.querySelector('.prev').onclick=()=>{i=(i-1+items.length)%items.length;show()};lbEl.querySelector('.next').onclick=()=>{i=(i+1)%items.length;show()};lbEl.querySelector('.x').focus()};show();lbEl.hidden=false}
+function closeLb(){lbEl.hidden=true;if(lbBack)lbBack.focus()}
+lbEl.addEventListener('click',e=>{if(e.target===lbEl)closeLb()});
+document.addEventListener('keydown',e=>{if(lbEl.hidden)return;if(e.key==='Escape')closeLb();if(e.key==='ArrowRight')lbEl.querySelector('.next').click();if(e.key==='ArrowLeft')lbEl.querySelector('.prev').click()});
+window.addEventListener('hashchange',route);route();
+
+</script>
+</body>
+</html>
