@@ -4,113 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>시안 A · Compass · 오름길 학원 (가상 업체 시안)</title>
+<title>학습 로드맵 진단 | 오름길 학원 (가상 업체 데모)</title>
+<meta name="description" content="중·고등 수학·영어 학원. 학년·상태·목표로 추천 반과 이번 학기 계획을 확인하세요.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-/* A · Compass — split(좌측 고정 진단 패널) + interactive 히어로, Pretendard + DM Mono, ink indigo · periwinkle · warm white */
-:root{--bg:#f7f6f2;--card:#fff;--ink:#1b1f45;--sub:#575c7a;--line:#dddbe6;--peri:#7c84f5;--peri-l:#e6e7ff;--mint:#2f9e7a;--on:#fff;
- --sans:"Pretendard Variable",Pretendard,system-ui,sans-serif;--mono:"DM Mono",ui-monospace,monospace}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#12142b;--card:#1b1e3c;--ink:#eef0ff;--sub:#b3b6d6;--line:#2e3260;--peri:#9aa1ff;--peri-l:#262a5a;--mint:#58c9a2;--on:#12142b}}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 var(--sans);word-break:keep-all}
-a{color:inherit}button{font:inherit;cursor:pointer}
-:focus-visible{outline:3px solid var(--peri);outline-offset:2px;border-radius:6px}
-.demo{background:var(--ink);color:var(--bg);font-size:13px;text-align:center;padding:6px 14px}.demo b{color:var(--peri-l)}
-@media (prefers-color-scheme:dark){.demo{background:#000;color:#ddd}}
-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px clamp(16px,3vw,40px);border-bottom:1px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:20}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:20px;letter-spacing:-.02em}
-.logo i{width:30px;height:30px;border-radius:50%;border:2px solid var(--ink);position:relative;display:block}
-.logo i::after{content:"";position:absolute;left:50%;top:3px;bottom:3px;width:3px;margin-left:-1.5px;background:linear-gradient(var(--peri) 50%,var(--ink) 50%);transform:rotate(35deg);border-radius:2px}
-.logo small{font:500 11px var(--mono);color:var(--sub);letter-spacing:.12em}
-nav{display:flex;gap:22px;font-size:15px;font-weight:600}nav a{text-decoration:none}nav a:hover{color:var(--peri)}
-.call{background:var(--ink);color:var(--bg);text-decoration:none;font-weight:700;padding:9px 16px;border-radius:99px;font-size:14px}
-.page{display:grid;grid-template-columns:minmax(380px,42%) minmax(0,1fr)}
-/* 좌측 진단 패널 */
-.panel{position:sticky;top:69px;height:calc(100vh - 69px);overflow:auto;background:var(--ink);color:#eef0ff;padding:clamp(24px,3.4vw,48px);display:flex;flex-direction:column;gap:18px}
-.panel .k{font:500 12px var(--mono);letter-spacing:.14em;color:#aab0ff}
-.panel h1{font-size:clamp(28px,3vw,40px);line-height:1.25;margin:0;letter-spacing:-.03em}
-.panel p.lead{color:#c9cbe8;margin:0;font-size:15.5px}
-.q{border-top:1px solid #343a78;padding-top:14px}
-.q h2{font:500 12.5px var(--mono);letter-spacing:.1em;color:#aab0ff;margin:0 0 10px;display:flex;gap:8px}
-.q h2 b{color:#fff}
-.opts{display:flex;flex-wrap:wrap;gap:8px}
-.opts button{border:1.5px solid #4a51a0;background:transparent;color:#eef0ff;border-radius:12px;padding:8px 14px;font-weight:600;font-size:15px;text-align:left}
-.opts button small{display:block;font-weight:400;color:#aab0d6;font-size:12.5px}
-.opts button[aria-pressed=true]{background:var(--peri);border-color:var(--peri);color:#12142b}
-.opts button[aria-pressed=true] small{color:#2a2f66}
-.opts.wide button{flex:1 1 150px}
-.res{background:#f7f6f2;color:#1b1f45;border-radius:18px;padding:18px 20px;margin-top:4px}
-.res .h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
-.res .h b{font-size:18px}.res .h span{font:500 12px var(--mono);color:#575c7a}
-.res ol{list-style:none;margin:12px 0;padding:0;display:grid;gap:8px;counter-reset:s}
-.res li{counter-increment:s;display:grid;grid-template-columns:28px 1fr;gap:8px;font-size:14.5px;line-height:1.55}
-.res li::before{content:counter(s,decimal-leading-zero);font:500 13px var(--mono);color:#7c84f5;padding-top:2px}
-.res .cls{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
-.res .cls span{background:#e6e7ff;border-radius:99px;padding:3px 12px;font-size:13.5px;font-weight:700}
-.res .act{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
-.btn{border:0;border-radius:12px;padding:11px 16px;font-weight:700;font-size:14.5px;text-decoration:none;display:inline-block}
-.btn.p{background:#1b1f45;color:#fff}.btn.l{background:#e6e7ff;color:#1b1f45}
-.panel .note{font-size:12.5px;color:#9ea2c9;margin:0}
-/* 우측 콘텐츠 */
-main{padding:clamp(28px,4vw,64px) clamp(16px,4vw,64px) 80px;min-width:0}
-section{margin-bottom:84px;scroll-margin-top:90px}
-.sh{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
-.sh em{font:500 13px var(--mono);font-style:normal;color:var(--peri)}
-.sh h2{font-size:clamp(24px,2.6vw,32px);margin:0;letter-spacing:-.02em}
-.intro p{font-size:clamp(19px,1.8vw,23px);line-height:1.6;margin:0;max-width:30em;letter-spacing:-.01em}
-.intro p b{background:linear-gradient(transparent 60%,var(--peri-l) 60%)}
-.sys{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card)}
-.sys div{padding:20px;border-right:1px solid var(--line);position:relative}
-.sys div:last-child{border-right:0}
-.sys b{display:block;font-size:17px;margin:6px 0}
-.sys span{font:500 12px var(--mono);color:var(--peri)}
-.sys p{margin:0;font-size:14.5px;color:var(--sub)}
-.sys div:not(:last-child)::after{content:"→";position:absolute;right:-9px;top:20px;background:var(--card);color:var(--peri);font-weight:700;z-index:1}
-.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--card)}
-table{border-collapse:collapse;width:100%;font-size:14.5px}
-th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-tr:last-child td{border-bottom:0}
-th{font:500 12px var(--mono);letter-spacing:.06em;color:var(--sub);background:var(--bg)}
-td.p{font:500 13px var(--mono);color:var(--peri);white-space:nowrap}
-tr.hit td{background:var(--peri-l)}
-.week{display:grid;grid-template-columns:70px repeat(6,1fr);font-size:13px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card);min-width:640px}
-.week div{padding:8px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:44px}
-.week .hd{font:500 12px var(--mono);color:var(--sub);background:var(--bg);text-align:center;min-height:auto}
-.week .tm{font:500 12px var(--mono);color:var(--sub)}
-.week .on{background:var(--peri);color:#12142b;font-weight:700;border-radius:0}
-.week .cl{background:var(--peri-l);font-weight:600}
-.legend{display:flex;gap:16px;font-size:13px;color:var(--sub);margin-top:10px;flex-wrap:wrap}.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
-.tea{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
-.tea div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
-.tea .av{width:46px;height:46px;border-radius:14px;background:var(--peri-l);display:grid;place-items:center;font-weight:800;color:var(--ink);margin-bottom:10px}
-.tea b{font-size:17px}.tea small{display:block;font:500 12px var(--mono);color:var(--peri);margin:2px 0 6px}.tea p{margin:0;font-size:14px;color:var(--sub)}
-.news{display:grid;gap:8px}
-.news div{display:grid;grid-template-columns:70px 1fr auto;gap:12px;align-items:center;padding:14px 16px;background:var(--card);border:1px solid var(--line);border-radius:14px;font-size:15px}
-.news em{font:500 12px var(--mono);font-style:normal;color:var(--peri)}.news time{font:500 12.5px var(--mono);color:var(--sub);white-space:nowrap}
-details{border-bottom:1px solid var(--line);padding:14px 0}details summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:10px}
-details summary::after{content:"+";font:500 18px var(--mono);color:var(--peri)}details[open] summary::after{content:"−"}
-details p{margin:8px 0 0;color:var(--sub);font-size:15px}
-.legal{font-size:13.5px;color:var(--sub);background:var(--card);border:1px dashed var(--line);border-radius:14px;padding:14px 16px;margin-top:12px}
-footer{border-top:1px solid var(--line);padding:28px clamp(16px,4vw,64px);font-size:13.5px;color:var(--sub);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-footer b{color:var(--ink)}
-.mcta{display:none}
-@media (max-width:1000px){nav{display:none}.page{grid-template-columns:1fr}.panel{position:static;height:auto}.sys{grid-template-columns:1fr 1fr}.sys div:nth-child(2){border-right:0}.sys div:nth-child(-n+2){border-bottom:1px solid var(--line)}.sys div::after{display:none}}
-@media (max-width:560px){.sys{grid-template-columns:1fr}.sys div{border-right:0;border-bottom:1px solid var(--line)}.news div{grid-template-columns:1fr;gap:2px}.call{display:none}
- .mcta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:30;gap:8px}.mcta a{flex:1;text-align:center;padding:13px;border-radius:14px;font-weight:700;text-decoration:none;background:var(--ink);color:var(--bg)}.mcta a+a{background:var(--peri);color:#12142b}body{padding-bottom:70px}}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
-.fade{animation:fd .35s ease}@keyframes fd{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-</style>
+<link rel="stylesheet" href="./assets/site.css">
 </head>
-<body>
-<div class="demo"><b>가상 업체 데모 · 시안 A · Compass</b> — 오름길 학원은 실제 학원이 아닙니다. 교습비 · 연락처 · 등록번호는 예시입니다.</div>
-<header>
- <a class="logo" href="#top"><i aria-hidden="true"></i><span>오름길 학원<br><small>MIDDLE · HIGH · MATH · ENGLISH</small></span></a>
- <nav aria-label="주메뉴"><a href="#system">수업 방식</a><a href="#classes">반 안내</a><a href="#teachers">선생님</a><a href="#fees">교습비</a><a href="#news">설명회 · 소식</a></nav>
- <a class="call" href="#top">상담 메모 만들기</a>
-</header>
-<div class="page" id="top">
+<body data-page="home" data-root="./">
+<div class="page" id="check">
  <aside class="panel" aria-label="학습 로드맵 진단">
   <span class="k">ROADMAP CHECK · 3 QUESTIONS</span>
   <h1>지금 위치를 알면<br>가는 길이 보입니다</h1>
@@ -123,98 +25,17 @@ footer b{color:var(--ink)}
  </aside>
  <main>
   <section class="intro"><div class="sh"><em>00</em><h2>오름길은 이런 학원입니다</h2></div>
-   <p>중 · 고등 수학과 영어를 한 반 최대 8명(예시)으로 가르칩니다. <b>학교 진도와 시험 범위에 맞춘 수업</b>을 기본으로, 고교학점제와 2028학년도 대입(내신 5등급제 · 통합형 수능, 교육부 발표 기준)에 맞춰 <b>과목 선택 상담</b>까지 함께합니다.</p></section>
-  <section id="system"><div class="sh"><em>01</em><h2>일주일은 이렇게 돌아갑니다</h2></div>
-   <div class="sys" id="sys"></div></section>
-  <section id="classes"><div class="sh"><em>02</em><h2>반 안내와 주간 시간표</h2></div>
-   <div class="tbl"><table><thead><tr><th>구분</th><th>반</th><th>이런 학생에게</th><th>수업 시간</th></tr></thead><tbody id="ctab"></tbody></table></div>
-   <h3 style="margin:28px 0 10px;font-size:18px">이번 학기 주간 시간표 <small style="font:500 12px var(--mono);color:var(--sub)">예시</small></h3>
-   <div style="overflow-x:auto"><div class="week" id="week"></div></div>
-   <div class="legend"><span><i style="background:var(--peri)"></i>정규 수업</span><span><i style="background:var(--peri-l)"></i>클리닉 · 테스트</span><span>모든 수업은 22:00 전에 끝납니다</span></div></section>
-  <section id="teachers"><div class="sh"><em>03</em><h2>선생님</h2></div><div class="tea" id="tea"></div>
-   <p style="font-size:13.5px;color:var(--sub);margin-top:10px">강사 정보는 예시입니다. 실제 제작 시 학원 강사 등록 정보와 일치하게 표기합니다.</p></section>
-  <section id="fees"><div class="sh"><em>04</em><h2>교습비 등 게시</h2></div>
-   <div class="tbl"><table><thead><tr><th>교습과정</th><th>운영</th><th>월 교습시간</th><th>교습비</th></tr></thead><tbody id="ftab"></tbody></table></div>
-   <p class="legal">학원 명칭: ${name} · ${reg} · 교습과목: 수학, 영어(보습)<br>교습비 금액은 데모용 예시입니다. 교재비는 별도이며, 교습비 반환은 「학원의 설립 · 운영 및 과외교습에 관한 법률」 기준을 따릅니다.</p></section>
-  <section id="news"><div class="sh"><em>05</em><h2>설명회 · 소식</h2></div><div class="news" id="news"></div></section>
-  <section id="faq"><div class="sh"><em>06</em><h2>자주 묻는 질문</h2></div><div id="faqs"></div></section>
+   <p>중 · 고등 수학과 영어를 한 반 최대 8명(예시)으로 가르칩니다. <b>학교 진도와 시험 범위에 맞춘 수업</b>을 기본으로, 고교학점제와 2028학년도 대입(내신 5등급제 · 통합형 수능)에 맞춰 <b>과목 선택 상담</b>까지 함께합니다.</p></section>
+  <section><div class="sh"><em>01</em><h2>한 주는 이렇게 돌아갑니다</h2></div><div class="sys" id="hsys"></div>
+   <p style="margin-top:14px"><a href="system/" style="font-weight:700;color:var(--peri)">수업 방식 · 시험 대비 · 리포트 예시 자세히 →</a></p></section>
+  <section><div class="sh"><em>02</em><h2>더 알아보기</h2></div><div class="go">
+   <a href="classes/"><em>CLASSES</em><b>반 안내</b><span>중등 · 고등 8개 반의 대상 · 수업 구성 · 정원, 진단 테스트 절차</span></a>
+   <a href="teachers/"><em>TEACHERS</em><b>선생님</b><span>과목별 선생님 4명과 진로 · 과목 선택 상담</span></a>
+   <a href="fees/"><em>FEES</em><b>교습비</b><span>교습비 등 게시표, 기타경비, 반환 기준</span></a>
+   <a href="news/"><em>NEWS</em><b>설명회 · 소식</b><span>설명회 신청, 공지, 자주 묻는 질문, 오시는 길</span></a></div></section>
+  <section><div class="sh"><em>03</em><h2>이번 달 일정</h2></div><div class="news" id="hnews"></div></section>
  </main>
 </div>
-<footer><div><b>오름길 학원</b> · 경기도 가람시 학원로 00, 3층 (가상 주소) · 031-000-0000<br>가람교육지원청 등록 제0000-00호 (예시) · 평일 14:00~22:00 · 토 10:00~18:00</div><div>가상 업체 데모 · 시안 A · Compass</div></footer>
-<div class="mcta"><a href="tel:0310000000">전화 상담</a><a href="#top">로드맵 진단</a></div>
-<script>
-/* 오름길 학원(가상) 공통 데이터와 로드맵 진단 — 실존 학원의 상호·문구·실적을 쓰지 않는다.
-   rules/edu.md: 교습비는 예시, 합격·성적 실적 없음, 선행학습 광고 없음 */
-const A={name:'오름길 학원',en:'ORUMGIL',sub:'중·고등 수학 · 영어',tel:'031-000-0000',
- addr:'경기도 가람시 학원로 00, 3층 (가상 주소)',reg:'가람교육지원청 등록 제0000-00호 (예시)',
- hours:'평일 14:00~22:00 · 토 10:00~18:00',hoursNote:'교습 시간은 시·도 조례 범위 안에서 운영합니다.'};
-const GRADES=[['m1','중1'],['m2','중2'],['m3','중3'],['h1','고1'],['h2','고2'],['h3','고3']];
-const LEVELS=[['base','기초부터 다시','지난 학년 개념에서 자주 막혀요'],['track','학교 진도 맞춤','진도는 따라가는데 시험에서 실수가 많아요'],['deep','심화 · 고난도','기본은 되는데 어려운 문제에서 멈춰요']];
-const GOALS=[['naesin','학교 내신','다음 정기고사 점수가 먼저예요'],['suneung','수능 · 모의고사','수능형 문제에 익숙해지고 싶어요'],['path','과목 선택 · 진로','고교학점제 과목 선택이 고민이에요']];
-const CLASSES=[
- {id:'mb',part:'중등',subj:'수학',name:'중등 수학 · 개념다짐반',hrs:'주 2회 · 회당 2시간 30분',fit:'계산은 되는데 개념 설명이 어려운 학생'},
- {id:'mt',part:'중등',subj:'수학',name:'중등 수학 · 학교별 내신반',hrs:'주 2회 · 회당 2시간 30분',fit:'학교 진도에 맞춰 서술형까지 준비할 학생'},
- {id:'md',part:'중등',subj:'수학',name:'중등 수학 · 사고력 심화반',hrs:'주 2회 · 회당 3시간',fit:'고난도 문항 풀이 과정을 말로 설명해 볼 학생'},
- {id:'me',part:'중등',subj:'영어',name:'중등 영어 · 문법·독해반',hrs:'주 2회 · 회당 2시간',fit:'교과서 본문 이해와 문법 서술형이 필요한 학생'},
- {id:'hb',part:'고등',subj:'수학',name:'고등 수학 · 개념회복반',hrs:'주 2회 · 회당 3시간',fit:'공통수학 개념 빈칸을 먼저 채워야 할 학생'},
- {id:'ht',part:'고등',subj:'수학',name:'고등 수학 · 내신집중반',hrs:'주 2회 · 회당 3시간',fit:'학교별 기출 유형과 수행평가를 함께 챙길 학생'},
- {id:'hs',part:'고등',subj:'수학',name:'고등 수학 · 수능실전반',hrs:'주 2회 · 회당 3시간 + 모의 1회/월',fit:'수능형 문항 시간 관리가 필요한 학생'},
- {id:'he',part:'고등',subj:'영어',name:'고등 영어 · 내신·수능반',hrs:'주 2회 · 회당 2시간 30분',fit:'교과서·부교재와 수능 독해를 함께 할 학생'}];
-const SYSTEM=[
- ['개념 수업','이번 주 단원의 개념을 판서와 질문으로 정리합니다. 학생이 직접 설명해 보는 3분을 꼭 둡니다.'],
- ['클리닉','수업 다음 날 30분, 질문과 오답만 다룹니다. 틀린 이유를 계산 · 개념 · 해석으로 나눠 기록합니다.'],
- ['주간 테스트','단원별 20문항 내외. 점수보다 오답 유형이 지난주와 어떻게 달라졌는지 봅니다.'],
- ['보호자 리포트','매주 금요일, 출결 · 과제 · 테스트 오답 유형 · 다음 주 계획을 문자로 보냅니다.']];
-const TEACHERS=[
- ['서지안','고등 수학','교과서와 학교별 기출을 단원마다 다시 분류해 수업 자료를 학기마다 새로 만듭니다.'],
- ['문태하','중등 수학','풀이를 말로 설명하게 하는 수업. 서술형 채점 기준을 학생과 함께 읽습니다.'],
- ['이로운','고등 영어','교과서 · 부교재 본문을 구조로 읽는 법과 수능 독해 시간 관리를 함께 가르칩니다.'],
- ['한나래','중등 영어','문법을 문장 만들기로 익히는 수업. 매주 본문 요약 한 문단을 씁니다.'],
- ['원장 상담','진로 · 과목 선택','고교학점제 과목 선택과 학생부 기록에 대한 학기별 상담을 맡습니다.']];
-const FEES=[['중등 수학 (전 반)','주 2회 · 월 8회','20시간','000,000원'],['중등 영어','주 2회 · 월 8회','16시간','000,000원'],['고등 수학 (개념회복 · 내신집중)','주 2회 · 월 8회','24시간','000,000원'],['고등 수학 수능실전','주 2회 + 월 1회 모의','26시간','000,000원'],['고등 영어','주 2회 · 월 8회','20시간','000,000원']];
-const NEWS=[['설명회','고1 · 고2 과목 선택과 2학기 기말 대비 설명회','11.07 (토) 11:00 (예시)'],['진단','반 배정 참고용 진단 테스트 상시 예약','평일 16:00 · 19:00 (예시)'],['상담','중3 고교학점제 과목 탐색 상담 주간','11.16 ~ 11.21 (예시)'],['안내','정기고사 3주 전부터 학교별 클리닉 추가 운영','시험 일정 공지 후']];
-const FAQ=[
- ['진단 테스트는 어떻게 보나요?','30~40분 동안 지금 학년 개념 문항을 풉니다. 결과는 반 배정과 상담 참고용이며 합격 · 불합격으로 나누지 않습니다.'],
- ['한 반에 몇 명인가요?','최대 8명(예시)으로 운영합니다. 클리닉은 1:1 또는 2~3명 단위입니다.'],
- ['다른 학교 학생도 같은 반에서 내신을 준비하나요?','시험 3주 전부터는 학교별로 나눠 해당 학교 범위와 기출 유형으로 클리닉을 따로 엽니다.'],
- ['수업을 빠지면 어떻게 되나요?','녹화 대신 클리닉 시간에 빠진 부분을 보충합니다. 보충 일정은 보호자에게 문자로 안내합니다.'],
- ['교습비는 어디서 확인하나요?','아래 교습비 표와 학원 내 게시물로 확인할 수 있습니다. 교재비는 별도이며 반환 기준은 학원법을 따릅니다.']];
-
-function roadmap(g,l,goal){
- const mid=g[0]==='m',gl=GRADES.find(x=>x[0]===g)[1];
- let cls;
- if(mid) cls=[CLASSES.find(c=>c.id===({base:'mb',track:'mt',deep:'md'})[l]),CLASSES.find(c=>c.id==='me')];
- else cls=[CLASSES.find(c=>c.id===(goal==='suneung'||g==='h3'?'hs':({base:'hb',track:'ht',deep:'ht'})[l])),CLASSES.find(c=>c.id==='he')];
- const S={
-  base:['지금 막히는 단원을 찾아 개념 빈칸부터 채웁니다','클리닉에서 계산 · 개념 오답을 나눠 줄여 갑니다','학기 말에는 이번 학년 핵심 단원을 다시 묶어 정리합니다'],
-  track:['학교 진도에 맞춰 개념과 교과서 문제를 정리합니다','시험 3주 전부터 학교별 기출 유형과 서술형을 연습합니다','시험 뒤 오답 유형을 정리해 다음 시험 계획을 세웁니다'],
-  deep:['단원마다 고난도 문항 풀이 과정을 말로 설명합니다','여러 단원이 섞인 문항으로 연결하는 힘을 기릅니다','풀이를 글로 정리해 서술형 · 논리 표현까지 다듬습니다']}[l].slice();
- if(goal==='suneung'&&!mid) S[1]='모의고사 문항으로 시간 배분과 문항 선택 순서를 연습합니다';
- if(goal==='path') S[2]=mid?'중3 2학기에 고교학점제 과목 탐색 상담을 함께 합니다':'관심 진로에 맞는 과목 선택과 학생부 기록 방향을 상담합니다';
- if(g==='h3') S.splice(0,3,'수능까지 남은 기간을 단원별 점검 주기로 나눕니다','주 1회 실전 모의로 시간 관리와 실수 유형을 점검합니다','시험 직전 2주는 오답 노트 중심으로 마무리합니다');
- const memo=`[오름길 학원 상담 메모]\n학년: ${gl}\n지금 상태: ${LEVELS.find(x=>x[0]===l)[1]}\n목표: ${GOALS.find(x=>x[0]===goal)[1]}\n추천 반: ${cls.map(c=>c.name).join(', ')}\n통화 희망 시간: `;
- return {gl,cls,steps:S,memo}}
-function copyText(t,btn){const done=()=>{const o=btn.textContent;btn.textContent='복사했어요';setTimeout(()=>btn.textContent=o,1600)};try{navigator.clipboard.writeText(t).then(done,()=>prompt('복사해 주세요',t))}catch(e){prompt('복사해 주세요',t)}}
-
-const $=s=>document.querySelector(s);
-const st={g:'h1',l:'track',o:'naesin'};
-function opts(el,arr,key,small){el.innerHTML=arr.map(a=>`<button type="button" data-v="${a[0]}" aria-pressed="${st[key]===a[0]}">${a[1]}${small&&a[2]?`<small>${a[2]}</small>`:''}</button>`).join('');
- el.onclick=e=>{const b=e.target.closest('button');if(!b)return;st[key]=b.dataset.v;el.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));render()}}
-opts($('#og'),GRADES,'g');opts($('#ol'),LEVELS,'l',1);opts($('#oo'),GOALS,'o',1);
-function render(){const r=roadmap(st.g,st.l,st.o);
- $('#res').innerHTML=`<div class="fade"><div class="h"><b>${r.gl} · 이번 학기 로드맵</b><span>ROUTE</span></div><div class="cls">${r.cls.map(c=>`<span>${c.name}</span>`).join('')}</div><ol>${r.steps.map(s=>`<li>${s}</li>`).join('')}</ol><div class="act"><button class="btn p" id="cp">상담 메모 복사</button><a class="btn l" href="tel:0310000000">전화 상담</a></div></div>`;
- $('#cp').onclick=e=>copyText(r.memo,e.target);
- document.querySelectorAll('#ctab tr').forEach(tr=>tr.classList.toggle('hit',r.cls.some(c=>c.id===tr.dataset.id)))}
-$('#sys').innerHTML=SYSTEM.map((s,i)=>`<div><span>STEP ${String(i+1).padStart(2,'0')}</span><b>${s[0]}</b><p>${s[1]}</p></div>`).join('');
-$('#ctab').innerHTML=CLASSES.map(c=>`<tr data-id="${c.id}"><td class="p">${c.part} ${c.subj}</td><td><b>${c.name.split(' · ')[1]}</b></td><td>${c.fit}</td><td>${c.hrs}</td></tr>`).join('');
-const W=['','월','화','수','목','금','토'],T=[['16:00','중등 수학','클리닉','중등 수학','클리닉','중등 영어','고등 수학 모의'],['18:00','중등 영어','중등 수학','중등 영어','중등 수학','테스트','클리닉'],['19:30','고등 수학','고등 영어','고등 수학','고등 영어','클리닉','—']];
-$('#week').innerHTML=W.map(d=>`<div class="hd">${d}</div>`).join('')+T.map(r=>`<div class="tm">${r[0]}</div>`+r.slice(1).map(x=>`<div class="${/클리닉|테스트|모의/.test(x)?'cl':x==='—'?'':'on'}">${x}</div>`).join('')).join('');
-$('#tea').innerHTML=TEACHERS.map(t=>`<div><span class="av" aria-hidden="true">${t[0][0]}</span><b>${t[0]}</b><small>${t[1]}</small><p>${t[2]}</p></div>`).join('');
-$('#ftab').innerHTML=FEES.map(f=>`<tr><td><b>${f[0]}</b></td><td>${f[1]}</td><td class="p">${f[2]}</td><td class="p">${f[3]} (예시)</td></tr>`).join('');
-$('.legal').innerHTML=$('.legal').innerHTML.replace('${name}',A.name).replace('${reg}',A.reg);
-$('#news').innerHTML=NEWS.map(n=>`<div><em>${n[0]}</em><b style="font-weight:600">${n[1]}</b><time>${n[2]}</time></div>`).join('');
-$('#faqs').innerHTML=FAQ.map(f=>`<details><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join('');
-render();
-</script>
+<script src="./assets/site.js"></script>
 </body>
 </html>
