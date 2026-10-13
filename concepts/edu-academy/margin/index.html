@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>시안 B · Margin · 오름길 학원 (가상 업체 시안)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* B · Margin — editorial 노트 지면 + statement 히어로, Gowun Batang + Pretendard, 모눈 크림 · 만년필 블루 · 빨간 색연필 */
+:root{--paper:#f6f2e7;--grid:#e3dccb;--ink:#22201b;--sub:#5f5a4f;--blue:#1f4c9c;--red:#c8432c;--card:#fffdf7;--rule:#b9b09c;
+ --serif:"Gowun Batang",serif;--sans:"Pretendard Variable",Pretendard,system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--paper:#1c1a16;--grid:#2c2922;--ink:#efe9da;--sub:#bdb5a3;--blue:#8fb0ee;--red:#f08a74;--card:#24211c;--rule:#4a4539}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font:16px/1.75 var(--sans);word-break:keep-all;background-color:var(--paper);
+ background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
+a{color:inherit}button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.demo{background:var(--ink);color:var(--paper);text-align:center;font-size:13px;padding:6px 14px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 clamp(16px,3vw,32px)}
+header .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding-top:22px;padding-bottom:14px;border-bottom:3px double var(--ink)}
+.logo{font:700 26px var(--serif);text-decoration:none;letter-spacing:-.02em}
+.logo small{display:block;font:500 12px var(--sans);color:var(--sub);letter-spacing:.06em}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav a{text-decoration:none;font-size:14.5px;padding:4px 10px;border:1px solid transparent}
+nav a:hover{border-color:var(--ink)}
+.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(20px,4vw,56px);padding:clamp(40px,7vw,96px) 0 48px;align-items:end}
+.hero h1{font:700 clamp(36px,5.6vw,72px)/1.22 var(--serif);margin:0;letter-spacing:-.03em}
+.hero h1 u{text-decoration:none;background:linear-gradient(transparent 70%,rgba(200,67,44,.28) 70%)}
+.hero .side{border-left:2px solid var(--red);padding-left:18px;font-size:15.5px;color:var(--sub)}
+.hero .side b{color:var(--ink)}
+.hand{font:400 18px var(--serif);color:var(--red);transform:rotate(-2deg);display:inline-block}
+.h2{display:flex;gap:14px;align-items:baseline;border-bottom:1px solid var(--ink);padding-bottom:8px;margin:0 0 22px}
+.h2 span{font:700 15px var(--serif);color:var(--red)}
+.h2 h2{font:700 clamp(24px,3vw,34px) var(--serif);margin:0}
+section{padding:40px 0 56px;scroll-margin-top:20px}
+/* 시그니처: 학기표 로드맵 */
+.pick{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}
+.pick fieldset{border:1px solid var(--rule);background:var(--card);margin:0;padding:12px 14px 14px}
+.pick legend{font:700 15px var(--serif);padding:0 6px}
+.pick label{display:flex;gap:8px;align-items:flex-start;padding:5px 0;font-size:15px;cursor:pointer}
+.pick input{accent-color:var(--red);margin-top:6px}
+.pick label small{display:block;color:var(--sub);font-size:12.5px}
+.sheet{display:grid;grid-template-columns:70px repeat(4,1fr);background:var(--card);border:1.5px solid var(--ink);min-width:720px}
+.sheet div{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:10px;min-height:64px;font-size:13.5px;color:var(--sub);position:relative}
+.sheet .hd{font:700 14px var(--serif);color:var(--ink);background:var(--paper);min-height:auto;text-align:center}
+.sheet .gr{font:700 16px var(--serif);color:var(--ink);text-align:center;display:grid;place-items:center}
+.sheet .now{color:var(--ink);font-weight:600}
+.sheet .now::before{content:"";position:absolute;inset:4px;border:2px solid var(--red);border-radius:46% 54% 50% 50%/55% 45% 55% 45%;transform:rotate(-1.5deg);pointer-events:none}
+.sheet .row-on.gr{color:var(--red)}
+.sheet .dim{opacity:.45}
+.memo{display:grid;grid-template-columns:1fr 300px;gap:20px;margin-top:20px}
+.memo .note{background:var(--card);border:1px solid var(--rule);padding:18px 20px;position:relative}
+.memo .note::before{content:"";position:absolute;left:-1px;top:-1px;bottom:-1px;width:6px;background:var(--red)}
+.memo h3{font:700 19px var(--serif);margin:0 0 8px}
+.memo ol{margin:0;padding-left:22px}.memo li{margin:4px 0}
+.memo .cls{font-size:14.5px;color:var(--blue);font-weight:700;margin-top:8px}
+.memo .act{display:flex;flex-direction:column;gap:10px;justify-content:center}
+.btn{display:block;text-align:center;text-decoration:none;font-weight:700;padding:13px 16px;border:1.5px solid var(--ink);background:var(--ink);color:var(--paper)}
+.btn.o{background:transparent;color:var(--ink)}
+.tiny{font-size:13px;color:var(--sub)}
+/* 수업 방식: 노트 4쪽 */
+.pages{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1.5px solid var(--ink);background:var(--card)}
+.pages div{padding:18px 18px 22px;border-right:1px dashed var(--rule)}.pages div:last-child{border-right:0}
+.pages b{font:700 20px var(--serif);display:block;margin-bottom:6px}
+.pages i{font:400 14px var(--serif);font-style:normal;color:var(--red)}
+.pages p{margin:0;font-size:14.5px;color:var(--sub)}
+/* 선생님: 여백 메모 */
+.tea{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.tea div{background:var(--card);border:1px solid var(--rule);padding:16px;transform:rotate(var(--r,0deg));box-shadow:2px 3px 0 var(--grid)}
+.tea b{font:700 19px var(--serif)}.tea small{display:block;color:var(--blue);font-weight:700;font-size:13px;margin-bottom:6px}.tea p{margin:0;font-size:14px;color:var(--sub)}
+.tbl{overflow-x:auto;background:var(--card);border:1.5px solid var(--ink)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:640px}
+th,td{padding:11px 14px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+th{font:700 14px var(--serif);background:var(--paper)}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.legal{font-size:13.5px;color:var(--sub);margin-top:10px;border-left:2px solid var(--blue);padding-left:12px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.news li{list-style:none;padding:12px 0;border-bottom:1px dotted var(--rule);display:flex;gap:12px}
+.news ul{margin:0;padding:0}.news em{font:700 14px var(--serif);font-style:normal;color:var(--red);flex:none;width:52px}.news time{display:block;font-size:13px;color:var(--sub)}
+details{border-bottom:1px dotted var(--rule);padding:12px 0}summary{cursor:pointer;font:700 17px var(--serif)}details p{margin:6px 0 0;color:var(--sub);font-size:15px}
+footer{border-top:3px double var(--ink);margin-top:20px;padding:24px 0 40px;font-size:13.5px;color:var(--sub)}
+footer b{color:var(--ink);font:700 18px var(--serif)}
+@media (max-width:960px){.hero{grid-template-columns:1fr}.pick{grid-template-columns:1fr}.memo{grid-template-columns:1fr}.pages{grid-template-columns:1fr 1fr}.pages div:nth-child(2){border-right:0}.pages div:nth-child(-n+2){border-bottom:1px dashed var(--rule)}.tea{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}nav{display:none}}
+@media (max-width:520px){.pages{grid-template-columns:1fr}.pages div{border-right:0;border-bottom:1px dashed var(--rule)}.tea{grid-template-columns:1fr}.tea div{transform:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="demo"><b>가상 업체 데모 · 시안 B · Margin</b> — 오름길 학원은 실제 학원이 아닙니다. 교습비 · 연락처 · 등록번호는 예시입니다.</div>
+<header><div class="wrap"><a class="logo" href="#top">오름길 학원<small>중 · 고등 수학 · 영어 | 가람시</small></a>
+<nav aria-label="주메뉴"><a href="#map">학기 로드맵</a><a href="#way">수업 방식</a><a href="#teachers">선생님</a><a href="#fees">반 · 교습비</a><a href="#news">소식</a></nav></div></header>
+<main class="wrap" id="top">
+ <div class="hero">
+  <h1>점수표보다 먼저,<br><u>공부 노트</u>를<br>같이 봅니다.</h1>
+  <div class="side"><span class="hand">← 이번 학기 어디쯤인지부터</span><p>학년과 지금 상태, 목표를 고르면 아래 <b>학기표</b>에 이번 학기와 다음 방학 계획이 표시됩니다. 내신 5등급제 · 통합형 수능(2028학년도 대입, 교육부 발표 기준)과 고교학점제 과목 선택까지 한 장에서 이야기합니다.</p></div>
+ </div>
+ <section id="map"><div class="h2"><span>p.1</span><h2>학기 로드맵 그리기</h2></div>
+  <form class="pick" id="pick" onsubmit="return false">
+   <fieldset><legend>학년</legend><div id="pg"></div></fieldset>
+   <fieldset><legend>지금 상태</legend><div id="pl"></div></fieldset>
+   <fieldset><legend>먼저 챙길 목표</legend><div id="po"></div></fieldset>
+  </form>
+  <div style="overflow-x:auto"><div class="sheet" id="sheet" aria-label="학년별 학기표"></div></div>
+  <div class="memo"><div class="note" id="note" aria-live="polite"></div>
+   <div class="act"><button class="btn" id="cp" type="button">상담 메모로 복사</button><a class="btn o" href="tel:0310000000">031-000-0000 전화 상담</a><p class="tiny">진단 테스트(30~40분)는 반 배정 참고용입니다. 합격 · 불합격으로 나누지 않습니다.</p></div></div>
+ </section>
+ <section id="way"><div class="h2"><span>p.2</span><h2>한 주의 수업 노트</h2></div><div class="pages" id="pages"></div></section>
+ <section id="teachers"><div class="h2"><span>p.3</span><h2>여백에 적는 선생님</h2></div><div class="tea" id="tea"></div><p class="tiny" style="margin-top:12px">강사 정보는 예시입니다.</p></section>
+ <section id="fees"><div class="h2"><span>p.4</span><h2>반과 교습비</h2></div>
+  <div class="tbl"><table><thead><tr><th>반</th><th>이런 학생에게</th><th>수업 시간</th></tr></thead><tbody id="ctab"></tbody></table></div>
+  <div class="tbl" style="margin-top:16px"><table><thead><tr><th>교습과정</th><th>운영</th><th>월 교습시간</th><th>교습비 (예시)</th></tr></thead><tbody id="ftab"></tbody></table></div>
+  <p class="legal" id="legal"></p></section>
+ <section id="news"><div class="two"><div class="news"><div class="h2"><span>p.5</span><h2>설명회 · 소식</h2></div><ul id="nl"></ul></div><div><div class="h2"><span>p.6</span><h2>묻고 답하기</h2></div><div id="faqs"></div></div></div></section>
+</main>
+<footer><div class="wrap"><b>오름길 학원</b><br>경기도 가람시 학원로 00, 3층 (가상 주소) · 031-000-0000 · 가람교육지원청 등록 제0000-00호 (예시)<br>평일 14:00~22:00 · 토 10:00~18:00 · 가상 업체 데모 · 시안 B · Margin</div></footer>
+<script>
+/* 오름길 학원(가상) 공통 데이터와 로드맵 진단 — 실존 학원의 상호·문구·실적을 쓰지 않는다.
+   rules/edu.md: 교습비는 예시, 합격·성적 실적 없음, 선행학습 광고 없음 */
+const A={name:'오름길 학원',en:'ORUMGIL',sub:'중·고등 수학 · 영어',tel:'031-000-0000',
+ addr:'경기도 가람시 학원로 00, 3층 (가상 주소)',reg:'가람교육지원청 등록 제0000-00호 (예시)',
+ hours:'평일 14:00~22:00 · 토 10:00~18:00',hoursNote:'교습 시간은 시·도 조례 범위 안에서 운영합니다.'};
+const GRADES=[['m1','중1'],['m2','중2'],['m3','중3'],['h1','고1'],['h2','고2'],['h3','고3']];
+const LEVELS=[['base','기초부터 다시','지난 학년 개념에서 자주 막혀요'],['track','학교 진도 맞춤','진도는 따라가는데 시험에서 실수가 많아요'],['deep','심화 · 고난도','기본은 되는데 어려운 문제에서 멈춰요']];
+const GOALS=[['naesin','학교 내신','다음 정기고사 점수가 먼저예요'],['suneung','수능 · 모의고사','수능형 문제에 익숙해지고 싶어요'],['path','과목 선택 · 진로','고교학점제 과목 선택이 고민이에요']];
+const CLASSES=[
+ {id:'mb',part:'중등',subj:'수학',name:'중등 수학 · 개념다짐반',hrs:'주 2회 · 회당 2시간 30분',fit:'계산은 되는데 개념 설명이 어려운 학생'},
+ {id:'mt',part:'중등',subj:'수학',name:'중등 수학 · 학교별 내신반',hrs:'주 2회 · 회당 2시간 30분',fit:'학교 진도에 맞춰 서술형까지 준비할 학생'},
+ {id:'md',part:'중등',subj:'수학',name:'중등 수학 · 사고력 심화반',hrs:'주 2회 · 회당 3시간',fit:'고난도 문항 풀이 과정을 말로 설명해 볼 학생'},
+ {id:'me',part:'중등',subj:'영어',name:'중등 영어 · 문법·독해반',hrs:'주 2회 · 회당 2시간',fit:'교과서 본문 이해와 문법 서술형이 필요한 학생'},
+ {id:'hb',part:'고등',subj:'수학',name:'고등 수학 · 개념회복반',hrs:'주 2회 · 회당 3시간',fit:'공통수학 개념 빈칸을 먼저 채워야 할 학생'},
+ {id:'ht',part:'고등',subj:'수학',name:'고등 수학 · 내신집중반',hrs:'주 2회 · 회당 3시간',fit:'학교별 기출 유형과 수행평가를 함께 챙길 학생'},
+ {id:'hs',part:'고등',subj:'수학',name:'고등 수학 · 수능실전반',hrs:'주 2회 · 회당 3시간 + 모의 1회/월',fit:'수능형 문항 시간 관리가 필요한 학생'},
+ {id:'he',part:'고등',subj:'영어',name:'고등 영어 · 내신·수능반',hrs:'주 2회 · 회당 2시간 30분',fit:'교과서·부교재와 수능 독해를 함께 할 학생'}];
+const SYSTEM=[
+ ['개념 수업','이번 주 단원의 개념을 판서와 질문으로 정리합니다. 학생이 직접 설명해 보는 3분을 꼭 둡니다.'],
+ ['클리닉','수업 다음 날 30분, 질문과 오답만 다룹니다. 틀린 이유를 계산 · 개념 · 해석으로 나눠 기록합니다.'],
+ ['주간 테스트','단원별 20문항 내외. 점수보다 오답 유형이 지난주와 어떻게 달라졌는지 봅니다.'],
+ ['보호자 리포트','매주 금요일, 출결 · 과제 · 테스트 오답 유형 · 다음 주 계획을 문자로 보냅니다.']];
+const TEACHERS=[
+ ['서지안','고등 수학','교과서와 학교별 기출을 단원마다 다시 분류해 수업 자료를 학기마다 새로 만듭니다.'],
+ ['문태하','중등 수학','풀이를 말로 설명하게 하는 수업. 서술형 채점 기준을 학생과 함께 읽습니다.'],
+ ['이로운','고등 영어','교과서 · 부교재 본문을 구조로 읽는 법과 수능 독해 시간 관리를 함께 가르칩니다.'],
+ ['한나래','중등 영어','문법을 문장 만들기로 익히는 수업. 매주 본문 요약 한 문단을 씁니다.'],
+ ['원장 상담','진로 · 과목 선택','고교학점제 과목 선택과 학생부 기록에 대한 학기별 상담을 맡습니다.']];
+const FEES=[['중등 수학 (전 반)','주 2회 · 월 8회','20시간','000,000원'],['중등 영어','주 2회 · 월 8회','16시간','000,000원'],['고등 수학 (개념회복 · 내신집중)','주 2회 · 월 8회','24시간','000,000원'],['고등 수학 수능실전','주 2회 + 월 1회 모의','26시간','000,000원'],['고등 영어','주 2회 · 월 8회','20시간','000,000원']];
+const NEWS=[['설명회','고1 · 고2 과목 선택과 2학기 기말 대비 설명회','11.07 (토) 11:00 (예시)'],['진단','반 배정 참고용 진단 테스트 상시 예약','평일 16:00 · 19:00 (예시)'],['상담','중3 고교학점제 과목 탐색 상담 주간','11.16 ~ 11.21 (예시)'],['안내','정기고사 3주 전부터 학교별 클리닉 추가 운영','시험 일정 공지 후']];
+const FAQ=[
+ ['진단 테스트는 어떻게 보나요?','30~40분 동안 지금 학년 개념 문항을 풉니다. 결과는 반 배정과 상담 참고용이며 합격 · 불합격으로 나누지 않습니다.'],
+ ['한 반에 몇 명인가요?','최대 8명(예시)으로 운영합니다. 클리닉은 1:1 또는 2~3명 단위입니다.'],
+ ['다른 학교 학생도 같은 반에서 내신을 준비하나요?','시험 3주 전부터는 학교별로 나눠 해당 학교 범위와 기출 유형으로 클리닉을 따로 엽니다.'],
+ ['수업을 빠지면 어떻게 되나요?','녹화 대신 클리닉 시간에 빠진 부분을 보충합니다. 보충 일정은 보호자에게 문자로 안내합니다.'],
+ ['교습비는 어디서 확인하나요?','아래 교습비 표와 학원 내 게시물로 확인할 수 있습니다. 교재비는 별도이며 반환 기준은 학원법을 따릅니다.']];
+
+function roadmap(g,l,goal){
+ const mid=g[0]==='m',gl=GRADES.find(x=>x[0]===g)[1];
+ let cls;
+ if(mid) cls=[CLASSES.find(c=>c.id===({base:'mb',track:'mt',deep:'md'})[l]),CLASSES.find(c=>c.id==='me')];
+ else cls=[CLASSES.find(c=>c.id===(goal==='suneung'||g==='h3'?'hs':({base:'hb',track:'ht',deep:'ht'})[l])),CLASSES.find(c=>c.id==='he')];
+ const S={
+  base:['지금 막히는 단원을 찾아 개념 빈칸부터 채웁니다','클리닉에서 계산 · 개념 오답을 나눠 줄여 갑니다','학기 말에는 이번 학년 핵심 단원을 다시 묶어 정리합니다'],
+  track:['학교 진도에 맞춰 개념과 교과서 문제를 정리합니다','시험 3주 전부터 학교별 기출 유형과 서술형을 연습합니다','시험 뒤 오답 유형을 정리해 다음 시험 계획을 세웁니다'],
+  deep:['단원마다 고난도 문항 풀이 과정을 말로 설명합니다','여러 단원이 섞인 문항으로 연결하는 힘을 기릅니다','풀이를 글로 정리해 서술형 · 논리 표현까지 다듬습니다']}[l].slice();
+ if(goal==='suneung'&&!mid) S[1]='모의고사 문항으로 시간 배분과 문항 선택 순서를 연습합니다';
+ if(goal==='path') S[2]=mid?'중3 2학기에 고교학점제 과목 탐색 상담을 함께 합니다':'관심 진로에 맞는 과목 선택과 학생부 기록 방향을 상담합니다';
+ if(g==='h3') S.splice(0,3,'수능까지 남은 기간을 단원별 점검 주기로 나눕니다','주 1회 실전 모의로 시간 관리와 실수 유형을 점검합니다','시험 직전 2주는 오답 노트 중심으로 마무리합니다');
+ const memo=`[오름길 학원 상담 메모]\n학년: ${gl}\n지금 상태: ${LEVELS.find(x=>x[0]===l)[1]}\n목표: ${GOALS.find(x=>x[0]===goal)[1]}\n추천 반: ${cls.map(c=>c.name).join(', ')}\n통화 희망 시간: `;
+ return {gl,cls,steps:S,memo}}
+function copyText(t,btn){const done=()=>{const o=btn.textContent;btn.textContent='복사했어요';setTimeout(()=>btn.textContent=o,1600)};try{navigator.clipboard.writeText(t).then(done,()=>prompt('복사해 주세요',t))}catch(e){prompt('복사해 주세요',t)}}
+
+const $=s=>document.querySelector(s);
+const st={g:'m3',l:'track',o:'path'};
+function radios(el,arr,key){el.innerHTML=arr.map(a=>`<label><input type="radio" name="${key}" value="${a[0]}" ${st[key]===a[0]?'checked':''}><span>${a[1]}${a[2]?`<small>${a[2]}</small>`:''}</span></label>`).join('');
+ el.onchange=e=>{st[key]=e.target.value;render()}}
+radios($('#pg'),GRADES,'g');radios($('#pl'),LEVELS,'l');radios($('#po'),GOALS,'o');
+const TERMS=['1학기','여름방학','2학기','겨울방학'];
+function render(){const r=roadmap(st.g,st.l,st.o);const gi=GRADES.findIndex(x=>x[0]===st.g);
+ const cell=(i,t)=>{if(i!==gi)return {c:i<gi?'dim':'',t:i<gi?'—':''};const txt=[r.steps[0],'취약 단원 다시 묶기 · 클리닉 집중',r.steps[1],r.steps[2]][t];return {c:'now',t:txt}};
+ $('#sheet').innerHTML=`<div class="hd">학년</div>`+TERMS.map(t=>`<div class="hd">${t}</div>`).join('')+GRADES.map((g,i)=>`<div class="gr ${i===gi?'row-on':''}">${g[1]}</div>`+TERMS.map((_,t)=>{const c=cell(i,t);return `<div class="${c.c}">${c.t}</div>`}).join('')).join('');
+ $('#note').innerHTML=`<h3>${r.gl}, 이번 학년 메모</h3><ol>${r.steps.map(s=>`<li>${s}</li>`).join('')}</ol><p class="cls">추천 반 · ${r.cls.map(c=>c.name).join(' / ')}</p>`;
+ $('#cp').onclick=e=>copyText(r.memo,e.target)}
+$('#pages').innerHTML=SYSTEM.map((s,i)=>`<div><i>${['월 · 화','다음 날','금요일','금요일 저녁'][i]}</i><b>${s[0]}</b><p>${s[1]}</p></div>`).join('');
+$('#tea').innerHTML=TEACHERS.map((t,i)=>`<div style="--r:${[-1.2,.8,-.6,1.1,-.4][i]}deg"><b>${t[0]}</b><small>${t[1]}</small><p>${t[2]}</p></div>`).join('');
+$('#ctab').innerHTML=CLASSES.map(c=>`<tr><td><b>${c.name}</b></td><td>${c.fit}</td><td>${c.hrs}</td></tr>`).join('');
+$('#ftab').innerHTML=FEES.map(f=>`<tr><td><b>${f[0]}</b></td><td>${f[1]}</td><td class="n">${f[2]}</td><td class="n">${f[3]}</td></tr>`).join('');
+$('#legal').textContent=`학원 명칭: ${A.name} · ${A.reg} · 교습과목: 수학, 영어(보습). 교습비는 데모용 예시이며 교재비 별도, 반환은 학원법 기준을 따릅니다. ${A.hoursNote}`;
+$('#nl').innerHTML=NEWS.map(n=>`<li><em>${n[0]}</em><span>${n[1]}<time>${n[2]}</time></span></li>`).join('');
+$('#faqs').innerHTML=FAQ.map(f=>`<details><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join('');
+render();
+</script>
+</body>
+</html>
