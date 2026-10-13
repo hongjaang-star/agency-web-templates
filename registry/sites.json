@@ -394,7 +394,7 @@
       "editor": "https://hongjaang-star.github.io/agency-web-templates/edu-academy/orbit/editor/",
       "pages": 15,
       "library": "library/edu-academy/orbit/README.md",
-      "notes": "Orbit 1.3: 정규반 시간표·학년 필터·고정 카톡/전화 상담 데모. 실제 연락처 및 PR 병합 대기.",
+      "notes": "Orbit 1.4: 가상 상담 확정·오른쪽 아래 반폭 버튼·정규반 시간표. PR 병합 대기.",
       "fingerprint": {
         "layout": "organic",
         "hero": "split-media",
