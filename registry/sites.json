@@ -377,6 +377,31 @@
         "signature": "play-story flows per age and four-season forest question cards",
         "sectionOrder": "hero, quick links, four values, numbers, ages, day, eco education, episodes, news/contact"
       }
+    },
+    {
+      "slug": "edu-academy",
+      "variant": "compass",
+      "name": "중고등 학원",
+      "company": "오름길 학원(가상)",
+      "category": "edu",
+      "level": "L1",
+      "status": "deployed",
+      "role": "flagship",
+      "type": "진단형 · 학년·상태·목표로 반을 찾아 주는 중고등 내신·수능 학원",
+      "path": "concepts/edu-academy/compass",
+      "url": "https://hongjaang-star.github.io/agency-web-templates/concepts/edu-academy/compass/",
+      "pages": 6,
+      "concept": "concepts/edu-academy/compass",
+      "fingerprint": {
+        "layout": "split (sticky diagnostic panel) + sub pages",
+        "hero": "interactive 3-question roadmap check",
+        "typePair": "Pretendard + DM Mono",
+        "palette": "ink indigo · periwinkle · warm white",
+        "imageTreatment": "no photos; tables, bars and simple SVG map",
+        "motion": "result fade, reduced-motion fallback",
+        "signature": "roadmap check that highlights the recommended class and copies a consultation memo",
+        "sectionOrder": "check panel, intro, weekly steps, more links, this month"
+      }
     }
   ]
 }
