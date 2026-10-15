@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
-<title>시안 C · Atlas · Nextframe 경영컨설팅 · 가상 업체 시안</title>
-<meta name="description" content="과제 지도와 12주 로드맵을 보여 주는 가상 경영컨설팅사 Nextframe 시안 C">
+<title>Atlas · Nextframe 경영컨설팅 · 가상 업체 데모</title>
+<meta name="description" content="과제별 프로그램, 수행사례와 12주 로드맵으로 상담을 준비하는 Nextframe 가상 경영컨설팅">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Noto+Serif+KR:wght@400;600;700;900&display=swap" rel="stylesheet">
 <!-- 서체: Noto Serif KR, Bricolage Grotesque (SIL OFL, Google Fonts). 이미지 없음: 지도·간트 도식은 CSS 자체 제작 -->
@@ -163,9 +163,11 @@ footer{background:#0a1422;color:#8f9bab;font-size:13px;padding:40px 0 30px}
 }
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}.rise{opacity:1;transform:none}}
 </style>
+<link rel="stylesheet" href="refresh.css">
 </head>
 <body>
-<div class="demo">가상 업체 데모 · 시안 C · Atlas — Nextframe 경영컨설팅은 실제 업체가 아닙니다</div>
+<a class="skip" href="#roadmap">본문으로 바로가기</a>
+<div class="demo">가상 업체 데모 · Atlas — Nextframe 경영컨설팅은 실제 업체가 아닙니다</div>
 <header>
  <div class="wrap hd">
   <button class="menu-btn" id="menu" aria-controls="ov" aria-expanded="false"><span aria-hidden="true"><i></i><i></i><i></i></span><em style="font-style:normal">MENU</em></button>
@@ -180,13 +182,14 @@ footer{background:#0a1422;color:#8f9bab;font-size:13px;padding:40px 0 30px}
  </div>
 </div>
 
+<nav class="section-nav" aria-label="섹션 바로가기"><div class="wrap"><a href="#top">프로그램 지도</a><a href="#roadmap">과제 진단</a><a href="#way">진행 방식</a><a href="#cases">수행사례</a><a href="#insight">인사이트</a><a href="about/">회사소개 ↗</a><a href="#contact">상담 준비</a></div></nav>
 <main id="top">
  <section class="hero" aria-labelledby="h1">
   <div class="wrap">
    <div class="atlas" id="atlas">
-    <div class="title-tile"><span class="eyebrow" style="color:var(--copper-l)">Program atlas · 중소기업 경영·조직 컨설팅</span><h1 id="h1" style="margin-top:14px">회사의 과제를<br><em>지도처럼</em> 펼쳐 놓고<br>다음 길을 고릅니다</h1><p>여덟 개 프로그램 타일 위에 마우스를 올리거나 선택하면, 지금 들리는 말과 남게 될 산출물이 바뀌어 보입니다.</p><div class="row"><a class="btn cu" href="#roadmap">12주 로드맵 그려 보기</a><a class="btn" href="#way">일하는 방식</a></div></div>
+    <div class="title-tile"><span class="eyebrow" style="color:var(--copper-l)">Program atlas · 중소기업 경영·조직 컨설팅</span><h1 id="h1" style="margin-top:14px">회사의 과제를<br><em>지도처럼</em> 펼쳐 놓고<br>다음 길을 고릅니다</h1><p>방향이 흐려진 전략부터 반복되는 업무까지.<br>지금 필요한 기준을 찾고, 우리 팀이 직접 운영할 수 있는 체계로 이어갑니다.</p><div class="row"><a class="btn cu" href="#roadmap">12주 로드맵 그려 보기</a><a class="btn" href="#way">일하는 방식</a></div></div>
    </div>
-   <p class="legend"><span>타일 = 프로그램 · 앞면: 요약 / 뒷면: 지금 → 다음</span><span>모든 사례·수치는 데모 예시</span></p>
+   <p class="legend"><span>08 PROGRAMS / 타일을 선택해 과제·산출물·준비 자료를 확인하세요</span><span>모든 사례·수치는 데모 예시</span></p>
   </div>
  </section>
 
@@ -231,7 +234,7 @@ footer{background:#0a1422;color:#8f9bab;font-size:13px;padding:40px 0 30px}
 
  <section class="sec" id="insight" aria-labelledby="in-h" style="padding-top:0">
   <div class="wrap">
-   <span class="eyebrow">Insight · Company</span>
+   <span class="eyebrow">Insight · Field notes</span>
    <h2 id="in-h">읽을거리와 우리가 있는 곳</h2>
    <div class="bento" id="bento"></div>
    <div class="comp" id="about"><div class="vis"><h3 class="serif" style="font-size:24px;margin-bottom:10px">일하는 원칙</h3><ul id="vision"></ul><div class="inds" id="inds" aria-label="함께 일해 온 업종 예시"></div></div>
@@ -240,7 +243,7 @@ footer{background:#0a1422;color:#8f9bab;font-size:13px;padding:40px 0 30px}
  </section>
 
  <section class="contact" id="contact" aria-labelledby="ct-h">
-  <div class="wrap"><h2 id="ct-h">다음 길은<br><em>한 장의 메모</em>에서 시작합니다</h2><p>로드맵 메모를 복사해 메일에 붙여 주세요. 데모이므로 실제 접수는 이루어지지 않습니다.</p><div class="row"><a class="btn cu" href="#roadmap">로드맵 메모 만들기</a><button class="btn" id="mail">메일 주소 보기</button></div></div>
+  <div class="wrap"><div><h2 id="ct-h">다음 길은<br><em>한 장의 메모</em>에서 시작합니다</h2><p>지금 막히는 일과 바라는 변화를 적어 보세요. 진단 결과와 준비 자료를 한 파일로 정리합니다. 가상 업체 데모이며 실제 접수는 이루어지지 않습니다.</p><div class="row"><a class="btn cu" href="#roadmap">로드맵 메모 만들기</a><button class="btn" id="mail">메일 주소 보기</button></div></div></div>
  </section>
 </main>
 <footer><div class="wrap"><div class="fmap" id="fmap"></div><div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap"><span>Nextframe 경영컨설팅 · 가상 업체 데모 · 사업자 정보 예시</span><span>© 2026 NEXTFRAME (demo)</span></div></div></footer>
@@ -311,5 +314,6 @@ const io='IntersectionObserver' in window&&!reduce?new IntersectionObserver(es=>
 document.querySelectorAll('.rise').forEach(x=>io?io.observe(x):x.classList.add('in'));
 })();
 </script>
+<script src="refresh.js"></script>
 </body>
 </html>
