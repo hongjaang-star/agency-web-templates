@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
-<title>회사 소개 · 시안 C · Atlas · Nextframe 경영컨설팅 · 가상 업체 시안</title>
-<meta name="description" content="가상 경영컨설팅사 Nextframe의 연혁·성장 지표·수행 실적·컨설턴트·거점 소개 (시안 C · Atlas)">
+<title>회사 소개 · Atlas · Nextframe 경영컨설팅 · 가상 업체 데모</title>
+<meta name="description" content="가상 경영컨설팅사 Nextframe의 연혁·성장 지표·수행 실적·컨설턴트·거점 소개 (Atlas)">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Noto+Serif+KR:wght@400;600;700;900&display=swap" rel="stylesheet">
 <!-- 이미지 없음: 프레임·그래프·문서·지도는 CSS/SVG 자체 제작. 모든 연혁·수치·인물·문서는 가상 -->
@@ -117,10 +117,12 @@ footer{border-top:1px solid var(--line-d);padding:30px 0;font-size:13px;color:va
 
 h1,h2{font-weight:900;letter-spacing:-.05em}.hero h1 em{font-style:normal;color:var(--hl)}.hero{background:var(--dark);color:var(--on-dark)}.hero p.lede{color:var(--muted-d)}.hero .anch a{border-color:var(--line-d)}.top{background:var(--dark);color:var(--on-dark)}.top a{color:var(--on-dark)}.brand span{color:var(--hl)}
 </style>
+<link rel="stylesheet" href="about-review.css?v=20261016-cards1">
 </head>
 <body>
+<a class="about-skip" href="#history">회사 소개 본문으로 바로가기</a>
 
-<p class="demo">가상 업체 데모 · 시안 C · Atlas · 회사 소개 — Nextframe 경영컨설팅은 실제 업체가 아니며 연혁·수치·인물·문서는 모두 예시입니다.</p>
+<p class="demo">가상 업체 데모 · Atlas · 회사 소개 — Nextframe 경영컨설팅은 실제 업체가 아니며 연혁·수치·인물·문서는 모두 예시입니다.</p>
 <header class="top"><div class="wrap"><a class="brand" href="../" ><b>Nextframe</b><span>INDEX · ABOUT</span></a>
 <nav aria-label="회사 소개 메뉴"><a href="#history">연혁</a><a href="#growth">성장 지표</a><a href="#record">수행 실적</a><a href="#people">사람들</a><a href="#docs">기록</a><a href="#location">오시는 길</a></nav>
 <a class="back" href="../" >← 메인으로</a></div></header>
@@ -177,7 +179,7 @@ h1,h2{font-weight:900;letter-spacing:-.05em}.hero h1 em{font-style:normal;color:
  <div><div class="otabs" id="otabs" role="tablist" aria-label="거점 선택"></div><div class="ocard" id="ocard" aria-live="polite"></div></div></div>
 </div></section>
 
-<section class="dark"><div class="wrap cta"><h2>회사의 지금을<br>먼저 들려주세요</h2><a class="btn" href="../#diagnosis">자가 진단 하러 가기 →</a></div></section>
+<section class="dark"><div class="wrap cta"><h2>회사의 지금을<br>먼저 들려주세요</h2><a class="btn" href="../#roadmap">자가 진단 하러 가기 →</a></div></section>
 </main>
 <footer class="dark"><div class="wrap"><span>Nextframe 경영컨설팅 · 가상 업체 데모 · 사업자 정보 예시</span><span>© 2026 NEXTFRAME (demo)</span></div></footer>
 <dialog id="dlg" aria-labelledby="dlg-t"><div class="dh"><span id="dlg-t"></span><button id="dlg-x">닫기 ✕</button></div><div id="dlg-b"></div></dialog>
@@ -251,5 +253,6 @@ const els=document.querySelectorAll('.rise,.share');
 if('IntersectionObserver' in window&&!reduce){const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.15});els.forEach(x=>io.observe(x))}else els.forEach(x=>x.classList.add('in'));
 })();
 </script>
+<script src="about-review.js?v=20261016-cards1"></script>
 </body>
 </html>
