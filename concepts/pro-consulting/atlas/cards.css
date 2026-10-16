@@ -1,0 +1,25 @@
+/* Consistent case grid and reading cards. */
+#cases .cases{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:24px;align-items:stretch}
+#cases .case,#cases .case:first-child{grid-column:auto;display:flex;flex-direction:column;padding:0;border:1px solid var(--line);border-radius:4px;background:var(--paper);color:var(--ink);min-width:0;position:relative;overflow:visible;transition:transform .25s,box-shadow .25s,border-color .25s}
+#cases .case:before{content:'';position:absolute;left:-1px;right:-1px;top:-1px;height:3px;background:var(--copper);transform:scaleX(0);transform-origin:left;transition:transform .25s;z-index:2}
+#cases .case .case-map,#cases .case:first-child .case-map{height:180px;min-height:180px;flex:none;padding:26px 28px;border-right:0;border-bottom:1px solid var(--line);border-radius:3px 3px 0 0}
+#cases .case .case-map .route,#cases .case:first-child .case-map .route{margin:24px 0 14px}
+#cases .case .case-body,#cases .case:first-child .case-body{padding:28px;flex:1;display:flex;flex-direction:column;gap:15px}
+#cases .case h3,#cases .case:first-child h3{font-size:24px;line-height:1.4;min-height:2.8em;margin:0}
+#cases .case .out{margin-top:auto}
+#cases .case .case-more{display:flex;gap:12px;justify-content:space-between;align-items:center;align-self:stretch;transition:color .2s;border-bottom:1px solid var(--line);padding:12px 0;text-align:left}
+#cases .case .case-more:after{content:'→';font-size:19px;transition:transform .25s}
+#cases .case:focus-within{border-color:var(--copper);box-shadow:0 14px 38px #1320331c;transform:translateY(-5px)}
+#cases .case:focus-within:before{transform:scaleX(1)}
+#cases .case:focus-within .case-more:after{transform:translateX(5px)}
+@media(hover:hover){#cases .case:hover{border-color:var(--copper);box-shadow:0 14px 38px #1320331c;transform:translateY(-5px)}#cases .case:hover:before{transform:scaleX(1)}#cases .case:hover .case-more:after{transform:translateX(5px)}}
+#insight .bento{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1fr;gap:24px}
+#insight .bento a.in,#insight .bento a.in:first-child{grid-column:auto;grid-row:auto;min-height:300px;padding:28px;background:var(--paper);height:100%;gap:18px;transition:transform .25s,border-color .25s,box-shadow .25s}
+#insight .bento h3{font-size:24px;line-height:1.5}
+#insight .bento a.in>p{font-size:15px;line-height:1.85;color:var(--muted)}
+#insight .bento .m{margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
+#insight .bento a.in:focus-visible{border-color:var(--copper);transform:translateY(-4px)}
+@media(hover:hover){#insight .bento a.in:hover{transform:translateY(-4px);border-color:var(--copper);box-shadow:0 12px 30px #13203312}}
+@media(max-width:960px){#cases .case .case-body,#cases .case:first-child .case-body{padding:22px}#cases .case .case-map,#cases .case:first-child .case-map{padding:24px 22px}#cases .case h3,#cases .case:first-child h3{font-size:22px}#insight .bento a.in,#insight .bento a.in:first-child{padding:22px}#insight .bento h3{font-size:21px}}
+@media(max-width:640px){#cases .cases,#insight .bento{grid-template-columns:1fr;grid-auto-rows:auto;gap:20px}#cases .case h3,#cases .case:first-child h3{min-height:0}#cases .case .case-map,#cases .case:first-child .case-map{height:170px;min-height:170px}#insight .bento a.in,#insight .bento a.in:first-child{min-height:280px}}
+@media(prefers-reduced-motion:reduce){#cases .case,#cases .case:before,#cases .case .case-more:after,#insight .bento a.in{transition:none!important;transform:none!important}}
