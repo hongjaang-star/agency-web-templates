@@ -50,7 +50,7 @@
       "id": "medical-lumiere",
       "name": "Lumiere",
       "category": "medical",
-      "categoryLabel": "의료 · 피부과",
+      "categoryLabel": "의료 · 피부과 · 치과",
       "kind": "site",
       "kindLabel": "완성 사이트",
       "path": "medical-dermatology/lumiere/",
@@ -344,6 +344,51 @@
         "블랙·시그널 옐로, 반 이름 티커와 큰 제목의 노선도형 벤토 시안.",
         "학년 역과 내신선·수능선·진로선 노선도로 추천 반과 운행 계획 안내.",
         "한 주 운행표, 선생님, 반 노선, 교습비 등 게시, FAQ."
+      ]
+    },
+    {
+      "id": "dental-arch",
+      "name": "하루결치과 · Arch",
+      "category": "medical",
+      "categoryLabel": "의료 · 피부과 · 치과",
+      "kind": "concept",
+      "kindLabel": "디자인 시안",
+      "path": "concepts/medical-dental/arch/",
+      "thumbnail": "dental-arch.jpg",
+      "summary": [
+        "포슬린·코발트·피치, 위·아래 치아 지도를 눌러 진료를 찾는 분할형 치과 시안.",
+        "증상 7종 → 살펴볼 진료·담당 원장·과정·건강보험·주의사항, 상담 신청 자동 입력.",
+        "진료 9종, 원장·장비·공간 사진 칸, 비급여 게시(예시), 모바일 하단 4버튼."
+      ]
+    },
+    {
+      "id": "dental-chart",
+      "name": "하루결치과 · Chart",
+      "category": "medical",
+      "categoryLabel": "의료 · 피부과 · 치과",
+      "kind": "concept",
+      "kindLabel": "디자인 시안",
+      "path": "concepts/medical-dental/chart/",
+      "thumbnail": "dental-chart.jpg",
+      "summary": [
+        "웜그레이·잉크·세이지, 치식 번호표를 고르는 그리드 지면형 치과 시안.",
+        "영구치 32·아이 치아 20 번호 선택 → 진료 안내와 상담 신청.",
+        "원장 지면 프로필, 한 줄 진료 표, 장비 번호 목록, 모바일 하단 4버튼."
+      ]
+    },
+    {
+      "id": "dental-bloom",
+      "name": "하루결치과 · Bloom",
+      "category": "medical",
+      "categoryLabel": "의료 · 피부과 · 치과",
+      "kind": "concept",
+      "kindLabel": "디자인 시안",
+      "path": "concepts/medical-dental/bloom/",
+      "thumbnail": "dental-bloom.jpg",
+      "summary": [
+        "라일락·네이비·레몬, 증상 칩부터 고르는 곡선형 치과 시안.",
+        "느낌 → 부위 아이콘 → 결과 카드, 첫 방문 4단계 흐름.",
+        "아코디언 진료 안내, 넘겨 보는 장비 카드, 모바일 하단 4버튼."
       ]
     }
   ]
