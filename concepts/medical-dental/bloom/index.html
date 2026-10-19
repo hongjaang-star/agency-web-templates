@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>시안 C · Bloom · 하루결치과의원 (가상 업체 시안)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* C · Bloom — organic 곡선 + split-media(공간 사진), Gowun Dodum + Noto Sans KR, lilac · navy · lemon */
+:root{--bg:#f6f3fb;--card:#fff;--ink:#1d2350;--sub:#5d6187;--line:#e3def0;--li:#c9b8f2;--li-l:#ede6ff;--lm:#fff1a8;--lm-d:#7a6400;--ok:#2b8a5a;
+ --disp:"Gowun Dodum","Noto Sans KR",sans-serif;--body:"Noto Sans KR",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#121530;--card:#1b1f42;--ink:#eef0ff;--sub:#b3b6d8;--line:#2d3263;--li:#8f7bd6;--li-l:#29285a;--lm:#5f5520;--lm-d:#ffe680;--ok:#64d39b}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 var(--body);word-break:keep-all}
+a{color:inherit}button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:3px solid var(--li);outline-offset:2px;border-radius:10px}
+.demo{background:var(--lm);color:#3b3000;font-size:13px;text-align:center;padding:6px 14px}
+@media (prefers-color-scheme:dark){.demo{color:#fff4c0}}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(16px,3vw,32px)}
+header{position:sticky;top:0;z-index:30;padding:10px 0;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:22px var(--disp)}
+.logo i{width:34px;height:34px;border-radius:40% 60% 55% 45%/50% 45% 55% 50%;background:var(--li);display:block}
+nav.top{display:flex;gap:4px;background:var(--card);border-radius:99px;padding:5px;box-shadow:0 6px 20px -12px rgba(40,30,90,.35)}
+nav.top a{text-decoration:none;font-size:14.5px;font-weight:700;padding:8px 14px;border-radius:99px}nav.top a:hover{background:var(--li-l)}
+.cta{background:var(--ink);color:var(--bg);text-decoration:none;font-weight:800;padding:10px 18px;border-radius:99px;font-size:14.5px}
+/* 히어로 */
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,56px);align-items:center;padding:clamp(20px,4vw,48px) 0 40px}
+.hero h1{font:clamp(38px,5vw,64px)/1.2 var(--disp);margin:0 0 14px}
+.hero h1 mark{background:linear-gradient(transparent 55%,var(--lm) 55%);color:inherit}
+.hero p{color:var(--sub);margin:0 0 20px;max-width:30em}
+.blob{position:relative}
+.blob .photo{border-radius:46% 54% 48% 52%/52% 44% 56% 48%}
+.blob .ph-label{top:36%}.blob .badge{position:absolute;left:-10px;bottom:-6px;z-index:2;background:var(--card);border-radius:20px;padding:12px 16px;box-shadow:0 10px 30px -14px rgba(40,30,90,.45);font-size:14px}
+.blob .badge b{display:block;font:20px var(--disp)}
+/* 파인더 */
+.finder{background:var(--card);border-radius:36px;padding:clamp(20px,3vw,36px);box-shadow:0 20px 50px -30px rgba(40,30,90,.4)}
+.finder h2{font:clamp(26px,3vw,34px) var(--disp);margin:0 0 4px}
+.finder .step{display:flex;gap:10px;align-items:center;margin:18px 0 10px;font-weight:800}
+.finder .step i{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--li);display:grid;place-items:center;font-size:14px;color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{border:0;background:var(--li-l);border-radius:18px;padding:10px 16px;font-weight:700;font-size:15px;transition:transform .15s}
+.chips button:hover{transform:translateY(-2px)}
+.chips button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.chips.area button{display:flex;align-items:center;gap:8px}
+.chips.area svg{width:26px;height:26px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.rc{background:var(--bg);border-radius:24px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.rc b{font:21px var(--disp)}.rc span{font-size:13.5px;color:var(--sub)}
+.rc a{margin-top:auto;font-weight:800;font-size:14px;text-decoration:none;color:var(--ink)}
+.warn{margin-top:12px;background:var(--lm);color:#3b3000;border-radius:18px;padding:12px 16px;font-size:14.5px}
+@media (prefers-color-scheme:dark){.warn{color:#fff4c0}}
+.fact{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;align-items:center}
+.btn{border:0;border-radius:99px;padding:12px 20px;font-weight:800;text-decoration:none;display:inline-block}.btn.p{background:var(--ink);color:var(--bg)}.btn.l{background:var(--li-l)}
+.tiny{font-size:12.5px;color:var(--sub)}
+section{padding:60px 0;scroll-margin-top:76px}
+.sh{text-align:center;margin-bottom:28px}.sh h2{font:clamp(30px,3.4vw,42px) var(--disp);margin:0}.sh p{color:var(--sub);margin:6px auto 0;max-width:36em}
+/* 첫 방문 흐름 */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.flow div{background:var(--card);border-radius:28px;padding:22px;position:relative}
+.flow em{font-style:normal;font:15px var(--disp);background:var(--lm);border-radius:99px;padding:2px 12px}
+.flow b{display:block;font:22px var(--disp);margin:10px 0 4px}.flow p{margin:0;font-size:14.5px;color:var(--sub)}
+/* 진료 아코디언 */
+.acc{display:grid;gap:10px}
+.acc details{background:var(--card);border-radius:24px;padding:4px 22px;scroll-margin-top:80px}
+.acc details.hl{box-shadow:0 0 0 3px var(--li)}
+.acc summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center;padding:16px 0}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary b{font:22px var(--disp)}.acc summary span{font-size:13.5px;color:var(--sub)}
+.acc summary::after{content:"+";width:32px;height:32px;border-radius:50%;background:var(--li-l);display:grid;place-items:center;font-weight:900}
+.acc details[open] summary::after{content:"−"}
+.acc .in{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;padding:0 0 20px}
+.acc h4{margin:0 0 6px;font-size:14px;color:var(--sub)}
+.acc ol,.acc ul{margin:0;padding-left:18px;font-size:14.5px}
+/* 장비 가로 스크롤 */
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,1fr);gap:16px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory}
+.rail>div{scroll-snap-align:start;background:var(--card);border-radius:30px;padding:12px 12px 18px}
+.rail h3{font:20px var(--disp);margin:12px 6px 2px}.rail p{margin:0 6px;font-size:14px;color:var(--sub)}
+/* 의료진 */
+.docs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.doc{background:var(--card);border-radius:30px;padding:12px 12px 20px;text-align:center}
+.doc .photo{border-radius:999px 999px 26px 26px}
+.doc h3{font:24px var(--disp);margin:14px 0 0}.doc small{display:block;color:var(--sub);font-size:13.5px}
+.doc .sp{display:inline-block;margin:8px 0;background:var(--li-l);border-radius:99px;padding:3px 12px;font-size:13px;font-weight:700}
+.doc p{margin:0 6px;font-size:14px;color:var(--sub)}
+/* 사진 칸 */
+.photo{position:relative;margin:0;overflow:hidden;border-radius:24px;background:radial-gradient(circle at 30% 30%,var(--li-l),transparent 60%),repeating-linear-gradient(45deg,var(--li-l) 0 10px,var(--card) 10px 20px);border:2px dashed var(--li)}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.ph-label{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--card);border-radius:16px;padding:8px 12px;font-size:12.5px;text-align:center;width:max-content;max-width:90%}
+.ph-label b{display:block;font-size:13.5px}.ph-label span{font-family:ui-monospace,monospace;font-size:11.5px;color:var(--sub)}
+/* 비용 */
+.cost{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.box{background:var(--card);border-radius:30px;padding:24px 26px}
+.box h3{font:23px var(--disp);margin:0 0 10px}
+table{border-collapse:collapse;width:100%;font-size:15px}td{padding:10px 0;border-bottom:1px dashed var(--line)}td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.box ul{margin:0;padding-left:18px}.box li{margin:5px 0}
+/* 상담 · 내원 */
+.visit{display:grid;grid-template-columns:1.2fr 1fr;gap:16px}
+.cf{display:grid;gap:10px}.cf .r{display:grid;gap:4px}.cf label{font-weight:700;font-size:14px}.cf em{color:#7d5bd6;font-style:normal}
+.cf input,.cf select,.cf textarea{font:inherit;border:0;border-radius:16px;padding:12px 14px;background:var(--bg);color:var(--ink);width:100%}
+.cf .agree{display:grid;gap:6px;font-size:13.5px;background:var(--bg);border-radius:18px;padding:12px 14px}.cf .agree label{font-weight:500;display:flex;gap:8px}.cf .agree input{width:auto;margin-top:5px}.cf .agree small{color:var(--sub)}
+.cf button{border:0;background:var(--ink);color:var(--bg);font-weight:800;border-radius:99px;padding:14px}
+.msg{min-height:1.3em;font-weight:700;font-size:14px;margin:0}.msg.no{color:#c2410c}.msg.ok{color:var(--ok)}
+.hours dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 14px}.hours dt{font-weight:700}.hours dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}
+details.q{background:var(--card);border-radius:22px;padding:14px 20px;margin-bottom:8px}details.q summary{cursor:pointer;font:19px var(--disp)}details.q p{margin:6px 0 0;color:var(--sub)}
+footer{padding:30px 0 44px;text-align:center;font-size:13.5px;color:var(--sub)}footer b{color:var(--ink)}
+.dock{display:none}
+@media (max-width:1040px){nav.top{display:none}.hero{grid-template-columns:1fr}.blob{max-width:520px}.cards{grid-template-columns:1fr 1fr}.flow,.docs{grid-template-columns:1fr 1fr}.acc .in{grid-template-columns:1fr}}
+@media (max-width:760px){.cost,.visit{grid-template-columns:1fr}.cta{display:none}.acc summary{grid-template-columns:1fr auto}.acc summary span{grid-column:1;grid-row:2}
+ .dock{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:40;background:var(--ink);border-radius:26px;padding:6px;box-shadow:0 14px 30px -14px rgba(20,20,60,.6)}
+ .dock a{display:flex;flex-direction:column;align-items:center;gap:2px;text-decoration:none;color:var(--bg);font-size:12px;font-weight:700;padding:7px 2px;border-radius:20px}
+ .dock a svg{width:21px;height:21px}.dock a.p{background:var(--lm);color:#3b3000}
+ body{padding-bottom:90px}}
+@media (max-width:480px){.cards,.flow{grid-template-columns:1fr}.docs{grid-template-columns:1fr 1fr;gap:10px}.doc h3{font-size:20px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="demo"><b>가상 업체 데모 · 시안 C · Bloom</b> — 하루결치과의원은 실제 치과가 아닙니다. 의료진 · 비용 · 연락처는 예시이며, 사진은 AI 생성 예시입니다.</div>
+<header><div class="wrap"><a class="logo" href="#top"><i aria-hidden="true"></i>하루결치과</a>
+<nav class="top" aria-label="주메뉴"><a href="#finder">증상으로 찾기</a><a href="#first">첫 방문</a><a href="#treat">진료</a><a href="#doctors">의료진</a><a href="#cost">비용</a><a href="#visit">상담 · 내원</a></nav>
+<a class="cta" href="#consult">상담 신청</a></div></header>
+<main class="wrap" id="top">
+ <div class="hero">
+  <div><h1>무서운 치과 말고,<br><mark>먼저 들어 주는</mark> 치과.</h1>
+   <p>어떤 느낌인지부터 말씀해 주세요. 아래에서 증상과 부위를 고르면 살펴볼 진료를 알려 드리고, 그대로 상담을 신청할 수 있습니다.</p>
+   <div class="fact"><a class="btn p" href="#finder">증상으로 찾기</a><a class="btn l" href="tel:020000000">02-000-0000</a></div></div>
+  <div class="blob"><div class="badge"><b>수요일 밤 9시까지</b>퇴근 뒤에도 진료합니다</div></div>
+ </div>
+ <section id="finder" style="padding-top:20px"><div class="finder">
+  <h2>어떤 느낌이세요?</h2><p class="tiny" style="margin:0">진단이 아닌 상담 준비용 안내입니다.</p>
+  <div class="step"><i>1</i>느낌 고르기</div><div class="chips" id="cs" role="group" aria-label="증상"></div>
+  <div class="step"><i>2</i>어디쯤인가요?</div><div class="chips area" id="ca" role="group" aria-label="부위"></div>
+  <div id="res" aria-live="polite"></div>
+ </div></section>
+ <section id="first"><div class="sh"><h2>처음 오시면 이렇게 진행해요</h2><p>첫 방문은 보통 40~60분, 치료는 설명을 듣고 결정하신 뒤 시작합니다.</p></div>
+  <div class="flow"><div><em>10분</em><b>이야기 듣기</b><p>불편한 곳, 지난 치료, 복용 약, 걱정되는 점을 먼저 듣습니다.</p></div><div><em>10분</em><b>검진 · 촬영</b><p>필요한 경우에만 엑스레이 · 구강 스캔을 찍습니다.</p></div><div><em>15분</em><b>화면으로 설명</b><p>사진을 함께 보며 지금 상태와 선택지를 설명합니다.</p></div><div><em>10분</em><b>계획 · 비용 안내</b><p>치료 순서, 기간, 건강보험 · 비급여 비용을 적어 드립니다.</p></div></div></section>
+ <section id="treat"><div class="sh"><h2>진료 안내</h2><p>열어 보시면 과정 · 기간 · 건강보험 · 주의사항이 있어요. 결과와 기간은 개인에 따라 다를 수 있습니다.</p></div><div class="acc" id="acc"></div></section>
+ <section id="equip"><div class="sh"><h2>장비와 공간</h2><p>옆으로 넘겨 보세요.</p></div><div class="rail" id="rail"></div></section>
+ <section id="doctors"><div class="sh"><h2>의료진</h2><p>진료 영역이 다른 원장 4명이 함께 진단합니다. 경력 · 학회 표기는 예시입니다.</p></div><div class="docs" id="docs"></div></section>
+ <section id="cost"><div class="sh"><h2>비용과 건강보험</h2><p>치료 전에 비용을 먼저 설명드리고 동의하신 뒤 진료합니다.</p></div>
+  <div class="cost"><div class="box"><h3>비급여 진료비 (예시)</h3><table><tbody id="fees"></tbody></table><p class="tiny">금액은 데모용 예시입니다. 실제 비용은 원내 게시와 건강보험심사평가원 비급여 진료비 정보에서 확인할 수 있습니다.</p></div>
+  <div class="box"><h3>건강보험이 되는 치과 진료</h3><ul><li>스케일링 — 만 19세 이상 연 1회</li><li>임플란트 — 만 65세 이상 평생 2개, 본인부담 30%</li><li>틀니 — 만 65세 이상 7년에 1회, 본인부담 30%</li><li>레진 — 만 12세 이하 영구치</li><li>홈메우기 — 만 18세 이하 충치 없는 큰어금니</li></ul><p class="tiny">적용 여부와 본인부담은 국민건강보험공단 기준으로 결정됩니다(1577-1000).</p></div></div></section>
+ <section id="visit"><div class="sh"><h2>상담 신청 · 내원 안내</h2></div>
+  <div class="visit"><div class="box" id="consult"><h3>상담 신청</h3><div id="formw"></div></div>
+  <div style="display:grid;gap:16px"><div class="box hours" id="hours"><h3>진료시간</h3><dl id="hl"></dl></div><div class="box" id="mapc"><h3>오시는 길</h3><svg viewBox="0 0 320 170" role="img" aria-label="약도 (가상)" style="width:100%;height:auto;border-radius:20px;display:block"><rect width="320" height="170" fill="var(--li-l)"/><path d="M0 115C80 100 200 130 320 105" stroke="var(--card)" stroke-width="18" fill="none"/><circle cx="150" cy="70" r="14" fill="var(--ink)"/><circle cx="150" cy="70" r="5" fill="var(--lm)"/><text x="150" y="44" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" font-family="sans-serif">하루결치과 2층</text><rect x="222" y="128" width="84" height="28" rx="14" fill="var(--ink)"/><text x="264" y="146" fill="var(--bg)" font-size="11" text-anchor="middle" font-family="sans-serif">가람역 3번</text></svg><p class="tiny" id="addr"></p></div></div></div></section>
+ <section id="faq"><div class="sh"><h2>자주 묻는 질문</h2></div><div id="fq"></div></section>
+</main>
+<footer><b>하루결치과의원</b> · 서울특별시 가람구 결로 00, 2층 (가상 주소) · 02-000-0000 · 대표원장 한도윤(예시)<br>가상 업체 데모 · 시안 C · Bloom · 의료광고 심의 대상 여부는 실제 납품 시 확인</footer>
+<nav class="dock" aria-label="바로가기">
+ <a href="tel:020000000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2Z"/></svg>전화</a>
+ <a class="p" href="#consult"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H8l-4 4Z"/></svg>상담 신청</a>
+ <a href="#hours"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>진료시간</a>
+ <a href="#mapc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6 7-12a7 7 0 0 0-14 0c0 6 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>오시는 길</a>
+</nav>
+<script>
+/* 하루결치과의원(가상) 공통 데이터 — 실존 치과의 상호·문구·사진·실적을 쓰지 않는다.
+   rules/medical.md: 효과 보장·할인·전후 사진·실적 수치 없음, 부작용 고지, 비급여 금액은 예시, 건보 기준은 공단 안내 연결 */
+const C={name:'하루결치과의원',en:'HARUGYEOL DENTAL',tel:'02-000-0000',addr:'서울특별시 가람구 결로 00, 2층 (가상 주소)',
+ hours:[['월 · 화 · 목 · 금','09:30 – 18:30'],['수 (야간)','13:00 – 21:00'],['토','09:30 – 14:00 (점심시간 없음)'],['점심시간','13:00 – 14:00'],['일 · 공휴일','휴진']],
+ parking:'건물 지하 주차 1시간 (예시)',subway:'가람역(가상) 3번 출구 도보 2분'};
+/* 사진 칸: GPT 실사 사진을 images/ 폴더에 같은 이름으로 넣으면 자동으로 표시 */
+const IMG={
+ doctor1:['doctor-1.webp','4:5','한도윤 대표원장 프로필'],doctor2:['doctor-2.webp','4:5','서이준 원장 프로필'],doctor3:['doctor-3.webp','4:5','윤채원 원장 프로필'],doctor4:['doctor-4.webp','4:5','강하린 원장 프로필'],
+ cbct:['equip-cbct.webp','4:3','치과용 CT (CBCT)'],scanner:['equip-scanner.webp','4:3','구강 스캐너'],microscope:['equip-microscope.webp','4:3','치과용 미세현미경'],steril:['equip-sterilization.webp','4:3','멸균실'],
+ lobby:['space-lobby.webp','3:2','대기 공간'],room:['space-operatory.webp','3:2','개별 진료실']};
+const TREAT={
+ cavity:{n:'충치 · 레진 치료',k:'보존',who:'한도윤',dur:'1회 30~60분',steps:['검진 · 엑스레이','썩은 부분 제거','레진 · 인레이로 메우기','교합 확인'],ins:'만 12세 이하 영구치 레진, 아말감 · 글래스아이오노머는 건강보험 적용. 성인 레진 · 인레이는 비급여',care:['마취가 풀릴 때까지 1~2시간 식사를 피해 주세요','치료 후 며칠 시릴 수 있으며, 오래가면 다시 확인합니다','충치 깊이에 따라 신경치료로 이어질 수 있습니다']},
+ endo:{n:'신경치료',k:'보존',who:'한도윤',dur:'2~4회, 회당 40~60분',steps:['통증 원인 확인 · 마취','염증 신경 제거','근관 소독 · 충전','크라운으로 보호'],ins:'신경치료는 건강보험 적용. 이후 크라운은 재료에 따라 비급여',care:['치료 기간에는 그 쪽으로 단단한 음식을 피해 주세요','치료 중 일시적인 통증 · 붓기가 있을 수 있습니다','염증 상태에 따라 재치료나 발치가 필요할 수 있습니다']},
+ crown:{n:'크라운 · 보철',k:'보철',who:'한도윤',dur:'2~3회, 1~2주',steps:['치아 다듬기','구강 스캔 · 본뜨기','임시치아','보철물 붙이기'],ins:'재료에 따라 대부분 비급여',care:['임시치아 기간에는 끈적한 음식을 피해 주세요','붙인 뒤 며칠 어색하거나 시릴 수 있습니다','이갈이가 있으면 보철물이 깨질 수 있어 상담이 필요합니다']},
+ implant:{n:'임플란트',k:'외과 · 보철',who:'서이준 · 한도윤',dur:'3~6개월 (뼈 상태에 따라 다름)',steps:['CT로 뼈 확인 · 계획','식립 수술','뼈와 붙는 기간','보철물 연결'],ins:'만 65세 이상 평생 2개 건강보험 적용(본인부담 30%). 그 외는 비급여. 적용 여부는 국민건강보험공단 기준으로 확인',care:['수술 후 2~3일 붓기 · 멍 · 통증이 있을 수 있습니다','흡연 · 당뇨 · 잇몸 상태에 따라 결과가 달라질 수 있습니다','감염 · 임플란트 주위염 예방을 위해 정기 검진이 필요합니다']},
+ gum:{n:'잇몸치료 · 스케일링',k:'치주',who:'한도윤',dur:'스케일링 30분 · 잇몸치료 2~4회',steps:['잇몸 상태 검사','스케일링','잇몸 속 치석 제거','관리 방법 안내'],ins:'스케일링 만 19세 이상 연 1회, 치주 치료는 진단에 따라 건강보험 적용',care:['치료 후 며칠 시리거나 피가 날 수 있습니다','잇몸이 줄어 치아 사이가 넓어 보일 수 있습니다','3~6개월마다 정기 관리를 권합니다']},
+ wisdom:{n:'사랑니 발치',k:'구강외과',who:'서이준',dur:'1회 20~60분 + 7일 뒤 실밥',steps:['파노라마 · CT로 신경 위치 확인','마취 · 발치','지혈 · 주의사항 안내','7일 뒤 실밥 제거'],ins:'일반 · 매복 사랑니 발치는 건강보험 적용',care:['2~3일 붓기 · 통증 · 입 벌리기 불편함이 있을 수 있습니다','드물게 감각 이상 · 염증이 생길 수 있어 사전에 설명합니다','거즈는 1~2시간 물고, 빨대 · 흡연은 피해 주세요']},
+ ortho:{n:'치아교정',k:'교정',who:'윤채원',dur:'1년 6개월~2년 6개월 (개인차)',steps:['정밀 검사 · 상담','진단 · 계획 설명','장치 부착 · 정기 조정','유지 장치'],ins:'대부분 비급여. 일부 악안면 기형 수술 교정은 건강보험 기준 확인',care:['장치 초기 1~2주 통증 · 불편함이 있을 수 있습니다','양치가 어려워 충치 · 잇몸 관리가 더 필요합니다','유지 장치를 쓰지 않으면 치아가 다시 움직일 수 있습니다']},
+ kids:{n:'소아치과',k:'소아',who:'강하린',dur:'1회 20~40분',steps:['아이와 친해지기','검진 · 불소','홈메우기 · 충치 치료','보호자 상담'],ins:'만 18세 이하 충치 없는 큰어금니 홈메우기, 만 12세 이하 영구치 레진 건강보험 적용',care:['치료 전 아이에게 무엇을 할지 쉬운 말로 먼저 설명합니다','치료 후 마취된 입술을 깨물지 않게 지켜봐 주세요','아이 상태에 따라 치료를 나눠 진행할 수 있습니다']},
+ tmj:{n:'턱관절 상담',k:'구강내과',who:'서이준',dur:'상담 · 검사 30~40분',steps:['증상 문진','턱 움직임 · 영상 검사','생활 습관 안내','필요 시 장치 치료'],ins:'검사 · 치료 항목에 따라 건강보험 또는 비급여',care:['딱딱하고 질긴 음식, 턱 괴기를 줄여 주세요','통증이 심하거나 입이 안 벌어지면 바로 연락 주세요','증상에 따라 다른 진료과 진료가 필요할 수 있습니다']}};
+const AREAS=[['front','앞니'],['back','어금니'],['wisdom','사랑니 자리'],['gum','잇몸'],['jaw','턱 · 관절'],['child','아이 치아']];
+const SYMS=[['cold','시려요'],['bite','씹을 때 아파요'],['crack','깨졌어요 · 금 갔어요'],['bleed','피가 나요 · 부어요'],['loose','흔들려요 · 빠졌어요'],['align','고르지 않아요'],['click','소리 나요 · 잘 안 벌어져요']];
+function guide(area,sym){
+ let t=[],note='';
+ const add=(...k)=>k.forEach(x=>{if(!t.includes(x))t.push(x)});
+ if(area==='child'){add('kids');if(sym==='align')add('ortho');}
+ if(area==='jaw'||sym==='click'){add('tmj');}
+ if(area==='wisdom'){add('wisdom');}
+ if(area==='gum'||sym==='bleed'){add('gum');if(area==='wisdom')note='사랑니 주변 잇몸이 붓는 경우가 많습니다.';}
+ if(sym==='cold')add('cavity','gum');
+ if(sym==='bite')add('cavity','endo');
+ if(sym==='crack')add('crown','endo');
+ if(sym==='loose')add(area==='child'?'kids':'implant','gum');
+ if(sym==='align')add('ortho');
+ if(!t.length)add('cavity');
+ const urgent=(sym==='bleed'||sym==='crack'||sym==='loose');
+ return {list:t.slice(0,3),note,urgent};
+}
+const DOCS=[
+ {id:'doctor1',n:'한도윤',r:'대표원장',sp:'통합치의학과 전문의 (예시)',area:'임플란트 보철 · 크라운 · 신경치료',line:'치료 전에 사진과 모형으로 지금 상태를 먼저 보여 드립니다.',cv:['치의학 박사 (예시)','대한통합치과학회 정회원 (예시)','진료 경력 15년 (예시)']},
+ {id:'doctor2',n:'서이준',r:'원장',sp:'구강악안면외과 전문의 (예시)',area:'사랑니 발치 · 임플란트 수술 · 턱관절',line:'수술 전에 CT로 신경과 뼈의 위치를 함께 확인합니다.',cv:['구강악안면외과 수련 (예시)','대한구강악안면외과학회 정회원 (예시)']},
+ {id:'doctor3',n:'윤채원',r:'원장',sp:'치과교정과 전문의 (예시)',area:'치아교정 · 투명교정 · 성장기 교정',line:'교정 기간과 유지 장치까지 처음 상담에서 함께 이야기합니다.',cv:['치과교정과 수련 (예시)','대한치과교정학회 정회원 (예시)']},
+ {id:'doctor4',n:'강하린',r:'원장',sp:'소아치과 전문의 (예시)',area:'소아 · 청소년 진료 · 홈메우기',line:'아이가 먼저 진료실과 친해질 시간을 드립니다.',cv:['소아치과 수련 (예시)','대한소아치과학회 정회원 (예시)']}];
+const EQUIP=[['cbct','치과용 CT (CBCT)','임플란트 · 사랑니 수술 전 뼈와 신경 위치를 3차원으로 확인합니다.'],['scanner','구강 스캐너','본을 뜨는 재료 대신 스캔으로 치아 모양을 기록합니다.'],['microscope','미세현미경','신경치료 때 좁은 근관을 크게 보며 치료합니다.'],['steril','멸균실','기구는 사용 후 세척 · 포장 · 고압 멸균 과정을 거칩니다.']];
+const FEES=[['레진 충전 (1개 면)','000,000원'],['인레이 (세라믹)','000,000원'],['크라운 (지르코니아)','000,000원'],['임플란트 (1개, 보철 포함)','0,000,000원'],['치아교정 (전체, 장치 기준)','0,000,000원'],['미백 (전체)','000,000원']];
+const FAQ=[['아픈데 오늘 바로 진료받을 수 있나요?','붓기 · 출혈 · 깨짐처럼 급한 증상은 전화로 먼저 알려 주시면 당일 진료 가능 시간을 안내합니다. 얼굴이 크게 붓고 열이 나거나 숨쉬기 불편하면 바로 응급실로 가세요.'],['첫 방문 때 무엇을 하나요?','문진과 검진, 필요한 엑스레이 촬영 후 화면으로 상태를 설명드리고 치료 계획과 비용을 안내합니다. 당일 치료 여부는 그 뒤에 정합니다.'],['건강보험이 되는지 어떻게 알 수 있나요?','진료마다 적용 기준을 안내하지만 최종 적용은 국민건강보험공단 기준으로 결정됩니다. 공단 고객센터나 홈페이지에서 확인할 수 있습니다.'],['비급여 진료비는 어디서 보나요?','원내와 이 홈페이지에 게시합니다. 건강보험심사평가원 누리집에서 항목별 비용도 확인할 수 있습니다.']];
+function copyText(t,b){const o=b.textContent;const d=()=>{b.textContent='복사했어요';setTimeout(()=>b.textContent=o,1500)};try{navigator.clipboard.writeText(t).then(d,()=>prompt('복사해 주세요',t))}catch(e){prompt('복사해 주세요',t)}}
+/* 사진 칸 렌더: 파일이 있으면 사진, 없으면 크기·파일명이 적힌 자리표시 */
+function photo(key,cls=''){const [f,r,alt]=IMG[key];const [a,b]=r.split(':');return `<figure class="photo ${cls}" style="aspect-ratio:${a}/${b}"><img src="../images/${f}" alt="${alt} (AI 생성 예시 이미지)" loading="lazy" onerror="this.remove()"><figcaption class="ph-label"><b>${alt}</b><span>${f} · ${r}</span></figcaption></figure>`}
+/* 상담 폼 검증 (데모: 접수 없음) */
+function bindForm(f,m){f.onsubmit=e=>{e.preventDefault();const miss=[...f.querySelectorAll('[required]')].find(x=>x.type==='checkbox'?!x.checked:!x.value.trim());
+ if(miss){m.className='msg no';m.textContent=miss.type==='checkbox'?'개인정보 수집 · 이용(필수)에 동의해 주세요.':`${f.querySelector(`label[for="${miss.id}"]`).textContent.replace('*','').trim()} 항목을 입력해 주세요.`;miss.focus();return}
+ const tel=f.querySelector('input[type=tel]');if(!/^0\d{1,2}-?\d{3,4}-?\d{4}$/.test(tel.value.trim())){m.className='msg no';m.textContent='연락처 형식을 확인해 주세요. 예) 010-1234-5678';tel.focus();return}
+ m.className='msg ok';m.textContent='입력 내용을 확인했습니다. 가상 업체 데모라 실제로 접수되지 않습니다. (실제 사이트는 접수 후 문자로 안내)'}}
+const FORM=(id)=>`<form class="cf" id="${id}" novalidate>
+ <div class="r"><label for="${id}-n">이름 <em>*</em></label><input id="${id}-n" autocomplete="name" required></div>
+ <div class="r"><label for="${id}-t">연락처 <em>*</em></label><input id="${id}-t" type="tel" autocomplete="tel" placeholder="010-0000-0000" required></div>
+ <div class="r"><label for="${id}-c">상담 진료 <em>*</em></label><select id="${id}-c" required><option value="">선택해 주세요</option>${Object.values(TREAT).map(t=>`<option>${t.n}</option>`).join('')}<option>잘 모르겠어요</option></select></div>
+ <div class="r"><label for="${id}-w">통화 희망 시간</label><select id="${id}-w"><option>평일 오전</option><option>평일 오후</option><option>수요일 저녁</option><option>토요일 오전</option></select></div>
+ <div class="r"><label for="${id}-m">불편한 점 (선택)</label><textarea id="${id}-m" rows="3" placeholder="예) 오른쪽 아래 어금니가 씹을 때 아파요"></textarea></div>
+ <div class="agree"><label><input type="checkbox" required> [필수] 개인정보 수집 · 이용 동의 — 이름 · 연락처 · 상담 진료를 상담 연락에만 쓰고 상담 후 3개월 뒤 지웁니다.</label><label><input type="checkbox"> [선택] 진료 일정 안내 문자 수신</label><small>건강 정보는 꼭 필요한 만큼만 적어 주세요. 진단은 내원 진료로만 가능합니다.</small></div>
+ <p class="msg" role="status"></p><button type="submit">상담 신청</button></form>`;
+
+const $=s=>document.querySelector(s);
+const st={a:'back',s:'cold'};
+const ICON={front:'<path d="M9 4h6l1 9c0 4-2 7-4 7s-4-3-4-7Z"/>',back:'<path d="M5 6c2-2 4-1 7 0 3-1 5-2 7 0 1 3 0 6-1 9-1 4-2 5-3 5s-1-4-3-4-2 4-3 4-2-1-3-5c-1-3-2-6-1-9Z"/>',wisdom:'<path d="M5 6c2-2 4-1 7 0 3-1 5-2 7 0 1 3 0 6-1 9-1 4-2 5-3 5s-1-4-3-4-2 4-3 4-2-1-3-5c-1-3-2-6-1-9Z" stroke-dasharray="3 2"/>',gum:'<path d="M3 10c4-4 14-4 18 0"/><path d="M6 10v4M10 9v5M14 9v5M18 10v4"/>',jaw:'<path d="M4 6c0 8 4 13 8 13s8-5 8-13"/><circle cx="4" cy="5" r="1.5"/><circle cx="20" cy="5" r="1.5"/>',child:'<circle cx="12" cy="9" r="5"/><path d="M8 20c1-3 7-3 8 0"/>'};
+$('#cs').innerHTML=SYMS.map(s=>`<button type="button" data-s="${s[0]}" aria-pressed="${st.s===s[0]}">${s[1]}</button>`).join('');
+$('#ca').innerHTML=AREAS.map(a=>`<button type="button" data-a="${a[0]}" aria-pressed="${st.a===a[0]}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">${ICON[a[0]]}</svg>${a[1]}</button>`).join('');
+$('#cs').onclick=e=>{const b=e.target.closest('[data-s]');if(b){st.s=b.dataset.s;render()}};
+$('#ca').onclick=e=>{const b=e.target.closest('[data-a]');if(b){st.a=b.dataset.a;render()}};
+function render(){
+ document.querySelectorAll('#cs button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.s===st.s));
+ document.querySelectorAll('#ca button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.a===st.a));
+ const g=guide(st.a,st.s),an=AREAS.find(x=>x[0]===st.a)[1],sn=SYMS.find(x=>x[0]===st.s)[1];
+ $('#res').innerHTML=`<div class="cards">${g.list.map(k=>`<div class="rc"><b>${TREAT[k].n}</b><span>${TREAT[k].who} 원장 · ${TREAT[k].dur}</span><a href="#t-${k}" data-open="${k}">과정 · 주의사항 보기 →</a></div>`).join('')}</div>${g.urgent?`<div class="warn">붓기 · 출혈 · 깨짐은 오늘 전화로 먼저 알려 주세요. 얼굴이 크게 붓고 열이 나면 응급실로 가세요.</div>`:''}<div class="fact"><a class="btn p" href="#consult" id="go">"${an} · ${sn}"로 상담 신청</a><a class="btn l" href="tel:020000000">전화하기</a></div>`;
+ $('#go').onclick=()=>{$('#cf3-c').value=TREAT[g.list[0]].n;const m=$('#cf3-m');if(!m.value)m.value=`${an} · ${sn}`};
+ document.querySelectorAll('[data-open]').forEach(a=>a.onclick=()=>{const d=document.getElementById('t-'+a.dataset.open);if(d)d.open=true});
+ document.querySelectorAll('.acc details').forEach(d=>d.classList.toggle('hl',g.list.includes(d.dataset.k)))}
+$('#acc').innerHTML=Object.entries(TREAT).map(([k,t])=>`<details id="t-${k}" data-k="${k}"><summary><b>${t.n}</b><span>${t.who} 원장 · ${t.dur}</span></summary><div class="in"><div><h4>진료 과정</h4><ol>${t.steps.map(s=>`<li>${s}</li>`).join('')}</ol></div><div><h4>건강보험</h4><p style="margin:0;font-size:14.5px">${t.ins}</p></div><div><h4>주의사항 · 부작용</h4><ul>${t.care.map(c=>`<li>${c}</li>`).join('')}</ul></div></div></details>`).join('');
+$('#rail').innerHTML=[...EQUIP.map(e=>[e[0],e[1],e[2]]),['room','개별 진료실','칸막이가 아닌 문이 있는 진료실에서 이야기를 나눕니다.']].map(e=>`<div>${photo(e[0])}<h3>${e[1]}</h3><p>${e[2]}</p></div>`).join('');
+$('#docs').innerHTML=DOCS.map(d=>`<article class="doc">${photo(d.id)}<h3>${d.n}</h3><small>${d.r}</small><span class="sp">${d.sp}</span><p>${d.area}</p><p style="margin-top:8px;color:var(--ink)">“${d.line}”</p></article>`).join('');
+$('#fees').innerHTML=FEES.map(f=>`<tr><td>${f[0]}</td><td class="n">${f[1]} (예시)</td></tr>`).join('');
+$('#hl').innerHTML=C.hours.map(h=>`<dt>${h[0]}</dt><dd>${h[1]}</dd>`).join('');
+$('#addr').textContent=`${C.addr} · ${C.subway} · ${C.parking}`;
+$('#formw').innerHTML=FORM('cf3');bindForm($('#cf3'),$('#cf3 .msg'));
+$('#fq').innerHTML=FAQ.map(f=>`<details class="q"><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join('');
+document.querySelector('.blob').insertAdjacentHTML('afterbegin',photo('lobby'));
+render();
+</script>
+</body>
+</html>
