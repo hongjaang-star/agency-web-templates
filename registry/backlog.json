@@ -186,7 +186,9 @@
       "name": "치과",
       "category": "medical",
       "level": "L2",
-      "status": "wait"
+      "status": "research",
+      "research": "concepts/medical-dental/research/",
+      "note": "2026-10-20 사용자 요청으로 착수(첫 L2). 레퍼런스 보고서(오른치과·원진치과·South Cliff Dental Group) 제출, 조합 선택 대기"
     },
     {
       "order": 12,
