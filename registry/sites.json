@@ -402,6 +402,31 @@
         "signature": "roadmap check that highlights the recommended class and copies a consultation memo",
         "sectionOrder": "check panel, intro, weekly steps, more links, this month"
       }
+    },
+    {
+      "slug": "medical-dental",
+      "variant": "arch",
+      "name": "치과",
+      "company": "하루결치과의원(가상)",
+      "category": "medical",
+      "level": "L2",
+      "status": "deployed",
+      "role": "flagship",
+      "type": "증상 안내형 · 치아 지도에서 불편한 곳을 골라 진료와 상담으로 이어지는 동네 치과",
+      "path": "concepts/medical-dental/arch",
+      "url": "https://hongjaang-star.github.io/agency-web-templates/concepts/medical-dental/arch/",
+      "pages": 6,
+      "concept": "concepts/medical-dental/arch",
+      "fingerprint": {
+        "layout": "split + sub pages",
+        "hero": "interactive tooth map",
+        "typePair": "Pretendard + Instrument Serif",
+        "palette": "porcelain · cobalt · peach",
+        "imageTreatment": "photo slots for AI portraits, equipment and space (GPT); SVG tooth map",
+        "motion": "hover tints, reduced-motion fallback",
+        "signature": "upper/lower tooth map + symptom chips that prefill the consultation form",
+        "sectionOrder": "tooth map finder, treatment tiles, doctors, hours, first visit"
+      }
     }
   ]
 }

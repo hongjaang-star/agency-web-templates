@@ -186,14 +186,18 @@
       "name": "치과",
       "category": "medical",
       "level": "L2",
-      "status": "concepts",
+      "status": "building",
       "research": "concepts/medical-dental/research/",
-      "note": "2026-10-20 사용자 요청으로 착수(첫 L2). 레퍼런스 보고서(오른치과·원진치과·South Cliff Dental Group) 제출, 조합 선택 대기 / 조합 1(증상에서 시작하는 진료 안내형, 이슈 #91) 선택 → 시안 3개 공개(모바일 하단 4버튼, 원장·장비·공간 사진 칸), 시안 선택·GPT 사진 대기",
+      "note": "2026-10-20 사용자 요청으로 착수(첫 L2). 레퍼런스 보고서(오른치과·원진치과·South Cliff Dental Group) 제출, 조합 선택 대기 / 조합 1(증상에서 시작하는 진료 안내형, 이슈 #91) 선택 → 시안 3개 공개(모바일 하단 4버튼, 원장·장비·공간 사진 칸), 시안 선택·GPT 사진 대기 / 2026-10-20 사용자: A(arch) 완성(6페이지), C는 아이 전문 우리아이치과로 별도 완성 예정",
       "concepts": [
         "arch",
         "chart",
         "bloom"
-      ]
+      ],
+      "variants": [
+        "arch"
+      ],
+      "targetVariants": 2
     },
     {
       "order": 12,
