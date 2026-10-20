@@ -378,17 +378,17 @@
     },
     {
       "id": "dental-bloom",
-      "name": "하루결치과 · Bloom",
+      "name": "우리아이치과 · Bloom",
       "category": "medical",
       "categoryLabel": "의료 · 피부과 · 치과",
-      "kind": "concept",
-      "kindLabel": "디자인 시안",
+      "kind": "site",
+      "kindLabel": "완성 사이트",
       "path": "concepts/medical-dental/bloom/",
       "thumbnail": "dental-bloom.jpg",
       "summary": [
-        "라일락·네이비·레몬, 증상 칩부터 고르는 곡선형 치과 시안.",
-        "느낌 → 부위 아이콘 → 결과 카드, 첫 방문 4단계 흐름.",
-        "아코디언 진료 안내, 넘겨 보는 장비 카드, 모바일 하단 4버튼."
+        "크림·라일락·네이비·레몬, 이 캐릭터 '콩콩이'가 안내하는 아이 전문 치과.",
+        "6페이지: 아이 맞춤 안내, 나이별 진료, 처음 오는 날, 진료 안내, 선생님·공간, 비용·상담.",
+        "진료마다 '아이에게 이렇게 말해요', 전날 준비물 체크, 아이 건강보험 안내, 모바일 하단 4버튼."
       ]
     }
   ]
