@@ -390,7 +390,7 @@
       "type": "진단형 · 학년·상태·목표로 반을 찾아 주는 중고등 내신·수능 학원",
       "path": "concepts/edu-academy/compass",
       "url": "https://hongjaang-star.github.io/agency-web-templates/concepts/edu-academy/compass/",
-      "pages": 6,
+      "pages": 7,
       "concept": "concepts/edu-academy/compass",
       "fingerprint": {
         "layout": "split (sticky diagnostic panel) + sub pages",
