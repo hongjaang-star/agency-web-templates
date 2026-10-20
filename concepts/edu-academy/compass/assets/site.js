@@ -130,3 +130,22 @@ function pageNews(){
   m.className='msg ok';m.textContent='입력 내용을 확인했습니다. 가상 업체 데모라 실제로 접수되지는 않습니다.'};
 }
 ({home:pageHome,system:pageSystem,classes:pageClasses,teachers:pageTeachers,fees:pageFees,news:pageNews})[PG]?.();
+
+/* ---------- 스타일 · 모션 레이어 ---------- */
+(()=>{const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,hd=document.querySelector('header');
+ document.body.insertAdjacentHTML('afterbegin','<div class="prog" aria-hidden="true"></div>');const pr=document.querySelector('.prog');
+ const onS=()=>{const h=document.documentElement,m=h.scrollHeight-h.clientHeight;pr.style.setProperty('--p',m>0?h.scrollTop/m:0);hd&&hd.classList.toggle('scr',h.scrollTop>8)};addEventListener('scroll',onS,{passive:true});onS();
+ /* FAQ: 번호 카드 + 부드러운 펼침 */
+ const fw=document.getElementById('faqs');
+ if(fw&&typeof FAQ!=='undefined'){fw.className='faqs';fw.innerHTML=FAQ.map(f=>`<details class="fq"><summary><i>Q</i><span>${f[0]}</span><b class="pm" aria-hidden="true"></b></summary><div class="a"><div><b>A</b><p>${f[1]}</p></div></div></details>`).join('');
+  fw.insertAdjacentHTML('beforebegin',`<div class="fqh"><span>${FAQ.length}개의 질문 · 눌러서 답을 확인하세요</span><button type="button" id="fqall">모두 펼치기</button></div>`);
+  const all=document.getElementById('fqall');all.onclick=()=>{const open=![...fw.querySelectorAll('details')].every(d=>d.open);fw.querySelectorAll('details').forEach(d=>d.open=open);all.textContent=open?'모두 접기':'모두 펼치기'}}
+ document.querySelectorAll('details.fq').forEach(d=>{const s=d.querySelector('summary'),a=d.querySelector('.a');let an;
+  s.addEventListener('click',e=>{if(RM||!a.animate)return;e.preventDefault();an&&an.cancel();
+   if(d.open){an=a.animate([{height:a.offsetHeight+'px',opacity:1},{height:'0px',opacity:0}],{duration:260,easing:'ease-in'});an.onfinish=()=>{d.open=false}}
+   else{d.open=true;const h=a.offsetHeight;an=a.animate([{height:'0px',opacity:0},{height:h+'px',opacity:1}],{duration:340,easing:'cubic-bezier(.2,.8,.2,1)'})}})});
+ /* 스크롤 등장 */
+ if(RM||!('IntersectionObserver' in window))return;document.documentElement.classList.add('rvon');
+ const sel='main .sh,.intro p,.sys>div,.go>a,.news>div,.tea>div,.clx,.steps>div,.t1,.posts>details,details.fq,.refund>div,.tbl,form.f,.map,.info,.legal,.week';
+ const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{rootMargin:'0px 0px -8% 0px'});
+ document.querySelectorAll(sel).forEach(el=>{if(el.closest('.panel'))return;const sib=[...el.parentElement.children].filter(x=>x.matches(sel));el.style.setProperty('--d',Math.min(sib.indexOf(el),6)*0.07+'s');el.classList.add('rv');io.observe(el)})})();

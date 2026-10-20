@@ -192,3 +192,60 @@ form.f .agree input{width:auto}
 @media (min-width:1001px) and (min-height:1101px){.page .panel{position:sticky;top:69px}}
 .panel .q{padding-top:10px}.panel h1{font-size:clamp(28px,2.6vw,36px)}
 @media (max-width:560px){header{padding:10px 16px}.logo small{display:none}.logo{font-size:18px}}
+
+/* ---------- 스타일 · 모션 레이어 (2026-10-21) ---------- */
+.prog{position:fixed;left:0;top:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(var(--p,0));background:linear-gradient(90deg,var(--peri),var(--mint));z-index:80}
+header{transition:box-shadow .3s,background .3s}header.scr{box-shadow:0 10px 30px -22px rgba(20,24,70,.55)}
+nav a{position:relative}nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--peri);transform:scaleX(0);transform-origin:0 50%;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+nav a:hover::after{transform:scaleX(1)}nav a[aria-current=page]{box-shadow:none}nav a[aria-current=page]::after{transform:scaleX(1)}
+.btn,.call,.mcta a{position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.btn:hover,.call:hover{transform:translateY(-2px);box-shadow:0 10px 22px -12px rgba(30,34,100,.7)}
+.btn::after,.call::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .6s}
+.btn:hover::after,.call:hover::after{transform:translateX(120%)}
+/* 섹션 머리: 번호 배지 + 자라나는 선 */
+.sh{position:relative;padding-bottom:12px}
+.sh em{display:inline-grid;place-items:center;min-width:38px;height:28px;border-radius:99px;background:var(--peri-l);color:var(--ink);font-size:12.5px;padding:0 10px}
+.sh::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:linear-gradient(90deg,var(--peri),transparent 70%);transform:scaleX(var(--ln,1));transform-origin:0 50%;transition:transform .9s cubic-bezier(.2,.8,.2,1) .15s}
+.rvon .sh.rv{--ln:0}.rvon .sh.rv.in{--ln:1}
+/* 서브 헤드 */
+.subhead::before{content:"";position:absolute;right:12%;top:-90px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(124,132,245,.45),transparent 70%);animation:fl 9s ease-in-out infinite}
+.subhead::after{animation:fl 12s ease-in-out infinite reverse}
+@keyframes fl{50%{transform:translate(-26px,18px) scale(1.08)}}
+.subhead h1,.subhead p,.subhead .k{position:relative;animation:up .7s cubic-bezier(.2,.8,.2,1) both}.subhead h1{animation-delay:.08s}.subhead p{animation-delay:.16s}
+@keyframes up{from{opacity:0;transform:translateY(16px)}}
+/* 카드 공통 호버 */
+.tea>div,.clx,.steps>div,.t1,.news>div,.posts details,.sys>div,.refund>div,form.f,.map{transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,border-color .25s}
+.tea>div:hover,.clx:hover,.steps>div:hover,.t1:hover,.news>div:hover,.posts details:hover{transform:translateY(-3px);border-color:var(--peri);box-shadow:0 18px 34px -24px rgba(30,34,110,.6)}
+.tea .av,.t1 .av{transition:transform .35s,background .35s}.tea>div:hover .av,.t1:hover .av{transform:rotate(-6deg) scale(1.06);background:var(--peri);color:#12142b}
+.sys>div:hover{background:var(--peri-l)}
+.refund>div:hover b{transform:scale(1.04)}.refund b{transition:transform .25s;transform-origin:0 50%}
+/* 등장 */
+.rvon .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.8,.2,1) var(--d,0s),transform .7s cubic-bezier(.2,.8,.2,1) var(--d,0s)}
+.rvon .rv.in{opacity:1;transform:none}
+/* 자주 묻는 질문 */
+.faqs{display:grid;gap:10px;counter-reset:fq}
+details.fq{counter-increment:fq;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:0;position:relative;overflow:hidden;transition:border-color .25s,box-shadow .25s,transform .25s}
+details.fq::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--peri),var(--mint));transform:scaleY(0);transform-origin:50% 0;transition:transform .35s}
+details.fq:hover{border-color:var(--peri);transform:translateY(-2px);box-shadow:0 16px 30px -24px rgba(30,34,110,.6)}
+details.fq[open]{border-color:var(--peri);box-shadow:0 20px 40px -28px rgba(30,34,110,.65)}details.fq[open]::before{transform:scaleY(1)}
+details.fq summary{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:16px 18px;font-size:16.5px}
+details.fq summary::after{display:none}
+details.fq summary i{font:500 13px var(--mono);font-style:normal;width:40px;height:40px;border-radius:12px;background:var(--peri-l);color:var(--ink);display:flex;align-items:center;justify-content:center;gap:1px;transition:background .3s,color .3s}
+details.fq summary i::after{content:counter(fq,decimal-leading-zero);font-size:10px;margin-left:1px;opacity:.6}
+details.fq[open] summary i{background:var(--ink);color:var(--bg)}
+details.fq .pm{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--line);position:relative;transition:transform .35s cubic-bezier(.2,.8,.2,1),background .3s,border-color .3s}
+details.fq .pm::before,details.fq .pm::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;background:var(--ink);border-radius:2px;transition:transform .35s}
+details.fq .pm::after{transform:rotate(90deg)}
+details.fq summary:hover .pm{border-color:var(--peri)}
+details.fq[open] .pm{transform:rotate(180deg);background:var(--peri);border-color:var(--peri)}details.fq[open] .pm::after{transform:rotate(0)}
+details.fq[open] .pm::before,details.fq[open] .pm::after{background:#12142b}
+details.fq .a{overflow:hidden}
+details.fq .a div{display:grid;grid-template-columns:40px 1fr;gap:14px;padding:0 18px 18px}
+details.fq .a b{font:500 13px var(--mono);width:40px;height:40px;border-radius:12px;border:1.5px dashed var(--peri);color:var(--peri);display:grid;place-items:center}
+details.fq .a p{margin:0;padding-top:8px;color:var(--sub);font-size:15px}
+.fqh{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:-8px 0 14px;color:var(--sub);font-size:14px}
+.fqh button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:6px 14px;font-weight:700;font-size:13px;transition:border-color .2s,background .2s}.fqh button:hover{border-color:var(--peri);background:var(--peri-l)}
+/* 지도 핀 */
+.map circle:nth-of-type(1){transform-origin:200px 120px;animation:pin 2.2s ease-out infinite}
+@keyframes pin{0%{transform:scale(1)}50%{transform:scale(1.25)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.rvon .rv{opacity:1;transform:none}.rvon .sh.rv{--ln:1}.subhead::before{animation:none}}
