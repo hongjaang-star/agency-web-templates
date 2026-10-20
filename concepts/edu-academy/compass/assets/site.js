@@ -54,7 +54,7 @@ function copyText(t,btn){const done=()=>{const o=btn.textContent;btn.textContent
 /* ---------- 다중 페이지 레이아웃 · 페이지별 렌더 ---------- */
 const $=s=>document.querySelector(s);
 const R=document.body.dataset.root||'./',PG=document.body.dataset.page;
-const NAV=[['system','수업 방식'],['classes','반 안내'],['teachers','선생님'],['fees','교습비'],['news','설명회 · 소식']];
+const NAV=[['system','수업 방식'],['classes','반 안내'],['teachers','선생님'],['fees','교습비'],['notice','공지사항'],['news','설명회 · 소식']];
 const href=id=>id==='home'?R:`${R}${id}/`;
 document.body.insertAdjacentHTML('afterbegin',`<div class="demo"><b>가상 업체 데모 · 오름길 학원</b> — 실제 학원이 아닙니다. 교습비 · 연락처 · 등록번호 · 강사는 예시입니다.</div>
 <header><a class="logo" href="${R}"><i aria-hidden="true"></i><span>오름길 학원<br><small>MIDDLE · HIGH · MATH · ENGLISH</small></span></a>
@@ -118,10 +118,45 @@ function pageFees(){
  $('#refund').innerHTML=REFUND.map(r=>`<div><span>${r[0]}</span><b>${r[1]}</b></div>`).join('');
  $('#legal').innerHTML=`학원 명칭: <b>${A.name}</b> · ${A.reg} · 교습과정: 보습(수학, 영어)<br>교습비 · 기타경비는 데모용 예시이며, 실제 사이트는 교육지원청에 등록한 금액과 같게 표시합니다.`;
 }
+/* ---------- 공지사항 게시판 ---------- */
+const BOARD=[
+ {id:14,c:'공지',pin:1,t:'2026학년도 2학기 교습비 게시 안내',d:'2026.10.28',v:212,b:['2학기 교습비와 교재비(기타경비)를 교습비 페이지와 학원 안내 데스크에 게시했습니다.','금액은 교육지원청에 등록한 금액과 같으며, 반환 기준은 학원법 시행령을 따릅니다. (데모: 금액은 예시)']},
+ {id:13,c:'설명회',pin:1,t:'고1 · 고2 과목 선택과 2학기 기말 대비 설명회',d:'2026.10.26',v:348,b:['11월 7일(토) 오전 11시, 학원 3층 세미나실에서 설명회를 엽니다.','고교학점제 과목 선택 기준, 학교별 기말고사 범위 정리 방법, 겨울방학 시간표를 안내합니다.','자리는 30석이며 설명회 · 소식 페이지 신청서로 예약해 주세요. (예시 일정)']},
+ {id:12,c:'진단',t:'반 배정 참고용 진단 테스트 상시 예약',d:'2026.10.20',v:187,b:['평일 16:00 · 19:00에 진행합니다. 30~40분 동안 지금 학년 개념 문항을 풀고 15분 결과 상담이 이어집니다.','결과는 반 배정 참고용이며 합격 · 불합격으로 나누지 않습니다.']},
+ {id:11,c:'상담',t:'중3 고교학점제 과목 탐색 상담 주간',d:'2026.10.15',v:156,b:['11월 16일부터 21일까지 원장 상담을 엽니다.','관심 분야와 지금 성적표를 함께 가져오시면 고1 공통과목 이후 선택과목 흐름을 같이 살펴봅니다.']},
+ {id:10,c:'공지',t:'정기고사 3주 전 학교별 클리닉 추가 운영',d:'2026.10.02',v:241,b:['학교 시험 일정이 공지되면 3주 전부터 학교별 클리닉을 추가로 엽니다.','학교별 범위 · 부교재 기준으로 나누며 시간표는 보호자 문자로 안내합니다.']},
+ {id:9,c:'휴원',t:'추석 연휴 휴원 안내',d:'2026.09.21',v:133,b:['9월 24일(목)부터 27일(일)까지 휴원합니다.','해당 주 수업은 다음 주 클리닉 시간에 보충하며, 보충 일정은 문자로 안내합니다.']},
+ {id:8,c:'공지',t:'2학기 시간표 변경 안내 (고2 수학)',d:'2026.09.07',v:198,b:['고2 수학 내신집중반이 화 · 목 19:00에서 화 · 금 19:00으로 바뀝니다.','변경으로 겹치는 일정이 있으면 상담으로 반 이동을 도와드립니다.']},
+ {id:7,c:'설명회',t:'2027학년도 수능 대비 고3 학부모 간담회',d:'2026.08.24',v:174,b:['9월 모의평가 이후 수능까지 남은 기간의 학습 계획과 클리닉 운영을 안내합니다.','간담회는 소규모(12명)로 진행합니다. (예시 일정)']},
+ {id:6,c:'진단',t:'여름방학 진단 테스트 결과 리포트 발송',d:'2026.08.10',v:121,b:['7월 진단 테스트 응시생의 결과 리포트를 보호자 문자 링크로 보냈습니다.','리포트에는 영역별 정답률과 다음 학기 추천 반이 담겨 있습니다.']},
+ {id:5,c:'휴원',t:'여름 휴원 안내',d:'2026.07.27',v:109,b:['8월 3일(월)부터 5일(수)까지 휴원합니다. 온라인 과제는 그대로 제공합니다.']},
+ {id:4,c:'공지',t:'개인정보 처리방침 개정 안내',d:'2026.07.01',v:88,b:['상담 신청서 보관 기간을 상담 종료 후 3개월로 줄였습니다.','만 14세 미만 학생의 정보는 보호자 동의를 받아 처리합니다.']},
+ {id:3,c:'상담',t:'1학기 기말 성적 상담 신청 안내',d:'2026.06.29',v:143,b:['1학기 기말고사 이후 담당 선생님과 15분 성적 상담을 신청할 수 있습니다.','상담 시간은 평일 15:00~17:00입니다.']},
+ {id:2,c:'공지',t:'건물 엘리베이터 점검 안내',d:'2026.06.15',v:64,b:['6월 18일(목) 14:00~16:00 엘리베이터 점검이 있습니다. 계단을 이용해 주세요.']},
+ {id:1,c:'공지',t:'오름길 학원 홈페이지를 새로 열었습니다',d:'2026.06.01',v:301,b:['반 안내, 교습비, 설명회 신청을 홈페이지에서 확인할 수 있습니다. (가상 업체 데모)']}];
+const BCATS=['전체','공지','설명회','진단','상담','휴원'];
+function pageNotice(){const q=new URLSearchParams(location.search),W=$('#board'),PER=8;
+ const url=o=>{const u=new URLSearchParams();Object.entries(o).forEach(([k,v])=>{if(v&&v!=='전체'&&v!=1||k==='id'&&v)u.set(k,v)});const s=u.toString();return s?'?'+s:'./'};
+ const id=+q.get('id');
+ if(id){const i=BOARD.findIndex(x=>x.id===id),p=BOARD[i];if(!p){W.innerHTML='<p>글을 찾을 수 없습니다.</p>';return}
+  const nw=BOARD[i-1],ol=BOARD[i+1];document.title=p.t+' | 공지사항 | 오름길 학원 (가상 업체 데모)';
+  W.innerHTML=`<article class="bv"><div class="bvh"><span class="bc c-${p.c}">${p.c}</span><h2>${p.t}</h2><div class="bm"><span>작성 오름길 학원</span><time>${p.d}</time><span>조회 ${p.v+1}</span></div></div><div class="bvb">${p.b.map(x=>`<p>${x}</p>`).join('')}</div>
+  <div class="bnav" role="navigation" aria-label="이전 · 다음 글">${nw?`<a href="${url({id:nw.id})}"><em>다음 글</em><b>${nw.t}</b></a>`:'<span><em>다음 글</em><b>다음 글이 없습니다</b></span>'}${ol?`<a href="${url({id:ol.id})}"><em>이전 글</em><b>${ol.t}</b></a>`:'<span><em>이전 글</em><b>이전 글이 없습니다</b></span>'}</div>
+  <div class="bact"><a class="btn p" href="./">목록으로</a>${p.c==='설명회'?`<a class="btn l" href="${R}news/#fb">설명회 신청</a>`:''}</div></article>`;return}
+ const cat=BCATS.includes(q.get('cat'))?q.get('cat'):'전체',kw=(q.get('q')||'').trim();
+ let L=BOARD.filter(x=>(cat==='전체'||x.c===cat)&&(!kw||(x.t+x.b.join(' ')).includes(kw)));
+ const pins=cat==='전체'&&!kw?L.filter(x=>x.pin):[];L=L.filter(x=>!pins.includes(x));
+ const pages=Math.max(1,Math.ceil(L.length/PER)),pg=Math.min(Math.max(1,+q.get('p')||1),pages),rows=L.slice((pg-1)*PER,pg*PER);
+ const row=(x,n)=>`<li class="${x.pin&&n==='공지'?'pin':''}"><span class="bn">${n}</span><span class="bc c-${x.c}">${x.c}</span><a class="bt" href="${url({id:x.id})}">${x.t}${Date.parse(x.d.replace(/\./g,'-'))>Date.parse('2026-10-14')?'<i class="new">N</i>':''}</a><time>${x.d}</time><span class="bvw">${x.v}</span></li>`;
+ W.innerHTML=`<div class="btop"><div class="tabs" role="group" aria-label="분류">${BCATS.map(c=>`<a href="${url({cat:c,q:kw})}" ${c===cat?'aria-current="true"':''}>${c}<small>${c==='전체'?BOARD.length:BOARD.filter(x=>x.c===c).length}</small></a>`).join('')}</div>
+ <form class="bsearch" role="search"><label class="sr" for="bq">공지 검색</label><input id="bq" name="q" value="${kw.replace(/"/g,'&quot;')}" placeholder="제목 · 내용 검색">${cat!=='전체'?`<input type="hidden" name="cat" value="${cat}">`:''}<button class="btn p">검색</button></form></div>
+ <p class="bcount">${kw?`‘${kw}’ 검색 결과 `:''}총 <b>${L.length+pins.length}</b>건 · ${pg}/${pages} 페이지</p>
+ <ul class="blist"><li class="bhd" aria-hidden="true"><span>번호</span><span>분류</span><span>제목</span><span>작성일</span><span>조회</span></li>${pins.map(x=>row(x,'공지')).join('')}${rows.length?rows.map(x=>row(x,x.id)).join(''):'<li class="empty">검색 결과가 없습니다. 다른 낱말로 찾아보세요.</li>'}</ul>
+ ${pages>1?`<div class="pager" role="navigation" aria-label="페이지">${pg>1?`<a href="${url({cat,q:kw,p:pg-1})}" aria-label="이전 페이지">‹</a>`:''}${Array.from({length:pages},(_,i)=>`<a href="${url({cat,q:kw,p:i+1})}" ${i+1===pg?'aria-current="page"':''}>${i+1}</a>`).join('')}${pg<pages?`<a href="${url({cat,q:kw,p:pg+1})}" aria-label="다음 페이지">›</a>`:''}</div>`:''}`;
+}
 /* ---------- 소식 ---------- */
-const POSTS=[['설명회','고1 · 고2 과목 선택과 2학기 기말 대비 설명회','2026.10.30','11월 7일(토) 오전 11시, 고교학점제 과목 선택 기준과 학교별 기말고사 대비 일정을 설명합니다. 아래 신청서로 자리를 예약해 주세요. (예시 일정)'],['진단','반 배정 참고용 진단 테스트 상시 예약','2026.10.20','평일 16:00 · 19:00에 진행합니다. 30~40분 테스트 뒤 15분 결과 상담이 이어집니다. 합격 · 불합격으로 나누지 않습니다.'],['상담','중3 고교학점제 과목 탐색 상담 주간','2026.10.15','11월 16일부터 21일까지 원장 상담을 엽니다. 관심 분야와 지금 성적표를 함께 가져오시면 좋습니다.'],['안내','정기고사 3주 전 학교별 클리닉 추가 운영','2026.10.02','학교 시험 일정이 공지되면 3주 전부터 학교별 클리닉을 추가로 엽니다. 시간표는 문자로 안내합니다.'],['휴원','추석 연휴 휴원 안내','2026.09.21','연휴 기간 휴원하며, 해당 주 수업은 다음 주 클리닉 시간에 보충합니다.']];
 function pageNews(){
- $('#posts').innerHTML=POSTS.map((p,i)=>`<details ${i?'':'open'}><summary><em>${p[0]}</em><b style="font-weight:600">${p[1]}</b><time>${p[2]}</time></summary><p>${p[3]}</p></details>`).join('');
+ $('#posts').innerHTML=BOARD.slice(0,4).map(p=>`<a class="pl" href="${R}notice/?id=${p.id}"><em>${p.c}</em><b>${p.t}</b><time>${p.d}</time></a>`).join('');
  $('#faqs').innerHTML=FAQ.map(f=>`<details><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join('');
  const f=$('#fb'),m=$('#fmsg');
  f.onsubmit=e=>{e.preventDefault();const miss=[...f.querySelectorAll('[required]')].find(x=>x.type==='checkbox'?!x.checked:!x.value.trim());
@@ -129,7 +164,7 @@ function pageNews(){
   if(!/^01\d-?\d{3,4}-?\d{4}$/.test($('#b-tel').value.trim())){m.className='msg no';m.textContent='휴대폰 번호 형식을 확인해 주세요.';$('#b-tel').focus();return}
   m.className='msg ok';m.textContent='입력 내용을 확인했습니다. 가상 업체 데모라 실제로 접수되지는 않습니다.'};
 }
-({home:pageHome,system:pageSystem,classes:pageClasses,teachers:pageTeachers,fees:pageFees,news:pageNews})[PG]?.();
+({home:pageHome,system:pageSystem,classes:pageClasses,teachers:pageTeachers,fees:pageFees,notice:pageNotice,news:pageNews})[PG]?.();
 
 /* ---------- 스타일 · 모션 레이어 ---------- */
 (()=>{const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,hd=document.querySelector('header');
