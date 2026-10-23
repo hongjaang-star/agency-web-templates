@@ -7,7 +7,8 @@ const repository = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '.
 const source = path.join(repository, 'agency');
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
 export function renderAgency() {
-  const items = JSON.parse(fs.readFileSync(path.join(repository, 'registry/portfolio.json'), 'utf8')).items;
+  // 대표 홈페이지에는 완성 사이트만 보인다. 디자인 시안(kind concept)은 registry 와 관리 시트에만 기록한다.
+  const items = JSON.parse(fs.readFileSync(path.join(repository, 'registry/portfolio.json'), 'utf8')).items.filter(i => i.kind === 'site');
   const groups = new Map();
   for (const item of items) {
     if (!/^(?:concepts\/)?[a-z0-9-]+\/[a-z0-9-]+\/$/.test(item.path) || item.summary.length !== 3) throw new Error('Invalid portfolio entry: ' + item.id);
@@ -32,10 +33,10 @@ export function renderAgency() {
   function portfolio(context) {
     // 분류 필터는 portfolio.json 에 나온 순서대로 자동 생성 (새 업종 분류를 추가해도 코드 수정 없음)
     const categories = [...new Map(items.map(i => [i.category, i.categoryLabel])).entries()];
-    const filters = [['all','전체',items.length], ...categories.map(([key,label]) => [key,label,items.filter(i=>i.category===key).length]), ['site','완성 사이트',siteCount], ['concept','디자인 시안',items.length-siteCount]];
+    const filters = [['all','전체',items.length], ...categories.map(([key,label]) => [key,label,items.filter(i=>i.category===key).length])];
     return `<div class="portfolio-collection" data-portfolio>
       <div class="filter-row" role="group" aria-label="포트폴리오 분류">${filters.map(([key,label,count])=>`<button type="button" class="filter-chip${key==='all'?' active':''}" data-portfolio-filter="${key}" aria-pressed="${key==='all'}">${label} <span>${count}</span></button>`).join('')}</div>
-      <p class="portfolio-count" data-portfolio-count role="status" aria-live="polite">${items.length}개 프로젝트 · 완성 사이트 ${siteCount}개 / 디자인 시안 ${items.length-siteCount}개</p>
+      <p class="portfolio-count" data-portfolio-count role="status" aria-live="polite">완성 사이트 ${siteCount}개</p>
       ${[...groups.entries()].map(([key,group])=>`<section class="portfolio-group" data-portfolio-group aria-labelledby="${context}-${key}"><div class="portfolio-group-heading"><h${context==='home'?'3':'2'} id="${context}-${key}">${escape(group[0].categoryLabel)} <span>${escape(group[0].kindLabel)}</span></h${context==='home'?'3':'2'}><span class="portfolio-group-count">${group.length}개</span></div><div class="port-grid">${cards(group)}</div></section>`).join('')}
     </div>`;
   }
@@ -53,6 +54,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   fs.mkdirSync(output, { recursive: true });
   fs.cpSync(path.join(source, 'assets'), path.join(output, 'assets'), { recursive: true });
   fs.writeFileSync(path.join(output, 'index.html'), renderAgency());
-  const items = JSON.parse(fs.readFileSync(path.join(repository, 'registry/portfolio.json'), 'utf8')).items;
+  // 대표 홈페이지에는 완성 사이트만 보인다. 디자인 시안(kind concept)은 registry 와 관리 시트에만 기록한다.
+  const items = JSON.parse(fs.readFileSync(path.join(repository, 'registry/portfolio.json'), 'utf8')).items.filter(i => i.kind === 'site');
   console.log(`Agency homepage published with ${items.length} categorized portfolios`);
 }

@@ -11,6 +11,6 @@ document.querySelectorAll('[data-portfolio]').forEach(collection => {
       group.querySelector('.portfolio-group-count').textContent = count + '개';
     });
     const visible = cards.filter(card => !card.hidden), complete = visible.filter(card => card.dataset.kind === 'site').length;
-    collection.querySelector('[data-portfolio-count]').textContent = `${visible.length}개 프로젝트 · 완성 사이트 ${complete}개 / 디자인 시안 ${visible.length - complete}개`;
+    collection.querySelector('[data-portfolio-count]').textContent = `완성 사이트 ${complete}개`;
   }));
 });
