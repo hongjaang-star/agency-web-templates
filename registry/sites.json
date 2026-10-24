@@ -452,6 +452,56 @@
         "signature": "age + worry finder with 'what to say to your child' lines and guardian tips, first-visit checklist",
         "sectionOrder": "hero, age/worry finder, first visit 4 steps, doctors + hours"
       }
+    },
+    {
+      "slug": "realty-presale",
+      "variant": "grove",
+      "name": "아파트 분양 홍보",
+      "company": "결온 가람숲 · 결온건설(가상)",
+      "category": "realty",
+      "level": "L2",
+      "status": "deployed",
+      "role": "flagship",
+      "type": "신도시 대단지 실수요형 · 숲과 학교를 앞세워 젊은 가족을 관심고객 등록 → 홍보관 예약으로 이끄는 분양 홍보",
+      "path": "concepts/realty-presale/grove",
+      "url": "https://hongjaang-star.github.io/agency-web-templates/concepts/realty-presale/grove/",
+      "pages": 8,
+      "concept": "concepts/realty-presale/grove",
+      "fingerprint": {
+        "layout": "immersive + sub pages",
+        "hero": "fullbleed-photo + phase ribbon",
+        "typePair": "Nanum Myeongjo + Pretendard",
+        "palette": "forest · brass · linen",
+        "imageTreatment": "shared GPT CG set (aerial, gate, interiors) with CG labels; SVG scene fallback",
+        "motion": "hero line rise, reveal, reduced-motion fallback",
+        "signature": "promotion phase switch + living radius map with measurement basis",
+        "sectionOrder": "hero(phase), brand promises, numbers, location map, unit tabs, schedule, gallery CTA"
+      }
+    },
+    {
+      "slug": "realty-presale",
+      "variant": "dusk",
+      "name": "아파트 분양 홍보",
+      "company": "휘담 서림 더힐 · 휘담건설(가상)",
+      "category": "realty",
+      "level": "L2",
+      "status": "deployed",
+      "role": "secondary",
+      "type": "원도심 재개발 생활권형 · 병원 · 시장 · 학원가와 산자락을 하루의 시간으로 풀어 중장년 · 갈아타기 수요를 갤러리 예약으로 이끄는 분양 홍보",
+      "path": "concepts/realty-presale/dusk",
+      "url": "https://hongjaang-star.github.io/agency-web-templates/concepts/realty-presale/dusk/",
+      "pages": 8,
+      "concept": "concepts/realty-presale/dusk",
+      "fingerprint": {
+        "layout": "story (day chapters) + sub pages",
+        "hero": "statement + ticker + countdown",
+        "typePair": "Hahmlet + Pretendard",
+        "palette": "ink · brass · ember",
+        "imageTreatment": "same shared CG set as grove, different captions",
+        "motion": "ticker, progress line, reveal, reduced-motion fallback",
+        "signature": "06:40~22:00 day chapters + travel-time radar + life-stage plan use",
+        "sectionOrder": "statement hero, day chapters, unit rail, overview/schedule, final CTA"
+      }
     }
   ]
 }
