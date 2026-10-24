@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>결온 가람숲 · 시안 C Dusk (가상 업체 데모)</title>
+<meta name="description" content="결온 가람숲(가상) 분양 홍보 사이트 시안 C. 하루의 시간을 따라 읽는 스토리형 런칭 페이지.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+/* C · Dusk — story(하루 시간 서사) + statement · ticker, Hahmlet + Pretendard, ink · brass · ember */
+:root{--ink:#14191a;--ink2:#1c2324;--ink3:#252e2f;--tx:#efe8da;--sub:#a9a596;--line:#343d3d;--br:#c9a066;--br-d:#a77b3c;--em:#e07b4f;--fo:#24493a;
+ --sans:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;--serif:"Hahmlet","AppleMyungjo",serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--tx);font:16px/1.75 var(--sans);word-break:keep-all;overflow-x:hidden}
+a{color:inherit}button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:3px solid var(--br);outline-offset:3px}
+.demo{background:#0b0f10;color:#bdb7a8;font-size:12.5px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:6px 12px;align-items:center}
+.demo select{font:inherit;font-size:12.5px;background:#1f2627;color:#fff;border:1px solid #3a4344;border-radius:6px;padding:2px 6px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(18px,4vw,56px)}
+header{position:sticky;top:0;z-index:40;background:rgba(20,25,26,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.logo-l{display:flex;align-items:center;gap:10px;text-decoration:none}.logo-l .sym{width:34px;height:34px}
+.wm b{display:block;font:500 18px/1.1 var(--serif)}.wm small{display:block;font-size:9px;letter-spacing:.34em;color:var(--sub);margin-top:4px}
+nav.gnb{display:flex;gap:4px}nav.gnb a{text-decoration:none;font-size:14px;color:var(--sub);padding:8px 12px;border-radius:99px;transition:color .2s,background .2s}nav.gnb a:hover,nav.gnb a.on{color:var(--tx);background:var(--ink3)}
+.reg{background:var(--br);color:var(--ink);text-decoration:none;font-weight:700;padding:10px 18px;border-radius:99px;font-size:14px;white-space:nowrap}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:44px;height:40px;color:var(--tx)}
+/* 티커 */
+.tick{border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;font-size:13px;color:var(--br);padding:9px 0}
+.tick div{display:inline-block;animation:mq 50s linear infinite}.tick span{margin-right:48px}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* 히어로 */
+.hero{padding:clamp(50px,8vw,110px) 0 0;position:relative}
+.hero .e{font-size:12.5px;letter-spacing:.42em;color:var(--br)}
+.hero h1{font:300 clamp(46px,8.4vw,128px)/1.08 var(--serif);margin:18px 0 0;letter-spacing:-.04em}
+.hero h1 b{font-weight:700;color:var(--br)}
+.hero h1 span{display:block}
+.hrow{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;margin-top:34px;padding-bottom:40px;border-bottom:1px solid var(--line)}
+.hrow p{margin:0;color:var(--sub);max-width:520px;font-size:17px}
+.dd{display:flex;gap:6px;align-items:flex-end}.dd div{background:var(--ink3);border:1px solid var(--line);border-radius:12px;padding:10px 14px;text-align:center;min-width:76px}
+.dd b{display:block;font:500 40px/1 var(--serif);font-variant-numeric:tabular-nums;color:var(--tx)}.dd small{font-size:11.5px;color:var(--sub)}.dd .lb{font-size:12.5px;color:var(--br);writing-mode:horizontal-tb;margin-right:8px;align-self:center;max-width:90px;line-height:1.4}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;border-radius:99px;padding:14px 24px;font-size:15px;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}.btn.p{background:var(--br);color:var(--ink)}.btn.o{border:1px solid var(--tx)}
+.hv{margin-top:40px;border-radius:24px;overflow:hidden}
+.hv .slot{aspect-ratio:21/9!important}
+/* 사진 칸 */
+.slot{position:relative;margin:0;overflow:hidden;background:var(--ink3)}
+.slot .scene{position:absolute;inset:0;width:100%;height:100%}
+.slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.slot figcaption{position:absolute;left:12px;bottom:12px;z-index:2;background:rgba(20,25,26,.82);color:var(--tx);border-radius:8px;padding:6px 10px;font-size:11.5px;display:flex;flex-direction:column;line-height:1.4}
+.slot figcaption span{font-family:ui-monospace,monospace;font-size:10.5px;color:var(--sub)}.slot img+figcaption{display:none}
+.slot .cg{position:absolute;right:12px;top:12px;z-index:2;font-style:normal;font-size:10.5px;color:#fff;background:rgba(0,0,0,.45);padding:2px 8px;border-radius:99px}
+/* 하루 챕터 */
+.day{padding:clamp(80px,10vw,150px) 0 40px}
+.day>.wrap>h2{font:300 clamp(34px,4.6vw,64px)/1.2 var(--serif);margin:0;letter-spacing:-.03em}.day>.wrap>h2 b{font-weight:700;color:var(--br)}
+.ch{display:grid;grid-template-columns:150px minmax(0,1fr) minmax(0,1.1fr);gap:clamp(18px,3vw,44px);padding:56px 0;border-bottom:1px solid var(--line);align-items:start}
+.ch .t{position:sticky;top:100px;font:300 clamp(38px,4vw,56px)/1 var(--serif);color:var(--br);font-variant-numeric:tabular-nums}
+.ch .t small{display:block;font:500 12px var(--sans);letter-spacing:.24em;color:var(--sub);margin-top:10px}
+.ch h3{font:500 clamp(24px,2.4vw,34px)/1.35 var(--serif);margin:0 0 12px}
+.ch p{color:var(--sub);margin:0 0 14px}
+.fact{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding:12px 0;font-size:14.5px}.fact b{font:500 20px var(--serif);color:var(--tx);white-space:nowrap}.fact small{display:block;color:var(--sub);font-size:12px}
+.ch .slot{border-radius:18px;aspect-ratio:4/3!important}
+.prog{position:fixed;left:0;top:0;width:3px;height:100%;z-index:45;background:var(--line)}.prog i{display:block;width:100%;height:0;background:var(--br)}
+/* 타입 */
+.units{padding:clamp(70px,9vw,130px) 0}
+.uh{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.uh h2{font:300 clamp(32px,4vw,56px)/1.2 var(--serif);margin:0;letter-spacing:-.03em}.uh h2 b{font-weight:700;color:var(--br)}
+.arr{display:flex;gap:6px}.arr button{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--ink2);font-size:18px}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(300px,30%);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:30px;padding-bottom:14px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.uc{scroll-snap-align:start;background:var(--ink2);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,border-color .3s}
+.uc:hover{transform:translateY(-6px);border-color:var(--br)}
+.uc .slot{aspect-ratio:4/3!important}.uc .b{padding:20px 22px 22px;display:flex;flex-direction:column;gap:6px;flex:1}
+.uc h3{font:700 34px/1 var(--serif);margin:0;color:var(--br)}.uc .a{font-size:13px;color:var(--sub)}.uc .l{font:500 18px var(--serif);margin:6px 0}
+.uc ul{margin:0;padding:0;list-style:none;font-size:14px;color:var(--sub)}.uc li::before{content:"— ";color:var(--br)}
+.uc a{margin-top:auto;padding-top:12px;font-weight:700;color:var(--br);text-decoration:none;font-size:14.5px}
+/* 개요 · 일정 */
+.ov{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,60px);padding:clamp(60px,8vw,110px) 0;border-top:1px solid var(--line)}
+.ov h2{font:300 clamp(30px,3.4vw,46px)/1.25 var(--serif);margin:0 0 20px;letter-spacing:-.02em}
+.ov dl{margin:0;display:grid;grid-template-columns:100px 1fr;gap:0}.ov dt,.ov dd{padding:11px 0;border-bottom:1px solid var(--line);margin:0;font-size:15px}.ov dt{color:var(--sub)}
+.sc{list-style:none;margin:0;padding:0;display:grid;gap:0;position:relative}
+.sc li{display:grid;grid-template-columns:22px 1fr auto 40px;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.sc li::before{content:"";width:10px;height:10px;border-radius:50%;border:1.5px solid var(--sub);justify-self:center}
+.sc li.now::before{background:var(--em);border-color:var(--em);box-shadow:0 0 0 6px rgba(224,123,79,.2)}.sc li.now b{color:var(--em)}
+.sc b{font:500 17px var(--serif)}.sc span{color:var(--sub);font-size:14.5px;font-variant-numeric:tabular-nums}
+/* 마지막 챕터 */
+.fin{background:linear-gradient(180deg,var(--ink),#1d2526);padding:clamp(80px,10vw,140px) 0;border-top:1px solid var(--line)}
+.fin .g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,60px)}
+.fin h2{font:300 clamp(36px,5vw,72px)/1.15 var(--serif);margin:10px 0 18px;letter-spacing:-.03em}.fin h2 b{font-weight:700;color:var(--br)}
+.box{background:var(--ink2);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,3vw,32px)}
+.box h3{font:500 24px var(--serif);margin:0 0 6px}
+.rf{display:grid;gap:6px}.rf label{font-size:13.5px;font-weight:600;color:var(--sub);margin-top:4px}
+.rf input,.rf select{font:inherit;font-size:16px;border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--ink);color:var(--tx);width:100%}
+.rf .hp{position:absolute;left:-9999px;width:1px;height:1px}
+.agr{display:grid;gap:6px;background:var(--ink);border-radius:12px;padding:12px;margin-top:6px}.agr label{font-weight:400!important;font-size:12.5px!important;display:flex;gap:8px;color:var(--tx)!important;margin:0!important}.agr input{width:auto!important;margin-top:4px;accent-color:var(--br)}
+.rf button{margin-top:8px;border:0;background:var(--br);color:var(--ink);font-weight:800;border-radius:12px;padding:15px;font-size:16px}
+.msg{margin:2px 0 0;font-size:14px;font-weight:700;min-height:1.2em}.msg.no{color:#ff9b7a}.msg.ok{color:var(--br)}.fine{font-size:12px;color:var(--sub);margin:4px 0 0}
+.vd,.vt{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.vd button,.vt button{border:1px solid var(--line);background:var(--ink);border-radius:99px;padding:8px 14px;font-size:14px}
+.vd button[aria-pressed=true],.vt button[aria-pressed=true]{background:var(--br);border-color:var(--br);color:var(--ink)}.vt button:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}.vt small{margin-left:4px;font-size:11px}.vsel{color:var(--br);font-weight:700;margin:12px 0 0}
+footer{border-top:1px solid var(--line);padding:40px 0 120px;font-size:12.5px;color:var(--sub)}footer .wrap{display:grid;gap:12px}footer p{margin:0}
+/* 독 · 모달 · 팝업 */
+.dock{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom));z-index:40;display:grid;grid-template-columns:repeat(4,auto);gap:4px;background:rgba(28,35,36,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:99px;padding:5px}
+.dock a{display:flex;align-items:center;gap:6px;text-decoration:none;font-size:13.5px;font-weight:600;padding:10px 16px;border-radius:99px;color:var(--tx)}.dock a.p{background:var(--br);color:var(--ink)}.dock svg{width:18px;height:18px}
+.modal{position:fixed;inset:0;z-index:70;background:rgba(5,8,8,.7);display:none;align-items:center;justify-content:center;padding:16px}.modal.open{display:flex}
+.modal .in{background:var(--ink2);border:1px solid var(--line);border-radius:24px;width:min(480px,100%);max-height:90vh;overflow:auto;padding:26px;animation:pp .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes pp{from{opacity:0;transform:scale(.96)}}
+.modal .x{float:right;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:none}
+.pop{position:fixed;right:20px;top:110px;z-index:45;width:min(300px,calc(100% - 24px));background:var(--tx);color:var(--ink);border-radius:18px;overflow:hidden;box-shadow:0 20px 50px -18px rgba(0,0,0,.6);animation:pp .4s}.pop[hidden]{display:none}
+.pop .pt{padding:18px}.pop .pt b{display:block;font:700 19px var(--serif)}.pop .pt p{margin:4px 0 12px;font-size:13.5px;color:#5d5a52}.pop .pt a{display:block;text-align:center;background:var(--ink);color:var(--tx);border-radius:99px;padding:10px;text-decoration:none;font-weight:700;font-size:14px}
+.pop .pf{display:flex;border-top:1px solid #d8d1c2}.pop .pf button{flex:1;border:0;background:none;padding:10px;font-size:13px;color:var(--ink)}.pop .pf button+button{border-left:1px solid #d8d1c2;font-weight:700}
+.drawer{position:fixed;inset:0;z-index:65;background:var(--ink);display:none;flex-direction:column;padding:20px}.drawer.open{display:flex}.drawer a{text-decoration:none;font:300 30px/1.9 var(--serif)}.drawer .x{align-self:flex-end;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:none}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
+@media (max-width:1100px){nav.gnb{display:none}.burger{display:block}.ch{grid-template-columns:110px minmax(0,1fr)}.ch .slot{grid-column:1/-1}.rail{grid-auto-columns:minmax(280px,44%)}}
+@media (max-width:760px){.reg{display:none}.hrow,.ov,.fin .g{grid-template-columns:1fr}.ch{grid-template-columns:1fr}.ch .t{position:static}.rail{grid-auto-columns:82%}.hv .slot{aspect-ratio:4/3!important}
+ .dock{left:8px;right:8px;transform:none;grid-template-columns:repeat(4,minmax(0,1fr));border-radius:20px}.dock a{flex-direction:column;gap:2px;font-size:11.5px;padding:8px 2px;border-radius:14px}.dock svg{width:21px;height:21px}
+ .pop{top:auto;bottom:calc(84px + env(safe-area-inset-bottom));left:8px;right:8px;width:auto}.pop .pt p{display:none}.dd div{min-width:64px;padding:8px 10px}.dd b{font-size:32px}.prog{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.rv{opacity:1;transform:none}}
+a#logo,a#mlogo{text-decoration:none;color:inherit}
+</style>
+</head>
+<body>
+<div class="demo"><span>가상 업체 데모 · 시안 C Dusk — 결온 가람숲은 실제 단지가 아닙니다.</span><label>홍보 단계 미리보기 <select id="phase" aria-label="홍보 단계"></select></label></div>
+<div class="prog" aria-hidden="true"><i id="pg"></i></div>
+<header><div class="wrap"><a href="#top" id="logo" aria-label="처음으로"></a><nav class="gnb" id="gnb" aria-label="주메뉴"></nav><a class="reg" href="#register" data-k="reg">관심고객 등록</a><button class="burger" id="burger" aria-label="메뉴 열기">☰</button></div></header>
+<div class="tick" aria-hidden="true"><div id="tick"></div></div>
+<main id="top">
+<section class="hero"><div class="wrap"><span class="e" id="he"></span><h1 id="hh"></h1>
+ <div class="hrow"><div><p id="hs"></p><div class="btns" id="hb"></div></div><div class="dd" id="dd" aria-live="polite"></div></div>
+ <div class="hv rv" id="hv"></div></div></section>
+
+<section class="day" id="location"><div class="wrap"><h2>결온 가람숲의 <b>하루</b>를<br>시간 순서로 걸어 봅니다</h2>
+ <div id="chs"></div><p class="fine" style="margin-top:14px">거리 · 시간은 예시이며 기준점과 측정 방법을 함께 적었습니다. 개발계획은 관계기관 사정에 따라 변경 · 취소될 수 있습니다.</p></div></section>
+
+<section class="units" id="units"><div class="wrap"><div class="uh"><h2>네 가지 <b>하루</b>,<br>네 가지 타입</h2><div class="arr"><button type="button" id="pv" aria-label="이전 타입">←</button><button type="button" id="nx" aria-label="다음 타입">→</button></div></div>
+ <div class="rail" id="rail" tabindex="0" aria-label="타입 목록"></div><p class="fine">전용면적 기준 · 이미지는 연출 컷이며 발코니 확장 · 옵션은 유상입니다.</p></div></section>
+
+<div class="wrap"><div class="ov" id="overview"><div><h2>사업개요</h2><dl id="ovt"></dl><p class="fine">입주자모집공고 기준 · 가상 데이터</p></div>
+ <div id="schedule"><h2>분양 일정</h2><ol class="sc" id="sc"></ol><p class="fine">예시 일정 · 청약 접수는 청약홈에서만 진행됩니다.</p></div></div></div>
+
+<section class="fin" id="visit"><div class="wrap"><span class="e" style="font-size:12.5px;letter-spacing:.42em;color:var(--br)">22:00 · 오늘의 마지막 결정</span><h2>하루를 마무리하며<br><b>홍보관</b> 방문을 예약하세요</h2>
+ <div class="g"><div class="box"><h3>방문 예약</h3><p class="fine" style="font-size:14px">예약 고객은 전담 상담사가 맞이합니다.</p><div id="slots"></div><p class="fine" id="gaddr" style="margin-top:14px"></p></div>
+ <div class="box" id="register"><h3>관심고객 등록</h3><p class="fine" style="font-size:14px">분양 소식을 가장 먼저 보내 드려요.</p><div id="formA"></div></div></div></div></section>
+</main>
+<footer><div class="wrap"><span id="flogo"></span><p id="finfo"></p><p id="flegal"></p></div></footer>
+<nav class="dock" id="dock" aria-label="빠른 문의"></nav>
+<aside class="pop" id="pop" hidden aria-label="알림"><div class="pt"><b id="popt"></b><p id="popd"></p><a href="#register" data-k="reg">관심고객 등록</a></div><div class="pf"><button type="button" data-today>오늘 그만 보기</button><button type="button" data-close>닫기</button></div></aside>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mh"><div class="in"><button class="x" type="button" id="mx" aria-label="닫기">✕</button><h3 id="mh" style="font:500 24px var(--serif);margin:0 0 4px">관심고객 등록</h3><p class="fine" style="font-size:14px">이름과 휴대폰 번호만 남겨 주세요.</p><div id="formM"></div></div></div>
+<div class="drawer" id="drawer"><button class="x" type="button" id="dx" aria-label="메뉴 닫기">✕</button><div id="dl"></div></div>
+<script>
+/* ---------- 결온 가람숲 공통 데이터 (가상) ---------- */
+const B={brand:'결온',en:'GYEOLON',corp:'결온건설',site:'결온 가람숲',tel:'1600-0000',telHref:'tel:16000000',
+ hours:'10:00 – 18:00 (방문 예약제)',gallery:'경기도 가람시 중앙로 00 결온 가람숲 홍보관 (가상)',
+ dev:'가람숲도시개발(주)',agency:'OO마케팅(주)'};
+const PHASES=[
+ {id:'teaser',n:'티저',e:'COMING SOON',h:['가람의 숲이','집이 되는 방법'],s:'결온 가람숲, 곧 공개합니다. 관심고객으로 등록하시면 단지 소식을 가장 먼저 보내 드려요.',cta:'관심고객 등록',ctaKey:'reg',pop:['결온 가람숲 첫 소식','관심고객 등록 후 사업개요를 가장 먼저 받아 보세요.'],dock:['reg','tel','kakao','visit'],badge:'사전 공개 준비 중'},
+ {id:'register',n:'관심고객',e:'FIRST NEWS',h:['결온 가람숲','1,128세대의 첫 소식'],s:'59A부터 84B까지 4개 타입 평면이 공개되었습니다. 우리 가족에게 맞는 타입을 비교해 보세요.',cta:'타입 비교하기',ctaKey:'units',pop:['4개 타입 평면 공개','관심고객 등록 고객에게 타입별 안내 자료를 보내 드려요.'],dock:['reg','tel','visit','kakao'],badge:'관심고객 등록 중'},
+ {id:'open',n:'홍보관 오픈',e:'GALLERY OPEN',h:['홍보관이 문을 엽니다','예약하면 기다림 없이'],s:'방문 예약 고객은 전담 상담사가 기다립니다. 주말 오전은 예약이 빨리 차요.',cta:'방문 예약하기',ctaKey:'visit',pop:['홍보관 OPEN (예시: 11.20)','예약 방문 고객은 대기 없이 상담받을 수 있어요.'],dock:['visit','tel','reg','kakao'],badge:'홍보관 예약 방문'},
+ {id:'apply',n:'청약',e:'SUBSCRIPTION',h:['청약,','순서대로 차근차근'],s:'특별공급부터 2순위까지 날짜를 확인하세요. 청약 접수는 청약홈에서만 진행됩니다.',cta:'청약 일정 보기',ctaKey:'sched',pop:['청약 일정 안내','특별공급 · 1순위 · 2순위 날짜를 확인하세요. (예시 일정)'],dock:['sched','tel','reg','visit'],badge:'청약 일정 안내'},
+ {id:'contract',n:'계약',e:'CONTRACT',h:['당첨을 축하드립니다','계약 준비를 도와드릴게요'],s:'계약 일정과 준비 서류를 미리 확인하시면 홍보관에서 오래 기다리지 않아요.',cta:'계약 준비물 보기',ctaKey:'sched',pop:['계약 안내','계약 기간과 준비 서류를 확인하세요. (예시)'],dock:['tel','visit','sched','kakao'],badge:'당첨자 계약 진행'},
+ {id:'remain',n:'잔여 세대',e:'NOW AVAILABLE',h:['잔여 세대','공급 안내'],s:'공급 일정과 조건은 공고 기준으로 안내합니다. 동 · 호수는 홍보관에서 확인하세요.',cta:'전화 상담',ctaKey:'tel',pop:['잔여 세대 공급 공고','공고 기준 일정과 조건을 확인하세요.'],dock:['tel','visit','reg','kakao'],badge:'잔여 세대 공급'}];
+const DOCK={reg:['관심고객 등록','#register'],tel:['전화 상담',B.telHref],visit:['방문 예약','#visit'],kakao:['카카오톡','#kakao'],sched:['청약 일정','#schedule'],units:['타입 비교','#units']};
+const MENU=[['brand','브랜드'],['overview','사업개요'],['location','입지환경'],['complex','단지안내'],['units','세대안내'],['schedule','분양안내'],['visit','홍보관']];
+const OVERVIEW=[['사업명','가람신도시 B3블록 공동주택 (가상)'],['위치','경기도 가람시 숲길동 일원 (가상)'],['규모','지하 2층 ~ 지상 29층, 9개 동'],['세대수','총 1,128세대'],['타입','전용 59 · 74 · 84㎡ (4개 타입)'],['시행','가람숲도시개발(주) (가상)'],['시공','결온건설(주) (가상)'],['입주 예정','2029년 하반기 (예정)']];
+const UNITS=[{t:'59A',a:'59.97',n:286,line:'처음 갖는 우리 집, 수납부터',bay:'3Bay',room:'방 3 · 욕실 2',pt:['현관 팬트리','안방 드레스룸','주방 ㄷ자 수납'],img:'living-59a'},
+ {t:'74A',a:'74.92',n:312,line:'방 하나가 더 필요해질 때',bay:'3Bay',room:'방 3 · 욕실 2',pt:['넓은 자녀방 2개','거실 확장형 (유상 옵션)','다용도실 분리'],img:'living-74a'},
+ {t:'84A',a:'84.98',n:402,line:'4Bay 맞통풍, 가족 모두의 방향',bay:'4Bay 판상형',room:'방 3 · 욕실 2',pt:['맞통풍 거실 · 주방','안방 파우더룸','현관 대형 수납'],img:'living-84a'},
+ {t:'84B',a:'84.95',n:128,line:'알파룸이 있는 일하는 집',bay:'타워형',room:'방 3 + 알파룸 · 욕실 2',pt:['재택용 알파룸','2면 개방 거실','주방 아일랜드 (옵션)'],img:'alpha-84b'}];
+const LOC=[{k:'교통',ico:'역',t:'가람역 2번 출구',d:'도보 약 13분',b:'단지 정문 기준 · 지도 서비스 도보 경로 · 2026.10 측정(예시)',x:78,y:70},
+ {k:'교육',ico:'학',t:'숲길초등학교',d:'약 250m',b:'단지 정문 기준(예시)',x:46,y:22},
+ {k:'자연',ico:'숲',t:'가람숲 근린공원',d:'단지 북측 인접',b:'공원 면적은 가람시 공원 현황 기준(예시)',x:22,y:30},
+ {k:'생활',ico:'생',t:'중심상업지구',d:'차량 약 5분',b:'평일 낮 기준(예시)',x:84,y:38},
+ {k:'계획',ico:'계',t:'가람선 연장',d:'추진 중',b:'계획 단계 · 노선과 시기는 변경될 수 있음',x:64,y:88}];
+const SCHED=[['관심고객 등록','진행 중','상시'],['홍보관 오픈','11.20 (금)','예시'],['특별공급','12.01 (화)','예시'],['1순위','12.02 (수)','예시'],['2순위','12.03 (목)','예시'],['당첨자 발표','12.10 (목)','예시'],['계약','12.21 ~ 12.23','예시']];
+const LEGAL='본 홈페이지의 이미지 · CG · 지도 · 일러스트는 소비자의 이해를 돕기 위한 것으로 실제와 다를 수 있습니다. 개발계획은 관계기관 사정에 따라 변경 · 취소될 수 있습니다. 공급금액 · 일정 · 청약 자격 등은 입주자모집공고를 기준으로 하며, 편집 과정의 오류가 있을 수 있으니 홍보관에서 반드시 확인하시기 바랍니다.';
+const IMG=k=>`../images/${k}.webp`;
+/* 로고 심볼: 나뭇결 세 줄이 지붕선이 되는 모양 */
+function logoSym(c='currentColor',a='#a77b3c'){return `<svg class="sym" viewBox="0 0 64 64" aria-hidden="true"><path d="M6 34 Q20 14 32 9 Q44 14 58 34" fill="none" stroke="${c}" stroke-width="4.2" stroke-linecap="round"/><path d="M14 42 Q24 27 32 23.5 Q40 27 50 42" fill="none" stroke="${c}" stroke-width="4.2" stroke-linecap="round"/><path d="M22 50 Q28 40 32 38 Q36 40 42 50" fill="none" stroke="${c}" stroke-width="4.2" stroke-linecap="round"/><circle cx="32" cy="55.5" r="3.2" fill="${a}"/></svg>`}
+function logo(c,a,sub=''){return `<span class="logo-l">${logoSym(c,a)}<span class="wm"><b>결온 가람숲</b><small>${sub||'GYEOLON GARAM FOREST'}</small></span></span>`}
+/* 사진 칸: 이미지 없으면 SVG 장면 + 파일명 표시 */
+function slot(k,r,cap,mode='day'){const [a,b]=r.split(':');return `<figure class="slot" style="aspect-ratio:${a}/${b}">${scene(mode)}<img src="${IMG(k)}" alt="${cap} (CG 예시 이미지)" loading="lazy" onerror="this.remove()"><figcaption><b>${cap}</b><span>images/${k}.webp · ${r}</span></figcaption><i class="cg">CG · 이미지 컷</i></figure>`}
+/* 단지 장면 SVG (사진 전 대체 연출) */
+function scene(mode='day'){if(mode==='room')return room();const P={day:['#cfe0dc','#eef1e8','#7f9c86','#5d7d66','#f4efe4','#24493a','#c4d5cd'],dusk:['#2c3555','#d99a6c','#3c5446','#2c4237','#e9dcc6','#1d3a2e','#ffcf86'],night:['#0f1420','#22293f','#1f2d27','#18241f','#c9bfa9','#14261f','#ffcf86']}[mode];
+ let t='';const xs=[60,128,190,262,330,402,470,540,606],hs=[150,182,166,196,176,204,170,188,158];
+ xs.forEach((x,i)=>{const h=hs[i],y=300-h;t+=`<rect x="${x}" y="${y}" width="46" height="${h}" fill="${P[4]}"/><rect x="${x+40}" y="${y}" width="6" height="${h}" fill="${P[5]}"/><rect x="${x}" y="${y}" width="46" height="4" fill="#a77b3c"/>`;
+  for(let r=0;r<Math.floor(h/14)-1;r++)for(let c=0;c<3;c++){const lit=mode!=='day'&&((i*7+r*3+c*5)%5<2);t+=`<rect x="${x+5+c*12}" y="${y+10+r*14}" width="8" height="7" fill="${lit?P[6]:mode==='day'?'#c9d3cf':'#3a4050'}" opacity="${lit?.95:.7}"/>`}});
+ return `<svg class="scene" viewBox="0 0 700 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="sk-${mode}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${P[0]}"/><stop offset="1" stop-color="${P[1]}"/></linearGradient></defs><rect width="700" height="360" fill="url(#sk-${mode})"/>${mode==='night'?'<circle cx="590" cy="60" r="14" fill="#efe6cf" opacity=".85"/>':''}<path d="M0 230 Q120 170 240 210 T470 190 T700 205 V360 H0Z" fill="${P[2]}"/>${t}<path d="M0 300 Q90 270 170 296 T340 288 T520 298 T700 286 V360 H0Z" fill="${P[3]}"/>${Array.from({length:22},(_,i)=>`<circle cx="${i*33+10}" cy="${304+(i%3)*6}" r="${16+(i%4)*4}" fill="${P[3]}"/>`).join('')}</svg>`}
+/* 단계 · 팝업 · 고정 버튼 · 등록 폼 (공통 동작, 마크업은 시안별) */
+function phaseIndex(){const q=new URLSearchParams(location.search).get('phase');const i=PHASES.findIndex(p=>p.id===q);return i<0?1:i}
+function dockHTML(p){return p.dock.map((k,i)=>`<a href="${DOCK[k][1]}" data-k="${k}" class="${i===0?'p':''}">${ICO[k]||''}<span>${DOCK[k][0]}</span></a>`).join('')}
+const ICO={reg:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z M4 9h16 M8 13h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',tel:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>',visit:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 10h16M9 3v4M15 3v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',kakao:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4C7 4 3 7.2 3 11c0 2.4 1.6 4.5 4 5.7L6 20l4-2.6c.6.1 1.3.1 2 .1 5 0 9-3.2 9-7s-4-6.5-9-6.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>',sched:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',units:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM4 12h9M13 4v16" fill="none" stroke="currentColor" stroke-width="2"/></svg>'};
+function regForm(id){return `<form class="rf" id="${id}" novalidate><input type="text" name="hp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+ <label for="${id}-n">이름</label><input id="${id}-n" autocomplete="name" required>
+ <label for="${id}-t">휴대폰 번호</label><input id="${id}-t" type="tel" inputmode="numeric" autocomplete="tel" placeholder="010-0000-0000" required>
+ <label for="${id}-u">관심 타입 (선택)</label><select id="${id}-u"><option value="">선택 안 함</option>${UNITS.map(u=>`<option>${u.t}</option>`).join('')}</select>
+ <div class="agr"><label><input type="checkbox" required> <span>[필수] 개인정보 수집 · 이용 동의 — 이름 · 휴대폰 번호를 분양 상담 연락에 쓰고 분양 종료 후 6개월 뒤 지웁니다.</span></label>
+ <label><input type="checkbox"> <span>[선택] 분양 소식 문자 · 카카오 알림 받기 (광고성 정보)</span></label><label><input type="checkbox"> <span>[선택] 오후 9시 ~ 오전 8시 알림 받기</span></label></div>
+ <p class="msg" role="status"></p><button type="submit">등록하고 소식 받기</button><p class="fine">만 14세 미만은 등록할 수 없습니다. 가상 업체 데모라 실제로 접수되지 않습니다.</p></form>`}
+function bindForm(f){const m=f.querySelector('.msg'),t=f.querySelector('input[type=tel]');
+ t.addEventListener('input',()=>{const d=t.value.replace(/\D/g,'').slice(0,11);t.value=d.length>7?d.replace(/(\d{3})(\d{3,4})(\d{4})/,'$1-$2-$3'):d.length>3?d.slice(0,3)+'-'+d.slice(3):d});
+ f.addEventListener('submit',e=>{e.preventDefault();const n=f.querySelector('input[autocomplete=name]');
+  if(!n.value.trim()){m.className='msg no';m.textContent='이름을 입력해 주세요.';n.focus();return}
+  if(!/^01\d-?\d{3,4}-?\d{4}$/.test(t.value)){m.className='msg no';m.textContent='휴대폰 번호를 확인해 주세요.';t.focus();return}
+  if(!f.querySelector('.agr input[required]').checked){m.className='msg no';m.textContent='필수 동의에 체크해 주세요.';return}
+  m.className='msg ok';m.textContent='등록 확인 화면 예시예요. 오늘 안에 연락드린다는 안내와 방문 예약 · 카카오 채널 버튼이 이어집니다.'})}
+function popupOnce(el){try{if(localStorage.getItem('gy-pop')===new Date().toDateString())return}catch(e){}el.hidden=false;
+ el.querySelector('[data-close]').onclick=()=>{el.hidden=true};el.querySelector('[data-today]').onclick=()=>{try{localStorage.setItem('gy-pop',new Date().toDateString())}catch(e){}el.hidden=true}}
+function visitSlots(el){const days=['11.21 (토)','11.22 (일)','11.24 (화)','11.25 (수)'],times=['10:00','10:30','11:00','13:30','14:00','15:00','16:30'],full=new Set(['11.21 (토)|10:00','11.21 (토)|11:00','11.22 (일)|10:30']);let d=days[0],tm='';
+ const r=()=>{el.innerHTML=`<div class="vd" role="group" aria-label="날짜">${days.map(x=>`<button type="button" data-d="${x}" aria-pressed="${x===d}">${x}</button>`).join('')}</div><div class="vt" role="group" aria-label="시간">${times.map(x=>{const f=full.has(d+'|'+x);return `<button type="button" data-t="${x}" ${f?'disabled':''} aria-pressed="${x===tm}">${x}${f?'<small>마감</small>':''}</button>`}).join('')}</div><p class="vsel" aria-live="polite">${tm?`${d} ${tm} 방문 · 예약 확정 문자는 데모라 보내지 않아요`:'시간을 골라 주세요 (예시 일정)'}</p>`};
+ el.onclick=e=>{const b=e.target.closest('button');if(!b||b.disabled)return;if(b.dataset.d){d=b.dataset.d;tm=''}if(b.dataset.t)tm=b.dataset.t;r()};r()}
+
+function room(){return `<svg class="scene" viewBox="0 0 700 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="700" height="420" fill="#efe9dc"/><rect y="300" width="700" height="120" fill="#c9a77c"/><path d="M0 300 H700" stroke="#b08f66" stroke-width="2"/>${Array.from({length:9},(_,i)=>`<path d="M${i*80} 300 L${i*80-40} 420" stroke="#b9976d" stroke-width="1.5"/>`).join('')}<rect x="360" y="60" width="290" height="230" fill="#dfe9e2" stroke="#fffdf8" stroke-width="10"/><path d="M505 60 V290" stroke="#fffdf8" stroke-width="6"/><path d="M370 230 Q440 190 520 215 T640 205 V280 H370Z" fill="#9fb8a5"/><rect x="60" y="230" width="230" height="70" rx="14" fill="#24493a"/><rect x="72" y="205" width="206" height="40" rx="14" fill="#2f5a48"/><rect x="300" y="268" width="60" height="32" rx="4" fill="#a77b3c"/><circle cx="330" cy="150" r="18" fill="#fff6e3" opacity=".9"/><path d="M330 60 V132" stroke="#a77b3c" stroke-width="2"/></svg>`}
+
+const $=s=>document.querySelector(s);let PI=phaseIndex();
+$('#logo').innerHTML=logo('#efe8da','#c9a066');$('#flogo').innerHTML=logo('#efe8da','#c9a066','결온건설 · GYEOLON E&C');
+const NAVC=[['location','입지 · 하루'],['units','세대안내'],['overview','사업개요'],['schedule','분양안내'],['visit','홍보관']];
+$('#gnb').innerHTML=NAVC.map(m=>`<a href="#${m[0]}">${m[1]}</a>`).join('');$('#dl').innerHTML=NAVC.map(m=>`<a href="#${m[0]}">${m[1]}</a>`).join('')+'<a href="#register" data-k="reg">관심고객 등록</a>';
+$('#phase').innerHTML=PHASES.map((p,i)=>`<option value="${i}">${i+1}. ${p.n}</option>`).join('');
+$('#hv').innerHTML=slot('aerial-dusk','21:9','단지 조감도 (해 질 녘)','dusk');
+const T=['결온 가람숲 1,128세대','전용 59 · 74 · 84㎡ 4개 타입','숲길초까지 약 250m (단지 정문 기준, 예시)','홍보관 방문 예약제 운영','분양문의 '+B.tel];
+$('#tick').innerHTML=T.concat(T).map(t=>`<span>✦ ${t}</span>`).join('');
+const OPEN=new Date('2026-11-20T10:00:00+09:00');
+function dd(){const p=PHASES[PI];if(p.id==='teaser'||p.id==='register'){const ms=Math.max(0,OPEN-new Date()),d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,m=Math.floor(ms/6e4)%60;
+  $('#dd').innerHTML=`<span class="lb">홍보관 오픈까지 (예시 11.20)</span><div><b>${d}</b><small>일</small></div><div><b>${String(h).padStart(2,'0')}</b><small>시간</small></div><div><b>${String(m).padStart(2,'0')}</b><small>분</small></div>`}
+ else $('#dd').innerHTML=`<span class="lb">지금 단계</span><div style="min-width:auto"><b style="font-size:24px">${p.n}</b><small>${p.badge}</small></div>`}
+function rp(){const p=PHASES[PI];$('#phase').value=PI;$('#he').textContent=p.e+' · '+p.badge;$('#hh').innerHTML=`<span>${p.h[0]}</span><span><b>${p.h[1]}</b></span>`;$('#hs').textContent=p.s;
+ $('#hb').innerHTML=`<a class="btn p" href="${DOCK[p.ctaKey][1]}" data-k="${p.ctaKey}">${p.cta}</a>`+(p.ctaKey!=='reg'?`<a class="btn o" href="#register" data-k="reg">관심고객 등록</a>`:'');
+ $('#dock').innerHTML=dockHTML(p);$('#popt').textContent=p.pop[0];$('#popd').textContent=p.pop[1];dd();
+ const now={teaser:0,register:0,open:1,apply:2,contract:6,remain:6}[p.id];$('#sc').innerHTML=SCHED.map((s,i)=>`<li class="${i===now?'now':''}"><b>${s[0]}</b><span>${s[1]}</span><small style="color:var(--sub);font-size:12px">${i===now?'지금':s[2]}</small></li>`).join('')}
+$('#phase').onchange=e=>{PI=+e.target.value;rp();history.replaceState(null,'','?phase='+PHASES[PI].id)};rp();setInterval(dd,30000);
+/* 하루 챕터 */
+const CH=[['07:30','MORNING','숲길로 걸어가는 등굣길','단지 북측 문을 나서면 숲길초까지 이어지는 길. 큰길을 건너지 않는 동선을 계획했습니다.',LOC[1],slot('park-walk','4:3','중앙 숲 산책로 (아침)','day')],
+ ['08:10','COMMUTE','역까지 걸어서','가람역 2번 출구까지 걸어서 이동합니다. 계획 중인 가람선 연장은 확정되면 따로 안내합니다.',LOC[0],slot('gate','4:3','정문 투시도','day')],
+ ['15:00','AFTERNOON','공원과 맞닿은 오후','단지 북측의 가람숲 근린공원. 일부 세대에서는 공원이 보입니다.',LOC[2],slot('aerial-day','4:3','공원 쪽 단지 전경','day')],
+ ['19:30','EVENING','결온 라운지에서 보내는 저녁','피트니스 · 작은 도서관 · 키즈룸을 계획했습니다. 구성과 운영은 입주 후 바뀔 수 있습니다.',LOC[3],slot('lounge','4:3','커뮤니티 결온 라운지','room')],
+ ['22:00','NIGHT','소리결이 지키는 밤','바닥 · 벽 구조를 소음이 덜 전해지도록 설계합니다. 세부 사양은 입주자모집공고에서 확인하세요.',null,slot('bed-84a','4:3','84A 침실 (기본형)','room')]];
+$('#chs').innerHTML=CH.map(c=>`<article class="ch rv"><div class="t">${c[0]}<small>${c[1]}</small></div><div><h3>${c[2]}</h3><p>${c[3]}</p>${c[4]?`<div class="fact"><span>${c[4].t}<small>${c[4].b}</small></span><b>${c[4].d}</b></div>`:''}${c[0]==='08:10'?`<div class="fact"><span>${LOC[4].t}<small>${LOC[4].b}</small></span><b>${LOC[4].d}</b></div>`:''}</div>${c[5]}</article>`).join('');
+/* 타입 */
+$('#rail').innerHTML=UNITS.map(u=>`<article class="uc">${slot(u.img,'4:3',u.t+' 거실 (기본형)','room')}<div class="b"><h3>${u.t}</h3><span class="a">전용 ${u.a}㎡ · ${u.n}세대 · ${u.bay}</span><p class="l">${u.line}</p><ul>${u.pt.map(x=>`<li>${x}</li>`).join('')}</ul><a href="#register" data-k="reg">${u.t} 안내 받기 →</a></div></article>`).join('');
+const rl=$('#rail');$('#pv').onclick=()=>rl.scrollBy({left:-rl.clientWidth*.6,behavior:'smooth'});$('#nx').onclick=()=>rl.scrollBy({left:rl.clientWidth*.6,behavior:'smooth'});
+$('#ovt').innerHTML=OVERVIEW.map(o=>`<dt>${o[0]}</dt><dd>${o[1]}</dd>`).join('');
+visitSlots($('#slots'));$('#gaddr').textContent=B.gallery+' · '+B.hours+' · 홍보관 위치는 단지 위치와 다릅니다.';
+$('#formA').innerHTML=regForm('fa');$('#formM').innerHTML=regForm('fm');bindForm($('#fa'));bindForm($('#fm'));
+$('#finfo').innerHTML=`시행 ${B.dev} · 시공 ${B.corp}(주) · 분양대행 ${B.agency} (모두 가상) · 광고 주체 ${B.agency} · 분양문의 ${B.tel} · 개인정보처리방침 · 가상 업체 데모`;$('#flegal').textContent=LEGAL;
+/* 모달 · 팝업 · 드로어 */
+const md=$('#modal');let last;
+document.addEventListener('click',e=>{const a=e.target.closest('a[data-k="reg"]');if(a&&!a.closest('#register')){e.preventDefault();last=a;$('#drawer').classList.remove('open');md.classList.add('open');$('#pop').hidden=true;setTimeout(()=>$('#fm-n').focus(),50)}
+ const k=e.target.closest('a[data-k="kakao"]');if(k){e.preventDefault();$('#popt').textContent='카카오톡 상담 (데모)';$('#popd').textContent='실제 사이트에서는 카카오톡 채널 채팅으로 바로 연결됩니다.';$('#pop').hidden=false}});
+const cm=()=>{md.classList.remove('open');last&&last.focus()};$('#mx').onclick=cm;md.onclick=e=>{if(e.target===md)cm()};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){cm();$('#drawer').classList.remove('open')}});
+$('#burger').onclick=()=>$('#drawer').classList.add('open');$('#dx').onclick=()=>$('#drawer').classList.remove('open');$('#drawer').onclick=e=>{if(e.target.tagName==='A'&&!e.target.dataset.k)$('#drawer').classList.remove('open')};
+popupOnce($('#pop'));
+const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{rootMargin:'0px 0px -8% 0px'}):null;document.querySelectorAll('.rv').forEach(x=>io?io.observe(x):x.classList.add('in'));
+addEventListener('scroll',()=>{const h=document.documentElement;$('#pg').style.height=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+</script>
+</body>
+</html>
