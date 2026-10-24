@@ -280,6 +280,19 @@
       "concepts": [
         "kkumteul"
       ]
+    },
+    {
+      "order": 21,
+      "slug": "realty-presale",
+      "name": "아파트 분양 홍보",
+      "category": "realty",
+      "level": "L2",
+      "status": "research",
+      "research": "concepts/realty-presale/research/",
+      "note": "2026-10-24 사용자 요청으로 착수. 레퍼런스 북오산자이 드포레 홍보 페이지(구조만). 가상 브랜드 결온 · 단지 결온 가람숲 기획서(메뉴별 카피 · 마케팅 시나리오 · 문의 동선 · 크로스브라우징 · 규제) 제출, 조합 선택 대기",
+      "concepts": [],
+      "variants": [],
+      "targetVariants": 2
     }
   ]
 }
