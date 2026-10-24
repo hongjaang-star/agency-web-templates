@@ -390,6 +390,51 @@
         "6페이지: 아이 맞춤 안내, 나이별 진료, 처음 오는 날, 진료 안내, 선생님·공간, 비용·상담.",
         "진료마다 '아이에게 이렇게 말해요', 전날 준비물 체크, 아이 건강보험 안내, 모바일 하단 4버튼."
       ]
+    },
+    {
+      "id": "presale-grove",
+      "name": "결온 가람숲 · Grove",
+      "category": "realty",
+      "categoryLabel": "부동산 · 분양 홍보",
+      "kind": "concept",
+      "kindLabel": "디자인 시안",
+      "path": "concepts/realty-presale/grove/",
+      "thumbnail": "presale-grove.jpg",
+      "summary": [
+        "숲결 그린 · 브라스 · 린넨, 조감도를 화면 가득 채운 몰입형 분양 랜딩.",
+        "홍보 단계 리본 · 생활 반경 지도(기준점 · 측정일) · 타입 탭 · 방문 예약.",
+        "하단 시트 관심고객 등록, 오른쪽 레일 · 모바일 4버튼, 단계별 팝업."
+      ]
+    },
+    {
+      "id": "presale-linen",
+      "name": "결온 가람숲 · Linen",
+      "category": "realty",
+      "categoryLabel": "부동산 · 분양 홍보",
+      "kind": "concept",
+      "kindLabel": "디자인 시안",
+      "path": "concepts/realty-presale/linen/",
+      "thumbnail": "presale-linen.jpg",
+      "summary": [
+        "린넨 · 스톤 · 이끼, 왼쪽에 등록 폼이 늘 보이는 분할형 분양 랜딩.",
+        "두 타입 평면 나란히 비교, 4문항 청약 자격 확인 도움.",
+        "숫자로 보는 개요, 일정, FAQ, 떠 있는 모바일 4버튼."
+      ]
+    },
+    {
+      "id": "presale-dusk",
+      "name": "결온 가람숲 · Dusk",
+      "category": "realty",
+      "categoryLabel": "부동산 · 분양 홍보",
+      "kind": "concept",
+      "kindLabel": "디자인 시안",
+      "path": "concepts/realty-presale/dusk/",
+      "thumbnail": "presale-dusk.jpg",
+      "summary": [
+        "먹색 · 브라스 · 엠버, 하루의 시간을 따라 읽는 스토리형 분양 랜딩.",
+        "홍보관 오픈 카운트다운 · 소식 띠, 07:30~22:00 입지 챕터.",
+        "가로 스크롤 타입 카드, 등록 모달, 둥근 하단 4버튼."
+      ]
     }
   ]
 }

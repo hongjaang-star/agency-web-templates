@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>브랜드 · 이미지 가이드 · 결온 가람숲 (가상)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=swap" rel="stylesheet">
+<style>
+:root{--fo:#24493a;--fo-l:#e3ebe5;--br:#a77b3c;--br-l:#f3e9d8;--li:#f6f2e9;--card:#fffdf8;--ink:#1d2420;--sub:#5a635d;--line:#ddd7ca}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--li);color:var(--ink);font:16px/1.7 Pretendard,-apple-system,"Malgun Gothic",sans-serif;word-break:keep-all}
+a{color:inherit}
+.demo{background:var(--ink);color:#e9e4d8;text-align:center;font-size:12.5px;padding:6px 12px}
+.toc{position:sticky;top:0;z-index:5;background:rgba(246,242,233,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);white-space:nowrap;overflow-x:auto;padding:10px 20px;font-size:14px}
+.toc a{text-decoration:none;font-weight:600;margin-right:16px}
+.wrap{max-width:1120px;margin:0 auto;padding:40px 20px 90px}
+h1{font:800 clamp(30px,4.2vw,46px)/1.25 "Nanum Myeongjo",serif;margin:12px 0 8px}
+h2{font-size:24px;margin:60px 0 16px;padding-top:16px;border-top:2px solid var(--ink);scroll-margin-top:60px}
+h3{font-size:18px;margin:0 0 6px}
+.lead{color:var(--sub);max-width:760px}
+.tag{display:inline-block;font-size:13px;border:1px solid var(--ink);border-radius:99px;padding:2px 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.logo-box{border-radius:14px;padding:28px;display:flex;align-items:center;justify-content:center;min-height:150px;border:1px solid var(--line)}
+.logo-box img{max-width:100%;height:auto;max-height:80px}
+.dl{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.dl a{font-size:13px;font-weight:700;border:1px solid var(--line);background:#fff;border-radius:99px;padding:4px 12px;text-decoration:none}
+.sw{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.sw div{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff}.sw i{display:block;height:80px}.sw p{margin:0;padding:10px 12px;font-size:13.5px}.sw b{display:block}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:14px;min-width:760px}
+th,td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}th{background:#eeebe3;white-space:nowrap}tr:last-child td{border-bottom:0}
+code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px}
+pre{background:#1d2420;color:#e9e4d8;border-radius:12px;padding:16px 18px;white-space:pre-wrap;word-break:break-word;margin:0;line-height:1.6}
+.cp{position:relative}.cp button{position:absolute;right:10px;top:10px;border:0;background:#3a4540;color:#fff;border-radius:8px;padding:5px 10px;font:600 12px Pretendard,sans-serif;cursor:pointer}
+ul.ck{list-style:none;padding:0;margin:0;display:grid;gap:6px}ul.ck li{padding-left:26px;position:relative}ul.ck li::before{content:"";position:absolute;left:0;top:6px;width:14px;height:14px;border:1.5px solid var(--fo);border-radius:4px}
+.no{color:#b4361f}.steps{counter-reset:s;display:grid;gap:10px;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px 14px 56px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:16px;top:14px;width:28px;height:28px;border-radius:50%;background:var(--fo);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px}
+</style>
+</head>
+<body>
+<div class="demo">가상 업체 데모 · 결온 · 결온건설 · 결온 가람숲은 실제 브랜드 · 회사 · 단지가 아닙니다.</div>
+<nav class="toc"><a href="#logo">로고</a><a href="#color">색 · 서체</a><a href="#bible">단지 고정 설정</a><a href="#rule">촬영 규칙</a><a href="#shots">샷 리스트</a><a href="#prompt">프롬프트</a><a href="#flow">작업 순서</a><a href="#qa">검수</a></nav>
+<main class="wrap">
+<span class="tag">브랜드 · 이미지 가이드 · realty-presale</span>
+<h1>결온 가람숲<br>브랜드와 이미지 가이드</h1>
+<p class="lead">로고 · 색 · 서체와, GPT로 조감도 · 완공 투시도 · 실내 사진을 만들 때 모든 장면이 같은 단지 · 같은 빛 · 같은 색으로 나오도록 하는 규칙입니다. 이미지를 만들면 이 가이드의 파일 이름과 비율로 저장해 주세요. 사이트 사진 칸에 그대로 들어갑니다.</p>
+
+<h2 id="logo">1. 로고</h2>
+<p class="lead">심볼은 나뭇결 세 줄이 겹쳐 지붕선이 되는 모양이고, 아래 점은 집 안의 온기(溫)를 뜻합니다. 브랜드(결온) · 회사(결온건설) · 단지(결온 가람숲) 세 가지 조합을 같은 심볼로 씁니다.</p>
+<div class="grid">
+ <div class="card"><div class="logo-box" style="background:#fff"><img src="logo-gyeolon.svg" alt="결온 브랜드 로고"></div><h3 style="margin-top:12px">주거 브랜드 · 결온</h3><div class="dl"><a href="logo-gyeolon.svg" download>SVG</a><a href="logo-gyeolon-white.svg" download>SVG 반전</a></div></div>
+ <div class="card"><div class="logo-box" style="background:#24493a"><img src="logo-corp-white.svg" alt="결온건설 회사 로고"></div><h3 style="margin-top:12px">회사 · 결온건설</h3><div class="dl"><a href="logo-corp.svg" download>SVG</a><a href="logo-corp-white.svg" download>SVG 반전</a></div></div>
+ <div class="card"><div class="logo-box" style="background:#f6f2e9"><img src="logo-site.svg" alt="결온 가람숲 단지 로고"></div><h3 style="margin-top:12px">단지 · 결온 가람숲</h3><div class="dl"><a href="logo-site.svg" download>SVG</a><a href="logo-site-white.svg" download>SVG 반전</a><a href="logo-symbol.svg" download>심볼만</a></div></div>
+</div>
+<div class="card" style="margin-top:14px"><ul class="ck"><li>최소 크기: 심볼 높이 24px(인쇄 8mm) 이상. 주변 여백은 심볼 높이의 1/2</li><li>바탕이 밝으면 숲결 그린, 어두우면 흰색 + 브라스 점. 사진 위에는 반전 로고</li><li class="no">늘이기 · 기울이기 · 그림자 · 색 바꾸기 금지</li><li>글자는 나눔명조 ExtraBold 기준입니다. 실제 납품 때는 글자를 아웃라인(도형)으로 바꿔 서체가 없는 기기에서도 같게 보이도록 합니다</li></ul></div>
+
+<h2 id="color">2. 색 · 서체</h2>
+<div class="sw">
+ <div><i style="background:#24493a"></i><p><b>숲결 그린</b>#24493A · 주색, 버튼 · 로고</p></div>
+ <div><i style="background:#183327"></i><p><b>깊은 숲</b>#183327 · 어두운 면</p></div>
+ <div><i style="background:#a77b3c"></i><p><b>브라스</b>#A77B3C · 강조 · 지붕 조명</p></div>
+ <div><i style="background:#f6f2e9"></i><p><b>린넨</b>#F6F2E9 · 바탕</p></div>
+ <div><i style="background:#e3ebe5"></i><p><b>이끼 안개</b>#E3EBE5 · 보조 면</p></div>
+ <div><i style="background:#1d2420"></i><p><b>먹색</b>#1D2420 · 글자</p></div>
+</div>
+<div class="card" style="margin-top:14px"><b>서체</b> — 제목: 단정한 명조(나눔명조 · Gowun Batang · Hahmlet 중 시안별 1종) / 본문: Pretendard 또는 IBM Plex Sans KR. 시안 A · B · C는 같은 브랜드 색 체계 안에서 바탕 밝기만 다르게 씁니다(A 숲결 그린, B 린넨 · 이끼, C 먹색 · 브라스).</div>
+
+<h2 id="bible">3. 단지 고정 설정 <small style="font-size:14px;color:var(--sub);font-weight:500">모든 외관 이미지에 똑같이</small></h2>
+<p class="lead">AI 이미지가 장면마다 다른 아파트를 그리는 것을 막는 핵심입니다. 아래 표의 내용을 모든 외관 프롬프트에 그대로 붙입니다.</p>
+<div class="tablewrap"><table><tbody>
+<tr><th>동 구성</th><td>9개 동, 지상 25~29층 혼합(가운데 동이 가장 높음), 슬림한 판상 · 탑상 혼합. 동 사이 간격 넓게</td></tr>
+<tr><th>외벽</th><td>린넨 화이트 패널(#EFE9DC) 바탕 + 동 모서리마다 깊은 숲색(#24493A) 세로 핀 + 옥상에 브라스색(#A77B3C) 가로 띠 조명(크라운)</td></tr>
+<tr><th>저층부</th><td>1~2층 밝은 석재 마감, 필로티 일부, 정문은 낮은 수평 캐노피(목재 톤)</td></tr>
+<tr><th>조경</th><td>단지 가운데를 가로지르는 숲 산책로, 지상에 차 없음, 키 큰 소나무 · 단풍나무 · 낮은 관목</td></tr>
+<tr><th>주변</th><td>북쪽: 낮은 숲 언덕(근린공원)과 초등학교 낮은 건물 / 남동쪽: 넓은 도로와 먼 도시 / 바다 · 강 · 큰 산 · 실제 랜드마크 없음</td></tr>
+<tr><th>계절</th><td>늦봄~초여름(연한 초록), 모든 이미지 같은 계절</td></tr>
+</tbody></table></div>
+
+<h2 id="rule">4. 촬영 규칙</h2>
+<div class="grid">
+ <div class="card"><h3>카메라</h3><ul class="ck"><li>조감도: 남서쪽 하늘에서 35° 내려다보기, 35mm, 단지 전체가 화면 가운데 70%</li><li>투시도: 눈높이 1.6m, 24mm, 세로선 똑바로</li><li>실내: 눈높이 1.2m, 20~24mm, 창이 화면 오른쪽, 세로선 똑바로</li></ul></div>
+ <div class="card"><h3>빛 · 시간</h3><ul class="ck"><li>주간: 오전 10시 부드러운 햇빛, 맑은 하늘에 얇은 구름</li><li>해 질 녘: 해 지고 20분 뒤 푸른 하늘, 창문 약 60% 따뜻한 불빛(2700K)</li><li>실내: 남쪽 창으로 들어오는 자연광, 조명은 은은하게</li></ul></div>
+ <div class="card"><h3>색 보정</h3><ul class="ck"><li>초록은 채도를 낮춰 #24493A 쪽으로, 밝은 곳은 따뜻한 린넨 톤</li><li>강조는 브라스 한 가지. 청록 · 주황 과보정 금지</li><li>대비는 중간, 그림자는 너무 검지 않게</li></ul></div>
+ <div class="card"><h3>실내 마감 (기본형 기준)</h3><ul class="ck"><li>밝은 오크 마루, 린넨 화이트 벽, 천장 높이 약 2.3m의 현실적인 비례</li><li>주방 하부장 무광 숲색, 상판 밝은 석재, 손잡이 브라스</li><li class="no">실제 기본형보다 고급스러운 자재 · 넓은 공간 연출 금지(부당 광고 우려). 옵션 품목은 ‘옵션’ 표기</li></ul></div>
+</div>
+
+<h2 id="shots">5. 샷 리스트 <small style="font-size:14px;color:var(--sub);font-weight:500">파일 이름 · 비율 그대로 저장</small></h2>
+<div class="tablewrap"><table><thead><tr><th>파일</th><th>비율 · 크기</th><th>쓰는 곳</th><th>장면</th></tr></thead><tbody>
+<tr><td><code>aerial-day.webp</code></td><td>16:9 · 2400×1350</td><td>A 히어로 · C 오후 챕터</td><td>주간 조감도. 단지 전체 + 북쪽 숲 언덕. 화면 가운데 60%에 핵심(가장자리는 잘려도 됨)</td></tr>
+<tr><td><code>aerial-dusk.webp</code></td><td>16:9 · 2400×1350</td><td>B 히어로 · C 히어로(21:9로 잘림)</td><td>같은 구도의 해 질 녘. 크라운 조명과 창 불빛</td></tr>
+<tr><td><code>gate.webp</code></td><td>3:2 · 2400×1600</td><td>단지안내 · C 출근 챕터</td><td>정문 투시도. 수평 캐노피와 숲 산책로 입구, 사람 2~3명 뒷모습</td></tr>
+<tr><td><code>park-walk.webp</code></td><td>16:9 · 2400×1350</td><td>단지안내 · C 등굣길 챕터</td><td>단지 중앙 숲 산책로, 아침 빛, 멀리 동 입구</td></tr>
+<tr><td><code>lounge.webp</code></td><td>4:3 · 2000×1500</td><td>커뮤니티 · B 브랜드</td><td>결온 라운지(작은 도서관 + 카페 라운지), 저녁 조명</td></tr>
+<tr><td><code>living-59a.webp</code></td><td>3:2 · 2400×1600</td><td>세대안내 59A</td><td>59A 거실 · 주방 한눈에, 작은 가족 생활감</td></tr>
+<tr><td><code>living-74a.webp</code></td><td>3:2 · 2400×1600</td><td>세대안내 74A</td><td>74A 거실, 아이 방 문이 보이는 구도</td></tr>
+<tr><td><code>living-84a.webp</code></td><td>3:2 · 2400×1600</td><td>세대안내 84A (실내 기준 컷)</td><td>84A 4Bay 거실, 거실 · 주방 맞통풍이 보이게 긴 시선</td></tr>
+<tr><td><code>kitchen-84a.webp</code></td><td>3:2 · 2400×1600</td><td>세대안내 상세</td><td>84A 주방, 숲색 하부장 · 브라스 손잡이</td></tr>
+<tr><td><code>bed-84a.webp</code></td><td>4:3 · 2000×1500</td><td>C 밤 챕터</td><td>84A 안방, 밤 무드 조명, 고요한 분위기</td></tr>
+<tr><td><code>alpha-84b.webp</code></td><td>3:2 · 2400×1600</td><td>세대안내 84B</td><td>84B 알파룸 재택 공간, 책상 · 책장</td></tr>
+<tr><td><code>gallery-ext.webp</code></td><td>4:3 · 2000×1500</td><td>홍보관 (B)</td><td>홍보관 외관, 낮은 박공 · 목재 루버, 간판 글자 없음</td></tr>
+<tr><td><code>gallery-int.webp</code></td><td>3:2 · 2400×1600</td><td>홍보관 (A)</td><td>홍보관 내부, 단지 모형 테이블 · 상담 라운지</td></tr>
+</tbody></table></div>
+
+<h2 id="prompt">6. 프롬프트 <small style="font-size:14px;color:var(--sub);font-weight:500">공통 블록 + 장면 블록을 이어 붙여 사용</small></h2>
+<h3>공통 블록 · 외관 (모든 외관 컷 맨 앞)</h3>
+<div class="cp"><button type="button">복사</button><pre>Photorealistic architectural CGI of a fictional Korean apartment complex "GYEOLON GARAM FOREST".
+Nine slim residential towers, 25 to 29 floors, the central tower tallest, generous spacing between towers.
+Facade: warm linen-white panels (#EFE9DC), deep forest-green vertical fins at every tower corner (#24493A), a thin brass-colored horizontal light band at each rooftop crown (#A77B3C).
+Podium: light natural stone on floors 1-2, partial pilotis, low horizontal wooden entrance canopy.
+Landscape: a forest walking path crossing the center of the complex, no cars above ground, tall pines, maples and low shrubs.
+Context: a low forested hill and a low-rise elementary school to the north, a wide road and distant city to the southeast. Late spring, soft fresh greens.
+Color grading: muted forest greens, warm linen highlights, single brass accent, medium contrast, no teal-orange look.
+No text, no signage letters, no logos, no watermarks, no real landmarks, no sea or large mountains.</pre></div>
+<h3 style="margin-top:16px">공통 블록 · 실내 (모든 실내 컷 맨 앞)</h3>
+<div class="cp"><button type="button">복사</button><pre>Photorealistic interior CGI of a standard Korean apartment unit (fictional brand GYEOLON), realistic 2.3 m ceiling height and real-world proportions.
+Light oak wooden floor, linen-white walls, matte deep forest-green lower kitchen cabinets (#24493A), light stone countertop, slim brass handles (#A77B3C).
+Natural daylight from south-facing windows on the right side of the frame, soft ambient lighting, eye level 1.2 m, 20-24 mm lens, perfectly vertical lines.
+Calm, tidy, lived-in but minimal styling. Same material palette in every room.
+No luxury exaggeration, no oversized spaces, no text, no logos, no watermarks, no people's faces.</pre></div>
+<h3 style="margin-top:16px">장면 블록 예시</h3>
+<div class="tablewrap"><table><thead><tr><th>파일</th><th>공통 블록 뒤에 붙일 문장</th></tr></thead><tbody>
+<tr><td><code>aerial-day</code></td><td>Aerial view from the southwest at 35° elevation, 35 mm, whole complex centered in the middle 60% of a 16:9 frame, 10 a.m. soft sunlight, clear sky with thin clouds.</td></tr>
+<tr><td><code>aerial-dusk</code></td><td>Exactly the same camera position and composition as the reference image, blue hour 20 minutes after sunset, about 60% of windows lit warm 2700K, rooftop brass light bands glowing softly.</td></tr>
+<tr><td><code>gate</code></td><td>Eye-level view (1.6 m, 24 mm) of the main gate with the low horizontal wooden canopy, the forest path entrance behind it, two or three residents seen from behind, morning light, 3:2.</td></tr>
+<tr><td><code>park-walk</code></td><td>Eye-level view along the central forest walking path, dappled morning light, tower entrances in the distance, a parent and child seen from behind far away, 16:9.</td></tr>
+<tr><td><code>living-84a</code></td><td>Long view through a 4-bay living room toward the kitchen on the opposite side showing cross ventilation, sheer curtains moving slightly, 3:2. (실내 기준 컷)</td></tr>
+<tr><td><code>bed-84a</code></td><td>Master bedroom at night, warm low bedside light, calm and quiet mood, window with distant soft city lights, 4:3.</td></tr>
+</tbody></table></div>
+
+<h2 id="flow">7. 작업 순서</h2>
+<ol class="steps">
+<li><b>기준 외관 1장:</b> <code>aerial-day</code>를 여러 번 만들어 가장 고정 설정에 맞는 1장을 고릅니다. 이것이 모든 외관의 기준 이미지입니다.</li>
+<li><b>외관 나머지:</b> 기준 이미지를 첨부하고 “same complex as the reference image” + 공통 블록 + 장면 블록으로 <code>aerial-dusk · gate · park-walk</code>를 만듭니다.</li>
+<li><b>기준 실내 1장:</b> <code>living-84a</code>를 먼저 확정합니다.</li>
+<li><b>실내 나머지:</b> 기준 실내를 첨부하고 “same material palette and lighting as the reference” 로 나머지 실내를 만듭니다.</li>
+<li><b>저장:</b> 위 파일 이름 · 비율로 저장해 채팅에 첨부하면, WebP 변환(가로 2400px · 품질 80 · sRGB) 후 <code>concepts/realty-presale/images/</code>에 넣고 다시 배포합니다.</li>
+</ol>
+
+<h2 id="qa">8. 검수 체크리스트</h2>
+<div class="grid">
+ <div class="card"><h3>일관성</h3><ul class="ck"><li>동 수 9개, 가운데 동이 가장 높은가</li><li>숲색 세로 핀 · 브라스 크라운이 모든 외관에 있는가</li><li>계절 · 하늘 · 색 보정이 같은가</li><li>실내 마감(오크 · 숲색 하부장 · 브라스)이 모든 방에서 같은가</li></ul></div>
+ <div class="card"><h3>표시 · 광고</h3><ul class="ck"><li>모든 이미지에 ‘CG · 이미지 컷’ 표기(사이트가 자동으로 붙임)</li><li>실제보다 넓거나 고급스럽게 보이지 않는가</li><li>없는 시설 · 조망 · 랜드마크가 들어가지 않았는가</li><li>글자 · 로고 · 워터마크 · 알아볼 수 있는 얼굴이 없는가</li></ul></div>
+ <div class="card"><h3>파일</h3><ul class="ck"><li>파일 이름 · 비율이 샷 리스트와 같은가</li><li>핵심 피사체가 가운데 60% 안에 있는가(시안마다 잘리는 비율이 다름)</li><li>AI 생성 이미지임을 사이트 고지에 표기</li></ul></div>
+</div>
+<p class="lead" style="margin-top:30px">시안 보기: <a href="../">시안 비교 페이지</a> · <a href="../research/">기획서</a></p>
+</main>
+<script>document.querySelectorAll('.cp button').forEach(b=>b.onclick=()=>{const t=b.nextElementSibling.textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{b.textContent='복사됨';setTimeout(()=>b.textContent='복사',1500)},()=>{const r=document.createRange();r.selectNodeContents(b.nextElementSibling);getSelection().removeAllRanges();getSelection().addRange(r);b.textContent='선택됨'})})</script>
+</body>
+</html>

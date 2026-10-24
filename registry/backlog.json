@@ -287,10 +287,14 @@
       "name": "아파트 분양 홍보",
       "category": "realty",
       "level": "L2",
-      "status": "research",
+      "status": "concepts",
       "research": "concepts/realty-presale/research/",
-      "note": "2026-10-24 사용자 요청으로 착수. 레퍼런스 북오산자이 드포레 홍보 페이지(구조만). 가상 브랜드 결온 · 단지 결온 가람숲 기획서(메뉴별 카피 · 마케팅 시나리오 · 문의 동선 · 크로스브라우징 · 규제) 제출, 조합 선택 대기",
-      "concepts": [],
+      "note": "2026-10-24 사용자 요청으로 착수. 레퍼런스 북오산자이 드포레 홍보 페이지(구조만). 가상 브랜드 결온 · 단지 결온 가람숲 기획서(메뉴별 카피 · 마케팅 시나리오 · 문의 동선 · 크로스브라우징 · 규제) 제출, 조합 선택 대기 / 2026-10-24 조합 1(단계형 런칭 랜딩, 이슈 #100) 선택 → 시안 3개(grove · linen · dusk), 로고 · 브랜드 · 이미지 가이드(brand/) 공개, 시안 선택 · GPT 이미지 대기",
+      "concepts": [
+        "grove",
+        "linen",
+        "dusk"
+      ],
       "variants": [],
       "targetVariants": 2
     }
