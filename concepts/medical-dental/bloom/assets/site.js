@@ -4,7 +4,7 @@ const K={name:'우리아이치과',tel:'02-000-0000',addr:'서울특별시 가�
  hours:[['월 · 화 · 목 · 금','10:00 – 19:00'],['수','10:00 – 20:00'],['토','09:30 – 15:00'],['점심시간','13:00 – 14:00'],['일 · 공휴일','휴진']],
  subway:'가람역(가상) 1번 출구 도보 4분',parking:'건물 주차 1시간 30분 · 유모차 승강기 있음 (예시)'};
 const KIMG={
- kdoc1:['kids-doctor-1.webp','4:5','김다온 대표원장 프로필'],kdoc2:['kids-doctor-2.webp','4:5','오세린 원장 프로필'],
+ kdoc1:['kids-doctor-1.webp','4:5','김다온 대표원장 프로필'],kdoc2:['kids-doctor-2.webp?v=20261025-female','4:5','오세린 원장 프로필'],
  klobby:['kids-lobby.webp','3:2','놀이 대기실'],kroom:['kids-room.webp','3:2','천장 그림이 있는 진료실'],
  kquiet:['kids-quiet-room.webp','4:3','조용한 진료실 (진정 치료)'],kxray:['kids-xray.webp','4:3','저선량 디지털 엑스레이'],
  kbrush:['kids-brushing.webp','4:3','양치 연습 공간'],kgift:['kids-sticker.webp','1:1','칭찬 스티커 벽']};

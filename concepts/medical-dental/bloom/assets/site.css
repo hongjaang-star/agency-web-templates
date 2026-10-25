@@ -176,3 +176,6 @@ details.q p{margin:8px 0 0;color:var(--sub)}
  .dock a svg{width:22px;height:22px}.dock a.p{background:var(--lm);color:#3b3000}
  footer .wrap{flex-direction:column;align-items:flex-start}}
 @media (max-width:520px){.hfirst,.sp-g,.ag,.cf .r2{grid-template-columns:1fr}#ages{grid-template-columns:repeat(2,minmax(0,1fr))}.logo{font-size:20px}.logo small{display:none}}
+
+/* Keep all space cards at the same display height. */
+.sp-g .photo{aspect-ratio:3/2!important}
