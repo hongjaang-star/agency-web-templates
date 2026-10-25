@@ -48,6 +48,7 @@ ul.ck{list-style:none;padding:0;margin:0;display:grid;gap:6px}ul.ck li{padding-l
 <span class="tag">브랜드 · 이미지 가이드 · realty-presale</span>
 <h1>결온 가람숲<br>브랜드와 이미지 가이드</h1>
 <p class="lead">로고 · 색 · 서체와, GPT로 조감도 · 완공 투시도 · 실내 사진을 만들 때 모든 장면이 같은 단지 · 같은 빛 · 같은 색으로 나오도록 하는 규칙입니다. 이미지를 만들면 이 가이드의 파일 이름과 비율로 저장해 주세요. 사이트 사진 칸에 그대로 들어갑니다.</p>
+<p class="lead"><b>GPT용 사본:</b> 같은 내용을 구글 드라이브 문서로 두었습니다. GPT에서 구글 드라이브를 연결하고 “분양 홍보 이미지 생성 가이드” 문서를 읽게 하면 바로 작업할 수 있습니다. <a href="https://docs.google.com/document/d/1TCObf_jipa17I00sywuGErsQQ5S6winWEefslby5x9Q/edit">구글 문서 열기</a> · <a href="https://drive.google.com/drive/folders/1jdziBxTu50CpSzktF_Dyg907gwpm4Dux">드라이브 폴더(생성 이미지 업로드)</a> · <a href="https://github.com/hongjaang-star/agency-web-templates/blob/main/concepts/realty-presale/IMAGE-GUIDE.md">GitHub 원본(IMAGE-GUIDE.md)</a></p>
 
 <h2 id="logo">1. 로고</h2>
 <p class="lead">심볼은 나뭇결 세 줄이 겹쳐 지붕선이 되는 모양이고, 아래 점은 집 안의 온기(溫)를 뜻합니다. 브랜드(결온) · 회사(결온건설) · 단지(결온 가람숲) 세 가지 조합을 같은 심볼로 씁니다.</p>
@@ -110,19 +111,21 @@ ul.ck{list-style:none;padding:0;margin:0;display:grid;gap:6px}ul.ck li{padding-l
 
 <h2 id="prompt">6. 프롬프트 <small style="font-size:14px;color:var(--sub);font-weight:500">공통 블록 + 장면 블록을 이어 붙여 사용</small></h2>
 <h3>공통 블록 · 외관 (모든 외관 컷 맨 앞)</h3>
-<div class="cp"><button type="button">복사</button><pre>Photorealistic architectural CGI of a fictional Korean apartment complex "GYEOLON GARAM FOREST".
+<div class="cp"><button type="button">복사</button><pre>Photorealistic architectural CGI of a fictional Korean apartment complex.
 Nine slim residential towers, 25 to 29 floors, the central tower tallest, generous spacing between towers.
 Facade: warm linen-white panels (#EFE9DC), deep forest-green vertical fins at every tower corner (#24493A), a thin brass-colored horizontal light band at each rooftop crown (#A77B3C).
 Podium: light natural stone on floors 1-2, partial pilotis, low horizontal wooden entrance canopy.
 Landscape: a forest walking path crossing the center of the complex, no cars above ground, tall pines, maples and low shrubs.
 Context: a low forested hill and a low-rise elementary school to the north, a wide road and distant city to the southeast. Late spring, soft fresh greens.
 Color grading: muted forest greens, warm linen highlights, single brass accent, medium contrast, no teal-orange look.
-No text, no signage letters, no logos, no watermarks, no real landmarks, no sea or large mountains.</pre></div>
+Keep the main subject inside the central 55% width and central 50% height of the frame.
+No text, no signage letters, no logos, no watermarks, no real landmarks, no sea or large mountains, no recognizable faces.</pre></div>
 <h3 style="margin-top:16px">공통 블록 · 실내 (모든 실내 컷 맨 앞)</h3>
-<div class="cp"><button type="button">복사</button><pre>Photorealistic interior CGI of a standard Korean apartment unit (fictional brand GYEOLON), realistic 2.3 m ceiling height and real-world proportions.
+<div class="cp"><button type="button">복사</button><pre>Photorealistic interior CGI of a standard Korean apartment unit, realistic 2.3 m ceiling height and real-world proportions.
 Light oak wooden floor, linen-white walls, matte deep forest-green lower kitchen cabinets (#24493A), light stone countertop, slim brass handles (#A77B3C).
 Natural daylight from south-facing windows on the right side of the frame, soft ambient lighting, eye level 1.2 m, 20-24 mm lens, perfectly vertical lines.
 Calm, tidy, lived-in but minimal styling. Same material palette in every room.
+Keep the main furniture group inside the central 55% width and central 50% height of the frame.
 No luxury exaggeration, no oversized spaces, no text, no logos, no watermarks, no people's faces.</pre></div>
 <h3 style="margin-top:16px">장면 블록 (14장 전부)</h3>
 <p class="lead">외관 6장(aerial-day · aerial-day-m · aerial-dusk · gate · park-walk · gallery-ext)은 외관 공통 블록, 나머지 8장은 실내 공통 블록 뒤에 붙입니다.</p>
