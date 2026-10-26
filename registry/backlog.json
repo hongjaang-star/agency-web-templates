@@ -206,9 +206,15 @@
       "name": "한의원",
       "category": "medical",
       "level": "L2",
-      "status": "research",
+      "status": "concepts",
       "research": "concepts/medical-oriental/research/",
-      "note": "2026-10-26 사용자 요청으로 착수(L2). 레퍼런스 보고서(백록담한의원·강원한의원·漢方内科 けやき通り診療所) 제출, 조합 선택 대기"
+      "note": "2026-10-26 사용자 요청으로 착수(L2). 레퍼런스 보고서(백록담한의원·강원한의원·漢方内科 けやき通り診療所) 제출, 조합 선택 대기 / 조합 1(불편함에서 시작하는 문진 준비형, 이슈 #107) 선택 → 가상 업체 온지한의원 시안 3개 공개(문진 요약 → 상담 폼 자동 첨부, 건강 정보 동의 분리, 모바일 하단 4버튼, 한의사·공간 사진 칸), 시안 선택 대기",
+      "concepts": [
+        "munjin",
+        "pulse",
+        "yakjang"
+      ],
+      "choice": "https://github.com/hongjaang-star/agency-web-templates/issues/107"
     },
     {
       "order": 13,
