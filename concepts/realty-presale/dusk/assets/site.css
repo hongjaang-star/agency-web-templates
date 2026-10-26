@@ -180,3 +180,21 @@ section:not(.hero):not(.sub):not(.day):not(.units):not(.fin){padding:clamp(56px,
 
 /* Keep the child-room doorway visible in narrower image cards. */
 .slot img[src*="living-74a"]{object-position:left center}
+
+/* Community editorial gallery */
+.amenity-intro{max-width:640px;margin:20px 0 44px;line-height:1.9;opacity:.8}
+.amenity-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:52px 32px;margin-top:38px}
+.amenity-card{min-width:0;border-bottom:1px solid var(--line);padding-bottom:30px}
+.amenity-card .slot{margin:0 0 25px;border-radius:2px;overflow:hidden}
+.amenity-card .slot figcaption{display:none}
+.amenity-card .slot img{transition:transform .7s ease}
+.amenity-card:hover .slot img{transform:scale(1.025)}
+.amenity-card .amenity-en{display:block;font-size:11px;letter-spacing:.2em;color:#a77b3c;margin-bottom:10px}
+.amenity-card h3{font-size:clamp(23px,2.5vw,31px);font-weight:500;margin:0 0 13px}
+.amenity-card h4{font-size:16px;font-weight:500;margin:0 0 12px;line-height:1.7}
+.amenity-card p{font-size:14px;line-height:1.95;opacity:.76;margin:0 0 20px;word-break:keep-all}
+.amenity-card .amenity-meta{font-size:11px;letter-spacing:.035em;opacity:.65}
+.amenity-card .amenity-number{font-size:12px;color:#a77b3c;margin-right:12px}
+.amenity-note{margin-top:30px;font-size:12px;line-height:1.9;opacity:.65}
+@media(max-width:640px){.amenity-grid{grid-template-columns:1fr;gap:34px}.amenity-intro{margin-bottom:28px}.amenity-card{padding-bottom:24px}}
+@media(prefers-reduced-motion:reduce){.amenity-card .slot img{transition:none}}

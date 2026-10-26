@@ -1,0 +1,70 @@
+{
+  "created": "2026-10-26",
+  "type": "AI architectural CGI",
+  "images": [
+    {
+      "file": "community-book.webp",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 278838
+    },
+    {
+      "file": "community-cafe.webp",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 243038
+    },
+    {
+      "file": "community-fitness.webp",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 302184
+    },
+    {
+      "file": "community-golf.webp",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 198968
+    },
+    {
+      "file": "community-guest.webp",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 241300
+    },
+    {
+      "file": "community-kids.webp",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 216874
+    },
+    {
+      "file": "community-senior.webp",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 319082
+    },
+    {
+      "file": "community-storage.webp",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 86152
+    }
+  ]
+}
