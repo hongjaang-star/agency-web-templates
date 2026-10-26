@@ -166,9 +166,8 @@ figcaption span{color:var(--sub)}
 
 /* 진료실 사진 3장 */
 .rooms figure{margin:0}
-.rooms{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:20px;align-items:start}
-.rooms figure:first-child .ph{aspect-ratio:4/3}
-.rooms .ph{aspect-ratio:4/5}
+.rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+.rooms .ph{aspect-ratio:4/3}
 
 /* 한약 단계 */
 .steps{display:grid;grid-template-columns:repeat(6,1fr);border-top:2px solid var(--ink);counter-reset:s;margin:0;padding:0}
@@ -267,8 +266,6 @@ footer nav a{text-decoration:none}
   .row .inner{grid-template-columns:1fr 1fr}
   .row .inner>div:first-child{display:none}
   .row .inner .go{grid-column:1/-1}
-  .rooms{grid-template-columns:1fr 1fr}
-  .rooms figure:first-child{grid-column:1/-1}
 }
 @media (max-width:760px){
   .wrap{padding:0 18px}
@@ -293,7 +290,6 @@ footer nav a{text-decoration:none}
   .flow{grid-template-columns:1fr}
   .flow li{border:0;margin:0}
   .rooms{grid-template-columns:1fr}
-  .rooms .ph,.rooms figure:first-child .ph{aspect-ratio:4/3}
   form.cf{grid-template-columns:1fr}
   .header-cta{display:none}
   .ledger thead{display:none}
