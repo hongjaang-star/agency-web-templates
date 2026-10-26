@@ -214,3 +214,9 @@ footer .lg2{border-top:1px solid #39433d;padding-top:16px;line-height:1.7}
 .hero .in>.wrap{width:100%}
 .slot picture{position:absolute;inset:0;z-index:1}.slot picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.slot picture+figcaption{display:none}
 .ugal.one{grid-template-columns:minmax(0,760px)}
+
+/* Keep the child-room doorway visible in narrower image cards. */
+.slot img[src*="living-74a"]{object-position:left center}
+
+/* Use the mobile aerial sky as the headline safe area. */
+@media(max-width:640px){.hero .in{justify-content:flex-start;padding-top:108px}.hero .e{margin-top:14px}}

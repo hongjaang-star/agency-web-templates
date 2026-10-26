@@ -1,0 +1,219 @@
+{
+  "date": "2026-10-26",
+  "guide": "../IMAGE-GUIDE.md",
+  "sites": [
+    "grove",
+    "dusk"
+  ],
+  "images": [
+    {
+      "file": "aerial-day.webp",
+      "source": "source-2.png",
+      "source_size": [
+        1672,
+        941
+      ],
+      "size": [
+        2400,
+        1350
+      ],
+      "newly_generated": false,
+      "original_filename": "숲 가장자리의 아홉 개 타워-3.png"
+    },
+    {
+      "file": "aerial-day-m.webp",
+      "source": "source-9.png",
+      "source_size": [
+        941,
+        1672
+      ],
+      "size": [
+        1080,
+        1920
+      ],
+      "newly_generated": false,
+      "original_filename": "숲속 아홉 타워의 아침-1.png"
+    },
+    {
+      "file": "aerial-dusk.webp",
+      "source": "aerial-dusk.png",
+      "source_size": [
+        1672,
+        941
+      ],
+      "size": [
+        2400,
+        1350
+      ],
+      "newly_generated": true
+    },
+    {
+      "file": "gate.webp",
+      "source": "source-4.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "size": [
+        2400,
+        1600
+      ],
+      "newly_generated": false,
+      "original_filename": "숲길을 품은 아파트 입구-3.png"
+    },
+    {
+      "file": "park-walk.webp",
+      "source": "source-3.png",
+      "source_size": [
+        1672,
+        941
+      ],
+      "size": [
+        2400,
+        1350
+      ],
+      "newly_generated": false,
+      "original_filename": "숲길과 아파트의 아침-4.png"
+    },
+    {
+      "file": "lounge.webp",
+      "source": "source-13.png",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "size": [
+        2000,
+        1500
+      ],
+      "newly_generated": false,
+      "original_filename": "정원 전망의 라이브러리 카페 라운지-11.png"
+    },
+    {
+      "file": "living-59a.webp",
+      "source": "living-59a.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "size": [
+        2400,
+        1600
+      ],
+      "newly_generated": true
+    },
+    {
+      "file": "living-74a.webp",
+      "source": "living-74a.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "size": [
+        2400,
+        1600
+      ],
+      "newly_generated": true
+    },
+    {
+      "file": "living-84a.webp",
+      "source": "living-84a.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "size": [
+        2400,
+        1600
+      ],
+      "newly_generated": true
+    },
+    {
+      "file": "living-101a.webp",
+      "source": "living-101a.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "size": [
+        2400,
+        1600
+      ],
+      "newly_generated": true
+    },
+    {
+      "file": "kitchen-84a.webp",
+      "source": "source-14.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "size": [
+        2400,
+        1600
+      ],
+      "newly_generated": false,
+      "original_filename": "포레스트 그린 프리미엄 주방-8.png"
+    },
+    {
+      "file": "bed-84a.webp",
+      "source": "bed-84a.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "size": [
+        2400,
+        1600
+      ],
+      "newly_generated": true
+    },
+    {
+      "file": "alpha-84b.webp",
+      "source": "source-1.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "size": [
+        2400,
+        1600
+      ],
+      "newly_generated": false,
+      "original_filename": "따뜻한 햇살의 아늑한 홈오피스-10.png"
+    },
+    {
+      "file": "gallery-ext.webp",
+      "source": "source-7.png",
+      "source_size": [
+        1672,
+        941
+      ],
+      "size": [
+        2400,
+        1350
+      ],
+      "newly_generated": false,
+      "original_filename": "숲속 단층 박공지붕 세일즈 갤러리-13.png"
+    },
+    {
+      "file": "gallery-int.webp",
+      "source": "source-12.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "size": [
+        2400,
+        1600
+      ],
+      "newly_generated": false,
+      "original_filename": "아홉 타워가 빛나는 프리미엄 모델하우스-12.png"
+    }
+  ],
+  "notes": [
+    "16장 원본 중 8개 동 조감도와 중복 컷 제외. 주간은 9개 동이 보이는 source-2 선택.",
+    "원본 크기와 출력 크기를 함께 기록. 작은 원본의 확대는 해상도 규격 변환이며 실제 세부정보 증가를 의미하지 않음.",
+    "두 사이트 공용 데모 이미지이며 실제 평면도, 시공, 조망 증빙이 아님."
+  ]
+}

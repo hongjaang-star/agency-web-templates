@@ -177,3 +177,6 @@ section:not(.hero):not(.sub):not(.day):not(.units):not(.fin){padding:clamp(56px,
 @media (max-width:760px){.sub>.wrap:first-child{grid-template-columns:1fr;gap:6px}.sno{font-size:56px}.pr{grid-template-columns:1fr;gap:6px}.bign{grid-template-columns:1fr 1fr}.ovt2{grid-template-columns:96px 1fr}
  .lrow{grid-template-columns:1fr;gap:4px}.tsel{grid-template-columns:repeat(2,minmax(0,1fr))}.life ol{grid-template-columns:1fr}.ugal2,.duo,.elig,.pr2{grid-template-columns:1fr}.nextc{grid-template-columns:1fr;gap:6px}.ll li{grid-template-columns:1fr auto}.ll .k{grid-column:1/-1}}
 .slot picture{position:absolute;inset:0;z-index:1}.slot picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.slot picture+figcaption{display:none}
+
+/* Keep the child-room doorway visible in narrower image cards. */
+.slot img[src*="living-74a"]{object-position:left center}
