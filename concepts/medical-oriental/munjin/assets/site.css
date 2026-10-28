@@ -304,18 +304,152 @@ footer nav a{text-decoration:none}
   .toast{bottom:84px}
 }
 
-/* 2026-10: 햇살과 여백, 부드러운 온지의 지면 */
-:root{--paper:#f7f5ef;--sheet:#fffefa;--moss:#edf1e8;--hanji:#f0eee5;--blush:#f7eee8;--ink:#29392f;--ink-bg:#29392f;--sub:#626d62;--rule:#dce1d6;--rule2:#cbd2c4;--seal:#98604a;--seal-soft:#efe1d5;--moss-ink:#46604b}
-header.top{background:rgba(255,254,250,.95);border-color:var(--rule)}
+
+/* 온지 · 두 가지 바탕, 타이포그래피 중심의 편집 디자인 */
+:root{
+  --paper:#efefea;--sheet:#fffefa;
+  --moss:var(--paper);--hanji:var(--paper);--blush:var(--paper);
+  --ink:#26382e;--ink-bg:#26382e;--sub:#59665c;
+  --rule:#d4d8cf;--rule2:#bfc7bc;--seal:#495e49;
+  --seal-soft:#e1e5da;--moss-ink:#495e49;
+}
+body{background:var(--sheet);line-height:1.85}
+header.top{background:var(--sheet);border-color:var(--rule)}
 header.top .wrap{height:78px}
-.logo{letter-spacing:-.05em}.btn{border-radius:100px;padding:13px 24px;transition:background .2s,transform .2s}.btn:hover{transform:translateY(-2px);background:#435b48;color:#fff}.btn.line:hover{background:var(--moss);color:var(--ink)}
-section.blk{padding:104px 0}.sec-head{gap:40px;margin-bottom:48px}.sec-head .no{border-top:0;padding-top:8px;letter-spacing:.06em}.sec-head .no::before{content:"";display:inline-block;width:22px;height:1px;background:currentColor;vertical-align:middle;margin-right:12px}.sec-head h2{font-weight:400;letter-spacing:-.05em;line-height:1.5}.sec-head p{line-height:1.95}
-.subhead{border:0}.subhead h1{letter-spacing:-.055em;font-weight:400}.sheet{border-radius:24px;border-color:var(--rule);box-shadow:0 18px 60px -30px #71816d55}.box{border-radius:5px}.box2{border-radius:16px}.quick a,.quick button{border-radius:16px}.ph{border:0;border-radius:20px;background:var(--hanji)}.ph .ai{border-radius:20px;left:12px;bottom:12px;padding:3px 9px;font-size:10px;background:#29392fb8}.rooms{gap:24px}.rooms>figure{background:var(--sheet);border-radius:22px;overflow:hidden;padding:10px 10px 24px}.rooms .ph{border-radius:15px}.rooms figcaption{padding:20px 12px 0}.rooms figcaption b{font-size:20px;font-weight:400;margin-bottom:8px}.rooms figcaption span{font-size:14px;line-height:1.8;display:block}.split{align-items:center;gap:64px}
-.docs{gap:28px}.doc{grid-template-columns:minmax(150px,.9fr) minmax(0,1fr);gap:26px;background:#fffefa;padding:22px;border-radius:24px;border:1px solid #e4e7dc}.doc .ph{border-radius:15px}.doc h3{font-size:30px;font-weight:400;letter-spacing:-.05em}.doc .role{font-size:13px;line-height:1.7;margin-top:8px}.doc ul{font-size:14px;border-top:0}.doc li{padding:9px 0;border-color:#e7eadd}.doc .q2{font-size:16px;line-height:1.85}.doc .days{display:inline-block;background:var(--moss);padding:5px 10px;border-radius:8px;font-size:12px}
-.doctors-intro{padding:64px 0 76px;background:linear-gradient(120deg,#f4f3ec,#e9eee4)}.intro-grid{display:grid;grid-template-columns:.95fr 1.05fr;align-items:center;gap:60px}.doctors-intro .crumb{font-size:12px;margin:0 0 36px}.doctors-intro .eyebrow{font-size:11px;letter-spacing:.18em;color:var(--moss-ink);margin:0 0 18px}.doctors-intro h1{font-size:clamp(36px,4vw,53px);line-height:1.5;margin:0 0 24px}.doctors-intro h1 em{font-style:normal;color:#6f8667}.doctors-intro .intro-copy>p:not(.crumb):not(.eyebrow){font-size:16px;line-height:1.95}.intro-links{display:flex;flex-wrap:wrap;align-items:center;gap:24px;margin-top:30px}.intro-links>a:not(.btn){font-size:14px;text-underline-offset:6px}.intro-note{display:block;margin-top:32px;font-size:12px;letter-spacing:.06em;color:var(--sub)}.intro-photo{position:relative;margin:0;align-self:stretch;min-height:560px;border-radius:160px 160px 24px 24px;overflow:hidden;background:#dedfd1}.intro-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}.intro-photo figcaption{position:absolute;bottom:0;left:0;right:0;padding:38px 24px 22px;background:linear-gradient(transparent,#1e352c99);color:#fff;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:10px;letter-spacing:.1em}.intro-photo figcaption span{color:#fff}
-body[data-page=doctors] .docs{grid-template-columns:1fr 1fr}body[data-page=doctors] .doc{display:flex;flex-direction:column;padding:16px 16px 30px;gap:24px}body[data-page=doctors] .doc>.ph{width:100%;aspect-ratio:4/5}body[data-page=doctors] .doc>.ph img{object-position:center 30%}body[data-page=doctors] .doc>div{padding:0 16px;width:100%}body[data-page=doctors] .doc .q2{font-size:20px;max-width:20em;color:var(--moss-ink)}
-@media(min-width:1081px){nav.gnb{gap:17px;font-size:14px}}
-@media(max-width:1080px){nav.gnb{top:78px}.intro-grid{gap:32px;grid-template-columns:1fr 1fr}.intro-photo{min-height:510px}.doc{grid-template-columns:200px 1fr}.docs{grid-template-columns:1fr}.split{gap:32px}.sec-head{gap:16px}}
-@media(max-width:760px){header.top .wrap{height:68px}nav.gnb{top:68px}section.blk{padding:64px 0}.sec-head{margin-bottom:30px}.intro-grid{grid-template-columns:1fr;gap:32px}.doctors-intro{padding:28px 0 40px}.doctors-intro .crumb{margin-bottom:28px}.doctors-intro h1{font-size:38px;line-height:1.45}.intro-photo{min-height:0;aspect-ratio:5/4;border-radius:110px 110px 20px 20px}.intro-note{margin-top:22px}.intro-links{margin-top:24px;gap:18px}.intro-links .btn{padding:12px 20px}body[data-page=doctors] .docs{grid-template-columns:1fr;gap:24px}body[data-page=doctors] .doc>.ph{aspect-ratio:1/1}body[data-page=doctors] .doc>div{padding:0 8px}.doc{grid-template-columns:110px 1fr;padding:16px;gap:16px}.doc h3{font-size:26px}.rooms{gap:22px}.quick a,.quick button{border-radius:0}.nextband b{font-size:24px;line-height:1.6}.split{gap:28px}}
+.logo{letter-spacing:-.05em}
+nav.gnb a{font-weight:500}
+.btn{border-radius:3px;padding:13px 22px;transition:background .2s,border-color .2s}
+.btn:hover{background:#435b48;border-color:#435b48;color:#fff}
+.btn.line:hover{background:var(--paper);color:var(--ink)}
+.menu-btn{border:0;border-bottom:1px solid var(--ink);padding:8px 2px;letter-spacing:.02em}
+section.blk{padding:100px 0}
 section[id]{scroll-margin-top:78px}
-@media(max-width:760px){section[id]{scroll-margin-top:68px}}
+.sec-head{grid-template-columns:190px 1fr;gap:48px;margin-bottom:48px}
+.sec-head .no{font:600 14px/1.7 var(--sans);border:0;padding-top:8px;color:var(--moss-ink)}
+.sec-head h2{font:600 clamp(27px,3vw,38px)/1.45 var(--sans);letter-spacing:-.055em;margin-bottom:18px}
+.sec-head p{max-width:42em;line-height:1.95}
+h3,.box2 h3,.doc h3,.cost h3{font-family:var(--sans);font-weight:600;letter-spacing:-.04em}
+.subhead{border:0;padding:72px 0 64px}
+.subhead h1{font-weight:700;letter-spacing:-.05em}
+.subhead .crumb{font-size:12px;margin-bottom:24px}
+.subhead p{line-height:1.95}
+.sheet{border-radius:0;border:0;border-top:2px solid var(--ink);box-shadow:none;padding:26px 0;background:transparent}
+.sheet .head{border-bottom:1px solid var(--rule2)}
+.sheet .head h2,.q h3{font-family:var(--sans);font-weight:600;letter-spacing:-.04em}
+.hero .wrap{gap:72px}
+.hero h1{font-size:clamp(34px,4.6vw,58px);line-height:1.45;letter-spacing:-.055em}
+.hero h1 em{background:none;color:var(--moss-ink)}
+.hero p.lead{line-height:1.95;font-size:17px}
+.box{border-radius:0}
+.tag{background:transparent;border-color:var(--rule2);border-radius:2px}
+.row .t{font-family:var(--sans);font-weight:600;font-size:21px}
+.row .k{font:500 13px var(--sans);color:var(--sub)}
+.row>button{padding:25px 4px}
+.row .inner h4{font-size:14px;color:var(--ink)}
+.ledger{background:transparent}
+.ledger td:first-child{font-family:var(--sans);font-weight:600;font-size:18px}
+.flow,.steps{border-top:1px solid var(--ink)}
+.flow b,.steps b{font:600 18px/1.6 var(--sans);letter-spacing:-.035em}
+.flow li::before,.steps li::before{font:500 15px/1.8 var(--sans)}
+/* 안내를 상자에 넣지 않고 제목과 구분선으로 정돈 */
+.split,.caution{gap:56px;align-items:start}
+.box2{background:transparent;border:0;border-top:1px solid var(--ink);border-radius:0;box-shadow:none;padding:24px 0 0}
+.box2 h3{font:600 22px/1.55 var(--sans);letter-spacing:-.05em;margin:0 0 20px}
+.box2 ul{margin:0;padding:0;list-style:none;font-size:15px;line-height:1.9}
+.box2 li{position:relative;padding-left:15px;margin:10px 0;color:var(--sub)}
+.box2 li::before{content:'·';position:absolute;left:0;color:var(--ink);font-weight:600}
+/* 사진과 설명을 직접 배치, 카드 외곽과 장식 제거 */
+.ph{border:0;border-radius:2px;background:var(--paper)}
+.ph .ai{left:10px;bottom:10px;padding:2px 7px;border-radius:2px;font-size:10px;background:#26382ebd}
+.docs{gap:48px}
+.doc{grid-template-columns:minmax(150px,.9fr) minmax(0,1fr);gap:26px;background:transparent;border:0;border-radius:0;padding:0}
+.doc .ph{border-radius:2px}
+.doc h3{font-size:28px;line-height:1.5;margin-top:0}
+.doc .role{font-size:13px;color:var(--moss-ink);line-height:1.8;margin:8px 0 16px}
+.doc ul{border-top:1px solid var(--rule2);font-size:14px}
+.doc li{padding:9px 0;border-color:var(--rule)}
+.doc .q2{font-size:17px;line-height:1.9;margin-top:20px}
+.doc .days{font-size:13px;margin-top:14px;background:none;padding:0;border-radius:0;color:var(--sub)}
+.rooms{gap:30px}
+.rooms>figure{background:transparent;border:0;border-radius:0;padding:0;overflow:visible}
+.rooms .ph{border-radius:2px}
+.rooms figcaption{padding:22px 0 0}
+.rooms figcaption b{font:600 19px/1.6 var(--sans);letter-spacing:-.04em;margin-bottom:10px}
+.rooms figcaption span{display:block;font-size:14px;line-height:1.9}
+.doctors-intro{padding:64px 0 76px}
+.intro-grid{display:grid;grid-template-columns:.95fr 1.05fr;align-items:center;gap:64px}
+.doctors-intro .crumb{font-size:12px;margin:0 0 36px}
+.doctors-intro .eyebrow{font:600 11px/1.7 var(--sans);letter-spacing:.15em;color:var(--moss-ink);margin:0 0 20px}
+.doctors-intro h1{font-size:clamp(36px,4vw,53px);line-height:1.5;margin:0 0 26px;font-weight:700}
+.doctors-intro h1 em{font-style:normal;color:var(--moss-ink)}
+.doctors-intro .intro-copy>p:not(.crumb):not(.eyebrow){font-size:16px;line-height:1.95}
+.intro-links{display:flex;flex-wrap:wrap;align-items:center;gap:24px;margin-top:32px}
+.intro-links>a:not(.btn){font-size:14px;text-underline-offset:6px}
+.intro-note{display:block;margin-top:32px;font-size:12px;letter-spacing:.03em;color:var(--sub)}
+.intro-photo{position:relative;margin:0;align-self:stretch;min-height:560px;border-radius:2px;overflow:hidden;background:var(--paper)}
+.intro-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.intro-photo figcaption{position:absolute;bottom:0;left:0;right:0;padding:38px 20px 18px;background:linear-gradient(transparent,#1e352c99);color:#fff;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:10px;letter-spacing:.1em}
+.intro-photo figcaption span{color:#fff}
+body[data-page=doctors] .docs{grid-template-columns:1fr 1fr}
+body[data-page=doctors] .doc{display:flex;flex-direction:column;padding:0;gap:28px}
+body[data-page=doctors] .doc>.ph{width:100%;aspect-ratio:4/5}
+body[data-page=doctors] .doc>.ph img{object-position:center 30%}
+body[data-page=doctors] .doc>div{padding:0;width:100%}
+body[data-page=doctors] .doc .q2{font-size:19px;max-width:22em;color:var(--moss-ink)}
+.nextband{padding:44px 0;border-top:1px solid var(--rule)}
+.nextband b{font:600 22px/1.6 var(--sans);letter-spacing:-.04em}
+.faq summary,.hours th,.ins-list b{font-family:var(--sans);font-weight:600}
+/* 상담 섹션도 동일한 두 가지 바탕 안에서 */
+form.cf label.f,.agree{color:var(--sub)}
+form.cf input[type=text],form.cf input[type=tel],form.cf select,form.cf textarea{background:var(--sheet);color:var(--ink);border:1px solid var(--rule2);border-radius:2px}
+form.cf .msg{color:var(--ink)}
+form.cf .btn{color:#fff}
+.quick{gap:1px}
+.quick a,.quick button{border-radius:2px;box-shadow:none;transition:background .2s}
+.quick .tel{background:var(--ink)}
+.quick a:hover,.quick button:hover{transform:none;filter:brightness(.95)}
+@media(min-width:1081px){nav.gnb{gap:17px;font-size:14px}}
+@media(max-width:1080px){
+ nav.gnb{top:78px;background:var(--sheet)}
+ .sec-head{grid-template-columns:1fr;gap:12px}
+ .intro-grid{gap:32px;grid-template-columns:1fr 1fr}
+ .intro-photo{min-height:510px}
+ .doc{grid-template-columns:200px 1fr}
+ .docs{grid-template-columns:1fr}
+ .split,.caution{gap:32px}
+}
+@media(max-width:760px){
+ header.top .wrap{height:68px}
+ nav.gnb{top:68px}
+ section.blk{padding:64px 0}
+ section[id]{scroll-margin-top:68px}
+ .sec-head{margin-bottom:32px;gap:12px}
+ .sec-head .no{font-size:12px;padding:0}
+ .sec-head h2{font-size:28px;line-height:1.5;margin-bottom:14px}
+ .subhead{padding:40px 0 44px}
+ .subhead h1{font-size:36px;line-height:1.4}
+ .hero .wrap{gap:44px}
+ .sheet{padding:24px 0}
+ .intro-grid{grid-template-columns:1fr;gap:32px}
+ .doctors-intro{padding:28px 0 40px}
+ .doctors-intro .crumb{margin-bottom:28px}
+ .doctors-intro h1{font-size:36px;line-height:1.5}
+ .intro-photo{min-height:0;aspect-ratio:5/4;border-radius:2px}
+ .intro-note{margin-top:24px}
+ .intro-links{margin-top:24px;gap:18px}
+ .intro-links .btn{padding:12px 18px}
+ body[data-page=doctors] .docs{grid-template-columns:1fr;gap:48px}
+ body[data-page=doctors] .doc>.ph{aspect-ratio:4/5}
+ body[data-page=doctors] .doc>div{padding:0}
+ .doc{grid-template-columns:110px 1fr;padding:0;gap:18px}
+ .doc h3{font-size:24px}
+ .rooms{gap:36px}
+ .rooms figcaption{padding-top:18px}
+ .split,.caution{gap:40px}
+ .box2{padding-top:22px}
+ .box2 h3{font-size:21px;margin-bottom:18px}
+ .box2 li{margin:12px 0;line-height:1.9}
+ .quick{gap:0}
+ .quick a,.quick button{border-radius:0}
+ .nextband b{font-size:21px}
+}
