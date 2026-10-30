@@ -453,3 +453,10 @@ form.cf .btn{color:#fff}
  .quick a,.quick button{border-radius:0}
  .nextband b{font-size:21px}
 }
+
+/* 온지 브랜드: ㅇ·ㅈ 모노그램과 윤곽선 로고타입 */
+.logo{gap:0;flex:none;line-height:1}
+.logo .brand-logo{width:190px;height:auto;max-width:none}
+.footer-brand{display:inline-flex;margin-bottom:18px;text-decoration:none}
+.footer-brand .brand-logo{width:174px;height:auto}
+@media(max-width:760px){.logo .brand-logo{width:172px}.footer-brand .brand-logo{width:166px}}
