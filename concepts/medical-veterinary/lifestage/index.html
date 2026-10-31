@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>마루곁동물병원 · 시안 C 한살이 (가상 업체 데모)</title>
+<meta name="description" content="가상 업체 데모 · 아기부터 노령까지 나이별 진료를 고르고 진료 카드로 예약하는 강아지 · 고양이 동물병원 시안">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Gothic+A1:wght@400;500;700;800;900&display=swap">
+<style>
+:root{--sky:#8cc8f0;--sky-d:#2f7fb8;--sky-s:#e6f3fc;--butter:#ffe08a;--butter-s:#fff6d6;--ink:#18202b;--sub:#536070;--line:#d6e2ea;--white:#fff;--focus:#2f7fb8;--q-tel:#2f7fb8;--q-map:#18202b;--ph-bg:#e6f3fc;--ph-ink:#2f7fb8;--map-bg:#fff;--map-road:#e6f3fc;--map-line:#2f7fb8;--map-ink:#18202b;--map-alt:#e0a400;--hand:"Gaegu",cursive;--sans:"Gothic A1",system-ui,sans-serif;--qr:50%}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font:16px/1.75 var(--sans);word-break:keep-all;overflow-x:hidden}
+a{color:inherit}:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+.demo{background:var(--butter);color:var(--ink);font-size:13px;text-align:center;padding:6px 12px;font-weight:700}
+header{background:var(--white);position:sticky;top:0;z-index:40;border-bottom:3px solid var(--ink)}
+header .wrap{display:flex;align-items:center;gap:24px;height:72px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo .mk{width:44px;height:44px;border:3px solid var(--ink);border-radius:50%;background:var(--sky);display:grid;place-items:center;font-size:22px}
+.logo b{font-size:20px;font-weight:900;letter-spacing:-.04em}
+.logo small{display:block;font-family:var(--hand);font-size:17px;color:var(--sky-d);line-height:1}
+nav.gnb{display:flex;gap:20px;margin-left:auto;font-weight:700;font-size:15px}
+nav.gnb a{text-decoration:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--ink);color:#fff;border:3px solid var(--ink);border-radius:14px;padding:11px 20px;font:800 15px var(--sans);text-decoration:none;cursor:pointer;box-shadow:4px 4px 0 var(--sky)}
+.btn.y{background:var(--butter);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
+/* hero */
+.hero{background:var(--sky-s);padding:56px 0 0;overflow:hidden;position:relative}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end}
+.hero .note{font-family:var(--hand);font-size:24px;color:var(--sky-d)}
+.hero h1{font-size:clamp(40px,5.8vw,78px);line-height:1.08;font-weight:900;letter-spacing:-.06em;margin:6px 0 16px}
+.hero h1 mark{background:linear-gradient(transparent 58%,var(--butter) 58%);color:inherit}
+.hero p{font-size:18px;color:var(--sub);max-width:28em;margin:0 0 24px}
+.trail{position:absolute;left:0;right:0;top:6px;height:44px;color:var(--sky);opacity:.55;pointer-events:none}
+.hero .pic{border:3px solid var(--ink);border-bottom:0;border-radius:200px 200px 0 0;overflow:hidden;background:#fff}
+.hero .pic .ph{aspect-ratio:4/3.4}
+.stages{display:grid;grid-template-columns:repeat(3,1fr);border-top:3px solid var(--ink);background:#fff;position:relative;z-index:2}
+.stage{all:unset;box-sizing:border-box;cursor:pointer;padding:18px 24px;border-right:3px solid var(--ink);display:flex;gap:14px;align-items:center}
+.stage:last-child{border-right:0}
+.stage:focus-visible{outline:3px solid var(--focus);outline-offset:-6px}
+.stage .ic{width:48px;height:48px;border-radius:50%;background:var(--sky-s);border:3px solid var(--ink);display:grid;place-items:center;font-weight:900;font-size:13px}
+.stage b{display:block;font-size:19px;font-weight:900}
+.stage small{font-family:var(--hand);font-size:18px;color:var(--sub)}
+.stage[aria-selected=true]{background:var(--butter)}
+/* life track */
+section.s{padding:84px 0}
+.s.sky{background:var(--sky-s)}.s.butter{background:var(--butter-s)}.s.ink{background:var(--ink);color:#fff}
+.sh{margin-bottom:32px;max-width:760px}
+.sh .hand{font-family:var(--hand);font-size:24px;color:var(--sky-d)}
+.s.ink .sh .hand{color:var(--butter)}
+.sh h2{font-size:clamp(30px,3.8vw,48px);line-height:1.15;letter-spacing:-.05em;margin:0 0 10px;font-weight:900}
+.sh p{margin:0;color:var(--sub)}.s.ink .sh p{color:#c7d2dc}
+.track{display:grid;grid-template-columns:1.1fr 1fr;gap:30px;align-items:start}
+.track .ph{border:3px solid var(--ink);border-radius:24px}
+.plan{list-style:none;margin:0;padding:0}
+.plan li{border:3px solid var(--ink);border-radius:18px;padding:14px 18px;margin-bottom:12px;background:#fff;box-shadow:4px 4px 0 var(--sky)}
+.plan b{display:block;font-size:18px;font-weight:900}
+.plan span{font-size:14px;color:var(--sub)}
+.plan em{font-style:normal;font-family:var(--hand);font-size:19px;color:var(--sky-d)}
+/* 진료 카드 */
+.cardsec{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.builder{background:#fff;border:3px solid var(--ink);border-radius:24px;padding:24px;box-shadow:8px 8px 0 var(--ink)}
+.pc-field{display:block;margin:0 0 14px}
+.pc-label{display:block;font-weight:900;font-size:15px;margin-bottom:6px}
+.pc-label small{font-weight:500;color:var(--sub)}
+.pc-opts{display:flex;flex-wrap:wrap;gap:8px}
+.pc-opts.col{flex-direction:column;align-items:flex-start}
+.pc-opt span{display:inline-block;padding:7px 14px;border:2px solid var(--ink);border-radius:12px;font-weight:700;font-size:14px;cursor:pointer;background:#fff}
+.pc-opt input:checked+span{background:var(--sky);}
+.pc-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pc-text input{width:100%;font:16px var(--sans);padding:10px 12px;border:2px solid var(--ink);border-radius:12px}
+.pc-emg{border:3px dashed #d4380d;border-radius:16px;padding:10px 14px;background:#fff4ef}
+.pc-emg summary{cursor:pointer;font-weight:900;color:#a8290a}
+.pc-emg summary small{font-weight:500;color:var(--sub);margin-left:6px}
+.pc-emg .pc-opts{margin-top:10px}
+.pc-emg .pc-opt input:checked+span{background:#ffb8a0}
+.card-view{background:var(--butter);border:3px solid var(--ink);border-radius:24px;padding:20px 22px;box-shadow:8px 8px 0 var(--sky)}
+.cv-top{display:flex;justify-content:space-between;font-weight:900;font-size:13px;border-bottom:2px dashed var(--ink);padding-bottom:8px}
+.cv-no{font-family:var(--hand);font-size:17px;font-weight:400}
+.cv-body{display:grid;grid-template-columns:88px 1fr;gap:16px;margin-top:12px}
+.cv-icon{width:88px;height:88px;border:3px solid var(--ink);border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--sky-d)}
+.cv-icon svg{width:60px;height:60px}
+.cv-info b{font-family:var(--hand);font-size:36px;line-height:1}
+.cv-info dl{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;margin:8px 0 0;font-size:14px}
+.cv-info dt{font-weight:900}.cv-info dd{margin:0}
+.pc-emg-box{background:#d4380d;color:#fff;border:3px solid var(--ink);border-radius:20px;padding:18px 20px;margin-top:16px}
+.pc-emg-box b{font-size:21px;font-weight:900}
+.pc-emg-box p{margin:6px 0 12px;font-size:14px}
+.btn.emg{background:#fff;color:#a8290a;box-shadow:4px 4px 0 var(--ink)}
+.pc-guide{margin-top:18px;background:#fff;border:3px solid var(--ink);border-radius:20px;padding:14px 18px}
+.pc-guide h4{margin:6px 0;font-size:15px;font-weight:900}
+.pc-guide h4 small{font-weight:500;color:var(--sub)}
+.pc-recs,.pc-fees{list-style:none;margin:0 0 10px;padding:0}
+.pc-recs a{display:block;text-decoration:none;padding:7px 0;border-bottom:2px dashed var(--line);font-size:14px}
+.pc-recs b{display:block;font-weight:900}
+.pc-recs span{color:var(--sub)}
+.pc-fees li{display:flex;justify-content:space-between;font-size:14px;padding:3px 0}
+.btn.go{width:100%;margin-top:4px}
+.pc-note{font-family:var(--hand);font-size:18px;color:var(--sub);margin:12px 4px 0;line-height:1.3}
+/* scope list */
+.slist{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.sitem{display:grid;grid-template-columns:200px 1fr;gap:18px;background:#fff;border:3px solid var(--ink);border-radius:22px;padding:14px;scroll-margin-top:90px}
+.sitem .ph{border-radius:14px}
+.sitem h3{margin:2px 0 4px;font-size:21px;font-weight:900}
+.sitem p{margin:0 0 6px;font-size:14px}
+.sitem .w{font-family:var(--hand);font-size:18px;line-height:1.3;color:#a8290a}
+.facg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.facg figure{margin:0}
+.facg .ph{border-radius:16px;border:3px solid #fff}
+.facg figcaption{font-size:13px;color:#c7d2dc;padding-top:8px}
+.facg figcaption b{display:block;color:#fff;font-size:16px}
+.facg .tag{display:inline-block;font-family:var(--hand);font-size:16px;background:var(--butter);color:var(--ink);border-radius:8px;padding:0 6px;margin-right:6px}
+.vets{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.vet{background:#fff;border:3px solid var(--ink);border-radius:24px;overflow:hidden;box-shadow:6px 6px 0 var(--sky)}
+.vet .ph{border-bottom:3px solid var(--ink)}
+.vet .t{padding:16px 18px}
+.vet h3{margin:0;font-size:24px;font-weight:900}
+.vet .r{font-weight:700;color:var(--sky-d);font-size:14px;margin:2px 0 8px}
+.vet ul{margin:0;padding-left:18px;font-size:14px}
+.vet q{display:block;font-family:var(--hand);font-size:19px;line-height:1.3;margin-top:8px;color:var(--sub)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.day{list-style:none;margin:0;padding:0}
+.day li{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:12px 0;border-bottom:2px dashed var(--line)}
+.day b{font-weight:900}
+.fees{width:100%;border-collapse:collapse;font-size:14px;background:#fff;border:3px solid var(--ink);border-radius:18px;overflow:hidden}
+.fees td{padding:8px 14px;border-bottom:1px solid var(--line)}
+.fees td+td{text-align:right;font-weight:900;white-space:nowrap}
+.sm{font-size:13px;color:var(--sub)}
+form.cf{display:grid;grid-template-columns:1fr 1fr;gap:14px 20px;background:#fff;border:3px solid var(--ink);border-radius:24px;padding:26px;box-shadow:8px 8px 0 var(--butter)}
+form.cf label.f{display:flex;flex-direction:column;gap:6px;font-weight:900;font-size:14px}
+form.cf .full{grid-column:1/-1}
+form.cf input[type=text],form.cf input[type=tel],form.cf select,form.cf textarea{font:16px var(--sans);padding:10px 12px;border-radius:12px;border:2px solid var(--ink);background:#fff}
+form.cf textarea{min-height:120px}
+.agree{display:flex;gap:10px;font-size:14px}
+.agree input{width:18px;height:18px;margin-top:3px;accent-color:var(--sky-d)}
+.cf .btn{justify-self:start}
+.cf .msg{grid-column:1/-1;margin:0;color:var(--sky-d);font-weight:900}
+.visit{display:grid;grid-template-columns:1fr 1.2fr;gap:28px}
+.hours{width:100%;border-collapse:collapse;font-size:16px}
+.hours th,.hours td{text-align:left;padding:11px 0;border-bottom:2px dashed var(--line)}
+.ways{list-style:none;padding:0;margin:14px 0 0}
+.ways li{display:grid;grid-template-columns:70px 1fr;gap:10px;font-size:14px;padding:6px 0}
+.map{border:3px solid var(--ink);border-radius:24px;overflow:hidden}.map svg{display:block;width:100%;height:auto}
+footer{background:var(--ink);color:#c7d2dc;font-size:13px;padding:36px 0 48px}
+footer .wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:24px}footer b{color:#fff;font-size:17px}
+@media (max-width:1020px){nav.gnb{display:none}.hero .wrap,.track,.cardsec,.two,.visit,footer .wrap{grid-template-columns:1fr}.slist{grid-template-columns:1fr}.facg{grid-template-columns:1fr 1fr}.vets{grid-template-columns:1fr 1fr 1fr}.hero .pic{max-width:520px}}
+@media (max-width:760px){.wrap{padding:0 16px}.hero{padding-top:34px}.stages{grid-template-columns:1fr}.stage{border-right:0;border-bottom:3px solid var(--ink);padding:12px 16px}.sitem{grid-template-columns:1fr}.vets{grid-template-columns:1fr}form.cf{grid-template-columns:1fr;padding:20px 16px}.builder{padding:18px 14px}.header-cta{display:none}section.s{padding:60px 0}.day li{grid-template-columns:90px 1fr}.trail{display:none}}
+
+.quick{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:8px}
+.quick a,.quick button{all:unset;box-sizing:border-box;width:74px;min-height:74px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font:700 12px var(--sans);text-align:center;cursor:pointer;border-radius:var(--qr,16px);box-shadow:0 10px 24px -12px rgba(0,0,0,.45);transition:transform .2s}
+.quick a:hover,.quick button:hover{transform:translateX(-3px)}
+.quick a:focus-visible,.quick button:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.quick svg{width:24px;height:24px}
+.q-kakao{background:#fee500;color:#191600}.q-tel{background:var(--q-tel);color:#fff}.q-map{background:var(--q-map);color:#fff}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:#1d1d1d;color:#fff;padding:12px 18px;font-size:14px;border-radius:10px;opacity:0;transition:.25s;z-index:60;max-width:calc(100% - 32px)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media (min-width:761px) and (max-width:1260px){main .wrap,footer .wrap{padding-right:100px}}
+@media (max-width:760px){
+  .quick{top:auto;bottom:0;left:0;right:0;transform:none;flex-direction:row;gap:0}
+  .quick a,.quick button{flex:1;width:auto;min-height:0;border-radius:0;padding:9px 0 calc(9px + env(safe-area-inset-bottom));box-shadow:none}
+  .quick a:hover,.quick button:hover{transform:none}
+  .toast{bottom:84px}
+  footer{padding-bottom:100px!important}
+}
+/* 사진 칸 */
+.ph{position:relative;margin:0;overflow:hidden;background:var(--ph-bg)}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph .ph-l{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;padding:10px;color:var(--ph-ink);background:var(--ph-bg)}
+.ph .ph-l svg{width:30px;height:30px;fill:currentColor;opacity:.55}
+.ph .ph-l b{font-size:14px}
+.ph .ph-l small{font-size:11px;opacity:.75;font-family:ui-monospace,monospace}
+.ph.empty .ph-l{display:flex}
+.ph .ai{position:absolute;left:8px;bottom:8px;font-size:11px;background:rgba(0,0,0,.55);color:#fff;padding:1px 7px;border-radius:99px}
+.ph.empty .ai{display:none}
+.r169{aspect-ratio:16/9}.r43{aspect-ratio:4/3}.r32{aspect-ratio:3/2}.r45{aspect-ratio:4/5}.r11{aspect-ratio:1}
+form.cf label.f{min-width:0}form.cf input[type=text],form.cf input[type=tel],form.cf select,form.cf textarea{width:100%;min-width:0;box-sizing:border-box}
+/* 진료 카드 공통 동작 */
+.pc-opt{position:relative;display:inline-block}
+.pc-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.pc-opt input:focus-visible+span{outline:3px solid var(--focus);outline-offset:2px}
+.pc-out.alert .pc-guide{display:none}
+.pc-emg-box[hidden],.pc-field[hidden]{display:none!important}
+[data-paw] svg{width:1em;height:1em;fill:currentColor;vertical-align:-.12em}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+
+</style>
+</head>
+<body>
+<div class="demo">가상 업체 데모 · 시안 C · 한살이 — 실제 진료 · 접수가 이루어지지 않습니다</div>
+<header><div class="wrap"><a class="logo" href="#top"><span class="mk" data-paw></span><span><b data-k="name"></b><small>강아지 · 고양이 동물병원</small></span></a>
+<nav class="gnb" aria-label="주요 메뉴"><a href="#life">나이별 진료</a><a href="#card">진료 카드</a><a href="#scope">진료 범위</a><a href="#facility">병원 시설</a><a href="#fees">진료비</a><a href="#visit">오시는 길</a></nav><a class="btn header-cta" href="#book">예약 신청</a></div></header>
+<main id="top">
+<section class="hero"><div class="wrap">
+  <div><span class="note">아기 때부터 할머니 될 때까지,</span><h1>우리 아이 한살이를<br><mark>같이 챙기는</mark><br>동물병원</h1><p>접종하러 처음 온 날부터 관절이 걱정되는 노령기까지. 나이에 맞는 진료를 고르고, 진료 카드로 예약까지 이어집니다.</p><a class="btn y" href="#card">진료 카드 만들기</a> <a class="btn" href="#life">나이별 진료 보기</a></div>
+  <div class="pic" data-photo="hero-family.webp|강아지와 고양이를 안은 수의사|r43|대표 사진 · 수의사와 강아지 · 고양이"></div>
+</div>
+<svg class="trail" viewBox="0 0 1400 60" preserveAspectRatio="none" aria-hidden="true"><g fill="currentColor" id="trailG"></g></svg>
+<div class="stages" role="tablist" aria-label="나이별 진료"><button class="stage" role="tab" data-st="baby" aria-selected="true"><span class="ic">0+</span><span><b>아기</b><small>1살 미만 · 접종 · 첫 검진</small></span></button><button class="stage" role="tab" data-st="adult" aria-selected="false"><span class="ic">1+</span><span><b>어른</b><small>1 – 7살 · 중성화 · 치과</small></span></button><button class="stage" role="tab" data-st="senior" aria-selected="false"><span class="ic">7+</span><span><b>노령</b><small>7살 이상 · 정기 검진</small></span></button></div>
+</section>
+
+<section class="s" id="life"><div class="wrap">
+  <div class="sh"><span class="hand" id="lifeHand"></span><h2 id="lifeH"></h2><p id="lifeP"></p></div>
+  <div class="track" role="tabpanel"><div id="lifePh"></div><ul class="plan" id="lifePlan"></ul></div>
+</div></section>
+
+<section class="s sky" id="card"><div class="wrap">
+  <div class="sh"><span class="hand">1분이면 돼요</span><h2>우리 아이 진료 카드</h2><p>오늘 온 이유를 고르면 살펴볼 진료와 진료비가 보이고 예약에 그대로 붙습니다. 응급 신호를 고르면 전화 안내로 바뀝니다.</p></div>
+  <div class="cardsec"><div class="builder"><form id="pcForm" onsubmit="return false"></form></div><div><div id="pcOut" class="pc-out" aria-live="polite">
+  <div class="card-view">
+    <div class="cv-top"><span class="cv-logo"><i data-paw></i>마루곁동물병원 · 진료 카드</span><span class="cv-no">강아지 · 고양이</span></div>
+    <div class="cv-body"><div class="cv-icon" id="cvIcon"></div><div class="cv-info"><b id="cvName"></b><dl><dt>종</dt><dd id="cvSp"></dd><dt>나이</dt><dd id="cvAge"></dd><dt>체중</dt><dd id="cvWt"></dd><dt>접종</dt><dd id="cvVac"></dd><dt>오늘</dt><dd id="cvPur"></dd></dl></div></div>
+  </div>
+  <div class="pc-emg-box" id="pcEmg" hidden><b>기다리지 말고 지금 바로 전화하세요</b><p>진료 시간에는 병원으로, 진료 시간 외에는 <span data-k="partner"></span>으로 연락해 주세요. 이동 중 아이를 따뜻하게 감싸 주세요.</p><a class="btn emg" href="tel:0310000000">병원에 전화하기</a></div>
+  <div class="pc-guide"><h4>살펴볼 진료</h4><ul class="pc-recs" id="pcRecs"></ul><h4>관련 진료비 <small>게시 항목 · 예시 금액</small></h4><ul class="pc-fees" id="pcFees"></ul><a class="btn go" href="#book">이 카드로 예약 신청</a></div>
+  <p class="pc-note">진단이 아닌 내원 판단 안내입니다. 입력 내용은 이 브라우저에만 머물고 전송되지 않습니다.</p>
+</div></div></div>
+</div></section>
+
+<section class="s" id="scope"><div class="wrap">
+  <div class="sh reveal"><span class="hand">1차 진료 동물병원</span><h2>여기서 하는 진료</h2><p>CT · MRI · 24시간 입원 치료는 협력 병원으로 의뢰합니다. 결과는 아이마다 다를 수 있습니다.</p></div>
+  <div class="slist" id="slist"></div>
+</div></section>
+
+<section class="s ink" id="facility"><div class="wrap">
+  <div class="sh reveal"><span class="hand">한 바퀴 둘러보기</span><h2>병원 시설</h2><p>강아지는 1층 정문, 고양이는 옆문 계단으로 2층. 대기 · 진료 · 입원이 서로 겹치지 않습니다.</p></div>
+  <div class="facg" id="facg"></div>
+</div></section>
+
+<section class="s butter" id="vets"><div class="wrap">
+  <div class="sh reveal"><span class="hand">처음 본 수의사가 끝까지</span><h2>세 수의사</h2><p>경력 표기는 예시입니다.</p></div>
+  <div class="vets" id="vetList"></div>
+</div></section>
+
+<section class="s" id="fees"><div class="wrap">
+  <div class="two"><div><div class="sh"><span class="hand">수술 · 입원</span><h2>수술하는 날</h2><p>수술 전 진단명 · 필요성 · 후유증 · 예상 비용을 설명드리고 서면 동의를 받습니다. 마취에는 드물게 위험이 따릅니다.</p></div><ol class="day" data-surgery></ol></div>
+  <div><div class="sh"><span class="hand">미리 보는 진료비</span><h2>게시 20개 항목</h2><p>수의사법 게시 항목 · 부가세 포함 · 데모 예시 금액. 할인 · 이벤트 가격은 운영하지 않습니다.</p></div><table class="fees" data-fees></table></div></div>
+</div></section>
+
+<section class="s sky" id="book"><div class="wrap">
+  <div class="sh"><span class="hand">예약 신청</span><h2>진료 카드를 붙여 예약</h2><p>필수는 보호자 이름 · 연락처뿐입니다. 데모라 실제로 접수되지 않습니다.</p></div>
+  <form class="cf" id="cf" novalidate>
+  <label class="f">보호자 이름<input type="text" name="gn" autocomplete="name" required></label>
+  <label class="f">연락처<input type="tel" name="tel" autocomplete="tel" inputmode="tel" placeholder="010-0000-0000" required></label>
+  <label class="f">방문 목적<select name="pur"><option>예방접종</option><option>건강검진</option><option>아파요</option><option>중성화 · 수술 상담</option><option>치아 · 입냄새</option></select></label>
+  <label class="f">희망 시간대<select name="when"><option>평일 오전</option><option>평일 오후</option><option>평일 저녁 (18 – 20시)</option><option>토요일</option></select></label>
+  <label class="f full">진료 카드 (선택)<textarea name="memo" id="memo" placeholder="위에서 진료 카드를 만들면 자동으로 들어옵니다."></textarea></label>
+  <label class="agree full"><input type="checkbox" name="a1"> <span>[필수] 예약 확인 연락을 위한 보호자 이름 · 연락처 수집 · 이용에 동의합니다. 진료 후 1개월 뒤 파기합니다.</span></label>
+  <label class="agree full"><input type="checkbox" name="a2"> <span>[선택] 진료 카드 내용을 진료 준비에만 쓰는 데 동의합니다.</span></label>
+  <button class="btn" type="submit">예약 신청 (데모)</button>
+  <p class="msg" id="msg" role="status"></p>
+</form>
+</div></section>
+
+<section class="s butter" id="visit"><div class="wrap">
+  <div class="sh"><span class="hand">진료 시간 · 오시는 길</span><h2>평일 저녁 8시까지</h2><p data-k="addr"></p></div>
+  <div class="visit"><div><table class="hours" data-hours></table><ul class="ways" data-ways></ul><p class="sm">진료 시간 외 응급: <span data-k="partner"></span></p></div><div class="map"><svg viewBox="0 0 600 340" role="img" aria-label="약도: 누리역 1번 출구에서 누리로를 따라 도보 5분, 강아지는 1층 정문 · 고양이는 옆문"><rect width="600" height="340" fill="var(--map-bg)"/><g stroke="var(--map-road)" stroke-width="22" fill="none"><path d="M0 240H600"/><path d="M150 0V340"/><path d="M450 0V340"/></g><path d="M150 240H430V150" stroke="var(--map-line)" stroke-width="3" fill="none" stroke-dasharray="7 6" stroke-linecap="round"/><circle cx="150" cy="240" r="15" fill="var(--map-line)"/><text x="150" y="245" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">1</text><text x="172" y="282" font-size="15" fill="var(--map-ink)">누리역 1번 출구</text><rect x="380" y="80" width="100" height="70" rx="6" fill="var(--map-ink)"/><text x="430" y="122" fill="#fff" font-size="15" text-anchor="middle" font-weight="700">마루곁</text><circle cx="384" cy="150" r="7" fill="var(--map-line)"/><circle cx="480" cy="115" r="7" fill="var(--map-alt)"/><text x="330" y="176" font-size="12" fill="var(--map-ink)">정문(강아지)</text><text x="488" y="100" font-size="12" fill="var(--map-ink)">옆문(고양이)</text><text x="240" y="228" font-size="12" fill="var(--map-ink)">누리로 · 도보 5분</text><text x="16" y="26" font-size="12" fill="var(--map-ink)">가상 약도 · 실제 위치 아님</text></svg></div></div>
+</div></section>
+</main>
+<footer><div class="wrap"><div><b data-k="name"></b> <span data-k="tag"></span><br><span data-k="addr"></span> · <span data-k="tel"></span> (예시)</div><div>가상 업체 데모입니다. 병원명 · 수의사 · 주소 · 전화 · 진료비는 모두 예시이며 실제 진료가 아닙니다. 진료 결과는 아이마다 다를 수 있습니다. 사진 자리는 AI 생성 예시 이미지로 채우며 실제 병원 · 동물 · 사람이 아닙니다. 진료비는 수의사법에 따른 게시 항목 형식만 보여 줍니다.</div></div></footer><script>
+/* 마루곁동물병원(가상) 공통 데이터 · 진료 카드 — 실존 동물병원의 상호 · 문구 · 사진을 쓰지 않는다.
+   rules/medical.md 동물병원 항목: 허위 · 과대광고 · 유인 금지, '전문의' 표현 없음, 진료비 게시(예시 금액),
+   중대진료 설명 · 서면 동의 · 예상 비용 고지, 증상 도구는 진단이 아닌 내원 판단 안내 */
+const DATA={
+  name:"마루곁동물병원",tag:"강아지 · 고양이 진료",
+  tel:"031-000-0000",telHref:"tel:0310000000",
+  addr:"경기도 새봄시 누리로 18, 1 · 2층 (가상 주소)",
+  partner:"협력 24시 동물병원(가상) · 차로 약 15분 · 031-000-0024",
+  hours:[["월 – 금","09:30 – 20:00"],["토요일","09:30 – 16:00"],["점심시간","13:00 – 14:00"],["일 · 공휴일","휴진 · 응급은 협력 24시 병원 안내"]],
+  ways:[["주차","건물 뒤 전용 주차 6대 (예시)"],["지하철","누리역(가상) 1번 출구 도보 5분"],["입구","강아지는 1층 정문, 고양이는 옆문 전용 계단으로 2층"]],
+  species:[["dog","강아지"],["cat","고양이"]],
+  ages:[["baby","1살 미만"],["adult","1 – 7살"],["senior","7살 이상"]],
+  vac:[["done","접종 다 했어요"],["part","하는 중이에요"],["unk","잘 모르겠어요"]],
+  purposes:[["vaccine","예방접종"],["checkup","건강검진"],["sick","아파요"],["surgery","중성화 · 수술 상담"],["dental","치아 · 입냄새"]],
+  symptoms:[["vomit","토하거나 설사해요","internal"],["eat","잘 안 먹어요","internal"],["cough","기침 · 콧물","internal"],["skin","긁거나 귀를 털어요","skin"],["limp","다리를 절어요","surgery"],["water","물을 많이 마셔요","senior"]],
+  emergency:["숨쉬기 힘들어하거나 혀 · 잇몸이 파래요","하루에 여러 번 토하거나 피를 토해요","소변을 하루 넘게 못 봐요 (특히 수컷 고양이)","경련 · 발작을 했어요","교통사고 · 높은 곳에서 떨어졌어요","장난감 · 끈 · 초콜릿 · 포도 · 백합 등을 삼켰어요","배가 부풀고 헛구역질만 해요"],
+  scopes:[
+    {id:"vaccine",n:"예방접종",img:"care-vaccine.webp",d:"아기 때 기초 접종부터 해마다 추가 접종까지 일정을 함께 짭니다.",how:"보통 생후 6 – 8주에 시작해 3 – 4주 간격으로 이어갑니다. 아이 상태를 먼저 진찰한 뒤 접종합니다.",warn:"접종 뒤 30분은 병원에 머물러 주세요. 붓기 · 기운 없음이 하루 넘게 가거나 얼굴이 부으면 바로 연락해 주세요.",fees:["개 종합백신","고양이 종합백신","광견병 백신"]},
+    {id:"checkup",n:"건강검진",img:"care-checkup.webp",d:"신체검사 · 혈액 · 영상 검사로 지금 상태를 기록해 둡니다.",how:"나이와 생활에 맞게 검사 항목을 고릅니다. 7살 이상은 검진 간격을 짧게 잡는 경우가 많습니다.",warn:"혈액검사가 있으면 8시간 금식(물은 괜찮아요). 검사 결과는 사진 · 수치로 설명드립니다.",fees:["전혈구 검사","혈액화학 검사","엑스선 촬영(1장)","복부 초음파"]},
+    {id:"internal",n:"내과",img:"care-internal.webp",d:"구토 · 설사, 기침, 식욕 · 음수량 변화를 살핍니다.",how:"언제부터, 얼마나 자주인지 묻고 필요한 검사만 고릅니다. 검사 전 예상 비용을 먼저 알려 드립니다.",warn:"하루 여러 번 토하거나 기운이 없으면 기다리지 말고 전화해 주세요.",fees:["초진 진찰료","전혈구 검사","엑스선 촬영(1장)"]},
+    {id:"surgery",n:"외과 · 중성화",img:"care-surgery.webp",d:"중성화 · 종양 제거 · 슬개골 같은 일반 수술을 합니다.",how:"수술 전 검사 → 진단명 · 필요성 · 후유증 · 예상 비용 설명 → 보호자 서면 동의 → 당일 수술 순서입니다.",warn:"전날 밤부터 금식. 마취에는 드물게 위험이 따르며, 상태에 따라 수술 범위가 바뀔 수 있습니다.",fees:["입원비(1일)","전혈구 검사","혈액화학 검사"]},
+    {id:"dental",n:"치과",img:"care-dental.webp",d:"치석 · 잇몸 · 입냄새를 진찰하고 스케일링을 합니다.",how:"스케일링은 전신마취로 진행해 마취 전 검사를 먼저 합니다. 발치가 필요할 수 있으면 미리 설명드립니다.",warn:"집에서 양치를 이어가야 치석이 다시 생기는 걸 늦출 수 있습니다.",fees:["전혈구 검사","혈액화학 검사"]},
+    {id:"cat",n:"고양이 진료",img:"care-cat.webp",d:"고양이 전용 대기실 · 진료실 · 입원실을 따로 씁니다.",how:"예약제로 대기 시간을 줄이고, 캐리어에서 스스로 나오도록 기다리며 진료합니다.",warn:"캐리어에 집에서 쓰던 담요를 깔아 오세요. 이동 중엔 캐리어를 수건으로 덮어 주세요.",fees:["고양이 종합백신","초진 진찰료"]},
+    {id:"senior",n:"노령동물",img:"care-senior.webp",d:"관절 · 신장 · 심장처럼 나이 들며 생기는 변화를 꾸준히 봅니다.",how:"검진 결과를 지난 기록과 비교해 변화를 봅니다. 집에서 쓸 수 있는 생활 관리법을 함께 정합니다.",warn:"물을 갑자기 많이 마시거나 체중이 빠지면 검진을 앞당겨 주세요.",fees:["혈액화학 검사","전해질 검사","복부 초음파"]},
+    {id:"skin",n:"피부 · 귀",img:"care-skin.webp",d:"가려움 · 탈모 · 귀 냄새 · 귀를 터는 행동을 봅니다.",how:"피부 · 귀 검사로 원인을 좁힌 뒤 약 · 관리법을 정합니다. 재진 때 변화를 같이 확인합니다.",warn:"약은 처방대로 끝까지 써 주세요. 임의로 끊으면 다시 심해질 수 있습니다.",fees:["초진 진찰료","재진 진찰료"]}
+  ],
+  facilities:[
+    {img:"fac-reception.webp",n:"강아지 대기 · 접수",d:"1층 정문. 체중계가 바닥에 있어 접수 때 바로 잽니다."},
+    {img:"fac-cat-wait.webp",n:"고양이 대기실",d:"옆문 전용 계단으로 올라오는 2층. 캐리어를 올려 두는 선반이 있습니다."},
+    {img:"fac-exam.webp",n:"진료실",d:"진료대 높이를 낮출 수 있어 큰 강아지도 편하게 오릅니다."},
+    {img:"fac-cat-exam.webp",n:"고양이 진료실",d:"2층 안쪽 조용한 방. 진료대에 수건을 깔고, 캐리어 윗부분을 열어 그 안에서 진찰하기도 합니다."},
+    {img:"fac-lab.webp",n:"검사실",d:"혈액 · 소변 검사를 원내에서 하고 결과를 바로 설명합니다."},
+    {img:"fac-imaging.webp",n:"영상실",d:"엑스선 촬영과 초음파를 하는 방. CT · MRI는 협력 병원에 의뢰합니다."},
+    {img:"fac-surgery.webp",n:"수술실",d:"수술 전용 방. 마취 중 호흡 · 심박을 기계와 수의사가 함께 지켜봅니다."},
+    {img:"fac-ward.webp",n:"강아지 입원실",d:"크기별 입원장. 보호자에게 하루 두 번 상태를 알려 드립니다."},
+    {img:"fac-cat-ward.webp",n:"고양이 입원실",d:"강아지 소리가 닿지 않는 2층 끝 방. 숨을 수 있는 상자를 둡니다."}
+  ],
+  vets:[
+    {img:"vet-1.webp",n:"한서진",r:"대표 원장 · 내과 · 노령동물",li:["수의학 석사 (가상 경력)","내과 · 건강검진 · 노령동물 진료"],q:"“검사는 꼭 필요한 것부터, 이유를 먼저 설명드립니다.”"},
+    {img:"vet-2.webp",n:"윤도담",r:"원장 · 외과 · 중성화 · 치과",li:["수술 · 마취 진료 (가상 경력)","중성화 · 일반 수술 · 스케일링"],q:"“수술 전날 밤, 궁금한 걸 다 여쭤봐 주세요.”"},
+    {img:"vet-3.webp",n:"이채아",r:"원장 · 고양이 진료",li:["고양이 진료 담당 (가상 경력)","고양이 내과 · 접종 · 행동 상담"],q:"“고양이가 스스로 나올 때까지 기다립니다.”"}
+  ],
+  fees:[["초진 진찰료","11,000"],["재진 진찰료","7,700"],["입원비(1일)","44,000"],["개 종합백신","33,000"],["고양이 종합백신","38,500"],["광견병 백신","22,000"],["켄넬코프 백신","27,500"],["인플루엔자 백신","33,000"],["개 코로나 백신","22,000"],["전혈구 검사","27,500"],["혈액화학 검사","55,000"],["전해질 검사","22,000"],["엑스선 촬영(1장)","33,000"],["복부 초음파","55,000"],["CT 촬영","협력 병원 의뢰"],["MRI 촬영","협력 병원 의뢰"],["심장사상충 예방(5kg 이하)","15,000"],["외부기생충 예방","22,000"],["광범위 구충","16,500"],["고양이 백혈병 백신","35,000"]],
+  surgeryDay:[["전날 밤","금식 시작 (물은 괜찮아요)"],["오전 9:30","입원 · 수술 전 검사"],["설명 · 동의","진단명 · 필요성 · 후유증 · 예상 비용 설명, 서면 동의"],["수술","마취 · 수술, 보호자에게 시작 · 끝 알림"],["회복","입원실에서 회복, 상태 사진 전송"],["퇴원","넥카라 · 약 · 실밥 일정 안내"]]
+};
+const IMG=f=>'../images/'+f;
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const PAW='<svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="21" rx="7" ry="6"/><circle cx="7.5" cy="13" r="3"/><circle cx="12.5" cy="8" r="3"/><circle cx="19.5" cy="8" r="3"/><circle cx="24.5" cy="13" r="3"/></svg>';
+function ph(f,alt,ratio,label){return `<figure class="ph ${ratio}"><img src="${IMG(f)}" alt="${alt} (AI 생성 예시 이미지)" loading="lazy" onerror="this.parentNode.classList.add('empty');this.remove()"><span class="ph-l">${PAW}<b>${label}</b><small>${f}</small></span><span class="ai">AI 생성 예시</span></figure>`;}
+const opt=(type,name,[v,l],checked)=>`<label class="pc-opt"><input type="${type}" name="${name}" value="${v}"${checked?' checked':''}><span>${l}</span></label>`;
+/* 진료 카드 */
+function petCard(){
+  const f=$('#pcForm');if(!f)return;
+  f.innerHTML=`<div class="pc-field"><span class="pc-label">누구인가요?</span><div class="pc-opts">${DATA.species.map((s,i)=>opt('radio','sp',s,i===0)).join('')}</div></div>
+  <div class="pc-row"><label class="pc-field pc-text"><span class="pc-label">이름</span><input name="pn" type="text" maxlength="10" placeholder="예: 보리"></label><label class="pc-field pc-text"><span class="pc-label">체중 (kg)</span><input name="wt" type="number" min="0" step="0.1" inputmode="decimal" placeholder="예: 4.2"></label></div>
+  <div class="pc-field"><span class="pc-label">나이</span><div class="pc-opts">${DATA.ages.map((s,i)=>opt('radio','age',s,i===1)).join('')}</div></div>
+  <div class="pc-field"><span class="pc-label">예방접종</span><div class="pc-opts">${DATA.vac.map((s,i)=>opt('radio','vac',s,i===0)).join('')}</div></div>
+  <div class="pc-field"><span class="pc-label">오늘 왜 오시나요?</span><div class="pc-opts">${DATA.purposes.map((s,i)=>opt('radio','pur',s,i===0)).join('')}</div></div>
+  <div class="pc-field pc-sym" hidden><span class="pc-label">어떤 모습인가요? <small>(여러 개 골라도 돼요)</small></span><div class="pc-opts">${DATA.symptoms.map(s=>opt('checkbox','sym',s)).join('')}</div></div>
+  <details class="pc-emg"><summary>혹시 이런 모습이 있나요? <small>응급 신호 확인</small></summary><div class="pc-opts col">${DATA.emergency.map((e,i)=>opt('checkbox','emg',['e'+i,e])).join('')}</div></details>`;
+  const update=()=>{
+    const v=n=>(f.querySelector(`input[name=${n}]:checked`)||{}).value,all=n=>$$(`#pcForm input[name=${n}]:checked`).map(x=>x.value);
+    const sp=v('sp'),age=v('age'),pur=v('pur'),sym=all('sym'),emg=all('emg'),pn=f.pn.value.trim()||(sp==='cat'?'우리 고양이':'우리 강아지'),wt=f.wt.value;
+    f.querySelector('.pc-sym').hidden=pur!=='sick';
+    const lab=(arr,k)=>(arr.find(x=>x[0]===k)||[])[1]||'';
+    const scopeIds=new Set();
+    if(pur==='sick')sym.forEach(s=>scopeIds.add(DATA.symptoms.find(x=>x[0]===s)[2]));
+    else if(pur==='surgery')scopeIds.add('surgery');else scopeIds.add(pur);
+    if(pur==='sick'&&!sym.length)scopeIds.add('internal');
+    if(age==='senior')scopeIds.add('senior');if(sp==='cat')scopeIds.add('cat');
+    const scopes=DATA.scopes.filter(s=>scopeIds.has(s.id));
+    let fees=[...new Set(scopes.flatMap(s=>s.fees))].filter(x=>!(sp==='cat'&&/^개 /.test(x))&&!(sp==='dog'&&/^고양이 /.test(x))&&(pur==='vaccine'||!/백신/.test(x)));
+    fees=fees.slice(0,5).map(n=>DATA.fees.find(x=>x[0]===n)).filter(Boolean);
+    $('#pcOut').classList.toggle('alert',emg.length>0);
+    $('#cvName').textContent=pn;$('#cvSp').textContent=lab(DATA.species,sp);$('#cvAge').textContent=lab(DATA.ages,age);$('#cvWt').textContent=wt?wt+' kg':'—';$('#cvVac').textContent=lab(DATA.vac,v('vac'));
+    $('#cvPur').textContent=lab(DATA.purposes,pur)+(pur==='sick'&&sym.length?' · '+sym.map(s=>lab(DATA.symptoms,s)).join(', '):'');
+    $('#cvIcon').innerHTML=sp==='cat'?CAT:DOG;
+    $('#pcEmg').hidden=!emg.length;
+    $('#pcRecs').innerHTML=emg.length?'':scopes.map(s=>`<li><a href="#scope-${s.id}"><b>${s.n}</b><span>${s.how}</span></a></li>`).join('');
+    $('#pcFees').innerHTML=emg.length?'':fees.map(x=>`<li><span>${x[0]}</span><b>${/^[0-9]/.test(x[1])?x[1]+'원':x[1]}</b></li>`).join('');
+    const memo=$('#memo');if(memo)memo.value=`[진료 카드]\n이름: ${pn} (${lab(DATA.species,sp)}) · 나이: ${lab(DATA.ages,age)} · 체중: ${wt?wt+'kg':'모름'}\n접종: ${lab(DATA.vac,v('vac'))}\n방문 목적: ${$('#cvPur').textContent}${emg.length?'\n응급 신호: '+emg.map(e=>DATA.emergency[+e.slice(1)]).join(' / '):''}`;
+    const fp=$('#cf [name=pur]');if(fp)fp.value=lab(DATA.purposes,pur);
+  };
+  f.addEventListener('input',update);f.addEventListener('change',update);update();
+}
+const DOG='<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 22c0-8 6-14 18-14s18 6 18 14v14c0 12-8 20-18 20s-18-8-18-20z" fill="currentColor" opacity=".15"/><path d="M14 20 6 34c-1 3 2 5 4 3l6-7M50 20l8 14c1 3-2 5-4 3l-6-7" fill="currentColor"/><circle cx="25" cy="30" r="2.6" fill="currentColor"/><circle cx="39" cy="30" r="2.6" fill="currentColor"/><ellipse cx="32" cy="39" rx="4.5" ry="3.2" fill="currentColor"/><path d="M32 42v4M27 47c3 2 7 2 10 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>';
+const CAT='<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 14l10 10h20l10-10v26c0 10-9 16-20 16S12 50 12 40z" fill="currentColor" opacity=".15"/><path d="M12 14l10 10M52 14 42 24M12 14v14M52 14v14" stroke="currentColor" stroke-width="3" fill="none" stroke-linejoin="round"/><circle cx="25" cy="34" r="2.6" fill="currentColor"/><circle cx="39" cy="34" r="2.6" fill="currentColor"/><path d="M30 40h4l-2 2.5z" fill="currentColor"/><path d="M32 43c-2 3-5 3-7 1M32 43c2 3 5 3 7 1M8 38h12M8 43h12M44 38h12M44 43h12" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>';
+/* 바로가기 · 상담 폼 · 공통 채우기 */
+function common(){
+  $$('[data-k]').forEach(e=>e.textContent=DATA[e.dataset.k]);
+  $$('[data-hours]').forEach(el=>el.innerHTML=DATA.hours.map(h=>`<tr><th>${h[0]}</th><td>${h[1]}</td></tr>`).join(''));
+  $$('[data-ways]').forEach(el=>el.innerHTML=DATA.ways.map(w=>`<li><b>${w[0]}</b><span>${w[1]}</span></li>`).join(''));
+  $$('[data-surgery]').forEach(el=>el.innerHTML=DATA.surgeryDay.map(s=>`<li><b>${s[0]}</b><span>${s[1]}</span></li>`).join(''));
+  $$('[data-fees]').forEach(el=>el.innerHTML=DATA.fees.map(x=>`<tr><td>${x[0]}</td><td>${/^[0-9]/.test(x[1])?x[1]+'원':x[1]}</td></tr>`).join(''));
+  $$('[data-paw]').forEach(el=>el.innerHTML=PAW);
+  document.body.insertAdjacentHTML('beforeend',`<nav class="quick" aria-label="바로가기"><button type="button" class="q-kakao" id="qKakao"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 4C7 4 3 7.1 3 11c0 2.5 1.7 4.7 4.2 5.9l-.9 3.3c-.1.3.3.5.5.3l3.9-2.6c.4 0 .9.1 1.3.1 5 0 9-3.1 9-7S17 4 12 4z"/></svg>카톡 상담</button><a class="q-tel" href="${DATA.telHref}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>전화하기</a><a class="q-map" href="#visit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>오시는 길</a></nav><div class="toast" id="toast" role="status"></div>`);
+  let tt;$('#qKakao').onclick=()=>{const t=$('#toast');t.textContent='데모 화면입니다. 실제 운영 시 카카오톡 채널 상담 창이 열립니다.';t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),3200);};
+  const f=$('#cf');if(f)f.addEventListener('submit',e=>{e.preventDefault();
+    if(!f.gn.value.trim()||!f.tel.value.trim()){$('#msg').textContent='보호자 이름과 연락처를 적어 주세요.';(f.gn.value.trim()?f.tel:f.gn).focus();return;}
+    if(!f.a1.checked){$('#msg').textContent='[필수] 개인정보 수집 · 이용 동의가 필요합니다.';f.a1.focus();return;}
+    $('#msg').textContent=`데모 화면이라 실제로 접수되지 않았습니다. 실제 운영 시 ${f.when.value}에 확인 전화를 드립니다.${f.memo.value.trim()&&!f.a2.checked?' (선택 동의가 없어 진료 카드 내용은 제외됩니다)':''}`;});
+  const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.1}):null;
+  $$('.reveal').forEach(e=>io?io.observe(e):e.classList.add('in'));
+}
+
+
+const LIFE={
+ baby:{h:"1살 미만 · 처음 만나는 병원",t:"아기 때는 접종과 첫 검진",p:"기초 접종 일정과 기생충 예방, 중성화 시기를 처음 오신 날 함께 정합니다.",img:"life-baby.webp",plan:[["예방접종","생후 6 – 8주부터 3 – 4주 간격","vaccine"],["첫 건강검진","몸무게 · 심장 소리 · 귀 · 이빨 확인","checkup"],["기생충 예방","심장사상충 · 외부기생충 · 구충 일정","internal"],["중성화 상담","시기와 수술 과정 · 비용 미리 듣기","surgery"]]},
+ adult:{h:"1 – 7살 · 건강을 지키는 시기",t:"어른이 되면 해마다 한 번",p:"해마다 추가 접종과 건강검진, 치석 · 피부 · 귀처럼 자주 생기는 불편을 챙깁니다.",img:"life-adult.webp",plan:[["추가 접종","해마다 같은 달에","vaccine"],["연 1회 건강검진","혈액 · 영상 검사로 기록 남기기","checkup"],["치과","치석 · 입냄새 · 스케일링","dental"],["피부 · 귀","가려움 · 귀 냄새","skin"]]},
+ senior:{h:"7살 이상 · 천천히 오래",t:"노령기에는 변화를 일찍",p:"관절 · 신장 · 심장의 변화를 지난 기록과 비교하며 봅니다. 검진 간격을 짧게 잡는 경우가 많습니다.",img:"life-senior.webp",plan:[["정기 검진","지난 결과와 비교","senior"],["관절 · 걸음","다리 절기 · 계단 피하기","surgery"],["물 · 소변 변화","많이 마시거나 체중이 빠질 때","internal"],["마취 전 검사","스케일링 · 수술 전 꼭 확인","dental"]]}
+};
+function stage(k){const L=LIFE[k];$$('.stage').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.st===k)));$('#lifeHand').textContent=L.h;$('#lifeH').textContent=L.t;$('#lifeP').textContent=L.p;$('#lifePh').innerHTML=ph(L.img,L.t,'r43',L.t+' 사진 자리');$('#lifePlan').innerHTML=L.plan.map(p=>`<li><b>${p[0]}</b><span>${p[1]}</span> · <a href="#scope-${p[2]}"><em>자세히 →</em></a></li>`).join('');
+ const age=$(`#pcForm input[name=age][value=${k}]`);if(age){age.checked=true;age.dispatchEvent(new Event('change',{bubbles:true}));}}
+$$('.stage').forEach(b=>b.onclick=()=>{stage(b.dataset.st);document.getElementById('life').scrollIntoView({behavior:'smooth'});});
+$$('[data-photo]').forEach(el=>{const[f,alt,r,l]=el.dataset.photo.split('|');el.innerHTML=ph(f,alt,r,l);});
+$('#trailG').innerHTML=Array.from({length:22},(_,i)=>`<g transform="translate(${30+i*64},${i%2?14:34}) rotate(${80})" >${PAW.replace(/<\/?svg[^>]*>/g,'')}</g>`).join('');
+$('#slist').innerHTML=DATA.scopes.map(s=>`<article class="sitem reveal" id="scope-${s.id}">${ph(s.img,s.n+' 진료 장면','r43',s.n+' 사진')}<div><h3>${s.n}</h3><p>${s.d}</p><p>${s.how}</p><p class="w">${s.warn}</p></div></article>`).join('');
+$('#facg').innerHTML=DATA.facilities.map(f=>`<figure class="reveal">${ph(f.img,f.n,'r43',f.n)}<figcaption><b><span class="tag">${/cat/.test(f.img)?'2층':'1층'}</span>${f.n}</b>${f.d}</figcaption></figure>`).join('');
+$('#vetList').innerHTML=DATA.vets.map(v=>`<article class="vet reveal">${ph(v.img,v.n+' 수의사','r45','수의사 사진')}<div class="t"><h3>${v.n}</h3><p class="r">${v.r}</p><ul>${v.li.map(l=>`<li>${l}</li>`).join('')}</ul><q>${v.q.replace(/[“”]/g,'')}</q></div></article>`).join('');
+setTimeout(()=>stage('baby'),0);
+
+common();petCard();
+</script>
+</body>
+</html>
