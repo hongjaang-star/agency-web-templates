@@ -480,6 +480,51 @@
         "불편함 서랍 12칸 → 짧은 질문 → 문진 쪽지에 담아 상담 신청.",
         "진료 방법 타일, 조제실 약봉투 띠, 한의사·공간 사진 칸, 모바일 하단 4버튼."
       ]
+    },
+    {
+      "id": "vet-petcard",
+      "name": "마루곁동물병원 · Petcard",
+      "category": "medical",
+      "categoryLabel": "의료 · 피부과 · 치과",
+      "kind": "concept",
+      "kindLabel": "디자인 시안",
+      "path": "concepts/medical-veterinary/petcard/",
+      "thumbnail": "vet-petcard.jpg",
+      "summary": [
+        "피치 · 코럴 · 네이비, 첫 화면에서 진료 카드를 만드는 분할형 동물병원 시안.",
+        "강아지 · 고양이 진료 카드 → 진료 · 진료비 안내, 응급 신호면 전화 안내 → 예약 자동 첨부.",
+        "진료 범위 사진 8 · 시설 사진 띠 9 · 수의사 3, 진료비 게시 20항목, 바로가기 3버튼."
+      ]
+    },
+    {
+      "id": "vet-checkup",
+      "name": "마루곁동물병원 · Checkup",
+      "category": "medical",
+      "categoryLabel": "의료 · 피부과 · 치과",
+      "kind": "concept",
+      "kindLabel": "디자인 시안",
+      "path": "concepts/medical-veterinary/checkup/",
+      "thumbnail": "vet-checkup.jpg",
+      "summary": [
+        "세이지 · 크림 · 테라코타, 대기실 사진과 응급 신호 패널로 시작하는 동물병원 시안.",
+        "'오늘 와야 할까요?' 신호 → 진료 카드 → 예약, 진료비 항목 찾기.",
+        "진료 범위 사진 타일, 1층 · 2층 층별 시설, 수술하는 날 타임라인."
+      ]
+    },
+    {
+      "id": "vet-lifestage",
+      "name": "마루곁동물병원 · Lifestage",
+      "category": "medical",
+      "categoryLabel": "의료 · 피부과 · 치과",
+      "kind": "concept",
+      "kindLabel": "디자인 시안",
+      "path": "concepts/medical-veterinary/lifestage/",
+      "thumbnail": "vet-lifestage.jpg",
+      "summary": [
+        "하늘 · 버터 · 먹, 굵은 테두리와 손글씨의 그림책 톤 동물병원 시안.",
+        "아기 · 어른 · 노령 탭 → 나이별 진료와 진료 카드 나이 연동 → 예약.",
+        "진료 범위 사진 목록, 시설 9 · 층 표시, 진료비 게시 20항목."
+      ]
     }
   ]
 }
